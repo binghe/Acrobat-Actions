@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AcrobatUI xmlns="http://ns.adobe.com/acrobat/ui/2012" title="Acrobat XI" majorVersion="1" minorVersion="0">
+	<Component name="BasicToolsPane">
+		<Component label="内容编辑">
+			<Component name="TouchUpEditPDFTool"/>
+			<Component name="TouchUpAddTextbox"/>
+			<Component name="TouchUpAddImage"/>
+			<Component name="ExportFileTo"/>
+			<Component name="NewBookmark"/>
+			<Component name="AddFileAttachment"/>
+			<Component name="DocDescription"/>
+			<Component name="DocInitialView"/>
+		</Component>
+		<Component label="页面">
+			<Component name="PageThumbnails"/>
+			<Component name="ReplacePages"/>
+			<Component name="Crop"/>
+			<Component name="NewDocCombineFiles"/>
+			<Component name="HeaderFooter"/>
+			<Component name="DocBackground"/>
+			<Component name="Watermark"/>
+			<Component name="BatesNumbering"/>
+		</Component>
+		<Component label="交互对象">
+			<Component name="Button"/>
+			<Component name="RichMediaVideo"/>
+			<Component name="RichMediaSound"/>
+			<Component name="RichMediaFlash"/>
+			<Component name="3D"/>
+			<Component name="Authoring"/>
+		</Component>
+		<Component label="表单">
+			<Component name="AcroForm:Forms_CreateNewForm"/>
+			<Component name="AcroForm:Forms_EditFormInAcrobat"/>
+			<Component name="AcroForm:Forms_DistributeForm"/>
+			<Component name="AcroForm:Forms_TrackReturnedForms"/>
+			<Component name="MoreFormOptions"/>
+			<Component name="Tx"/>
+			<Component name="CheckBox"/>
+			<Component name="RadioButton"/>
+			<Component name="ListBox"/>
+			<Component name="ComboBox"/>
+			<Component name="Button"/>
+			<Component name="Sig"/>
+			<Component name="Barcode"/>
+		</Component>
+		<Component label="动作向导">
+			<Component name="CreateWorkflow"/>
+			<Component name="ManageWorkflows"/>
+			<Component name="FindMoreWorkflows"/>
+			<Component name="CreateNewCustomTool"/>
+			<Component name="ManageCustomTools"/>
+			<Component name="42B1F38372DED58BAA2F9FEE16283CA"/>
+			<Component name="8925E51F83A1BB812CD766AF1AE5060"/>
+			<Component name="B4BEE76136019092EE22F8A2793A236"/>
+			<Component name="01C1B8C484DF05CFFC8F77D18B8DFD4"/>
+			<Component name="084B0E736DFFDB9446178A1752AF8AA"/>
+			<Component name="48B5EC6E2EFC35DA4AEB405DC96760E"/>
+			<Component name="BF4CF7D6413F83EE83E93CC7D065EA2"/>
+			<Component name="B8BF1B4335F0A91176AA13F607AA94D"/>
+			<Component name="7711108067C8CA592F0F6F66D00785B"/>
+			<Component name="6DAA271765B9D1FA935F9A4ED2D2564"/>
+			<Component name="C22168A35CE8A090E2B0017C6E7E38E"/>
+			<Component name="81C22DD0D0B49990A067B6D0C1A630C"/>
+			<Component name="7B6486ABC86F5DB20E5379BC2FC8F46"/>
+			<Component name="B4BEE76136019092EE22F8A2793A236"/>
+			<Component name="BA6A45779F1146ACABEE4AFF3C55FC6"/>
+			<Component name="42B1F38372DED58BAA2F9FEE16283CA"/>
+			<Component name="8925E51F83A1BB812CD766AF1AE5060"/>
+		</Component>
+		<Component label="文本识别">
+			<Component name="Cpt:CapturePages"/>
+			<Component name="Cpt:CaptureMultipleFiles"/>
+			<Component name="TouchUp:ShowCaptureSuspects"/>
+		</Component>
+		<Component label="保护">
+			<Component name="RestrictWithPassword"/>
+			<Component name="SecurityPolicyFavorites"/>
+			<Component name="MoreProtection"/>
+			<Component name="Annots:Tool:RedactMenuItem"/>
+			<Component name="Annots:Tool:MarkPageRangeMenuItem"/>
+			<Component name="Annots:Tool:ApplyRedactionsMenuItem"/>
+			<Component name="Annots:Tool:RedactToolPropsMenuItem"/>
+			<Component name="Annots:Tool:SearchRedactMenuItem"/>
+			<Component name="RemoveHiddenInfo"/>
+			<Component name="DIGSIG:SanitizeDocument"/>
+		</Component>
+		<Component label="文档处理">
+			<Component name="Scan:OPT"/>
+			<Component name="DIGSIG:CompareDocuments"/>
+			<Component name="Web2PDF:SpdrSubMnuItm"/>
+			<Component name="Weblink:CreateURLs"/>
+			<Component name="Weblink:RemoveURLs"/>
+			<Component name="ImageConversion:Export"/>
+			<Component name="NumberPages"/>
+			<Component name="AcroForm:Forms_PageTemplate"/>
+			<Component name="SetTransitions"/>
+			<Component name="ADBE:Catalog"/>
+			<Component name="ADBE:EmbedIndex"/>
+		</Component>
+		<Component label="印刷制作">
+			<Component name="CALS:Preflight"/>
+			<Component name="BigPreview"/>
+			<Component name="TouchUpObjectTool"/>
+			<Component name="FlattenerMenuItem"/>
+			<Component name="ColorConversionMenuItem"/>
+			<Component name="CropPages"/>
+			<Component name="AddMarksMenuItem"/>
+			<Component name="HairlinesMenuItem"/>
+			<Component name="InkManagerMenuItem"/>
+			<Component name="TrapPresetsMenuItem"/>
+			<Component name="Distiller"/>
+		</Component>
+		<Component label="JavaScript">
+			<Component name="jsDebugger"/>
+			<Component name="jsDebugFromStart"/>
+			<Component name="jsEditAllJavaScripts"/>
+			<Component name="jsDocJavaScripts"/>
+			<Component name="jsSetDocActions"/>
+		</Component>
+		<Component label="辅助工具">
+			<Component name="Accessibility:ReadingOptions"/>
+			<Component name="AccCheck:DoCheck"/>
+			<Component name="AccCheck:OpenAccReport"/>
+			<Component name="Adobe:MakeAccessible"/>
+			<Component name="SetAlternateText"/>
+			<Component name="Adobe:FindsFormFields"/>
+			<Component name="Adobe:AddFormFieldsToTags"/>
+			<Component name="TouchUpLayoutTool"/>
+			<Component name="Accessibility:Wizard"/>
+		</Component>
+		<Component label="分析">
+			<Component name="UserProperties"/>
+			<Component name="Measure"/>
+			<Component name="GeoLocation"/>
+		</Component>
+		<Component label="签名和验证">
+			<Component name="DIGSIG:SignWithBoxDragOrClick"/>
+			<Component name="DIGSIG:TimestampDocument"/>
+			<Component name="DIGSIG:ValidateAll"/>
+			<Component name="DIGSIG:SaveAndAuthenticateTask"/>
+			<Component name="DIGSIG:CertifyInvisible"/>
+			<Component name="DIGSIG:ClearAll"/>
+			<Component name="DIGSIG:RollbackPullRight"/>
+			<Component name="DIGSIG:DifferencePullRight"/>
+		</Component>
+		<Component label="创建">
+			<Component name="CreatePDF"/>
+			<Component name="CreatePDFFromScreen"/>
+			<Component name="CreatePDFFromWindow"/>
+			<Component name="CreatePDFFromSelection"/>
+			<Component name="CreatePDFFromScanner"/>
+			<Component name="CreatePDFFromWeb"/>
+			<Component name="CreatePDFFromClipboard"/>
+			<Component name="CombineFilesIntoPDF"/>
+			<Component name="CreatePDFForm"/>
+			<Component name="CreatePDFPortfolio"/>
+		</Component>
+		<Component label="保存和导出">
+			<Component name="Save"/>
+			<Component name="SaveAs"/>
+			<Component name="ReduceFileSize"/>
+			<Component name="DIGSIG:SaveAndAuthenticate"/>
+			<Component name="SaveAsExtendedSubmenu"/>
+			<Component name="PDFOptimizer"/>
+			<Component name="EXFT_MSWord"/>
+			<Component name="EXFT_MSExcel"/>
+			<Component name="EXFT_MSPowerPoint"/>
+			<Component name="EXFT_RTF"/>
+			<Component name="ExportFileTo"/>
+			<Component name="ImageConversion:Export"/>
+		</Component>
+		<Component label="批注">
+			<Component name="Text"/>
+			<Component name="Highlight"/>
+			<Component name="FreeTextTypewriter"/>
+			<Component name="Stamp"/>
+			<Component name="FileAttachment"/>
+			<Component name="Sound"/>
+			<Component name="Caret"/>
+			<Component name="Replace"/>
+			<Component name="StrikeOut"/>
+			<Component name="Underline"/>
+		</Component>
+		<Component label="图画标记">
+			<Component name="FreeText"/>
+			<Component name="FreeTextCallout"/>
+			<Component name="Line"/>
+			<Component name="LineArrow"/>
+			<Component name="Circle"/>
+			<Component name="Square"/>
+			<Component name="PolygonCloud"/>
+			<Component name="Polygon"/>
+			<Component name="PolyLine"/>
+			<Component name="Ink"/>
+			<Component name="EraseInk"/>
+		</Component>
+		<Component label="审阅">
+			<Component name="SharedReview"/>
+			<Component name="EmailReview"/>
+			<Component name="TrackReview"/>
+		</Component>
+	</Component>
+	<Component name="Favorites">
+		<Component name="Text"/>
+		<Component name="TouchUpEditPDFTool"/>
+		<Component name="TouchUpAddTextbox"/>
+		<Component name="TouchUpAddImage"/>
+		<Component name="ExportFileTo"/>
+		<Component name="DocDescription"/>
+		<Component name="NewBookmark"/>
+		<Component name="Separator"/>
+		<Component name="Crop"/>
+		<Component name="BatesNumbering"/>
+		<Component name="AcroForm:Forms_DistributeForm"/>
+		<Component name="MoreFormOptions"/>
+		<Component name="EXFT_MSPowerPoint"/>
+		<Component name="8925E51F83A1BB812CD766AF1AE5060"/>
+		<Component name="81C22DD0D0B49990A067B6D0C1A630C"/>
+		<Component name="CALS:Preflight"/>
+		<Component name="FlattenerMenuItem"/>
+	</Component>
+</AcrobatUI>
