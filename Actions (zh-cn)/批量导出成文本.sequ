@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="批量导出成文本" description="" majorVersion="1" minorVersion="0">
+	<Sources defaultCommand="WorkflowPlaybackSelectFolder"/>
+	<Group label="批量保存">
+		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="AddToBaseName" type="boolean" value="false"/>
+				<Item name="DocSaveDestType" type="string" value="WorkflowPlaybackSave"/>
+				<Item name="DontOverwrite" type="boolean" value="true"/>
+				<Item name="EmbedIndex" type="boolean" value="false"/>
+				<Item name="FileVariation" type="integer" value="0"/>
+				<Item name="HandleOutput" type="boolean" value="true"/>
+				<Item name="HandlerUniqueID" type="string" value="com.adobe.acrobat.plain-text"/>
+				<Item name="InsertAfterBaseName" type="text" value=""/>
+				<Item name="InsertBeforeBaseName" type="text" value=""/>
+				<Item name="NumbericNaming" type="boolean" value="false"/>
+				<Item name="OptimizePDF" type="boolean" value="true"/>
+				<Item name="PresetName" type="text" value="标准"/>
+				<Item name="RunPDFOptimizer" type="boolean" value="false"/>
+			</Items>
+		</Command>
+	</Group>
+</Workflow>

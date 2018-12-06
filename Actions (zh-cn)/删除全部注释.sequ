@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="删除全部注释" description="This Action deletes all existing comments on a PDF and then saves a copy of the original file." majorVersion="1" minorVersion="0">
+	<Sources defaultCommand="WorkflowPlaybackSelectFile"/>
+	<Group label="Delete All Comments">
+		<Command name="DeleteAll" pauseBefore="false" promptUser="true"/>
+	</Group>
+</Workflow>

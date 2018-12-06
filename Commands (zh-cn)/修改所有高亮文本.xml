@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="修改所有高亮文本" tooltip="修改所有高亮文本到默认颜色和透明度" ID="8E663E70DBBF74EFDD918DC751ADA7A">
+		<Items>
+			<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = 0.8; // [ &quot;CMYK&quot;, 0,0,1,0 ]&#xD;      annots[i].strokeColor = color.yellow;&#xD;    }&#xD;  }&#xD;}"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>

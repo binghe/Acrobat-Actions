@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="单页滚动适合页宽" tooltip="当前视图改为：单页滚动适合页宽度）" ID="90A5B134452EBC200DD2CE3FFDC45A0">
+		<Items>
+			<Item name="ScriptCode" type="text" value="this.layout = &quot;OneColumn&quot;;&#xD;this.zoomType = zoomtype.fitW;&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>

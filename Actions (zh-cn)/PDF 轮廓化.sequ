@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="PDF 轮廓化" description="全部字体和描边轮廓化，需要一个配套的印前检查配置才能使用。" majorVersion="1" minorVersion="0">
+	<Group label="PDF 轮廓化">
+		<Command name="DeleteAll" pauseBefore="false" promptUser="true"/>
+		<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false">
+			<Items>
+				<Items name="WaterBackCmd">
+					<Item name="ANNOT" type="boolean" value="false"/>
+					<Item name="BACKGROUND" type="boolean" value="true"/>
+					<Item name="COLOR1" type="double" value="0.000000"/>
+					<Item name="COLOR2" type="double" value="0.000000"/>
+					<Item name="COLOR3" type="double" value="0.000000"/>
+					<Item name="COLOR4" type="double" value="1.000000"/>
+					<Item name="COLORSPACE" type="atom" value="DeviceRGB"/>
+					<Item name="END" type="integer" value="-1"/>
+					<Item name="EVEN" type="boolean" value="true"/>
+					<Item name="FIXED_PRINT" type="boolean" value="false"/>
+					<Item name="FONT_CHARSET" type="atom" value=""/>
+					<Item name="FONT_ENCODING" type="atom" value="MacRomanEncoding"/>
+					<Item name="FONT_NAME" type="atom" value="ACaslonPro-Regular"/>
+					<Item name="FONT_SIZE" type="double" value="8.000000"/>
+					<Item name="FONT_TYPE" type="atom" value="Type1"/>
+					<Item name="FROM_FILE" type="boolean" value="false"/>
+					<Item name="HORIZ_ALIGN" type="integer" value="0"/>
+					<Item name="HORIZ_VALUE" type="double" value="0.000000"/>
+					<Item name="ODD" type="boolean" value="true"/>
+					<Item name="ON_PRINT" type="boolean" value="true"/>
+					<Item name="ON_SCREEN" type="boolean" value="true"/>
+					<Item name="OPACITY" type="double" value="0.000000"/>
+					<Item name="REPLACE" type="boolean" value="false"/>
+					<Item name="ROTATION" type="integer" value="0"/>
+					<Item name="SCALE" type="double" value="1.000000"/>
+					<Item name="SRCPAGE" type="integer" value="-1"/>
+					<Item name="SRCTEXT" type="text" value="."/>
+					<Item name="START" type="integer" value="-1"/>
+					<Item name="TEXT_ALIGN" type="integer" value="0"/>
+					<Item name="UNITS" type="integer" value="0"/>
+					<Item name="Underline" type="boolean" value="false"/>
+					<Item name="VERT_ALIGN" type="integer" value="2"/>
+					<Item name="VERT_VALUE" type="double" value="0.000000"/>
+					<Item name="WATERMARK" type="boolean" value="true"/>
+				</Items>
+			</Items>
+		</Command>
+		<Command name="CALS:Preflight" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_ACT_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_EMB_AT" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_FOLDER" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_REP_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_OMIT_FIXUPS" type="boolean" value="false"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_DICTKEY" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_FINGERPRINT" type="text" value="P21fad9f232a3ff0475a56937806d7f3c"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_NAME" type="text" value="拼合透明度（全部轮廓化）"/>
+				<Item name="CALS_PREFLIGHT_CMD_REP_DISPLAY" type="boolean" value="false"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_ACT_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_EMB_AT" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_FOLDER" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_REP_TYPE" type="integer" value="0"/>
+			</Items>
+		</Command>
+	</Group>
+	<Group label="后期处理">
+		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="DocSaveDestType" type="string" value="WorkflowPlaybackSaveAs"/>
+			</Items>
+		</Command>
+	</Group>
+</Workflow>

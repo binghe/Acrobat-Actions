@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="删除 PDF/X 信息" description="删除 PDF/X 信息" majorVersion="1" minorVersion="0">
+	<Group label="删除 PDF/X 信息">
+		<Command name="CALS:Preflight" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_ACT_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_EMB_AT" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_FOLDER" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_REP_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_OMIT_FIXUPS" type="boolean" value="false"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_DICTKEY" type="text" value="P_6_RemovePDFXinformation"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_FINGERPRINT" type="text" value="Pefaa9fa5d45aa84cba0a629b8c66cd2f"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_NAME" type="text" value="删除 PDF/X 信息"/>
+				<Item name="CALS_PREFLIGHT_CMD_REP_DISPLAY" type="boolean" value="false"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_ACT_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_EMB_AT" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_FOLDER" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_REP_TYPE" type="integer" value="0"/>
+			</Items>
+		</Command>
+		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false"/>
+	</Group>
+</Workflow>
