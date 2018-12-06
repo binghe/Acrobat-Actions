@@ -8,7 +8,13 @@ All files were exported from Acrobat® Pro DC 2015 (Mac, Simplified Chinese), th
 
 The (Custom) Commands are new features since DC 2015, as single-step Actions. They're not supported in XI and prior versions.
 
-Some Actions and Commands require special Preflight profile (in this repository), which must be also imported.
+## Usage
+
+The main entry is Action Wizards (动作向导) in Acrobat Pro, where you can import Actions and Custom Commands.
+
+To import a toolset into Acrobat DC, simply open that file (`*.aaui`).
+
+NOTE: Some Actions and Commands require special Preflight profile (in this repository), which must be also imported.
 
 ## Forthcoming
 
