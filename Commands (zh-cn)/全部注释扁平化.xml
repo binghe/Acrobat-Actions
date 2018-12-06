@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="全部注释扁平化" tooltip="全部注释（和表单内容）扁平化" ID="0A5F2BBA43ED42B3522CB53783DA9E7">
+		<Items>
+			<Item name="ScriptCode" type="text" value="this.flattenPages();"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>

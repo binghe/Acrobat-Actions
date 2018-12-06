@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="PDF 轮廓化" description="全部字体和描边轮廓化，需要一个配套的印前检查配置才能使用。" majorVersion="1" minorVersion="0">
+	<Group label="前期处理">
+		<Instruction label="全部注释扁平化" pauseBefore="false"/>
+		<Command name="JavaScript" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;// make all highlights with some opacity&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = 0.5;&#xD;    }&#xD;  }&#xD;}&#xD;&#xD;// flatten all annotations&#xD;this.flattenPages();"/>
+				<Item name="ScriptName" type="text" value=""/>
+			</Items>
+		</Command>
+	</Group>
 	<Group label="PDF 轮廓化">
-		<Command name="DeleteAll" pauseBefore="false" promptUser="true"/>
 		<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false">
 			<Items>
 				<Items name="WaterBackCmd">

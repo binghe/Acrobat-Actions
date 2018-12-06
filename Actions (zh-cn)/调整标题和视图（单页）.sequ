@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="调整标题和视图（单页）" description="PDF 文档窗口显示文档标题；单页适合窗口" majorVersion="1" minorVersion="0">
+	<Group label="修改文档属性">
+		<Command name="GeneralInfo" pauseBefore="false" promptUser="true"/>
+		<Command name="OpenInfo" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="CenterWindow" type="boolean" value="false"/>
+				<Item name="DisplayDocTitle" type="boolean" value="true"/>
+				<Item name="FitWindow" type="boolean" value="false"/>
+				<Item name="FullScreen" type="boolean" value="false"/>
+				<Item name="HideMenubar" type="boolean" value="false"/>
+				<Item name="HideToolbar" type="boolean" value="false"/>
+				<Item name="HideWindowUI" type="boolean" value="false"/>
+				<Items name="LeaveAsIs">
+					<Item name="CenterWindow" type="boolean" value="true"/>
+					<Item name="FitWindow" type="boolean" value="true"/>
+					<Item name="FullScreen" type="boolean" value="true"/>
+					<Item name="HideMenubar" type="boolean" value="true"/>
+					<Item name="HideToolbar" type="boolean" value="true"/>
+					<Item name="HideWindowUI" type="boolean" value="true"/>
+					<Item name="PageMode" type="boolean" value="false"/>
+				</Items>
+				<Item name="Magnification" type="text" value="适合页面"/>
+				<Item name="PageLayout" type="integer" value="1"/>
+				<Item name="PageMode" type="integer" value="1"/>
+				<Item name="PageNum" type="text" value="1"/>
+				<Item name="ResetDest" type="boolean" value="true"/>
+			</Items>
+		</Command>
+		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false"/>
+	</Group>
+	<Group label="调整当前视图">
+		<Command name="JavaScript" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="ScriptCode" type="text" value="this.layout = &quot;SinglePage&quot;;&#xD;this.zoomType = zoomtype.fitP;&#xD;"/>
+				<Item name="ScriptName" type="text" value=""/>
+			</Items>
+		</Command>
+	</Group>
+</Workflow>
