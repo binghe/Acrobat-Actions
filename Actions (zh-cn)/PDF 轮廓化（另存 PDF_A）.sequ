@@ -4,7 +4,7 @@
 		<Instruction label="全部注释扁平化" pauseBefore="false"/>
 		<Command name="JavaScript" pauseBefore="false" promptUser="false">
 			<Items>
-				<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;// make all highlights with some opacity&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = 0.5;&#xD;    }&#xD;  }&#xD;}&#xD;&#xD;// flatten all annotations&#xD;this.flattenPages();"/>
+				<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;if (annots != null) {&#xD;  // make all highlights with some opacity&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = 0.5;&#xD;    }&#xD;  }&#xD;&#xD;  // flatten all annotations&#xD;  this.flattenPages();&#xD;}&#xD;"/>
 				<Item name="ScriptName" type="text" value=""/>
 			</Items>
 		</Command>
