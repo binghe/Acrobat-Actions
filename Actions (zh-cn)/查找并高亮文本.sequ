@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="查找并高亮文本" description="This guided Action searchs for words or phrases in your PDF file (using the redaction command) and then highlights the words using the highlight annotation. No actual redaction takes places during this process." majorVersion="1" minorVersion="0">
+	<Group label="Notice">
+		<Instruction label="The words that are highlighted will not be redacted. The find for redaction command is only used to find words for highlighting. &#xD;&#xA;&#xD;&#xA;Revised 06/25/2013" pauseBefore="false"/>
+	</Group>
+	<Group label="Step 1: Search for words">
+		<Command name="SearchAndRedactCmd" pauseBefore="false" promptUser="true"/>
+	</Group>
+	<Group label="Step 2: Convert highlight annotation">
+		<Command name="JavaScript" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="ScriptCode" type="text" value="/////////////////////////////////////////////////////////////////////////&#xD;//&#xD;//   Find and Mark Batch Processing (Actions) script&#xD;//   by Thom Parker, WindJack Solutions, Inc.  October 2010&#xD;//      www.windjack.com, www.pdfscripting.com&#xD;//   For Adobe Systems Inc., www.adobe.com&#xD;//&#xD;//         NOTE: This JavaScript code is intended soley for use in an &#xD;//               Action (Batch Sequence)script.  It will not operate &#xD;//               within a document/form field script or as a folder level script.&#xD;//               Further, this script require that the document be first marked up &#xD;//               with redaction annotations.&#xD;//   &#xD;//   This script is the second step in a two step process for marking words in a&#xD;//   PDF with the highlight annotation.  &#xD;//&#xD;//   Step #1: Use the Search for words to Redact tool to mark words in the&#xD;//            PDF with the Redact Annotation&#xD;//   Step #2: Use the following script to convert all Redact Annots into &#xD;//            Highlight Annotataions.&#xD;//&#xD;/////&#xD;//&#xD;//   Version 1.1 - 11/5/2010&#xD;//&#xD;&#xD;// Highlight Color&#xD;var colHilite = color.yellow;&#xD;var oDoc = event.target;&#xD;&#xD;var aAnnts = oDoc.getAnnots({sortBy:&quot;Author&quot;});&#xD;for(var i = 0; i &lt; aAnnts.length; i++)&#xD;{&#xD;   if(aAnnts[i].type == &quot;Redact&quot;)&#xD;   {&#xD;      aAnnts[i].type = &quot;Highlight&quot;;&#xD;      aAnnts[i].subject = &quot;高亮文本&quot;;&#xD;      aAnnts[i].strokeColor = colHilite;&#xD;   }&#xD;}"/>
+				<Item name="ScriptName" type="text" value=""/>
+			</Items>
+		</Command>
+	</Group>
+</Workflow>
