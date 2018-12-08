@@ -1,4 +1,4 @@
-# Acrobat® Actions and Scripts of Chun Tian (binghe)
+# Acrobat® Actions and Scripts by Chun Tian
 
 Actions and Custom Commands for Adobe® Acrobat® Pro DC
 
