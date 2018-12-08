@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="压缩 PDF 图片（另存 PDF/A）" description="强力压缩 PDF 里的图片，然后带 a 后缀另存为 PDF/A-2b" majorVersion="1" minorVersion="0">
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="压缩 PDF 图片（另存 PDF/A）" description="强力压缩 PDF 里的图片，然后带 a 后缀另存为 PDF/A-2b。最低版本要求：Acrobat Pro 2015" majorVersion="1" minorVersion="0">
 	<Group label="PDF 压缩">
 		<Command name="CALS:Preflight" pauseBefore="false" promptUser="false">
 			<Items>
