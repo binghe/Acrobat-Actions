@@ -1,4 +1,5 @@
-# Acrobat® Actions, Custom Commands and Preflights by Chun Tian
+# Acrobat® Actions, Custom Commands and Preflights
+Chun Tian (binghe)
 
 Actions and Custom Commands for Adobe® Acrobat® Pro DC
 
