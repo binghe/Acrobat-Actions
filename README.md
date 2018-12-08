@@ -4,7 +4,7 @@ Actions and Custom Commands for Adobe® Acrobat® Pro DC
 
 ## Compatibility with Adobe® Acrobat®
 
-All files were exported from Acrobat® Pro DC 2015 (Mac, Simplified Chinese), they should also work in other versions. For Acrobat in other UI languages, some Chinese keywords may have to be changed.
+Use files in "zh-cn" for Acrobat® Pro DC 2015 in Simplified Chinese; use files in "en" for Acrobat® Pro DC 2015 in English. For Acrobat® Pro in other UI languages, some keywords in the actions may have to be changed.
 
 The (Custom) Commands are new features since DC 2015, as single-step Actions. They're not supported in XI and prior versions.
 
