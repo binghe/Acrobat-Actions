@@ -1,4 +1,4 @@
-# Acrobat® Actions and Scripts by Chun Tian
+# Acrobat® Actions, Custom Commands and Preflights by Chun Tian
 
 Actions and Custom Commands for Adobe® Acrobat® Pro DC
 
