@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="同步所有注释" tooltip="将所有注释同步到当前注释" ID="3EFC91B2FB63EC743FC7CCCD8657B8F">
+		<Items>
+			<Item name="ScriptCode" type="text" value="// default style&#xD;var strokeColor = color.yellow;&#xD;var opacity = 0.8;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.getAnnots(this.pageNum, ANSB_ModDate, true, ANFB_ShouldAppearInPanel);&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      opacity = annots[i].opacity;&#xD;      strokeColor = annots[i].strokeColor;&#xD;      break;&#xD;    }&#xD;  }&#xD;}&#xD;&#xD;annots = this.getAnnots();&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = opacity;&#xD;      annots[i].strokeColor = strokeColor;&#xD;    }&#xD;  }&#xD;}&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
