@@ -1,0 +1,5 @@
+/.vs/
+/Debug/
+*.pdb
+*.vcxproj.user
+*.VC.db

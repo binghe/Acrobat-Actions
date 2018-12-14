@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\StarterInit.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{df5f47ef-6b18-4596-bee2-8e43271ae335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{524f4783-1b37-4c48-97ec-0286773722b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\acroassert.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroErr.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AF_ExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AF_Sel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AFTTS_Sel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASFileE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASFileEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASGenE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASGenEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASKey.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASNumTypes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASRaiseAware.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVExpTObsolete1.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVExpTObsolete2.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVPrefsD.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\cathft.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\catprocs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CAVAlert.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsObTp.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CorCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CoreExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CorProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosGenE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosGenEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosSynE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosSynEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\DigSigHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\DigSigHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\DirectoryHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\EncConvE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Environ.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\EReturnValidator.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FontSvrE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FontSvrEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FormsHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FormsHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\HFTLibrary.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Library.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\NSelExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PageE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PageEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PagePDECntCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBasicExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBatesCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBatesExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBatesProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDClassDefs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDClasses.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDDocE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDDocEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDFErrorCodes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDFXE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDFXEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataError.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataErrorASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataHFTVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDModE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDModEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDPageE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDPageEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSError.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSErrorASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSReadCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSReadHFTVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSReadProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSWriteCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSWriteHFTVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSWriteProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSysFont.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSysFontExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSysFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEError.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEErrorASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PERCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PERProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PETypes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEVers.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEWCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEWProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PgCntProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PICommon.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PICrypt.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIExcept.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIMain.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIPokes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIPrefix.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIRequir.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIVersn.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Plugin.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PSFCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PSFProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PubSecHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PubSecHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\RasterE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\RasterEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SmartPDPage.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Speller_Sel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SpellerHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SpellerHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchClls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchPrcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchType.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ToolkitInitE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ToolkitInitEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\TtsHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\TtsHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WinCalls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WinExpT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WinPltfm.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\winprocs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WLHFT.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WLHFTProcs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\XtnMgrE.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\XtnMgrEASF.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -6,8 +6,8 @@
 
 /I "."
 /I "..\sources"
-/I "..\..\..\Headers\API"
-/I "..\..\..\Headers\SDK"
-/I "..\..\..\..\XMP_SDK\MetadataToolkit\Headers"
+/I "..\..\PluginSupport\Headers\API"
+/I "..\..\PluginSupport\Headers\SDK"
+/I "..\..\XMP_SDK\MetadataToolkit\Headers"
 
 /D _CRT_SECURE_NO_DEPRECATE
