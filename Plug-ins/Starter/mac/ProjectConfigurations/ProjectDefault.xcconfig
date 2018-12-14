@@ -12,11 +12,11 @@
 //
 // *********************************************************************
 
-#include "../../../Headers/SDK/MacSDKConfigurations/Environment.xcconfig"
-#include "../../../Headers/SDK/MacSDKConfigurations/Default.xcconfig"
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig"
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig"
 
 // Common search paths for all targets
-HEADER_SEARCH_PATHS = $(HEADER_SEARCH_PATHS) ../../../Headers/SDK ../../../Headers/API ../sources
+HEADER_SEARCH_PATHS = $(HEADER_SEARCH_PATHS) ../../PluginSupport/Headers/SDK ../../PluginSupport/Headers/API ../sources
 
 // Compile everything as objective-c++
 GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp

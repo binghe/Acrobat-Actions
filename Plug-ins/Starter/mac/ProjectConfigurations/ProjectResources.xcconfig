@@ -15,11 +15,11 @@
 // Deployment location
 PRODUCT_DEPLOYMENT_LOCATION = bin/localized/$(PROJECT_NAME)/en.lproj
 
-#include "../../../Headers/SDK/MacSDKConfigurations/Environment.xcconfig"
-#include "../../../Headers/SDK/MacSDKConfigurations/Resources.xcconfig"
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig"
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Resources.xcconfig"
 
 // Search paths for resources
-REZ_SEARCH_PATHS = $(REZ_SEARCH_PATHS) ../../../Headers/SDK ../../../Headers/API ../../../Headers/ADM ../sources
+REZ_SEARCH_PATHS = $(REZ_SEARCH_PATHS) ../../PluginSupport/Headers/SDK ../../PluginSupport/Headers/API ../../PluginSupport/Headers/ADM ../sources
 
 // Rreprocessor defines
 REZ_PREPROCESSOR_DEFINITIONS = $(REZ_PREPROCESSOR_DEFINITIONS) PRODUCT=\"Plugin.h\" REZ=1 XCODEREZ=1
