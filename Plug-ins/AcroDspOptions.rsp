@@ -1,0 +1,13 @@
+/D ACRO_SDK_LEVEL=0x000A0000
+/D PI_ACROCOLOR_VERSION=0x00060000
+/D PDMETADATA_HFT=1
+/D PLUGIN=1
+/D ACRO_SDK_PLUGIN_SAMPLE=1
+
+/I "."
+/I "..\sources"
+/I "..\..\..\Headers\API"
+/I "..\..\..\Headers\SDK"
+/I "..\..\..\..\XMP_SDK\MetadataToolkit\Headers"
+
+/D _CRT_SECURE_NO_DEPRECATE
