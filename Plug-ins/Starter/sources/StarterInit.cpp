@@ -68,6 +68,33 @@ ACCB1 ASBool ACCB2 PluginImportReplaceAndRegister(void)
 	return true;
 }
 
+static char *pluginMenuName = "Extensions";
+
+/* Find an existing "Plug-ins" menu from the menubar. */
+ACCB1 ASBool ACCB2 FindPluginmenu(void)
+{
+	AVMenubar menubar = AVAppGetMenubar();
+	AVMenu volatile commonMenu = NULL;
+
+	if (!menubar)
+		return false;
+
+	/* Gets the number of menus in menubar. */
+	AVTArraySize nMenu = AVMenubarGetNumMenus(menubar);
+
+	for (AVMenuIndex index = 0; index < nMenu; ++ index) {
+		/* Acquires the menu with the specified index. */
+		AVMenu menu = AVMenubarAcquireMenuByIndex(menubar, index);
+		/* get the menu's language-independent name. */
+		const char* name = ASAtomGetString(AVMenuGetName(menu));
+		if (strstr(name, pluginMenuName) != NULL) {
+			// AVAlertNote(name);
+		}
+	}
+
+	return true;
+}
+
 /* PluginInit
 ** ------------------------------------------------------
 **/
@@ -79,7 +106,7 @@ ACCB1 ASBool ACCB2 PluginImportReplaceAndRegister(void)
 */
 ACCB1 ASBool ACCB2 PluginInit(void)
 {
-	return true;
+	return FindPluginmenu();
 }
 
 /* PluginUnload
@@ -108,7 +135,7 @@ ACCB1 ASBool ACCB2 PluginUnload(void)
 */
 ASAtom GetExtensionName()
 {
-	return ASAtomFromString("ADBE:Starter");	/* Change to your extension's name */
+	return ASAtomFromString("CHUN:Starter");
 }
 
 /** PIHandshake
