@@ -29,6 +29,7 @@
 	implementation for a plug-in. Developers may use this plug-in a 
 	basis for their plug-ins.
 */
+ACCB1 ASBool ACCB2 FindPluginmenu(void);
 
 /*-------------------------------------------------------
 	Core Handshake Callbacks
