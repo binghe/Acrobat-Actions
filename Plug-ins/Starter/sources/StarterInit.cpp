@@ -33,7 +33,9 @@
 /*-------------------------------------------------------
 	Constants/Declarations
  -------------------------------------------------------*/
-static AVMenuItem menuItem = NULL;
+static AVMenuItem topMenuItem = NULL;
+static AVMenuItem menuItem[2] = {NULL, NULL};
+static AVMenu subMenu = NULL;
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
 
@@ -53,7 +55,7 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void);
 */
 ACCB1 ASBool ACCB2 PluginExportHFTs(void)
 {
-	return true;
+    return true;
 }
 
 /* PluginImportReplaceAndRegister
@@ -102,84 +104,117 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     return true;
 }
 
-ACCB1 void ACCB2 PluginCommand(void *clientData)
+void VisitAllBookmarks(PDBookmark aBookmark)
 {
-    // get this plugin's name for display
-    ASAtom NameAtom = ASExtensionGetRegisteredName(gExtensionID);
-    const char * name = ASAtomGetString(NameAtom);
-    char str[256];
-    sprintf(str, "This menu item is added by plugin %s.\n", name);
+    PDBookmark treeBookmark;
 
+    DURING
+    // ensure that the bookmark is valid
+    if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID
+
+    // process the bookmark here!
+    ;
+
+    // determine if the current bookmark has children bookmark
+    if (PDBookmarkHasChildren(aBookmark)) {
+	// get the first child of the bookmark
+	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
+
+	while (PDBookmarkIsValid(treeBookmark)) {
+	    VisitAllBookmarks(treeBookmark);
+	    treeBookmark = PDBookmarkGetNext(treeBookmark);
+	}
+    }
+    HANDLER
+    END_HANDLER
+}
+
+ACCB1 void ACCB2 PluginCommand_0(void *clientData)
+{
     // try to get front PDF document
     AVDoc avDoc = AVAppGetActiveDoc();
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
 
-    if (avDoc == NULL) {
-	// if no doc is loaded, make a message.
-	strcat(str, "There is no PDF document loaded in Acrobat.");
-    }
-    else {
-	// if a PDF is open, get its number of pages
-	PDDoc pdDoc = AVDocGetPDDoc (avDoc);
-	int numPages = PDDocGetNumPages (pdDoc);
-	sprintf(str, "%sThe active PDF document has %d pages.", str, numPages);
-    }
+    // visit all bookmarks recursively
+    VisitAllBookmarks(rootBookmark);
 
-    // display message
-    AVAlertNote(str);
+    return;
+}
+
+ACCB1 void ACCB2 PluginCommand_1(void *clientData)
+{
+    // try to get front PDF document
+    AVDoc avDoc = AVAppGetActiveDoc();
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
     
     return;
 }
 
 ACCB1 ASBool ACCB2 PluginIsEnabled(void *clientData)
 {
-    return true;
     // this code make it is enabled only if there is an open PDF document.
-    // return (AVAppGetActiveDoc() != NULL);
-}
-
-ACCB1 ASBool ACCB2 PluginMenuItem(const char* menuItemTitle,
-				  const char* menuItemName)
-{
-    AVMenubar menubar = AVAppGetMenubar();
-    AVMenu volatile commonMenu = NULL;
-	
-    if (!menubar) return false;
-
-DURING
-    // Create our menuitem
-    menuItem = AVMenuItemNew(menuItemTitle, menuItemName,
-			     NULL, true, NO_SHORTCUT, 0, NULL, gExtensionID);
-    AVMenuItemSetExecuteProc
-      (menuItem, ASCallbackCreateProto(AVExecuteProc, PluginCommand), NULL);
-
-    AVMenuItemSetComputeEnabledProc
-      (menuItem, ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
-       (void *)pdPermEdit);
-
-    commonMenu = AVMenubarAcquireMenuByName (menubar, pluginMenuName);
-    // if "Extensions" menu is not existing, create "Acrobat SDK".
-    if (!commonMenu) {
-	commonMenu = AVMenuNew("Acrobat SDK", "ADBE:Acrobat_SDK", gExtensionID);
-	AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
-    }
-
-    AVMenuAddMenuItem(commonMenu, menuItem, APPEND_MENUITEM);
-    AVMenuRelease(commonMenu);
-
-HANDLER
-    if (commonMenu) {
-	AVMenuRelease (commonMenu);
-    }
-    return false;
-
-END_HANDLER
-    return true;
+    return (AVAppGetActiveDoc() != NULL);
 }
 
 ACCB1 ASBool ACCB2 PluginSetMenu()
 {
-    return PluginMenuItem((const char *)"Starter",
-			  (const char *)"CHUN:StarterMenu");
+    AVMenubar menubar = AVAppGetMenubar();
+    AVMenu volatile commonMenu = NULL;
+    
+    if (!menubar) return false;
+    
+    DURING
+    // Create our menu, title is not important
+    subMenu = AVMenuNew("XXX", "CHUN:PluginsMenu", gExtensionID);
+    // Create our menuitem
+    topMenuItem = AVMenuItemNew("Chun Tian", "CHUN:PluginsMenuItem",
+				subMenu, true, NO_SHORTCUT, 0, NULL,
+				gExtensionID);
+    // Command 0
+    menuItem[0] = AVMenuItemNew("Fix Bookmarks", "CHUN:Fix_Bookmarks",
+				NULL, /* submenu */
+				true, /* longMenusOnly */
+				NO_SHORTCUT, 0 /* flags */,
+				NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+      (menuItem[0], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
+    
+    AVMenuItemSetComputeEnabledProc
+      (menuItem[0], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[0], APPEND_MENUITEM);
+    // Command 1
+    menuItem[1] = AVMenuItemNew("Next Command", "CHUN:Next_Command",
+				NULL, /* submenu */
+				true, /* longMenusOnly */
+				NO_SHORTCUT, 0 /* flags */,
+				NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+      (menuItem[1], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
+    
+    AVMenuItemSetComputeEnabledProc
+      (menuItem[1], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[1], APPEND_MENUITEM);
+    
+    /* Acquire() needs a Release() */
+    commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
+    // if "Extensions" menu doesn't exist, create one.
+    if (!commonMenu) {
+	commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
+	AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
+    }
+    
+    AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
+    AVMenuRelease(commonMenu);
+    
+    HANDLER
+    if (commonMenu) AVMenuRelease (commonMenu);
+    return false;
+    
+    END_HANDLER
+    return true;
 }
 
 /* PluginInit
@@ -226,19 +261,19 @@ ASAtom GetExtensionName()
 }
 
 /** PIHandshake
-	function provides the initial interface between your plug-in and the application.
-	This function provides the callback functions to the application that allow it to 
-	register the plug-in with the application environment.
+    function provides the initial interface between your plug-in and the application.
+    This function provides the callback functions to the application that allow it to
+    register the plug-in with the application environment.
 
-	Required Plug-in handshaking routine: <b>Do not change its name!</b>
+    Required Plug-in handshaking routine: <b>Do not change its name!</b>
 	
-	@param handshakeVersion the version this plug-in works with. There are two versions possible, the plug-in version 
-	and the application version. The application calls the main entry point for this plug-in with its version.
-	The main entry point will call this function with the version that is earliest. 
-	@param handshakeData OUT the data structure used to provide the primary entry points for the plug-in. These
-	entry points are used in registering the plug-in with the application and allowing the plug-in to register for 
-	other plug-in services and offer its own.
-	@return true to indicate success, false otherwise (the plug-in will not load).
+    @param handshakeVersion the version this plug-in works with. There are two versions possible, the plug-in version
+    and the application version. The application calls the main entry point for this plug-in with its version.
+    The main entry point will call this function with the version that is earliest.
+    @param handshakeData OUT the data structure used to provide the primary entry points for the plug-in. These
+    entry points are used in registering the plug-in with the application and allowing the plug-in to register for
+    other plug-in services and offer its own.
+    @return true to indicate success, false otherwise (the plug-in will not load).
 */
 ACCB1 ASBool ACCB2 PIHandshake(Uns32 handshakeVersion, void *handshakeData)
 {
@@ -266,7 +301,8 @@ ACCB1 ASBool ACCB2 PIHandshake(Uns32 handshakeVersion, void *handshakeData)
 	hsData->initCallback = (void*)ASCallbackCreateProto(PIInitProcType, &PluginInit);
 	
 	/* Perform any memory freeing or state saving on "quit" in here */
-	hsData->unloadCallback = (void*)ASCallbackCreateProto(PIUnloadProcType, &PluginUnload);
+	hsData->unloadCallback =
+	    (void*)ASCallbackCreateProto(PIUnloadProcType, &PluginUnload);
 	
 	/* All done */
 	return true;
