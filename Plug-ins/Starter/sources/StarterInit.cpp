@@ -104,29 +104,60 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     return true;
 }
 
-void VisitAllBookmarks(PDBookmark aBookmark)
+void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark)
 {
     PDBookmark treeBookmark;
+    PDViewDestination newDest;
+    PDAction newAction;
 
-    DURING
+DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID
 
-    // process the bookmark here!
-    ;
+    // process the bookmark here
+    if (PDBookmarkIsOpen(aBookmark)) PDBookmarkSetOpen(aBookmark, false);
+    
+    PDAction action = PDBookmarkGetAction(aBookmark);
+    if (PDActionIsValid(action)) {
+	PDViewDestination dest = PDActionGetDest(action);
+	if (PDViewDestIsValid(dest)) {
+	    ASInt32 pageNum;
+	    ASAtom fitType, targetFitType = ASAtomFromString("XYZ");
+	    ASFixedRect destRect;
+	    ASFixed zoom;
+	    PDViewDestGetAttr(dest, &pageNum, &fitType, &destRect, &zoom);
+	    if (fitType != targetFitType || zoom != PDViewDestNULL) {
+		PDPage page = PDDocAcquirePage(doc, pageNum);
+		newDest =
+		  PDViewDestCreate(doc,
+				   page,	    /* := pageNum */
+				   targetFitType,   /* XYZ */
+				   &destRect,
+				   PDViewDestNULL,  /* when FitType is XYZ */
+				   0);		    /* unused */
+		newAction = PDActionNewFromDest(doc, newDest, doc);
+		PDBookmarkSetAction(aBookmark, newAction);
+		PDViewDestDestroy(dest);
+		PDActionDestroy(action);
+	    }
+	}
+    }
 
-    // determine if the current bookmark has children bookmark
+    // process children bookmarks
     if (PDBookmarkHasChildren(aBookmark)) {
-	// get the first child of the bookmark
 	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
 
 	while (PDBookmarkIsValid(treeBookmark)) {
-	    VisitAllBookmarks(treeBookmark);
+	    VisitAllBookmarks(doc, treeBookmark);
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
-    HANDLER
-    END_HANDLER
+    
+HANDLER
+    if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
+    if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
+    
+END_HANDLER
 }
 
 ACCB1 void ACCB2 PluginCommand_0(void *clientData)
@@ -137,7 +168,8 @@ ACCB1 void ACCB2 PluginCommand_0(void *clientData)
     PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
 
     // visit all bookmarks recursively
-    VisitAllBookmarks(rootBookmark);
+    VisitAllBookmarks(pdDoc, rootBookmark);
+    AVAlertNote("Fixed FitType of all bookmarks.");
 
     return;
 }
@@ -164,7 +196,7 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
     
     if (!menubar) return false;
     
-    DURING
+DURING
     // Create our menu, title is not important
     subMenu = AVMenuNew("XXX", "CHUN:PluginsMenu", gExtensionID);
     // Create our menuitem
@@ -209,11 +241,11 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
     AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
     AVMenuRelease(commonMenu);
     
-    HANDLER
+HANDLER
     if (commonMenu) AVMenuRelease (commonMenu);
     return false;
     
-    END_HANDLER
+END_HANDLER
     return true;
 }
 
