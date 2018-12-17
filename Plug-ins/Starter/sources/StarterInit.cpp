@@ -84,19 +84,18 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     AVMenu volatile commonMenu = NULL;
     ASAtom PluginMenuName = ASAtomFromString(pluginMenuName);
 
-    if (!menubar)
-	return false;
+    if (!menubar) return false;
 
     /* Gets the number of menus in menubar. */
     AVTArraySize nMenu = AVMenubarGetNumMenus(menubar);
 
-    for (AVMenuIndex index = 0; index < nMenu; ++ index) {
+    for (AVMenuIndex index = 0; index < nMenu; ++index) {
 	/* Acquires the menu with the specified index. */
 	AVMenu menu = AVMenubarAcquireMenuByIndex(menubar, index);
 	/* get the menu's language-independent name. */
 	ASAtom name = AVMenuGetName(menu);
 	if (name == PluginMenuName) {
-	    // AVAlertNote(ASAtomGetString(name));
+	    AVAlertNote(ASAtomGetString(name));
 	}
     }
 
@@ -106,23 +105,23 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
 ACCB1 void ACCB2 PluginCommand(void *clientData)
 {
     // get this plugin's name for display
-    ASAtom NameAtom = ASExtensionGetRegisteredName (gExtensionID);
+    ASAtom NameAtom = ASExtensionGetRegisteredName(gExtensionID);
     const char * name = ASAtomGetString(NameAtom);
     char str[256];
-    sprintf(str,"This menu item is added by plugin %s.\n", name);
-    
+    sprintf(str, "This menu item is added by plugin %s.\n", name);
+
     // try to get front PDF document
     AVDoc avDoc = AVAppGetActiveDoc();
-    
-    if(avDoc==NULL) {
+
+    if (avDoc == NULL) {
 	// if no doc is loaded, make a message.
-	strcat(str,"There is no PDF document loaded in Acrobat.");
+	strcat(str, "There is no PDF document loaded in Acrobat.");
     }
     else {
 	// if a PDF is open, get its number of pages
 	PDDoc pdDoc = AVDocGetPDDoc (avDoc);
 	int numPages = PDDocGetNumPages (pdDoc);
-	sprintf(str,"%sThe active PDF document has %d pages.", str, numPages);
+	sprintf(str, "%sThe active PDF document has %d pages.", str, numPages);
     }
 
     // display message
@@ -133,8 +132,9 @@ ACCB1 void ACCB2 PluginCommand(void *clientData)
 
 ACCB1 ASBool ACCB2 PluginIsEnabled(void *clientData)
 {
+    return true;
     // this code make it is enabled only if there is an open PDF document.
-    return (AVAppGetActiveDoc() != NULL);
+    // return (AVAppGetActiveDoc() != NULL);
 }
 
 ACCB1 ASBool ACCB2 PluginMenuItem(const char* menuItemTitle,
