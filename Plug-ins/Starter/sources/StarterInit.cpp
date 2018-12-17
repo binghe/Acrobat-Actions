@@ -1,6 +1,6 @@
 /*********************************************************************
 
- ADOBE SYSTEMS INCORPORATED
+ Copyright (C) 2018  Chun Tian (binghe)
  Copyright (C) 1998-2006 Adobe Systems Incorporated
  All rights reserved.
 
@@ -25,11 +25,17 @@
 #endif
 
 /** 
-	Starter is a plug-in template that provides a minimal 
-	implementation for a plug-in. Developers may use this plug-in a 
-	basis for their plug-ins.
-*/
-ACCB1 ASBool ACCB2 FindPluginmenu(void);
+  Starter is a plug-in template that provides a minimal
+  implementation for a plug-in. Developers may use this plug-in a
+  basis for their plug-ins.
+ */
+
+/*-------------------------------------------------------
+	Constants/Declarations
+ -------------------------------------------------------*/
+static AVMenuItem menuItem = NULL;
+
+ACCB1 ASBool ACCB2 FindPluginMenu(void);
 
 /*-------------------------------------------------------
 	Core Handshake Callbacks
@@ -66,35 +72,114 @@ ACCB1 ASBool ACCB2 PluginExportHFTs(void)
 */
 ACCB1 ASBool ACCB2 PluginImportReplaceAndRegister(void)
 {
-	return true;
+    return true;
 }
 
 static const char *pluginMenuName = "Extensions";
 
 /* Find an existing "Plug-ins" menu from the menubar. */
-ACCB1 ASBool ACCB2 FindPluginmenu(void)
+ACCB1 ASBool ACCB2 FindPluginMenu(void)
 {
-	AVMenubar menubar = AVAppGetMenubar();
-	AVMenu volatile commonMenu = NULL;
-	ASAtom PluginMenuName = ASAtomFromString(pluginMenuName);
+    AVMenubar menubar = AVAppGetMenubar();
+    AVMenu volatile commonMenu = NULL;
+    ASAtom PluginMenuName = ASAtomFromString(pluginMenuName);
 
-	if (!menubar)
-		return false;
+    if (!menubar)
+	return false;
 
-	/* Gets the number of menus in menubar. */
-	AVTArraySize nMenu = AVMenubarGetNumMenus(menubar);
+    /* Gets the number of menus in menubar. */
+    AVTArraySize nMenu = AVMenubarGetNumMenus(menubar);
 
-	for (AVMenuIndex index = 0; index < nMenu; ++ index) {
-		/* Acquires the menu with the specified index. */
-		AVMenu menu = AVMenubarAcquireMenuByIndex(menubar, index);
-		/* get the menu's language-independent name. */
-		ASAtom name = AVMenuGetName(menu);
-		if (name == PluginMenuName) {
-			// AVAlertNote(ASAtomGetString(name));
-		}
+    for (AVMenuIndex index = 0; index < nMenu; ++ index) {
+	/* Acquires the menu with the specified index. */
+	AVMenu menu = AVMenubarAcquireMenuByIndex(menubar, index);
+	/* get the menu's language-independent name. */
+	ASAtom name = AVMenuGetName(menu);
+	if (name == PluginMenuName) {
+	    // AVAlertNote(ASAtomGetString(name));
 	}
+    }
 
-	return true;
+    return true;
+}
+
+ACCB1 void ACCB2 PluginCommand(void *clientData)
+{
+    // get this plugin's name for display
+    ASAtom NameAtom = ASExtensionGetRegisteredName (gExtensionID);
+    const char * name = ASAtomGetString(NameAtom);
+    char str[256];
+    sprintf(str,"This menu item is added by plugin %s.\n", name);
+    
+    // try to get front PDF document
+    AVDoc avDoc = AVAppGetActiveDoc();
+    
+    if(avDoc==NULL) {
+	// if no doc is loaded, make a message.
+	strcat(str,"There is no PDF document loaded in Acrobat.");
+    }
+    else {
+	// if a PDF is open, get its number of pages
+	PDDoc pdDoc = AVDocGetPDDoc (avDoc);
+	int numPages = PDDocGetNumPages (pdDoc);
+	sprintf(str,"%sThe active PDF document has %d pages.", str, numPages);
+    }
+
+    // display message
+    AVAlertNote(str);
+    
+    return;
+}
+
+ACCB1 ASBool ACCB2 PluginIsEnabled(void *clientData)
+{
+    // this code make it is enabled only if there is an open PDF document.
+    return (AVAppGetActiveDoc() != NULL);
+}
+
+ACCB1 ASBool ACCB2 PluginMenuItem(const char* menuItemTitle,
+				  const char* menuItemName)
+{
+    AVMenubar menubar = AVAppGetMenubar();
+    AVMenu volatile commonMenu = NULL;
+	
+    if (!menubar) return false;
+
+DURING
+    // Create our menuitem
+    menuItem = AVMenuItemNew(menuItemTitle, menuItemName,
+			     NULL, true, NO_SHORTCUT, 0, NULL, gExtensionID);
+    AVMenuItemSetExecuteProc
+      (menuItem, ASCallbackCreateProto(AVExecuteProc, PluginCommand), NULL);
+
+    AVMenuItemSetComputeEnabledProc
+      (menuItem, ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
+
+    commonMenu = AVMenubarAcquireMenuByName (menubar, pluginMenuName);
+    // if "Extensions" menu is not existing, create "Acrobat SDK".
+    if (!commonMenu) {
+	commonMenu = AVMenuNew("Acrobat SDK", "ADBE:Acrobat_SDK", gExtensionID);
+	AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
+    }
+
+    AVMenuAddMenuItem(commonMenu, menuItem, APPEND_MENUITEM);
+    AVMenuRelease(commonMenu);
+
+HANDLER
+    if (commonMenu) {
+	AVMenuRelease (commonMenu);
+    }
+    return false;
+
+END_HANDLER
+    return true;
+}
+
+ACCB1 ASBool ACCB2 PluginSetMenu()
+{
+    return PluginMenuItem((const char *)"Starter",
+			  (const char *)"CHUN:StarterMenu");
 }
 
 /* PluginInit
@@ -108,7 +193,7 @@ ACCB1 ASBool ACCB2 FindPluginmenu(void)
 */
 ACCB1 ASBool ACCB2 PluginInit(void)
 {
-	return FindPluginmenu();
+    return PluginSetMenu();
 }
 
 /* PluginUnload
@@ -125,7 +210,7 @@ ACCB1 ASBool ACCB2 PluginInit(void)
 */
 ACCB1 ASBool ACCB2 PluginUnload(void)
 {
-	return true;
+    return true;
 }
 
 /* GetExtensionName
@@ -137,7 +222,7 @@ ACCB1 ASBool ACCB2 PluginUnload(void)
 */
 ASAtom GetExtensionName()
 {
-	return ASAtomFromString("CHUN:Starter");
+    return ASAtomFromString("CHUN:Starter");
 }
 
 /** PIHandshake
@@ -157,38 +242,40 @@ ASAtom GetExtensionName()
 */
 ACCB1 ASBool ACCB2 PIHandshake(Uns32 handshakeVersion, void *handshakeData)
 {
-	if (handshakeVersion == HANDSHAKE_V0200) {
-		/* Cast handshakeData to the appropriate type */
-		PIHandshakeData_V0200 *hsData = (PIHandshakeData_V0200 *)handshakeData;
-
-		/* Set the name we want to go by */
-		hsData->extensionName = GetExtensionName();
-
-		/* If you export your own HFT, do so in here */
-		hsData->exportHFTsCallback = (void*)ASCallbackCreateProto(PIExportHFTsProcType, &PluginExportHFTs);
-
-		/*
-		** If you import plug-in HFTs, replace functionality, and/or want to register for notifications before
-		** the user has a chance to do anything, do so in here.
-		*/
-		hsData->importReplaceAndRegisterCallback = (void*)ASCallbackCreateProto(PIImportReplaceAndRegisterProcType,
-																		 &PluginImportReplaceAndRegister);
-
-		/* Perform your plug-in's initialization in here */
-		hsData->initCallback = (void*)ASCallbackCreateProto(PIInitProcType, &PluginInit);
-
-		/* Perform any memory freeing or state saving on "quit" in here */
-		hsData->unloadCallback = (void*)ASCallbackCreateProto(PIUnloadProcType, &PluginUnload);
-
-		/* All done */
-		return true;
-
-	} /* Each time the handshake version changes, add a new "else if" branch */
-
+    if (handshakeVersion == HANDSHAKE_V0200) {
+	/* Cast handshakeData to the appropriate type */
+	PIHandshakeData_V0200 *hsData = (PIHandshakeData_V0200 *)handshakeData;
+	
+	/* Set the name we want to go by */
+	hsData->extensionName = GetExtensionName();
+	
+	/* If you export your own HFT, do so in here */
+	hsData->exportHFTsCallback =
+	  (void*)ASCallbackCreateProto(PIExportHFTsProcType, &PluginExportHFTs);
+	
 	/*
-	** If we reach here, then we were passed a handshake version number we don't know about.
-	** This shouldn't ever happen since our main() routine chose the version number.
+	** If you import plug-in HFTs, replace functionality, and/or want to register for
+	** notifications before
+	** the user has a chance to do anything, do so in here.
 	*/
-	return false;
-}
+	hsData->importReplaceAndRegisterCallback =
+	    (void*)ASCallbackCreateProto(PIImportReplaceAndRegisterProcType,
+					 &PluginImportReplaceAndRegister);
 
+	/* Perform your plug-in's initialization in here */
+	hsData->initCallback = (void*)ASCallbackCreateProto(PIInitProcType, &PluginInit);
+	
+	/* Perform any memory freeing or state saving on "quit" in here */
+	hsData->unloadCallback = (void*)ASCallbackCreateProto(PIUnloadProcType, &PluginUnload);
+	
+	/* All done */
+	return true;
+	
+    } /* Each time the handshake version changes, add a new "else if" branch */
+    
+    /*
+     ** If we reach here, then we were passed a handshake version number we don't know about.
+     ** This shouldn't ever happen since our main() routine chose the version number.
+     */
+    return false;
+}

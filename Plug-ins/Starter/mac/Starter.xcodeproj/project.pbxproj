@@ -21,7 +21,7 @@
 		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570EB09DA0A8600D15BF1 /* PIHeaders++.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "PIHeaders++.pch"; path = "../../PluginSupport/Headers/SDK/PIHeaders++.pch"; sourceTree = SOURCE_ROOT; };
 		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
-		DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = StarterInit.cpp; path = ../sources/StarterInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 4; };
+		DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = StarterInit.cpp; path = ../sources/StarterInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
 		DB9ABFD609DCA62100298E3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../sources/Info.plist; sourceTree = SOURCE_ROOT; };
 		DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
