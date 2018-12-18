@@ -104,7 +104,7 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     return true;
 }
 
-void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark)
+void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark, ASBool fix)
 {
     PDBookmark treeBookmark;
     PDViewDestination newDest;
@@ -114,11 +114,12 @@ DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID
 
-    // process the bookmark here
+    // process the bookmark here:
+    // 1. collapse current bookmark
     if (PDBookmarkIsOpen(aBookmark)) PDBookmarkSetOpen(aBookmark, false);
     
     PDAction action = PDBookmarkGetAction(aBookmark);
-    if (PDActionIsValid(action)) {
+    if (fix && PDActionIsValid(action)) {
 	PDViewDestination dest = PDActionGetDest(action);
 	if (PDViewDestIsValid(dest)) {
 	    ASInt32 pageNum;
@@ -148,7 +149,7 @@ DURING
 	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
 
 	while (PDBookmarkIsValid(treeBookmark)) {
-	    VisitAllBookmarks(doc, treeBookmark);
+	    VisitAllBookmarks(doc, treeBookmark, fix);
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
@@ -160,6 +161,7 @@ HANDLER
 END_HANDLER
 }
 
+/* Collapse All Bookmarks */
 ACCB1 void ACCB2 PluginCommand_0(void *clientData)
 {
     // try to get front PDF document
@@ -168,18 +170,23 @@ ACCB1 void ACCB2 PluginCommand_0(void *clientData)
     PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
 
     // visit all bookmarks recursively
-    VisitAllBookmarks(pdDoc, rootBookmark);
-    AVAlertNote("Fixed FitType of all bookmarks.");
+    VisitAllBookmarks(pdDoc, rootBookmark, false);
 
     return;
 }
 
+/* Fix FitType of All Bookmarks */
 ACCB1 void ACCB2 PluginCommand_1(void *clientData)
 {
     // try to get front PDF document
     AVDoc avDoc = AVAppGetActiveDoc();
     PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
     
+    // visit all bookmarks recursively, fixing FitView
+    VisitAllBookmarks(pdDoc, rootBookmark, true);
+    AVAlertNote("Fixed FitType of all bookmarks.");
+
     return;
 }
 
@@ -199,12 +206,13 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
 DURING
     // Create our menu, title is not important
     subMenu = AVMenuNew("XXX", "CHUN:PluginsMenu", gExtensionID);
+
     // Create our menuitem
     topMenuItem = AVMenuItemNew("Chun Tian", "CHUN:PluginsMenuItem",
 				subMenu, true, NO_SHORTCUT, 0, NULL,
 				gExtensionID);
     // Command 0
-    menuItem[0] = AVMenuItemNew("Fix Bookmarks", "CHUN:Fix_Bookmarks",
+    menuItem[0] = AVMenuItemNew("Collapse All Bookmarks", "CHUN:Collapse_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
@@ -217,7 +225,7 @@ DURING
        (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[0], APPEND_MENUITEM);
     // Command 1
-    menuItem[1] = AVMenuItemNew("Next Command", "CHUN:Next_Command",
+    menuItem[1] = AVMenuItemNew("Fix FitType of All Bookmarks", "CHUN:Fix_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
