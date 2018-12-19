@@ -204,8 +204,9 @@
 			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */;
 			buildSettings = {
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
-				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				INFOPLIST_FILE = ../sources/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Starter;
 				SDKROOT = macosx;
 			};
 			name = Default;
