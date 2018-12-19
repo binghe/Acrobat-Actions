@@ -19,4 +19,4 @@ NOTE: Some Actions and Commands require special Preflight profile (in this repos
 
 ## Acrobat® Plugin
 
-Certain useful tasks are impossible to write with JavaScript, simply because Adobe didn't expose the related API to JS level. In this case, the work can be done by writing plugins in C. One such plugin is at `Plug-ins` folder.
+Certain useful tasks are impossible to write in JavaScript, because Adobe didn't expose the related APIs at JS level. In this case, the work can be done by writing plugins in C. One such plugin is in the `Plug-ins` folder.
