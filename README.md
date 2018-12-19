@@ -17,6 +17,6 @@ To import a toolset into Acrobat DC, simply open that file (`*.aaui`).
 
 NOTE: Some Actions and Commands require special Preflight profile (in this repository), which must be also imported.
 
-## Forthcoming
+## Acrobat® Plugin
 
-I'll preprare all Actions and Custome Commands for English version, exported from Acrobat® Pro DC 2017 (Windows, English).
+Certain useful tasks are impossible to write with JavaScript, simply because Adobe didn't expose the related API to JS level. In this case, the work can be done by writing plugins in C. One such plugin is at `Plug-ins` folder.
