@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="重置所有边框" description="重置所有页面边框" majorVersion="1" minorVersion="0">
+	<Group label="重置所有边框">
+		<Command name="CropPages" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="BoxType" type="integer" value="0"/>
+				<Items name="Crop">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="BottomText" type="text" value="0 点"/>
+					<Item name="CropType" type="integer" value="0"/>
+					<Item name="Filter" type="integer" value="0"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="LeftText" type="text" value="0 点"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="RightText" type="text" value="0 点"/>
+					<Item name="Top" type="double" value="0.000000"/>
+					<Item name="TopText" type="text" value="0 点"/>
+					<Item name="version" type="integer" value="2"/>
+				</Items>
+				<Item name="EvenOdd" type="integer" value="0"/>
+				<Item name="From" type="text" value="1"/>
+				<Item name="Group" type="integer" value="0"/>
+				<Item name="To" type="text" value="1"/>
+			</Items>
+		</Command>
+		<Command name="CropPages" pauseBefore="false" promptUser="false">
+			<Items>
+				<Items name="Art">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="CropType" type="integer" value="2"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="Top" type="double" value="0.000000"/>
+				</Items>
+				<Item name="BoxType" type="integer" value="3"/>
+				<Items name="Crop">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="CropType" type="integer" value="2"/>
+					<Item name="Filter" type="integer" value="0"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="Top" type="double" value="0.000000"/>
+					<Item name="version" type="integer" value="2"/>
+				</Items>
+				<Item name="EvenOdd" type="integer" value="0"/>
+				<Item name="From" type="text" value="1"/>
+				<Item name="Group" type="integer" value="0"/>
+				<Item name="To" type="text" value="1"/>
+			</Items>
+		</Command>
+		<Command name="CropPages" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="BoxType" type="integer" value="2"/>
+				<Items name="Crop">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="CropType" type="integer" value="2"/>
+					<Item name="Filter" type="integer" value="0"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="Top" type="double" value="0.000000"/>
+					<Item name="version" type="integer" value="2"/>
+				</Items>
+				<Item name="EvenOdd" type="integer" value="0"/>
+				<Item name="From" type="text" value="1"/>
+				<Item name="Group" type="integer" value="0"/>
+				<Item name="To" type="text" value="1"/>
+				<Items name="Trim">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="CropType" type="integer" value="2"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="Top" type="double" value="0.000000"/>
+				</Items>
+			</Items>
+		</Command>
+		<Command name="CropPages" pauseBefore="false" promptUser="false">
+			<Items>
+				<Items name="Bleed">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="CropType" type="integer" value="2"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="Top" type="double" value="0.000000"/>
+				</Items>
+				<Item name="BoxType" type="integer" value="1"/>
+				<Items name="Crop">
+					<Item name="Bottom" type="double" value="0.000000"/>
+					<Item name="CropType" type="integer" value="2"/>
+					<Item name="Filter" type="integer" value="0"/>
+					<Item name="Left" type="double" value="0.000000"/>
+					<Item name="Right" type="double" value="0.000000"/>
+					<Item name="Top" type="double" value="0.000000"/>
+					<Item name="version" type="integer" value="2"/>
+				</Items>
+				<Item name="EvenOdd" type="integer" value="0"/>
+				<Item name="From" type="text" value="1"/>
+				<Item name="Group" type="integer" value="0"/>
+				<Item name="To" type="text" value="1"/>
+			</Items>
+		</Command>
+	</Group>
+</Workflow>
