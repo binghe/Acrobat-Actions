@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="裁剪成 LNCS" tooltip="执行 JavaScript，页面裁剪成 LNCS（430x660）" ID="3BF8B380EE36EA062EBCC5E59852E9B">
+		<Items>
+			<Item name="ScriptCode" type="text" value="/* Acrobat Action Script: change PDF crop box to 430x660pt (in the center of all pages)&#xD;   Author: Chun Tian (binghe) &lt;binghe.lisp@gmail.com&gt;&#xD;   Date: November 25, 2018&#xD;   Version: 1.0&#xD; */&#xD;&#xD;/* this is LNCS paper size: */&#xD;var wLNCS = 430; /* units in pt */&#xD;var hLNCS = 660; /* units in pt */&#xD;&#xD;for (var i = 0; i &lt; this.numPages; i++) {&#xD;    /* get the crop box size from the current page (in case pages have different sizes */&#xD;    var rect   = this.getPageBox(&quot;Crop&quot;, i); /* rect: [left, top, right, bot] */&#xD;&#xD;    /* get the current page width and height */&#xD;    var width  = rect[2] - rect[0]; /* right - left */&#xD;    var height = rect[1] - rect[3]; /*   top - bot  */&#xD;&#xD;    /* do it only if the page size is bigger than LNCS paper size */&#xD;    if (width &gt; wLNCS &amp;&amp; height &gt; hLNCS) {&#xD;        var diffX = (width  - wLNCS) / 2;&#xD;        var diffY = (height - hLNCS) / 2;&#xD;        var left  = rect[0] + diffX;&#xD;        var top   = rect[1] - diffY;&#xD;        var right = rect[2] - diffX;&#xD;        var bot   = rect[3] + diffY;&#xD;&#xD;        this.setPageBoxes(&quot;Crop&quot;, i, i, [left, top, right, bot]);&#xD;    }&#xD;}&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>

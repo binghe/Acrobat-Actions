@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="CropPages" pauseBefore="false" promptUser="false" label="重置裁剪框" tooltip="重置裁剪框" ID="C22168A35CE8A090E2B0017C6E7E38E">
+		<Items>
+			<Item name="BoxType" type="integer" value="0"/>
+			<Items name="Crop">
+				<Item name="Bottom" type="double" value="0.000000"/>
+				<Item name="BottomText" type="text" value="0 点"/>
+				<Item name="CropType" type="integer" value="0"/>
+				<Item name="Filter" type="integer" value="0"/>
+				<Item name="Left" type="double" value="0.000000"/>
+				<Item name="LeftText" type="text" value="0 点"/>
+				<Item name="Right" type="double" value="0.000000"/>
+				<Item name="RightText" type="text" value="0 点"/>
+				<Item name="Top" type="double" value="0.000000"/>
+				<Item name="TopText" type="text" value="0 点"/>
+				<Item name="version" type="integer" value="2"/>
+			</Items>
+			<Item name="EvenOdd" type="integer" value="0"/>
+			<Item name="From" type="text" value="1"/>
+			<Item name="Group" type="integer" value="0"/>
+			<Item name="To" type="text" value="1"/>
+		</Items>
+	</Command>
+</Commands>

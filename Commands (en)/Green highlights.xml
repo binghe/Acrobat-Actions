@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="绿色注释" tooltip="绿色注释（本页最后修改）" ID="4898032B12E80DE8A3C45B5DBC38D89">
+		<Items>
+			<Item name="ScriptCode" type="text" value="// default style&#xD;var strokeColor = color.green;&#xD;var opacity = 0.8;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.getAnnots(this.pageNum, ANSB_ModDate, true, ANFB_ShouldAppearInPanel);&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = opacity;&#xD;      annots[i].strokeColor = strokeColor;&#xD;      break;&#xD;    }&#xD;  }&#xD;}&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
