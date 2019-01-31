@@ -104,7 +104,7 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     return true;
 }
 
-void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark, ASBool fix)
+void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark)
 {
     PDBookmark treeBookmark;
     PDViewDestination newDest;
@@ -112,44 +112,18 @@ void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark, ASBool fix)
 
 DURING
     // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID
+    if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID;
 
     // process the bookmark here:
     // 1. collapse current bookmark
     if (PDBookmarkIsOpen(aBookmark)) PDBookmarkSetOpen(aBookmark, false);
-    
-    PDAction action = PDBookmarkGetAction(aBookmark);
-    if (fix && PDActionIsValid(action)) {
-	PDViewDestination dest = PDActionGetDest(action);
-	if (PDViewDestIsValid(dest)) {
-	    ASInt32 pageNum;
-	    ASAtom fitType, targetFitType = ASAtomFromString("XYZ");
-	    ASFixedRect destRect;
-	    ASFixed zoom;
-	    PDViewDestGetAttr(dest, &pageNum, &fitType, &destRect, &zoom);
-	    if (fitType != targetFitType || zoom != PDViewDestNULL) {
-		PDPage page = PDDocAcquirePage(doc, pageNum);
-		newDest =
-		  PDViewDestCreate(doc,
-				   page,	    /* := pageNum */
-				   targetFitType,   /* XYZ */
-				   &destRect,
-				   PDViewDestNULL,  /* when FitType is XYZ */
-				   0);		    /* unused */
-		newAction = PDActionNewFromDest(doc, newDest, doc);
-		PDBookmarkSetAction(aBookmark, newAction);
-		PDViewDestDestroy(dest);
-		PDActionDestroy(action);
-	    }
-	}
-    }
 
     // process children bookmarks
     if (PDBookmarkHasChildren(aBookmark)) {
 	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
 
 	while (PDBookmarkIsValid(treeBookmark)) {
-	    VisitAllBookmarks(doc, treeBookmark, fix);
+	    VisitAllBookmarks(doc, treeBookmark);
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
@@ -161,6 +135,60 @@ HANDLER
 END_HANDLER
 }
 
+void FixAllBookmarks(PDDoc doc, PDBookmark aBookmark)
+{
+    PDBookmark treeBookmark;
+    PDViewDestination newDest;
+    PDAction newAction;
+    
+    DURING
+    // ensure that the bookmark is valid
+    if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID;
+	
+
+    PDAction action = PDBookmarkGetAction(aBookmark);
+    if (PDActionIsValid(action)) {
+	PDViewDestination dest = PDActionGetDest(action);
+	if (PDViewDestIsValid(dest)) {
+	    ASInt32 pageNum;
+	    ASAtom fitType, targetFitType = ASAtomFromString("XYZ");
+	    ASFixedRect destRect;
+	    ASFixed zoom;
+	    PDViewDestGetAttr(dest, &pageNum, &fitType, &destRect, &zoom);
+	    if (fitType != targetFitType || zoom != PDViewDestNULL) {
+		PDPage page = PDDocAcquirePage(doc, pageNum);
+		newDest =
+		PDViewDestCreate(doc,
+				 page,	    /* := pageNum */
+				 targetFitType,   /* XYZ */
+				 &destRect,
+				 PDViewDestNULL,  /* when FitType is XYZ */
+				 0);		    /* unused */
+		newAction = PDActionNewFromDest(doc, newDest, doc);
+		PDBookmarkSetAction(aBookmark, newAction);
+		PDViewDestDestroy(dest);
+		PDActionDestroy(action);
+	    }
+	}
+    }
+    
+    // process children bookmarks
+    if (PDBookmarkHasChildren(aBookmark)) {
+	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
+	
+	while (PDBookmarkIsValid(treeBookmark)) {
+	    FixAllBookmarks(doc, treeBookmark);
+	    treeBookmark = PDBookmarkGetNext(treeBookmark);
+	}
+    }
+    
+    HANDLER
+    if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
+    if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
+    
+    END_HANDLER
+}
+
 /* Collapse All Bookmarks */
 ACCB1 void ACCB2 PluginCommand_0(void *clientData)
 {
@@ -170,7 +198,7 @@ ACCB1 void ACCB2 PluginCommand_0(void *clientData)
     PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
 
     // visit all bookmarks recursively
-    VisitAllBookmarks(pdDoc, rootBookmark, false);
+    VisitAllBookmarks(pdDoc, rootBookmark);
 
     return;
 }
@@ -184,7 +212,7 @@ ACCB1 void ACCB2 PluginCommand_1(void *clientData)
     PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
     
     // visit all bookmarks recursively, fixing FitView
-    VisitAllBookmarks(pdDoc, rootBookmark, true);
+    FixAllBookmarks(pdDoc, rootBookmark);
     AVAlertNote("Fixed FitType of all bookmarks.");
 
     return;
