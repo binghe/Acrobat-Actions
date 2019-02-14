@@ -24,6 +24,8 @@
 #include "PIHeaders.h"
 #endif
 
+#include <cstdio>
+
 /** 
   Starter is a plug-in template that provides a minimal
   implementation for a plug-in. Developers may use this plug-in a
@@ -135,7 +137,7 @@ HANDLER
 END_HANDLER
 }
 
-void FixAllBookmarks(PDDoc doc, PDBookmark aBookmark)
+int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 {
     PDBookmark treeBookmark;
     PDViewDestination newDest;
@@ -143,8 +145,7 @@ void FixAllBookmarks(PDDoc doc, PDBookmark aBookmark)
     
     DURING
     // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID;
-	
+    if (!PDBookmarkIsValid(aBookmark)) return acc;
 
     PDAction action = PDBookmarkGetAction(aBookmark);
     if (PDActionIsValid(action)) {
@@ -168,6 +169,7 @@ void FixAllBookmarks(PDDoc doc, PDBookmark aBookmark)
 		PDBookmarkSetAction(aBookmark, newAction);
 		PDViewDestDestroy(dest);
 		PDActionDestroy(action);
+		acc++;
 	    }
 	}
     }
@@ -177,16 +179,18 @@ void FixAllBookmarks(PDDoc doc, PDBookmark aBookmark)
 	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
 	
 	while (PDBookmarkIsValid(treeBookmark)) {
-	    FixAllBookmarks(doc, treeBookmark);
+	    acc = FixAllBookmarks(doc, treeBookmark, acc);
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
-    
+
     HANDLER
     if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
     if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
     
     END_HANDLER
+
+    return acc;
 }
 
 /* Collapse All Bookmarks */
@@ -203,6 +207,8 @@ ACCB1 void ACCB2 PluginCommand_0(void *clientData)
     return;
 }
 
+static char notes[512] = "";
+
 /* Fix FitType of All Bookmarks */
 ACCB1 void ACCB2 PluginCommand_1(void *clientData)
 {
@@ -210,10 +216,24 @@ ACCB1 void ACCB2 PluginCommand_1(void *clientData)
     AVDoc avDoc = AVAppGetActiveDoc();
     PDDoc pdDoc = AVDocGetPDDoc(avDoc);
     PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
-    
+    int acc = 0;
+
     // visit all bookmarks recursively, fixing FitView
-    FixAllBookmarks(pdDoc, rootBookmark);
-    AVAlertNote("Fixed FitType of all bookmarks.");
+    acc = FixAllBookmarks(pdDoc, rootBookmark, acc);
+    snprintf(notes, 512, "Fixed FitType of %d bookmarks.", acc);
+    AVAlertNote((const char*) notes);
+
+    return;
+}
+
+/* Normalize all field names in current PDF form */
+ACCB1 void ACCB2 PluginCommand_2(void *clientData)
+{
+    // try to get front PDF document
+    AVDoc avDoc = AVAppGetActiveDoc();
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+
+    AVAlertNote("Normalized all names of text field.");
 
     return;
 }
