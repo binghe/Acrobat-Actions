@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Commands>
-	<Command name="CALS:Preflight" pauseBefore="false" promptUser="true" label="印前检查 (删除 PDF/A)" tooltip="检测并修复问题以获取更高质量的 PDF 文档" ID="AF0AA468711AE67538068F6286911BE">
+	<Command name="CALS:Preflight" pauseBefore="false" promptUser="false" label="印前检查 (删除 PDF/A)" tooltip="印前检查 (删除 PDF/A)" ID="AF0AA468711AE67538068F6286911BE">
 		<Items>
 			<Item name="CALS_PREFLIGHT_CMD_ERR_ACT_TYPE" type="integer" value="0"/>
 			<Item name="CALS_PREFLIGHT_CMD_ERR_EMB_AT" type="integer" value="0"/>
