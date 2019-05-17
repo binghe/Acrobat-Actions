@@ -50,23 +50,6 @@
 			<Component name="FindMoreWorkflows"/>
 			<Component name="CreateNewCustomTool"/>
 			<Component name="ManageCustomTools"/>
-			<Component name="42B1F38372DED58BAA2F9FEE16283CA"/>
-			<Component name="8925E51F83A1BB812CD766AF1AE5060"/>
-			<Component name="B4BEE76136019092EE22F8A2793A236"/>
-			<Component name="01C1B8C484DF05CFFC8F77D18B8DFD4"/>
-			<Component name="084B0E736DFFDB9446178A1752AF8AA"/>
-			<Component name="48B5EC6E2EFC35DA4AEB405DC96760E"/>
-			<Component name="BF4CF7D6413F83EE83E93CC7D065EA2"/>
-			<Component name="B8BF1B4335F0A91176AA13F607AA94D"/>
-			<Component name="7711108067C8CA592F0F6F66D00785B"/>
-			<Component name="6DAA271765B9D1FA935F9A4ED2D2564"/>
-			<Component name="C22168A35CE8A090E2B0017C6E7E38E"/>
-			<Component name="81C22DD0D0B49990A067B6D0C1A630C"/>
-			<Component name="7B6486ABC86F5DB20E5379BC2FC8F46"/>
-			<Component name="B4BEE76136019092EE22F8A2793A236"/>
-			<Component name="BA6A45779F1146ACABEE4AFF3C55FC6"/>
-			<Component name="42B1F38372DED58BAA2F9FEE16283CA"/>
-			<Component name="8925E51F83A1BB812CD766AF1AE5060"/>
 		</Component>
 		<Component label="文本识别">
 			<Component name="Cpt:CapturePages"/>
@@ -215,7 +198,6 @@
 		<Component name="AcroForm:Forms_DistributeForm"/>
 		<Component name="MoreFormOptions"/>
 		<Component name="EXFT_MSPowerPoint"/>
-		<Component name="8925E51F83A1BB812CD766AF1AE5060"/>
 		<Component name="81C22DD0D0B49990A067B6D0C1A630C"/>
 		<Component name="CALS:Preflight"/>
 		<Component name="FlattenerMenuItem"/>

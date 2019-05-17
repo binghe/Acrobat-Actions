@@ -205,7 +205,7 @@
 			buildSettings = {
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
 				INFOPLIST_FILE = ../sources/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Starter;
 				SDKROOT = macosx;
 			};
