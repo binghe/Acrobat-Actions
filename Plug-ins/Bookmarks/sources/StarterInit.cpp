@@ -1,6 +1,6 @@
 /*********************************************************************
 
- Copyright (C) 2018  Chun Tian (binghe)
+ Copyright (C) 2018-2019 Chun Tian (binghe)
  Copyright (C) 1998-2006 Adobe Systems Incorporated
  All rights reserved.
 
@@ -25,6 +25,8 @@
 #endif
 
 #include <cstdio>
+#include <cstring>
+#include <strings.h>
 
 /** 
   Starter is a plug-in template that provides a minimal
@@ -142,11 +144,13 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     PDBookmark treeBookmark;
     PDViewDestination newDest;
     PDAction newAction;
-    
+    ASText title = ASTextNew(); // to be filled by next function
+
     DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(aBookmark)) return acc;
 
+    // Fixing actions
     PDAction action = PDBookmarkGetAction(aBookmark);
     if (PDActionIsValid(action)) {
 	PDViewDestination dest = PDActionGetDest(action);
@@ -174,6 +178,16 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 	}
     }
     
+    // Fixing flags for TOC-related bookmarks
+    PDBookmarkGetTitleASText(aBookmark, title);
+    ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
+    if (strcasestr((const char *)u8, "CONTENTS"))
+    {
+	PDBookmarkSetFlags(aBookmark, 0x2); /* bold font */
+	acc++;
+    }
+    ASfree((void *)u8);
+
     // process children bookmarks
     if (PDBookmarkHasChildren(aBookmark)) {
 	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
@@ -185,6 +199,7 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     }
 
     HANDLER
+    ASTextDestroy(title);
     if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
     if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
     
