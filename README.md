@@ -5,7 +5,9 @@ Actions, Custom Commands, Preflights and Plugins for Adobe® Acrobat® Pro (XI a
 
 ## Compatibility with Adobe® Acrobat®
 
-Use files in "zh-cn" for Acrobat® Pro DC 2015 in Simplified Chinese; use files in "en" for Acrobat® Pro DC 2015 in English. For Acrobat® Pro in other UI languages, some keywords in the actions may have to be changed.  Most of them also work in Acrobat® Pro XI.
+Tested on Acrobat® Pro XI, DC (2015) and DC (2017), both Windows and Mac versions.
+
+Use files in "zh-cn" for Acrobat® Pro DC in Simplified Chinese; use files in "en" for Acrobat® Pro DC in English. For Acrobat® Pro in other UI languages, some keywords in the actions may have to be changed.  Most of them also work in Acrobat® Pro XI.
 
 The (Custom) Commands are new features since DC 2015, as single-step Actions. They're not supported in XI and prior versions.
 
