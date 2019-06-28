@@ -180,13 +180,15 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     
     // Fixing flags for TOC-related bookmarks
     PDBookmarkGetTitleASText(aBookmark, title);
-    ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
-    if (strcasestr((const char *)u8, "CONTENTS"))
-    {
-	PDBookmarkSetFlags(aBookmark, 0x2); /* bold font */
-	acc++;
+    if (!ASTextIsEmpty(title)) {
+	ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
+	if (strcasestr((const char *)u8, "CONTENTS"))
+	{
+	    PDBookmarkSetFlags(aBookmark, 0x2); /* bold font */
+	    acc++;
+	}
+	ASfree((void *)u8);
     }
-    ASfree((void *)u8);
 
     // process children bookmarks
     if (PDBookmarkHasChildren(aBookmark)) {
@@ -222,7 +224,8 @@ ACCB1 void ACCB2 PluginCommand_0(void *clientData)
     return;
 }
 
-static char notes[512] = "";
+#define NOTESIZ 200
+static char notes[NOTESIZ] = "";
 
 /* Fix FitType of All Bookmarks */
 ACCB1 void ACCB2 PluginCommand_1(void *clientData)
@@ -235,7 +238,7 @@ ACCB1 void ACCB2 PluginCommand_1(void *clientData)
 
     // visit all bookmarks recursively, fixing FitView
     acc = FixAllBookmarks(pdDoc, rootBookmark, acc);
-    snprintf(notes, 512, "Fixed FitType of %d bookmarks.", acc);
+    snprintf(notes, NOTESIZ, "Fixed %d bookmarks.", acc);
     AVAlertNote((const char*) notes);
 
     return;
