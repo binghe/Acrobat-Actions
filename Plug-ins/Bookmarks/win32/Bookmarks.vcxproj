@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FF1552A-9D0B-4CAF-B736-669AD950BA51}</ProjectGuid>
+    <WindowsTargetPlatformVersion>
+    </WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</LinkIncremental>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.api</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.api</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>$(IntDir)/Starter.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>%40"..\..\AcroDspOptions.rsp"  %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;WIN_PLATFORM;WIN32;_WINDOWS;WIN_ENV;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <PrecompiledHeaderOutputFile>$(IntDir)/$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/EXPORT:PlugInMain %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy to Acrobat Plug-ins...</Message>
+      <Command>if not "%SDKPIDir%"a == ""a if not exist "%SDKPIDir%" mkdir "%SDKPIDir%"
+if not "%SDKPIDir%"a == ""a copy "$(targetpath)" "%SDKPIDir%"
+if not "%SDKPIDir%"a == ""a echo "$(targetname)" copied to "%SDKPIDir%".
+if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not set.
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>$(IntDir)/Starter.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>%40"..\..\AcroDspOptions.rsp"  %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MinSpace</Optimization>
+      <PreprocessorDefinitions>_DEBUG;WIN_PLATFORM;WIN32;_WINDOWS;WIN_ENV;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <PrecompiledHeaderOutputFile>$(IntDir)/$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/EXPORT:PlugInMain %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy to Acrobat Plug-ins...</Message>
+      <Command>if not "%SDKPIDir%"a == ""a if not exist "%SDKPIDir%" mkdir "%SDKPIDir%"
+if not "%SDKPIDir%"a == ""a copy "$(targetpath)" "%SDKPIDir%"
+if not "%SDKPIDir%"a == ""a echo "$(targetname)" copied to "%SDKPIDir%".
+if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not set.
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c" />
+    <ClCompile Include="..\sources\StarterInit.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_DEBUG;WIN_PLATFORM;WIN32;_WINDOWS;WIN_ENV</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_DEBUG;WIN_PLATFORM;WIN32;_WINDOWS;WIN_ENV</PreprocessorDefinitions>
+      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</BrowseInformation>
+      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</BrowseInformation>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\PluginSupport\Headers\API\acroassert.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroColorVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AcroErr.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AFTTS_Sel.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AF_ExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AF_Sel.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASExtraVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASFileE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASFileEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASGenE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASGenEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASKey.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASNumTypes.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ASRaiseAware.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVExpTObsolete1.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVExpTObsolete2.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVPrefsD.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\AVVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\cathft.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\catprocs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CAVAlert.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ConsObTp.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CorCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CoreExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CorProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosGenE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosGenEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosSynE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\CosSynEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\DigSigHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\DigSigHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\DirectoryHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\EncConvE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Environ.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\EReturnValidator.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FontSvrE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FontSvrEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FormsHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\FormsHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\HFTLibrary.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Library.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\NSelExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PageE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PageEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PagePDECntCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBasicExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBatesCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBatesExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDBatesProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDClassDefs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDClasses.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDDocE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDDocEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDFErrorCodes.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDFXE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDFXEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataError.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataErrorASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataHFTVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDMetadataProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDModE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDModEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDPageE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDPageEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSError.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSErrorASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSReadCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSReadHFTVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSReadProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSWriteCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSWriteHFTVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSWriteProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSysFont.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSysFontExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PDSysFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEError.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEErrorASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PERCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PERProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PETypes.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEVers.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEWCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PEWProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PgCntProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PICommon.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PICrypt.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIExcept.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIMain.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIPokes.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIPrefix.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIRequir.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PIVersn.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Plugin.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PSFCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PSFProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PubSecHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\PubSecHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\RasterE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\RasterEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SmartPDPage.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SpellerHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SpellerHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\Speller_Sel.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchClls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchPrcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\SrchType.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ToolkitInitE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\ToolkitInitEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\TtsHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\TtsHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WinCalls.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WinExpT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WinPltfm.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\winprocs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WLHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\WLHFTProcs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\XtnMgrE.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\API\XtnMgrEASF.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\SDK\AVCmdDefs.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\SDK\DebugWindowHFT.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\SDK\PIHeaders.h" />
+    <ClInclude Include="..\..\PluginSupport\Headers\SDK\WinPIHeaders.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
