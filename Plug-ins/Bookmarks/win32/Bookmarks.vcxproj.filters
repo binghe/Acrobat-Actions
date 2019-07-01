@@ -7,6 +7,9 @@
     <ClCompile Include="..\sources\StarterInit.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\sources\strcasestr.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Sources">
@@ -17,6 +20,9 @@
     </Filter>
     <Filter Include="SDK Headers">
       <UniqueIdentifier>{612f5423-205f-4197-baa6-b27c96fe5cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{102fba58-719b-4ae7-be37-e33f4eb08952}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -466,6 +472,12 @@
     </ClInclude>
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\WinPIHeaders.h">
       <Filter>SDK Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\strcasestr.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\common-config.h">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

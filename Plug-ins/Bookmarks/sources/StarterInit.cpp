@@ -26,7 +26,16 @@
 
 #include <cstdio>
 #include <cstring>
+
+#include "common-config.h"
+
+#ifdef Platform_Windows
+extern "C" {
+#include "strcasestr.h"
+}
+#else
 #include <strings.h>
+#endif
 
 /** 
   Starter is a plug-in template that provides a minimal

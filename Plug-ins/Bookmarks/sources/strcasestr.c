@@ -34,9 +34,14 @@
 #include <ctype.h>
 #include <string.h>
 
+#ifdef _MSC_VER 
+// not #if defined(_WIN32) || defined(_WIN64) because we have strncasecmp in mingw
+#define strncasecmp _strnicmp
+#define strcasecmp _stricmp
+#endif
+
 char *
-strcasestr(s, find)
-const char *s, *find;
+strcasestr(const char *s, const char *find)
 {
     char c, sc;
     size_t len;
@@ -56,10 +61,7 @@ const char *s, *find;
 }
 
 char *
-strncasestr(s, find, slen)
-const char *s;
-const char *find;
-size_t slen;
+strncasestr(const char *s, const char *find, size_t slen)
 {
     char c, sc;
     size_t len;
