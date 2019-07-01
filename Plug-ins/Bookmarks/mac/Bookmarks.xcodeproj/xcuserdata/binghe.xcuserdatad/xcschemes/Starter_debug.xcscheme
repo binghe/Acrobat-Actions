@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8D01CCC60486CAD60068D4B7"
-               BuildableName = "Starter.acroplugin"
+               BuildableName = "Bookmarks.acroplugin"
                BlueprintName = "Starter_debug"
-               ReferencedContainer = "container:Starter.xcodeproj">
+               ReferencedContainer = "container:Bookmarks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D01CCC60486CAD60068D4B7"
-            BuildableName = "Starter.acroplugin"
+            BuildableName = "Bookmarks.acroplugin"
             BlueprintName = "Starter_debug"
-            ReferencedContainer = "container:Starter.xcodeproj">
+            ReferencedContainer = "container:Bookmarks.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D01CCC60486CAD60068D4B7"
-            BuildableName = "Starter.acroplugin"
+            BuildableName = "Bookmarks.acroplugin"
             BlueprintName = "Starter_debug"
-            ReferencedContainer = "container:Starter.xcodeproj">
+            ReferencedContainer = "container:Bookmarks.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

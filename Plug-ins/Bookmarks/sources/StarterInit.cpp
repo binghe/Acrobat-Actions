@@ -182,7 +182,8 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     PDBookmarkGetTitleASText(aBookmark, title);
     if (!ASTextIsEmpty(title)) {
 	ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
-	if (strcasestr((const char *)u8, "CONTENTS"))
+	if (strcasestr((const char *)u8, "CONTENTS") ||
+	    strcasestr((const char *)u8, "Inhalt")) // German "TOC"
 	{
 	    PDBookmarkSetFlags(aBookmark, 0x2); /* bold font */
 	    acc++;
@@ -363,7 +364,7 @@ ACCB1 ASBool ACCB2 PluginUnload(void)
 */
 ASAtom GetExtensionName()
 {
-    return ASAtomFromString("CHUN:Starter");
+    return ASAtomFromString("CHUN:Bookmarks");
 }
 
 /** PIHandshake

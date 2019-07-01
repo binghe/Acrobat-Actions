@@ -5,23 +5,23 @@
 	<key>CFBundleExecutable</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0, ¬©2018-2019 Chun Tian (binghe). All rights reserved.</string>
+	<string>1.1, ¬©2018-2019 Chun Tian (binghe). All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.github.binghe.$(PRODUCT_NAME)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>9.0</string>
 	<key>CFBundleLongVersionString</key>
-	<string>1.0, Copyright 2018-2019 Chun Tian (binghe). All rights reserved.</string>
+	<string>1.1, Copyright 2018-2019 Chun Tian (binghe). All rights reserved.</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME).$(WRAPPER_EXTENSION)</string>
 	<key>CFBundlePackageType</key>
 	<string>XTND</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(PRODUCT_NAME) version 1.0</string>
+	<string>$(PRODUCT_NAME) version 1.1</string>
 	<key>CFBundleSignature</key>
 	<string>CARO</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>MainEntryPointV2</key>
