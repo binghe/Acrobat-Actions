@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="页面缩小到 A4" description="页面缩小到 A4" majorVersion="1" minorVersion="0">
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="页面调整到 A4" description="页面调整到 A4" majorVersion="1" minorVersion="0">
 	<Group label="PDF 压缩">
 		<Command name="CALS:Preflight" pauseBefore="false" promptUser="false">
 			<Items>
@@ -16,22 +16,6 @@
 				<Item name="CALS_PREFLIGHT_CMD_SUC_EMB_AT" type="integer" value="0"/>
 				<Item name="CALS_PREFLIGHT_CMD_SUC_FOLDER" type="text" value=""/>
 				<Item name="CALS_PREFLIGHT_CMD_SUC_REP_TYPE" type="integer" value="0"/>
-			</Items>
-		</Command>
-		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false">
-			<Items>
-				<Item name="AddToBaseName" type="boolean" value="true"/>
-				<Item name="DocSaveDestType" type="string" value="WorkflowPlaybackSave"/>
-				<Item name="DontOverwrite" type="boolean" value="true"/>
-				<Item name="EmbedIndex" type="boolean" value="false"/>
-				<Item name="FileVariation" type="integer" value="0"/>
-				<Item name="HandleOutput" type="boolean" value="true"/>
-				<Item name="InsertAfterBaseName" type="text" value="a4"/>
-				<Item name="InsertBeforeBaseName" type="text" value=""/>
-				<Item name="NumbericNaming" type="boolean" value="false"/>
-				<Item name="OptimizePDF" type="boolean" value="true"/>
-				<Item name="PresetName" type="text" value="标准"/>
-				<Item name="RunPDFOptimizer" type="boolean" value="false"/>
 			</Items>
 		</Command>
 	</Group>
