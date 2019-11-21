@@ -47,7 +47,7 @@ extern "C" {
 	Constants/Declarations
  -------------------------------------------------------*/
 static AVMenuItem topMenuItem = NULL;
-static AVMenuItem menuItem[2] = {NULL, NULL};
+static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
 static AVMenu subMenu = NULL;
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
@@ -120,15 +120,12 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
 void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark)
 {
     PDBookmark treeBookmark;
-    PDViewDestination newDest;
-    PDAction newAction;
 
 DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID;
 
-    // process the bookmark here:
-    // 1. collapse current bookmark
+    // collapse the current bookmark
     if (PDBookmarkIsOpen(aBookmark)) PDBookmarkSetOpen(aBookmark, false);
 
     // process children bookmarks
@@ -140,11 +137,8 @@ DURING
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
-    
+
 HANDLER
-    if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
-    if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
-    
 END_HANDLER
 }
 
@@ -153,9 +147,9 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     PDBookmark treeBookmark;
     PDViewDestination newDest;
     PDAction newAction;
-    ASText title = ASTextNew(); // to be filled by next function
+    ASText title = ASTextNew(); // to be filled by PDBookmarkGetTitleASText()
 
-    DURING
+DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(aBookmark)) return acc;
 
@@ -186,7 +180,7 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 	    }
 	}
     }
-    
+
     // Fixing flags for TOC-related bookmarks
     PDBookmarkGetTitleASText(aBookmark, title);
     if (!ASTextIsEmpty(title)) {
@@ -199,6 +193,7 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 	}
 	ASfree((void *)u8);
     }
+    ASTextDestroy(title);
 
     // process children bookmarks
     if (PDBookmarkHasChildren(aBookmark)) {
@@ -210,13 +205,118 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 	}
     }
 
-    HANDLER
-    ASTextDestroy(title);
+HANDLER
     if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
     if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
-    
-    END_HANDLER
+END_HANDLER
 
+    return acc;
+}
+
+int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
+{
+    PDBookmark treeBookmark;
+    PDViewDestination newDest;
+    PDAction newAction;
+    ASText oldTitle = ASTextNew(); // to be filled by PDBookmarkGetTitleASText()
+
+DURING
+    // ensure that the bookmark is valid
+    if (!PDBookmarkIsValid(b)) return acc;
+
+    // change bookmark title
+    PDBookmarkGetTitleASText(b, oldTitle);
+    if (!ASTextIsEmpty(oldTitle)) {
+	// (const char *)str is now available
+	ASUTF16Val *u8 = ASTextGetUnicodeCopy(oldTitle, kUTF8);
+	// AVAlertNote((const char*) str);
+	char *str = (char *) u8;
+	size_t len = strlen((const char*)str);
+	
+	// 1st round: all letters to small cases
+	for (int i = 0; i < len; ++i) {
+	    // capitalize the current letter and turn off the flag
+	    if (str[i] >= 'A' && str[i] <= 'z') {
+		str[i] = tolower((const char) str[i]);
+	    }
+	}
+
+	// A flag to decide if the current letter should be capitalized
+	// initially it's always true;
+	bool flag = true;
+	bool strong_flag = false;
+	bool exception = false;
+
+	// 2nd round: selective capitalization
+	for (int i = 0; i < len; ++i) {
+	    // capitalize the current letter and turn off the flag
+	    if (str[i] >= 'A' && str[i] <= 'z') {
+		// calculate exceptions
+		if (0 != i &&
+		    ((str[i] == 'o' && str[i+1] == 'v' && str[i+2] == 'e' &&
+		      str[i+3] == 'r' && str[i+4] == ' ') ||
+		     (str[i] == 'a' && str[i+1] == 'n' && str[i+2] == 'd' &&
+		      str[i+3] == ' ') ||
+		     (str[i] == 'f' && str[i+1] == 'o' && str[i+2] == 'r' &&
+		      str[i+3] == ' ') ||
+		     (str[i] == 't' && str[i+1] == 'h' && str[i+2] == 'e' &&
+		      str[i+3] == ' ') ||
+		     (str[i] == 'i' && str[i+1] == 'n' && str[i+2] == ' ') ||
+		     (str[i] == 'o' && str[i+1] == 'n' && str[i+2] == ' ') ||
+		     (str[i] == 'o' && str[i+1] == 'f' && str[i+2] == ' ') ||
+		     (str[i] == 'a' && str[i+1] == 't' && str[i+2] == ' ') ||
+		     (str[i] == 'a' && str[i+1] == 'n' && str[i+2] == ' ') ||
+		     (str[i] == 'a' && str[i+1] == ' ') ||
+		     false)) {
+		    exception = true; // used only once below, then reset
+		}
+
+		if (flag || strong_flag) {
+		    if (!exception) {
+			str[i] = toupper((const char) str[i]);
+		    }
+		    
+		    /* Exception 2: capitalize all roman numerals & abbrevs */
+		    if ((str[i] == 'I' && str[i+1] == 'i') ||
+			(str[i] == 'I' && str[i+1] == 'v') ||
+			(str[i] == 'G' && str[i+1] == 'c' && str[i+2] == 'h' &&
+			 str[i+3] == ' ') ||
+			false) {
+			strong_flag = true; // effective until next space
+		    } else {
+			flag = false;
+		    }
+		}
+		exception = false;
+	    }
+
+	    if (' ' == str[i]) {
+		flag = true;
+		strong_flag = false;
+	    }
+	}
+	// AVAlertNote((const char*) str);
+
+	ASText newTitle = ASTextFromUnicode(u8, kUTF8);
+	ASfree((void *)u8);
+	PDBookmarkSetTitleASText(b, newTitle);
+	ASTextDestroy(newTitle);
+	++acc;
+    }
+    ASTextDestroy(oldTitle);
+
+    // process children bookmarks
+    if (PDBookmarkHasChildren(b)) {
+	treeBookmark = PDBookmarkGetFirstChild(b);
+	
+	while (PDBookmarkIsValid(treeBookmark)) {
+	    acc = CapitalizeAllBookmarks(doc, treeBookmark, acc);
+	    treeBookmark = PDBookmarkGetNext(treeBookmark);
+	}
+    }
+
+HANDLER
+END_HANDLER
     return acc;
 }
 
@@ -237,7 +337,7 @@ ACCB1 void ACCB2 PluginCommand_0(void *clientData)
 #define NOTESIZ 200
 static char notes[NOTESIZ] = "";
 
-/* Fix FitType of All Bookmarks */
+/* Fix FitType of all Bookmarks */
 ACCB1 void ACCB2 PluginCommand_1(void *clientData)
 {
     // try to get front PDF document
@@ -248,20 +348,25 @@ ACCB1 void ACCB2 PluginCommand_1(void *clientData)
 
     // visit all bookmarks recursively, fixing FitView
     acc = FixAllBookmarks(pdDoc, rootBookmark, acc);
-    snprintf(notes, NOTESIZ, "Fixed %d bookmarks.", acc);
+    snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
     AVAlertNote((const char*) notes);
 
     return;
 }
 
-/* Normalize all field names in current PDF form */
+/* Capitalize all Bookmarks */
 ACCB1 void ACCB2 PluginCommand_2(void *clientData)
 {
     // try to get front PDF document
     AVDoc avDoc = AVAppGetActiveDoc();
     PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
+    int acc = 0;
 
-    AVAlertNote("Normalized all names of text field.");
+    // visit all bookmarks recursively, capitalizing them
+    acc = CapitalizeAllBookmarks(pdDoc, rootBookmark, acc);
+    snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+    AVAlertNote((const char*) notes);
 
     return;
 }
@@ -288,18 +393,19 @@ DURING
 				subMenu, true, NO_SHORTCUT, 0, NULL,
 				gExtensionID);
     // Command 0
-    menuItem[0] = AVMenuItemNew("Collapse All Bookmarks", "CHUN:Collapse_Bookmarks",
+    menuItem[0] = AVMenuItemNew("Collapse All Bookmarks", "CHUN:Col_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
 				NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
       (menuItem[0], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
-    
+
     AVMenuItemSetComputeEnabledProc
       (menuItem[0], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
        (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[0], APPEND_MENUITEM);
+
     // Command 1
     menuItem[1] = AVMenuItemNew("Fix FitType of All Bookmarks", "CHUN:Fix_Bookmarks",
 				NULL, /* submenu */
@@ -308,12 +414,26 @@ DURING
 				NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
       (menuItem[1], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
-    
+
     AVMenuItemSetComputeEnabledProc
       (menuItem[1], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
        (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[1], APPEND_MENUITEM);
-    
+
+    // Command 2
+    menuItem[2] = AVMenuItemNew("Capitalize All Bookmarks", "CHUN:Cap_Bookmarks",
+				NULL, /* submenu */
+				true, /* longMenusOnly */
+				NO_SHORTCUT, 0 /* flags */,
+				NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+    (menuItem[2], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
+
+    AVMenuItemSetComputeEnabledProc
+    (menuItem[2], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+     (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[2], APPEND_MENUITEM);
+
     /* Acquire() needs a Release() */
     commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
     // if "Extensions" menu doesn't exist, create one.
@@ -321,7 +441,7 @@ DURING
 	commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
 	AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
     }
-    
+
     AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
     AVMenuRelease(commonMenu);
     
