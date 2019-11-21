@@ -157,6 +157,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c" />
+    <ClCompile Include="..\sources\Functions.cpp" />
     <ClCompile Include="..\sources\StarterInit.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
@@ -318,6 +319,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\PIHeaders.h" />
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\WinPIHeaders.h" />
     <ClInclude Include="..\sources\common-config.h" />
+    <ClInclude Include="..\sources\Functions.hpp" />
     <ClInclude Include="..\sources\strcasestr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
