@@ -182,46 +182,49 @@ DURING
 				subMenu, true, NO_SHORTCUT, 0, NULL,
 				gExtensionID);
     // Command 0
-    menuItem[0] = AVMenuItemNew("Collapse All Bookmarks", "CHUN:Col_Bookmarks",
+    int i = 0;
+    menuItem[i] = AVMenuItemNew("Collapse All Bookmarks", "CHUN:Col_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
 				NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-      (menuItem[0], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
+      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
 
     AVMenuItemSetComputeEnabledProc
-      (menuItem[0], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
        (void *)pdPermEdit);
-    AVMenuAddMenuItem(subMenu, menuItem[0], APPEND_MENUITEM);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
     // Command 1
-    menuItem[1] = AVMenuItemNew("Fix FitType of All Bookmarks", "CHUN:Fix_Bookmarks",
+    i++;
+    menuItem[i] = AVMenuItemNew("Capitalize All Bookmarks", "CHUN:Cap_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
 				NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-      (menuItem[1], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
+    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
 
     AVMenuItemSetComputeEnabledProc
-      (menuItem[1], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
-       (void *)pdPermEdit);
-    AVMenuAddMenuItem(subMenu, menuItem[1], APPEND_MENUITEM);
+    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+     (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
     // Command 2
-    menuItem[2] = AVMenuItemNew("Capitalize All Bookmarks", "CHUN:Cap_Bookmarks",
+    i++;
+    menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "CHUN:Fix_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
 				NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-    (menuItem[2], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
-
+    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
+    
     AVMenuItemSetComputeEnabledProc
-    (menuItem[2], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
      (void *)pdPermEdit);
-    AVMenuAddMenuItem(subMenu, menuItem[2], APPEND_MENUITEM);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
     /* Acquire() needs a Release() */
     commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
