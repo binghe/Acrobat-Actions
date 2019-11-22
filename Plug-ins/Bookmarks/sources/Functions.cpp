@@ -23,44 +23,44 @@ extern "C" {
 #include <strings.h>
 #endif
 
-void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark)
+void VisitAllBookmarks(PDDoc doc, PDBookmark b)
 {
     PDBookmark treeBookmark;
     
-    DURING
+DURING
     // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(aBookmark)) E_RTRN_VOID;
+    if (!PDBookmarkIsValid(b)) E_RTRN_VOID;
     
     // collapse the current bookmark
-    if (PDBookmarkIsOpen(aBookmark)) PDBookmarkSetOpen(aBookmark, false);
+    if (PDBookmarkIsOpen(b)) PDBookmarkSetOpen(b, false);
     
     // process children bookmarks
-    if (PDBookmarkHasChildren(aBookmark)) {
-	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
+    if (PDBookmarkHasChildren(b)) {
+	treeBookmark = PDBookmarkGetFirstChild(b);
 	
 	while (PDBookmarkIsValid(treeBookmark)) {
 	    VisitAllBookmarks(doc, treeBookmark);
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
-    
-    HANDLER
-    END_HANDLER
+
+HANDLER
+END_HANDLER
 }
 
-int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
+int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 {
     PDBookmark treeBookmark;
     PDViewDestination newDest;
     PDAction newAction;
     ASText title = ASTextNew(); // to be filled by PDBookmarkGetTitleASText()
     
-    DURING
+DURING
     // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(aBookmark)) return acc;
+    if (!PDBookmarkIsValid(b)) return acc;
     
     // Fixing actions
-    PDAction action = PDBookmarkGetAction(aBookmark);
+    PDAction action = PDBookmarkGetAction(b);
     if (PDActionIsValid(action)) {
 	PDViewDestination dest = PDActionGetDest(action);
 	if (PDViewDestIsValid(dest)) {
@@ -79,7 +79,7 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 				 PDViewDestNULL,  /* when FitType is XYZ */
 				 0);		    /* unused */
 		newAction = PDActionNewFromDest(doc, newDest, doc);
-		PDBookmarkSetAction(aBookmark, newAction);
+		PDBookmarkSetAction(b, newAction);
 		PDViewDestDestroy(dest);
 		PDActionDestroy(action);
 		acc++;
@@ -88,13 +88,13 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     }
     
     // Fixing flags for TOC-related bookmarks
-    PDBookmarkGetTitleASText(aBookmark, title);
+    PDBookmarkGetTitleASText(b, title);
     if (!ASTextIsEmpty(title)) {
 	ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
 	if (strcasestr((const char *)u8, "CONTENTS") ||
 	    strcasestr((const char *)u8, "Inhalt")) // German "TOC"
 	{
-	    PDBookmarkSetFlags(aBookmark, 0x2); /* bold font */
+	    PDBookmarkSetFlags(b, 0x2); /* bold font */
 	    acc++;
 	}
 	ASfree((void *)u8);
@@ -102,8 +102,8 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
     ASTextDestroy(title);
     
     // process children bookmarks
-    if (PDBookmarkHasChildren(aBookmark)) {
-	treeBookmark = PDBookmarkGetFirstChild(aBookmark);
+    if (PDBookmarkHasChildren(b)) {
+	treeBookmark = PDBookmarkGetFirstChild(b);
 	
 	while (PDBookmarkIsValid(treeBookmark)) {
 	    acc = FixAllBookmarks(doc, treeBookmark, acc);
@@ -111,11 +111,10 @@ int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc)
 	}
     }
     
-    HANDLER
+HANDLER
     if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
     if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
-    END_HANDLER
-    
+END_HANDLER
     return acc;
 }
 
@@ -126,7 +125,7 @@ int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
     PDAction newAction;
     ASText oldTitle = ASTextNew(); // to be filled by PDBookmarkGetTitleASText()
     
-    DURING
+DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(b)) return acc;
     
@@ -159,7 +158,7 @@ int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 	    if (str[i] >= 'A' && str[i] <= 'z') {
 		// calculate exceptions
 		if (0 != i &&
-		    ((str[i] == 'o' && str[i+1] == 'v' && str[i+2] == 'e' &&
+		    (('o' == str[i] && str[i+1] == 'v' && str[i+2] == 'e' &&
 		      str[i+3] == 'r' && str[i+4] == ' ') ||
 		     (str[i] == 'a' && str[i+1] == 'n' && str[i+2] == 'd' &&
 		      str[i+3] == ' ') ||
@@ -194,7 +193,7 @@ int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 		}
 		exception = false;
 	    }
-	    
+
 	    if (' ' == str[i]) {
 		flag = true;
 		strong_flag = false;
@@ -222,8 +221,8 @@ int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 	}
     }
     
-    HANDLER
-    END_HANDLER
+HANDLER
+END_HANDLER
     return acc;
 }
 

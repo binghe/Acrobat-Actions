@@ -9,8 +9,8 @@
 #ifndef Functions_hpp
 #define Functions_hpp
 
-void VisitAllBookmarks(PDDoc doc, PDBookmark aBookmark);
-int FixAllBookmarks(PDDoc doc, PDBookmark aBookmark, int acc);
+void VisitAllBookmarks(PDDoc doc, PDBookmark b);
+int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc);
 int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc);
 
 #endif /* Functions_hpp */
