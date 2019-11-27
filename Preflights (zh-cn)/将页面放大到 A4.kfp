@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pdfpreflight version="13.0">
+	<package>
+		<id3>3b359f017c0857b3299d232765dfe291</id3>
+		<pdfxoutintentlist>
+		</pdfxoutintentlist>
+		<iccprofilelist>
+		</iccprofilelist>
+		<ccpolicies>
+		</ccpolicies>
+		<occdsetups>
+		</occdsetups>
+		<curves>
+		</curves>
+		<fspolicies>
+		</fspolicies>
+		<resources>
+		</resources>
+		<conditions>
+		</conditions>
+		<rules>
+		</rules>
+		<rulesets>
+		</rulesets>
+		<fixups>
+			<fixup>
+				<id1>F90d0b2c41267288909324cf21303fb7d</id1>
+				<id2>F963073bb1dc6bcd438a26b4a8f96fd80</id2>
+				<id3>bbbaed851cdc902b939223713b784431</id3>
+				<id4>c4764083f12d619f342a317cd5ee6a23</id4>
+				<name>将页面放大到 A4</name>
+				<comment>将 PDF 的所有页面按比例放大到 A4（从内部适合）</comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<fcfg>ScalePagesEx&#9;210&#9;297&#9;mm&#9;FitFromInsideProp&#9;All&#10;&#10;</fcfg>
+				<reportFailed></reportFailed>
+			</fixup>
+		</fixups>
+		<fixupsets>
+			<fixupset>
+				<id1>U654a5df3415ef782355cca5f90e144e8</id1>
+				<id2>U5a16c390fc5b922e8ec1e747ed4d82ba</id2>
+				<id3>8d9ef0d1865885775dff4d7696a9b2a9</id3>
+				<id4>aaf294025aaabf3b8042a0fa27fb3f26</id4>
+				<name>UUUU_FIXUPSET_DEF_NAME</name>
+				<comment>UUUU_FIXUPSET_DEF_NAME</comment>
+				<flags edit="1" visible="1" dict="1"></flags>
+				<fixups>
+					<fixup>F90d0b2c41267288909324cf21303fb7d</fixup>
+				</fixups>
+			</fixupset>
+		</fixupsets>
+		<actions>
+		</actions>
+		<profiles>
+			<profile>
+				<id1>P0393bd45883603797e3d5410b94531c5</id1>
+				<id2>Pae9486de7cea9fb06ca0d27161638c3a</id2>
+				<id3>56ef982b6f41cc4934a383e855023873</id3>
+				<id4>15fe4aa89764d6610ee65573dbeb7160</id4>
+				<name>将页面放大到 A4</name>
+				<comment>将 PDF 的所有页面按比例放大到 A4</comment>
+				<flags edit="1" visible="1"></flags>
+				<metalist>
+					<metadata>
+						<metakey>author</metakey>
+						<metavalue>Chun Tian</metavalue>
+					</metadata>
+					<metadata>
+						<metakey>email</metakey>
+						<metavalue>binghe.lisp@gmail.com</metavalue>
+					</metadata>
+				</metalist>
+				<creation>D:20091022080156+01&apos;00&apos;</creation>
+				<modification>D:20191127153854+01&apos;00&apos;</modification>
+				<pdfstd>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond></outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+				</pdfstd>
+				<pdfstdemb>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond></outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+					<afrelationship set_relationship="0"></afrelationship>
+				</pdfstdemb>
+				<wizard>
+				</wizard>
+				<rulesets>
+				</rulesets>
+				<fixupsets>
+					<fixupset>U654a5df3415ef782355cca5f90e144e8</fixupset>
+				</fixupsets>
+			</profile>
+		</profiles>
+		<metaprofs>
+		</metaprofs>
+		<profgroups>
+		</profgroups>
+	</package>
+</pdfpreflight>

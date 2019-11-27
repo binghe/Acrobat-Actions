@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="压缩 PDF 图片（另存为）" description="强力压缩 PDF 里的图片，然后另存为 PDF。最低版本要求：Acrobat Pro 2015" majorVersion="1" minorVersion="0">
+	<Group label="PDF 压缩">
+		<Command name="CALS:Preflight" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_ACT_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_EMB_AT" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_FOLDER" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_ERR_REP_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_OMIT_FIXUPS" type="boolean" value="false"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_DICTKEY" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_FINGERPRINT" type="text" value="P86ae94d678faf382765820569b93d63c"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_NAME" type="text" value="将页面缩小到 A4"/>
+				<Item name="CALS_PREFLIGHT_CMD_REP_DISPLAY" type="boolean" value="false"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_ACT_TYPE" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_EMB_AT" type="integer" value="0"/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_FOLDER" type="text" value=""/>
+				<Item name="CALS_PREFLIGHT_CMD_SUC_REP_TYPE" type="integer" value="0"/>
+			</Items>
+		</Command>
+		<Command name="Scan:OPT" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="ApplyMRC" type="boolean" value="true"/>
+				<Item name="BkgrRemove" type="integer" value="0"/>
+				<Item name="ColorCompression" type="integer" value="4"/>
+				<Item name="Descreen" type="boolean" value="false"/>
+				<Item name="Deskew" type="boolean" value="false"/>
+				<Item name="Format" type="integer" value="1"/>
+				<Item name="Language" type="integer" value="-1"/>
+				<Item name="MonoCompression" type="integer" value="5"/>
+				<Item name="QualityLevel" type="integer" value="1"/>
+				<Item name="TextSharpen" type="integer" value="1"/>
+				<Item name="doOCR" type="boolean" value="false"/>
+			</Items>
+		</Command>
+	</Group>
+	<Group label="后期处理">
+		<Command name="OpenInfo" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="CenterWindow" type="boolean" value="false"/>
+				<Item name="DisplayDocTitle" type="boolean" value="true"/>
+				<Item name="FitWindow" type="boolean" value="false"/>
+				<Item name="FullScreen" type="boolean" value="false"/>
+				<Item name="HideMenubar" type="boolean" value="false"/>
+				<Item name="HideToolbar" type="boolean" value="false"/>
+				<Item name="HideWindowUI" type="boolean" value="false"/>
+				<Items name="LeaveAsIs">
+					<Item name="CenterWindow" type="boolean" value="true"/>
+					<Item name="FitWindow" type="boolean" value="true"/>
+					<Item name="FullScreen" type="boolean" value="true"/>
+					<Item name="HideMenubar" type="boolean" value="true"/>
+					<Item name="HideToolbar" type="boolean" value="true"/>
+					<Item name="HideWindowUI" type="boolean" value="true"/>
+					<Item name="PageMode" type="boolean" value="true"/>
+				</Items>
+				<Item name="Magnification" type="text" value="适合可见"/>
+				<Item name="PageLayout" type="integer" value="1"/>
+				<Item name="PageMode" type="integer" value="1"/>
+				<Item name="PageNum" type="text" value="1"/>
+				<Item name="ResetDest" type="boolean" value="true"/>
+			</Items>
+		</Command>
+		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false">
+			<Items>
+				<Item name="AddToBaseName" type="boolean" value="true"/>
+				<Item name="DocSaveDestType" type="string" value="WorkflowPlaybackSaveAs"/>
+				<Item name="DontOverwrite" type="boolean" value="true"/>
+				<Item name="EmbedIndex" type="boolean" value="false"/>
+				<Item name="FileVariation" type="integer" value="0"/>
+				<Item name="HandleOutput" type="boolean" value="true"/>
+				<Item name="HandlerUniqueID" type="string" value="com.callas.preflight.pdfa"/>
+				<Item name="InsertAfterBaseName" type="text" value="_c"/>
+				<Item name="InsertBeforeBaseName" type="text" value=""/>
+				<Item name="NumbericNaming" type="boolean" value="false"/>
+				<Item name="OptimizePDF" type="boolean" value="true"/>
+				<Item name="PresetName" type="text" value="Acrobat 10.0"/>
+				<Item name="RunPDFOptimizer" type="boolean" value="true"/>
+			</Items>
+		</Command>
+	</Group>
+</Workflow>
