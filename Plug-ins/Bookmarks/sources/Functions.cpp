@@ -147,17 +147,19 @@ DURING
 	}
 	
 	// A flag to decide if the current letter should be capitalized
-	// initially it's always true;
-	bool flag = true;
+	// initially it's always true:
+	bool weak_flag = true;
+	// Another flag to decide if the next letter should be capitalized:
 	bool strong_flag = false;
 	bool exception = false;
-	
+	bool new_sentence = true;
+
 	// 2nd round: selective capitalization
 	for (int i = 0; i < len; ++i) {
 	    // capitalize the current letter and turn off the flag
 	    if (str[i] >= 'A' && str[i] <= 'z') {
 		// calculate exceptions
-		if (0 != i &&
+		if (!new_sentence &&
 		    (('o' == str[i] && str[i+1] == 'v' && str[i+2] == 'e' &&
 		      str[i+3] == 'r' && str[i+4] == ' ') ||
 		     (str[i] == 'a' && str[i+1] == 'n' && str[i+2] == 'd' &&
@@ -175,12 +177,12 @@ DURING
 		     false)) {
 			exception = true; // used only once below, then reset
 		    }
-		
-		if (flag || strong_flag) {
+
+		if (weak_flag || strong_flag) {
 		    if (!exception) {
 			str[i] = toupper((const char) str[i]);
 		    }
-		    /* Exception 2: capitalize all roman numerals & abbrevs */
+		    // Exception 2: capitalize all roman numerals & abbrevs
 		    if ((str[i] == 'I' && str[i+1] == 'i') ||
 			(str[i] == 'I' && str[i+1] == 'v') ||
 			(str[i] == 'G' && str[i+1] == 'c' && str[i+2] == 'h' &&
@@ -188,19 +190,24 @@ DURING
 			false) {
 			strong_flag = true; // effective until next space
 		    } else {
-			flag = false;
+			weak_flag = false;
 		    }
 		}
 		exception = false;
 	    }
-
+	    
+	    // capitalize next letter after a space (in general)
 	    if (' ' == str[i]) {
-		flag = true;
+		weak_flag = true;
 		strong_flag = false;
+	    } else if ('.' == str[i]) {
+		new_sentence = true;
+	    } else {
+		new_sentence = false;
 	    }
 	}
 	// AVAlertNote((const char*) str);
-	
+
 	ASText newTitle = ASTextFromUnicode(u8, kUTF8);
 	ASfree((void *)u8);
 	if (!ASTextEqual(oldTitle, newTitle)) {
