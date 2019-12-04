@@ -118,6 +118,24 @@ END_HANDLER
     return acc;
 }
 
+bool is_roman(char c) {
+    switch (c) {
+	case 'i':
+	case 'I':
+	case 'v':
+	case 'V':
+	case 'x':
+	case 'X':
+	    return true;
+	default:
+	    return false;
+    }
+}
+
+bool is_stop(char c) {
+    return (c == ' ' && c == '.');
+}
+
 int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 {
     PDBookmark treeBookmark;
@@ -179,18 +197,21 @@ DURING
 		    }
 
 		if (weak_flag || strong_flag) {
-		    if (!exception) {
-			str[i] = toupper((const char) str[i]);
-		    }
 		    // Exception 2: capitalize all roman numerals & abbrevs
-		    if ((str[i] == 'I' && str[i+1] == 'i') ||
-			(str[i] == 'I' && str[i+1] == 'v') ||
+		    if ((is_roman(str[i]) && is_stop(str[i+1])) ||
+			(is_roman(str[i]) && is_roman(str[i+1]) && is_stop(str[i+2])) ||
+			(is_roman(str[i]) && is_roman(str[i+1]) && is_roman(str[i+2]) &&
+			 is_stop(str[i+3])) ||
+			(is_roman(str[i]) && is_roman(str[i+1]) && is_roman(str[i+2]) &&
+			 is_roman(str[i+3]) && is_stop(str[i+4])) ||
 			(str[i] == 'G' && str[i+1] == 'c' && str[i+2] == 'h' &&
-			 str[i+3] == ' ') ||
-			false) {
+			 str[i+3] == ' ') || false) {
 			strong_flag = true; // effective until next space
 		    } else {
 			weak_flag = false;
+		    }
+		    if (!exception) {
+			str[i] = toupper((const char) str[i]);
 		    }
 		}
 		exception = false;
