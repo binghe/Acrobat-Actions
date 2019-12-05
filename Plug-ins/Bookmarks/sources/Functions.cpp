@@ -57,8 +57,8 @@ int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc)
     
 DURING
     // ensure that the bookmark is valid
-	if (!PDBookmarkIsValid(b)) { DO_RETURN(acc); }
-    
+    if (!PDBookmarkIsValid(b)) return acc;
+
     // Fixing actions
     PDAction action = PDBookmarkGetAction(b);
     if (PDActionIsValid(action)) {
@@ -145,7 +145,7 @@ int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
     
 DURING
     // ensure that the bookmark is valid
-	if (!PDBookmarkIsValid(b)) { DO_RETURN(acc); }
+    if (!PDBookmarkIsValid(b)) return acc;
 
     // change bookmark title
     PDBookmarkGetTitleASText(b, oldTitle);
