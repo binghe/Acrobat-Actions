@@ -209,9 +209,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
 				INFOPLIST_FILE = ../sources/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Starter;
 				SDKROOT = macosx;
