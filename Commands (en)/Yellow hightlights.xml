@@ -2,7 +2,7 @@
 <Commands>
 	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="黄色注释" tooltip="黄色注释（本页最后修改）" ID="BFE3C54C3B6C3AA31C3B8550D2ABE8E">
 		<Items>
-			<Item name="ScriptCode" type="text" value="// default style&#xD;var strokeColor = color.yellow;&#xD;var opacity = 0.8;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.getAnnots(this.pageNum, ANSB_ModDate, true, ANFB_ShouldAppearInPanel);&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = opacity;&#xD;      annots[i].strokeColor = strokeColor;&#xD;      break;&#xD;    }&#xD;  }&#xD;}&#xD;"/>
+			<Item name="ScriptCode" type="text" value="// default style&#xD;var strokeColor = color.yellow;&#xD;var opacity = 0.8;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.getAnnots(this.pageNum, ANSB_ModDate,&#xD;                            true, // bReverse&#xD;                            ANFB_ShouldAppearInPanel);&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;      if (annots[i].type == &quot;Highlight&quot;) {&#xD;          // go to next one if the current one is already in the right color&#xD;          if (!color.equal(annots[i].strokeColor, strokeColor)) {&#xD;              annots[i].opacity = opacity;&#xD;              annots[i].strokeColor = strokeColor;&#xD;              break;&#xD;          }&#xD;      }&#xD;  }&#xD;}&#xD;"/>
 			<Item name="ScriptName" type="text" value=""/>
 		</Items>
 	</Command>
