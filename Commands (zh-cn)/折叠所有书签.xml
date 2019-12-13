@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="折叠所有书签" tooltip="折叠所有书签" ID="C61FD1106A03755A38F69C0B56D313C">
+		<Items>
+			<Item name="ScriptCode" type="text" value="//// Collapse all bookmarks&#xD;&#xD;//// Author: Chun Tian (binghe) &lt;binghe.lisp@gmail.com&gt;&#xD;//// Version: 1.0&#xD;&#xD;function CollapseBookmark(bkm, nLevel) {&#xD;    if (bkm.children != null) {&#xD;        for (var i = 0; i &lt; bkm.children.length; i++) {&#xD;            bkm.children[i].open = false;&#xD;            CollapseBookmark(bkm.children[i], nLevel + 1);&#xD;        }&#xD;    }&#xD;}&#xD;&#xD;// console.clear(); console.show();&#xD;// console.println(&quot;Collapsed all bookmarks in the document.&quot;);&#xD;CollapseBookmark(this.bookmarkRoot, 0);&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
