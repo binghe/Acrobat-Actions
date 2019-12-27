@@ -11,17 +11,15 @@
 #include <PIHeaders.h>
 #endif
 
-#include "Functions.hpp"
-
-#include "common-config.h"
-
-#ifdef Platform_Windows
+#ifdef WIN_PLATFORM
 extern "C" {
 #include "strcasestr.h"
 }
 #else
 #include <strings.h>
 #endif
+
+#include "Functions.hpp"
 
 void VisitAllBookmarks(PDDoc doc, PDBookmark b)
 {

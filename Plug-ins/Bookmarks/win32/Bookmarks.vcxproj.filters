@@ -479,9 +479,6 @@
     <ClInclude Include="..\sources\strcasestr.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\sources\common-config.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\sources\Functions.hpp">
       <Filter>Headers</Filter>
     </ClInclude>

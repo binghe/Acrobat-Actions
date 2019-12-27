@@ -324,7 +324,6 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\DebugWindowHFT.h" />
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\PIHeaders.h" />
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\WinPIHeaders.h" />
-    <ClInclude Include="..\sources\common-config.h" />
     <ClInclude Include="..\sources\Functions.hpp" />
     <ClInclude Include="..\sources\strcasestr.h" />
   </ItemGroup>
