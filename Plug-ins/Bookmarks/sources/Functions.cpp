@@ -8,7 +8,7 @@
 
 // Acrobat Headers.
 #ifndef MAC_PLATFORM
-#include <PIHeaders.h>
+#include "PIHeaders.h"
 #endif
 
 #ifdef WIN_PLATFORM
@@ -55,7 +55,13 @@ int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc)
     
 DURING
     // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(b)) return acc;
+    if (!PDBookmarkIsValid(b)) {
+#if defined(WIN_PLATFORM) && defined(_DEBUG)
+	DO_RETURN(acc);
+#else
+	return acc;
+#endif
+    }
 
     // Fixing actions
     PDAction action = PDBookmarkGetAction(b);
@@ -137,13 +143,17 @@ bool is_stop(char c) {
 int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 {
     PDBookmark treeBookmark;
-    PDViewDestination newDest;
-    PDAction newAction;
     ASText oldTitle = ASTextNew(); // to be filled by PDBookmarkGetTitleASText()
     
 DURING
     // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(b)) return acc;
+    if (!PDBookmarkIsValid(b)) {
+#if defined(WIN_PLATFORM) && defined(_DEBUG)
+	DO_RETURN(acc);
+#else
+	return acc;
+#endif
+    }
 
     // change bookmark title
     PDBookmarkGetTitleASText(b, oldTitle);

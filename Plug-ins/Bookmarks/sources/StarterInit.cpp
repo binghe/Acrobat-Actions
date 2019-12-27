@@ -137,7 +137,11 @@ ACCB1 void ACCB2 PluginCommand_1(void *clientData)
 
     // visit all bookmarks recursively, fixing FitView
     acc = FixAllBookmarks(pdDoc, rootBookmark, acc);
+#ifdef WIN_PLATFORM
+    _snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+#else
     snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+#endif
     AVAlertNote((const char*) notes);
 
     return;
@@ -154,7 +158,11 @@ ACCB1 void ACCB2 PluginCommand_2(void *clientData)
 
     // visit all bookmarks recursively, capitalizing them
     acc = CapitalizeAllBookmarks(pdDoc, rootBookmark, acc);
+#ifdef WIN_PLATFORM
+    _snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+#else
     snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+#endif
     AVAlertNote((const char*) notes);
 
     return;
