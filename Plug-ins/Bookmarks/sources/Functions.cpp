@@ -52,7 +52,7 @@ int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc)
     PDViewDestination newDest;
     PDAction newAction;
     ASText title = ASTextNew(); // to be filled by PDBookmarkGetTitleASText()
-    
+
 DURING
     // ensure that the bookmark is valid
     if (!PDBookmarkIsValid(b)) {

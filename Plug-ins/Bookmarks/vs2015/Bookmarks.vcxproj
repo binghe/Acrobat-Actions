@@ -86,6 +86,7 @@
       <CompileAsManaged>false</CompileAsManaged>
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\..\PluginSupport\Headers\SDK;..\..\PluginSupport\Headers\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -137,6 +138,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
       <CompileAsManaged>false</CompileAsManaged>
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\..\PluginSupport\Headers\SDK;..\..\PluginSupport\Headers\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
