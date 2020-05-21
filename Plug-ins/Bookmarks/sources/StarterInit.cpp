@@ -191,21 +191,6 @@ DURING
 				gExtensionID);
     // Command 0
     int i = 0;
-    menuItem[i] = AVMenuItemNew("Collapse All Bookmarks", "CHUN:Col_Bookmarks",
-				NULL, /* submenu */
-				true, /* longMenusOnly */
-				NO_SHORTCUT, 0 /* flags */,
-				NULL /* icon */, gExtensionID);
-    AVMenuItemSetExecuteProc
-      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
-
-    AVMenuItemSetComputeEnabledProc
-      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
-       (void *)pdPermEdit);
-    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
-
-    // Command 1
-    i++;
     menuItem[i] = AVMenuItemNew("Capitalize All Bookmarks", "CHUN:Cap_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
@@ -219,7 +204,7 @@ DURING
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
-    // Command 2
+    // Command 1
     i++;
     menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "CHUN:Fix_Bookmarks",
 				NULL, /* submenu */
