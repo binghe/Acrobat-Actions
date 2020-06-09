@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Commands>
-	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="红色注释（下一页）" tooltip="红色注释（下一页最后修改）" ID="E3CC896C6421544F369D6A9D17A80E5">
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="红色注释 (右)" tooltip="红色注释 (右)" ID="E3CC896C6421544F369D6A9D17A80E5">
 		<Items>
 			<Item name="ScriptCode" type="text" value="// default style&#xD;var strokeColor = color.red;&#xD;var opacity = 0.7;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.getAnnots(this.pageNum + 1, ANSB_ModDate,&#xD;                            true, // bReverse&#xD;                            ANFB_ShouldAppearInPanel);&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;      if (annots[i].type == &quot;Highlight&quot;) {&#xD;          // go to next one if the current one is already in the right color&#xD;          if (!color.equal(annots[i].strokeColor, strokeColor)) {&#xD;              annots[i].opacity = opacity;&#xD;              annots[i].strokeColor = strokeColor;&#xD;              break;&#xD;          }&#xD;      }&#xD;  }&#xD;}&#xD;"/>
 			<Item name="ScriptName" type="text" value=""/>

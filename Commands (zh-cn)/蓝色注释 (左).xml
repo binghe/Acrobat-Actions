@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="蓝色注释 (左)" tooltip="蓝色注释 (左)" ID="DAFD19EB2ED3380FB4437AE89CEDC33">
+		<Items>
+			<Item name="ScriptCode" type="text" value="//// Blue highlights on the current page (last, last last highlights, ...)&#xD;////&#xD;//// Copyright 2019-2020  Chun Tian (binghe)&#xD;&#xD;// default style&#xD;var strokeColor = color.cyan;&#xD;var opacity = 0.8;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.getAnnots(this.pageNum, ANSB_ModDate,&#xD;                            true, // bReverse&#xD;                            ANFB_ShouldAppearInPanel);&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;      if (annots[i].type == &quot;Highlight&quot;) {&#xD;          // go to next one if the current one is already in the right color&#xD;          if (!color.equal(annots[i].strokeColor, strokeColor)) {&#xD;              annots[i].opacity = opacity;&#xD;              annots[i].strokeColor = strokeColor;&#xD;              break;&#xD;          }&#xD;      }&#xD;  }&#xD;}&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
