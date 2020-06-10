@@ -25,9 +25,9 @@
 					<Item name="FIXED_PRINT" type="boolean" value="false"/>
 					<Item name="FONT_CHARSET" type="atom" value=""/>
 					<Item name="FONT_ENCODING" type="atom" value="MacRomanEncoding"/>
-					<Item name="FONT_NAME" type="atom" value="ACaslonPro-Regular"/>
+					<Item name="FONT_NAME" type="atom" value="Arial"/>
 					<Item name="FONT_SIZE" type="double" value="8.000000"/>
-					<Item name="FONT_TYPE" type="atom" value="Type1"/>
+					<Item name="FONT_TYPE" type="atom" value="TrueType"/>
 					<Item name="FROM_FILE" type="boolean" value="false"/>
 					<Item name="HORIZ_ALIGN" type="integer" value="0"/>
 					<Item name="HORIZ_VALUE" type="double" value="0.000000"/>

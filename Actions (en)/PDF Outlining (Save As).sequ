@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="PDF Outlining (save as PDF/A)" description="Convert all text and strokes into outlines, saving into PDF/A. This needs a special preflight profile." majorVersion="1" minorVersion="0">
-	<Group label="Preprocessing">
-		<Instruction label="Flattening comments" pauseBefore="false"/>
+<Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="PDF Outlining (Save As)" description="Convert all text and strokes into outlines. This needs a special preflight profile." majorVersion="1" minorVersion="0">
+	<Group label="前期处理">
+		<Instruction label="全部注释扁平化" pauseBefore="false"/>
 		<Command name="JavaScript" pauseBefore="false" promptUser="false">
 			<Items>
 				<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;if (annots != null) {&#xD;  // make all highlights with some opacity&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = 0.5;&#xD;    }&#xD;  }&#xD;&#xD;  // flatten all annotations&#xD;  this.flattenPages();&#xD;}&#xD;"/>
@@ -9,7 +9,7 @@
 			</Items>
 		</Command>
 	</Group>
-	<Group label="PDF outlining">
+	<Group label="PDF 轮廓化">
 		<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false">
 			<Items>
 				<Items name="WaterBackCmd">
@@ -25,9 +25,9 @@
 					<Item name="FIXED_PRINT" type="boolean" value="false"/>
 					<Item name="FONT_CHARSET" type="atom" value=""/>
 					<Item name="FONT_ENCODING" type="atom" value="MacRomanEncoding"/>
-					<Item name="FONT_NAME" type="atom" value="ACaslonPro-Regular"/>
+					<Item name="FONT_NAME" type="atom" value="Arial"/>
 					<Item name="FONT_SIZE" type="double" value="8.000000"/>
-					<Item name="FONT_TYPE" type="atom" value="Type1"/>
+					<Item name="FONT_TYPE" type="atom" value="TrueType"/>
 					<Item name="FROM_FILE" type="boolean" value="false"/>
 					<Item name="HORIZ_ALIGN" type="integer" value="0"/>
 					<Item name="HORIZ_VALUE" type="double" value="0.000000"/>
@@ -59,9 +59,9 @@
 				<Item name="CALS_PREFLIGHT_CMD_OMIT_FIXUPS" type="boolean" value="false"/>
 				<Item name="CALS_PREFLIGHT_CMD_PROFILE_DICTKEY" type="text" value=""/>
 				<Item name="CALS_PREFLIGHT_CMD_PROFILE_FINGERPRINT" type="text" value="Pacd8fa171bc05c68fe840398c9e923bd"/>
-				<Item name="CALS_PREFLIGHT_CMD_PROFILE_ID" type="text" value="P59ace30aaf1b6345b08bd1a902d000d9"/>
+				<Item name="CALS_PREFLIGHT_CMD_PROFILE_ID" type="text" value="Pa5ea5c072641d54116577e489d333529"/>
 				<Item name="CALS_PREFLIGHT_CMD_PROFILE_NAME" type="text" value="Flatten transparency (convert to outlines)"/>
-				<Item name="CALS_PREFLIGHT_CMD_REPOSITORY_ID" type="text" value="337b816f4d44eb407df10ec510a500df"/>
+				<Item name="CALS_PREFLIGHT_CMD_REPOSITORY_ID" type="text" value="d8304af6df4686c61dd8e991c0fd4a12"/>
 				<Item name="CALS_PREFLIGHT_CMD_REP_DISPLAY" type="boolean" value="false"/>
 				<Item name="CALS_PREFLIGHT_CMD_SUC_ACT_TYPE" type="integer" value="0"/>
 				<Item name="CALS_PREFLIGHT_CMD_SUC_EMB_AT" type="integer" value="0"/>
@@ -70,17 +70,17 @@
 			</Items>
 		</Command>
 	</Group>
-	<Group label="Postprocessing">
+	<Group label="后期处理">
 		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false">
 			<Items>
 				<Item name="AddToBaseName" type="boolean" value="true"/>
-				<Item name="DocSaveDestType" type="string" value="WorkflowPlaybackSave"/>
+				<Item name="DocSaveDestType" type="string" value="WorkflowPlaybackSaveAs"/>
 				<Item name="DontOverwrite" type="boolean" value="true"/>
 				<Item name="EmbedIndex" type="boolean" value="false"/>
 				<Item name="FileVariation" type="integer" value="0"/>
 				<Item name="HandleOutput" type="boolean" value="true"/>
 				<Item name="HandlerUniqueID" type="string" value="com.callas.preflight.pdfa"/>
-				<Item name="InsertAfterBaseName" type="text" value="_outline"/>
+				<Item name="InsertAfterBaseName" type="text" value="o"/>
 				<Item name="InsertBeforeBaseName" type="text" value=""/>
 				<Item name="NumbericNaming" type="boolean" value="false"/>
 				<Item name="OptimizePDF" type="boolean" value="true"/>
