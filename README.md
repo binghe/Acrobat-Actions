@@ -15,10 +15,15 @@ The (Custom) Commands are new features since DC 2015, as single-step Actions. Th
 
 The main entry is Action Wizards (动作向导) in Acrobat Pro, where you can import Actions and Custom Commands.
 
-To import a toolset into Acrobat DC, simply open that file (`*.aaui`).
+To import a toolset into Acrobat DC (2015 only), simply open that file (`*.aaui`). In Acrobat 2017 one can import custom tool sets normally.
 
-NOTE: Some Actions and Commands require special Preflight profile (in this repository), which must be also imported.
+NOTE: Some Actions and Commands require special Preflight profiles (in this repository), which must be also imported.
 
 ## Acrobat® Plugin
 
 Certain useful tasks are impossible to write in JavaScript, because Adobe didn't expose the related APIs at JS level. In this case, the work can be done by writing plugins in C. One such plugin is in the `Plug-ins` folder.
+
+## JavaScripts
+
+JavaScript files can be directly put into Acrobat's "JavaScripts" folder. Usually they creates new menu entries or toolbar buttons, and they are superior than custom actions as JS code can provide user-defined icons, see `Highlights.js` for my first such work.
+
