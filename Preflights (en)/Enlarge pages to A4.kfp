@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pdfpreflight version="15.0">
+	<package>
+		<id3>64cf101ab0e07c77ad2304cf7a644502</id3>
+		<pdfxoutintentlist>
+		</pdfxoutintentlist>
+		<iccprofilelist>
+		</iccprofilelist>
+		<ccpolicies>
+		</ccpolicies>
+		<occdsetups>
+		</occdsetups>
+		<curves>
+		</curves>
+		<fspolicies>
+		</fspolicies>
+		<resources>
+		</resources>
+		<variables>
+		</variables>
+		<conditions>
+		</conditions>
+		<rules>
+		</rules>
+		<rulesets>
+		</rulesets>
+		<fixups>
+			<fixup>
+				<id1>F6ec6e3e277d1968613c958a98bbce07f</id1>
+				<id2>F9d25aba7828b0cfad7b88476fa420433</id2>
+				<id3>ca3730c0424634d0fa8790517d58aa27</id3>
+				<id4>bb47c3226003ccb9450406d4ae0da469</id4>
+				<name>Enlarge pages to A4 (from inner)</name>
+				<comment>Enlarge PDF pages to fit A4 from inner</comment>
+				<flags user_units="1" scope="16" edit="1" visible="1"></flags>
+				<fcfgs>
+					<fcfg>
+						<ffeat>ScalePagesEx</ffeat>
+						<fparams>
+							<fparam>210</fparam>
+							<fparam>297</fparam>
+							<fparam>mm</fparam>
+							<fparam>FitFromInsideProp</fparam>
+							<fparam>All</fparam>
+						</fparams>
+					</fcfg>
+				</fcfgs>
+				<reportFailed></reportFailed>
+			</fixup>
+		</fixups>
+		<fixupsets>
+			<fixupset>
+				<id1>U88526df70f610ca266d636832168006e</id1>
+				<id2>U26dfd8ee114733f72d5d25d7a2b267d1</id2>
+				<id3>27342e5e82a866cfe39cafacd8efa201</id3>
+				<id4>e480ad7e92cbf1dc9a86e82dc1870a9f</id4>
+				<name>UUUU_FIXUPSET_DEF_NAME</name>
+				<comment>UUUU_FIXUPSET_DEF_NAME</comment>
+				<flags edit="1" visible="1" dict="1"></flags>
+				<fixups>
+					<fixup>F6ec6e3e277d1968613c958a98bbce07f</fixup>
+				</fixups>
+			</fixupset>
+		</fixupsets>
+		<actions>
+		</actions>
+		<profiles>
+			<profile>
+				<id1>P559e82892d10b6343ba2ca52d1720d3a</id1>
+				<id2>P0f73920c38026bc589d4a2a43993694e</id2>
+				<id3>67206f2b49c5f557165d649f81653f4e</id3>
+				<id4>6d9b061454a9a07813c311f0aa40fb22</id4>
+				<name>Enlarge pages to A4</name>
+				<comment>Enlarge PDF pages to fit A4</comment>
+				<flags edit="1" visible="1"></flags>
+				<metalist>
+					<metadata>
+						<metakey>author</metakey>
+						<metavalue>Chun Tian</metavalue>
+					</metadata>
+					<metadata>
+						<metakey>email</metakey>
+						<metavalue>binghe.lisp@gmail.com</metavalue>
+					</metadata>
+				</metalist>
+				<creation>D:20091022150156+08&apos;00&apos;</creation>
+				<modification>D:20200611104300+08&apos;00&apos;</modification>
+				<pdfstd>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond>Coated FOGRA39</outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+				</pdfstd>
+				<pdfstdemb>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond>Coated FOGRA39</outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+					<afrelationship set_relationship="0"></afrelationship>
+				</pdfstdemb>
+				<wizard>
+				</wizard>
+				<rulesets>
+				</rulesets>
+				<fixupsets>
+					<fixupset>U88526df70f610ca266d636832168006e</fixupset>
+				</fixupsets>
+			</profile>
+		</profiles>
+		<metaprofs>
+		</metaprofs>
+		<profgroups>
+		</profgroups>
+	</package>
+</pdfpreflight>
