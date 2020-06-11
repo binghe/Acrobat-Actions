@@ -25,7 +25,6 @@
 			<Component name="Button"/>
 			<Component name="RichMediaVideo"/>
 			<Component name="RichMediaSound"/>
-			<Component name="RichMediaFlash"/>
 			<Component name="3D"/>
 			<Component name="Authoring"/>
 		</Component>
