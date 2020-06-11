@@ -135,7 +135,7 @@ cExec: "DoCmdhightlightRedL(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Red Highlight Left",
-cLabel: "Red L"};
+cLabel: "Red Highlight L"};
 
 if (oIconhightlightRedL != null) {
     oButObjhightlightRedL.oIcon = oIconhightlightRedL;
@@ -220,7 +220,7 @@ cExec: "DoCmdhightlightYellowL(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Yellow Highlight Left",
-cLabel: "Yellow L"};
+cLabel: "Yellow Highlight L"};
 
 if (oIconhightlightYellowL != null) {
     oButObjhightlightYellowL.oIcon = oIconhightlightYellowL;
@@ -305,7 +305,7 @@ cExec: "DoCmdhightlightBlueL(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Blue Highlight Left",
-cLabel: "Blue L"};
+cLabel: "Blue Highlight L"};
 
 if (oIconhightlightBlueL != null) {
     oButObjhightlightBlueL.oIcon = oIconhightlightBlueL;
@@ -390,7 +390,7 @@ cExec: "DoCmdhightlightGreenL(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Green Highlight Left",
-cLabel: "Green L"};
+cLabel: "Green Highlight L"};
 
 if (oIconhightlightGreenL != null) {
     oButObjhightlightGreenL.oIcon = oIconhightlightGreenL;
@@ -431,7 +431,7 @@ cExec: "DoCmdhightlightRedR(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Red Highlight Right",
-cLabel: "Red R"};
+cLabel: "Red Highlight R"};
 
 if (oIconhightlightRedR != null) {
     oButObjhightlightRedR.oIcon = oIconhightlightRedR;
@@ -472,7 +472,7 @@ cExec: "DoCmdhightlightYellowR(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Yellow Highlight Right",
-cLabel: "Yellow R"};
+cLabel: "Yellow Highlight R"};
 
 if (oIconhightlightYellowR != null) {
     oButObjhightlightYellowR.oIcon = oIconhightlightYellowR;
@@ -513,7 +513,7 @@ cExec: "DoCmdhightlightBlueR(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Blue Highlight Right",
-cLabel: "Blue R"};
+cLabel: "Blue Highlight R"};
 
 if (oIconhightlightBlueR != null) {
     oButObjhightlightBlueR.oIcon = oIconhightlightBlueR;
@@ -554,7 +554,7 @@ cExec: "DoCmdhightlightGreenR(event.target);",
 cEnable: "event.rc = (app.doc != null)",
 cMarked: "event.rc = false",
 cTooltext: "Green Highlight Right",
-cLabel: "Green R"};
+cLabel: "Green Highlight R"};
 
 if (oIconhightlightGreenR != null) {
     oButObjhightlightGreenR.oIcon = oIconhightlightGreenR;
