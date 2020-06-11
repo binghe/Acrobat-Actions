@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AcrobatUI xmlns="http://ns.adobe.com/acrobat/ui/2012" title="附加工具" majorVersion="1" minorVersion="0">
+	<Component name="BasicToolsPane">
+		<Component label="附加工具">
+			<Component name="_legacy:NewDocument"/>
+			<Component name="_legacy:FlattenPages"/>
+			<Component name="_legacy:PDFS_ResizePage"/>
+			<Component name="_legacy:PDFS_FindRequired"/>
+			<Component name="_legacy:AddArchiveFields"/>
+			<Component name="_legacy:JSDebugger"/>
+			<Component name="Separator"/>
+			<Component name="_legacy:Plib:FontReporter"/>
+			<Component name="Separator"/>
+		</Component>
+		<Component label="彩色注释">
+			<Component name="_legacy:hightlightRedL"/>
+			<Component name="_legacy:hightlightYellowL"/>
+			<Component name="_legacy:hightlightBlueL"/>
+			<Component name="_legacy:hightlightGreenL"/>
+			<Component name="Separator"/>
+			<Component name="_legacy:hightlightRedR"/>
+			<Component name="_legacy:hightlightYellowR"/>
+			<Component name="_legacy:hightlightBlueR"/>
+			<Component name="_legacy:hightlightGreenR"/>
+			<Component name="Separator"/>
+		</Component>
+	</Component>
+	<Component name="Favorites">
+		<Component name="_legacy:NewDocument"/>
+		<Component name="_legacy:PDFS_ResizePage"/>
+		<Component name="_legacy:FlattenPages"/>
+		<Component name="_legacy:JSDebugger"/>
+		<Component name="Separator"/>
+		<Component name="_legacy:hightlightRedL"/>
+		<Component name="_legacy:hightlightYellowL"/>
+		<Component name="_legacy:hightlightBlueL"/>
+		<Component name="_legacy:hightlightGreenL"/>
+		<Component name="Separator"/>
+		<Component name="_legacy:hightlightRedR"/>
+		<Component name="_legacy:hightlightYellowR"/>
+		<Component name="_legacy:hightlightBlueR"/>
+		<Component name="_legacy:hightlightGreenR"/>
+	</Component>
+</AcrobatUI>
