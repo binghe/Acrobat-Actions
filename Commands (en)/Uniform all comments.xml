@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Commands>
-	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="标准化所有注释" tooltip="修改所有注释到默认颜色和透明度" ID="CEA957DF2F24E603A9E0683B1081717">
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="Uniform all comments" tooltip="Uniform all comments to default style" ID="CEA957DF2F24E603A9E0683B1081717">
 		<Items>
 			<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Highlight&quot;) {&#xD;      annots[i].opacity = 0.8; // [ &quot;CMYK&quot;, 0,0,1,0 ]&#xD;      annots[i].strokeColor = color.yellow;&#xD;    }&#xD;  }&#xD;}"/>
 			<Item name="ScriptName" type="text" value=""/>

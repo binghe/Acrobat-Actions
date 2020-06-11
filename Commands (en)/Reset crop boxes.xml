@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Commands>
-	<Command name="CropPages" pauseBefore="false" promptUser="false" label="重置裁剪框" tooltip="重置裁剪框" ID="C22168A35CE8A090E2B0017C6E7E38E">
+	<Command name="CropPages" pauseBefore="false" promptUser="false" label="Reset crop boxes" tooltip="Reset crop boxes" ID="3329FFC0A5715B680CB0C39DB29781B">
 		<Items>
 			<Item name="BoxType" type="integer" value="0"/>
 			<Items name="Crop">

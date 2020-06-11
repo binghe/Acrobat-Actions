@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Commands>
-	<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false" label="添加隐藏水印" tooltip="添加隐藏水印，用于 PDF 轮廓化" ID="C79C81AC2B606E5DD938835B0F4C38C">
+	<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false" label="Add hidden watermark" tooltip="Add hidden watermark (for PDF outlining)" ID="A6509F4513AC166C9D622DEC58C7302">
 		<Items>
 			<Items name="WaterBackCmd">
 				<Item name="ANNOT" type="boolean" value="false"/>
@@ -15,9 +15,9 @@
 				<Item name="FIXED_PRINT" type="boolean" value="false"/>
 				<Item name="FONT_CHARSET" type="atom" value=""/>
 				<Item name="FONT_ENCODING" type="atom" value="MacRomanEncoding"/>
-				<Item name="FONT_NAME" type="atom" value="ACaslonPro-Regular"/>
+				<Item name="FONT_NAME" type="atom" value="Arial"/>
 				<Item name="FONT_SIZE" type="double" value="8.000000"/>
-				<Item name="FONT_TYPE" type="atom" value="Type1"/>
+				<Item name="FONT_TYPE" type="atom" value="TrueType"/>
 				<Item name="FROM_FILE" type="boolean" value="false"/>
 				<Item name="HORIZ_ALIGN" type="integer" value="0"/>
 				<Item name="HORIZ_VALUE" type="double" value="0.000000"/>

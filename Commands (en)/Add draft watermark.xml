@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Commands>
-	<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false" label="添加草稿水印" tooltip="添加草稿水印" ID="81C22DD0D0B49990A067B6D0C1A630C">
+	<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false" label="Add draft watermark" tooltip="Add draft watermark" ID="91E82F93DF8718822F0481A2A1742E8">
 		<Items>
 			<Items name="WaterBackCmd">
 				<Item name="ANNOT" type="boolean" value="false"/>
@@ -13,10 +13,10 @@
 				<Item name="END" type="integer" value="-1"/>
 				<Item name="FIXED_PRINT" type="boolean" value="false"/>
 				<Item name="FONT_CHARSET" type="atom" value=""/>
-				<Item name="FONT_ENCODING" type="atom" value="MacRomanEncoding"/>
-				<Item name="FONT_NAME" type="atom" value="AbadiMTCondensedExtraBold"/>
+				<Item name="FONT_ENCODING" type="atom" value="GBpc-EUC-H"/>
+				<Item name="FONT_NAME" type="atom" value="Hei"/>
 				<Item name="FONT_SIZE" type="double" value="24.000000"/>
-				<Item name="FONT_TYPE" type="atom" value="TrueType"/>
+				<Item name="FONT_TYPE" type="atom" value="Type0"/>
 				<Item name="FROM_FILE" type="boolean" value="false"/>
 				<Item name="HORIZ_ALIGN" type="integer" value="1"/>
 				<Item name="HORIZ_VALUE" type="double" value="0.000000"/>
