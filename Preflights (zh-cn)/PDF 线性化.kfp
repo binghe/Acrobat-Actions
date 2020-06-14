@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pdfpreflight version="15.0">
+	<package>
+		<id3>c1ca87bf1253a77e82853a38e73aff10</id3>
+		<pdfxoutintentlist>
+		</pdfxoutintentlist>
+		<iccprofilelist>
+		</iccprofilelist>
+		<ccpolicies>
+		</ccpolicies>
+		<occdsetups>
+		</occdsetups>
+		<curves>
+		</curves>
+		<fspolicies>
+		</fspolicies>
+		<resources>
+		</resources>
+		<variables>
+		</variables>
+		<conditions>
+		</conditions>
+		<rules>
+		</rules>
+		<rulesets>
+		</rulesets>
+		<fixups>
+			<fixup>
+				<id1>F6b6d679ee09dc86601f9a906f990caab</id1>
+				<id2>F9f6356ad3eb79eca2f6e1ef517b82991</id2>
+				<id3>75948e718dbd6f7f02f16d9e125c9656</id3>
+				<id4>f57e438708af71633fd70ad1e4140cf7</id4>
+				<name>FFF_OptimizePDFforfastwebview</name>
+				<comment>FFF_OptimizePDFforfastwebview</comment>
+				<flags user_units="0" scope="16" edit="1" visible="1" dict="1"></flags>
+				<fcfgs>
+					<fcfg>
+						<ffeat>OptmzeFrFstWbVw</ffeat>
+						<fparams>
+						</fparams>
+					</fcfg>
+					<fcfg>
+						<ffeat></ffeat>
+						<fparams>
+						</fparams>
+					</fcfg>
+				</fcfgs>
+				<reportFailed></reportFailed>
+			</fixup>
+		</fixups>
+		<fixupsets>
+			<fixupset>
+				<id1>Uaa1ceac01a2deb26d6aea60cb67bc2fd</id1>
+				<id2>U0e074c20219008aef778a3ad47ac432f</id2>
+				<id3>d18a8b819d80e80568e2973558711b0a</id3>
+				<id4>5e1338547435a75de0fc66183249d968</id4>
+				<name>UUUU_FIXUPSET_DEF_NAME</name>
+				<comment>UUUU_FIXUPSET_DEF_NAME</comment>
+				<flags edit="1" visible="1" dict="1"></flags>
+				<fixups>
+					<fixup>F6b6d679ee09dc86601f9a906f990caab</fixup>
+				</fixups>
+			</fixupset>
+		</fixupsets>
+		<actions>
+		</actions>
+		<profiles>
+			<profile>
+				<id1>P7b67e0ae274f1a78b9f388a6046d8fb5</id1>
+				<id2>Pdc855af4b94e490ea97fedfa7375d9f7</id2>
+				<id3>f7d5b0746ef498189197d02ce93c55bd</id3>
+				<id4>056fb7302147e7024b7178cd5053f237</id4>
+				<name>PDF 线性化</name>
+				<comment>PDF 线性化（快速 Web 查看）</comment>
+				<flags edit="1" visible="1"></flags>
+				<metalist>
+					<metadata>
+						<metakey>author</metakey>
+						<metavalue>Chun Tian (binghe)</metavalue>
+					</metadata>
+					<metadata>
+						<metakey>email</metakey>
+						<metavalue>binghe.lisp@gmail.com</metavalue>
+					</metadata>
+				</metalist>
+				<creation>D:20200609092651+08&apos;00&apos;</creation>
+				<modification>D:20200613051052+08&apos;00&apos;</modification>
+				<pdfstd>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond>Coated FOGRA39</outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+				</pdfstd>
+				<pdfstdemb>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond>Coated FOGRA39</outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+					<afrelationship set_relationship="0"></afrelationship>
+				</pdfstdemb>
+				<wizard>
+				</wizard>
+				<rulesets>
+				</rulesets>
+				<fixupsets>
+					<fixupset>Uaa1ceac01a2deb26d6aea60cb67bc2fd</fixupset>
+				</fixupsets>
+			</profile>
+		</profiles>
+		<metaprofs>
+		</metaprofs>
+		<profgroups>
+		</profgroups>
+	</package>
+</pdfpreflight>
