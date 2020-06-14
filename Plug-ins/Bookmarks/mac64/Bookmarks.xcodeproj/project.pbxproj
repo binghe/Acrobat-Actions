@@ -22,7 +22,6 @@
 		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
-		DB9570EB09DA0A8600D15BF1 /* PIHeaders++.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "PIHeaders++.pch"; path = "../../PluginSupport/Headers/SDK/PIHeaders++.pch"; sourceTree = SOURCE_ROOT; };
 		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
 		DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = StarterInit.cpp; path = ../sources/StarterInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
 		DB9ABFD609DCA62100298E3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../sources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -73,7 +72,6 @@
 			children = (
 				DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */,
 				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
-				DB9570EB09DA0A8600D15BF1 /* PIHeaders++.pch */,
 				4FA211852386BFEE0057E287 /* Functions.cpp */,
 				4FA211862386BFEE0057E287 /* Functions.hpp */,
 			);
@@ -118,7 +116,6 @@
 				8D01CCC90486CAD60068D4B7 /* Resources */,
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
-				BA5287490A1930340088FAB2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -166,22 +163,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		BA5287490A1930340088FAB2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = ../../PluginSupport/Headers/SDK/MacCopyToPlugins.sh;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8D01CCCB0486CAD60068D4B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,10 +195,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS)";
 				INFOPLIST_FILE = ../sources/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Starter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Bookmarks;
 				SDKROOT = macosx;
 			};
 			name = Default;
@@ -226,6 +208,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -245,6 +228,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
