@@ -290,7 +290,7 @@ ACCB1 ASBool ACCB2 PluginUnload(void)
 */
 ASAtom GetExtensionName()
 {
-    return ASAtomFromString("CHUN:Bookmarks");
+    return ASAtomFromString("AA:Bookmarks");
 }
 
 /** PIHandshake
