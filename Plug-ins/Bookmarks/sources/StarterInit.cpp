@@ -43,6 +43,7 @@ static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
 static AVMenu subMenu = NULL;
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
+ACCB1 ASBool ACCB2 PluginUnload(void);
 
 /*-------------------------------------------------------
 	Core Handshake Callbacks
@@ -66,7 +67,7 @@ ACCB1 ASBool ACCB2 PluginExportHFTs(void)
 /* PluginImportReplaceAndRegister
 ** ------------------------------------------------------
 ** */
-/** 
+/**
 	The application calls this function to allow it to
 	<ul>
 	<li> Import plug-in supplied HFTs.
@@ -88,7 +89,6 @@ static const char *pluginMenuName = "Extensions";
 ACCB1 ASBool ACCB2 FindPluginMenu(void)
 {
     AVMenubar menubar = AVAppGetMenubar();
-    AVMenu volatile commonMenu = NULL;
     ASAtom PluginMenuName = ASAtomFromString(pluginMenuName);
 
     if (!menubar) return false;
@@ -109,17 +109,12 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     return true;
 }
 
-/* Collapse All Bookmarks */
+/* Unload the plugin */
 ACCB1 void ACCB2 PluginCommand_0(void *clientData)
 {
-    // try to get front PDF document
-    AVDoc avDoc = AVAppGetActiveDoc();
-    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
-    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
-
-    // visit all bookmarks recursively
-    VisitAllBookmarks(pdDoc, rootBookmark);
-
+    if (PluginUnload()) {
+        AVAlertNote("Acrobat Actions is unloaded.");
+    }
     return;
 }
 
@@ -147,7 +142,6 @@ ACCB1 void ACCB2 PluginCommand_1(void *clientData)
     return;
 }
 
-/* Capitalize all Bookmarks */
 ACCB1 void ACCB2 PluginCommand_2(void *clientData)
 {
     // try to get front PDF document
@@ -182,37 +176,52 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
     if (!menubar) return false;
     
 DURING
-    // Create our menu, title is not important
-    subMenu = AVMenuNew("XXX", "CHUN:PluginsMenu", gExtensionID);
+    // Create our (sub)menu, title is not important (not shown anywhere)
+    subMenu = AVMenuNew("N/A", "AA:PluginsMenu", gExtensionID);
 
     // Create our menuitem
-    topMenuItem = AVMenuItemNew("Chun Tian", "CHUN:PluginsMenuItem",
+    topMenuItem = AVMenuItemNew("Acrobat Actions", "AcrobatActions:Plugins",
 				subMenu, true, NO_SHORTCUT, 0, NULL,
 				gExtensionID);
     // Command 0
     int i = 0;
-    menuItem[i] = AVMenuItemNew("Capitalize All Bookmarks", "CHUN:Cap_Bookmarks",
+    menuItem[i] = AVMenuItemNew("Unload Plugin", "AA:Unload_Plugin",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
 				NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
+    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
+
+    AVMenuItemSetComputeEnabledProc
+    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, NULL),
+     (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
+
+    // Command 1
+    i++;
+    menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "AA:FixFitType_Bookmarks",
+                NULL, /* submenu */
+                true, /* longMenusOnly */
+                NO_SHORTCUT, 0 /* flags */,
+                NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
 
     AVMenuItemSetComputeEnabledProc
     (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
-    // Command 1
+    // Command 2
     i++;
-    menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "CHUN:Fix_Bookmarks",
-				NULL, /* submenu */
-				true, /* longMenusOnly */
-				NO_SHORTCUT, 0 /* flags */,
-				NULL /* icon */, gExtensionID);
+    menuItem[i] = AVMenuItemNew("Capitalize All Bookmarks", "AA:Capitalize_Bookmarks",
+                NULL, /* submenu */
+                true, /* longMenusOnly */
+                NO_SHORTCUT, 0 /* flags */,
+                NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
+    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
     
     AVMenuItemSetComputeEnabledProc
     (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
@@ -231,9 +240,9 @@ DURING
     AVMenuRelease(commonMenu);
     
 HANDLER
-    if (commonMenu) AVMenuRelease (commonMenu);
+    if (commonMenu) AVMenuRelease(commonMenu);
     return false;
-    
+
 END_HANDLER
     return true;
 }
@@ -266,6 +275,9 @@ ACCB1 ASBool ACCB2 PluginInit(void)
 */
 ACCB1 ASBool ACCB2 PluginUnload(void)
 {
+    if (topMenuItem) {
+        AVMenuItemRemove(topMenuItem);
+    }
     return true;
 }
 
