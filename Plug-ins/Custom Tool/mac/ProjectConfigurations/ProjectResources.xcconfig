@@ -1,0 +1,25 @@
+// *********************************************************************
+//
+// ADOBE SYSTEMS INCORPORATED
+// Copyright (C) 2005-2006 Adobe Systems Incorporated
+// All rights reserved.
+//
+// NOTICE: Adobe permits you to use, modify, and distribute this file
+// in accordance with the terms of the Adobe license agreement
+// accompanying it. If you have received this file from a source other
+// than Adobe, then your use, modification, or distribution of it
+// requires the prior written permission of Adobe.
+//
+// *********************************************************************
+
+// Deployment location
+PRODUCT_DEPLOYMENT_LOCATION = bin/localized/$(PROJECT_NAME)/en.lproj
+
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig"
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Resources.xcconfig"
+
+// Search paths for resources
+REZ_SEARCH_PATHS = $(REZ_SEARCH_PATHS) ../../PluginSupport/Headers/SDK ../../PluginSupport/Headers/API ../../PluginSupport/Headers/ADM ../sources
+
+// Rreprocessor defines
+REZ_PREPROCESSOR_DEFINITIONS = $(REZ_PREPROCESSOR_DEFINITIONS) PRODUCT=\"Plugin.h\" REZ=1 XCODEREZ=1
