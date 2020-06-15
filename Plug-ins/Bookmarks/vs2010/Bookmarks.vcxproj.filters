@@ -29,6 +29,9 @@
     <ResourceCompile Include="..\sources\Bookmarks.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+    <ResourceCompile Include="..\sources\Plugin.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\Functions.hpp">

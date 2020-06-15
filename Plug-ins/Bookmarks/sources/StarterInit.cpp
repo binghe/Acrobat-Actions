@@ -23,6 +23,7 @@
 #ifndef MAC_PLATFORM
 #include "PIHeaders.h"
 #endif
+#include "resource.h"
 
 #include <cstdio>
 #include <cstring>
@@ -38,6 +39,10 @@
 /*-------------------------------------------------------
 	Constants/Declarations
  -------------------------------------------------------*/
+#if WIN_PLATFORM
+extern "C" HINSTANCE gHINSTANCE;
+#endif
+
 static const char *pluginMenuName = "Extensions";
 static AVMenuItem topMenuItem = NULL;
 static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
