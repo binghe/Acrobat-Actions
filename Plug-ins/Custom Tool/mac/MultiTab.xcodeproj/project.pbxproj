@@ -189,6 +189,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Default;
@@ -198,9 +200,15 @@
 			baseConfigurationReference = BAE873A90A24E04600E97E2D /* ProjectDefault.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 13.3;
 				VALID_ARCHS = x86_64;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Default;
 		};

@@ -199,8 +199,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAE873A70A24E04600E97E2D /* Project_debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = "BasicPlugin version 1.0";
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Default;
@@ -210,11 +213,12 @@
 			baseConfigurationReference = BAE873A90A24E04600E97E2D /* ProjectDefault.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
 				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS)";
 				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};

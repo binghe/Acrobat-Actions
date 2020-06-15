@@ -185,6 +185,7 @@ DURING
 				gExtensionID);
     // Command 0
     int i = 0;
+#ifdef DEBUG
     menuItem[i] = AVMenuItemNew("Unload Plugin", "AA:Unload_Plugin",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
@@ -197,7 +198,7 @@ DURING
     (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, NULL),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
-
+#endif
     // Command 1
     i++;
     menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "AA:FixFitType_Bookmarks",
