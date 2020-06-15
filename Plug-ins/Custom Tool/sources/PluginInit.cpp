@@ -181,7 +181,7 @@ void CreateIcons()
     // It is expected, for demostration pupose, that the icon file is present in Document folder.
     ASFileSys theFileSys = ASGetDefaultFileSys();
     ASFileSys asfs = NULL;
-    ASErrorCode error = AVAcquireSpecialFilePathName(kAVSCUser, kAVSFDocuments, "multitab_icons.pdf", &asfs, &pathName);
+    ASErrorCode error = AVAcquireSpecialFilePathName(kAVSCUser, kAVSFPlugIns, "multitab_icons.pdf", &asfs, &pathName);
     if (kAVSEOkay != error)
     {
         ASFileSysReleasePath(asfs, pathName);
@@ -189,16 +189,16 @@ void CreateIcons()
     }
 #endif
     
-	if (pathName)
-	{
-		ASFile iconFile = NULL;
-		ASFileSysOpenFile(theFileSys, pathName, ASFILE_READ, &iconFile);
-		PDDoc iconDoc = PDDocOpenFromASFile(iconFile, NULL, FALSE);
-		ASFileSysReleasePath(theFileSys, pathName);
-		for (size_t i = 0; i < 3; ++i)
-			gIcons[i] = AVIconCreateFromPDF(iconDoc, i, 24, 24);
-		PDDocClose(iconDoc);
-	}
+    if (pathName) {
+        ASFile iconFile = NULL;
+        ASFileSysOpenFile(theFileSys, pathName, ASFILE_READ, &iconFile);
+        PDDoc iconDoc = PDDocOpenFromASFile(iconFile, NULL, FALSE);
+        ASFileSysReleasePath(theFileSys, pathName);
+        for (size_t i = 0; i < 3; ++i) {
+            gIcons[i] = AVIconCreateFromPDF(iconDoc, i, 24, 24);
+        }
+        PDDocClose(iconDoc);
+    }
 }
 
 /* PluginInit
