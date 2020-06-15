@@ -201,6 +201,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MARKETING_VERSION = "BasicPlugin version 1.0";
 				ONLY_ACTIVE_ARCH = YES;

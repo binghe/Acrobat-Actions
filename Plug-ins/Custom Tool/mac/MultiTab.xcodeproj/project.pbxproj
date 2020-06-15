@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20294CA01C045E4A0066D0E5 /* PIMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20294C9E1C045E4A0066D0E5 /* PIMain.cpp */; };
 		20294CA11C045E4A0066D0E5 /* PluginInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20294C9F1C045E4A0066D0E5 /* PluginInit.cpp */; };
+		4F3012C62497683F0092B85A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBC99E0F09EEFD5B004181F9 /* Info.plist */; };
 		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F3012C62497683F0092B85A /* Info.plist in Resources */,
 				8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +191,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -202,6 +206,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
