@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="跳到最后一个图章" tooltip="页面跳转到最后一个图章所在的页面" ID="82F24477B83145152C693F376238C32">
+		<Items>
+			<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots({&#xD;      nSortBy: ANSB_Page,&#xD;      bReverse: true&#xD;   });&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    if (annots[i].type == &quot;Stamp&quot;) {&#xD;      this.pageNum = annots[i].page;&#xD;      break;&#xD;    }&#xD;  }&#xD;}"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
