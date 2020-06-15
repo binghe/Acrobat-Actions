@@ -169,6 +169,7 @@ ACCB1 ASBool ACCB2 PIHandshake(Uns32 handshakeVersion, void *handshakeData)
 -------------------------------------------------------*/
 
 static const char *pluginMenuName = "Extensions";
+static AVMenuItem topMenuItem = NULL;
 
 /**
 	A convenient function to add a menu item under Acrobat SDK menu.
@@ -184,37 +185,48 @@ static const char *pluginMenuName = "Extensions";
 */
 ACCB1 ASBool ACCB2 PluginMenuItem(char* MyMenuItemTitle, char* MyMenuItemName)
 {
-	AVMenubar menubar = AVAppGetMenubar();
-	AVMenu volatile commonMenu = NULL;
+    AVMenubar menubar = AVAppGetMenubar();
+    AVMenu volatile commonMenu = NULL;
+    AVMenu subMenu = NULL;
 
-	if (!menubar)
-		return false;
+if (!menubar) return false;
 
-	DURING
+DURING
+    // Find or create our dedicated (sub)menu, title is not important (not shown anywhere)
+    topMenuItem = AVMenubarAcquireMenuItemByName(menubar, "AA:Plugins");
+    if (topMenuItem) {
+        subMenu = AVMenuItemAcquireSubmenu(topMenuItem);
+    } else {
+        subMenu = AVMenuNew("N/A", "AA:PluginsMenu", gExtensionID);
+        AVMenuAcquire(subMenu);
+        topMenuItem = AVMenuItemNew("Acrobat Actions", "AA:Plugins",
+                                    subMenu, true, NO_SHORTCUT, 0, NULL,
+                                    gExtensionID);
+    }
 
-	   	// Create our menuitem
-		menuItem = AVMenuItemNew (MyMenuItemTitle, MyMenuItemName, NULL, true, NO_SHORTCUT, 0, NULL, gExtensionID);
-		AVMenuItemSetExecuteProc (menuItem, ASCallbackCreateProto(AVExecuteProc, MyPluginCommand), NULL);
-		AVMenuItemSetComputeEnabledProc (menuItem,
-					ASCallbackCreateProto(AVComputeEnabledProc, MyPluginIsEnabled), (void *)pdPermEdit);
+    /* Acquire() needs a Release() */
+    commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
+    // if "Extensions" menu doesn't exist, then create one.
+    if (!commonMenu) {
+      commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
+      AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
+    }
+    AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
+    AVMenuRelease(commonMenu);
+    
+    // Create our menuitem
+    menuItem = AVMenuItemNew (MyMenuItemTitle, MyMenuItemName, NULL, true, NO_SHORTCUT, 0, NULL, gExtensionID);
+    AVMenuItemSetExecuteProc (menuItem, ASCallbackCreateProto(AVExecuteProc, MyPluginCommand), NULL);
+    AVMenuItemSetComputeEnabledProc (menuItem,
+	    ASCallbackCreateProto(AVComputeEnabledProc, MyPluginIsEnabled), (void *)pdPermEdit);
 
-		commonMenu = AVMenubarAcquireMenuByName (menubar, pluginMenuName);
-		// if "Acrobat SDK" menu is not existing, create one.
-		if (!commonMenu) {
-			commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
-			AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
-		}
-		
-		AVMenuAddMenuItem(commonMenu, menuItem, APPEND_MENUITEM);
+    AVMenuAddMenuItem(subMenu, menuItem, APPEND_MENUITEM);
 
-		AVMenuRelease(commonMenu);
+HANDLER
+    AVMenuRelease(subMenu);
+    if (commonMenu) AVMenuRelease(commonMenu);
+    return false;
 
-	HANDLER
-		if (commonMenu)
-			AVMenuRelease (commonMenu);
-		return false;
-	END_HANDLER
-
-	return true;
+END_HANDLER
+    return true;
 }
-

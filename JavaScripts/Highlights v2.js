@@ -300,5 +300,20 @@ try {
   // print something?
 }
 
+try {
+  app.addMenuItem({
+    cName: "AboutHighlights",
+    cUser: "Highlights (JavaScript)",
+    cParent: "AboutExtensions", // this always exists
+    cMarked: "event.rc = false",
+    cEnable: "true",
+    nPos: 0,
+    bPrepend: "false",
+    cExec: "app.alert(\"Highlights 2.0 by Chun Tian (binghe)\", 3);"
+  });
+} catch(e) {
+  // print something?
+}
+
 // Version 2.0
 // Last Update: Jun 15, 2020

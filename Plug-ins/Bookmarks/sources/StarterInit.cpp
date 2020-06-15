@@ -38,9 +38,9 @@
 /*-------------------------------------------------------
 	Constants/Declarations
  -------------------------------------------------------*/
+static const char *pluginMenuName = "Extensions";
 static AVMenuItem topMenuItem = NULL;
 static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
-static AVMenu subMenu = NULL;
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
 ACCB1 ASBool ACCB2 PluginUnload(void);
@@ -82,8 +82,6 @@ ACCB1 ASBool ACCB2 PluginImportReplaceAndRegister(void)
 {
     return true;
 }
-
-static const char *pluginMenuName = "Extensions";
 
 /* Find an existing "Plug-ins" menu from the menubar. */
 ACCB1 ASBool ACCB2 FindPluginMenu(void)
@@ -172,21 +170,36 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
 {
     AVMenubar menubar = AVAppGetMenubar();
     AVMenu volatile commonMenu = NULL;
-    
+    AVMenu subMenu = NULL;
+
     if (!menubar) return false;
     
 DURING
-    // Create our (sub)menu, title is not important (not shown anywhere)
-    subMenu = AVMenuNew("N/A", "AA:PluginsMenu", gExtensionID);
+    // Find or create our dedicated (sub)menu, title is not important (not shown anywhere)
+    topMenuItem = AVMenubarAcquireMenuItemByName(menubar, "AA:Plugins");
+    if (topMenuItem) {
+        subMenu = AVMenuItemAcquireSubmenu(topMenuItem);
+    } else {
+        subMenu = AVMenuNew("N/A", "AA:PluginsMenu", gExtensionID);
+        AVMenuAcquire(subMenu);
+        topMenuItem = AVMenuItemNew("Acrobat Actions", "AA:Plugins",
+                                    subMenu, true, NO_SHORTCUT, 0, NULL,
+                                    gExtensionID);
+    }
 
-    // Create our menuitem
-    topMenuItem = AVMenuItemNew("Acrobat Actions", "AcrobatActions:Plugins",
-				subMenu, true, NO_SHORTCUT, 0, NULL,
-				gExtensionID);
+    /* Acquire() needs a Release() */
+    commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
+    // if "Extensions" menu doesn't exist, then create one.
+    if (!commonMenu) {
+      commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
+      AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
+    }
+    AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
+    AVMenuRelease(commonMenu);
+
     // Command 0
     int i = 0;
-#ifdef DEBUG
-    menuItem[i] = AVMenuItemNew("Unload Plugin", "AA:Unload_Plugin",
+    menuItem[i] = AVMenuItemNew("Unload Bookmarks", "AA:Unload_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
 				NO_SHORTCUT, 0 /* flags */,
@@ -198,7 +211,7 @@ DURING
     (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, NULL),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
-#endif
+
     // Command 1
     i++;
     menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "AA:FixFitType_Bookmarks",
@@ -229,18 +242,8 @@ DURING
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
-    /* Acquire() needs a Release() */
-    commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
-    // if "Extensions" menu doesn't exist, create one.
-    if (!commonMenu) {
-	commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
-	AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
-    }
-
-    AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
-    AVMenuRelease(commonMenu);
-    
 HANDLER
+    AVMenuRelease(subMenu);
     if (commonMenu) AVMenuRelease(commonMenu);
     return false;
 
