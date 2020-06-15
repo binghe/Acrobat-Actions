@@ -56,7 +56,7 @@
 //  being used in Adobe Reader.  See comments in the JavaScript File for details.
 //
 
-var DoCmdhightlightRedL = app.trustedFunction(function(oDoc)
+var DoCmdhightlightRed = app.trustedFunction(function(oDoc)
 {
     var strokeColor = color.red;
     var opacity = 0.8;
