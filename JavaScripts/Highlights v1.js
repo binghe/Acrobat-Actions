@@ -581,5 +581,5 @@ try {
     app.addToolButton(oButObjhightlightBlueR);
     app.addToolButton(oButObjhightlightGreenR);
 } catch(e) {
-  // print something?
+    console.println("Hightlights v1: addToolButton failed.");
 }

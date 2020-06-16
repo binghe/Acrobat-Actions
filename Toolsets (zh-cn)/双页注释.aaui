@@ -25,14 +25,20 @@
 		</Component>
 	</Component>
 	<Component name="Favorites">
-		<Component name="463068EE938D881A1D0F245FE911E2C"/>
-		<Component name="BFE3C54C3B6C3AA31C3B8550D2ABE8E"/>
-		<Component name="DAFD19EB2ED3380FB4437AE89CEDC33"/>
-		<Component name="4898032B12E80DE8A3C45B5DBC38D89"/>
+		<Component name="_legacy:hightlightRedL"/>
+		<Component name="_legacy:hightlightYellowL"/>
+		<Component name="_legacy:hightlightBlueL"/>
+		<Component name="_legacy:hightlightGreenL"/>
 		<Component name="Separator"/>
-		<Component name="E3CC896C6421544F369D6A9D17A80E5"/>
-		<Component name="75B2A2616CBEEA5548274D5BCF288F6"/>
-		<Component name="01EEA57E76C10D765A5B02F40FEC4C7"/>
-		<Component name="68509D897A1946409EFCD95A9663BFD"/>
+		<Component name="_legacy:hightlightRed"/>
+		<Component name="_legacy:hightlightYellow"/>
+		<Component name="_legacy:hightlightBlue"/>
+		<Component name="_legacy:hightlightGreen"/>
+		<Component name="Separator"/>
+		<Component name="_legacy:hightlightRedR"/>
+		<Component name="_legacy:hightlightYellowR"/>
+		<Component name="_legacy:hightlightBlueR"/>
+		<Component name="_legacy:hightlightGreenR"/>
+		<Component name="Separator"/>
 	</Component>
 </AcrobatUI>

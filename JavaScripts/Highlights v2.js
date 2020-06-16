@@ -297,13 +297,14 @@ try {
     app.addToolButton(oButObjhightlightBlue);
     app.addToolButton(oButObjhightlightGreen);
 } catch(e) {
+    console.println("Hightlights: addToolButton failed.");
   // print something?
 }
 
 try {
   app.addMenuItem({
     cName: "AboutHighlights",
-    cUser: "Highlights (JavaScript)",
+    cUser: "Highlights (JavaScript)...",
     cParent: "AboutExtensions", // this always exists
     cMarked: "event.rc = false",
     cEnable: "true",
@@ -312,7 +313,7 @@ try {
     cExec: "app.alert(\"Highlights 2.0.1 by Chun Tian (binghe)\", 3);"
   });
 } catch(e) {
-  // print something?
+    console.println("Highlights: addMenuItem failed.");
 }
 
 // Version 2.0.1
