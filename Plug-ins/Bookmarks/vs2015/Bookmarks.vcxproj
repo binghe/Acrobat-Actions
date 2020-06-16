@@ -331,6 +331,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\sources\Bookmarks.rc" />
+    <ResourceCompile Include="..\sources\Plugin.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
