@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="OpenInfo" pauseBefore="false" promptUser="false" label="显示文档标题" tooltip="显示文档标题" ID="ACB3293844830DC680191D384E5538C">
+		<Items>
+			<Item name="CenterWindow" type="boolean" value="false"/>
+			<Item name="DisplayDocTitle" type="boolean" value="true"/>
+			<Item name="FitWindow" type="boolean" value="false"/>
+			<Item name="FullScreen" type="boolean" value="false"/>
+			<Item name="HideMenubar" type="boolean" value="false"/>
+			<Item name="HideToolbar" type="boolean" value="false"/>
+			<Item name="HideWindowUI" type="boolean" value="false"/>
+			<Items name="LeaveAsIs">
+				<Item name="CenterWindow" type="boolean" value="true"/>
+				<Item name="FitWindow" type="boolean" value="true"/>
+				<Item name="FullScreen" type="boolean" value="true"/>
+				<Item name="HideMenubar" type="boolean" value="true"/>
+				<Item name="HideToolbar" type="boolean" value="true"/>
+				<Item name="HideWindowUI" type="boolean" value="true"/>
+				<Item name="Magnification" type="boolean" value="true"/>
+				<Item name="OpenAction" type="boolean" value="true"/>
+				<Item name="PageLayout" type="boolean" value="true"/>
+				<Item name="PageMode" type="boolean" value="true"/>
+				<Item name="PageNum" type="boolean" value="true"/>
+			</Items>
+			<Item name="Magnification" type="text" value="适合宽度"/>
+			<Item name="PageLayout" type="integer" value="0"/>
+			<Item name="PageMode" type="integer" value="1"/>
+			<Item name="PageNum" type="text" value="1"/>
+			<Item name="ResetDest" type="boolean" value="false"/>
+		</Items>
+	</Command>
+</Commands>
