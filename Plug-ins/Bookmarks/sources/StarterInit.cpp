@@ -232,7 +232,7 @@ DURING
     (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
 
     AVMenuItemSetComputeEnabledProc
-    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, NULL),
+    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsDisabled),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
@@ -247,7 +247,7 @@ DURING
     (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
 
     AVMenuItemSetComputeEnabledProc
-    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsDisabled),
+    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
