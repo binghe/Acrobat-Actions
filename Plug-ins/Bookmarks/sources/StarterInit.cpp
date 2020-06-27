@@ -45,7 +45,7 @@ extern "C" HINSTANCE gHINSTANCE;
 
 static const char *pluginMenuName = "Extensions";
 static AVMenuItem topMenuItem = NULL;
-static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
+static AVMenuItem menuItem[4] = {NULL, NULL, NULL, NULL};
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
 ACCB1 ASBool ACCB2 PluginUnload(void);
@@ -165,10 +165,29 @@ ACCB1 void ACCB2 PluginCommand_2(void *clientData)
     return;
 }
 
+/* Collapse All Bookmarks */
+ACCB1 void ACCB2 PluginCommand_3(void *clientData)
+{
+    // try to get front PDF document
+    AVDoc avDoc = AVAppGetActiveDoc();
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
+
+    // visit all bookmarks recursively
+    VisitAllBookmarks(pdDoc, rootBookmark);
+
+    return;
+}
+
 ACCB1 ASBool ACCB2 PluginIsEnabled(void *clientData)
 {
     // this code make it is enabled only if there is an open PDF document.
     return (AVAppGetActiveDoc() != NULL);
+}
+
+ACCB1 ASBool ACCB2 PluginIsDisabled(void *clientData)
+{
+    return false;
 }
 
 ACCB1 ASBool ACCB2 PluginSetMenu()
@@ -204,7 +223,6 @@ DURING
 
     // Command 0
     int i = 0;
-#if 0
     menuItem[i] = AVMenuItemNew("Unload Bookmarks", "AA:Unload_Bookmarks",
 				NULL, /* submenu */
 				true, /* longMenusOnly */
@@ -217,7 +235,6 @@ DURING
     (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, NULL),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
-#endif
 
     // Command 1
     i++;
@@ -230,7 +247,7 @@ DURING
     (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
 
     AVMenuItemSetComputeEnabledProc
-    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsDisabled),
      (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
@@ -247,6 +264,21 @@ DURING
     AVMenuItemSetComputeEnabledProc
     (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
      (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
+
+    // Command 3
+    i++;
+    menuItem[i] = AVMenuItemNew("Collapse All Bookmarks", "AA:Collapse_Bookmarks",
+                NULL, /* submenu */
+                true, /* longMenusOnly */
+                NO_SHORTCUT, 0 /* flags */,
+                NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_3), NULL);
+
+    AVMenuItemSetComputeEnabledProc
+      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
 HANDLER
