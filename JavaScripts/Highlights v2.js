@@ -66,10 +66,10 @@ var DoCmdhightlightRed = app.trustedFunction(function(oDoc)
 
     if (annots != null) {
       for (var i = annots.length - 1; i >= 0; i--) {
-        if (annots[i].type == "Highlight") {
+        // if (annots[i].type == "Highlight") {
           annots[i].opacity = opacity;
           annots[i].strokeColor = strokeColor;
-        }
+        // }
       }
     }
 });
@@ -123,10 +123,10 @@ var DoCmdhightlightYellow = app.trustedFunction(function(oDoc)
 
     if (annots != null) {
       for (var i = annots.length - 1; i >= 0; i--) {
-        if (annots[i].type == "Highlight") {
+        // if (annots[i].type == "Highlight") {
           annots[i].opacity = opacity;
           annots[i].strokeColor = strokeColor;
-        }
+        // }
       }
     }
 });
@@ -180,10 +180,10 @@ var DoCmdhightlightBlue = app.trustedFunction(function(oDoc)
 
     if (annots != null) {
       for (var i = annots.length - 1; i >= 0; i--) {
-        if (annots[i].type == "Highlight") {
+        // if (annots[i].type == "Highlight") {
           annots[i].opacity = opacity;
           annots[i].strokeColor = strokeColor;
-        }
+        // }
       }
     }
 });
@@ -237,10 +237,10 @@ var DoCmdhightlightGreen = app.trustedFunction(function(oDoc)
 
     if (annots != null) {
       for (var i = annots.length - 1; i >= 0; i--) {
-        if (annots[i].type == "Highlight") {
+        // if (annots[i].type == "Highlight") {
           annots[i].opacity = opacity;
           annots[i].strokeColor = strokeColor;
-        }
+        // }
       }
     }
 });
