@@ -1,5 +1,8 @@
-# Custom Commands and Actions for Acrobat® Pro
-Chun Tian (binghe)
+---
+author: Chun Tian
+---
+
+# Custom Commands and Actions for Adobe® Acrobat®
 
 Actions, Custom Commands, Preflights and Plugins (C++ and JavaScript) for Adobe® Acrobat® Pro (XI and DC)
 
