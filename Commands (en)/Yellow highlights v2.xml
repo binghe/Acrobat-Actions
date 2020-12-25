@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="Yellow highlights v2" tooltip="Yellow highlights v2" ID="6CD8113213A5840A7B8F4EB6A07D635">
+		<Items>
+			<Item name="ScriptCode" type="text" value="// default style&#xD;var strokeColor = color.yellow;&#xD;var opacity = 0.8;&#xD;&#xD;this.syncAnnotScan();&#xD;var annots = this.selectedAnnots;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    annots[i].opacity = opacity;&#xD;    annots[i].strokeColor = strokeColor;&#xD;  }&#xD;}&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>

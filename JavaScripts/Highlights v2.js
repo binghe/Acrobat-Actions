@@ -237,10 +237,8 @@ var DoCmdhightlightGreen = app.trustedFunction(function(oDoc)
 
     if (annots != null) {
       for (var i = annots.length - 1; i >= 0; i--) {
-        // if (annots[i].type == "Highlight") {
-          annots[i].opacity = opacity;
-          annots[i].strokeColor = strokeColor;
-        // }
+        annots[i].opacity = opacity;
+        annots[i].strokeColor = strokeColor;
       }
     }
 });
