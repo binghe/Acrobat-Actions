@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="清除所有注释内容" tooltip="保留注释本身（尤其高亮）但删除附加内容" ID="26751D70E52A010765B6FB66FF67B08">
+		<Items>
+			<Item name="ScriptCode" type="text" value="this.syncAnnotScan();&#xD;var annots = this.getAnnots();&#xD;&#xD;if (annots != null) {&#xD;  for (var i = annots.length - 1; i &gt;= 0; i--) {&#xD;    annots[i].contents = &quot;&quot;;&#xD;  }&#xD;}"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
