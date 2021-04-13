@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="JavaScript" pauseBefore="false" promptUser="false" label="调整所有文本框 (Courier)" tooltip="调整所有文本框 (Courier)" ID="37EFB7DE98B7C59D7B5EA6E2B96F9F9">
+		<Items>
+			<Item name="ScriptCode" type="text" value="/* Fix all texts in current form */&#xD;&#xD;var numTexts = 0;&#xD;for (var i = 0; i &lt; this.numFields; i++) {&#xD;  var name = this.getNthFieldName(i);&#xD;  var field = this.getField(name);&#xD;  if (field.type == &quot;text&quot;) {&#xD;    field.textFont = &quot;Courier&quot;;&#xD;    field.multiline = true;&#xD;    field.alignment = &quot;center&quot;;&#xD;    field.textSize = 0; /* A value of zero means the largest point size that&#xD;allows all text data to fit in the field’s rectangle */&#xD;    field.doNotScroll = true;&#xD;    numTexts ++;&#xD;  }&#xD;}&#xD;&#xD;app.alert(&quot;Fixed &quot; + numTexts + &quot; Text fields.&quot;);&#xD;"/>
+			<Item name="ScriptName" type="text" value=""/>
+		</Items>
+	</Command>
+</Commands>
