@@ -112,15 +112,6 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
     return true;
 }
 
-/* Unload the plugin */
-ACCB1 void ACCB2 PluginCommand_0(void *clientData)
-{
-    if (PluginUnload()) {
-        AVAlertNote("Acrobat Actions is unloaded.");
-    }
-    return;
-}
-
 #define NOTESIZ 200
 static char notes[NOTESIZ] = "";
 
@@ -241,18 +232,6 @@ DURING
 
     // Command 0
     int i = 0;
-    menuItem[i] = AVMenuItemNew("Unload Bookmarks", "AA:Unload_Bookmarks",
-				NULL, /* submenu */
-				true, /* longMenusOnly */
-				NO_SHORTCUT, 0 /* flags */,
-				NULL /* icon */, gExtensionID);
-    AVMenuItemSetExecuteProc
-    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_0), NULL);
-
-    AVMenuItemSetComputeEnabledProc
-    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsDisabled),
-     (void *)pdPermEdit);
-    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
     // Command 1
     i++;
