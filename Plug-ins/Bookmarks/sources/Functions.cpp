@@ -237,7 +237,6 @@ DURING
 		new_sentence = false;
 	    }
 	}
-	// AVAlertNote((const char*) str);
 
 	ASText newTitle = ASTextFromUnicode(u8, kUTF8);
 	ASfree((void *)u8);

@@ -376,21 +376,24 @@ void CreateIcons()
 ACCB1 ASBool ACCB2 PluginInit(void)
 {
     CreateIcons();
-    AVToolButton docSwitchBtn = AVToolButtonNew (ASAtomFromString("AB:FixFitType_Bookmarks"), gIcons[2], true, false);
+    AVToolButton docSwitchBtn =
+      AVToolButtonNew (ASAtomFromString("AB:FixFitType_Bookmarks"), gIcons[2], true, false);
     AVToolButtonSetExecuteProc (docSwitchBtn,
             ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
     AVToolButtonSetComputeEnabledProc (docSwitchBtn,
             ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
     AVToolButtonSetHelpText (docSwitchBtn, "Fix FitType of All Bookmarks");
 
-    AVToolButton docListBtn = AVToolButtonNew(ASAtomFromString("AB:Capitalize_Bookmarks"), gIcons[2], true, false);
+    AVToolButton docListBtn =
+      AVToolButtonNew(ASAtomFromString("AB:Capitalize_Bookmarks"), gIcons[2], true, false);
     AVToolButtonSetExecuteProc(docListBtn,
             ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
     AVToolButtonSetComputeEnabledProc(docListBtn,
             ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
     AVToolButtonSetHelpText(docListBtn, "Capitalize All Bookmarks");
 
-    AVToolButton docListBtn2 = AVToolButtonNew(ASAtomFromString("AB:FixAnnotations"), gIcons[2], true, false);
+    AVToolButton docListBtn2 =
+      AVToolButtonNew(ASAtomFromString("AB:FixAnnotations"), gIcons[2], true, false);
     AVToolButtonSetExecuteProc(docListBtn2,
             ASCallbackCreateProto(AVExecuteProc, PluginCommand_4), NULL);
     AVToolButtonSetComputeEnabledProc(docListBtn,
@@ -461,11 +464,11 @@ ACCB1 ASBool ACCB2 PIHandshake(Uns32 handshakeVersion, void *handshakeData)
 	
 	/* Set the name we want to go by */
 	hsData->extensionName = GetExtensionName();
-	
+
 	/* If you export your own HFT, do so in here */
 	hsData->exportHFTsCallback =
 	  (void*)ASCallbackCreateProto(PIExportHFTsProcType, &PluginExportHFTs);
-	
+
 	/*
 	** If you import plug-in HFTs, replace functionality, and/or want to register for
 	** notifications before
@@ -477,11 +480,10 @@ ACCB1 ASBool ACCB2 PIHandshake(Uns32 handshakeVersion, void *handshakeData)
 
 	/* Perform your plug-in's initialization in here */
 	hsData->initCallback = (void*)ASCallbackCreateProto(PIInitProcType, &PluginInit);
-	
+
 	/* Perform any memory freeing or state saving on "quit" in here */
-	hsData->unloadCallback =
-	    (void*)ASCallbackCreateProto(PIUnloadProcType, &PluginUnload);
-	
+	hsData->unloadCallback = (void*)ASCallbackCreateProto(PIUnloadProcType, &PluginUnload);
+
 	/* All done */
 	return true;
 	
