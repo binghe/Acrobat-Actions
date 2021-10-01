@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68F5EA10196EAC3E00379814 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F5EA0F196EAC3E00379814 /* Cocoa.framework */; };
+		68FC66301980DB3300B1B98D /* SelectionServer.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FC662F1980DB3300B1B98D /* SelectionServer.png */; };
+		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		DBA8B66909F5AF7800AAD1F3 /* SafeResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBA8B66809F5AF6200AAD1F3 /* SafeResources.cpp */; };
+		DBA8B66B09F5AF7800AAD1F3 /* SelectionServerDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBA8B62A09F5AC8A00AAD1F3 /* SelectionServerDrawUtils.cpp */; };
+		DBA8B66C09F5AF7800AAD1F3 /* SelectionServerTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBA8B62B09F5AC8A00AAD1F3 /* SelectionServerTool.cpp */; };
+		DBA8B66D09F5AF7800AAD1F3 /* SelectionServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBA8B62D09F5AC8A00AAD1F3 /* SelectionServer.cpp */; };
+		DBA8B66E09F5AF7800AAD1F3 /* SelectionServerInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBA8B62E09F5AC8A00AAD1F3 /* SelectionServerInit.cpp */; };
+		DBA8B66F09F5AF7800AAD1F3 /* PIMain.c in Sources */ = {isa = PBXBuildFile; fileRef = DB64154909F41AC9005A9990 /* PIMain.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F9FE03E2707A8A600D841D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		68F5EA0F196EAC3E00379814 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		68FC662F1980DB3300B1B98D /* SelectionServer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectionServer.png; sourceTree = "<group>"; };
+		8D01CCD20486CAD60068D4B7 /* SelectionServer.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelectionServer.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA4983510A192DD800D9771E /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB64154909F41AC9005A9990 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
+		DBA8B62A09F5AC8A00AAD1F3 /* SelectionServerDrawUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SelectionServerDrawUtils.cpp; path = ../sources/SelectionServerDrawUtils.cpp; sourceTree = SOURCE_ROOT; };
+		DBA8B62B09F5AC8A00AAD1F3 /* SelectionServerTool.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SelectionServerTool.cpp; path = ../sources/SelectionServerTool.cpp; sourceTree = SOURCE_ROOT; };
+		DBA8B62C09F5AC8A00AAD1F3 /* SelectionServer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SelectionServer.h; path = ../sources/SelectionServer.h; sourceTree = SOURCE_ROOT; };
+		DBA8B62D09F5AC8A00AAD1F3 /* SelectionServer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SelectionServer.cpp; path = ../sources/SelectionServer.cpp; sourceTree = SOURCE_ROOT; };
+		DBA8B62E09F5AC8A00AAD1F3 /* SelectionServerInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SelectionServerInit.cpp; path = ../sources/SelectionServerInit.cpp; sourceTree = SOURCE_ROOT; };
+		DBA8B66809F5AF6200AAD1F3 /* SafeResources.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SafeResources.cpp; path = ../../PluginSupport/Headers/API/SafeResources.cpp; sourceTree = SOURCE_ROOT; };
+		DBA8B68509F5B0B800AAD1F3 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = SOURCE_ROOT; };
+		DBC4D50609F6BAA000801C9A /* SafeResources.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SafeResources.h; path = ../../PluginSupport/Headers/API/SafeResources.h; sourceTree = SOURCE_ROOT; };
+		DBC99E0109EEFB4A004181F9 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		DBC99E0309EEFB4A004181F9 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
+		DBC99E0409EEFB4A004181F9 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
+		DBC99E0509EEFB64004181F9 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
+		DBC99E0F09EEFD5B004181F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../PluginSupport/Headers/SDK/Info.plist; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D01CCCD0486CAD60068D4B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68F5EA10196EAC3E00379814 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* _EmptySample */ = {
+			isa = PBXGroup;
+			children = (
+				DBC99DFF09EEFB37004181F9 /* Configurations */,
+				08FB77ADFE841716C02AAC07 /* Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = _EmptySample;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				68F5EA0F196EAC3E00379814 /* Cocoa.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68FC662F1980DB3300B1B98D /* SelectionServer.png */,
+				DBC99E0F09EEFD5B004181F9 /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DBC4D50609F6BAA000801C9A /* SafeResources.h */,
+				DBA8B68509F5B0B800AAD1F3 /* resource.h */,
+				DBA8B66809F5AF6200AAD1F3 /* SafeResources.cpp */,
+				DBA8B62A09F5AC8A00AAD1F3 /* SelectionServerDrawUtils.cpp */,
+				DBA8B62B09F5AC8A00AAD1F3 /* SelectionServerTool.cpp */,
+				DBA8B62C09F5AC8A00AAD1F3 /* SelectionServer.h */,
+				DBA8B62D09F5AC8A00AAD1F3 /* SelectionServer.cpp */,
+				DBA8B62E09F5AC8A00AAD1F3 /* SelectionServerInit.cpp */,
+				DB64154909F41AC9005A9990 /* PIMain.c */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D01CCD20486CAD60068D4B7 /* SelectionServer.acroplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBC99DFF09EEFB37004181F9 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				BA4983510A192DD800D9771E /* Default.xcconfig */,
+				DBC99E0509EEFB64004181F9 /* Environment.xcconfig */,
+				DBC99E0009EEFB4A004181F9 /* ProjectConfigurations */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
+		DBC99E0009EEFB4A004181F9 /* ProjectConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				DBC99E0109EEFB4A004181F9 /* Project_debug.xcconfig */,
+				DBC99E0309EEFB4A004181F9 /* ProjectDefault.xcconfig */,
+				DBC99E0409EEFB4A004181F9 /* ProjectResources.xcconfig */,
+			);
+			path = ProjectConfigurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D01CCC60486CAD60068D4B7 /* SelectionServer_debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "SelectionServer_debug" */;
+			buildPhases = (
+				8D01CCC90486CAD60068D4B7 /* Resources */,
+				8D01CCCB0486CAD60068D4B7 /* Sources */,
+				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SelectionServer_debug;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = _EmptySample;
+			productReference = 8D01CCD20486CAD60068D4B7 /* SelectionServer.acroplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "SelectionServer" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* _EmptySample */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D01CCC60486CAD60068D4B7 /* SelectionServer_debug */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D01CCC90486CAD60068D4B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */,
+				68FC66301980DB3300B1B98D /* SelectionServer.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D01CCCB0486CAD60068D4B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA8B66909F5AF7800AAD1F3 /* SafeResources.cpp in Sources */,
+				DBA8B66C09F5AF7800AAD1F3 /* SelectionServerTool.cpp in Sources */,
+				DBA8B66E09F5AF7800AAD1F3 /* SelectionServerInit.cpp in Sources */,
+				DBA8B66B09F5AF7800AAD1F3 /* SelectionServerDrawUtils.cpp in Sources */,
+				DBA8B66D09F5AF7800AAD1F3 /* SelectionServer.cpp in Sources */,
+				DBA8B66F09F5AF7800AAD1F3 /* PIMain.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F9FE03E2707A8A600D841D9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FADC23408B4156C00ABE55E /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBC99E0109EEFB4A004181F9 /* Project_debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adobe.acrobat.sdk.$(PRODUCT_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Default;
+		};
+		4FADC23808B4156C00ABE55E /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBC99E0309EEFB4A004181F9 /* ProjectDefault.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					../../PluginSupport/Headers/SDK,
+					../../PluginSupport/Headers/API,
+					../sources,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "SelectionServer_debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23408B4156C00ABE55E /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "SelectionServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23808B4156C00ABE55E /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

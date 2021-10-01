@@ -19,7 +19,7 @@
 		4FA211862386BFEE0057E287 /* Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Functions.hpp; path = ../sources/Functions.hpp; sourceTree = "<group>"; };
 		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
-		DB9570D509DA098E00D15BF1 /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDebug.xcconfig; path = ProjectConfigurations/ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
@@ -99,7 +99,7 @@
 		DB9570D409DA098E00D15BF1 /* ProjectConfigurations */ = {
 			isa = PBXGroup;
 			children = (
-				DB9570D509DA098E00D15BF1 /* ProjectDebug.xcconfig */,
+				DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */,
 				DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */,
 				DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */,
 			);
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D01CCC60486CAD60068D4B7 /* Bookmarks */ = {
+		8D01CCC60486CAD60068D4B7 /* Bookmarks_debug */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks" */;
+			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks_debug" */;
 			buildPhases = (
 				8D01CCC90486CAD60068D4B7 /* Resources */,
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
@@ -121,7 +121,7 @@
 			);
 			dependencies = (
 			);
-			name = Bookmarks;
+			name = Bookmarks_debug;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = Starter;
 			productReference = 8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */;
@@ -147,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D01CCC60486CAD60068D4B7 /* Bookmarks */,
+				8D01CCC60486CAD60068D4B7 /* Bookmarks_debug */,
 			);
 		};
 /* End PBXProject section */
@@ -190,7 +190,7 @@
 /* Begin XCBuildConfiguration section */
 		4FADC23408B4156C00ABE55E /* Default */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* ProjectDebug.xcconfig */;
+			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -247,7 +247,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks" */ = {
+		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks_debug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FADC23408B4156C00ABE55E /* Default */,
