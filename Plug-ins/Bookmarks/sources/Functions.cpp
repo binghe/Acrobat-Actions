@@ -19,6 +19,8 @@ extern "C" {
 #include <strings.h>
 #endif
 
+#include <string.h>
+#include <stdio.h>
 #include "Functions.hpp"
 
 void VisitAllBookmarks(PDDoc doc, PDBookmark b)
@@ -95,7 +97,7 @@ DURING
     PDBookmarkGetTitleASText(b, title);
     if (!ASTextIsEmpty(title)) {
 	ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
-	if (strcasestr((const char *)u8, "CONTENTS") ||
+	if (strcasestr((const char *)u8, "CONTENT") ||
 	    strcasestr((const char *)u8, "Inhalt")) // German "TOC"
 	{
 	    PDBookmarkSetFlags(b, 0x2); /* bold font */
@@ -262,3 +264,46 @@ END_HANDLER
     return acc;
 }
 
+int FixAllTextAnnotations(PDDoc doc)
+{
+    PDPage page;
+    ASInt32 i, j;
+    PDAnnot annot;
+    char setbuf[200];
+    int count = 0;
+
+    // Iterate through the PDF document page by page
+    for (i = 0; i < PDDocGetNumPages(doc); i++) {
+        // Get each page within the document
+        page = PDDocAcquirePage(doc, i);
+
+        // Get each annotation on the page
+        for (j = 0; j < PDPageGetNumAnnots(page); j++) {
+            // Get a specific annotation
+            annot = PDPageGetAnnot(page, j);
+            if (PDAnnotIsValid(annot)) {
+                // Determine if the annotation is a Highlight annotation
+                if (PDAnnotGetSubtype(annot) == ASAtomFromString("Highlight")) {
+                    // Create a character pointer to store the annotation's text
+                    char *annBuf;
+                    ASInt32 bufSize = PDTextAnnotGetContents(annot, NULL, 0) +1;
+
+                    // Allocate the size of bufSize to the character pointer
+                    annBuf = (char*)ASmalloc((os_size_t)bufSize);
+
+                    // Populate annBuf with the annotation's text
+                    PDTextAnnotGetContents(annot, annBuf, bufSize);
+
+                    // Compare the contents of annBuf with a string
+                    if (strcmp(annBuf, "This is initial text") == 0) {
+                        // Modify the annotation's text
+                        sprintf (setbuf, "This is the new text for the annotation.");
+                        PDTextAnnotSetContents (annot, setbuf, (ASInt32)strlen(setbuf));
+                        count ++;
+                    }
+                }
+            }
+        }
+    }
+    return count;
+}

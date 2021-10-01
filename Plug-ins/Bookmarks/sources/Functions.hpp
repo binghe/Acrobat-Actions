@@ -12,5 +12,6 @@
 void VisitAllBookmarks(PDDoc doc, PDBookmark b);
 int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc);
 int CapitalizeAllBookmarks(PDDoc doc, PDBookmark b, int acc);
+int FixAllTextAnnotations(PDDoc doc);
 
 #endif /* Functions_hpp */

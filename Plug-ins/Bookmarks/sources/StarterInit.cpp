@@ -45,7 +45,7 @@ extern "C" HINSTANCE gHINSTANCE;
 
 static const char *pluginMenuName = "Extensions";
 static AVMenuItem topMenuItem = NULL;
-static AVMenuItem menuItem[4] = {NULL, NULL, NULL, NULL};
+static AVMenuItem menuItem[5] = {NULL, NULL, NULL, NULL, NULL};
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
 ACCB1 ASBool ACCB2 PluginUnload(void);
@@ -179,6 +179,24 @@ ACCB1 void ACCB2 PluginCommand_3(void *clientData)
     return;
 }
 
+/* Fix All Text Annotations */
+ACCB1 void ACCB2 PluginCommand_4(void *clientData)
+{
+    // try to get front PDF document
+    AVDoc avDoc = AVAppGetActiveDoc();
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+
+    int acc = FixAllTextAnnotations(pdDoc);
+#ifdef WIN_PLATFORM
+    _snprintf(notes, NOTESIZ, "Changed %d annotations.", acc);
+#else
+    snprintf(notes, NOTESIZ, "Changed %d annotations.", acc);
+#endif
+    AVAlertNote((const char*) notes);
+
+    return;
+}
+
 ACCB1 ASBool ACCB2 PluginIsEnabled(void *clientData)
 {
     // this code make it is enabled only if there is an open PDF document.
@@ -281,9 +299,26 @@ DURING
        (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
+    // Command 4 (TODO: move to project Annotations)
+    i++;
+    menuItem[i] = AVMenuItemNew("Fix All Text Annotations", "AA:Fix_Annotations",
+                NULL, /* submenu */
+                true, /* longMenusOnly */
+                NO_SHORTCUT, 0 /* flags */,
+                NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_4), NULL);
+
+    AVMenuItemSetComputeEnabledProc
+      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
+
 HANDLER
     AVMenuRelease(subMenu);
-    if (commonMenu) AVMenuRelease(commonMenu);
+    if (commonMenu) {
+        AVMenuRelease(commonMenu);
+    }
     return false;
 
 END_HANDLER
@@ -344,7 +379,7 @@ void CreateIcons()
         PDDoc iconDoc = PDDocOpenFromASFile(iconFile, NULL, FALSE);
         ASFileSysReleasePath(theFileSys, pathName);
         for (size_t i = 0; i < 3; ++i) {
-            gIcons[i] = AVIconCreateFromPDF(iconDoc, i, 24, 24);
+            gIcons[i] = AVIconCreateFromPDF(iconDoc, (ASInt32)i, 24, 24);
         }
         PDDocClose(iconDoc);
     }
@@ -376,10 +411,18 @@ ACCB1 ASBool ACCB2 PluginInit(void)
             ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
     AVToolButtonSetHelpText(docListBtn, "Capitalize All Bookmarks");
 
+    AVToolButton docListBtn2 = AVToolButtonNew(ASAtomFromString("AB:FixAnnotations"), gIcons[2], true, false);
+    AVToolButtonSetExecuteProc(docListBtn2,
+            ASCallbackCreateProto(AVExecuteProc, PluginCommand_4), NULL);
+    AVToolButtonSetComputeEnabledProc(docListBtn,
+            ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
+    AVToolButtonSetHelpText(docListBtn2, "Fix All Text Annotations");
+
     AVToolBar toolBar = AVToolBarNew("AcrobatActions", "Acrobat Actions");
     AVToolBarSetIcon(toolBar, gIcons[0], gIcons[1]);
     AVToolBarAddButton(toolBar, docSwitchBtn, false, NULL);
     AVToolBarAddButton(toolBar, docListBtn, false, NULL);
+    AVToolBarAddButton(toolBar, docListBtn2, false, NULL);
 
     return PluginSetMenu();
 }
