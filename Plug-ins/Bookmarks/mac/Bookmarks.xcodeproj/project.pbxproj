@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4FA211872386BFEE0057E287 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA211852386BFEE0057E287 /* Functions.cpp */; };
 		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
-		DBF38A6E09DA0BD500924B81 /* StarterInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */; };
+		DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */; };
 		DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */ = {isa = PBXBuildFile; fileRef = DB9570EC09DA0AA400D15BF1 /* PIMain.c */; };
 /* End PBXBuildFile section */
 
@@ -19,11 +19,11 @@
 		4FA211862386BFEE0057E287 /* Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Functions.hpp; path = ../sources/Functions.hpp; sourceTree = "<group>"; };
 		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
-		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D509DA098E00D15BF1 /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDebug.xcconfig; path = ProjectConfigurations/ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
-		DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = StarterInit.cpp; path = ../sources/StarterInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
+		DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = PluginInit.cpp; path = ../sources/PluginInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
 		DB9ABFD609DCA62100298E3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../sources/Info.plist; sourceTree = SOURCE_ROOT; };
 		DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -70,7 +70,7 @@
 		08FB77ADFE841716C02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DB9570ED09DA0AB800D15BF1 /* StarterInit.cpp */,
+				DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */,
 				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
 				4FA211852386BFEE0057E287 /* Functions.cpp */,
 				4FA211862386BFEE0057E287 /* Functions.hpp */,
@@ -99,7 +99,7 @@
 		DB9570D409DA098E00D15BF1 /* ProjectConfigurations */ = {
 			isa = PBXGroup;
 			children = (
-				DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */,
+				DB9570D509DA098E00D15BF1 /* ProjectDebug.xcconfig */,
 				DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */,
 				DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */,
 			);
@@ -169,7 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA211872386BFEE0057E287 /* Functions.cpp in Sources */,
-				DBF38A6E09DA0BD500924B81 /* StarterInit.cpp in Sources */,
+				DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */,
 				DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,7 +190,7 @@
 /* Begin XCBuildConfiguration section */
 		4FADC23408B4156C00ABE55E /* Default */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */;
+			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* ProjectDebug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
