@@ -1,4 +1,4 @@
-/*********************************************************************
+﻿/*********************************************************************
 
  Copyright (C) 2018-2019 Chun Tian (binghe)
  Copyright (C) 1998-2006 Adobe Systems Incorporated
@@ -311,7 +311,7 @@ void CreateIcons()
     ASPathName pathName = NULL;
 #if WIN_PLATFORM
     ASFileSys theFileSys = ASGetRamFileSys();
-    HRSRC hres = FindResource(gHINSTANCE, MAKEINTRESOURCE(IDR_PDFICONS1), "PDFICONS");
+    HRSRC hres = FindResource(gHINSTANCE, MAKEINTRESOURCE(IDR_PDFICONS1), L"PDFICONS");
     if (hres)
     {
         DWORD dwSize = SizeofResource(gHINSTANCE, hres);

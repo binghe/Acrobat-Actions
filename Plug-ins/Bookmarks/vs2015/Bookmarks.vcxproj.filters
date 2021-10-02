@@ -4,13 +4,13 @@
     <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\sources\StarterInit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\sources\strcasestr.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\sources\Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\PluginInit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
