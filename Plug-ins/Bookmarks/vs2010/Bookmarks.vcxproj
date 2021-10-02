@@ -146,14 +146,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
   <ItemGroup>
     <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c" />
     <ClCompile Include="..\sources\Functions.cpp" />
-    <ClCompile Include="..\sources\StarterInit.cpp">
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_DEBUG;WIN_PLATFORM;WIN32;_WINDOWS;WIN_ENV</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_DEBUG;WIN_PLATFORM;WIN32;_WINDOWS;WIN_ENV</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</BrowseInformation>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</BrowseInformation>
-    </ClCompile>
+    <ClCompile Include="..\sources\PluginInit.cpp" />
     <ClCompile Include="..\sources\strcasestr.c" />
   </ItemGroup>
   <ItemGroup>
