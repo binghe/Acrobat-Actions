@@ -5,3 +5,4 @@
 *.VC.db
 *.VC.VC.opendb
 /Release/
+/x64/
