@@ -306,3 +306,32 @@ int FixAllTextAnnotations(PDDoc doc)
     }
     return count;
 }
+
+/* New feature: link preview (like those in TeXShop) */
+static AVAnnotHandler gAVAnnotHandler = NULL;
+
+static ACCB1 void ACCB2
+DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
+{
+    // AVAlertNote("DoCursorEnter is called!");
+}
+
+static ACCB1 void ACCB2
+DoCursorExit (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
+{
+    // AVAlertNote("DoCursorExit is called!");
+}
+
+void RegisterLinkHandlers ()
+{
+    /* Get the existing handler for link annotations */
+    gAVAnnotHandler = AVAppGetAnnotHandlerByName(ASAtomFromString("Link"));
+
+    /* Adding CursorEnter and CursorExit callbacks */
+    gAVAnnotHandler->CursorEnter =
+        ASCallbackCreateProto(AVAnnotHandlerCursorEnterProc, &DoCursorEnter);
+    gAVAnnotHandler->CursorExit =
+        ASCallbackCreateProto(AVAnnotHandlerCursorExitProc, &DoCursorExit);
+
+    AVAppRegisterAnnotHandler(gAVAnnotHandler);
+}

@@ -1,4 +1,4 @@
-﻿/*********************************************************************
+/*********************************************************************
 
  Copyright (C) 2018-2019 Chun Tian (binghe)
  Copyright (C) 1998-2006 Adobe Systems Incorporated
@@ -406,7 +406,11 @@ ACCB1 ASBool ACCB2 PluginInit(void)
     AVToolBarAddButton(toolBar, docListBtn, false, NULL);
     AVToolBarAddButton(toolBar, docListBtn2, false, NULL);
 
-    return PluginSetMenu();
+    ASBool menu_p = PluginSetMenu();
+    
+    RegisterLinkHandlers();
+
+    return menu_p;
 }
 
 /* PluginUnload
@@ -426,6 +430,7 @@ ACCB1 ASBool ACCB2 PluginUnload(void)
     if (topMenuItem) {
         AVMenuItemRemove(topMenuItem);
     }
+
     return true;
 }
 
