@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F9E672A2708D08A00CE85EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBC99E0F09EEFD5B004181F9 /* Info.plist */; };
 		68F5EA10196EAC3E00379814 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F5EA0F196EAC3E00379814 /* Cocoa.framework */; };
 		68FC66301980DB3300B1B98D /* SelectionServer.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FC662F1980DB3300B1B98D /* SelectionServer.png */; };
 		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
@@ -179,6 +180,7 @@
 			files = (
 				8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */,
 				68FC66301980DB3300B1B98D /* SelectionServer.png in Resources */,
+				4F9E672A2708D08A00CE85EE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,9 +219,14 @@
 			baseConfigurationReference = DBC99E0109EEFB4A004181F9 /* Project_debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adobe.acrobat.sdk.$(PRODUCT_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Default;
@@ -260,6 +267,7 @@
 					../../PluginSupport/Headers/API,
 					../sources,
 				);
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 			};
