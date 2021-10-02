@@ -84,4 +84,3 @@ ACCB1 void ACCB2 DrawImageSelection (AVPageView pageView, AVDevRect *updateRect,
 
 	END_HANDLER
 }
-
