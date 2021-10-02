@@ -311,7 +311,7 @@ void CreateIcons()
     ASPathName pathName = NULL;
 #if WIN_PLATFORM
     ASFileSys theFileSys = ASGetRamFileSys();
-    HRSRC hres = FindResource(gHINSTANCE, MAKEINTRESOURCE(IDR_PDFICONS1), L"PDFICONS");
+    HRSRC hres = FindResource(gHINSTANCE, MAKEINTRESOURCE(IDR_PDFICONS1), "PDFICONS");
     if (hres)
     {
         DWORD dwSize = SizeofResource(gHINSTANCE, hres);
