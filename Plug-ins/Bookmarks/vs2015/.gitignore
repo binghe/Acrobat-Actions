@@ -1,8 +1,7 @@
 /.vs/
-/Debug/
 *.pdb
 *.vcxproj.user
 *.VC.db
 *.VC.VC.opendb
-/Release/
 /x64/
+/Win32/
