@@ -313,7 +313,23 @@ static AVAnnotHandler gAVAnnotHandler = NULL;
 static ACCB1 void ACCB2
 DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
 {
-    // AVAlertNote("DoCursorEnter is called!");
+    AVDoc avDoc = AVPageViewGetAVDoc(pageView);
+    PDDoc doc = AVDocGetPDDoc(avDoc);
+    PDLinkAnnot linkAnnot = CastToPDLinkAnnot(anAnnot);
+    PDAction action = PDLinkAnnotGetAction(linkAnnot);
+    if (PDActionIsValid(action)) {
+        ASAtom subtype = PDActionGetSubtype(action);
+        if (subtype == ASAtomFromString("GoTo")) {
+            PDViewDestination dest = PDActionGetDest(action);
+            // for possibly named destinations, it must be resolved using a PDDoc
+            if (!PDViewDestIsValid(dest)) {
+                dest = PDViewDestResolve(dest, doc);
+            }
+            if (PDViewDestIsValid(dest)) {
+                AVAlertNote("Found a valid PDViewDestination.");
+            }
+        }
+    }
 }
 
 static ACCB1 void ACCB2
