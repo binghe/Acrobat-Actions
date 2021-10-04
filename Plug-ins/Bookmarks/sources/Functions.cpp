@@ -326,7 +326,7 @@ DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView
                 dest = PDViewDestResolve(dest, doc);
             }
             if (PDViewDestIsValid(dest)) {
-                AVAlertNote("Found a valid PDViewDestination.");
+                // AVAlertNote("Found a valid PDViewDestination.");
             }
         }
     }
