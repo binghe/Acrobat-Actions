@@ -407,9 +407,6 @@ ACCB1 ASBool ACCB2 PluginInit(void)
     AVToolBarAddButton(toolBar, docListBtn2, false, NULL);
 
     ASBool menu_p = PluginSetMenu();
-    
-    RegisterLinkHandlers();
-
     return menu_p;
 }
 

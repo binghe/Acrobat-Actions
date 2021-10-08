@@ -14,6 +14,4 @@ int FixAllBookmarks (PDDoc doc, PDBookmark b, int acc);
 int CapitalizeAllBookmarks (PDDoc doc, PDBookmark b, int acc);
 int FixAllTextAnnotations (PDDoc doc);
 
-void RegisterLinkHandlers ();
-
 #endif /* Functions_hpp */

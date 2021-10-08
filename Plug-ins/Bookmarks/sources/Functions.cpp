@@ -97,10 +97,11 @@ DURING
     PDBookmarkGetTitleASText(b, title);
     if (!ASTextIsEmpty(title)) {
 	ASUTF16Val *u8 = ASTextGetUnicodeCopy(title, kUTF8);
-	if (strcasestr((const char *)u8, "CONTENT") ||
+	if (strcasestr((const char *)u8, "CONTENTS") ||
 	    strcasestr((const char *)u8, "Inhalt")) // German "TOC"
 	{
-	    PDBookmarkSetFlags(b, 0x2); /* bold font */
+            ASInt32 flags = PDBookmarkGetFlags(b);
+	    PDBookmarkSetFlags(b, flags & (ASInt32)0x2); /* +bold font */
 	    acc++;
 	}
 	ASfree((void *)u8);
@@ -118,8 +119,12 @@ DURING
     }
     
 HANDLER
-    if (PDActionIsValid(newAction)) PDActionDestroy(newAction);
-    if (PDViewDestIsValid(newDest)) PDViewDestDestroy(newDest);
+    if (PDActionIsValid(newAction)) {
+        PDActionDestroy(newAction);
+    }
+    if (PDViewDestIsValid(newDest)) {
+        PDViewDestDestroy(newDest);
+    }
 END_HANDLER
     return acc;
 }
@@ -305,49 +310,4 @@ int FixAllTextAnnotations(PDDoc doc)
         }
     }
     return count;
-}
-
-/* New feature: link preview (like those in TeXShop) */
-static AVAnnotHandler gAVAnnotHandler = NULL;
-
-static ACCB1 void ACCB2
-DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
-{
-    AVDoc avDoc = AVPageViewGetAVDoc(pageView);
-    PDDoc doc = AVDocGetPDDoc(avDoc);
-    PDLinkAnnot linkAnnot = CastToPDLinkAnnot(anAnnot);
-    PDAction action = PDLinkAnnotGetAction(linkAnnot);
-    if (PDActionIsValid(action)) {
-        ASAtom subtype = PDActionGetSubtype(action);
-        if (subtype == ASAtomFromString("GoTo")) {
-            PDViewDestination dest = PDActionGetDest(action);
-            // for possibly named destinations, it must be resolved using a PDDoc
-            if (!PDViewDestIsValid(dest)) {
-                dest = PDViewDestResolve(dest, doc);
-            }
-            if (PDViewDestIsValid(dest)) {
-                // AVAlertNote("Found a valid PDViewDestination.");
-            }
-        }
-    }
-}
-
-static ACCB1 void ACCB2
-DoCursorExit (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
-{
-    // AVAlertNote("DoCursorExit is called!");
-}
-
-void RegisterLinkHandlers ()
-{
-    /* Get the existing handler for link annotations */
-    gAVAnnotHandler = AVAppGetAnnotHandlerByName(ASAtomFromString("Link"));
-
-    /* Adding CursorEnter and CursorExit callbacks */
-    gAVAnnotHandler->CursorEnter =
-        ASCallbackCreateProto(AVAnnotHandlerCursorEnterProc, &DoCursorEnter);
-    gAVAnnotHandler->CursorExit =
-        ASCallbackCreateProto(AVAnnotHandlerCursorExitProc, &DoCursorExit);
-
-    AVAppRegisterAnnotHandler(gAVAnnotHandler);
 }
