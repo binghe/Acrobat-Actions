@@ -1,0 +1,22 @@
+// *********************************************************************
+//
+// ADOBE SYSTEMS INCORPORATED
+// Copyright (C) 2005-2006 Adobe Systems Incorporated
+// All rights reserved.
+//
+// NOTICE: Adobe permits you to use, modify, and distribute this file
+// in accordance with the terms of the Adobe license agreement
+// accompanying it. If you have received this file from a source other
+// than Adobe, then your use, modification, or distribution of it
+// requires the prior written permission of Adobe.
+//
+// *********************************************************************
+
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig"
+#include "../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig"
+
+// Common search paths for all targets
+HEADER_SEARCH_PATHS = $(HEADER_SEARCH_PATHS) ../../PluginSupport/Headers/SDK ../../PluginSupport/Headers/API ../sources
+
+// Compile everything as objective-c++
+GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp

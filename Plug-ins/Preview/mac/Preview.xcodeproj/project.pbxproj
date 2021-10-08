@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F09B8BB270DDABE00C9DD6A /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4F09B8BA270DDABE00C9DD6A /* Debug.xcconfig */; };
+		4F09B8F62710834800C9DD6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09B8F52710834800C9DD6A /* Cocoa.framework */; };
+		4FA211872386BFEE0057E287 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA211852386BFEE0057E287 /* Functions.cpp */; };
+		4FA448D5270B9069008FAC40 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA448D4270B9069008FAC40 /* Window.m */; };
+		4FA771012708B37A00E02C94 /* AVCompat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA7707A2708B37800E02C94 /* AVCompat.cpp */; };
+		4FA771022708B37A00E02C94 /* SafeResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA770BD2708B37900E02C94 /* SafeResources.cpp */; };
+		4FA771032708B37A00E02C94 /* PIHeaders.c in Sources */ = {isa = PBXBuildFile; fileRef = 4FA770FF2708B37A00E02C94 /* PIHeaders.c */; };
+		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */; };
+		DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */ = {isa = PBXBuildFile; fileRef = DB9570EC09DA0AA400D15BF1 /* PIMain.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F09B8BA270DDABE00C9DD6A /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Debug.xcconfig; sourceTree = "<group>"; };
+		4F09B8F52710834800C9DD6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		4F1E6773270728D3003C131A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4FA211852386BFEE0057E287 /* Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Functions.cpp; path = ../sources/Functions.cpp; sourceTree = "<group>"; };
+		4FA211862386BFEE0057E287 /* Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Functions.hpp; path = ../sources/Functions.hpp; sourceTree = "<group>"; };
+		4FA448D4270B9069008FAC40 /* Window.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Window.m; path = ../sources/Window.m; sourceTree = "<group>"; };
+		4FA448D7270B90A1008FAC40 /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Window.h; path = ../sources/Window.h; sourceTree = "<group>"; };
+		4FA770642708B37700E02C94 /* AVExpTObsolete1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpTObsolete1.h; path = ../../PluginSupport/Headers/API/AVExpTObsolete1.h; sourceTree = "<group>"; };
+		4FA770652708B37700E02C94 /* PDBatesExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDBatesExpT.h; path = ../../PluginSupport/Headers/API/PDBatesExpT.h; sourceTree = "<group>"; };
+		4FA770662708B37700E02C94 /* PDCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDCalls.h; path = ../../PluginSupport/Headers/API/PDCalls.h; sourceTree = "<group>"; };
+		4FA770672708B37700E02C94 /* PEWCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEWCalls.h; path = ../../PluginSupport/Headers/API/PEWCalls.h; sourceTree = "<group>"; };
+		4FA770682708B37700E02C94 /* SmartPDPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartPDPage.h; path = ../../PluginSupport/Headers/API/SmartPDPage.h; sourceTree = "<group>"; };
+		4FA770692708B37700E02C94 /* PERProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PERProcs.h; path = ../../PluginSupport/Headers/API/PERProcs.h; sourceTree = "<group>"; };
+		4FA7706A2708B37700E02C94 /* XtnMgrEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XtnMgrEASF.h; path = ../../PluginSupport/Headers/API/XtnMgrEASF.h; sourceTree = "<group>"; };
+		4FA7706B2708B37700E02C94 /* UnixPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnixPlatform.h; path = ../../PluginSupport/Headers/API/UnixPlatform.h; sourceTree = "<group>"; };
+		4FA7706C2708B37700E02C94 /* PSFCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFCalls.h; path = ../../PluginSupport/Headers/API/PSFCalls.h; sourceTree = "<group>"; };
+		4FA7706D2708B37700E02C94 /* UnixCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnixCalls.h; path = ../../PluginSupport/Headers/API/UnixCalls.h; sourceTree = "<group>"; };
+		4FA7706E2708B37700E02C94 /* PDPageE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDPageE.h; path = ../../PluginSupport/Headers/API/PDPageE.h; sourceTree = "<group>"; };
+		4FA7706F2708B37700E02C94 /* AcroErr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcroErr.h; path = ../../PluginSupport/Headers/API/AcroErr.h; sourceTree = "<group>"; };
+		4FA770702708B37700E02C94 /* PDDocE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDDocE.h; path = ../../PluginSupport/Headers/API/PDDocE.h; sourceTree = "<group>"; };
+		4FA770712708B37800E02C94 /* AVExpTObsolete2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpTObsolete2.h; path = ../../PluginSupport/Headers/API/AVExpTObsolete2.h; sourceTree = "<group>"; };
+		4FA770722708B37800E02C94 /* SrchType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SrchType.h; path = ../../PluginSupport/Headers/API/SrchType.h; sourceTree = "<group>"; };
+		4FA770732708B37800E02C94 /* MacCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacCalls.h; path = ../../PluginSupport/Headers/API/MacCalls.h; sourceTree = "<group>"; };
+		4FA770742708B37800E02C94 /* EReturnValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EReturnValidator.h; path = ../../PluginSupport/Headers/API/EReturnValidator.h; sourceTree = "<group>"; };
+		4FA770752708B37800E02C94 /* FontSvrEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontSvrEASF.h; path = ../../PluginSupport/Headers/API/FontSvrEASF.h; sourceTree = "<group>"; };
+		4FA770762708B37800E02C94 /* PDSErrorASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSErrorASF.h; path = ../../PluginSupport/Headers/API/PDSErrorASF.h; sourceTree = "<group>"; };
+		4FA770772708B37800E02C94 /* PERCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PERCalls.h; path = ../../PluginSupport/Headers/API/PERCalls.h; sourceTree = "<group>"; };
+		4FA770782708B37800E02C94 /* Library.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Library.h; path = ../../PluginSupport/Headers/API/Library.h; sourceTree = "<group>"; };
+		4FA770792708B37800E02C94 /* CAVAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAVAlert.h; path = ../../PluginSupport/Headers/API/CAVAlert.h; sourceTree = "<group>"; };
+		4FA7707A2708B37800E02C94 /* AVCompat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AVCompat.cpp; path = ../../PluginSupport/Headers/API/AVCompat.cpp; sourceTree = "<group>"; };
+		4FA7707B2708B37800E02C94 /* ASCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCalls.h; path = ../../PluginSupport/Headers/API/ASCalls.h; sourceTree = "<group>"; };
+		4FA7707C2708B37800E02C94 /* PDMetadataError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDMetadataError.h; path = ../../PluginSupport/Headers/API/PDMetadataError.h; sourceTree = "<group>"; };
+		4FA7707D2708B37800E02C94 /* AcroColorCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcroColorCalls.h; path = ../../PluginSupport/Headers/API/AcroColorCalls.h; sourceTree = "<group>"; };
+		4FA7707E2708B37800E02C94 /* PDSReadProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSReadProcs.h; path = ../../PluginSupport/Headers/API/PDSReadProcs.h; sourceTree = "<group>"; };
+		4FA7707F2708B37800E02C94 /* WinCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinCalls.h; path = ../../PluginSupport/Headers/API/WinCalls.h; sourceTree = "<group>"; };
+		4FA770802708B37800E02C94 /* Plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plugin.h; path = ../../PluginSupport/Headers/API/Plugin.h; sourceTree = "<group>"; };
+		4FA770812708B37800E02C94 /* SafeResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SafeResources.h; path = ../../PluginSupport/Headers/API/SafeResources.h; sourceTree = "<group>"; };
+		4FA770822708B37800E02C94 /* PDSReadCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSReadCalls.h; path = ../../PluginSupport/Headers/API/PDSReadCalls.h; sourceTree = "<group>"; };
+		4FA770832708B37800E02C94 /* SrchPrcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SrchPrcs.h; path = ../../PluginSupport/Headers/API/SrchPrcs.h; sourceTree = "<group>"; };
+		4FA770842708B37800E02C94 /* FontSvrE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontSvrE.h; path = ../../PluginSupport/Headers/API/FontSvrE.h; sourceTree = "<group>"; };
+		4FA770852708B37800E02C94 /* AcroColorVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcroColorVers.h; path = ../../PluginSupport/Headers/API/AcroColorVers.h; sourceTree = "<group>"; };
+		4FA770862708B37800E02C94 /* ConsHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsHFTProcs.h; path = ../../PluginSupport/Headers/API/ConsHFTProcs.h; sourceTree = "<group>"; };
+		4FA770872708B37800E02C94 /* AVExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpT.h; path = ../../PluginSupport/Headers/API/AVExpT.h; sourceTree = "<group>"; };
+		4FA770882708B37800E02C94 /* WLHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLHFT.h; path = ../../PluginSupport/Headers/API/WLHFT.h; sourceTree = "<group>"; };
+		4FA770892708B37800E02C94 /* PDSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSError.h; path = ../../PluginSupport/Headers/API/PDSError.h; sourceTree = "<group>"; };
+		4FA7708A2708B37800E02C94 /* PEVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEVers.h; path = ../../PluginSupport/Headers/API/PEVers.h; sourceTree = "<group>"; };
+		4FA7708B2708B37800E02C94 /* ASGenE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASGenE.h; path = ../../PluginSupport/Headers/API/ASGenE.h; sourceTree = "<group>"; };
+		4FA7708C2708B37800E02C94 /* PDBatesCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDBatesCalls.h; path = ../../PluginSupport/Headers/API/PDBatesCalls.h; sourceTree = "<group>"; };
+		4FA7708D2708B37800E02C94 /* PgCntProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PgCntProcs.h; path = ../../PluginSupport/Headers/API/PgCntProcs.h; sourceTree = "<group>"; };
+		4FA7708E2708B37800E02C94 /* WinPltfm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinPltfm.h; path = ../../PluginSupport/Headers/API/WinPltfm.h; sourceTree = "<group>"; };
+		4FA7708F2708B37800E02C94 /* winprocs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winprocs.h; path = ../../PluginSupport/Headers/API/winprocs.h; sourceTree = "<group>"; };
+		4FA770902708B37800E02C94 /* CosCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosCalls.h; path = ../../PluginSupport/Headers/API/CosCalls.h; sourceTree = "<group>"; };
+		4FA770912708B37800E02C94 /* catprocs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = catprocs.h; path = ../../PluginSupport/Headers/API/catprocs.h; sourceTree = "<group>"; };
+		4FA770922708B37800E02C94 /* DigSigHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DigSigHFT.h; path = ../../PluginSupport/Headers/API/DigSigHFT.h; sourceTree = "<group>"; };
+		4FA770932708B37800E02C94 /* PDMetadataProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDMetadataProcs.h; path = ../../PluginSupport/Headers/API/PDMetadataProcs.h; sourceTree = "<group>"; };
+		4FA770942708B37800E02C94 /* SrchHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SrchHFT.h; path = ../../PluginSupport/Headers/API/SrchHFT.h; sourceTree = "<group>"; };
+		4FA770952708B37800E02C94 /* FormsHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormsHFT.h; path = ../../PluginSupport/Headers/API/FormsHFT.h; sourceTree = "<group>"; };
+		4FA770962708B37800E02C94 /* PETypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PETypes.h; path = ../../PluginSupport/Headers/API/PETypes.h; sourceTree = "<group>"; };
+		4FA770972708B37800E02C94 /* AF_Sel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AF_Sel.h; path = ../../PluginSupport/Headers/API/AF_Sel.h; sourceTree = "<group>"; };
+		4FA770982708B37800E02C94 /* ASNumTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASNumTypes.h; path = ../../PluginSupport/Headers/API/ASNumTypes.h; sourceTree = "<group>"; };
+		4FA770992708B37800E02C94 /* ASGenEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASGenEASF.h; path = ../../PluginSupport/Headers/API/ASGenEASF.h; sourceTree = "<group>"; };
+		4FA7709A2708B37800E02C94 /* Environ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Environ.h; path = ../../PluginSupport/Headers/API/Environ.h; sourceTree = "<group>"; };
+		4FA7709B2708B37800E02C94 /* PSFProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFProcs.h; path = ../../PluginSupport/Headers/API/PSFProcs.h; sourceTree = "<group>"; };
+		4FA7709C2708B37800E02C94 /* ToolkitInitE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToolkitInitE.h; path = ../../PluginSupport/Headers/API/ToolkitInitE.h; sourceTree = "<group>"; };
+		4FA7709D2708B37800E02C94 /* PIMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIMain.h; path = ../../PluginSupport/Headers/API/PIMain.h; sourceTree = "<group>"; };
+		4FA7709E2708B37800E02C94 /* PICrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PICrypt.h; path = ../../PluginSupport/Headers/API/PICrypt.h; sourceTree = "<group>"; };
+		4FA7709F2708B37800E02C94 /* CorCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorCalls.h; path = ../../PluginSupport/Headers/API/CorCalls.h; sourceTree = "<group>"; };
+		4FA770A02708B37800E02C94 /* ConsHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsHFT.h; path = ../../PluginSupport/Headers/API/ConsHFT.h; sourceTree = "<group>"; };
+		4FA770A12708B37800E02C94 /* ASExtraProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExtraProcs.h; path = ../../PluginSupport/Headers/API/ASExtraProcs.h; sourceTree = "<group>"; };
+		4FA770A22708B37800E02C94 /* PDClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDClasses.h; path = ../../PluginSupport/Headers/API/PDClasses.h; sourceTree = "<group>"; };
+		4FA770A32708B37800E02C94 /* SrchClls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SrchClls.h; path = ../../PluginSupport/Headers/API/SrchClls.h; sourceTree = "<group>"; };
+		4FA770A42708B37800E02C94 /* PDModEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDModEASF.h; path = ../../PluginSupport/Headers/API/PDModEASF.h; sourceTree = "<group>"; };
+		4FA770A52708B37800E02C94 /* PDMetadataHFTVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDMetadataHFTVers.h; path = ../../PluginSupport/Headers/API/PDMetadataHFTVers.h; sourceTree = "<group>"; };
+		4FA770A62708B37800E02C94 /* CosExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosExpT.h; path = ../../PluginSupport/Headers/API/CosExpT.h; sourceTree = "<group>"; };
+		4FA770A72708B37800E02C94 /* PEWProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEWProcs.h; path = ../../PluginSupport/Headers/API/PEWProcs.h; sourceTree = "<group>"; };
+		4FA770A82708B37800E02C94 /* RasterEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RasterEASF.h; path = ../../PluginSupport/Headers/API/RasterEASF.h; sourceTree = "<group>"; };
+		4FA770A92708B37800E02C94 /* PDProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDProcs.h; path = ../../PluginSupport/Headers/API/PDProcs.h; sourceTree = "<group>"; };
+		4FA770AA2708B37800E02C94 /* PDBasicExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDBasicExpT.h; path = ../../PluginSupport/Headers/API/PDBasicExpT.h; sourceTree = "<group>"; };
+		4FA770AB2708B37800E02C94 /* acroassert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = acroassert.h; path = ../../PluginSupport/Headers/API/acroassert.h; sourceTree = "<group>"; };
+		4FA770AC2708B37800E02C94 /* PEErrorASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEErrorASF.h; path = ../../PluginSupport/Headers/API/PEErrorASF.h; sourceTree = "<group>"; };
+		4FA770AD2708B37800E02C94 /* ASExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExpT.h; path = ../../PluginSupport/Headers/API/ASExpT.h; sourceTree = "<group>"; };
+		4FA770AE2708B37800E02C94 /* AcroColorExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcroColorExpT.h; path = ../../PluginSupport/Headers/API/AcroColorExpT.h; sourceTree = "<group>"; };
+		4FA770AF2708B37800E02C94 /* AcroColorProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcroColorProcs.h; path = ../../PluginSupport/Headers/API/AcroColorProcs.h; sourceTree = "<group>"; };
+		4FA770B02708B37800E02C94 /* ASFileE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASFileE.h; path = ../../PluginSupport/Headers/API/ASFileE.h; sourceTree = "<group>"; };
+		4FA770B12708B37800E02C94 /* FormsHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormsHFTProcs.h; path = ../../PluginSupport/Headers/API/FormsHFTProcs.h; sourceTree = "<group>"; };
+		4FA770B22708B37800E02C94 /* TtsHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TtsHFT.h; path = ../../PluginSupport/Headers/API/TtsHFT.h; sourceTree = "<group>"; };
+		4FA770B32708B37800E02C94 /* PDFXE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFXE.h; path = ../../PluginSupport/Headers/API/PDFXE.h; sourceTree = "<group>"; };
+		4FA770B42708B37900E02C94 /* PDSWriteCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSWriteCalls.h; path = ../../PluginSupport/Headers/API/PDSWriteCalls.h; sourceTree = "<group>"; };
+		4FA770B52708B37900E02C94 /* WLHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLHFTProcs.h; path = ../../PluginSupport/Headers/API/WLHFTProcs.h; sourceTree = "<group>"; };
+		4FA770B62708B37900E02C94 /* PDSysFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSysFont.h; path = ../../PluginSupport/Headers/API/PDSysFont.h; sourceTree = "<group>"; };
+		4FA770B72708B37900E02C94 /* ASExtraVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExtraVers.h; path = ../../PluginSupport/Headers/API/ASExtraVers.h; sourceTree = "<group>"; };
+		4FA770B82708B37900E02C94 /* PageEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageEASF.h; path = ../../PluginSupport/Headers/API/PageEASF.h; sourceTree = "<group>"; };
+		4FA770B92708B37900E02C94 /* TtsHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TtsHFTProcs.h; path = ../../PluginSupport/Headers/API/TtsHFTProcs.h; sourceTree = "<group>"; };
+		4FA770BA2708B37900E02C94 /* AFTTS_Sel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFTTS_Sel.h; path = ../../PluginSupport/Headers/API/AFTTS_Sel.h; sourceTree = "<group>"; };
+		4FA770BB2708B37900E02C94 /* AF_ExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AF_ExpT.h; path = ../../PluginSupport/Headers/API/AF_ExpT.h; sourceTree = "<group>"; };
+		4FA770BC2708B37900E02C94 /* PDBatesProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDBatesProcs.h; path = ../../PluginSupport/Headers/API/PDBatesProcs.h; sourceTree = "<group>"; };
+		4FA770BD2708B37900E02C94 /* SafeResources.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SafeResources.cpp; path = ../../PluginSupport/Headers/API/SafeResources.cpp; sourceTree = "<group>"; };
+		4FA770BE2708B37900E02C94 /* PDMetadataErrorASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDMetadataErrorASF.h; path = ../../PluginSupport/Headers/API/PDMetadataErrorASF.h; sourceTree = "<group>"; };
+		4FA770BF2708B37900E02C94 /* AVVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVVers.h; path = ../../PluginSupport/Headers/API/AVVers.h; sourceTree = "<group>"; };
+		4FA770C02708B37900E02C94 /* MacPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacPlatform.h; path = ../../PluginSupport/Headers/API/MacPlatform.h; sourceTree = "<group>"; };
+		4FA770C12708B37900E02C94 /* PagePDECntCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagePDECntCalls.h; path = ../../PluginSupport/Headers/API/PagePDECntCalls.h; sourceTree = "<group>"; };
+		4FA770C22708B37900E02C94 /* ToolkitInitEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToolkitInitEASF.h; path = ../../PluginSupport/Headers/API/ToolkitInitEASF.h; sourceTree = "<group>"; };
+		4FA770C32708B37900E02C94 /* PDMetadataExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDMetadataExpT.h; path = ../../PluginSupport/Headers/API/PDMetadataExpT.h; sourceTree = "<group>"; };
+		4FA770C42708B37900E02C94 /* PDSExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSExpT.h; path = ../../PluginSupport/Headers/API/PDSExpT.h; sourceTree = "<group>"; };
+		4FA770C52708B37900E02C94 /* AVCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVCompat.h; path = ../../PluginSupport/Headers/API/AVCompat.h; sourceTree = "<group>"; };
+		4FA770C62708B37900E02C94 /* CosSynE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosSynE.h; path = ../../PluginSupport/Headers/API/CosSynE.h; sourceTree = "<group>"; };
+		4FA770C72708B37900E02C94 /* PIRequir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIRequir.h; path = ../../PluginSupport/Headers/API/PIRequir.h; sourceTree = "<group>"; };
+		4FA770C82708B37900E02C94 /* CorProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorProcs.h; path = ../../PluginSupport/Headers/API/CorProcs.h; sourceTree = "<group>"; };
+		4FA770C92708B37900E02C94 /* ASFileEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASFileEASF.h; path = ../../PluginSupport/Headers/API/ASFileEASF.h; sourceTree = "<group>"; };
+		4FA770CA2708B37900E02C94 /* PDModE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDModE.h; path = ../../PluginSupport/Headers/API/PDModE.h; sourceTree = "<group>"; };
+		4FA770CB2708B37900E02C94 /* ConsExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsExpT.h; path = ../../PluginSupport/Headers/API/ConsExpT.h; sourceTree = "<group>"; };
+		4FA770CC2708B37900E02C94 /* PageE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageE.h; path = ../../PluginSupport/Headers/API/PageE.h; sourceTree = "<group>"; };
+		4FA770CD2708B37900E02C94 /* AVProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVProcs.h; path = ../../PluginSupport/Headers/API/AVProcs.h; sourceTree = "<group>"; };
+		4FA770CE2708B37900E02C94 /* PDExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDExpT.h; path = ../../PluginSupport/Headers/API/PDExpT.h; sourceTree = "<group>"; };
+		4FA770CF2708B37900E02C94 /* PDMetadataCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDMetadataCalls.h; path = ../../PluginSupport/Headers/API/PDMetadataCalls.h; sourceTree = "<group>"; };
+		4FA770D02708B37900E02C94 /* PDSysFontExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSysFontExpT.h; path = ../../PluginSupport/Headers/API/PDSysFontExpT.h; sourceTree = "<group>"; };
+		4FA770D12708B37900E02C94 /* AcroColorHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcroColorHFT.h; path = ../../PluginSupport/Headers/API/AcroColorHFT.h; sourceTree = "<group>"; };
+		4FA770D22708B37900E02C94 /* PDClassDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDClassDefs.h; path = ../../PluginSupport/Headers/API/PDClassDefs.h; sourceTree = "<group>"; };
+		4FA770D32708B37900E02C94 /* cathft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cathft.h; path = ../../PluginSupport/Headers/API/cathft.h; sourceTree = "<group>"; };
+		4FA770D42708B37900E02C94 /* CosSynEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosSynEASF.h; path = ../../PluginSupport/Headers/API/CosSynEASF.h; sourceTree = "<group>"; };
+		4FA770D52708B37900E02C94 /* PDFErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFErrorCodes.h; path = ../../PluginSupport/Headers/API/PDFErrorCodes.h; sourceTree = "<group>"; };
+		4FA770D62708B37900E02C94 /* CosGenE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosGenE.h; path = ../../PluginSupport/Headers/API/CosGenE.h; sourceTree = "<group>"; };
+		4FA770D72708B37900E02C94 /* ConsObTp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsObTp.h; path = ../../PluginSupport/Headers/API/ConsObTp.h; sourceTree = "<group>"; };
+		4FA770D82708B37900E02C94 /* PubSecHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PubSecHFT.h; path = ../../PluginSupport/Headers/API/PubSecHFT.h; sourceTree = "<group>"; };
+		4FA770D92708B37900E02C94 /* PEExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEExpT.h; path = ../../PluginSupport/Headers/API/PEExpT.h; sourceTree = "<group>"; };
+		4FA770DA2708B37900E02C94 /* RasterE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RasterE.h; path = ../../PluginSupport/Headers/API/RasterE.h; sourceTree = "<group>"; };
+		4FA770DB2708B37900E02C94 /* AVPrefsD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPrefsD.h; path = ../../PluginSupport/Headers/API/AVPrefsD.h; sourceTree = "<group>"; };
+		4FA770DC2708B37900E02C94 /* UnixProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnixProcs.h; path = ../../PluginSupport/Headers/API/UnixProcs.h; sourceTree = "<group>"; };
+		4FA770DD2708B37900E02C94 /* HFTLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFTLibrary.h; path = ../../PluginSupport/Headers/API/HFTLibrary.h; sourceTree = "<group>"; };
+		4FA770DE2708B37900E02C94 /* PIVersn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIVersn.h; path = ../../PluginSupport/Headers/API/PIVersn.h; sourceTree = "<group>"; };
+		4FA770DF2708B37900E02C94 /* Speller_Sel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Speller_Sel.h; path = ../../PluginSupport/Headers/API/Speller_Sel.h; sourceTree = "<group>"; };
+		4FA770E02708B37900E02C94 /* ASKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASKey.h; path = ../../PluginSupport/Headers/API/ASKey.h; sourceTree = "<group>"; };
+		4FA770E12708B37900E02C94 /* ASExtraCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExtraCalls.h; path = ../../PluginSupport/Headers/API/ASExtraCalls.h; sourceTree = "<group>"; };
+		4FA770E22708B37900E02C94 /* CosProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosProcs.h; path = ../../PluginSupport/Headers/API/CosProcs.h; sourceTree = "<group>"; };
+		4FA770E32708B37900E02C94 /* ASRaiseAware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASRaiseAware.h; path = ../../PluginSupport/Headers/API/ASRaiseAware.h; sourceTree = "<group>"; };
+		4FA770E42708B37900E02C94 /* MacProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacProcs.h; path = ../../PluginSupport/Headers/API/MacProcs.h; sourceTree = "<group>"; };
+		4FA770E52708B37900E02C94 /* DirectoryHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DirectoryHFT.h; path = ../../PluginSupport/Headers/API/DirectoryHFT.h; sourceTree = "<group>"; };
+		4FA770E62708B37900E02C94 /* PDPageEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDPageEASF.h; path = ../../PluginSupport/Headers/API/PDPageEASF.h; sourceTree = "<group>"; };
+		4FA770E72708B37900E02C94 /* NSelExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSelExpT.h; path = ../../PluginSupport/Headers/API/NSelExpT.h; sourceTree = "<group>"; };
+		4FA770E82708B37900E02C94 /* CosGenEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CosGenEASF.h; path = ../../PluginSupport/Headers/API/CosGenEASF.h; sourceTree = "<group>"; };
+		4FA770E92708B37900E02C94 /* SpellerHFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellerHFT.h; path = ../../PluginSupport/Headers/API/SpellerHFT.h; sourceTree = "<group>"; };
+		4FA770EA2708B37900E02C94 /* XtnMgrE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XtnMgrE.h; path = ../../PluginSupport/Headers/API/XtnMgrE.h; sourceTree = "<group>"; };
+		4FA770EB2708B37900E02C94 /* PDFXEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFXEASF.h; path = ../../PluginSupport/Headers/API/PDFXEASF.h; sourceTree = "<group>"; };
+		4FA770EC2708B37900E02C94 /* PDSWriteProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSWriteProcs.h; path = ../../PluginSupport/Headers/API/PDSWriteProcs.h; sourceTree = "<group>"; };
+		4FA770ED2708B37900E02C94 /* PIPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIPrefix.h; path = ../../PluginSupport/Headers/API/PIPrefix.h; sourceTree = "<group>"; };
+		4FA770EE2708B37900E02C94 /* CoreExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreExpT.h; path = ../../PluginSupport/Headers/API/CoreExpT.h; sourceTree = "<group>"; };
+		4FA770EF2708B37900E02C94 /* WinExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinExpT.h; path = ../../PluginSupport/Headers/API/WinExpT.h; sourceTree = "<group>"; };
+		4FA770F02708B37900E02C94 /* ASProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASProcs.h; path = ../../PluginSupport/Headers/API/ASProcs.h; sourceTree = "<group>"; };
+		4FA770F12708B37900E02C94 /* PIExcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIExcept.h; path = ../../PluginSupport/Headers/API/PIExcept.h; sourceTree = "<group>"; };
+		4FA770F22708B37900E02C94 /* EncConvE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EncConvE.h; path = ../../PluginSupport/Headers/API/EncConvE.h; sourceTree = "<group>"; };
+		4FA770F32708B37900E02C94 /* DigSigHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DigSigHFTProcs.h; path = ../../PluginSupport/Headers/API/DigSigHFTProcs.h; sourceTree = "<group>"; };
+		4FA770F42708B37900E02C94 /* PIHeaders.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIHeaders.pch; path = ../../PluginSupport/Headers/API/PIHeaders.pch; sourceTree = "<group>"; };
+		4FA770F52708B37900E02C94 /* PDSysFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSysFT.h; path = ../../PluginSupport/Headers/API/PDSysFT.h; sourceTree = "<group>"; };
+		4FA770F62708B37900E02C94 /* AVCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVCalls.h; path = ../../PluginSupport/Headers/API/AVCalls.h; sourceTree = "<group>"; };
+		4FA770F72708B37A00E02C94 /* ASExtraExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExtraExpT.h; path = ../../PluginSupport/Headers/API/ASExtraExpT.h; sourceTree = "<group>"; };
+		4FA770F82708B37A00E02C94 /* PDSReadHFTVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSReadHFTVers.h; path = ../../PluginSupport/Headers/API/PDSReadHFTVers.h; sourceTree = "<group>"; };
+		4FA770F92708B37A00E02C94 /* PubSecHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PubSecHFTProcs.h; path = ../../PluginSupport/Headers/API/PubSecHFTProcs.h; sourceTree = "<group>"; };
+		4FA770FA2708B37A00E02C94 /* PDSWriteHFTVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSWriteHFTVers.h; path = ../../PluginSupport/Headers/API/PDSWriteHFTVers.h; sourceTree = "<group>"; };
+		4FA770FB2708B37A00E02C94 /* PIPokes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIPokes.h; path = ../../PluginSupport/Headers/API/PIPokes.h; sourceTree = "<group>"; };
+		4FA770FC2708B37A00E02C94 /* PDDocEASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDDocEASF.h; path = ../../PluginSupport/Headers/API/PDDocEASF.h; sourceTree = "<group>"; };
+		4FA770FD2708B37A00E02C94 /* PEError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEError.h; path = ../../PluginSupport/Headers/API/PEError.h; sourceTree = "<group>"; };
+		4FA770FE2708B37A00E02C94 /* PICommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PICommon.h; path = ../../PluginSupport/Headers/API/PICommon.h; sourceTree = "<group>"; };
+		4FA770FF2708B37A00E02C94 /* PIHeaders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PIHeaders.c; path = ../../PluginSupport/Headers/API/PIHeaders.c; sourceTree = "<group>"; };
+		4FA771002708B37A00E02C94 /* SpellerHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellerHFTProcs.h; path = ../../PluginSupport/Headers/API/SpellerHFTProcs.h; sourceTree = "<group>"; };
+		4FA771052708B39B00E02C94 /* PIHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIHeaders.h; path = ../../PluginSupport/Headers/SDK/PIHeaders.h; sourceTree = "<group>"; };
+		4FA771062708B39C00E02C94 /* MacPIHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacPIHeaders.h; path = ../../PluginSupport/Headers/SDK/MacPIHeaders.h; sourceTree = "<group>"; };
+		8D01CCD20486CAD60068D4B7 /* Preview.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Preview.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
+		DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = PluginInit.cpp; path = ../sources/PluginInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
+		DB9ABFD609DCA62100298E3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../sources/Info.plist; sourceTree = SOURCE_ROOT; };
+		DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D01CCCD0486CAD60068D4B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F09B8F62710834800C9DD6A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Starter */ = {
+			isa = PBXGroup;
+			children = (
+				4FA770632708B34700E02C94 /* Acrobat SDK */,
+				DB9570D309DA097D00D15BF1 /* Configurations */,
+				08FB77ADFE841716C02AAC07 /* Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				4F09B8F42710831F00C9DD6A /* Frameworks */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = Starter;
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB9ABFD609DCA62100298E3E /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4FA771062708B39C00E02C94 /* MacPIHeaders.h */,
+				4FA771052708B39B00E02C94 /* PIHeaders.h */,
+				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
+				DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */,
+				4FA211852386BFEE0057E287 /* Functions.cpp */,
+				4FA211862386BFEE0057E287 /* Functions.hpp */,
+				4FA448D4270B9069008FAC40 /* Window.m */,
+				4FA448D7270B90A1008FAC40 /* Window.h */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D01CCD20486CAD60068D4B7 /* Preview.acroplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F09B8F42710831F00C9DD6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F09B8F52710834800C9DD6A /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FA770632708B34700E02C94 /* Acrobat SDK */ = {
+			isa = PBXGroup;
+			children = (
+				4FA770AB2708B37800E02C94 /* acroassert.h */,
+				4FA7707D2708B37800E02C94 /* AcroColorCalls.h */,
+				4FA770AE2708B37800E02C94 /* AcroColorExpT.h */,
+				4FA770D12708B37900E02C94 /* AcroColorHFT.h */,
+				4FA770AF2708B37800E02C94 /* AcroColorProcs.h */,
+				4FA770852708B37800E02C94 /* AcroColorVers.h */,
+				4FA7706F2708B37700E02C94 /* AcroErr.h */,
+				4FA770BB2708B37900E02C94 /* AF_ExpT.h */,
+				4FA770972708B37800E02C94 /* AF_Sel.h */,
+				4FA770BA2708B37900E02C94 /* AFTTS_Sel.h */,
+				4FA7707B2708B37800E02C94 /* ASCalls.h */,
+				4FA770AD2708B37800E02C94 /* ASExpT.h */,
+				4FA770E12708B37900E02C94 /* ASExtraCalls.h */,
+				4FA770F72708B37A00E02C94 /* ASExtraExpT.h */,
+				4FA770A12708B37800E02C94 /* ASExtraProcs.h */,
+				4FA770B72708B37900E02C94 /* ASExtraVers.h */,
+				4FA770B02708B37800E02C94 /* ASFileE.h */,
+				4FA770C92708B37900E02C94 /* ASFileEASF.h */,
+				4FA7708B2708B37800E02C94 /* ASGenE.h */,
+				4FA770992708B37800E02C94 /* ASGenEASF.h */,
+				4FA770E02708B37900E02C94 /* ASKey.h */,
+				4FA770982708B37800E02C94 /* ASNumTypes.h */,
+				4FA770F02708B37900E02C94 /* ASProcs.h */,
+				4FA770E32708B37900E02C94 /* ASRaiseAware.h */,
+				4FA770F62708B37900E02C94 /* AVCalls.h */,
+				4FA7707A2708B37800E02C94 /* AVCompat.cpp */,
+				4FA770C52708B37900E02C94 /* AVCompat.h */,
+				4FA770872708B37800E02C94 /* AVExpT.h */,
+				4FA770642708B37700E02C94 /* AVExpTObsolete1.h */,
+				4FA770712708B37800E02C94 /* AVExpTObsolete2.h */,
+				4FA770DB2708B37900E02C94 /* AVPrefsD.h */,
+				4FA770CD2708B37900E02C94 /* AVProcs.h */,
+				4FA770BF2708B37900E02C94 /* AVVers.h */,
+				4FA770D32708B37900E02C94 /* cathft.h */,
+				4FA770912708B37800E02C94 /* catprocs.h */,
+				4FA770792708B37800E02C94 /* CAVAlert.h */,
+				4FA770CB2708B37900E02C94 /* ConsExpT.h */,
+				4FA770A02708B37800E02C94 /* ConsHFT.h */,
+				4FA770862708B37800E02C94 /* ConsHFTProcs.h */,
+				4FA770D72708B37900E02C94 /* ConsObTp.h */,
+				4FA7709F2708B37800E02C94 /* CorCalls.h */,
+				4FA770EE2708B37900E02C94 /* CoreExpT.h */,
+				4FA770C82708B37900E02C94 /* CorProcs.h */,
+				4FA770902708B37800E02C94 /* CosCalls.h */,
+				4FA770A62708B37800E02C94 /* CosExpT.h */,
+				4FA770D62708B37900E02C94 /* CosGenE.h */,
+				4FA770E82708B37900E02C94 /* CosGenEASF.h */,
+				4FA770E22708B37900E02C94 /* CosProcs.h */,
+				4FA770C62708B37900E02C94 /* CosSynE.h */,
+				4FA770D42708B37900E02C94 /* CosSynEASF.h */,
+				4FA770922708B37800E02C94 /* DigSigHFT.h */,
+				4FA770F32708B37900E02C94 /* DigSigHFTProcs.h */,
+				4FA770E52708B37900E02C94 /* DirectoryHFT.h */,
+				4FA770F22708B37900E02C94 /* EncConvE.h */,
+				4FA7709A2708B37800E02C94 /* Environ.h */,
+				4FA770742708B37800E02C94 /* EReturnValidator.h */,
+				4FA770842708B37800E02C94 /* FontSvrE.h */,
+				4FA770752708B37800E02C94 /* FontSvrEASF.h */,
+				4FA770952708B37800E02C94 /* FormsHFT.h */,
+				4FA770B12708B37800E02C94 /* FormsHFTProcs.h */,
+				4FA770DD2708B37900E02C94 /* HFTLibrary.h */,
+				4FA770782708B37800E02C94 /* Library.h */,
+				4FA770732708B37800E02C94 /* MacCalls.h */,
+				4FA770C02708B37900E02C94 /* MacPlatform.h */,
+				4FA770E42708B37900E02C94 /* MacProcs.h */,
+				4FA770E72708B37900E02C94 /* NSelExpT.h */,
+				4FA770CC2708B37900E02C94 /* PageE.h */,
+				4FA770B82708B37900E02C94 /* PageEASF.h */,
+				4FA770C12708B37900E02C94 /* PagePDECntCalls.h */,
+				4FA770AA2708B37800E02C94 /* PDBasicExpT.h */,
+				4FA7708C2708B37800E02C94 /* PDBatesCalls.h */,
+				4FA770652708B37700E02C94 /* PDBatesExpT.h */,
+				4FA770BC2708B37900E02C94 /* PDBatesProcs.h */,
+				4FA770662708B37700E02C94 /* PDCalls.h */,
+				4FA770D22708B37900E02C94 /* PDClassDefs.h */,
+				4FA770A22708B37800E02C94 /* PDClasses.h */,
+				4FA770702708B37700E02C94 /* PDDocE.h */,
+				4FA770FC2708B37A00E02C94 /* PDDocEASF.h */,
+				4FA770CE2708B37900E02C94 /* PDExpT.h */,
+				4FA770D52708B37900E02C94 /* PDFErrorCodes.h */,
+				4FA770B32708B37800E02C94 /* PDFXE.h */,
+				4FA770EB2708B37900E02C94 /* PDFXEASF.h */,
+				4FA770CF2708B37900E02C94 /* PDMetadataCalls.h */,
+				4FA7707C2708B37800E02C94 /* PDMetadataError.h */,
+				4FA770BE2708B37900E02C94 /* PDMetadataErrorASF.h */,
+				4FA770C32708B37900E02C94 /* PDMetadataExpT.h */,
+				4FA770A52708B37800E02C94 /* PDMetadataHFTVers.h */,
+				4FA770932708B37800E02C94 /* PDMetadataProcs.h */,
+				4FA770CA2708B37900E02C94 /* PDModE.h */,
+				4FA770A42708B37800E02C94 /* PDModEASF.h */,
+				4FA7706E2708B37700E02C94 /* PDPageE.h */,
+				4FA770E62708B37900E02C94 /* PDPageEASF.h */,
+				4FA770A92708B37800E02C94 /* PDProcs.h */,
+				4FA770892708B37800E02C94 /* PDSError.h */,
+				4FA770762708B37800E02C94 /* PDSErrorASF.h */,
+				4FA770C42708B37900E02C94 /* PDSExpT.h */,
+				4FA770822708B37800E02C94 /* PDSReadCalls.h */,
+				4FA770F82708B37A00E02C94 /* PDSReadHFTVers.h */,
+				4FA7707E2708B37800E02C94 /* PDSReadProcs.h */,
+				4FA770B42708B37900E02C94 /* PDSWriteCalls.h */,
+				4FA770FA2708B37A00E02C94 /* PDSWriteHFTVers.h */,
+				4FA770EC2708B37900E02C94 /* PDSWriteProcs.h */,
+				4FA770B62708B37900E02C94 /* PDSysFont.h */,
+				4FA770D02708B37900E02C94 /* PDSysFontExpT.h */,
+				4FA770F52708B37900E02C94 /* PDSysFT.h */,
+				4FA770FD2708B37A00E02C94 /* PEError.h */,
+				4FA770AC2708B37800E02C94 /* PEErrorASF.h */,
+				4FA770D92708B37900E02C94 /* PEExpT.h */,
+				4FA770772708B37800E02C94 /* PERCalls.h */,
+				4FA770692708B37700E02C94 /* PERProcs.h */,
+				4FA770962708B37800E02C94 /* PETypes.h */,
+				4FA7708A2708B37800E02C94 /* PEVers.h */,
+				4FA770672708B37700E02C94 /* PEWCalls.h */,
+				4FA770A72708B37800E02C94 /* PEWProcs.h */,
+				4FA7708D2708B37800E02C94 /* PgCntProcs.h */,
+				4FA770FE2708B37A00E02C94 /* PICommon.h */,
+				4FA7709E2708B37800E02C94 /* PICrypt.h */,
+				4FA770F12708B37900E02C94 /* PIExcept.h */,
+				4FA770FF2708B37A00E02C94 /* PIHeaders.c */,
+				4FA770F42708B37900E02C94 /* PIHeaders.pch */,
+				4FA7709D2708B37800E02C94 /* PIMain.h */,
+				4FA770FB2708B37A00E02C94 /* PIPokes.h */,
+				4FA770ED2708B37900E02C94 /* PIPrefix.h */,
+				4FA770C72708B37900E02C94 /* PIRequir.h */,
+				4FA770DE2708B37900E02C94 /* PIVersn.h */,
+				4FA770802708B37800E02C94 /* Plugin.h */,
+				4FA7706C2708B37700E02C94 /* PSFCalls.h */,
+				4FA7709B2708B37800E02C94 /* PSFProcs.h */,
+				4FA770D82708B37900E02C94 /* PubSecHFT.h */,
+				4FA770F92708B37A00E02C94 /* PubSecHFTProcs.h */,
+				4FA770DA2708B37900E02C94 /* RasterE.h */,
+				4FA770A82708B37800E02C94 /* RasterEASF.h */,
+				4FA770BD2708B37900E02C94 /* SafeResources.cpp */,
+				4FA770812708B37800E02C94 /* SafeResources.h */,
+				4FA770682708B37700E02C94 /* SmartPDPage.h */,
+				4FA770DF2708B37900E02C94 /* Speller_Sel.h */,
+				4FA770E92708B37900E02C94 /* SpellerHFT.h */,
+				4FA771002708B37A00E02C94 /* SpellerHFTProcs.h */,
+				4FA770A32708B37800E02C94 /* SrchClls.h */,
+				4FA770942708B37800E02C94 /* SrchHFT.h */,
+				4FA770832708B37800E02C94 /* SrchPrcs.h */,
+				4FA770722708B37800E02C94 /* SrchType.h */,
+				4FA7709C2708B37800E02C94 /* ToolkitInitE.h */,
+				4FA770C22708B37900E02C94 /* ToolkitInitEASF.h */,
+				4FA770B22708B37800E02C94 /* TtsHFT.h */,
+				4FA770B92708B37900E02C94 /* TtsHFTProcs.h */,
+				4FA7706D2708B37700E02C94 /* UnixCalls.h */,
+				4FA7706B2708B37700E02C94 /* UnixPlatform.h */,
+				4FA770DC2708B37900E02C94 /* UnixProcs.h */,
+				4FA7707F2708B37800E02C94 /* WinCalls.h */,
+				4FA770EF2708B37900E02C94 /* WinExpT.h */,
+				4FA7708E2708B37800E02C94 /* WinPltfm.h */,
+				4FA7708F2708B37800E02C94 /* winprocs.h */,
+				4FA770882708B37800E02C94 /* WLHFT.h */,
+				4FA770B52708B37900E02C94 /* WLHFTProcs.h */,
+				4FA770EA2708B37900E02C94 /* XtnMgrE.h */,
+				4FA7706A2708B37700E02C94 /* XtnMgrEASF.h */,
+			);
+			name = "Acrobat SDK";
+			sourceTree = "<group>";
+		};
+		DB9570D309DA097D00D15BF1 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				4F09B8BA270DDABE00C9DD6A /* Debug.xcconfig */,
+				BA5287450A1930200088FAB2 /* Default.xcconfig */,
+				DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */,
+				DB9570D409DA098E00D15BF1 /* ProjectConfigurations */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
+		DB9570D409DA098E00D15BF1 /* ProjectConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */,
+				DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */,
+				DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */,
+			);
+			path = ProjectConfigurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D01CCC60486CAD60068D4B7 /* Preview_debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Preview_debug" */;
+			buildPhases = (
+				8D01CCC90486CAD60068D4B7 /* Resources */,
+				8D01CCCB0486CAD60068D4B7 /* Sources */,
+				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Preview_debug;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = Starter;
+			productReference = 8D01CCD20486CAD60068D4B7 /* Preview.acroplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AA;
+				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = "Acrobat Actions (GitHub project)";
+			};
+			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Preview" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* Starter */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D01CCC60486CAD60068D4B7 /* Preview_debug */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D01CCC90486CAD60068D4B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F09B8BB270DDABE00C9DD6A /* Debug.xcconfig in Resources */,
+				8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D01CCCB0486CAD60068D4B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA771012708B37A00E02C94 /* AVCompat.cpp in Sources */,
+				4FA448D5270B9069008FAC40 /* Window.m in Sources */,
+				4FA771032708B37A00E02C94 /* PIHeaders.c in Sources */,
+				4FA211872386BFEE0057E287 /* Functions.cpp in Sources */,
+				DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */,
+				4FA771022708B37A00E02C94 /* SafeResources.cpp in Sources */,
+				DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F1E6773270728D3003C131A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FADC23408B4156C00ABE55E /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS)";
+				INFOPLIST_FILE = ../sources/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = "Preview v1";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Preview;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+			};
+			name = Default;
+		};
+		4FADC23808B4156C00ABE55E /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 14.3;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Preview_debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23408B4156C00ABE55E /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Preview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23808B4156C00ABE55E /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
