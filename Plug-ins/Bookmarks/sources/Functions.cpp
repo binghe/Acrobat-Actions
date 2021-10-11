@@ -101,13 +101,14 @@ DURING
 	    strcasestr((const char *)u8, "Inhalt")) // German "TOC"
 	{
             ASInt32 flags = PDBookmarkGetFlags(b);
-	    PDBookmarkSetFlags(b, flags & (ASInt32)0x2); /* +bold font */
+            // AVAlertNote("Found a TOC");
+	    PDBookmarkSetFlags(b, flags | (ASInt32)0b10); /* + bold font */
 	    acc++;
 	}
 	ASfree((void *)u8);
     }
     ASTextDestroy(title);
-    
+
     // process children bookmarks
     if (PDBookmarkHasChildren(b)) {
 	treeBookmark = PDBookmarkGetFirstChild(b);
@@ -117,7 +118,7 @@ DURING
 	    treeBookmark = PDBookmarkGetNext(treeBookmark);
 	}
     }
-    
+
 HANDLER
     if (PDActionIsValid(newAction)) {
         PDActionDestroy(newAction);
