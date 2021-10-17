@@ -20,7 +20,29 @@
 static AVAnnotHandlerCursorEnterProc OldCursorEnter = NULL;
 static AVAnnotHandlerCursorExitProc OldCursorExit = NULL;
 
-static ACCB1 void ACCB2
+void ShowPreview (PDViewDestination dest)
+{
+    // AVAlertNote("Found a valid PDViewDestination.");
+#if 0
+    AVWindow window = AVWindowNew(AVWLpopup /* layer */,
+                                  NULL /* flags */,
+                                  NULL /* handler */,
+                                  gExtensionID /* owner */);
+    AVWindowShow(window);
+
+    WindowRef window_ref = CreateMacWindow();
+    // (New in Acrobat 5.0) A popup window without a caption, a one-pixel border and drop shadow.
+    AVWindow window =
+        AVWindowNewFromPlatformThing(AVWLpopup /* layer */,
+                                     NULL /* flags */,
+                                     NULL /* handler */,
+                                     gExtensionID /* owner */,
+                                     reinterpret_cast<AVPlatformWindowRef>(window_ref));
+    AVWindowShow(window);
+#endif
+}
+
+ACCB1 void ACCB2
 DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
 {
     AVDoc avDoc = AVPageViewGetAVDoc(pageView);
@@ -36,7 +58,7 @@ DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView
                 dest = PDViewDestResolve(dest, doc);
             }
             if (PDViewDestIsValid(dest)) {
-                // AVAlertNote("Found a valid PDViewDestination.");
+                ShowPreview(dest);
             }
         } else {
             if (OldCursorEnter) {
@@ -46,7 +68,7 @@ DoCursorEnter (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView
     }
 }
 
-static ACCB1 void ACCB2
+ACCB1 void ACCB2
 DoCursorExit (AVAnnotHandler annotHandler, PDAnnot anAnnot, AVPageView pageView)
 {
     // AVAlertNote("DoCursorExit is called!");

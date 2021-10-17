@@ -8,7 +8,6 @@
 #ifndef Window_h
 #define Window_h
 
-WindowRef CreateWindow ();
-void DestroyWindow ();
+WindowRef CreateMacWindow ();
 
 #endif /* Window_h */

@@ -48,6 +48,7 @@ HANDLER
 END_HANDLER
 }
 
+// Fix the FitType of all bookmarks plus changing "Contents" to Bold font.
 int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 {
     PDBookmark treeBookmark;

@@ -10,16 +10,10 @@
 
 static NSWindow *PreviewWindow = NULL;
 
-WindowRef CreateWindow ()
+WindowRef CreateMacWindow ()
 {
-    NSWindow *ns_window = [[NSWindow alloc] init];
-    WindowRef window_ref = (WindowRef) [ns_window windowRef];
-    PreviewWindow = ns_window;
-    /*
-    AVWindow av_window =
-        AVWindowNewFromPlatformThing (AVWLmodal, NULL, NULL, gExtensionID,
-                                      reinterpret_cast<AVPlatformWindowRef>(window_ref));
-     */
+    NSWindow *window = [[NSWindow alloc] init];
+    WindowRef window_ref = (WindowRef) [window windowRef];
     return window_ref;
 }
 
