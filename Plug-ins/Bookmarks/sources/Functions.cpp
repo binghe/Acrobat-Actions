@@ -23,31 +23,6 @@ extern "C" {
 #include <stdio.h>
 #include "Functions.hpp"
 
-void VisitAllBookmarks(PDDoc doc, PDBookmark b)
-{
-    PDBookmark treeBookmark;
-    
-DURING
-    // ensure that the bookmark is valid
-    if (!PDBookmarkIsValid(b)) E_RTRN_VOID;
-    
-    // collapse the current bookmark
-    if (PDBookmarkIsOpen(b)) PDBookmarkSetOpen(b, false);
-    
-    // process children bookmarks
-    if (PDBookmarkHasChildren(b)) {
-	treeBookmark = PDBookmarkGetFirstChild(b);
-	
-	while (PDBookmarkIsValid(treeBookmark)) {
-	    VisitAllBookmarks(doc, treeBookmark);
-	    treeBookmark = PDBookmarkGetNext(treeBookmark);
-	}
-    }
-
-HANDLER
-END_HANDLER
-}
-
 // Fix the FitType of all bookmarks plus changing "Contents" to Bold font.
 int FixAllBookmarks(PDDoc doc, PDBookmark b, int acc)
 {
