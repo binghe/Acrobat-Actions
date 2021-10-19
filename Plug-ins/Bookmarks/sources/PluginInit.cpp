@@ -205,7 +205,7 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
     AVMenu volatile commonMenu = NULL;
     AVMenu subMenu = NULL;
 
-    if (!menubar) return false;
+    if (!menubar) { return false; }
     
 DURING
     // Find or create our dedicated (sub)menu, title is not important (not shown anywhere)
@@ -241,11 +241,11 @@ DURING
                 NO_SHORTCUT, 0 /* flags */,
                 NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
+      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
 
     AVMenuItemSetComputeEnabledProc
-    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
-     (void *)pdPermEdit);
+      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
     // Command 2
@@ -256,11 +256,11 @@ DURING
                 NO_SHORTCUT, 0 /* flags */,
                 NULL /* icon */, gExtensionID);
     AVMenuItemSetExecuteProc
-    (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
+      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
     
     AVMenuItemSetComputeEnabledProc
-    (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
-     (void *)pdPermEdit);
+      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
     // Command 3
@@ -278,7 +278,7 @@ DURING
        (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
 
-    // Command 4 (TODO: move to project Annotations)
+    // Command 4
     i++;
     menuItem[i] = AVMenuItemNew("Fix All Text Annotations", "AA:Fix_Annotations",
                 NULL, /* submenu */
@@ -299,69 +299,9 @@ HANDLER
         AVMenuRelease(commonMenu);
     }
     return false;
-
 END_HANDLER
+
     return true;
-}
-
-static AVIcon gIcons[3] = {0, 0, 0};
-
-void CreateIcons()
-{
-    ASPathName pathName = NULL;
-#if WIN_PLATFORM
-    ASFileSys theFileSys = ASGetRamFileSys();
-    HRSRC hres = FindResource(gHINSTANCE, MAKEINTRESOURCE(IDR_PDFICONS1), "PDFICONS");
-    if (hres)
-    {
-        DWORD dwSize = SizeofResource(gHINSTANCE, hres);
-        HGLOBAL hmem = LoadResource(gHINSTANCE, hres);
-        if (hmem)
-        {
-            char* p = static_cast<char*>(LockResource(hmem));
-            if (p)
-            {
-                pathName = ASFileSysGetTempPathName(theFileSys, NULL);
-                if (pathName)
-                {
-                    ASFile tempFile;
-                    ASFileSysOpenFile(theFileSys, pathName, ASFILE_WRITE | ASFILE_CREATE, &tempFile);
-                    if (tempFile)
-                    {
-                        ASFileWrite(tempFile, p, dwSize);
-                        ASFileClose(tempFile);
-                    }
-                    else
-                    {
-                        ASFileSysReleasePath(theFileSys, pathName);
-                        pathName = NULL;
-                    }
-                }
-            }
-        }
-    }
-#elif MAC_PLATFORM
-    // It is expected, for demostration pupose, that the icon file is present in Document folder.
-    ASFileSys theFileSys = ASGetDefaultFileSys();
-    ASFileSys asfs = NULL;
-    ASErrorCode error = AVAcquireSpecialFilePathName(kAVSCUser, kAVSFPlugIns, "multitab_icons.pdf", &asfs, &pathName);
-    if (kAVSEOkay != error)
-    {
-        ASFileSysReleasePath(asfs, pathName);
-        pathName = NULL;
-    }
-#endif
-    
-    if (pathName) {
-        ASFile iconFile = NULL;
-        ASFileSysOpenFile(theFileSys, pathName, ASFILE_READ, &iconFile);
-        PDDoc iconDoc = PDDocOpenFromASFile(iconFile, NULL, FALSE);
-        ASFileSysReleasePath(theFileSys, pathName);
-        for (size_t i = 0; i < 3; ++i) {
-            gIcons[i] = AVIconCreateFromPDF(iconDoc, (ASInt32)i, 24, 24);
-        }
-        PDDocClose(iconDoc);
-    }
 }
 
 /* PluginInit
@@ -375,39 +315,7 @@ void CreateIcons()
 */
 ACCB1 ASBool ACCB2 PluginInit(void)
 {
-    CreateIcons();
-    AVToolButton docSwitchBtn =
-      AVToolButtonNew (ASAtomFromString("AB:FixFitType_Bookmarks"), gIcons[2], true, false);
-    AVToolButtonSetExecuteProc (docSwitchBtn,
-            ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
-    AVToolButtonSetComputeEnabledProc (docSwitchBtn,
-            ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
-    AVToolButtonSetHelpText (docSwitchBtn, "Fix FitType of All Bookmarks");
-
-    AVToolButton docListBtn =
-      AVToolButtonNew(ASAtomFromString("AB:Capitalize_Bookmarks"), gIcons[2], true, false);
-    AVToolButtonSetExecuteProc(docListBtn,
-            ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
-    AVToolButtonSetComputeEnabledProc(docListBtn,
-            ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
-    AVToolButtonSetHelpText(docListBtn, "Capitalize All Bookmarks");
-
-    AVToolButton docListBtn2 =
-      AVToolButtonNew(ASAtomFromString("AB:FixAnnotations"), gIcons[2], true, false);
-    AVToolButtonSetExecuteProc(docListBtn2,
-            ASCallbackCreateProto(AVExecuteProc, PluginCommand_4), NULL);
-    AVToolButtonSetComputeEnabledProc(docListBtn,
-            ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
-    AVToolButtonSetHelpText(docListBtn2, "Fix All Text Annotations");
-
-    AVToolBar toolBar = AVToolBarNew("AcrobatActions", "Acrobat Actions");
-    AVToolBarSetIcon(toolBar, gIcons[0], gIcons[1]);
-    AVToolBarAddButton(toolBar, docSwitchBtn, false, NULL);
-    AVToolBarAddButton(toolBar, docListBtn, false, NULL);
-    AVToolBarAddButton(toolBar, docListBtn2, false, NULL);
-
-    ASBool menu_p = PluginSetMenu();
-    return menu_p;
+    return PluginSetMenu();
 }
 
 /* PluginUnload
