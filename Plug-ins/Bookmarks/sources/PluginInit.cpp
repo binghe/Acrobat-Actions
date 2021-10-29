@@ -272,6 +272,85 @@ END_HANDLER
     return true;
 }
 
+static AVCommandHandlerRec gAVCmdHandler;
+const char *kCmdName = "AA:FixFitType_Bookmarks_Cmd";
+
+static ACCB1 AVCommandStatus ACCB2 DoWorkImpl (AVCommand cmd)
+{
+    AVDoc avDoc = AVCommandGetAVDoc(cmd);
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
+    int acc = 0;
+
+    // visit all bookmarks recursively, fixing FitView
+    acc = FixAllBookmarks(pdDoc, rootBookmark, acc);
+#ifdef WIN_PLATFORM
+    _snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+#else
+    snprintf(notes, NOTESIZ, "Changed %d bookmarks.", acc);
+#endif
+    AVAlertNote((const char*) notes);
+
+    return kAVCommandDone;
+}
+
+static ACCB1 void ACCB2 DoGetPropsImpl (AVCommand cmd, ASCab params)
+{
+    // Exposing AVCommands to the batch framework
+    const char *kGroupTitle = "Document";
+    const char *kCmdGenericTitle = "Fix FitType of Bookmarks (AVCommand)";
+    const char *kCmdTitle = "Fix FitType of Bookmarks";
+
+    ASBool doItAll = false;
+    if (ASCabNumEntries(params) == 0) {
+        doItAll = true;
+    }
+    if (doItAll || ASCabKnown (params, kAVCommandKeyGroupTitle))
+    {
+        // Create a new text object and insert it into the ASCab
+        ASText text = ASTextNew();
+        ASTextSetEncoded (text, kGroupTitle, (ASHostEncoding)PDGetHostEncoding());
+        ASCabPutText (params, kAVCommandKeyGroupTitle, text);
+    }
+
+    if (doItAll || ASCabKnown (params, kAVCommandKeyCanBatch)) {
+        ASCabPutBool (params, kAVCommandKeyCanBatch, true);
+    }
+
+    if (doItAll || ASCabKnown (params, kAVCommandKeyGenericTitle))
+    {
+        // Create a new text object and insert it into the ASCab
+        ASText text = ASTextNew();
+        ASTextSetEncoded (text, kCmdGenericTitle,
+                          (ASHostEncoding)PDGetHostEncoding());
+        ASCabPutText (params, kAVCommandKeyGenericTitle, text);
+    }
+
+    if (doItAll || ASCabKnown (params, kAVCommandKeyTitle))
+    {
+        // Create another text object and insert it into the ASCab
+        ASText text = ASTextNew();
+        ASTextSetEncoded (text, kCmdTitle,
+                          (ASHostEncoding)PDGetHostEncoding());
+        ASCabPutText (params, kAVCommandKeyTitle, text);
+    }
+}
+
+ACCB1 ASBool ACCB2 PluginSetCommands()
+{
+    // Create an AVCommandHandlerRec object
+    memset (&gAVCmdHandler, 0, sizeof(AVCommandHandlerRec));
+    gAVCmdHandler.size = sizeof(AVCommandHandlerRec);
+    gAVCmdHandler.Work = ASCallbackCreateProto (AVCommandWorkProc, DoWorkImpl);
+    gAVCmdHandler.GetProps = ASCallbackCreateProto (AVCommandGetProc, DoGetPropsImpl);
+    AVAppRegisterCommandHandler (ASAtomFromString(kCmdName), &gAVCmdHandler);
+
+    AVCommand cmd = AVCommandNew(ASAtomFromString(kCmdName));
+    AVAppRegisterGlobalCommand(cmd);
+
+    return true;
+}
+
 /* PluginInit
 ** ------------------------------------------------------
 **/
@@ -283,7 +362,12 @@ END_HANDLER
 */
 ACCB1 ASBool ACCB2 PluginInit(void)
 {
-    return PluginSetMenu();
+    if (PluginSetMenu() && PluginSetCommands()) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 /* PluginUnload
