@@ -297,20 +297,12 @@ static ACCB1 AVCommandStatus ACCB2 DoWorkImpl (AVCommand cmd)
 static ACCB1 void ACCB2 DoGetPropsImpl (AVCommand cmd, ASCab params)
 {
     // Exposing AVCommands to the batch framework
-    const char *kGroupTitle = "Document";
     const char *kCmdGenericTitle = "Fix FitType of Bookmarks (AVCommand)";
     const char *kCmdTitle = "Fix FitType of Bookmarks";
 
     ASBool doItAll = false;
     if (ASCabNumEntries(params) == 0) {
         doItAll = true;
-    }
-    if (doItAll || ASCabKnown (params, kAVCommandKeyGroupTitle))
-    {
-        // Create a new text object and insert it into the ASCab
-        ASText text = ASTextNew();
-        ASTextSetEncoded (text, kGroupTitle, (ASHostEncoding)PDGetHostEncoding());
-        ASCabPutText (params, kAVCommandKeyGroupTitle, text);
     }
 
     if (doItAll || ASCabKnown (params, kAVCommandKeyCanBatch)) {
@@ -341,13 +333,30 @@ ACCB1 ASBool ACCB2 PluginSetCommands()
     // Create an AVCommandHandlerRec object
     memset (&gAVCmdHandler, 0, sizeof(AVCommandHandlerRec));
     gAVCmdHandler.size = sizeof(AVCommandHandlerRec);
+
     gAVCmdHandler.Work = ASCallbackCreateProto (AVCommandWorkProc, DoWorkImpl);
     gAVCmdHandler.GetProps = ASCallbackCreateProto (AVCommandGetProc, DoGetPropsImpl);
     AVAppRegisterCommandHandler (ASAtomFromString(kCmdName), &gAVCmdHandler);
 
-    AVCommand cmd = AVCommandNew(ASAtomFromString(kCmdName));
-    AVAppRegisterGlobalCommand(cmd);
+    AVCommand cmd = AVCommandNew (ASAtomFromString(kCmdName));
+    AVAppRegisterGlobalCommand (cmd);
 
+    return true;
+}
+
+ACCB1 ASBool ACCB2 PluginSetToolbar()
+{
+    AVToolButton button =
+        AVToolButtonNew (ASAtomFromString("AB:FixFitType_Bookmarks"), NULL, true, false);
+    AVToolButtonSetExecuteProc (button,
+        ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
+    AVToolButtonSetComputeEnabledProc (button,
+        ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
+    AVToolButtonSetHelpText (button, "Fix FitType of All Bookmarks");
+
+    AVToolBar toolBar = AVToolBarNew("AcrobatActions", "Acrobat Actions");
+    AVToolBarAddButton(toolBar, button, false, NULL);
+    
     return true;
 }
 
@@ -362,7 +371,7 @@ ACCB1 ASBool ACCB2 PluginSetCommands()
 */
 ACCB1 ASBool ACCB2 PluginInit(void)
 {
-    if (PluginSetMenu() && PluginSetCommands()) {
+    if (PluginSetMenu() && PluginSetCommands() && PluginSetToolbar()) {
         return true;
     }
     else {
@@ -388,6 +397,10 @@ ACCB1 ASBool ACCB2 PluginUnload(void)
         AVMenuItemRemove(topMenuItem);
     }
 
+    AVCommand cmd = AVAppFindGlobalCommandByName(ASAtomFromString(kCmdName));
+    if (NULL != cmd) {
+        AVAppUnregisterGlobalCommand(cmd);
+    }
     return true;
 }
 
