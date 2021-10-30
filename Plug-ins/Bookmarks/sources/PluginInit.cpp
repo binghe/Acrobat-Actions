@@ -354,9 +354,19 @@ ACCB1 ASBool ACCB2 PluginSetToolbar()
         ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
     AVToolButtonSetHelpText (button, "Fix FitType of All Bookmarks");
 
-    AVToolBar toolBar = AVToolBarNew("AcrobatActions", "Acrobat Actions");
-    AVToolBarAddButton(toolBar, button, false, NULL);
-    
+    /* First try to add the button to an existing public tool bar */
+    AVToolBar toolBar = AVAppGetToolBarByName ("Add-on");
+    if (NULL == toolBar) {
+        /* maybe already added by another sibling plugin? */
+        toolBar = AVAppGetToolBarByName ("AA:AcrobatActions");
+    }
+    if (NULL == toolBar) {
+        toolBar = AVToolBarNew("AA:AcrobatActions", "Acrobat Actions");
+    }
+    if (AVToolBarIsRoomFor (toolBar, 1, 0)) {
+        AVToolBarAddButton(toolBar, button, false, NULL);
+    }
+
     return true;
 }
 

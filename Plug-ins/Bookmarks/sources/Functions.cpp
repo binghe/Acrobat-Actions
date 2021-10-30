@@ -19,8 +19,10 @@ extern "C" {
 #include <strings.h>
 #endif
 
-#include <string.h>
-#include <stdio.h>
+#include <cstring>
+#include <cstdio>
+#include <regex>
+
 #include "Functions.hpp"
 
 // Fix the FitType of all bookmarks plus changing "Contents" to Bold font.
