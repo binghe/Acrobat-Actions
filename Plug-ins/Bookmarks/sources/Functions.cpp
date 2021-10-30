@@ -82,7 +82,7 @@ DURING
 	{
             ASInt32 flags = PDBookmarkGetFlags(b);
             // AVAlertNote("Found a TOC");
-	    PDBookmarkSetFlags(b, flags | (ASInt32)0b10); /* + bold font */
+	    PDBookmarkSetFlags(b, flags | (ASInt32)2); /* + bold font */
 	    acc++;
 	}
 	ASfree((void *)u8);
