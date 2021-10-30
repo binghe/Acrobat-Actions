@@ -21,7 +21,9 @@ extern "C" {
 
 #include <cstring>
 #include <cstdio>
-#include <regex>
+
+// VS2015 doesn't support this well
+// #include <regex>
 
 #include "Functions.hpp"
 
