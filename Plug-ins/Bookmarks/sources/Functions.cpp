@@ -153,7 +153,7 @@ DURING
 	size_t len = strlen((const char*)str);
 	
 	// 1st round: all letters to small cases
-	for (int i = 0; i < len; ++i) {
+	for (size_t i = 0; i < len; ++i) {
 	    // capitalize the current letter and turn off the flag
 	    if (str[i] >= 'A' && str[i] <= 'z') {
 		str[i] = tolower((const char) str[i]);
@@ -169,7 +169,7 @@ DURING
 	bool new_sentence = true;
 
 	// 2nd round: selective capitalization
-	for (int i = 0; i < len; ++i) {
+	for (size_t i = 0; i < len; ++i) {
 	    // capitalize the current letter and turn off the flag
 	    if (str[i] >= 'A' && str[i] <= 'z') {
 		// calculate exceptions

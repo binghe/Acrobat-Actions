@@ -46,5 +46,4 @@ END
 // PDFICONS
 //
 
-IDR_PDFICONS1           PDFICONS                "multitab_icons.pdf"
 #endif    // English (United States) resources
