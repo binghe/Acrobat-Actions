@@ -11,6 +11,7 @@
 		4FA771012708B37A00E02C94 /* AVCompat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA7707A2708B37800E02C94 /* AVCompat.cpp */; };
 		4FA771022708B37A00E02C94 /* SafeResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA770BD2708B37900E02C94 /* SafeResources.cpp */; };
 		4FA771032708B37A00E02C94 /* PIHeaders.c in Sources */ = {isa = PBXBuildFile; fileRef = 4FA770FF2708B37A00E02C94 /* PIHeaders.c */; };
+		4FBD0BD9272DD385001019BA /* Regex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD0BD8272DD385001019BA /* Regex.cpp */; };
 		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */; };
 		DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */ = {isa = PBXBuildFile; fileRef = DB9570EC09DA0AA400D15BF1 /* PIMain.c */; };
@@ -179,6 +180,8 @@
 		4FA770FF2708B37A00E02C94 /* PIHeaders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PIHeaders.c; path = ../../PluginSupport/Headers/API/PIHeaders.c; sourceTree = "<group>"; };
 		4FA771002708B37A00E02C94 /* SpellerHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellerHFTProcs.h; path = ../../PluginSupport/Headers/API/SpellerHFTProcs.h; sourceTree = "<group>"; };
 		4FA771052708B39B00E02C94 /* PIHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIHeaders.h; path = ../../PluginSupport/Headers/SDK/PIHeaders.h; sourceTree = "<group>"; };
+		4FBD0BD8272DD385001019BA /* Regex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Regex.cpp; path = ../sources/Regex.cpp; sourceTree = "<group>"; };
+		4FBD0BDC272DD3B7001019BA /* Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Regex.h; path = ../sources/Regex.h; sourceTree = "<group>"; };
 		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -206,6 +209,7 @@
 			children = (
 				4FA770632708B34700E02C94 /* Acrobat SDK */,
 				DB9570D309DA097D00D15BF1 /* Configurations */,
+				4FBD0BDB272DD394001019BA /* Headers */,
 				08FB77ADFE841716C02AAC07 /* Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				19C28FB4FE9D528D11CA2CBB /* Products */,
@@ -225,11 +229,10 @@
 		08FB77ADFE841716C02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4FA771052708B39B00E02C94 /* PIHeaders.h */,
+				4FBD0BD8272DD385001019BA /* Regex.cpp */,
 				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
 				DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */,
 				4FA211852386BFEE0057E287 /* Functions.cpp */,
-				4FA211862386BFEE0057E287 /* Functions.hpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -406,6 +409,16 @@
 			name = "Acrobat SDK";
 			sourceTree = "<group>";
 		};
+		4FBD0BDB272DD394001019BA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD0BDC272DD3B7001019BA /* Regex.h */,
+				4FA771052708B39B00E02C94 /* PIHeaders.h */,
+				4FA211862386BFEE0057E287 /* Functions.hpp */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		DB9570D309DA097D00D15BF1 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +509,7 @@
 				4FA211872386BFEE0057E287 /* Functions.cpp in Sources */,
 				DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */,
 				4FA771022708B37A00E02C94 /* SafeResources.cpp in Sources */,
+				4FBD0BD9272DD385001019BA /* Regex.cpp in Sources */,
 				DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
