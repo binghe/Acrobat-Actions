@@ -247,6 +247,7 @@ DURING
       (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
        (void *)pdPermEdit);
     AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
+    i++;
 
     // Command 4
     menuItem[i] = AVMenuItemNew("Fix All Text Annotations", "AA:Fix_Annotations",
@@ -364,6 +365,7 @@ ACCB1 ASBool ACCB2 PluginSetToolbar()
     // Set the button’s label text with a kAVButtonPriorityOnNormal priority
     // NOTE: this fixed toolbar label display for Acrobat Pro XI
     AVToolButtonSetLabelText (button, labelText, kAVButtonPriorityOnNormal);
+    ASTextDestroy(tmpText);
 
     /* First try to add the button to an existing public tool bar */
     AVToolBar toolBar = AVAppGetToolBarByName ("Add-on");
