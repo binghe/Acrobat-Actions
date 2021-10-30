@@ -273,7 +273,7 @@ END_HANDLER
 }
 
 static AVCommandHandlerRec gAVCmdHandler;
-const char *kCmdName = "AA:FixFitType_Bookmarks_Cmd";
+const char *kCmdName = "AA:FixFitType_BookmarksCmd";
 
 static ACCB1 AVCommandStatus ACCB2 DoWorkImpl (AVCommand cmd)
 {
@@ -347,12 +347,20 @@ ACCB1 ASBool ACCB2 PluginSetCommands()
 ACCB1 ASBool ACCB2 PluginSetToolbar()
 {
     AVToolButton button =
-        AVToolButtonNew (ASAtomFromString("AB:FixFitType_Bookmarks"), NULL, true, false);
+        AVToolButtonNew (ASAtomFromString("AA:FixFitType_BookmarksBtn"), NULL, false, false);
     AVToolButtonSetExecuteProc (button,
         ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
     AVToolButtonSetComputeEnabledProc (button,
         ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
     AVToolButtonSetHelpText (button, "Fix FitType of All Bookmarks");
+
+    // Create an ASConstText object by using a ASText object
+    ASText tmpText = ASTextNew();
+    ASTextSetPDText(tmpText, "Fix FitType of All Bookmarks");
+    ASConstText labelText = tmpText;
+
+    // Set the button’s label text with a kAVButtonPriorityOnNormal priority
+    AVToolButtonSetLabelText (button, labelText, kAVButtonPriorityOnNormal);
 
     /* First try to add the button to an existing public tool bar */
     AVToolBar toolBar = AVAppGetToolBarByName ("Add-on");
@@ -401,7 +409,7 @@ ACCB1 ASBool ACCB2 PluginInit(void)
 	Returning false will cause an alert to display that unloading failed.
 	@return true to indicate the plug-in unloaded.
 */
-ACCB1 ASBool ACCB2 PluginUnload(void)
+ACCB1 ASBool ACCB2 PluginUnload (void)
 {
     if (topMenuItem) {
         AVMenuItemRemove(topMenuItem);
