@@ -50,6 +50,8 @@ static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
 ACCB1 ASBool ACCB2 PluginUnload(void);
 
+static const char *toolName = "Fix FitType of All Bookmarks";
+
 /*-------------------------------------------------------
 	Core Handshake Callbacks
 -------------------------------------------------------*/
@@ -218,7 +220,7 @@ DURING
     AVMenuRelease(commonMenu);
 
     // Command 1
-    menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "AA:FixFitType_Bookmarks",
+    menuItem[i] = AVMenuItemNew(toolName, "AA:FixFitType_BookmarksItm",
                                 NULL, /* submenu */
                                 true, /* longMenusOnly */
                                 NO_SHORTCUT, 0 /* flags */,
@@ -297,8 +299,8 @@ static ACCB1 AVCommandStatus ACCB2 DoWorkImpl (AVCommand cmd)
 static ACCB1 void ACCB2 DoGetPropsImpl (AVCommand cmd, ASCab params)
 {
     // Exposing AVCommands to the batch framework
-    const char *kCmdGenericTitle = "Fix FitType of Bookmarks (AVCommand)";
-    const char *kCmdTitle = "Fix FitType of Bookmarks";
+    const char *kCmdGenericTitle = toolName;
+    const char *kCmdTitle = toolName;
 
     ASBool doItAll = false;
     if (ASCabNumEntries(params) == 0) {
@@ -352,14 +354,15 @@ ACCB1 ASBool ACCB2 PluginSetToolbar()
         ASCallbackCreateProto(AVExecuteProc, PluginCommand_1), NULL);
     AVToolButtonSetComputeEnabledProc (button,
         ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled), NULL);
-    AVToolButtonSetHelpText (button, "Fix FitType of All Bookmarks");
+    AVToolButtonSetHelpText (button, toolName);
 
     // Create an ASConstText object by using a ASText object
     ASText tmpText = ASTextNew();
-    ASTextSetPDText(tmpText, "Fix FitType of All Bookmarks");
+    ASTextSetPDText(tmpText, toolName);
     ASConstText labelText = tmpText;
 
     // Set the button’s label text with a kAVButtonPriorityOnNormal priority
+    // NOTE: this fixed toolbar label display for Acrobat Pro XI
     AVToolButtonSetLabelText (button, labelText, kAVButtonPriorityOnNormal);
 
     /* First try to add the button to an existing public tool bar */
