@@ -45,7 +45,7 @@ extern "C" HINSTANCE gHINSTANCE;
 
 static const char *pluginMenuName = "Extensions";
 static AVMenuItem topMenuItem = NULL;
-static AVMenuItem menuItem[3] = {NULL, NULL, NULL};
+static AVMenuItem menuItem[4] = {NULL, NULL, NULL, NULL};
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
 ACCB1 ASBool ACCB2 PluginUnload(void);
@@ -158,6 +158,20 @@ ACCB1 void ACCB2 PluginCommand_2(void *clientData)
     return;
 }
 
+/* Collapse All Bookmarks */
+ACCB1 void ACCB2 PluginCommand_3(void *clientData)
+{
+    // try to get front PDF document
+    AVDoc avDoc = AVAppGetActiveDoc();
+    PDDoc pdDoc = AVDocGetPDDoc(avDoc);
+    PDBookmark rootBookmark = PDDocGetBookmarkRoot(pdDoc);
+
+    // collapse all bookmarks recursively
+    CollapseAllBookmarks(pdDoc, rootBookmark);
+
+    return;
+}
+
 /* Fix All Text Annotations */
 ACCB1 void ACCB2 PluginCommand_4(void *clientData)
 {
@@ -243,6 +257,21 @@ DURING
     AVMenuItemSetExecuteProc
       (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_2), NULL);
     
+    AVMenuItemSetComputeEnabledProc
+      (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
+       (void *)pdPermEdit);
+    AVMenuAddMenuItem(subMenu, menuItem[i], APPEND_MENUITEM);
+    i++;
+
+    // Command 3
+    menuItem[i] = AVMenuItemNew("Collapse All Bookmarks", "AA:Collapse_Bookmarks",
+                NULL, /* submenu */
+                true, /* longMenusOnly */
+                NO_SHORTCUT, 0 /* flags */,
+                NULL /* icon */, gExtensionID);
+    AVMenuItemSetExecuteProc
+      (menuItem[i], ASCallbackCreateProto(AVExecuteProc, PluginCommand_3), NULL);
+
     AVMenuItemSetComputeEnabledProc
       (menuItem[i], ASCallbackCreateProto(AVComputeEnabledProc, PluginIsEnabled),
        (void *)pdPermEdit);
