@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AcrobatUI xmlns="http://ns.adobe.com/acrobat/ui/2012" title="常用工具" majorVersion="1" minorVersion="0">
+	<Component name="BasicToolsPane">
+		<Component label="处理扫描的文档">
+			<Component label="将纸质文档扫描为可搜索的 PDF 文件。"/>
+			<Component name="CreatePDFFromScannerPreset5"/>
+			<Component name="CreatePDFFromScannerPreset1"/>
+			<Component name="CreatePDFFromScannerPreset2"/>
+			<Component name="CreatePDFFromScanner"/>
+			<Component label="将纸质表单扫描为可填写的 PDF 表单。"/>
+			<Component name="AcroForm:Forms_CreateNewForm"/>
+			<Component name="Separator"/>
+			<Component label="在“页面缩略图”窗格中分别旋转页面或使用“旋转”工具中的更多选项。"/>
+			<Component name="PageThumbnails"/>
+			<Component name="RotatePages"/>
+			<Component name="Separator"/>
+			<Component label="通过将扫描文档的内容转换为可搜索的文本、校正偏斜的页面以及减小文件大小来整理之前扫描的文档。"/>
+			<Component name="Scan:OPT"/>
+		</Component>
+		<Component label="导出为其它格式">
+			<Component label="使用这些工具可将整个文档保存为其它格式。"/>
+			<Component name="EXFT_MSWord"/>
+			<Component name="EXFT_MSExcel"/>
+			<Component name="EXFT_MSPowerPoint"/>
+			<Component label="使用此工具可从文档中导出所有图像。"/>
+			<Component name="ImageConversion:Export"/>
+		</Component>
+		<Component label="将页面重新排列和重新编号">
+			<Component label="拖动一个或多个缩略图可移动页面，拖动时按住 Ctrl 或 Option 键可复制页面。"/>
+			<Component label="更多信息" goLink="UI_Customize_Arrange_Thumbnail"/>
+			<Component name="PageThumbnails"/>
+			<Component name="Separator"/>
+			<Component label="设置页面组的编号方式。"/>
+			<Component label="更多信息" goLink="UI_Customize_Arrange_Number"/>
+			<Component name="NumberPages"/>
+			<Component name="Separator"/>
+			<Component label="使用这些工具可添加或删除页面。"/>
+			<Component name="InsertPages"/>
+			<Component name="MoreInsertOptions"/>
+			<Component name="Web2PDF:SpdrSubMnuItm"/>
+			<Component name="DeletePages"/>
+			<Component name="ReplacePages"/>
+		</Component>
+		<Component label="创建演示文稿">
+			<Component label="使用这些工具可以全屏模式打开文档，并将页面设置为自动过渡或以选定样式过渡。"/>
+			<Component label="更多信息" goLink="UI_Customize_Presentation"/>
+			<Component name="DocInitialView"/>
+			<Component name="SetTransitions"/>
+			<Component name="Separator"/>
+			<Component label="使用此工具可自动删除白边距或将页面裁剪为特定页面大小。"/>
+			<Component name="Crop"/>
+			<Component name="Separator"/>
+			<Component label="使用此工具可在保存前压缩图像。"/>
+			<Component name="ReduceFileSize"/>
+		</Component>
+		<Component label="添加导览">
+			<Component label="使用这些工具可提高文档的交互性。"/>
+			<Component label="更多信息" goLink="UI_Customize_Navigation"/>
+			<Component name="Link"/>
+			<Component name="NewBookmark"/>
+			<Component name="Button"/>
+			<Component name="Authoring"/>
+		</Component>
+	</Component>
+	<Component name="Favorites">
+		<Component name="InsertPages"/>
+		<Component name="DeletePages"/>
+		<Component name="ExtractPages"/>
+	</Component>
+</AcrobatUI>
