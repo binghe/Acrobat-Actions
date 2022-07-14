@@ -212,7 +212,7 @@ var oButObjHighlightBlue =
 var oButObjHighlightGreen =
     {cName: "highlightGreen",
      oIcon: oIconHighlightGreen,
-     cExec: "DoCmdhighlightGreen(event.target, color.green);",
+     cExec: "DoCmdhighlight(event.target, color.green);",
      cEnable: "event.rc = (app.doc != null)",
      cMarked: "event.rc = false",
      cTooltext: "Green Highlight - Keywords",
