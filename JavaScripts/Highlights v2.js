@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-//  Copyright 2020 by Chun Tian (binghe) <binghe.lisp@gmail.com>
+//  Copyright 2020,2022 by Chun Tian <binghe.lisp@gmail.com>
 //
 //  The code in this file is provided as a download tool
 //  for paying members of pdfscripting.com. It is intended
