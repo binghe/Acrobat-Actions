@@ -171,9 +171,9 @@ var DoCmdhighlight = app.trustedFunction(function(oDoc, c)
     var strokeColor = c;
     var opacity = 0.8;
 
+    /* first check annotations */
     oDoc.syncAnnotScan();
     var annots = this.selectedAnnots;
-
     if (annots != null) {
       for (var i = annots.length - 1; i >= 0; i--) {
           annots[i].opacity = opacity;
