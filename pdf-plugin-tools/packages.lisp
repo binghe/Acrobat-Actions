@@ -26,12 +26,12 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(in-package :pdf-plugin-tools-system)
+(in-package :cl-user)
 
-(defpackage pdf-plugin-tools
+(defpackage :pdf-plugin-tools
   (:nicknames :acrobat)
   (:use :cl :fli :dspec)
-  (:add-use-defaults t)
+  (:add-use-defaults t) ; LW and HCL, at least
   (:export #:*plugin-name*
            #:*plugin-id*
            #:*plugin-version*))

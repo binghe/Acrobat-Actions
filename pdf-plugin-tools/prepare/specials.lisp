@@ -1,4 +1,4 @@
-;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-USER; Base: 10 -*-
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: PREPARE-FM-PLUGIN-TOOLS; Base: 10 -*-
 
 ;;; Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.
 
@@ -26,14 +26,9 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :name "PDF-PLUGIN-TOOLS"
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
-  :license "BSD"
-  ;; we increase this version even if only the parser has changed
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "main"))
-  :depends-on ())
+(in-package :prepare-pdf-plugin-tools)
+
+(defvar *api-extern-location* nil
+  "A pathname designator denoting where exactly Acrobat Pro's
+PluginSupport/Headers/API directory can be found.  You either set it here, or you'll get
+a dialog asking for it.")

@@ -1,6 +1,6 @@
-;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-USER; Base: 10 -*-
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: PREPARE-FM-PLUGIN-TOOLS; Base: 10 -*-
 
-;;; Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.
+;;; Copyright (c) 2022, Chun Tian.  All rights reserved.
 
 ;;; Redistribution and use in source and binary forms, with or without
 ;;; modification, are permitted provided that the following conditions
@@ -26,14 +26,14 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :name "PDF-PLUGIN-TOOLS"
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
-  :license "BSD"
-  ;; we increase this version even if only the parser has changed
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "main"))
-  :depends-on ())
+(in-package :prepare-pdf-plugin-tools)
+
+(defun set-api-extern-location ()
+  "If *API-EXTERN-LOCATION* is not set, ask the user to provide a value."
+  (setq *api-extern-location*
+        (or (capi:prompt-for-directory
+              "Please select the directory \"API\" (under \"PluginSupport/Headers\"):"
+              :operation :open
+              :ok-check (lambda (pathspec)
+                          (and (string= (file-namestring pathspec) "API"))))
+            (error "I can't continue if you don't select the directory \"API\"."))))
