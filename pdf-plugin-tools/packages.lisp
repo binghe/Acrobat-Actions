@@ -32,6 +32,8 @@
   (:nicknames :acrobat)
   (:use :cl :fli :dspec)
   (:add-use-defaults t) ; LW and HCL, at least
+  #+macosx
+  (:import-from :carbon #:cf-bundle-ref #:cf-retain)
   (:export #:*plugin-name*
            #:*plugin-id*
            #:*plugin-version*))

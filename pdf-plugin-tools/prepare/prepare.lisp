@@ -32,8 +32,7 @@
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
 the C header files of Acrobat Pro."
   ;; find out where to look for headers
-  (unless *api-extern-location*
-    (set-api-extern-location))
+  (unless *api-extern-location* (set-api-extern-location))
   ;; redirect *STANDARD-OUTPUT* to `fli.lisp'
   (with-open-file (*standard-output* *fli-file*
                                      :direction :output
