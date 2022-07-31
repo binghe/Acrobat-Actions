@@ -29,7 +29,7 @@
 (in-package :cl-user)
 
 (defpackage :pdf-plugin-tools
-  (:nicknames :acrobat)
+  (:nicknames :pdf)
   (:use :cl :fli :dspec)
   (:add-use-defaults t) ; LW and HCL, at least
   #+macosx
