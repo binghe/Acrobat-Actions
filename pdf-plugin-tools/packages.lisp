@@ -34,12 +34,16 @@
   (:add-use-defaults t) ; LW and HCL, at least
   #+macosx
   (:import-from :carbon #:cf-bundle-ref #:cf-retain)
-  (:export #:*company-name*
+  (:export #+:macosx
+           #:*app-bundle*
+           #:*company-name*
            #:*copyright-message*
            #:*plugin-logfile*
            #:*gc-interval*
            #:*log-backtraces-p*
            #:*log-errors-p*
+           #+:macosx
+           #:*plugin-bundle*
            #+:macosx
            #:*plugin-bundle-identifier*
            #:*plugin-help-text*

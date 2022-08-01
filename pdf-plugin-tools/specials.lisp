@@ -31,11 +31,15 @@
 (defvar *plugin-id*)
 (defvar *plugin-name*)
 #+:macosx
+(defvar *plugin-bundle*)
+#+:macosx
 (defvar *plugin-bundle-identifier*)
 (defvar *plugin-help-text*)
 (defvar *plugin-version*)
 (defvar *copyright-message*)
 (defvar *company-name*)
+#+:macosx
+(defvar *app-bundle*)
 
 ;; we set the documentation here so that the values above stay unbound
 (setf (documentation '*plugin-id* 'variable)
@@ -43,6 +47,14 @@
 FileMaker documentation."
       (documentation '*plugin-name* 'variable)
       "The name of the plug-in."
+      #+:macosx #+:macosx
+      (documentation '*plugin-bundle* 'variable)
+      "It holds the plugin bundle as a CFBundleRef foreign object
+(after called by CFRetain)"
+      #+:macosx #+:macosx
+      (documentation '*app-bundle* 'variable)
+      "It holds the Acrobat Pro application bundle as a CFBundleRef foreign
+object (after called by CFRetain)"
       #+:macosx #+:macosx
       (documentation '*plugin-bundle-identifier* 'variable)
       "Used as the `CFBundleIdentifier' for the bundles generated on OS X."

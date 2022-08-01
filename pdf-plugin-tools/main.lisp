@@ -64,10 +64,6 @@ register the plug-in with the application environment."
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
 
-#+:macosx #+:macosx
-(defvar *plugin-bundle*)
-(defvar *app-bundle*)
-
 #+:macosx
 (define-foreign-callable ("AcroPluginMain" :result-type as-bool
                                            :calling-convention :cdecl)
@@ -85,8 +81,6 @@ their names at all."
         (app-bundle (foreign-slot-value main-data 'app-bundle)))
     (cf-retain bundle)
     (cf-retain app-bundle)
-    (setq *plugin-bundle* bundle)
-    (setq *app-bundle* app-bundle)
     (plugin-log "[AcroPluginMain] *plugin-bundle* = ~A~%" *plugin-bundle*)
     (plugin-log "[AcroPluginMain] *app-bundle* = ~A~%" *app-bundle*))
 
