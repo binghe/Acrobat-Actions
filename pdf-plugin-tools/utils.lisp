@@ -62,8 +62,7 @@ FORMAT."
   (values))
 
 (defun get-backtrace ()
-  "Returns a full backtrace as a string.  To be used in
-handlers."
+  "Returns a full backtrace as a string.  To be used in handlers."
   (with-output-to-string (out nil :element-type 'lw:simple-char)
     (let ((dbg::*debugger-stack* (dbg::grab-stack nil :how-many most-positive-fixnum))
           (*debug-io* out)
@@ -71,12 +70,11 @@ handlers."
           (dbg:*debug-print-length* nil))
       (dbg:bug-backtrace nil))))
 
-(defun maybe-log-error (cond &optional prototype)
-  "Logs the condition COND using PLUGIN-LOG if *LOG-ERRORS* is true.
+(defun maybe-log-error (condition &optional function)
+  "Logs the condition CONDITION using PLUGIN-LOG if *LOG-ERRORS* is true.
 Also logs a backtrace if *LOG-BACKTRACES-P* is true as well."
   (when *log-errors-p*
-    (plugin-log "Error~:[~*~; in function ~A~]: ~A~%"
-                prototype (function-name prototype) cond)
+    (plugin-log "Error~:[ in function ~A~]: ~A~%" function condition)
     (when *log-backtraces-p*
       (plugin-log "Backtrace:~% ~A~%" (get-backtrace)))))
 

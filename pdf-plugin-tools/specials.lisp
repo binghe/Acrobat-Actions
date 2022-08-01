@@ -66,6 +66,11 @@ version info."
 The default value is NIL.  If no name is set, *PLUGIN-NAME* is
 used instead.")
 
+(defvar *plugin-logfile* t
+  "Target file for the PLUGIN-LOG function.  A pathname designator,
+or T for a default location in the user's local application data
+folder, or NIL for no logging at all.")
+
 (defparameter *last-gc* (load-time-value (get-universal-time))
   "The last time we collected all generations.")
 
