@@ -31,21 +31,18 @@
 (defpackage :pdf-plugin-tools
   (:nicknames :plugin)
   (:use :cl :fli :dspec)
-  (:add-use-defaults t) ; LW and HCL, at least
+  (:add-use-defaults t)
   #+macosx
-  (:import-from :carbon #:cf-bundle-ref #:cf-retain)
-  (:export #+:macosx
-           #:*app-bundle*
+  (:import-from :carbon #:cf-bundle-ref #:cf-retain #:cf-release)
+  (:export #+:macosx #:*app-bundle*
            #:*company-name*
            #:*copyright-message*
            #:*plugin-logfile*
            #:*gc-interval*
            #:*log-backtraces-p*
            #:*log-errors-p*
-           #+:macosx
-           #:*plugin-bundle*
-           #+:macosx
-           #:*plugin-bundle-identifier*
+           #+:macosx #:*plugin-bundle*
+           #+:macosx #:*plugin-bundle-identifier*
            #:*plugin-help-text*
            #:*plugin-id*
            #:*plugin-name*

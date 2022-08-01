@@ -28,9 +28,29 @@
 
 (in-package :pdf-plugin-tools)
 
-;; PIMain.c
-(defvar *core-hft*)     ; HFT gCoreHFT = 0;
-(defvar *core-version*) ; ASUns32 gCoreVersion = 0;
+;; HFTs <PIMain.c>
+(defvar *core-hft*)
+(defvar *core-version*)
+(defvar *cos-hft*)
+(defvar *cos-version*)
+
+(defvar *hft-info*
+  '(("Core" +pi-core-version+ *core-version* *core-hft* nil)
+    ("Cos"  +pi-cos-version+  *cos-version*  *cos-hft*  *pi-cos-optional*)))
+
+;; NOTE: When ALLOCATION is :STATIC (default), memory allocated by
+;; ALLOCATE-FOREIGN-OBJECT is in the C heap. Therefore pointer (and
+;; any copy) cannot be used after SAVE_IMAGE or DELIVER.
+;;
+(defun initialize ()
+  (loop for (name ver retvar hft optional) in *hft-info* do
+     (setf (symbol-value hft)    (fli:allocate-foreign-object :type 'hft :fill 0))
+     (setf (symbol-value retvar) (fli:allocate-foreign-object :type 'as-uns32 :fill 0))))
+
+(defun finalize ()
+  (loop for (name ver retvar hft optional) in *hft-info* do
+     (free-foreign-object (symbol-value hft))
+     (free-foreign-object (symbol-value retvar))))
 
 (define-foreign-callable ("PISetupSDK" :result-type as-bool
                                        :calling-convention :cdecl)
@@ -38,20 +58,39 @@
      (sdk-data              (:pointer :void)))
   "This routine is called by the host application to set up the plug-in's
 SDK-provided functionality."
-  (plugin-log "[PISetupSDK] begin.~%")
-  (plugin-log "[PISetupSDK] end.~%")
-  +false+
-  )
+  (block pi-setup-sdk
+    (plugin-log "[PISetupSDK] begin.~%")
+    (when (= handshake-version +handshake-v0200+)
+      (let* ((data (copy-pointer sdk-data :type 'pi-sdk-data-v0200))
+             (version (foreign-slot-value data 'handshake-version)))
+        (unless (= version +handshake-v0200+)
+          (plugin-log "[PISetupSDK] Someone lied.~%")
+          (return-from pi-setup-sdk nil))
+        (setq *extension-id* (foreign-slot-value data 'extension-id))
+        (setq *core-hft*     (foreign-slot-value data 'core-hft))
+        (setq *core-version* +core-hft-version-2) ; lowest version that supports v0200 handshake
+        (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
+        (plugin-log "[PISetupSDK] *core-hft* (initial) = ~A~%" *core-hft*)
+        )
+      (plugin-log "[PISetupSDK] end successfully.~%")
+      (return-from pi-setup-sdk nil)) ; TODO
+    ;; If we reach here, then we were passed a handshake version number we don't know about.
+    ;; This shouldn't ever happen since our main() routine chose the version number.
+    (plugin-log "[PISetupSDK] end badly.~%")
+    nil))
 
 (define-foreign-callable ("PIHandshake" :result-type as-bool
                                         :calling-convention :cdecl)
     ((handshake-version     as-uns32)
      (handshake-data        (:pointer :void)))
   "PIHandshake function provides the initial interface between your plug-in and
-the application.
-This function provides the callback functions to the application that allow it to
-register the plug-in with the application environment."
-  +false+
+the application.  This function provides the callback functions to the
+application that allow it to register the plug-in with the application
+environment."
+  (plugin-log "[PIHandshake] begin.~%")
+  
+  (plugin-log "[PIHandshake] end.~%")
+  nil
   )
 
 ;; NOTE: The result of FOREIGN-FUNCTION-POINTER is updated on image restart.
@@ -64,23 +103,24 @@ register the plug-in with the application environment."
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
 
-#+:macosx
 (define-foreign-callable ("AcroPluginMain" :result-type as-bool
                                            :calling-convention :cdecl)
     ((app-handshake-version as-uns32)
      (handshake-version     as-uns32p)
      (setup-proc            (:pointer pi-setup-sdk-proc-type))
+     #+:win32
+     (windows-data          (:pointer :void))
+     #+:macosx
      (main-data             (:pointer plugin-main-data)))
-  "AcroPluginMain is DLL entry function that Acrobat Pro first calls.  All other
-foreign callables must be registered here, otherwise Acrobat Pro does not know
-their names at all."
   (plugin-log "[AcroPluginMain] begin.~%")
 
-  ;; 1. set *plugin-bundle* and *app-bundle*
+  ;; 1. set *plugin-bundle* and *app-bundle* (Mac only)
+  #+:macosx
   (let ((bundle     (foreign-slot-value main-data 'bundle))
         (app-bundle (foreign-slot-value main-data 'app-bundle)))
     (cf-retain bundle)
     (cf-retain app-bundle)
+    (setq *plugin-bundle* bundle *app-bundle* app-bundle)
     (plugin-log "[AcroPluginMain] *plugin-bundle* = ~A~%" *plugin-bundle*)
     (plugin-log "[AcroPluginMain] *app-bundle* = ~A~%" *app-bundle*))
 
@@ -88,13 +128,18 @@ their names at all."
   ;; HANDSHAKE_VERSION is the latest version that we, the plug-in, know about (see PIVersn.h)
   ;; Always use the earlier of the two structs to assure compatibility.
   ;; The version we want to use is returned to the application so it can adjust accordingly.
-  (setf (dereference handshake-version)
-        (the (unsigned-byte 32) (min app-handshake-version +handshake-version+)))
+  (let ((version (the (unsigned-byte 32)
+                      (min app-handshake-version +handshake-version+))))
+    (plugin-log "[AcroPluginMain] app-handshake-version = ~A~%" app-handshake-version)
+    (setf (dereference handshake-version) version)
+    (plugin-log "[AcroPluginMain] handshake-version = ~A~%" version))
 
   ;; 3. Provide the routine for the host app to call to setup this plug-in
   (setf (dereference setup-proc) *pi-setup-sdk*)
 
   (plugin-log "[AcroPluginMain] end.~%")
-  +true+)
+
+  ;; 4. return TRUE
+  t)
 
 ;; END

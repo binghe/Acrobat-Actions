@@ -28,21 +28,7 @@
 
 (in-package :pdf-plugin-tools)
 
-;; An HFTEntry may be cast to a pointer to a function whose prototype must
-;; be provided by the HFT's description file. <CoreExpT.h>
-(define-c-typedef hft-entry (:pointer :void)) ; HFTEntry
-
-;; An object that describes a set of exported functions.
-;; It is an array of function pointers, where the first element is unused.
-;;
-;; @note An HFT object may be cast to an <code>(HFTEntry *)</code>; you may then
-;; index directly into this object by a selector to obtain a pointer to
-;; a function. <CoreExpT.h>
-(define-c-typedef hft (:pointer hft-entry)) ; HFT
-
-;;; cardinal types <ASNumTypes.h>
-
-;; 1-byte <code>unsigned char</code> value.
+;; 1-byte <code>unsigned char</code> value. <ASNumTypes.h>
 (define-c-typedef as-uns8   (:unsigned :byte))
 (define-c-typedef as-uns8p  (:pointer as-uns8))
 
@@ -50,16 +36,21 @@
 (define-c-typedef as-uns16  (:unsigned :short))
 (define-c-typedef as-uns16p (:pointer as-uns16))
 
-;; 4-byte <code>unsigned long</code> numeric value. <ASNumTypes.h>
+;; 4-byte <code>unsigned long</code> numeric value.
 (define-c-typedef as-uns32  (:unsigned :int))
 (define-c-typedef as-uns32p (:pointer as-uns32))
 
-;; 8-byte <code>unsigned long</code> numeric value. <ASNumTypes.h>
+;; 8-byte <code>unsigned long</code> numeric value.
 (define-c-typedef as-uns64  (:unsigned :long :long))
 
-(define-c-typedef as-bool   as-uns16)
-(defconstant +true+  1)
-(defconstant +false+ 0)
+(define-c-typedef as-bool   (:boolean as-uns16))
+
+(define-c-typedef as-size-t :size-t)
+
+;; <CoreExpT.h>
+(define-opaque-pointer hft          hft-entry)
+(define-opaque-pointer extension-id as-extension)
+(define-c-typedef as-callback (:pointer :void))
 
 ;;; Prototypes for plug-in supplied functions. <PIVersn.h>
 (define-c-typedef pi-setup-sdk-proc-type ; PISetupSDKProcType
@@ -87,6 +78,28 @@
 (define-c-typedef pi-unload-proc-type ; PIUnloadProcType
   (:pointer (:function () as-bool :calling-convention :cdecl)))
 
-(defconstant +handshake-v0200+   #.(ash 2 16)) ; ((ASUns32)((2L<<16) + 0))
+(define-c-struct pi-sdk-data-v0200  ; PISDKData_V0200
+  (handshake-version as-uns32)      ; IN  - Will always be HANDSHAKE_VERSION_V0200
+  (extension-id      extension-id)  ; IN  - Opaque to extensions, used to identify the Extension
+  (core-hft          hft)           ; IN  - Host Function Table for "core" functions
+  (handshake-callback as-callback)) ; OUT - Address of PIHandshake()
+
+(defconstant +handshake-v0200+   #.(ash 2 16))
 (defconstant +handshake-version+ +handshake-v0200+)
+
+(defconstant +core-hft-version-2+ #x00020000)
+(defconstant +core-hft-version-4+ #x00040000)
+(defconstant +core-hft-version-5+ #x00050000)
+(defconstant +pi-core-version+ +core-hft-version-5+)
+
+(defconstant +cos-hft-version-6+ #x00060000)
+(defconstant +cos-hft-version-7+ #x00070000)
+(defconstant +cos-hft-version-8+ #x00080000)
+(defconstant +pi-cos-version+ +cos-hft-version-6+
+  "Specifies the version of the Cos-level HFT.
+
+If the HFT version is higher than the viewer loading the client supports,
+it displays an alert box with the message \"There was an error while loading
+the client <i><plug-in name></i>. The client is incompatible with this version
+of the Viewer.\"")
 

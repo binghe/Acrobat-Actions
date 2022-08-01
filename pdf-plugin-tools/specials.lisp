@@ -40,6 +40,7 @@
 (defvar *company-name*)
 #+:macosx
 (defvar *app-bundle*)
+(defvar *extension-id*)
 
 ;; we set the documentation here so that the values above stay unbound
 (setf (documentation '*plugin-id* 'variable)
@@ -51,10 +52,6 @@ FileMaker documentation."
       (documentation '*plugin-bundle* 'variable)
       "It holds the plugin bundle as a CFBundleRef foreign object
 (after called by CFRetain)"
-      #+:macosx #+:macosx
-      (documentation '*app-bundle* 'variable)
-      "It holds the Acrobat Pro application bundle as a CFBundleRef foreign
-object (after called by CFRetain)"
       #+:macosx #+:macosx
       (documentation '*plugin-bundle-identifier* 'variable)
       "Used as the `CFBundleIdentifier' for the bundles generated on OS X."
@@ -71,6 +68,12 @@ be used for entries into the Windows registry and in the DLL
 version info."
       (documentation '*copyright-message* 'variable)
       "The copyright message for the DLL version info."
+      #+:macosx #+:macosx
+      (documentation '*app-bundle* 'variable)
+      "It holds the Acrobat Pro application bundle as a CFBundleRef foreign
+object (after called by CFRetain)"
+      (documentation '*extension-id* 'variable)
+      "A identifying cookie sometimes needed by the application"
       )
 
 (defvar *product-name* nil
@@ -102,4 +105,7 @@ be followed by a backtrace.")
 (defvar *symbols-to-keep* nil
   "The list of symbols which must remain in the delivered DLL
 image.  Only needed for delivery level 5.")
+
+(defvar *pi-cos-optional* nil
+  "If T, Acrobat Pro may not return function pointers of the Cos HFT.")
 
