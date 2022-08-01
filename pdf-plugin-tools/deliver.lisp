@@ -116,11 +116,12 @@ depend on PDF-PLUGIN-TOOLS.")
              :document-types nil)
             *deliver-level*
             ;; we need a loadable bundle, not a Mach-O shared library
-	    #+:macosx #+:macosx
-	    :image-type :bundle
+            #+:macosx #+:macosx
+            :image-type :bundle
             :keep-symbols plugin:*symbols-to-keep*
             :keep-lisp-reader t
             :keep-debug-mode (or plugin:*log-backtraces-p* (< *deliver-level* 5))
+            #+:win32 #+:win32 ; this is Windows only
             :versioninfo *version-info*
             :dll-exports '("AcroPluginMain")
             :interface (and *capi-required-p* :capi)
