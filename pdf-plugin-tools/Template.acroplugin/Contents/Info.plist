@@ -2,14 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>PDFLisp</string>
 	<key>CFBundleGetInfoString</key>
 	<string>1.0, ¬©2022, Chun Tian (binghe).  All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.github.binghe.AcrobatActions</string>
+	<string>com.github.binghe.PDFLisp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
-	<string>9.0</string>
+	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+	</array>
 	<key>CFBundleLongVersionString</key>
 	<string>1.0, Copyright 2022, Chun Tian (binghe).  All rights reserved.</string>
 	<key>CFBundleName</key>
@@ -17,7 +23,7 @@
 	<key>CFBundlePackageType</key>
 	<string>XTND</string>
 	<key>CFBundleShortVersionString</key>
-	<string>PDFLisp</string>
+	<string>PDFLisp 1.0</string>
 	<key>CFBundleSignature</key>
 	<string>CARO</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -30,5 +36,7 @@
 	<true/>
 	<key>MainEntryPointV2</key>
 	<string>AcroPluginMain</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.</string>
 </dict>
 </plist>

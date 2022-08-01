@@ -94,15 +94,14 @@ depend on PDF-PLUGIN-TOOLS.")
 
 (defvar *template* (merge-pathnames "Template.acroplugin/" *load-pathname*))
 
-;; create shared library
+;; create DLL (Windows) or loadable bundle (Mac OS X)
 (lw:deliver *start-function*
-            ;; we assume this is called from the build script
             #+:win32
             (format nil "~A.api"
                     (or (fourth sys:*line-arguments-list*) *default-name*))
             #+:macosx
             (write-macos-application-bundle
-             (format nil "~A/~A.acroplugin" ;; NOTE: the output bundle is *.app
+             (format nil "~A/~A.acroplugin"
                      (fifth sys:*line-arguments-list*)
                      (fourth sys:*line-arguments-list*))
              :template-bundle (make-pathname :name nil
@@ -112,6 +111,8 @@ depend on PDF-PLUGIN-TOOLS.")
              :identifier plugin:*plugin-bundle-identifier*
              :version (plugin:version-string)
              :executable-name (fourth sys:*line-arguments-list*)
+             :package-type "XTND" ; subtype of "BNDL"
+             :extension "acroplugin"
              :document-types nil)
             *deliver-level*
             ;; we need a loadable bundle, not a Mach-O shared library
