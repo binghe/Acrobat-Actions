@@ -84,7 +84,7 @@
   (core-hft          hft)           ; IN  - Host Function Table for "core" functions
   (handshake-callback as-callback)) ; OUT - Address of PIHandshake()
 
-(defconstant +handshake-v0200+   #.(ash 2 16))
+(defconstant +handshake-v0200+ #.(ash 2 16))
 (defconstant +handshake-version+ +handshake-v0200+)
 
 (defconstant +core-hft-version-2+ #x00020000)

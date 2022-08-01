@@ -41,7 +41,7 @@
 ;; NOTE: When ALLOCATION is :STATIC (default), memory allocated by
 ;; ALLOCATE-FOREIGN-OBJECT is in the C heap. Therefore pointer (and
 ;; any copy) cannot be used after SAVE_IMAGE or DELIVER.
-;;
+
 (defun initialize ()
   (loop for (name ver retvar hft optional) in *hft-info* do
      (setf (symbol-value hft)    (fli:allocate-foreign-object :type 'hft :fill 0))

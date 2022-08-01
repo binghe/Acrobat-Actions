@@ -28,12 +28,11 @@
 
 (in-package :prepare-pdf-plugin-tools)
 
-(defun set-api-extern-location ()
-  "If *API-EXTERN-LOCATION* is not set, ask the user to provide a value."
-  (setq *api-extern-location*
+(defun set-sdk-extern-location ()
+  "If *SDK-EXTERN-LOCATION* is not set, ask the user to provide a value."
+  (setq *sdk-extern-location*
         (or (capi:prompt-for-directory
               "Please select the directory \"API\" (under \"PluginSupport/Headers\"):"
-              :operation :open
               :ok-check (lambda (pathspec)
                           (and (string= (file-namestring pathspec) "API"))))
             (error "I can't continue if you don't select the directory \"API\"."))))

@@ -28,11 +28,29 @@
 
 (in-package :prepare-pdf-plugin-tools)
 
+(defun parse-header-files ()
+  "Loops through all C header files in *HEADER-FILE-NAMES*,
+checks for enums, structs or function prototypes and writes the
+corresponding C code to *STANDARD-OUTPUT*."
+  (dolist (name *header-file-names*)
+    (let ((header-file (make-pathname :name name
+                                      :type "h"
+                                      :defaults *sdk-extern-location*))
+          (file-string (make-array '(0) :element-type 'simple-char
+                                   :fill-pointer 0 :adjustable t)))
+      (with-output-to-string (out file-string)
+        (with-open-file (in header-file)
+          (loop with if-context = nil
+                for line = (read-line in nil nil)
+                while line
+                do (handle-typedef line)
+                   (handle-function line)))))))
+
 (defun prepare ()
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
 the C header files of Acrobat Pro."
   ;; find out where to look for headers
-  (unless *api-extern-location* (set-api-extern-location))
+  (unless *sdk-extern-location* (set-sdk-extern-location))
   ;; redirect *STANDARD-OUTPUT* to `fli.lisp'
   (with-open-file (*standard-output* *fli-file*
                                      :direction :output
@@ -44,7 +62,7 @@ the C header files of Acrobat Pro."
             (*print-case* :downcase))
         (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
         (terpri)        
-        (print '(in-package :fm-plugin-tools))
+        (print '(in-package :pdf-plugin-tools))
         (terpri)
         ;; let this function do all the work
         (parse-header-files))))

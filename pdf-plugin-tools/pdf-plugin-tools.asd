@@ -36,6 +36,7 @@
                (:file "specials")
                (:file "utils")
                (:file "fli-manual")
+               (:file "fli") ; not included in distribution
                (:file "functions")
                (:file "main"))
   :depends-on ())

@@ -31,7 +31,7 @@
 (defpackage :prepare-pdf-plugin-tools
   (:use :cl :ppcre)
   (:add-use-defaults t)
-  (:nicknames :prep)
+  (:nicknames :prepare)
   (:export :*sdk-extern-location*
            :prepare))
 
