@@ -26,14 +26,30 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
+(in-package :cl-user)
+
+(defvar *plugin-example-version* '(0 1 0)
+  "Version number.  Should be a list of three non-negative integers,
+e.g. (4 2 1) would correspond to version \"4.2.1\".")
+
+;; we export the name so we can import it later
+(export '*plugin-example-version*)
+
+(defpackage :plugin-example-system
+  (:use :cl :asdf))
+
+(in-package :plugin-example-system)
+
+(defsystem pdf-plugin-example
+  :name "PDFLisp"
+  :description "A Sample Acrobat Pro Plug-In"
+  :author "Chun Tian"
   :license "BSD"
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "specials")
-               (:file "utils")
-               (:file "main"))
-  :depends-on ())
+  :version #.(format nil "~{~A~^.~}" cl-user:*plugin-example-version*)
+  :components ((:module "plugin-example"
+                        :serial t
+                        :components ((:file "packages")
+                                     (:file "init"))))
+  ;; note: every system which creates a Acrobat Pro plug-in must use the
+  ;; :PDF-PLUGIN-TOOLS system
+  :depends-on (:pdf-plugin-tools :cl-ppcre))

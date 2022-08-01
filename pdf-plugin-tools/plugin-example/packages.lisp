@@ -26,14 +26,8 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
-  :license "BSD"
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "specials")
-               (:file "utils")
-               (:file "main"))
-  :depends-on ())
+(in-package :cl-user)
+
+(defpackage :plugin-example
+  (:use :cl :capi :fli :pdf-plugin-tools :cl-ppcre)
+  (:add-use-defaults t))

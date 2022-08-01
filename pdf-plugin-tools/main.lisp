@@ -1,4 +1,4 @@
-;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-USER; Base: 10 -*-
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: PDF-PLUGIN-TOOLS; Base: 10 -*-
 
 ;;; Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.
 
@@ -65,19 +65,19 @@
 (defvar *core-hft*)     ; HFT gCoreHFT = 0;
 (defvar *core-version*) ; ASUns32 gCoreVersion = 0;
 
-#+macosx
+#+:macosx
 (fli:define-c-struct t-plugin-main-data
   (size       :size-t)
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
 
-#+macosx
+#+:macosx
 (fli:define-c-typedef plugin-main-data (:pointer t-plugin-main-data))
 
-#+macosx
+#+:macosx
 (defvar *app-bundle*)    ; CFBundleRef gAppBundle = NULL;
 
-#+macosx
+#+:macosx
 (defvar *plugin-bundle*) ; CFBundleRef gPluginBundle = NULL;
 
 ;;; Prototypes for plug-in supplied functions. <PIVersn.h>
@@ -127,7 +127,7 @@ register the plug-in with the application environment."
 (defvar *pi-setup-sdk* (fli:foreign-function-pointer "PISetupSDK"))
 (defvar *pi-handshake* (fli:foreign-function-pointer "PIHandshake"))
 
-#+macosx
+#+:macosx
 (fli:define-foreign-callable ("AcroPluginMain" :result-type as-bool
                                                :calling-convention :cdecl)
     ((app-handshake-version as-uns32)

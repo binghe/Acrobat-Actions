@@ -1,4 +1,4 @@
-;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-USER; Base: 10 -*-
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: PLUGIN-EXAMPLE; Base: 10 -*-
 
 ;;; Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.
 
@@ -26,14 +26,17 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
-  :license "BSD"
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "specials")
-               (:file "utils")
-               (:file "main"))
-  :depends-on ())
+(in-package :plugin-example)
+
+;; configure PDF-PLUGIN-TOOLS for this particular plug-in
+(setq *plugin-id* "LXmp"
+      *plugin-name* "PDFLisp"
+      #+:macosx #+:macosx
+      *plugin-bundle-identifier* "com.github.binghe.PDFLisp"
+      *plugin-help-text* "An example plug-in created with PDF-PLUGIN-TOOLS."
+      ;; see ASDF system definition
+      *plugin-version* cl-user:*plugin-example-version*
+      *company-name* "Chun Tian"
+      *copyright-message* "Copyright (c) 2022, Chun Tian.  All rights reserved."
+      ;; we want a backtrace if something goes wrong
+      *log-backtraces-p* t)

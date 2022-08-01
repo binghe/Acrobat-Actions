@@ -48,7 +48,7 @@
   (pushnew (merge-pathnames i *system-homedir*)
            asdf:*central-registry* :test #'equal))
 
-(defvar *asdf-system* :pdf-plugin-tools
+(defvar *asdf-system* :pdf-plugin-example
   "The ASDF system which contains the code for the plug-in.  It should
 depend on PDF-PLUGIN-TOOLS.")
 
@@ -73,18 +73,18 @@ depend on PDF-PLUGIN-TOOLS.")
 (asdf:load-system *asdf-system*)
 
 (defvar *version-info*
-  `(:binary-version ,(logior (ash (or (first pdf:*plugin-version*) 0) 48)
-                             (ash (or (second pdf:*plugin-version*) 0) 32)
-                             (ash (or (third pdf:*plugin-version*) 0) 16)
-                             (or (fourth pdf:*plugin-version*) 0))
-    :version-string ,(pdf:version-string)
-    :company-name ,pdf:*company-name*
-    :product-name ,pdf:*product-name*
-    :file-description ,pdf:*plugin-help-text*
-    :legal-copyright ,pdf:*copyright-message*))
+  `(:binary-version ,(logior (ash (or (first plugin:*plugin-version*) 0) 48)
+                             (ash (or (second plugin:*plugin-version*) 0) 32)
+                             (ash (or (third plugin:*plugin-version*) 0) 16)
+                             (or (fourth plugin:*plugin-version*) 0))
+    :version-string ,(plugin:version-string)
+    :company-name ,plugin:*company-name*
+    :product-name ,plugin:*product-name*
+    :file-description ,plugin:*plugin-help-text*
+    :legal-copyright ,plugin:*copyright-message*))
 
 ;; check if plug-in ID is valid
-(pdf:check-plugin-id)
+(plugin:check-plugin-id)
 
 ;; load necessary code for WRITE-MACOS-APPLICATION-BUNDLE
 #+:macosx
@@ -109,19 +109,18 @@ depend on PDF-PLUGIN-TOOLS.")
                                              :type nil
                                              :version nil
                                              :defaults *template*)
-             :identifier acrobat:*plugin-bundle-identifier*
-             :version (pdf:version-string)
+             :identifier plugin:*plugin-bundle-identifier*
+             :version (plugin:version-string)
              :executable-name (fourth sys:*line-arguments-list*)
              :document-types nil)
             *deliver-level*
             ;; we need a loadable bundle, not a Mach-O shared library
 	    #+:macosx #+:macosx
 	    :image-type :bundle
-            :keep-symbols pdf:*symbols-to-keep*
+            :keep-symbols plugin:*symbols-to-keep*
             :keep-lisp-reader t
-            :keep-debug-mode (or pdf:*log-backtraces-p* (< *deliver-level* 5))
+            :keep-debug-mode (or plugin:*log-backtraces-p* (< *deliver-level* 5))
             :versioninfo *version-info*
             :dll-exports '("AcroPluginMain")
             :interface (and *capi-required-p* :capi)
             :multiprocessing (or *capi-required-p* *mp-required-p*))
-

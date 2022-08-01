@@ -29,11 +29,25 @@
 (in-package :cl-user)
 
 (defpackage :pdf-plugin-tools
-  (:nicknames :pdf)
+  (:nicknames :plugin)
   (:use :cl :fli :dspec)
   (:add-use-defaults t) ; LW and HCL, at least
   #+macosx
   (:import-from :carbon #:cf-bundle-ref #:cf-retain)
-  (:export #:*plugin-name*
+  (:export #:*company-name*
+           #:*copyright-message*
+           #:*plugin-logfile*
+           #:*gc-interval*
+           #:*log-backtraces-p*
+           #:*log-errors-p*
+           #+:macosx
+           #:*plugin-bundle-identifier*
+           #:*plugin-help-text*
            #:*plugin-id*
-           #:*plugin-version*))
+           #:*plugin-name*
+           #:*plugin-version*
+           #:*product-name*
+           #:*symbols-to-keep*
+           #:boolean-value
+           #:check-plugin-id
+           #:version-string))
