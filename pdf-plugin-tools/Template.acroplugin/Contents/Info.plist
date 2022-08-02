@@ -21,7 +21,7 @@
 	<key>CFBundleName</key>
 	<string>PDFLisp</string>
 	<key>CFBundlePackageType</key>
-	<string>XTND</string>
+	<string>XTNc</string>
 	<key>CFBundleShortVersionString</key>
 	<string>PDFLisp 1.0</string>
 	<key>CFBundleSignature</key>

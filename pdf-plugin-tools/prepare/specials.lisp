@@ -28,12 +28,40 @@
 
 (in-package :prepare-pdf-plugin-tools)
 
-(defparameter *header-file-names*
-  '("CorProcs" ; Catalog of the "core" exported functions; this table is handed off to the plug-in at initialization time,
+(defparameter *expt-file-names*
+  '("ASExpT"))
+
+(defparameter *procs-file-names*
+  '("CorProcs" ; Catalog of the "core" exported functions
+    ; "AVProcs"  ; Catalog of functions exported by AcroView
     ; "ASProcs"  ; Catalog of functions exported by AcroSupport
-    )
+    ))
+
+(defparameter *header-file-names*
+  (append *expt-file-names*
+          *procs-file-names*)
   "The list of involved Acrobat SDK header files in the right order, so
 that we process the needed typedes etc. first.")
+
+;; These C macros are considered being defined as 1 in the SDK
+(defparameter *positive-macros*
+  '("PLUGIN"          ; Yes, we are building plugins!
+    "HAS_MENUBAR" "HAS_FULL_SCREEN" "HAS_MENUS" "CAN_SELECT_GRAPHICS" ; used in AVProcs.h
+    #+:macosx "MAC_PLATFORM"
+    #+:win32  "WIN_PLATFORM"
+    #+:lispworks-64bit "AS_ARCH_64BIT"))
+
+;; These C macros are considered being defined as 0 in the SDK
+(defparameter *negative-macros*
+  '("DEBUG" "0"
+    "ACROBAT_LIBRARY" ; We are definitely NOT using Adobe PDFL
+    "READER"          ; We are not building Reader plugins but it's possible to do this
+    "USE_NAMED_IDLE_PROCS"
+    "USE_NAMED_LATE_INIT_PROCS"
+    "UNIX_PLATFORM"
+    #-:macosx "MAC_PLATFORM"
+    #-:win32  "WIN_PLATFORM"
+    #-:lispworks-64bit "AS_ARCH_64BIT"))
 
 (defvar *sdk-extern-location* nil
   "A pathname designator denoting where exactly Acrobat Pro SDK's

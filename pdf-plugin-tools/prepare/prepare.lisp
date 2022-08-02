@@ -28,6 +28,17 @@
 
 (in-package :prepare-pdf-plugin-tools)
 
+(defun handle-typedef (line)
+  "Accepts a string which is supposed to be a simple C typedef.
+Stores a corresponding entry in *TYPEDEFS*."
+  (cond ((scan "typedef\\s+(.*)(?<!\\s)\\s+(\\w+);" line)
+         (register-groups-bind (existing-type defined-type)
+             ("typedef\\s+(.*)(?<!\\s)\\s+(\\w+);" line)
+           (pprint `(fli:define-c-typedef
+                        ,(mangle-name defined-type)
+                      ,(mangle-name existing-type)))
+           ))))
+
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
 checks for enums, structs or function prototypes and writes the
@@ -42,19 +53,18 @@ corresponding C code to *STANDARD-OUTPUT*."
       (setq *function-counter* 1)
       (with-output-to-string (out file-string)
         (with-open-file (in header-file)
-          ;; NOTE: there are several #if contexts to detect: #if DEBUG, or ACROBAT_LIBRARY.
-          ;; when we met such a #if, we push it into POS-CONTEXTS as "DEBUG" or "ACROBAT_LIBRARY",
-          ;; which means that the following lines must be ignored. And when we are in such a
-          ;; context and meet "#else", the special-context is over and the next lines are
-          ;; needed.  When meeting "#endif", we do nothing since contexts do not nest so far.
-          ;; This should be enough for now.
           (loop with contexts = '(nil)     ; the polarity of the current #if (T or NIL)
                 with pos-contexts = '(nil) ; the current if context when polarity is T
                 with neg-contexts = '(nil) ; the current if context when polarity is NIL
                 for line = (read-line in nil nil)
                 while line do ; this fails only when input file ends
-            (cond ((scan "#if\\s+(.*)" line)
-                   (register-groups-bind (neg-p context) ("#if\\s+(!)?(.*)" line)
+            (cond ((scan "^#if\\s+[\\w_]+$" line)
+                   (register-groups-bind (neg-p context)
+                       ("#if\\s+(!)?([\\w_]+)" line)
+                     (setq context (regex-replace-all "\\s+" context " "))
+                     (unless (or (member context *positive-macros* :test 'equal)
+                                 (member context *negative-macros* :test 'equal))
+                       (error "Unknown context macro: ~A" context))
                      (cond (neg-p
                             (push context neg-contexts)
                             (push nil contexts))
@@ -69,17 +79,24 @@ corresponding C code to *STANDARD-OUTPUT*."
                           (push (pop neg-contexts) pos-contexts)
                           (push t contexts))))
                   ((scan "#endif" line)
-                   (cond ((pop contexts)
-                          (pop pos-contexts))
-                         (t
-                          (pop neg-contexts))))
+                   (when (plusp (length contexts))
+                     (cond ((pop contexts)
+                            (pop pos-contexts))
+                           (t
+                            (pop neg-contexts)))))
                   ;; Here the tests must be exhaustive: for each contexts only one line is
                   ;; preserved.
-                  ((or (member "DEBUG"           pos-contexts :test 'equal)
-                       (member "ACROBAT_LIBRARY" pos-contexts :test 'equal))
-                   nil) ; skip this line
                   (t
-                   (format out "~A~%" line)))))) ; collect this line
+                   (cond ((dolist (macro *negative-macros* nil)
+                            (when (member macro pos-contexts :test 'equal) (return t)))
+                          nil) ; ignore this line
+                         ((dolist (macro *positive-macros* nil)
+                            (when (member macro neg-contexts :test 'equal) (return t)))
+                          nil) ; ignore this line
+                         (t
+                          ;; single-line processing
+                          (handle-typedef line)
+                          (format out "~A~%" line)))))))) ; collect this line
       ;; now the file-string can be safely parsed in multiple lines
       (do-register-groups (body)
           ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)

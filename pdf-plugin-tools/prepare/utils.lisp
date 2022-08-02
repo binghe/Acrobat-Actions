@@ -36,3 +36,21 @@
               :ok-check (lambda (pathspec)
                           (and (string= (file-namestring pathspec) "API"))))
             (error "I can't continue if you don't select the directory \"API\"."))))
+
+(defun mangle-name (string &optional constantp)
+  "Converts the string STRING representing a C name to a suitable Lisp
+symbol in the PDF-PLUGIN-TOOLS package.  Underline characters at the
+beginning of a string are removed; other underline characters are
+converted to hyphens; when there's a change from lowercase to
+uppercase, a hyphen is inserted.  Finally, all characters are
+converted to uppercase.
+
+If CONSTANTP is true, a plus sign is added to the beginning and end of
+the Lisp symbol to denote a Lisp constant."
+  (setq string (regex-replace-all "([A-Za-z])(UTF|UUID)" string "\\1-\\2")
+        string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
+        string (regex-replace-all "^_" string "")
+        string (regex-replace-all "_" string "-"))
+  (intern (format nil "~:[~;+~]~A~2:*~:[~;+~]"
+                  constantp (string-upcase string))
+          :pdf-plugin-tools))
