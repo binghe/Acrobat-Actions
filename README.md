@@ -2,11 +2,11 @@
 author: Chun Tian
 ---
 
-# Custom Commands and Actions for Adobe® Acrobat®
+# Actions, Custom Commands and Plug-ins for Adobe® Acrobat®
 
-Actions, Custom Commands, Preflights and Plugins (C++ and JavaScript) for Adobe® Acrobat® Pro (XI and DC)
+This repository offers Actions, Custom Commands, Preflights, PDF Stamps, JavaScripts and Plug-ins (C and Common Lisp) for Adobe® Acrobat® - the de-facto viewer and editor for Adobe PDF (Portable Document Format) files.
 
-## Compatibility with Adobe® Acrobat® versions
+## Compatibility with Acrobat® versions
 
 Tested on Acrobat® Pro XI, DC (2015) and DC (2017), on Windows and Mac OS X.
 
