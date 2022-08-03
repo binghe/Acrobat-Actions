@@ -2,9 +2,9 @@
 author: Chun Tian
 ---
 
-# Actions, Custom Commands and Plug-ins for Adobe® Acrobat®
+# Actions, Commands and Plug-ins for Adobe® Acrobat®
 
-This repository offers Actions, Custom Commands, Preflights, PDF Stamps, JavaScripts and Plug-ins (C and Common Lisp) for Adobe® Acrobat® - the de-facto viewer and editor for Adobe PDF (Portable Document Format) files.
+This repository offers some Actions, Custom Commands, Preflights, PDF Stamps, JavaScripts and Plug-ins (C/C++ and Common Lisp) for Adobe® Acrobat® - the de-facto viewer and editor for Adobe PDF (Portable Document Format) files.
 
 ## Compatibility with Acrobat® versions
 
@@ -26,7 +26,10 @@ NOTE: Some Actions and Commands require special Preflight profiles (in this repo
 
 JavaScript code can be directly put into Acrobat's "JavaScripts" folder when initializing Acrobat. Usually they creates new menu entries or toolbar buttons, and they are superior than custom actions as JS code can provide user-defined icons, see `Highlights.js` for my first such work.
 
-## Acrobat® Plug-ins
+## Acrobat® Plug-ins in C/C++
 
 Some PDF tasks are impossible to implement in JavaScript, because Adobe didn't expose the related APIs to JavaScript level. In this case, the work can be done by writing plugins in C/C++. One such plug-in is provided in the `Plug-ins` folder (for manipulating PDF bookmarks).
 
+## Acrobat® Plug-ins in Common Lisp
+
+A new plugin tools is under development. This is inspired by [FM-PLUGIN-TOOLS](https://github.com/binghe/fm-plugin-tools).
