@@ -6,9 +6,9 @@ author: Chun Tian
 
 Actions, Custom Commands, Preflights and Plugins (C++ and JavaScript) for Adobe® Acrobat® Pro (XI and DC)
 
-## Compatibility with Adobe® Acrobat®
+## Compatibility with Adobe® Acrobat® versions
 
-Tested on Acrobat® Pro XI, DC (2015) and DC (2017), both Windows and Mac versions.
+Tested on Acrobat® Pro XI, DC (2015) and DC (2017), on Windows and Mac OS X.
 
 Use files in "zh-cn" for Acrobat® Pro DC in Simplified Chinese; use files in "en" for Acrobat® Pro DC in English. For Acrobat® Pro in other UI languages, some keywords in the actions may have to be changed.  Most of them also work in Acrobat® Pro XI.
 
@@ -22,11 +22,11 @@ To import a toolset into Acrobat DC (2015 only), simply open that file (`*.aaui`
 
 NOTE: Some Actions and Commands require special Preflight profiles (in this repository), which must be also imported.
 
-## Acrobat® Plugin
-
-Some PDF tasks are impossible to implement in JavaScript, because Adobe didn't expose the related APIs to JavaScript level. In this case, the work can be done by writing plugins in C/C++. One such plugin is provided in the `Plug-ins` folder (for manipulating PDF bookmarks).
-
 ## Folder Level JavaScript
 
 JavaScript code can be directly put into Acrobat's "JavaScripts" folder when initializing Acrobat. Usually they creates new menu entries or toolbar buttons, and they are superior than custom actions as JS code can provide user-defined icons, see `Highlights.js` for my first such work.
+
+## Acrobat® Plug-ins
+
+Some PDF tasks are impossible to implement in JavaScript, because Adobe didn't expose the related APIs to JavaScript level. In this case, the work can be done by writing plugins in C/C++. One such plug-in is provided in the `Plug-ins` folder (for manipulating PDF bookmarks).
 
