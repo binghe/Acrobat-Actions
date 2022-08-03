@@ -50,7 +50,7 @@
     ("intptr_t"  :intptr)
     ("uintptr_t" :uintptr)))
 
-(defun make-fli-type-primitive (string)
+(defun make-fli-type1 (string)
   (if-let (map (assoc string *fli-types* :test 'equal))
       (or (second map)
           (intern (string-upcase string) :keyword))
@@ -62,7 +62,7 @@ list of keywords like (:UNSIGNED :SHORT).  Returns a symbol
 instead of a list if the string contained only one word."
   (let ((keyword-list
          (loop for part in (split "\\s+" string)
-               collect (make-fli-type-primitive part))))
+               collect (make-fli-type1 part))))
     (if (cdr keyword-list) keyword-list (car keyword-list))))
 
 (defun mangle-name (string &optional constantp)

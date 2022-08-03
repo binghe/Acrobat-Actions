@@ -78,7 +78,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                                       :defaults *sdk-extern-location*))
           (file-string (make-array '(0) :element-type 'simple-char
                                    :fill-pointer 0 :adjustable t)))
-      (format t "~%;; from <~A.h>" name)
+      (format t "~%~%;; #include <~A.h>" name)
       (with-open-file (in header-file)
         (cond ((string= name "ASNumTypes")
                (loop for line = (read-line in nil nil)
@@ -90,7 +90,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                nil))))))
 #|
       (format t "#|~%")
-      (setq *function-counter* 1)
+      (setq *hft-counter* 1)
         (with-output-to-string (out file-string)
           (loop with contexts = '(nil)     ; the polarity of the current #if (T or NIL)
                 with pos-contexts = '(nil) ; the current if context when polarity is T
@@ -135,12 +135,14 @@ corresponding C code to *STANDARD-OUTPUT*."
                          (t
                           ;; single-line processing
                           (handle-typedef line)
+                          (handle-define line)
+                          ;; multi-line processing (preparation)
                           (format out "~A~%" line)))))))) ; collect this line
       ;; now the file-string can be safely parsed in multiple lines
       (do-register-groups (body)
           ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)
-        (format t "~A: ~A~%" *function-counter* body)
-        (incf *function-counter*))
+        (format t "~A: ~A~%" *hft-counter* body)
+        (incf *hft-counter*))
       (format t "|#~%")
       (terpri))))
 |#
@@ -162,7 +164,6 @@ the C header files of Acrobat Pro."
         (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
         (terpri)
         (print '(in-package :pdf-plugin-tools))
-        (terpri)
         ;; let this function do all the work
         (parse-header-files))))
   :done)
