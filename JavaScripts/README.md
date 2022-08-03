@@ -1,0 +1,4 @@
+# Folder Level JavaScript
+
+Folder level scripts are JavaScript files (.js) that are placed in one of the two Acrobat JavaScript Folders. Acrobat loads and runs these files at start up. At this time, the scripts in these files are given special privileges so they can run any functions and access any properties in the Acrobat DOM. The idea with such a file is that it will preform a series of setup activities such as creating variables, data, functions, and user interface items such as toolbar buttons or menu items. Basically, setting up an automation tool.
+Automation tools created through a folder level script will be the main focus of the topics in this department. However, nearly all of the topics will also be valid for scripts used in Actions. Further information can be found in the [Installing Folder Level Script](https://www.pdfscripting.com/public/Installing_Automation_Tools.cfm) article.

@@ -1,4 +1,6 @@
-# Building Acrobat® Plug-ins in this folder
+# Acrobat Plug-ins
+
+Acrobat plug-ins are written in C++ and are by far the most powerful way to automate Acrobat. They have deep access into the internals of both Acrobat and PDF. They are also platform dependent and difficult to create. The developer requires expert knowledge of Acrobat, the PDF structure, and C++ programming.
 
 ## Requirements
 
