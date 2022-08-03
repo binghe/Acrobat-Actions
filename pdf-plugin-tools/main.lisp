@@ -68,7 +68,7 @@ SDK-provided functionality."
           (return-from pi-setup-sdk nil))
         (setq *extension-id* (foreign-slot-value data 'extension-id))
         (setq *core-hft*     (foreign-slot-value data 'core-hft))
-        (setq *core-version* +core-hft-version-2) ; lowest version that supports v0200 handshake
+        (setq *core-version* +core-hft-version-2+) ; lowest version that supports v0200 handshake
         (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
         (plugin-log "[PISetupSDK] *core-hft* (initial) = ~A~%" *core-hft*)
         )

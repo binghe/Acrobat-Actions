@@ -2,3 +2,4 @@
 *.lisp~
 *.asd~
 *.command~
+/pdf-plugin-tools/fli.lisp

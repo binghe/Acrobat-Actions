@@ -33,8 +33,8 @@
 
 (defparameter *procs-file-names*
   '("CorProcs" ; Catalog of the "core" exported functions
-    ; "AVProcs"  ; Catalog of functions exported by AcroView
-    ; "ASProcs"  ; Catalog of functions exported by AcroSupport
+  ; "AVProcs"  ; Catalog of functions exported by AcroView
+  ; "ASProcs"  ; Catalog of functions exported by AcroSupport
     ))
 
 (defparameter *header-file-names*
