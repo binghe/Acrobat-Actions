@@ -111,7 +111,7 @@ depend on PDF-PLUGIN-TOOLS.")
              :identifier plugin:*plugin-bundle-identifier*
              :version (plugin:version-string)
              :executable-name (fourth sys:*line-arguments-list*)
-             :package-type "XTND" ; subtype of "BNDL"
+             :package-type "XTNc" ; recommended by Adobe
              :extension "acroplugin"
              :document-types nil)
             *deliver-level*
