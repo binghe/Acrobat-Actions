@@ -103,6 +103,7 @@ environment."
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
 
+;; TODO: not working for Windows
 (define-foreign-callable ("AcroPluginMain" :result-type as-bool
                                            :calling-convention :cdecl)
     ((app-handshake-version as-uns32)
@@ -136,10 +137,10 @@ environment."
 
   ;; 3. Provide the routine for the host app to call to setup this plug-in
   (setf (dereference setup-proc) *pi-setup-sdk*)
+  (plugin-log "[AcroPluginMain] *pi-setup-sdk* = ~A~%" *pi-setup-sdk*)
 
+  ;; 4. return TRUE (otherwise Acrobat won't call "PISetupSDK")
   (plugin-log "[AcroPluginMain] end.~%")
-
-  ;; 4. return TRUE
   t)
 
 ;; END

@@ -39,4 +39,5 @@
                (:file "fli") ; not included in distribution
                (:file "functions")
                (:file "main"))
-  :depends-on ())
+  :depends-on (:cxml/xml
+               :parenscript))
