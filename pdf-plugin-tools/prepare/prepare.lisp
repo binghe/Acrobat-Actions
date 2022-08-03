@@ -29,15 +29,45 @@
 (in-package :prepare-pdf-plugin-tools)
 
 (defun handle-typedef (line)
-  "Accepts a string which is supposed to be a simple C typedef.
-Stores a corresponding entry in *TYPEDEFS*."
-  (cond ((scan "typedef\\s+(.*)(?<!\\s)\\s+(\\w+);" line)
-         (register-groups-bind (existing-type defined-type)
-             ("typedef\\s+(.*)(?<!\\s)\\s+(\\w+);" line)
-           (pprint `(fli:define-c-typedef
-                        ,(mangle-name defined-type)
-                      ,(mangle-name existing-type)))
-           ))))
+  (let ((regex1
+         ;; sample:
+         ;; 1. typedef signed char			ASInt8, *ASInt8P;
+         ;; 2. typedef signed long long int		ASInt64;
+         (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?;")))
+    (cond ((scan regex1 line)
+           (register-groups-bind (existing-type defined-type nil pointer-type)
+               (regex1 line)
+             (let ((name (mangle-name defined-type)))
+               (pprint `(fli:define-c-typedef ,name
+                          ,(make-fli-type existing-type)))
+               (when pointer-type
+                 (pprint `(fli:define-c-typedef
+                              ,(mangle-name pointer-type) (:pointer ,name)))))))
+          (t
+           nil))))
+
+(defun read-enum-value (string)
+  "Reads the optional value part of a C enum and returns a
+corresponding Lisp value - either a number or a LOGIOR
+expression."
+  ;; convert hex marker for Lisp reader
+  (setq string (regex-replace-all "0x" string "#x"))
+  ;; just read value as a number
+  (read-from-string string))
+
+(defun handle-define (line)
+  (let ((regex1
+         ;; sample:
+         ;; 1. #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
+         (create-scanner "#define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)")))
+    (cond ((scan regex1 line)
+           (register-groups-bind (name value-string)
+               (regex1 line)
+             (setq value (read-enum-value value-string))
+             (let ((lisp-name (mangle-name name t)))
+               (format t "~%(defconstant ~A #x~X)" lisp-name value))))
+          (t
+           nil))))
 
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
@@ -48,11 +78,20 @@ corresponding C code to *STANDARD-OUTPUT*."
                                       :defaults *sdk-extern-location*))
           (file-string (make-array '(0) :element-type 'simple-char
                                    :fill-pointer 0 :adjustable t)))
-      (format t ";; #include <~A.h>~%" name)
+      (format t "~%;; from <~A.h>" name)
+      (with-open-file (in header-file)
+        (cond ((string= name "ASNumTypes")
+               (loop for line = (read-line in nil nil)
+                     while line do
+                 (handle-typedef line)
+                 (handle-define line)
+                 ))
+              (t
+               nil))))))
+#|
       (format t "#|~%")
       (setq *function-counter* 1)
-      (with-output-to-string (out file-string)
-        (with-open-file (in header-file)
+        (with-output-to-string (out file-string)
           (loop with contexts = '(nil)     ; the polarity of the current #if (T or NIL)
                 with pos-contexts = '(nil) ; the current if context when polarity is T
                 with neg-contexts = '(nil) ; the current if context when polarity is NIL
@@ -104,6 +143,7 @@ corresponding C code to *STANDARD-OUTPUT*."
         (incf *function-counter*))
       (format t "|#~%")
       (terpri))))
+|#
 
 (defun prepare ()
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
@@ -122,7 +162,7 @@ the C header files of Acrobat Pro."
         (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
         (terpri)
         (print '(in-package :pdf-plugin-tools))
-        (terpri) (terpri)
+        (terpri)
         ;; let this function do all the work
         (parse-header-files))))
   :done)

@@ -28,25 +28,6 @@
 
 (in-package :pdf-plugin-tools)
 
-;; 1-byte <code>unsigned char</code> value. <ASNumTypes.h>
-(define-c-typedef as-uns8   (:unsigned :byte))
-(define-c-typedef as-uns8p  (:pointer as-uns8))
-
-;; 2-byte unsigned short numeric value. 
-(define-c-typedef as-uns16  (:unsigned :short))
-(define-c-typedef as-uns16p (:pointer as-uns16))
-
-;; 4-byte <code>unsigned long</code> numeric value.
-(define-c-typedef as-uns32  (:unsigned :int))
-(define-c-typedef as-uns32p (:pointer as-uns32))
-
-;; 8-byte <code>unsigned long</code> numeric value.
-(define-c-typedef as-uns64  (:unsigned :long :long))
-
-(define-c-typedef as-bool   (:boolean as-uns16))
-
-(define-c-typedef as-size-t :size-t)
-
 ;; <CoreExpT.h>
 (define-opaque-pointer hft          hft-entry)
 (define-opaque-pointer extension-id as-extension)
@@ -90,16 +71,8 @@
 (defconstant +core-hft-version-2+ #x00020000)
 (defconstant +core-hft-version-4+ #x00040000)
 (defconstant +core-hft-version-5+ #x00050000)
-(defconstant +pi-core-version+ +core-hft-version-5+)
 
 (defconstant +cos-hft-version-6+ #x00060000)
 (defconstant +cos-hft-version-7+ #x00070000)
 (defconstant +cos-hft-version-8+ #x00080000)
-(defconstant +pi-cos-version+ +cos-hft-version-6+
-  "Specifies the version of the Cos-level HFT.
-
-If the HFT version is higher than the viewer loading the client supports,
-it displays an alert box with the message \"There was an error while loading
-the client <i><plug-in name></i>. The client is incompatible with this version
-of the Viewer.\"")
 
