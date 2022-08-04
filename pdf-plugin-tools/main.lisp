@@ -28,6 +28,60 @@
 
 (in-package :pdf-plugin-tools)
 
+;; NOTE: If the HFT version is higher than the viewer loading the client supports,
+;; it displays an alert box with the message "There was an error while loading
+;; the client <i><plug-in name></i>. The client is incompatible with this version
+;; of the Viewer."
+
+;; <PIRequir.h>
+(defvar *pi-core-version* +core-hft-version-5+
+  "Everybody needs the Core HFT, so don't omit this one.")
+
+#|
+(defvar *pi-acrosupport-version* +as-calls-hft-version-8+
+  "Most plug-ins will use calls from the AdobeSupport family.")
+
+(defvar *pi-cos-version* +cos-hft-version-6+
+  "Many plug-ins will not need to access the low-level Cos functionality.")
+
+(defvar *pi-pd-model-version* +pd-model-hft-version-6+
+  "PDModel methods - the version of the PD level HFT.")
+
+(defvar *pi-acroview-version* +acroview-hft-version-6+
+  "AcroView methods - the version of the Acrobat viewer level HFT.")
+
+(defvar *pi-as-extra-version* +as-extra-hft-version-6+
+  "ASExtra methods")
+
+(defvar *pi-macintosh-version* +macintosh-hft-version-2_2+
+  "Macintosh specific methods (AppleEvents, AVRect conversions, etc.)
+ - the version of the Mac OS-only methods HFT")
+
+(defvar *pi-pdfedit-write-version* +pdfedit-write-hft-version-6+
+  "PDFEdit Write methods")
+
+(defvar *pi-pdfedit-read-version* +pdfedit-read-hft-version-6+
+  "PDFEdit Read methods")
+
+(defvar *pi-pd-system-font-version* +pd-sys-font-hft-version-4+
+  "PDSysFont methods")
+
+(defvar *pi-page-pde-content-version* +page-pde-content-hft-version-6+
+  "PagePDEContent methods")
+
+(defvar *pi-pdsedit-write-version* +pdswrite-version-6+)
+
+(defvar *pi-pdsedit-read-version*  +pdsread-version-6+)
+
+(defvar *pi-pdmetadata-version* +pdmetadata-hft-version-6+)
+
+(defvar *pi-acrocolor-version +acro-color-hft-version-6+) ; not available in Reader
+
+(defvar *pi-uitcore-version* +uit-core-hft-version-1+)
+
+(defvar *pi-pdalternates-version* +pd-alternates-hft-version-13+)
+|#
+
 ;; HFTs <PIMain.c>
 (defvar *core-hft*)
 (defvar *core-version*)
