@@ -38,5 +38,3 @@
 (define-c-typedef as-bool as-uns16)
 (define-c-typedef as-size-t :size-t)
 (define-c-typedef as-int-ptr-t :intptr)
-
-;; #include <CoreExpT.h>

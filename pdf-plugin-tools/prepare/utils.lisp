@@ -37,19 +37,6 @@
                           (and (string= (file-namestring pathspec) "API"))))
             (error "I can't continue if you don't select the directory \"API\"."))))
 
-;; For each element in this list, when CDR is NIL, the corresponding FLI type is
-;; given by (intern (string-upcase part) :keyword)
-(defparameter *fli-types*
-  '(("unsigned")
-    ("signed")
-    ("char"      :byte)
-    ("short")
-    ("int")
-    ("long")
-    ("size_t"    :size-t)
-    ("intptr_t"  :intptr)
-    ("uintptr_t" :uintptr)))
-
 (defun make-fli-type1 (string)
   (if-let (map (assoc string *fli-types* :test 'equal))
       (or (second map)
@@ -75,9 +62,10 @@ converted to uppercase.
 
 If CONSTANTP is true, a plus sign is added to the beginning and end of
 the Lisp symbol to denote a Lisp constant."
-  (setq string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN)" string "\\1-\\2")
+  (setq string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN)([A-Za-z])" string "\\1-\\2-\\3")
         string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
         string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
+        string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
         string (regex-replace-all "_" string "-"))
   (intern (format nil "~:[~;+~]~A~2:*~:[~;+~]"
                   constantp (string-upcase string))

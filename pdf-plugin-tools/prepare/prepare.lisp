@@ -63,8 +63,8 @@ expression."
     (cond ((scan regex1 line)
            (register-groups-bind (name value-string)
                (regex1 line)
-             (setq value (read-enum-value value-string))
-             (let ((lisp-name (mangle-name name t)))
+             (let ((lisp-name (mangle-name name t))
+                   (value (read-enum-value value-string)))
                (format t "~%(defconstant ~A #x~X)" lisp-name value))))
           (t
            nil))))
@@ -79,59 +79,63 @@ corresponding C code to *STANDARD-OUTPUT*."
           (file-string (make-array '(0) :element-type 'simple-char
                                    :fill-pointer 0 :adjustable t)))
       (format t "~%~%;; #include <~A.h>" name)
-      (with-open-file (in header-file)
-        (cond ((string= name "ASNumTypes")
-               (loop for line = (read-line in nil nil)
-                     while line do
-                 (handle-typedef line)
-                 (handle-define line)
-                 ))
-              (t
-               nil))))))
-#|
-      (format t "#|~%")
       (setq *hft-counter* 1)
+      (with-open-file (in header-file)
         (with-output-to-string (out file-string)
-          (loop with contexts = '(nil)     ; the polarity of the current #if (T or NIL)
-                with pos-contexts = '(nil) ; the current if context when polarity is T
-                with neg-contexts = '(nil) ; the current if context when polarity is NIL
+          (loop with contexts = '(:error)     ; the polarity of the current #if context
+                with pos-contexts = '(:error) ; the current #if context when polarity is T
+                with neg-contexts = '(:error) ; the current #if context when polarity is NIL
                 for line = (read-line in nil nil)
-                while line do ; this fails only when input file ends
-            (cond ((scan "^#if\\s+[\\w_]+$" line)
+                while line ; this test fails only if input file ends
+            do
+            (cond ((scan "^#ifndef\\s+.*" line) ; usually only first line of a header
+                   (push :enable contexts))
+                  ((scan "^#ifdef\\s+.*" line)
+                   (push :enable contexts))
+                  ((scan "^#if\\s+[\\w_]+$" line)
                    (register-groups-bind (neg-p context)
                        ("#if\\s+(!)?([\\w_]+)" line)
                      (setq context (regex-replace-all "\\s+" context " "))
-                     (unless (or (member context *positive-macros* :test 'equal)
-                                 (member context *negative-macros* :test 'equal))
-                       (error "Unknown context macro: ~A" context))
-                     (cond (neg-p
-                            (push context neg-contexts)
-                            (push nil contexts))
-                           (t
-                            (push context pos-contexts)
-                            (push t contexts)))))
+                     (if (or (member context *positive-macros* :test 'equal)
+                             (member context *negative-macros* :test 'equal))
+                         (cond (neg-p
+                                (push context neg-contexts)
+                                (push :negative contexts))
+                               (t
+                                (push context pos-contexts)
+                                (push :positive contexts)))
+                       ;; an irrelevant condition, we choose the first branch
+                       (push :enable contexts))))
+                  ((scan "^#if\\s+(.*)" line) ; the fallback case of #if
+                   (push :enable contexts))
+                  ;; turn over the context if we met #else
                   ((scan "#else" line)
-                   (cond ((pop contexts)
-                          (push (pop pos-contexts) neg-contexts)
-                          (push nil contexts))
-                         (t
-                          (push (pop neg-contexts) pos-contexts)
-                          (push t contexts))))
+                   (let ((context (pop contexts)))
+                     (ecase context
+                       (:enable (push :disable contexts))
+                       (:positive
+                        (push (pop pos-contexts) neg-contexts)
+                        (push :negative contexts))
+                       (:negative
+                        (push (pop neg-contexts) pos-contexts)
+                        (push :positive contexts)))))
+                  ;; pop the current context
                   ((scan "#endif" line)
-                   (when (plusp (length contexts))
-                     (cond ((pop contexts)
-                            (pop pos-contexts))
-                           (t
-                            (pop neg-contexts)))))
-                  ;; Here the tests must be exhaustive: for each contexts only one line is
-                  ;; preserved.
+                   (let ((context (pop contexts)))
+                     (ecase context
+                       ((:enable :disable)
+                        t)
+                       (:positive
+                        (pop pos-contexts))
+                       (:negative
+                        (pop neg-contexts)))))
                   (t
-                   (cond ((dolist (macro *negative-macros* nil)
-                            (when (member macro pos-contexts :test 'equal) (return t)))
+                   (cond ((not (null (intersection *negative-macros* pos-contexts :test 'equal))) 
                           nil) ; ignore this line
-                         ((dolist (macro *positive-macros* nil)
-                            (when (member macro neg-contexts :test 'equal) (return t)))
+                         ((not (null (intersection *positive-macros* neg-contexts :test 'equal)))
                           nil) ; ignore this line
+                         ((member :disable contexts)
+                          nil) ; ignore this line if :disable occurs once
                          (t
                           ;; single-line processing
                           (handle-typedef line)
@@ -143,9 +147,7 @@ corresponding C code to *STANDARD-OUTPUT*."
           ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)
         (format t "~A: ~A~%" *hft-counter* body)
         (incf *hft-counter*))
-      (format t "|#~%")
       (terpri))))
-|#
 
 (defun prepare ()
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
