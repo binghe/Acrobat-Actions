@@ -52,7 +52,7 @@
      (free-foreign-object (symbol-value hft))
      (free-foreign-object (symbol-value retvar))))
 
-(define-foreign-callable ("PISetupSDK" :result-type as-bool
+(define-foreign-callable (pi-setup-sdk :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version     as-uns32)
      (sdk-data              (:pointer :void)))
@@ -79,8 +79,8 @@ SDK-provided functionality."
     (plugin-log "[PISetupSDK] end badly.~%")
     nil))
 
-(define-foreign-callable ("PIHandshake" :result-type as-bool
-                                        :calling-convention :cdecl)
+(define-foreign-callable (pi-handshake :result-type as-bool
+                                       :calling-convention :cdecl)
     ((handshake-version     as-uns32)
      (handshake-data        (:pointer :void)))
   "PIHandshake function provides the initial interface between your plug-in and
@@ -94,8 +94,8 @@ environment."
   )
 
 ;; NOTE: The result of FOREIGN-FUNCTION-POINTER is updated on image restart.
-(defvar *pi-setup-sdk* (foreign-function-pointer "PISetupSDK"))
-(defvar *pi-handshake* (foreign-function-pointer "PIHandshake"))
+(defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))
+(defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
 
 #+:macosx
 (define-c-struct plugin-main-data
