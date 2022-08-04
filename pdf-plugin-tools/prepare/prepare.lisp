@@ -28,12 +28,13 @@
 
 (in-package :prepare-pdf-plugin-tools)
 
+;; 1. typedef signed char			ASInt8, *ASInt8P;
+;; 2. typedef signed long long int		ASInt64;
+(defparameter *handle-typedef-regex1*
+  (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?;"))
+
 (defun handle-typedef (line)
-  (let ((regex1
-         ;; sample:
-         ;; 1. typedef signed char			ASInt8, *ASInt8P;
-         ;; 2. typedef signed long long int		ASInt64;
-         (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?;")))
+  (let ((regex1 *handle-typedef-regex1*))
     (cond ((scan regex1 line)
            (register-groups-bind (existing-type defined-type nil pointer-type)
                (regex1 line)
@@ -55,17 +56,26 @@ expression."
   ;; just read value as a number
   (read-from-string string))
 
+;; sample: "#define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)"
+(defparameter *handle-define-regex1*
+  (create-scanner "#define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)"))
+
+;; sample: "#  define kASMAXEnum8 ASMAXInt16"
+(defparameter *handle-define-regex2*
+  (create-scanner "#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z]+)"))
+
 (defun handle-define (line)
-  (let ((regex1
-         ;; sample:
-         ;; 1. #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
-         (create-scanner "#define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)")))
+  (let ((regex1 *handle-define-regex1*)
+        (regex2 *handle-define-regex2*))
     (cond ((scan regex1 line)
-           (register-groups-bind (name value-string)
-               (regex1 line)
+           (register-groups-bind (name value-string) (regex1 line)
              (let ((lisp-name (mangle-name name t))
                    (value (read-enum-value value-string)))
                (format t "~%(defconstant ~A #x~X)" lisp-name value))))
+          ((scan regex2 line)
+           (register-groups-bind (name alias) (regex2 line)
+             (unless (member name *ignored-defines* :test 'equal)
+               (pprint `(fli:define-c-typedef ,(mangle-name name) ,(mangle-name alias))))))
           (t
            nil))))
 
@@ -78,7 +88,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                                       :defaults *sdk-extern-location*))
           (file-string (make-array '(0) :element-type 'simple-char
                                    :fill-pointer 0 :adjustable t)))
-      (format t "~%~%;; #include <~A.h>" name)
+      (format t "~%;; #include <~A.h>" name)
       (setq *hft-counter* 1)
       (with-open-file (in header-file)
         (with-output-to-string (out file-string)
@@ -93,8 +103,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                   ((scan "^#ifdef\\s+.*" line)
                    (push :enable contexts))
                   ((scan "^#if\\s+[\\w_]+$" line)
-                   (register-groups-bind (neg-p context)
-                       ("#if\\s+(!)?([\\w_]+)" line)
+                   (register-groups-bind (neg-p context) ("#if\\s+(!)?([\\w_]+)" line)
                      (setq context (regex-replace-all "\\s+" context " "))
                      (if (or (member context *positive-macros* :test 'equal)
                              (member context *negative-macros* :test 'equal))
@@ -130,7 +139,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                        (:negative
                         (pop neg-contexts)))))
                   (t
-                   (cond ((not (null (intersection *negative-macros* pos-contexts :test 'equal))) 
+                   (cond ((not (null (intersection *negative-macros* pos-contexts :test 'equal)))
                           nil) ; ignore this line
                          ((not (null (intersection *positive-macros* neg-contexts :test 'equal)))
                           nil) ; ignore this line
@@ -145,7 +154,7 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; now the file-string can be safely parsed in multiple lines
       (do-register-groups (body)
           ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)
-        (format t "~A: ~A~%" *hft-counter* body)
+        (format t "~%~A: ~A" *hft-counter* body)
         (incf *hft-counter*))
       (terpri))))
 
@@ -166,6 +175,7 @@ the C header files of Acrobat Pro."
         (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
         (terpri)
         (print '(in-package :pdf-plugin-tools))
+        (terpri)
         ;; let this function do all the work
         (parse-header-files))))
   :done)

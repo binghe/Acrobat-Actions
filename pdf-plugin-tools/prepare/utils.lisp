@@ -63,9 +63,11 @@ converted to uppercase.
 If CONSTANTP is true, a plus sign is added to the beginning and end of
 the Lisp symbol to denote a Lisp constant."
   (setq string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN)([A-Za-z])" string "\\1-\\2-\\3")
+        ;; string (regex-replace-all "IntPtr" string "Intptr")
         string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
         string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
         string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
+        string (regex-replace-all "_t$" string "")
         string (regex-replace-all "_" string "-"))
   (intern (format nil "~:[~;+~]~A~2:*~:[~;+~]"
                   constantp (string-upcase string))

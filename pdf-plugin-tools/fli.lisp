@@ -36,5 +36,15 @@
 (defconstant +as-max-uns64+ #xFFFFFFFFFFFFFFFF)
 (defconstant +as-min-uns64+ #x0)
 (define-c-typedef as-bool as-uns16)
-(define-c-typedef as-size-t :size-t)
-(define-c-typedef as-int-ptr-t :intptr)
+(define-c-typedef as-size :size-t)
+(define-c-typedef as-int-ptr :intptr)
+
+;; #include <CoreExpT.h>
+(define-c-typedef as-enum8 as-int8)
+(define-c-typedef as-enum16 as-int16)
+(define-c-typedef k-as-max-enum8 as-max-int8)
+(define-c-typedef k-as-max-enum16 as-max-int16)
+(define-c-typedef opaque-32-bits as-int32)
+(define-c-typedef as-atom as-uns16)
+(define-c-typedef as-atom-null as-max-uns16)
+(define-c-typedef selector as-int32)

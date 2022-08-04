@@ -30,7 +30,7 @@
 
 (defparameter *header-file-names*
   '("ASNumTypes" ; Basic integer types.
-    ; "CoreExpT"   ; Types, macros, structures, etc. required to use the Core HFT
+    "CoreExpT"   ; Types, macros, structures, etc. required to use the Core HFT
     ; "CorProcs"
     )
   "The list of involved Acrobat SDK header files in the right order.")
@@ -48,6 +48,9 @@
     ("intptr_t"  :intptr)
     ("uintptr_t" :uintptr)))
 
+(defparameter *ignored-defines*
+  '())
+
 ;; These C macros are considered being defined as 1 in the SDK
 (defparameter *positive-macros*
   '("PLUGIN"          ; Yes, we are building plugins!
@@ -59,14 +62,17 @@
 ;; These C macros are considered being defined as 0 in the SDK
 (defparameter *negative-macros*
   '("DEBUG" "0"
+    "TOOLKIT"
     "ACROBAT_LIBRARY" ; We are definitely NOT using Adobe PDFL
     "READER"          ; We are not building Reader plugins but it's possible to do this
     "USE_NAMED_IDLE_PROCS"
     "USE_NAMED_LATE_INIT_PROCS"
+    "HAS_32BIT_ATOMS" "BAD_SELECTOR"
     "UNIX_PLATFORM"
     #-:macosx "MAC_PLATFORM"
     #-:win32  "WIN_PLATFORM"
-    #-:lispworks-64bit "AS_ARCH_64BIT"))
+    #-:lispworks-64bit "AS_ARCH_64BIT"
+    "ASUSE_OBSOLETE_TYPES"))
 
 (defvar *sdk-extern-location* nil
   "A pathname designator denoting where exactly Acrobat Pro SDK's
