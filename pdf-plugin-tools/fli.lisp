@@ -35,7 +35,7 @@
 (defconstant +as-min-uns32+ #x0)
 (defconstant +as-max-uns64+ #xFFFFFFFFFFFFFFFF)
 (defconstant +as-min-uns64+ #x0)
-(define-c-typedef as-bool as-uns16)
+(define-c-typedef as-bool (:boolean as-uns16))
 (define-c-typedef as-size :size-t)
 (define-c-typedef as-int-ptr :intptr)
 

@@ -38,9 +38,12 @@
     (cond ((scan regex1 line)
            (register-groups-bind (existing-type defined-type nil pointer-type)
                (regex1 line)
-             (let ((name (mangle-name defined-type)))
-               (pprint `(fli:define-c-typedef ,name
-                          ,(make-fli-type existing-type)))
+             (let ((name (mangle-name defined-type))
+                   (fli-type (make-fli-type existing-type)))
+               ;; this permits using T and NIL in Lisp code
+               (when (string= "ASBool" defined-type)
+                 (setq fli-type `(:boolean ,fli-type)))
+               (pprint `(fli:define-c-typedef ,name ,fli-type))
                (when pointer-type
                  (pprint `(fli:define-c-typedef
                               ,(mangle-name pointer-type) (:pointer ,name)))))))
