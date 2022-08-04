@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://ns.adobe.com/acrobat/workflow/2012" title="PDF Outlining (Save As)" description="Convert all text and strokes into outlines. This needs a special preflight profile." majorVersion="1" minorVersion="0">
-	<Group label="前期处理">
+	<Group label="Pre-processing">
 		<Instruction label="全部注释扁平化" pauseBefore="false"/>
 		<Command name="JavaScript" pauseBefore="false" promptUser="false">
 			<Items>
@@ -9,7 +9,7 @@
 			</Items>
 		</Command>
 	</Group>
-	<Group label="PDF 轮廓化">
+	<Group label="PDF Outlining">
 		<Command name="COMP:AddWatermark" pauseBefore="false" promptUser="false">
 			<Items>
 				<Items name="WaterBackCmd">
@@ -70,7 +70,7 @@
 			</Items>
 		</Command>
 	</Group>
-	<Group label="后期处理">
+	<Group label="Post-processing">
 		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false">
 			<Items>
 				<Item name="AddToBaseName" type="boolean" value="true"/>

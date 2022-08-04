@@ -36,7 +36,7 @@
 			</Items>
 		</Command>
 	</Group>
-	<Group label="后期处理">
+	<Group label="Post-processing">
 		<Command name="OpenInfo" pauseBefore="false" promptUser="false">
 			<Items>
 				<Item name="CenterWindow" type="boolean" value="false"/>
