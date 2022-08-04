@@ -152,10 +152,21 @@ environment."
 (defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
 
 #+:macosx
+(define-c-typedef cf-bundle-ref (:pointer :void))
+#+:macosx
 (define-c-struct plugin-main-data
   (size       :size-t)
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
+
+;; this is needed for higher delivery levels
+(fli::define-precompiled-foreign-object-accessor-functions
+ (((:pointer :void) :no-alloc-p :error :size nil)
+  #+:macosx
+  (cf-bundle-ref    :no-alloc-p :error :size nil)
+  (extension-id     :no-alloc-p :error :size nil)
+  (hft              :no-alloc-p :error :size nil)
+  ))
 
 ;; TODO: not working for Windows
 (define-foreign-callable ("AcroPluginMain" :result-type as-bool
@@ -173,8 +184,8 @@ environment."
   #+:macosx
   (let ((bundle     (foreign-slot-value main-data 'bundle))
         (app-bundle (foreign-slot-value main-data 'app-bundle)))
-    (cf-retain bundle)
-    (cf-retain app-bundle)
+    ;;(cf-retain bundle)
+    ;;(cf-retain app-bundle)
     (setq *plugin-bundle* bundle *app-bundle* app-bundle)
     (plugin-log "[AcroPluginMain] *plugin-bundle* = ~A~%" *plugin-bundle*)
     (plugin-log "[AcroPluginMain] *app-bundle* = ~A~%" *app-bundle*))

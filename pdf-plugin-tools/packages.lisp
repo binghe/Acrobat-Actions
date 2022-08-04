@@ -32,8 +32,6 @@
   (:nicknames :plugin)
   (:use :cl :fli :dspec)
   (:add-use-defaults t)
-  #+macosx
-  (:import-from :carbon #:cf-bundle-ref #:cf-retain #:cf-release)
   (:export #+:macosx #:*app-bundle*
            #:*company-name*
            #:*copyright-message*

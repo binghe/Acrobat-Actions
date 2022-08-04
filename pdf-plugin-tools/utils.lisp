@@ -92,3 +92,13 @@ explicitly."
 (defun version-string ()
   "Returns a string representation of the plug-in version."
   (format nil "~{~A~^.~}" *plugin-version*))
+
+(defun convert-line-endings (string)
+  "Converts Mac line endings \(carriage returns, used internally
+by FileMaker) to line feeds."
+  (with-output-to-string (out nil :element-type 'lw:simple-char)
+    (loop for char across string
+          do (write-char (case char
+                           (#.#\Return #\Linefeed)
+                           (otherwise char))
+                         out))))
