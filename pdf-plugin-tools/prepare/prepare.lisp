@@ -39,7 +39,7 @@
 
 ;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
 (defparameter *handle-typedef-regex3*
-  (create-scanner "typedef\\s+struct\\s+(.*)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
+  (create-scanner "typedef (const )?struct\\s+(.*)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
 
 (defun handle-typedef (line)
   (let ((regex1 *handle-typedef-regex1*)

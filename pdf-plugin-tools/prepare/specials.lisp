@@ -31,6 +31,7 @@
 (defparameter *header-file-names*
   '("ASNumTypes" ; Basic integer types.
     "CoreExpT"   ; Types, macros, structures, etc. required to use the Core HFT
+    "ASExpT"     ; Types, macros, structures, etc. required to use the AcroSupport HFT
     ; "CorProcs"
     )
   "The list of involved Acrobat SDK header files in the right order.")
