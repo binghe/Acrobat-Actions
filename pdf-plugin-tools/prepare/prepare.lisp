@@ -124,6 +124,9 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *if-regex2*
   (create-scanner "^#if\\s+(!)?([\\w\\s\\|\\(\\)<_]+)(?<!\\s)\\s*$"))
 
+(defparameter *xproc-regex1*
+  (create-scanner "(?m)^\\w*PROC\\([\\w\\s\\*]+,\\s+(\\w+),\\s+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\)"))
+
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
 checks for enums, structs or function prototypes and writes the
@@ -208,10 +211,14 @@ corresponding C code to *STANDARD-OUTPUT*."
           ("(?sm)^typedef struct ([\\w_]+)$\\s*\\{(.*)\\}\\s*\\1;" file-string)
         (handle-struct name struct-body))
       ;; xPROC(...)
+      (do-register-groups (name) (*xproc-regex1* file-string)
+        (let ((full-name (concatenate 'string name "SEL")))
+          (pprint `(defconstant ,(mangle-name full-name t) ,*hft-counter*)))
+        (incf *hft-counter*))
+      ;; xPROC(...)
       (do-register-groups (body)
           ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)
-        (format t "~%~A: ~A" *hft-counter* body)
-        (incf *hft-counter*))
+        (format t "~%;; ~A" body))
       (terpri))))
 
 (defun prepare ()

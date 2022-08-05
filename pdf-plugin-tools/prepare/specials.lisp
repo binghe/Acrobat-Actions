@@ -32,7 +32,8 @@
   '("ASNumTypes" ; Basic integer types.
     "CoreExpT"   ; Types, macros, structures, etc. required to use the Core HFT
     "ASExpT"     ; Types, macros, structures, etc. required to use the AcroSupport HFT
-    ; "CorProcs"
+    "CorProcs"   ; Catalog of the "core" exported functions
+                 ; (this table is handed off to the plug-in at initialization time)
     )
   "The list of involved Acrobat SDK header files in the right order.")
 
@@ -43,6 +44,7 @@
     ("unsigned")
     ("signed")
     ("char"      :byte)
+    ("char*"     (:reference-pass :ef-mb-string))
     ("short")
     ("int")
     ("long")
