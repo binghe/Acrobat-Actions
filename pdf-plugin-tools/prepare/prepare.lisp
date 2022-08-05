@@ -30,22 +30,29 @@
 
 ;; 1. typedef signed char			ASInt8, *ASInt8P;
 ;; 2. typedef signed long long int		ASInt64;
-(defparameter *handle-typedef-regex1*
+(defparameter *typedef-regex1*
   (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?\\s*;"))
 
 ;; typedef void *HFTEntry;
-(defparameter *handle-typedef-regex2*
+(defparameter *typedef-regex2*
   (create-scanner "typedef\\s+(\\w+)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
 
 ;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
-(defparameter *handle-typedef-regex3*
-  (create-scanner "typedef (const )?struct\\s+(.*)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
+(defparameter *typedef-regex3*
+  (create-scanner "typedef (const )?struct\\s+(\\w+)(?<!\\s)\\s+(([\\w_]+),)?\\s*\\*(\\w+)\\s*;"))
 
 (defun handle-typedef (line)
-  (let ((regex1 *handle-typedef-regex1*)
-        (regex2 *handle-typedef-regex2*)
-        (regex3 *handle-typedef-regex3*))
-    (cond ((scan regex1 line)
+  (let ((regex1 *typedef-regex1*)
+        (regex2 *typedef-regex2*)
+        (regex3 *typedef-regex3*))
+    (cond ((scan regex3 line)
+           (register-groups-bind (const-p opaque-type type-p type pointer-type)
+               (regex3 line)
+             (declare (ignore const-p type-p type))
+             (let ((name (mangle-name pointer-type))
+                   (opaque-name (mangle-name opaque-type)))
+               (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
+          ((scan regex1 line)
            (register-groups-bind (existing-type defined-type nil pointer-type)
                (regex1 line)
              (let ((name (mangle-name defined-type))
@@ -62,11 +69,6 @@
              (let ((name (mangle-name pointer-type))
                    (fli-type (make-fli-type existing-type)))
                (pprint `(fli:define-c-typedef ,name (:pointer ,fli-type))))))
-          ((scan regex3 line)
-           (register-groups-bind (opaque-type pointer-type) (regex3 line)
-             (let ((name (mangle-name pointer-type))
-                   (opaque-name (mangle-name opaque-type)))
-               (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
           (t
            nil))))
 
@@ -80,16 +82,16 @@ expression."
   (read-from-string string))
 
 ;; sample: "#define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)"
-(defparameter *handle-define-regex1*
+(defparameter *define-regex1*
   (create-scanner "#define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)"))
 
 ;; sample: "#  define kASMAXEnum8 ASMAXInt16"
-(defparameter *handle-define-regex2*
+(defparameter *define-regex2*
   (create-scanner "#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z]+)"))
 
 (defun handle-define (line)
-  (let ((regex1 *handle-define-regex1*)
-        (regex2 *handle-define-regex2*))
+  (let ((regex1 *define-regex1*)
+        (regex2 *define-regex2*))
     (cond ((scan regex1 line)
            (register-groups-bind (name value-string) (regex1 line)
              (let ((lisp-name (mangle-name name t))
@@ -116,6 +118,12 @@ corresponding FLI:DEFINE-C-STRUCT definition."
                ,@(loop for (slot-type slot-name) in (nreverse slots)
                        collect `(,slot-name ,slot-type))))))
 
+(defparameter *if-regex1*
+  (create-scanner "^#ifdef\\s+(.*)"))
+
+(defparameter *if-regex2*
+  (create-scanner "^#if\\s+(!)?([\\w\\s\\|\\(\\)<_]+)(?<!\\s)\\s*$"))
+
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
 checks for enums, structs or function prototypes and writes the
@@ -137,10 +145,16 @@ corresponding C code to *STANDARD-OUTPUT*."
             do
             (cond ((scan "^#ifndef\\s+.*" line) ; usually only first line of a header
                    (push :enable contexts))
-                  ((scan "^#ifdef\\s+.*" line)
-                   (push :enable contexts))
-                  ((scan "^#if\\s+[\\w_]+$" line)
-                   (register-groups-bind (neg-p context) ("#if\\s+(!)?([\\w_]+)" line)
+                  ;; ifdef ...
+                  ((scan *if-regex1* line)
+                   (register-groups-bind (context) (*if-regex1* line)
+                     (setq context (regex-replace-all "\\s+" context " "))
+                     (if (member context *negative-macros* :test 'equal)
+                         (push :disable contexts)
+                         (push :enable contexts))))
+                  ;; if ...
+                  ((scan *if-regex2* line)
+                   (register-groups-bind (neg-p context) (*if-regex* line)
                      (setq context (regex-replace-all "\\s+" context " "))
                      (if (or (member context *positive-macros* :test 'equal)
                              (member context *negative-macros* :test 'equal))
@@ -158,7 +172,8 @@ corresponding C code to *STANDARD-OUTPUT*."
                   ((scan "#else" line)
                    (let ((context (pop contexts)))
                      (ecase context
-                       (:enable (push :disable contexts))
+                       (:enable  (push :disable contexts))
+                       (:disable (push :enable  contexts))
                        (:positive
                         (push (pop pos-contexts) neg-contexts)
                         (push :negative contexts))

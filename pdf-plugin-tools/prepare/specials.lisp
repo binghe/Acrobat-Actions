@@ -59,7 +59,9 @@
     "HAS_MENUBAR" "HAS_FULL_SCREEN" "HAS_MENUS" "CAN_SELECT_GRAPHICS" ; used in AVProcs.h
     #+:macosx "MAC_PLATFORM"
     #+:win32  "WIN_PLATFORM"
-    #+:lispworks-64bit "AS_ARCH_64BIT"))
+    #+:lispworks-64bit "AS_ARCH_64BIT"
+    "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
+    ))
 
 ;; These C macros are considered being defined as 0 in the SDK
 (defparameter *negative-macros*
@@ -74,7 +76,9 @@
     #-:macosx "MAC_PLATFORM"
     #-:win32  "WIN_PLATFORM"
     #-:lispworks-64bit "AS_ARCH_64BIT"
-    "ASUSE_OBSOLETE_TYPES"))
+    "ASUSE_OBSOLETE_TYPES"
+    "__cplusplus"
+    ))
 
 (defvar *sdk-extern-location* nil
   "A pathname designator denoting where exactly Acrobat Pro SDK's
