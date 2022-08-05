@@ -28,11 +28,6 @@
 
 (in-package :pdf-plugin-tools)
 
-;; <CoreExpT.h>
-(define-opaque-pointer hft          hft-entry)
-(define-opaque-pointer extension-id as-extension)
-(define-c-typedef as-callback (:pointer :void))
-
 ;;; Prototypes for plug-in supplied functions. <PIVersn.h>
 (define-c-typedef pi-setup-sdk-proc-type ; PISetupSDKProcType
   (:pointer

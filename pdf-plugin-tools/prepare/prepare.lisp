@@ -31,10 +31,20 @@
 ;; 1. typedef signed char			ASInt8, *ASInt8P;
 ;; 2. typedef signed long long int		ASInt64;
 (defparameter *handle-typedef-regex1*
-  (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?;"))
+  (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?\\s*;"))
+
+;; typedef void *HFTEntry;
+(defparameter *handle-typedef-regex2*
+  (create-scanner "typedef\\s+(\\w+)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
+
+;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
+(defparameter *handle-typedef-regex3*
+  (create-scanner "typedef\\s+struct\\s+(.*)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
 
 (defun handle-typedef (line)
-  (let ((regex1 *handle-typedef-regex1*))
+  (let ((regex1 *handle-typedef-regex1*)
+        (regex2 *handle-typedef-regex2*)
+        (regex3 *handle-typedef-regex3*))
     (cond ((scan regex1 line)
            (register-groups-bind (existing-type defined-type nil pointer-type)
                (regex1 line)
@@ -47,6 +57,16 @@
                (when pointer-type
                  (pprint `(fli:define-c-typedef
                               ,(mangle-name pointer-type) (:pointer ,name)))))))
+          ((scan regex2 line)
+           (register-groups-bind (existing-type pointer-type) (regex2 line)
+             (let ((name (mangle-name pointer-type))
+                   (fli-type (make-fli-type existing-type)))
+               (pprint `(fli:define-c-typedef ,name (:pointer ,fli-type))))))
+          ((scan regex3 line)
+           (register-groups-bind (opaque-type pointer-type) (regex3 line)
+             (let ((name (mangle-name pointer-type))
+                   (opaque-name (mangle-name opaque-type)))
+               (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
           (t
            nil))))
 

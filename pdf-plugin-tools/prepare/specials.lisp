@@ -38,7 +38,8 @@
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is
 ;; given by (intern (string-upcase part) :keyword)
 (defparameter *fli-types*
-  '(("unsigned")
+  '(("void"      :void)
+    ("unsigned")
     ("signed")
     ("char"      :byte)
     ("short")
