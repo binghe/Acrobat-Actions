@@ -102,3 +102,9 @@ by FileMaker) to line feeds."
                            (#.#\Return #\Linefeed)
                            (otherwise char))
                          out))))
+
+;; This is learnt from CXML web site
+(defun write-xml (node &key indent)
+  (let ((sink (cxml:make-string-sink
+               :canonical nil :indentation indent)))
+    (cxml-xmls:map-node sink node :include-namespace-uri nil)))

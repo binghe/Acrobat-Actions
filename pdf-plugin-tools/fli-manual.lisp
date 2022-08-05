@@ -60,9 +60,9 @@
   (:pointer (:function () as-bool :calling-convention :cdecl)))
 
 (define-c-struct pi-sdk-data-v0200  ; PISDKData_V0200
-  (handshake-version as-uns32)      ; IN  - Will always be HANDSHAKE_VERSION_V0200
-  (extension-id      extension-id)  ; IN  - Opaque to extensions, used to identify the Extension
-  (core-hft          hft)           ; IN  - Host Function Table for "core" functions
+  (handshake-version  as-uns32)     ; IN  - Will always be HANDSHAKE_VERSION_V0200
+  (extension-id       extension-id) ; IN  - Opaque to extensions, used to identify the Extension
+  (core-hft           hft)          ; IN  - Host Function Table for "core" functions
   (handshake-callback as-callback)) ; OUT - Address of PIHandshake()
 
 (defconstant +handshake-v0200+ #.(ash 2 16))
@@ -76,3 +76,51 @@
 (defconstant +cos-hft-version-7+ #x00070000)
 (defconstant +cos-hft-version-8+ #x00080000)
 
+;; Some code below are code from Gregory C. Wuller's "corefoundation"
+;; https://github.com/ngwese/core-foundation.git
+;; BEGIN
+#+:macosx
+(fli:define-c-typedef (cf-type-ref (:foreign-name "CFTypeRef"))
+                       (:pointer (:const :void)))
+
+#+:macosx
+(fli:define-foreign-function (cf-retain-imp "CFRetain" :source)
+                             ((cf1 cf-type-ref))
+                             :result-type
+                             cf-type-ref
+                             :language
+                             :ansi-c)
+
+#+:macosx
+(fli:define-foreign-function (cf-release-imp "CFRelease" :source)
+                             ((cf cf-type-ref))
+                             :result-type
+                             :void
+                             :language
+                             :ansi-c)
+
+#+:macosx
+(fli:define-c-struct (__cf-bundle
+                      (:foreign-name "__CFBundle")
+                      (:forward-reference t)))
+
+#+:macosx
+(fli:define-c-typedef (cf-bundle-ref (:foreign-name "CFBundleRef"))
+                      (:pointer (:struct __cf-bundle)))
+
+(defmacro def-cf-type-function (name)
+  (let ((imp-name (find-symbol (concatenate 'string (symbol-name name) "-IMP"))))
+    `(defun ,name (obj)
+       (declare (inline))
+       (fli:with-coerced-pointer (ref :pointer-type 'cf-type-ref) obj
+	 (,imp-name ref)))))
+
+(def-cf-type-function cf-release)
+(def-cf-type-function cf-retain)
+;; END
+
+#+:macosx
+(define-c-struct plugin-main-data
+  (size       :size-t)
+  (bundle     cf-bundle-ref)
+  (app-bundle cf-bundle-ref))

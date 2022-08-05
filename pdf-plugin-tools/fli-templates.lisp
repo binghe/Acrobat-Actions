@@ -1,4 +1,4 @@
-;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-USER; Base: 10 -*-
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: PDF-PLUGIN-TOOLS; Base: 10 -*-
 
 ;;; Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.
 
@@ -26,19 +26,17 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
-  :license "BSD"
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "specials")
-               (:file "utils")
-               (:file "fli-manual")
-               (:file "fli") ; not included in distribution
-               (:file "fli-templates")
-               (:file "functions")
-               (:file "main"))
-  :depends-on (:cxml/xml
-               :parenscript))
+(in-package :pdf-plugin-tools)
+
+#+ignore
+(with-open-file (stream "fli-templates.lisp" :direction :output)
+  (fli:print-collected-template-info :output-stream stream))
+
+;; this is needed for higher delivery levels
+(fli::define-precompiled-foreign-object-accessor-functions
+ (((:pointer :void) :no-alloc-p :error :size nil)
+  #+:macosx
+  (cf-bundle-ref    :no-alloc-p :error :size nil)
+  (extension-id     :no-alloc-p :error :size nil)
+  (hft              :no-alloc-p :error :size nil)
+  ))
