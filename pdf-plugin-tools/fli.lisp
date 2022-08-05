@@ -48,3 +48,4 @@
 (define-c-typedef as-atom as-uns16)
 (define-c-typedef as-atom-null as-max-uns16)
 (define-c-typedef selector as-int32)
+(define-c-struct opaque-64-bits (a opaque-32-bits) (b opaque-32-bits))

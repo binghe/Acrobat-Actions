@@ -82,6 +82,20 @@ expression."
           (t
            nil))))
 
+(defun handle-struct (struct-name body)
+  "Handles the part between `struct {' and `}' - writes a
+corresponding FLI:DEFINE-C-STRUCT definition."
+  (let (slots)
+    (do-register-groups (type names)
+        ("(?m)^\\s*(\\w+)\\s+([\\w\\s,]+)\\s*;(?:\\s*//.*)?\\s*?$" body)
+      (loop for name in (split "\\s*,\\s*" names)
+            do
+         (push (list (make-fli-type type)
+                     (mangle-name name)) slots)))
+    (pprint `(fli:define-c-struct ,(mangle-name struct-name)
+               ,@(loop for (slot-type slot-name) in (nreverse slots)
+                       collect `(,slot-name ,slot-type))))))
+
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
 checks for enums, structs or function prototypes and writes the
@@ -154,7 +168,11 @@ corresponding C code to *STANDARD-OUTPUT*."
                           (handle-define line)
                           ;; multi-line processing (preparation)
                           (format out "~A~%" line)))))))) ; collect this line
-      ;; now the file-string can be safely parsed in multiple lines
+      ;; typedef struct ...
+      (do-register-groups (name struct-body)
+          ("(?sm)^typedef struct ([\\w_]+)$\\s*\\{(.*)\\}\\s*\\1;" file-string)
+        (handle-struct name struct-body))
+      ;; xPROC(...)
       (do-register-groups (body)
           ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)
         (format t "~%~A: ~A" *hft-counter* body)
