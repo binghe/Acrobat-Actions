@@ -108,6 +108,7 @@
 (fli:define-c-typedef (cf-bundle-ref (:foreign-name "CFBundleRef"))
                       (:pointer (:struct __cf-bundle)))
 
+#+:macosx
 (defmacro def-cf-type-function (name)
   (let ((imp-name (find-symbol (concatenate 'string (symbol-name name) "-IMP"))))
     `(defun ,name (obj)
@@ -115,7 +116,10 @@
        (fli:with-coerced-pointer (ref :pointer-type 'cf-type-ref) obj
 	 (,imp-name ref)))))
 
+#+:macosx
 (def-cf-type-function cf-release)
+
+#+:macosx
 (def-cf-type-function cf-retain)
 ;; END
 

@@ -40,11 +40,15 @@ delivery script."
     (error "Plug-in ID must be a string of four characters each of ~
 which is a letter or a digit.")))
 
+(defparameter *plugin-log-template*
+  "[~D-~2,'0D-~2,'0DT~2,'0D:~2,'0D:~2,'0D] ")
+
 (defun plugin-log (control-string &rest format-args)
   "Utility function which might be useful for debugging a plug-in.
 Writes data to the file denoted by *FM-LOGFILE* unless this value
 is NIL.  CONTROL-STRING and FORMAT-ARGS are interpreted as by
 FORMAT."
+  (declare (type string control-string))
   (when *plugin-logfile*
     (let ((logfile (if (eq *plugin-logfile* t)
                        (merge-pathnames "Adobe/Acrobat/pdf-plugin-tools.log"
@@ -57,8 +61,15 @@ FORMAT."
                            :external-format '(:utf-8 :eol-style :lf)
                            :if-exists :append
                            :if-does-not-exist :create)
-        (apply #'format out control-string format-args)
-        (finish-output out))))
+        (multiple-value-bind (second minute hour date month year day-of-week
+                                     daylight-saving-time-p time-zone)
+            (decode-universal-time (get-universal-time))
+          (declare (ignore day-of-week daylight-saving-time-p time-zone))
+          (apply #'format out
+                 (concatenate 'string *plugin-log-template* control-string)
+                 year month date hour minute second
+                 format-args)
+          (finish-output out)))))
   (values))
 
 (defun get-backtrace ()
