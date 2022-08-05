@@ -52,4 +52,4 @@ e.g. (4 2 1) would correspond to version \"4.2.1\".")
                                      (:file "init"))))
   ;; note: every system which creates a Acrobat Pro plug-in must use the
   ;; :PDF-PLUGIN-TOOLS system
-  :depends-on (:pdf-plugin-tools :cl-ppcre))
+  :depends-on (:pdf-plugin-tools))

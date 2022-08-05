@@ -29,5 +29,5 @@
 (in-package :cl-user)
 
 (defpackage :plugin-example
-  (:use :cl :capi :fli :pdf-plugin-tools :cl-ppcre)
+  (:use :cl :pdf-plugin-tools)
   (:add-use-defaults t))
