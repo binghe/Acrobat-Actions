@@ -83,6 +83,7 @@
     "ASUSE_OBSOLETE_TYPES"
     "__cplusplus"
     "STATIC_HFT"
+    "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
     ))
 
 (defvar *sdk-extern-location* nil

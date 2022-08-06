@@ -58,6 +58,7 @@
              ;; this permits using T and NIL in Lisp code
              (when (string= "ASBool" defined-type)
                (setq fli-type `(:boolean ,fli-type)))
+             (format t "~%;; line ~D" *line-number*)
              (pprint `(fli:define-c-typedef ,name ,fli-type))
              (when pointer-type
                (pprint `(fli:define-c-typedef
@@ -66,6 +67,7 @@
          (register-groups-bind (existing-type pointer-type) (*typedef-regex2* line)
            (let ((name (mangle-name pointer-type))
                  (fli-type (make-fli-type existing-type)))
+             (format t "~%;; line ~D" *line-number*)
              (pprint `(fli:define-c-typedef ,name (:pointer ,fli-type))))))
         (t
          nil)))
@@ -104,11 +106,11 @@ expression."
 
 ;; sample: "#define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)"
 (defparameter *define-regex1*
-  (create-scanner "#define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)"))
+  (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)"))
 
 ;; sample: "#  define kASMAXEnum8 ASMAXInt16"
 (defparameter *define-regex2*
-  (create-scanner "#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z]+)"))
+  (create-scanner "^#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z]+)"))
 
 (defun handle-define (line)
   (let ((regex1 *define-regex1*)
@@ -121,6 +123,7 @@ expression."
           ((scan regex2 line)
            (register-groups-bind (name alias) (regex2 line)
              (unless (member name *ignored-defines* :test 'equal)
+               (format t "~%;; line ~D" *line-number*)
                (pprint `(fli:define-c-typedef ,(mangle-name name) ,(mangle-name alias))))))
           (t
            nil))))
@@ -153,6 +156,8 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *xproc-regex2*
   (create-scanner "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s+\\(([\\w\\s\\*,]+)\\)(,\\s*\\w+)?\\)"))
 
+(defvar *line-number*)
+
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
 checks for enums, structs or function prototypes and writes the
@@ -161,19 +166,19 @@ corresponding C code to *STANDARD-OUTPUT*."
     (let ((header-file (make-pathname :name name :type "h"
                                       :defaults *sdk-extern-location*))
           (file-string (make-array '(0) :element-type 'simple-char
-                                   :fill-pointer 0 :adjustable t)))
+                                   :fill-pointer 0 :adjustable t))
+          (*line-number* 0)
+          (*hft-counter* 1))
       (format t "~%;; #include <~A.h>" name)
       (format *error-output* "Processing ~A...~%" name)
-      (setq *hft-counter* 1)
       (with-open-file (in header-file)
         (with-output-to-string (out file-string)
           (loop with contexts = '(:error)     ; the polarity of the current #if context
                 with pos-contexts = '(:error) ; the current #if context when polarity is T
                 with neg-contexts = '(:error) ; the current #if context when polarity is NIL
-                with line-number = 0
                 for line = (read-line in nil nil)
                 while line do ; this test fails only if input file ends
-            (incf line-number)
+            (incf *line-number*)
             (cond ((scan "^#\\s*ifndef\\s+.*" line) ; usually only first line of a header
                    (push :enable contexts))
                   ;; ifdef ...
