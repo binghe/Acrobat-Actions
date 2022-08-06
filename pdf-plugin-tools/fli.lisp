@@ -289,9 +289,9 @@
 ;; line 2176
 (define-opaque-pointer as-platform-path -t-as-platform-path)
 ;; line 2181
-(define-c-typedef cstring-ptr (:pointer :byte))
+(define-c-typedef cstring-ptr (:reference-pass :ef-mb-string))
 ;; line 2186
-(define-c-typedef posix-path-ptr (:pointer :byte))
+(define-c-typedef posix-path-ptr (:reference-pass :ef-mb-string))
 ;; line 2202
 (define-opaque-pointer fs-ref-ptr fs-ref)
 ;; line 2218
@@ -358,66 +358,123 @@
 (define-foreign-funcallable as-raise-selproto
                             ((error as-error-code))
                             :result-type
-                            :void)
+                            :void
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-push-exception-frame-selproto
                             ((as-environ (:pointer :void))
                              (restore-func ac-restore-environ-proc))
                             :result-type
-                            :void)
+                            :void
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-pop-exception-frame-selproto
                             nil
                             :result-type
-                            :void)
+                            :void
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-get-exception-error-code-selproto
                             nil
                             :result-type
-                            as-error-code)
+                            as-error-code
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-atom-from-string-selproto
-                            ((name-str (:pointer :byte)))
+                            ((name-str
+                              (:reference-pass :ef-mb-string)))
                             :result-type
-                            as-atom)
+                            as-atom
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-atom-exists-for-string-selproto
-                            ((name-str (:pointer :byte))
+                            ((name-str (:reference-pass :ef-mb-string))
                              (atom (:pointer as-atom)))
                             :result-type
-                            as-bool)
+                            as-bool
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-atom-get-string-selproto
                             ((atm as-atom))
                             :result-type
-                            (:pointer :byte))
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-callback-create-selproto
                             ((extension-id as-extension)
                              (proc (:pointer :void)))
                             :result-type
-                            as-callback)
+                            as-callback
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-callback-destroy-selproto
                             ((callback as-callback))
                             :result-type
-                            :void)
+                            :void
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-extension-mgr-get-hft-selproto
                             ((name as-atom) (version as-version))
                             :result-type
-                            hft)
+                            hft
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-get-configuration-selproto
                             ((key as-atom))
                             :result-type
-                            (:pointer :void))
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-enum-extensions-selproto
                             ((proc as-extension-enum-proc)
                              (client-data (:pointer :void))
                              (only-living-extensions as-bool))
                             :result-type
-                            as-extension)
+                            as-extension
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-extension-get-file-name-selproto
                             ((extension as-extension)
-                             (buffer (:pointer :byte))
+                             (buffer (:reference-pass :ef-mb-string))
                              (buf-size ast-array-size))
                             :result-type
-                            ast-array-size)
+                            ast-array-size
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 (define-foreign-funcallable as-extension-get-registered-name-selproto
                             ((extension as-extension))
                             :result-type
-                            as-atom)
+                            as-atom
+                            :calling-convention
+                            :cdecl
+                            :language
+                            :ansi-c)
 
 ;; #include <CorCalls.h>
 ;; line 329
@@ -431,109 +488,120 @@
 (defmacro as-raise-impl (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-raise-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-raise-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-raise-sel+)
+              (nconc (list 'as-raise-selproto 'temp) args))
         (list 'error "Not implemented")))
 ;; line 438
 (defmacro as-push-exception-frame (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-push-exception-frame-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-push-exception-frame-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-push-exception-frame-sel+)
+              (nconc (list 'as-push-exception-frame-selproto 'temp)
+                     args))
         (list 'error "Not implemented")))
 ;; line 445
 (defmacro as-pop-exception-frame (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-pop-exception-frame-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-pop-exception-frame-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-pop-exception-frame-sel+)
+              (nconc (list 'as-pop-exception-frame-selproto 'temp)
+                     args))
         (list 'error "Not implemented")))
 ;; line 452
 (defmacro as-get-exception-error-code (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-get-exception-error-code-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-get-exception-error-code-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer
+                    'temp
+                    '+as-get-exception-error-code-sel+)
+              (nconc (list 'as-get-exception-error-code-selproto 'temp)
+                     args))
         (list 'error "Not implemented")))
 ;; line 461
 (defmacro as-atom-from-string (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-atom-from-string-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-atom-from-string-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-atom-from-string-sel+)
+              (nconc (list 'as-atom-from-string-selproto 'temp) args))
         (list 'error "Not implemented")))
 ;; line 468
 (defmacro as-atom-exists-for-string (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-atom-exists-for-string-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-atom-exists-for-string-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer
+                    'temp
+                    '+as-atom-exists-for-string-sel+)
+              (nconc (list 'as-atom-exists-for-string-selproto 'temp)
+                     args))
         (list 'error "Not implemented")))
 ;; line 475
 (defmacro as-atom-get-string (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-atom-get-string-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-atom-get-string-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-atom-get-string-sel+)
+              (nconc (list 'as-atom-get-string-selproto 'temp) args))
         (list 'error "Not implemented")))
 ;; line 510
 (defmacro as-callback-destroy (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-callback-destroy-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-callback-destroy-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-callback-destroy-sel+)
+              (nconc (list 'as-callback-destroy-selproto 'temp) args))
         (list 'error "Not implemented")))
 ;; line 515
 (defmacro as-extension-mgr-get-hft (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-extension-mgr-get-hft-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-extension-mgr-get-hft-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer
+                    'temp
+                    '+as-extension-mgr-get-hft-sel+)
+              (nconc (list 'as-extension-mgr-get-hft-selproto 'temp)
+                     args))
         (list 'error "Not implemented")))
 ;; line 528
 (defmacro as-get-configuration (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-2+)
-        (nconc (list 'as-get-configuration-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-get-configuration-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-get-configuration-sel+)
+              (nconc (list 'as-get-configuration-selproto 'temp) args))
         (list 'error "Not implemented")))
 ;; line 534
 (defmacro as-enum-extensions (&rest args)
   (list 'if
         (list '>= '*g-core-version* '+core-hft-version-4+)
-        (nconc (list 'as-enum-extensions-selproto
-                     '(foreign-typed-aref 'hft-entry
-                                          *g-core-hft*
-                                          +as-enum-extensions-sel+))
-               args)
+        (list 'with-coerced-pointer
+              (list 'temp ':type ''hft)
+              '*g-core-hft*
+              (list 'incf-pointer 'temp '+as-enum-extensions-sel+)
+              (nconc (list 'as-enum-extensions-selproto 'temp) args))
         (list 'error "Not implemented")))

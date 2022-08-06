@@ -115,13 +115,26 @@ SDK-provided functionality."
           (plugin-log "[PISetupSDK] Someone lied.~%")
           (return-from pi-setup-sdk nil))
         (setq *extension-id* (foreign-slot-value data 'extension-id))
-        (setq *g-core-hft*   (foreign-slot-value data 'core-hft))
-        (setq *g-core-version* +core-hft-version-2+) ; lowest version that supports v0200 handshake
         (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
-        (plugin-log "[PISetupSDK] *core-hft* (initial) = ~A~%" *core-hft*)
-        )
-      (plugin-log "[PISetupSDK] end successfully.~%")
-      (return-from pi-setup-sdk nil)) ; TODO
+        (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
+              (*g-core-version* +core-hft-version-2+)) ; lowest version that supports v0200 handshake
+          (plugin-log "[PISetupSDK] *g-core-hft* (initial) = ~A~%" *g-core-hft*)
+          (let* ((acro-support
+                  #+ignore (as-atom-from-string "AcroSupport")
+                  (IF (>= *G-CORE-VERSION* +CORE-HFT-VERSION-2+)
+                      (WITH-COERCED-POINTER (TEMP :type 'hft) *G-CORE-HFT*
+                        (plugin-log "[PISetupSDK] pointer before = ~A~%" temp)
+                        (plugin-log "[PISetupSDK] increment = ~A~%" +AS-ATOM-FROM-STRING-SEL+)
+                        (INCF-POINTER TEMP +AS-ATOM-FROM-STRING-SEL+)
+                        (plugin-log "[PISetupSDK] pointer after = ~A~%" temp)
+                        ;; (AS-ATOM-FROM-STRING-SELPROTO TEMP "AcroSupport")
+                        )
+                    (ERROR "Not implemented"))
+                  ))
+            (plugin-log "[PISetupSDK] acro-support = ~A~%" acro-support)
+            )
+          (plugin-log "[PISetupSDK] end successfully.~%")
+          (return-from pi-setup-sdk nil))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
     (plugin-log "[PISetupSDK] end badly.~%")

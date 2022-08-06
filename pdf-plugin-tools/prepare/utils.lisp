@@ -55,8 +55,13 @@ instead of a list if the string contained only one word."
            (loop for part in (delete "const" (split "\\s+" types) :test 'equal)
                  collect (make-fli-type1 part)))
            (result-type
-            (if (cdr keyword-list) keyword-list (car keyword-list))))
-      (if pointerp `(:pointer ,result-type) result-type))))
+            (if (cdr keyword-list) keyword-list (car keyword-list)))
+           (pointer-type
+            (if pointerp `(:pointer ,result-type) result-type)))
+      (cond ((equal pointer-type '(:pointer :byte)) ; char*
+             '(:reference-pass :ef-mb-string))
+            (t
+             pointer-type)))))
 
 (defun mangle-name (string &key constant global)
   "Converts the string STRING representing a C name to a suitable Lisp
@@ -93,6 +98,11 @@ argument."
   (register-groups-bind (type pointerp name)
       ("^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)\\s*$" string)
     (setq type (make-fli-type type))
-    (list (if pointerp `(:pointer ,type) type)
-          (mangle-name name)
-          name)))
+    (let ((final-type
+           (cond ((and pointerp (eq type :byte))
+                  '(:reference-pass :ef-mb-string))
+                 (t
+                  (if pointerp `(:pointer ,type) type)))))
+      (list final-type
+            (mangle-name name)
+            name))))

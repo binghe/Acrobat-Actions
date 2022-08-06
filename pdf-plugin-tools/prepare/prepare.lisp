@@ -80,7 +80,9 @@ defintion and writes it to the output stream."
   (pprint `(fli:define-foreign-funcallable ,lisp-name
                ,(loop for (type name nil) in args
                       collect `(,name ,type))
-             :result-type ,result-type)))
+             :result-type ,result-type
+             :calling-convention :cdecl
+             :language :ansi-c)))
 
 (defun handle-function (result-type c-name args)
   "Accepts one line of C code and checks if it's a function prototype.
@@ -138,12 +140,15 @@ expression."
                   (lisp-proto (mangle-name proto))
                   (lisp-hft (mangle-name hft :global t))
                   (lisp-sel (mangle-name sel :constant t))
+                  (hft-type (intern "HFT" :pdf-plugin-tools))
                   (args (intern "ARGS" :pdf-plugin-tools))
-                  (hft-entry (intern "HFT-ENTRY" :pdf-plugin-tools))
-                  (pointer `(fli:foreign-typed-aref ',hft-entry ,lisp-hft ,lisp-sel)))
+                  (temp (intern "TEMP" :pdf-plugin-tools)))
              (pprint `(defmacro ,lisp-name (&rest ,args)
                         (list 'if (list '>= ',lisp-vername ',lisp-version)
-                              (nconc (list ',lisp-proto ',pointer) ,args)
+                              (list 'fli:with-coerced-pointer
+                                    (list ',temp ':type '',hft-type) ',lisp-hft
+                                    (list 'fli:incf-pointer ',temp ',lisp-sel)
+                                    (nconc (list ',lisp-proto ',temp) ,args))
                               (list 'error "Not implemented")))
                      ))))))
 
