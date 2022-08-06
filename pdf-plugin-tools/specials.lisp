@@ -106,3 +106,8 @@ be followed by a backtrace.")
   "The list of symbols which must remain in the delivered DLL
 image.  Only needed for delivery level 5.")
 
+;; HFTs <PIMain.c>
+(defvar *g-core-hft*)
+(defvar *g-core-version*)
+(defvar *g-cos-hft*)
+(defvar *g-cos-version*)

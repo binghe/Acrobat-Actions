@@ -82,15 +82,9 @@
 (defvar *pi-pdalternates-version* +pd-alternates-hft-version-13+)
 |#
 
-;; HFTs <PIMain.c>
-(defvar *core-hft*)
-(defvar *core-version*)
-(defvar *cos-hft*)
-(defvar *cos-version*)
-
 (defvar *hft-info*
-  '(("Core" +pi-core-version+ *core-version* *core-hft* nil)
-    ("Cos"  +pi-cos-version+  *cos-version*  *cos-hft*  *pi-cos-optional*)))
+  '(("Core" +pi-core-version+ *core-version* *g-core-hft* nil)
+    ("Cos"  +pi-cos-version+  *cos-version*  *g-cos-hft*  *pi-cos-optional*)))
 
 ;; NOTE: When ALLOCATION is :STATIC (default), memory allocated by
 ;; ALLOCATE-FOREIGN-OBJECT is in the C heap. Therefore pointer (and
@@ -121,8 +115,8 @@ SDK-provided functionality."
           (plugin-log "[PISetupSDK] Someone lied.~%")
           (return-from pi-setup-sdk nil))
         (setq *extension-id* (foreign-slot-value data 'extension-id))
-        (setq *core-hft*     (foreign-slot-value data 'core-hft))
-        (setq *core-version* +core-hft-version-2+) ; lowest version that supports v0200 handshake
+        (setq *g-core-hft*   (foreign-slot-value data 'core-hft))
+        (setq *g-core-version* +core-hft-version-2+) ; lowest version that supports v0200 handshake
         (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
         (plugin-log "[PISetupSDK] *core-hft* (initial) = ~A~%" *core-hft*)
         )
@@ -142,7 +136,7 @@ the application.  This function provides the callback functions to the
 application that allow it to register the plug-in with the application
 environment."
   (plugin-log "[PIHandshake] begin.~%")
-  
+  ;; (as-enum-extensions 1)
   (plugin-log "[PIHandshake] end.~%")
   nil
   )

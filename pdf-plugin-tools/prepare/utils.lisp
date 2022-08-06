@@ -58,7 +58,7 @@ instead of a list if the string contained only one word."
             (if (cdr keyword-list) keyword-list (car keyword-list))))
       (if pointerp `(:pointer ,result-type) result-type))))
 
-(defun mangle-name (string &optional constantp)
+(defun mangle-name (string &key constant global)
   "Converts the string STRING representing a C name to a suitable Lisp
 symbol in the PDF-PLUGIN-TOOLS package.  Underline characters at the
 beginning of a string are removed; other underline characters are
@@ -66,7 +66,7 @@ converted to hyphens; when there's a change from lowercase to
 uppercase, a hyphen is inserted.  Finally, all characters are
 converted to uppercase.
 
-If CONSTANTP is true, a plus sign is added to the beginning and end of
+If CONSTANT is true, a plus sign is added to the beginning and end of
 the Lisp symbol to denote a Lisp constant."
   (setq string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|HFT)([A-Za-z])"
                                   string "\\1-\\2-\\3")
@@ -76,9 +76,12 @@ the Lisp symbol to denote a Lisp constant."
         string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
         string (regex-replace-all "_t$" string "")
         string (regex-replace-all "_" string "-"))
-  (intern (format nil "~:[~;+~]~A~2:*~:[~;+~]"
-                  constantp (string-upcase string))
-          :pdf-plugin-tools))
+  (cond (constant
+         (intern (format nil "+~A+" (string-upcase string)) :pdf-plugin-tools))
+        (global
+         (intern (format nil "*~A*" (string-upcase string)) :pdf-plugin-tools))
+        (t
+         (intern (string-upcase string) :pdf-plugin-tools))))
 
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
@@ -86,6 +89,7 @@ asterisk) into two values - the type and the \(Lisp-mangled)
 name.  Returns as the third value the name as a string.  If ARGP
 is true, the result is supposed to be used as a function
 argument."
+  (declare (ignore argp))
   (register-groups-bind (type pointerp name)
       ("^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)\\s*$" string)
     (setq type (make-fli-type type))

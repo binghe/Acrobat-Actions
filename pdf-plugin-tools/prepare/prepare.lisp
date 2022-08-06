@@ -49,6 +49,7 @@
            (declare (ignore const-p type-p type))
            (let ((name (mangle-name pointer-type))
                  (opaque-name (mangle-name opaque-type)))
+             (format t "~%;; line ~D" *line-number*)
              (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
         ((scan *typedef-regex1* line)
          (register-groups-bind (existing-type defined-type nil pointer-type)
@@ -86,7 +87,7 @@ defintion and writes it to the output stream."
 If it is one, we write a corresponding function definition to the
 output stream."
   (let ((lisp-name (mangle-name
-                    (concatenate 'string c-name "SEL-PROTO"))))
+                    (concatenate 'string c-name "SELPROTO"))))
     (write-function-definition lisp-name (make-fli-type result-type)
                                ;; args are separated by commas
                                (cond ((string= args "void") ; no args
@@ -104,29 +105,47 @@ expression."
   ;; just read value as a number
   (read-from-string string))
 
-;; sample: "#define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)"
+;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
   (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)"))
 
-;; sample: "#  define kASMAXEnum8 ASMAXInt16"
+;; #  define kASMAXEnum8 ASMAXInt16
 (defparameter *define-regex2*
   (create-scanner "^#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z]+)"))
 
+;; #define ASPushExceptionFrame (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ...
+(defparameter *define-regex3*
+  (create-scanner "^#define (\\w+) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)"))
+
 (defun handle-define (line)
-  (let ((regex1 *define-regex1*)
-        (regex2 *define-regex2*))
-    (cond ((scan regex1 line)
-           (register-groups-bind (name value-string) (regex1 line)
-             (let ((lisp-name (mangle-name name t))
-                   (value (read-enum-value value-string)))
-               (format t "~%(defconstant ~A #x~X)" lisp-name value))))
-          ((scan regex2 line)
-           (register-groups-bind (name alias) (regex2 line)
-             (unless (member name *ignored-defines* :test 'equal)
-               (format t "~%;; line ~D" *line-number*)
-               (pprint `(fli:define-c-typedef ,(mangle-name name) ,(mangle-name alias))))))
-          (t
-           nil))))
+  (cond ((scan *define-regex1* line)
+         (register-groups-bind (name value-string) (*define-regex1* line)
+           (let ((lisp-name (mangle-name name :constant t))
+                 (value (read-enum-value value-string)))
+             (format t "~%;; line ~D" *line-number*)
+             (format t "~%(defconstant ~A #x~X)" lisp-name value))))
+        ((scan *define-regex2* line)
+         (register-groups-bind (name alias) (*define-regex2* line)
+           (unless (member name *ignored-defines* :test 'equal)
+             (format t "~%;; line ~D" *line-number*)
+             (pprint `(fli:define-c-typedef ,(mangle-name name) ,(mangle-name alias))))))
+        ((scan *define-regex3* line)
+         (register-groups-bind (name vername version proto hft sel) (*define-regex3* line)
+           (format t "~%;; line ~D" *line-number*)
+           (let* ((lisp-name (mangle-name name))
+                  (lisp-vername (mangle-name vername :global t))
+                  (lisp-version (mangle-name version :constant t))
+                  (lisp-proto (mangle-name proto))
+                  (lisp-hft (mangle-name hft :global t))
+                  (lisp-sel (mangle-name sel :constant t))
+                  (args (intern "ARGS" :pdf-plugin-tools))
+                  (hft-entry (intern "HFT-ENTRY" :pdf-plugin-tools))
+                  (pointer `(fli:foreign-typed-aref ',hft-entry ,lisp-hft ,lisp-sel)))
+             (pprint `(defmacro ,lisp-name (&rest ,args)
+                        (list 'if (list '>= ',lisp-vername ',lisp-version)
+                              (nconc (list ',lisp-proto ',pointer) ,args)
+                              (list 'error "Not implemented")))
+                     ))))))
 
 (defun handle-struct (struct-name body)
   "Handles the part between `struct {' and `}' - writes a
@@ -251,7 +270,8 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; xPROC(...)
       (do-register-groups (name) (*xproc-regex1* file-string)
         (let ((full-name (concatenate 'string name "SEL")))
-          (pprint `(defconstant ,(mangle-name full-name t) ,*hft-counter*)))
+          (format t "~%;; line ~D" *line-number*)
+          (pprint `(defconstant ,(mangle-name full-name :constant t) ,*hft-counter*)))
         (incf *hft-counter*))
       ;; xPROC(...)
       (do-register-groups (type name args) (*xproc-regex2* file-string)
