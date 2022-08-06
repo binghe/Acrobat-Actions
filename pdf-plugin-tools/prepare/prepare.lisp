@@ -39,38 +39,59 @@
 
 ;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
 (defparameter *typedef-regex3*
-  (create-scanner "typedef (const )?struct\\s+(\\w+)(?<!\\s)\\s+(([\\w_]+),)?\\s*\\*(\\w+)\\s*;"))
+  (create-scanner
+    "typedef (const )?struct\\s+(\\w+)(?<!\\s)\\s+(([\\w_]+),)?\\s*\\*(\\w+)\\s*;"))
 
 (defun handle-typedef (line)
-  (let ((regex1 *typedef-regex1*)
-        (regex2 *typedef-regex2*)
-        (regex3 *typedef-regex3*))
-    (cond ((scan regex3 line)
-           (register-groups-bind (const-p opaque-type type-p type pointer-type)
-               (regex3 line)
-             (declare (ignore const-p type-p type))
-             (let ((name (mangle-name pointer-type))
-                   (opaque-name (mangle-name opaque-type)))
-               (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
-          ((scan regex1 line)
-           (register-groups-bind (existing-type defined-type nil pointer-type)
-               (regex1 line)
-             (let ((name (mangle-name defined-type))
-                   (fli-type (make-fli-type existing-type)))
-               ;; this permits using T and NIL in Lisp code
-               (when (string= "ASBool" defined-type)
-                 (setq fli-type `(:boolean ,fli-type)))
-               (pprint `(fli:define-c-typedef ,name ,fli-type))
-               (when pointer-type
-                 (pprint `(fli:define-c-typedef
-                              ,(mangle-name pointer-type) (:pointer ,name)))))))
-          ((scan regex2 line)
-           (register-groups-bind (existing-type pointer-type) (regex2 line)
-             (let ((name (mangle-name pointer-type))
-                   (fli-type (make-fli-type existing-type)))
-               (pprint `(fli:define-c-typedef ,name (:pointer ,fli-type))))))
-          (t
-           nil))))
+  (cond ((scan *typedef-regex3* line)
+         (register-groups-bind (const-p opaque-type type-p type pointer-type)
+             (*typedef-regex3* line)
+           (declare (ignore const-p type-p type))
+           (let ((name (mangle-name pointer-type))
+                 (opaque-name (mangle-name opaque-type)))
+             (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
+        ((scan *typedef-regex1* line)
+         (register-groups-bind (existing-type defined-type nil pointer-type)
+             (*typedef-regex1* line)
+           (let ((name (mangle-name defined-type))
+                 (fli-type (make-fli-type existing-type)))
+             ;; this permits using T and NIL in Lisp code
+             (when (string= "ASBool" defined-type)
+               (setq fli-type `(:boolean ,fli-type)))
+             (pprint `(fli:define-c-typedef ,name ,fli-type))
+             (when pointer-type
+               (pprint `(fli:define-c-typedef
+                            ,(mangle-name pointer-type) (:pointer ,name)))))))
+        ((scan *typedef-regex2* line)
+         (register-groups-bind (existing-type pointer-type) (*typedef-regex2* line)
+           (let ((name (mangle-name pointer-type))
+                 (fli-type (make-fli-type existing-type)))
+             (pprint `(fli:define-c-typedef ,name (:pointer ,fli-type))))))
+        (t
+         nil)))
+
+(defun write-function-definition (lisp-name result-type args)
+  "Accepts values which suffice to create a foreign function
+defintion and writes it to the output stream."
+  ;; we use DEFINE-FMXCPT-FUNCTION as defined in FM-PLUGIN-TOOLS
+  (pprint `(fli:define-foreign-funcallable ,lisp-name
+               ,(loop for (type name nil) in args
+                      collect `(,name ,type))
+             :result-type ,result-type)))
+
+(defun handle-function (result-type c-name args)
+  "Accepts one line of C code and checks if it's a function prototype.
+If it is one, we write a corresponding function definition to the
+output stream."
+  (let ((lisp-name (mangle-name
+                    (concatenate 'string c-name "SEL-PROTO"))))
+    (write-function-definition lisp-name (make-fli-type result-type)
+                               ;; args are separated by commas
+                               (cond ((string= args "void") ; no args
+                                      nil)
+                                     (t
+                                      (loop for arg in (split "\\s*,\\s*" args)
+                                            collect (type-and-name arg t)))))))
 
 (defun read-enum-value (string)
   "Reads the optional value part of a C enum and returns a
@@ -124,8 +145,13 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *if-regex2*
   (create-scanner "^#if\\s+(!)?([\\w\\s\\|\\(\\)<_]+)(?<!\\s)\\s*$"))
 
+;; This pattern only retrieves the function name
 (defparameter *xproc-regex1*
   (create-scanner "(?m)^\\w*PROC\\([\\w\\s\\*]+,\\s+(\\w+),\\s+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\)"))
+
+;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
+(defparameter *xproc-regex2*
+  (create-scanner "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s+\\(([\\w\\s\\*,]+)\\)(,\\s*\\w+)?\\)"))
 
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
@@ -216,9 +242,8 @@ corresponding C code to *STANDARD-OUTPUT*."
           (pprint `(defconstant ,(mangle-name full-name t) ,*hft-counter*)))
         (incf *hft-counter*))
       ;; xPROC(...)
-      (do-register-groups (body)
-          ("(?m)^(\\w*PROC\\([\\w\\s\\*,]+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\))" file-string)
-        (format t "~%;; ~A" body))
+      (do-register-groups (type name args) (*xproc-regex2* file-string)
+        (handle-function type name args))
       (terpri))))
 
 (defun prepare ()

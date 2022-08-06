@@ -43,14 +43,20 @@
           (intern (string-upcase string) :keyword))
     (mangle-name string)))
 
+(defparameter *fli-type-regex*
+  (create-scanner "^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*|\\s+\\*)|)\\s*$"))
+
 (defun make-fli-type (string)
   "Converts a string like \"unsigned short\" into a corresponding
 list of keywords like (:UNSIGNED :SHORT).  Returns a symbol
 instead of a list if the string contained only one word."
-  (let ((keyword-list
-         (loop for part in (split "\\s+" string)
-               collect (make-fli-type1 part))))
-    (if (cdr keyword-list) keyword-list (car keyword-list))))
+  (register-groups-bind (types pointerp) (*fli-type-regex* string)
+    (let* ((keyword-list
+           (loop for part in (delete "const" (split "\\s+" types) :test 'equal)
+                 collect (make-fli-type1 part)))
+           (result-type
+            (if (cdr keyword-list) keyword-list (car keyword-list))))
+      (if pointerp `(:pointer ,result-type) result-type))))
 
 (defun mangle-name (string &optional constantp)
   "Converts the string STRING representing a C name to a suitable Lisp
@@ -73,3 +79,16 @@ the Lisp symbol to denote a Lisp constant."
   (intern (format nil "~:[~;+~]~A~2:*~:[~;+~]"
                   constantp (string-upcase string))
           :pdf-plugin-tools))
+
+(defun type-and-name (string &optional argp)
+  "Divides pairs like \"int foo\" or \"void *bar\" \(note the
+asterisk) into two values - the type and the \(Lisp-mangled)
+name.  Returns as the third value the name as a string.  If ARGP
+is true, the result is supposed to be used as a function
+argument."
+  (register-groups-bind (type pointerp name)
+      ("^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)\\s*$" string)
+    (setq type (make-fli-type type))
+    (list (if pointerp `(:pointer ,type) type)
+          (mangle-name name)
+          name)))

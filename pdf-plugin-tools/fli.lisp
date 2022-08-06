@@ -152,8 +152,8 @@
 (define-c-typedef as-file-sys-item-type as-enum16)
 (define-opaque-pointer as-folder-iterator -t-as-folder-iterator)
 (define-opaque-pointer as-platform-path -t-as-platform-path)
-(define-c-typedef cstring-ptr (:reference-pass :ef-mb-string))
-(define-c-typedef posix-path-ptr (:reference-pass :ef-mb-string))
+(define-c-typedef cstring-ptr (:pointer :byte))
+(define-c-typedef posix-path-ptr (:pointer :byte))
 (define-opaque-pointer fs-ref-ptr fs-ref)
 (define-c-typedef fs-ref-with-cf-string-ref-rec-ptr
                   (:pointer fs-ref-with-cf-string-ref-rec))
@@ -187,18 +187,66 @@
 (defconstant +as-enum-extensions-sel+ 12)
 (defconstant +as-extension-get-file-name-sel+ 13)
 (defconstant +as-extension-get-registered-name-sel+ 14)
-;; NPROC(void, ASRaise, (ASErrorCode error))
-;; SPROC(void, ASPushExceptionFrame, (void *asEnviron, ACRestoreEnvironProc restoreFunc), ACPushExceptionFrame)
-;; SPROC(void, ASPopExceptionFrame, (void), ACPopExceptionFrame)
-;; SPROC(ASErrorCode, ASGetExceptionErrorCode, (void), ACGetExceptionErrorCode)
-;; NPROC(ASAtom, ASAtomFromString, (const char *nameStr))
-;; NPROC(ASBool, ASAtomExistsForString, (const char *nameStr, ASAtom *atom))
-;; NPROC(const char *, ASAtomGetString, (ASAtom atm))
-;; ANPROC(ASCallback, ASCallbackCreate, (ASExtension extensionID, void *proc))
-;; ANPROC(void, ASCallbackDestroy, (ASCallback callback))
-;; SPROC(HFT, ASExtensionMgrGetHFT, (ASAtom name, ASVersion version), ASGetHFTByNameAndVersion)
-;; ANPROC(void *, ASGetConfiguration, (ASAtom key))
-;; NPROC(ASExtension, ASEnumExtensions, (ASExtensionEnumProc proc, void *clientData,
-;;									  ASBool onlyLivingExtensions))
-;; NPROC(ASTArraySize, ASExtensionGetFileName, (ASExtension extension, char *buffer, ASTArraySize bufSize))
-;; NPROC(ASAtom, ASExtensionGetRegisteredName, (ASExtension extension))
+(define-foreign-funcallable as-raise-sel-proto
+                            ((error as-error-code))
+                            :result-type
+                            :void)
+(define-foreign-funcallable as-push-exception-frame-sel-proto
+                            ((as-environ (:pointer :void))
+                             (restore-func ac-restore-environ-proc))
+                            :result-type
+                            :void)
+(define-foreign-funcallable as-pop-exception-frame-sel-proto
+                            nil
+                            :result-type
+                            :void)
+(define-foreign-funcallable as-get-exception-error-code-sel-proto
+                            nil
+                            :result-type
+                            as-error-code)
+(define-foreign-funcallable as-atom-from-string-sel-proto
+                            ((name-str (:pointer :byte)))
+                            :result-type
+                            as-atom)
+(define-foreign-funcallable as-atom-exists-for-string-sel-proto
+                            ((name-str (:pointer :byte))
+                             (atom (:pointer as-atom)))
+                            :result-type
+                            as-bool)
+(define-foreign-funcallable as-atom-get-string-sel-proto
+                            ((atm as-atom))
+                            :result-type
+                            (:pointer :byte))
+(define-foreign-funcallable as-callback-create-sel-proto
+                            ((extension-id as-extension)
+                             (proc (:pointer :void)))
+                            :result-type
+                            as-callback)
+(define-foreign-funcallable as-callback-destroy-sel-proto
+                            ((callback as-callback))
+                            :result-type
+                            :void)
+(define-foreign-funcallable as-extension-mgr-get-hft-sel-proto
+                            ((name as-atom) (version as-version))
+                            :result-type
+                            hft)
+(define-foreign-funcallable as-get-configuration-sel-proto
+                            ((key as-atom))
+                            :result-type
+                            (:pointer :void))
+(define-foreign-funcallable as-enum-extensions-sel-proto
+                            ((proc as-extension-enum-proc)
+                             (client-data (:pointer :void))
+                             (only-living-extensions as-bool))
+                            :result-type
+                            as-extension)
+(define-foreign-funcallable as-extension-get-file-name-sel-proto
+                            ((extension as-extension)
+                             (buffer (:pointer :byte))
+                             (buf-size ast-array-size))
+                            :result-type
+                            ast-array-size)
+(define-foreign-funcallable as-extension-get-registered-name-sel-proto
+                            ((extension as-extension))
+                            :result-type
+                            as-atom)
