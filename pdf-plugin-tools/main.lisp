@@ -119,21 +119,10 @@ SDK-provided functionality."
         (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
               (*g-core-version* +core-hft-version-2+)) ; lowest version that supports v0200 handshake
           (plugin-log "[PISetupSDK] *g-core-hft* (initial) = ~A~%" *g-core-hft*)
-          (let* ((acro-support
-                  #+ignore (as-atom-from-string "AcroSupport")
-                  (IF (>= *G-CORE-VERSION* +CORE-HFT-VERSION-2+)
-                      (WITH-COERCED-POINTER (TEMP :type 'hft) *G-CORE-HFT*
-                        (plugin-log "[PISetupSDK] pointer before = ~A~%" temp)
-                        (plugin-log "[PISetupSDK] increment = ~A~%" +AS-ATOM-FROM-STRING-SEL+)
-                        (INCF-POINTER TEMP +AS-ATOM-FROM-STRING-SEL+)
-                        (plugin-log "[PISetupSDK] pointer after = ~A~%" temp)
-                        ;; (AS-ATOM-FROM-STRING-SELPROTO TEMP "AcroSupport")
-                        )
-                    (ERROR "Not implemented"))
-                  ))
-            (plugin-log "[PISetupSDK] acro-support = ~A~%" acro-support)
-            )
-          (plugin-log "[PISetupSDK] end successfully.~%")
+          (let* ((acro-support (as-atom-from-string "AcroSupport"))
+                 (name (as-atom-get-string acro-support)))
+            (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%" acro-support name))
+          (plugin-log "[PISetupSDK] end temporarily.~%")
           (return-from pi-setup-sdk nil))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.

@@ -148,7 +148,7 @@ expression."
                               (list 'fli:with-coerced-pointer
                                     (list ',temp ':type '',hft-type) ',lisp-hft
                                     (list 'fli:incf-pointer ',temp ',lisp-sel)
-                                    (nconc (list ',lisp-proto ',temp) ,args))
+                                    (nconc (list ',lisp-proto (list 'fli:dereference ',temp)) ,args))
                               (list 'error "Not implemented")))
                      ))))))
 

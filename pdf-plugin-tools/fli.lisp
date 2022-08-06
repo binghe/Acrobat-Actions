@@ -492,7 +492,9 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-raise-sel+)
-              (nconc (list 'as-raise-selproto 'temp) args))
+              (nconc (list 'as-raise-selproto
+                           (list 'dereference 'temp))
+                     args))
         (list 'error "Not implemented")))
 ;; line 438
 (defmacro as-push-exception-frame (&rest args)
@@ -502,7 +504,8 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-push-exception-frame-sel+)
-              (nconc (list 'as-push-exception-frame-selproto 'temp)
+              (nconc (list 'as-push-exception-frame-selproto
+                           (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
 ;; line 445
@@ -513,7 +516,8 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-pop-exception-frame-sel+)
-              (nconc (list 'as-pop-exception-frame-selproto 'temp)
+              (nconc (list 'as-pop-exception-frame-selproto
+                           (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
 ;; line 452
@@ -526,7 +530,8 @@
               (list 'incf-pointer
                     'temp
                     '+as-get-exception-error-code-sel+)
-              (nconc (list 'as-get-exception-error-code-selproto 'temp)
+              (nconc (list 'as-get-exception-error-code-selproto
+                           (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
 ;; line 461
@@ -537,7 +542,9 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-atom-from-string-sel+)
-              (nconc (list 'as-atom-from-string-selproto 'temp) args))
+              (nconc (list 'as-atom-from-string-selproto
+                           (list 'dereference 'temp))
+                     args))
         (list 'error "Not implemented")))
 ;; line 468
 (defmacro as-atom-exists-for-string (&rest args)
@@ -549,7 +556,8 @@
               (list 'incf-pointer
                     'temp
                     '+as-atom-exists-for-string-sel+)
-              (nconc (list 'as-atom-exists-for-string-selproto 'temp)
+              (nconc (list 'as-atom-exists-for-string-selproto
+                           (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
 ;; line 475
@@ -560,7 +568,9 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-atom-get-string-sel+)
-              (nconc (list 'as-atom-get-string-selproto 'temp) args))
+              (nconc (list 'as-atom-get-string-selproto
+                           (list 'dereference 'temp))
+                     args))
         (list 'error "Not implemented")))
 ;; line 510
 (defmacro as-callback-destroy (&rest args)
@@ -570,7 +580,9 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-callback-destroy-sel+)
-              (nconc (list 'as-callback-destroy-selproto 'temp) args))
+              (nconc (list 'as-callback-destroy-selproto
+                           (list 'dereference 'temp))
+                     args))
         (list 'error "Not implemented")))
 ;; line 515
 (defmacro as-extension-mgr-get-hft (&rest args)
@@ -582,7 +594,8 @@
               (list 'incf-pointer
                     'temp
                     '+as-extension-mgr-get-hft-sel+)
-              (nconc (list 'as-extension-mgr-get-hft-selproto 'temp)
+              (nconc (list 'as-extension-mgr-get-hft-selproto
+                           (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
 ;; line 528
@@ -593,7 +606,9 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-get-configuration-sel+)
-              (nconc (list 'as-get-configuration-selproto 'temp) args))
+              (nconc (list 'as-get-configuration-selproto
+                           (list 'dereference 'temp))
+                     args))
         (list 'error "Not implemented")))
 ;; line 534
 (defmacro as-enum-extensions (&rest args)
@@ -603,5 +618,7 @@
               (list 'temp ':type ''hft)
               '*g-core-hft*
               (list 'incf-pointer 'temp '+as-enum-extensions-sel+)
-              (nconc (list 'as-enum-extensions-selproto 'temp) args))
+              (nconc (list 'as-enum-extensions-selproto
+                           (list 'dereference 'temp))
+                     args))
         (list 'error "Not implemented")))
