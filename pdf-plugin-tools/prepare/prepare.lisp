@@ -140,10 +140,10 @@ corresponding FLI:DEFINE-C-STRUCT definition."
                        collect `(,slot-name ,slot-type))))))
 
 (defparameter *if-regex1*
-  (create-scanner "^#ifdef\\s+(.*)"))
+  (create-scanner "^#\\s*ifdef\\s+(.*)"))
 
 (defparameter *if-regex2*
-  (create-scanner "^#if\\s+(!)?([\\w\\s\\|\\(\\)<_]+)(?<!\\s)\\s*$"))
+  (create-scanner "^#\\s*if\\s+(!)?([\\w\\s\\|\\(\\)<!=_]+)(?<!\\s)\\s*$"))
 
 ;; This pattern only retrieves the function name
 (defparameter *xproc-regex1*
@@ -163,16 +163,18 @@ corresponding C code to *STANDARD-OUTPUT*."
           (file-string (make-array '(0) :element-type 'simple-char
                                    :fill-pointer 0 :adjustable t)))
       (format t "~%;; #include <~A.h>" name)
+      (format *error-output* "Processing ~A...~%" name)
       (setq *hft-counter* 1)
       (with-open-file (in header-file)
         (with-output-to-string (out file-string)
           (loop with contexts = '(:error)     ; the polarity of the current #if context
                 with pos-contexts = '(:error) ; the current #if context when polarity is T
                 with neg-contexts = '(:error) ; the current #if context when polarity is NIL
+                with line-number = 0
                 for line = (read-line in nil nil)
-                while line ; this test fails only if input file ends
-            do
-            (cond ((scan "^#ifndef\\s+.*" line) ; usually only first line of a header
+                while line do ; this test fails only if input file ends
+            (incf line-number)
+            (cond ((scan "^#\\s*ifndef\\s+.*" line) ; usually only first line of a header
                    (push :enable contexts))
                   ;; ifdef ...
                   ((scan *if-regex1* line)
@@ -181,9 +183,9 @@ corresponding C code to *STANDARD-OUTPUT*."
                      (if (member context *negative-macros* :test 'equal)
                          (push :disable contexts)
                          (push :enable contexts))))
-                  ;; if ...
+                  ;; if [!]...
                   ((scan *if-regex2* line)
-                   (register-groups-bind (neg-p context) (*if-regex* line)
+                   (register-groups-bind (neg-p context) (*if-regex2* line)
                      (setq context (regex-replace-all "\\s+" context " "))
                      (if (or (member context *positive-macros* :test 'equal)
                              (member context *negative-macros* :test 'equal))
@@ -195,10 +197,10 @@ corresponding C code to *STANDARD-OUTPUT*."
                                 (push :positive contexts)))
                        ;; an irrelevant condition, we choose the first branch
                        (push :enable contexts))))
-                  ((scan "^#if\\s+(.*)" line) ; the fallback case of #if
+                  ((scan "^#\\s*if\\s+(.*)" line) ; the fallback case of #if
                    (push :enable contexts))
                   ;; turn over the context if we met #else
-                  ((scan "#else" line)
+                  ((scan "^#\\s*else" line)
                    (let ((context (pop contexts)))
                      (ecase context
                        (:enable  (push :disable contexts))
@@ -210,7 +212,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                         (push (pop neg-contexts) pos-contexts)
                         (push :positive contexts)))))
                   ;; pop the current context
-                  ((scan "#endif" line)
+                  ((scan "^#\\s*endif" line)
                    (let ((context (pop contexts)))
                      (ecase context
                        ((:enable :disable)
@@ -231,7 +233,12 @@ corresponding C code to *STANDARD-OUTPUT*."
                           (handle-typedef line)
                           (handle-define line)
                           ;; multi-line processing (preparation)
-                          (format out "~A~%" line)))))))) ; collect this line
+                          (format out "~A~%" line)))))
+                ;; still inside the loop
+                #+ignore
+                (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
+                        line-number contexts pos-contexts neg-contexts)
+                )))
       ;; typedef struct ...
       (do-register-groups (name struct-body)
           ("(?sm)^typedef struct ([\\w_]+)$\\s*\\{(.*)\\}\\s*\\1;" file-string)

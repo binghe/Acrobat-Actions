@@ -250,3 +250,12 @@
                             ((extension as-extension))
                             :result-type
                             as-atom)
+
+;; #include <CorCalls.h>
+(define-c-typedef of pi)
+(define-c-typedef ac-push-exception-frame as-push-exception-frame)
+(define-c-typedef ac-pop-exception-frame as-pop-exception-frame)
+(define-c-typedef ac-get-exception-error-code
+                  as-get-exception-error-code)
+(define-c-typedef anproc nproc)
+(define-c-typedef anproc nproc)

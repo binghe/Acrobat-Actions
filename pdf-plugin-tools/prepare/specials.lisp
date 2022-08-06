@@ -34,6 +34,7 @@
     "ASExpT"     ; Types, macros, structures, etc. required to use the AcroSupport HFT
     "CorProcs"   ; Catalog of the "core" exported functions
                  ; (this table is handed off to the plug-in at initialization time)
+    "CorCalls"
     )
   "The list of involved Acrobat SDK header files in the right order.")
 
@@ -62,6 +63,7 @@
     #+:win32  "WIN_PLATFORM"
     #+:lispworks-64bit "AS_ARCH_64BIT"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
+    "PI_CORE_VERSION != 0"
     ))
 
 ;; These C macros are considered being defined as 0 in the SDK
