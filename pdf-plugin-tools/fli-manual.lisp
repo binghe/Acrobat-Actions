@@ -28,6 +28,18 @@
 
 (in-package :pdf-plugin-tools)
 
+(define-c-typedef as-extension-enum-proc ; ASExtensionEnumProc
+  (:pointer
+   (:function (as-extension (:pointer :void)) as-bool
+    :calling-convention :cdecl)))
+
+(define-c-typedef restore-environ-proc ; restoreEnvironProc
+  (:pointer
+   (:function ((:pointer :void)) :void
+    :calling-convention :cdecl)))
+
+(define-c-typedef ac-restore-environ-proc restore-environ-proc)
+
 ;;; Prototypes for plug-in supplied functions. <PIVersn.h>
 (define-c-typedef pi-setup-sdk-proc-type ; PISetupSDKProcType
   (:pointer
