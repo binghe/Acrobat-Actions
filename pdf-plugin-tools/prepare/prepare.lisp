@@ -275,7 +275,6 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; xPROC(...)
       (do-register-groups (name) (*xproc-regex1* file-string)
         (let ((full-name (concatenate 'string name "SEL")))
-          (format t "~%;; line ~D" *line-number*)
           (pprint `(defconstant ,(mangle-name full-name :constant t) ,*hft-counter*)))
         (incf *hft-counter*))
       ;; xPROC(...)

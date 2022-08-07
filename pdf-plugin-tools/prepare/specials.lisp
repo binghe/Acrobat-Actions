@@ -35,6 +35,8 @@
     "CorProcs"   ; Catalog of the "core" exported functions
                  ; (this table is handed off to the plug-in at initialization time)
     "CorCalls"
+    "ASProcs"    ; Catalog of functions exported by AcroSupport
+    "ASCalls"
     )
   "The list of involved Acrobat SDK header files in the right order.")
 
