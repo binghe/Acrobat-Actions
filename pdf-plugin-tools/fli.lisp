@@ -64,9 +64,9 @@
 ;; line 118
 (define-c-typedef as-bool (:boolean as-uns16))
 ;; line 147
-(define-c-typedef as-size :size-t)
+(define-c-typedef as-size-t :size-t)
 ;; line 149
-(define-c-typedef as-int-ptr :intptr)
+(define-c-typedef as-int-ptr-t :intptr)
 
 ;; #include <CoreExpT.h>
 ;; line 71
@@ -95,6 +95,58 @@
 (define-c-typedef extension-id as-extension)
 ;; line 190
 (define-c-typedef as-callback (:pointer :void))
+;; line 208
+(define-c-typedef int8 as-int8)
+;; line 209
+(define-c-typedef int8p as-int8p)
+;; line 210
+(define-c-typedef int16 as-int16)
+;; line 211
+(define-c-typedef int16p as-int16p)
+;; line 212
+(define-c-typedef int32 as-int32)
+;; line 213
+(define-c-typedef int32p as-int32p)
+;; line 215
+(define-c-typedef uns8 as-uns8)
+;; line 216
+(define-c-typedef uns8p as-uns8p)
+;; line 217
+(define-c-typedef uns16 as-uns16)
+;; line 218
+(define-c-typedef uns16p as-uns16p)
+;; line 219
+(define-c-typedef uns32 as-uns32)
+;; line 220
+(define-c-typedef uns32p as-uns32p)
+;; line 222
+(define-c-typedef max-int8 as-max-int8)
+;; line 223
+(define-c-typedef min-int8 as-min-int8)
+;; line 224
+(define-c-typedef max-int16 as-max-int16)
+;; line 225
+(define-c-typedef min-int16 as-min-int16)
+;; line 226
+(define-c-typedef max-int32 as-max-int32)
+;; line 227
+(define-c-typedef min-int32 as-min-int32)
+;; line 229
+(define-c-typedef max-uns8 as-max-uns8)
+;; line 230
+(define-c-typedef min-uns8 as-min-uns8)
+;; line 231
+(define-c-typedef max-uns16 as-max-uns16)
+;; line 232
+(define-c-typedef min-uns16 as-min-uns16)
+;; line 233
+(define-c-typedef max-uns32 as-max-uns32)
+;; line 234
+(define-c-typedef min-uns32 as-min-uns32)
+;; line 237
+(define-c-typedef boolean as-bool)
+;; line 240
+(define-c-typedef os-size-t as-size)
 (define-c-struct opaque-64-bits (a opaque-32-bits) (b opaque-32-bits))
 
 ;; #include <ASExpT.h>
@@ -121,7 +173,7 @@
 ;; line 126
 (define-c-typedef as-disk-space64 as-uns64)
 ;; line 129
-(define-c-typedef a-sl-file-mode as-uns32)
+(define-c-typedef as-l-file-mode as-uns32)
 ;; line 132
 (define-c-typedef as-mask-bits as-uns32)
 ;; line 135
@@ -180,9 +232,9 @@
 ;; line 1152
 (define-c-typedef as-fract as-int32)
 ;; line 1155
-(define-c-typedef as-real float)
+(define-c-typedef as-real :float)
 ;; line 1188
-(define-c-typedef as-double double)
+(define-c-typedef as-double :double)
 (define-c-typedef as-double-p (:pointer as-double))
 ;; line 1367
 (define-opaque-pointer as-cab -t-as-cabinet)
@@ -276,6 +328,8 @@
 (define-opaque-pointer as-file-sys -t-as-file-sys-rec)
 ;; line 1846
 (define-opaque-pointer as-path-name -t-as-path-name-rec)
+;; line 1857
+(define-opaque-pointer as-file -t-as-file)
 ;; line 1924
 (define-c-typedef asmd-file (:pointer :void))
 ;; line 1926
@@ -610,9 +664,9 @@
         (list 'error "Not implemented")))
 
 ;; #include <ASProcs.h>
-(defconstant +a-smalloc-sel+ 1)
-(defconstant +a-srealloc-sel+ 2)
-(defconstant +a-sfree-sel+ 3)
+(defconstant +as-malloc-sel+ 1)
+(defconstant +as-realloc-sel+ 2)
+(defconstant +as-free-sel+ 3)
 (defconstant +as-get-error-string-sel+ 4)
 (defconstant +as-register-error-string-sel+ 5)
 (defconstant +hft-server-new-sel+ 6)
@@ -641,8 +695,8 @@
 (defconstant +as-file-close-sel+ 29)
 (defconstant +as-file-set-pos-sel+ 30)
 (defconstant +as-file-get-pos-sel+ 31)
-(defconstant +as-file-set-eofsel+ 32)
-(defconstant +as-file-get-eofsel+ 33)
+(defconstant +as-file-set-eof-sel+ 32)
+(defconstant +as-file-get-eof-sel+ 33)
 (defconstant +as-file-read-sel+ 34)
 (defconstant +as-file-write-sel+ 35)
 (defconstant +as-file-flush-sel+ 36)
@@ -709,7 +763,7 @@
 (defconstant +as-file-sys-get-name-from-path-as-as-text-sel+ 97)
 (defconstant +as-file-sys-display-as-text-from-path-sel+ 98)
 (defconstant +as-stm-flush-sel+ 99)
-(defconstant +as-file-can-set-eofsel+ 100)
+(defconstant +as-file-can-set-eof-sel+ 100)
 (defconstant +hft-get-version-sel+ 101)
 (defconstant +hft-new-ex-sel+ 102)
 (defconstant +as-file-sys-di-path-from-path-ex-sel+ 103)
@@ -737,25 +791,25 @@
 (defconstant +as-double-matrix-invert-sel+ 125)
 (defconstant +as-double-matrix-transform-sel+ 126)
 (defconstant +as-double-matrix-transform-rect-sel+ 127)
-(defconstant +as-file-open-with-virtual-eofsel+ 128)
-(define-foreign-funcallable a-smalloc-selproto
-                            ((n-bytes os-size))
+(defconstant +as-file-open-with-virtual-eof-sel+ 128)
+(define-foreign-funcallable as-malloc-selproto
+                            ((n-bytes os-size-t))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable a-srealloc-selproto
+(define-foreign-funcallable as-realloc-selproto
                             ((ptr (:pointer :void))
-                             (new-n-bytes os-size))
+                             (new-n-bytes os-size-t))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable a-sfree-selproto
+(define-foreign-funcallable as-free-selproto
                             ((ptr (:pointer :void)))
                             :result-type
                             :void
@@ -859,7 +913,7 @@
 (define-foreign-funcallable as-fixed-to-c-string-selproto
                             ((f as-fixed)
                              (s (:reference-pass :ef-mb-string))
-                             (max-length os-size)
+                             (max-length os-size-t)
                              (precision as-small-count))
                             :result-type
                             :void
@@ -1020,7 +1074,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-set-eofselproto
+(define-foreign-funcallable as-file-set-eof-selproto
                             ((a-file as-file)
                              (new-file-size ast-file-pos))
                             :result-type
@@ -1029,7 +1083,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-get-eofselproto
+(define-foreign-funcallable as-file-get-eof-selproto
                             ((a-file as-file))
                             :result-type
                             ast-file-pos
@@ -1656,7 +1710,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-can-set-eofselproto
+(define-foreign-funcallable as-file-can-set-eof-selproto
                             ((file as-file) (new-file-size as-int32))
                             :result-type
                             as-bool
@@ -1728,13 +1782,13 @@
 (define-foreign-funcallable as-fixed-to-float-selproto
                             ((in-as-fixed as-fixed))
                             :result-type
-                            float
+                            :float
                             :calling-convention
                             :cdecl
                             :language
                             :ansi-c)
 (define-foreign-funcallable float-to-as-fixed-selproto
-                            ((in-float double))
+                            ((in-float :double))
                             :result-type
                             as-fixed
                             :calling-convention
@@ -1902,7 +1956,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-open-with-virtual-eofselproto
+(define-foreign-funcallable as-file-open-with-virtual-eof-selproto
                             ((f-n as-file)
                              (virtual-eof as-file-pos64)
                              (new-file (:pointer as-file)))

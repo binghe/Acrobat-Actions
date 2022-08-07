@@ -40,7 +40,7 @@
 ;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
 (defparameter *typedef-regex3*
   (create-scanner
-    "typedef (const )?struct\\s+(\\w+)(?<!\\s)\\s+(([\\w_]+),)?\\s*\\*(\\w+)\\s*;"))
+    "typedef\\s+(const\\s+)?struct\\s+(\\w+)(?<!\\s)\\s+((\\w+),)?\\s*\\*(\\w+)\\s*;"))
 
 (defun handle-typedef (line)
   (cond ((scan *typedef-regex3* line)

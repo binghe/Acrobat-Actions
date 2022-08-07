@@ -107,7 +107,7 @@ SDK-provided functionality."
           (setq *extension-id* (foreign-slot-value data 'extension-id))
           (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
           (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
-                (*g-core-version* +core-hft-version-2+)) ; lowest version that supports v0200 handshake
+                (*g-core-version* +core-hft-version-2+))
             (plugin-log "[PISetupSDK] *g-core-hft* (initial) = ~A~%" *g-core-hft*)
             (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
                    (acro-support-name (as-atom-get-string acro-support-atom)))
@@ -116,7 +116,7 @@ SDK-provided functionality."
               (let* ((*g-acro-support-hft*
                       (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+)))
                 (when *g-acro-support-hft*
-                  (setq *g-acro-support-version* +as-calls-hft-version-6+) ; to clear ACROASSERT in next call
+                  (setq *g-acro-support-version* +as-calls-hft-version-6+)
                   (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
                   ))))
           (plugin-log "[PISetupSDK] end temporarily.~%")
@@ -139,7 +139,7 @@ environment."
   (plugin-log "[PIHandshake] end.~%")
   nil)
 
-;; NOTE: The result of FOREIGN-FUNCTION-POINTER is updated on image restart.
+;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
 (defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))
 (defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
 

@@ -50,6 +50,8 @@
     ("short")
     ("int")
     ("long")
+    ("float")
+    ("double")
     ("size_t"    :size-t)
     ("intptr_t"  :intptr)
     ("uintptr_t" :uintptr)))
@@ -66,6 +68,7 @@
     #+:lispworks-64bit "AS_ARCH_64BIT"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
     "PI_CORE_VERSION != 0"
+    "ASUSE_OBSOLETE_TYPES"
     ))
 
 ;; These C macros are considered being defined as 0 in the SDK
@@ -82,7 +85,6 @@
     #-:macosx "MAC_PLATFORM"
     #-:win32  "WIN_PLATFORM"
     #-:lispworks-64bit "AS_ARCH_64BIT"
-    "ASUSE_OBSOLETE_TYPES"
     "__cplusplus"
     "STATIC_HFT"
     "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
