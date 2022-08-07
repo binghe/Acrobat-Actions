@@ -90,16 +90,6 @@
 ;; ALLOCATE-FOREIGN-OBJECT is in the C heap. Therefore pointer (and
 ;; any copy) cannot be used after SAVE_IMAGE or DELIVER.
 
-(defun initialize ()
-  (loop for (name ver retvar hft optional) in *hft-info* do
-     (setf (symbol-value hft)    (fli:allocate-foreign-object :type 'hft :fill 0))
-     (setf (symbol-value retvar) (fli:allocate-foreign-object :type 'as-uns32 :fill 0))))
-
-(defun finalize ()
-  (loop for (name ver retvar hft optional) in *hft-info* do
-     (free-foreign-object (symbol-value hft))
-     (free-foreign-object (symbol-value retvar))))
-
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version     as-uns32)
@@ -109,19 +99,26 @@ SDK-provided functionality."
   (block pi-setup-sdk
     (plugin-log "[PISetupSDK] begin.~%")
     (when (= handshake-version +handshake-v0200+)
-      (let* ((data (copy-pointer sdk-data :type 'pi-sdk-data-v0200))
-             (version (foreign-slot-value data 'handshake-version)))
-        (unless (= version +handshake-v0200+)
-          (plugin-log "[PISetupSDK] Someone lied.~%")
-          (return-from pi-setup-sdk nil))
-        (setq *extension-id* (foreign-slot-value data 'extension-id))
-        (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
-        (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
-              (*g-core-version* +core-hft-version-2+)) ; lowest version that supports v0200 handshake
-          (plugin-log "[PISetupSDK] *g-core-hft* (initial) = ~A~%" *g-core-hft*)
-          (let* ((acro-support (as-atom-from-string "AcroSupport"))
-                 (name (as-atom-get-string acro-support)))
-            (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%" acro-support name))
+      (with-coerced-pointer (data :type 'pi-sdk-data-v0200) sdk-data
+        (let ((version (foreign-slot-value data 'handshake-version)))
+          (unless (= version +handshake-v0200+)
+            (plugin-log "[PISetupSDK] Someone lied.~%")
+            (return-from pi-setup-sdk nil))
+          (setq *extension-id* (foreign-slot-value data 'extension-id))
+          (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
+          (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
+                (*g-core-version* +core-hft-version-2+)) ; lowest version that supports v0200 handshake
+            (plugin-log "[PISetupSDK] *g-core-hft* (initial) = ~A~%" *g-core-hft*)
+            (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
+                   (acro-support-name (as-atom-get-string acro-support-atom)))
+              (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
+                          acro-support-atom acro-support-name)
+              (let* ((*g-acro-support-hft*
+                      (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+)))
+                (when *g-acro-support-hft*
+                  (setq *g-acro-support-version* +as-calls-hft-version-6+) ; to clear ACROASSERT in next call
+                  (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
+                  ))))
           (plugin-log "[PISetupSDK] end temporarily.~%")
           (return-from pi-setup-sdk nil))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
@@ -140,8 +137,7 @@ environment."
   (plugin-log "[PIHandshake] begin.~%")
   ;; (as-enum-extensions 1)
   (plugin-log "[PIHandshake] end.~%")
-  nil
-  )
+  nil)
 
 ;; NOTE: The result of FOREIGN-FUNCTION-POINTER is updated on image restart.
 (defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))

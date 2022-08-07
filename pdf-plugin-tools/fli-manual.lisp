@@ -83,6 +83,8 @@
 (defconstant +cos-hft-version-7+ #x00070000)
 (defconstant +cos-hft-version-8+ #x00080000)
 
+(defconstant +as-calls-hft-version-6+ #x00060000)
+
 ;; Some code below are code from Gregory C. Wuller's "corefoundation"
 ;; https://github.com/ngwese/core-foundation.git
 ;; BEGIN

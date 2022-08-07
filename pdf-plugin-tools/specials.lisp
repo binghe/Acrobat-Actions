@@ -109,5 +109,7 @@ image.  Only needed for delivery level 5.")
 ;; HFTs <PIMain.c>
 (defvar *g-core-hft*)
 (defvar *g-core-version*)
+(defvar *g-acro-support-hft*)
+(defvar *g-acro-support-version*)
 (defvar *g-cos-hft*)
 (defvar *g-cos-version*)
