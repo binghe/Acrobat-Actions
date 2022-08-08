@@ -131,11 +131,8 @@
 (define-c-typedef max-int32 as-max-int32)
 ;; line 227
 (define-c-typedef min-int32 as-min-int32)
-;; line 237
-(define-c-typedef boolean as-bool)
 ;; line 240
 (define-c-typedef os-size-t as-size-t)
-(define-c-struct opaque-64-bits (a opaque-32-bits) (b opaque-32-bits))
 (define-c-typedef restore-environ-proc
                   (:pointer
                    (:function
@@ -150,6 +147,7 @@
                     as-bool
                     :calling-convention
                     :cdecl)))
+(define-c-struct opaque-64-bits (a opaque-32-bits) (b opaque-32-bits))
 
 ;; #include <ASExpT.h>
 ;; line 70
@@ -305,85 +303,6 @@
 (define-opaque-pointer as-date -t-as-date-rec)
 ;; line 4075
 (define-opaque-pointer as-time-span -t-as-time-span-rec)
-(define-c-struct as-proc-stm-rd-ex-handler-rec
-                 (size as-byte-count)
-                 (read-proc as-stm-proc)
-                 (destroy-proc as-proc-stm-destroy-proc)
-                 (seek-proc as-proc-stm-seek-proc)
-                 (get-length-proc as-proc-stm-get-length)
-                 (buf-size as-byte-count))
-(define-c-typedef as-proc-stm-rd-ex-handler
-                  (:pointer as-proc-stm-rd-ex-handler-rec))
-(define-c-struct hft-data-rec
-                 (size as-uns32)
-                 (contain (the number of methods that the hft can))
-                 (num-selectors as-count)
-                 (version as-version)
-                 (hft-procs (:pointer :void)))
-(define-c-struct as-fixed-matrix
-                 (a as-fixed)
-                 (b as-fixed)
-                 (c as-fixed)
-                 (d as-fixed)
-                 (h as-fixed)
-                 (v as-fixed))
-(define-c-typedef as-fixed-matrix-p (:pointer as-fixed-matrix))
-(define-c-struct as-fixed-point (h as-fixed) (v as-fixed))
-(define-c-typedef as-fixed-point-p (:pointer as-fixed-point))
-(define-c-struct as-fixed-rect
-                 (left as-fixed)
-                 (top as-fixed)
-                 (right as-fixed)
-                 (bottom as-fixed))
-(define-c-typedef as-fixed-rect-p (:pointer as-fixed-rect))
-(define-c-struct as-double-matrix
-                 (a as-double)
-                 (b as-double)
-                 (c as-double)
-                 (d as-double)
-                 (h as-double)
-                 (v as-double))
-(define-c-typedef as-double-matrix-p (:pointer as-double-matrix))
-(define-c-struct as-double-point (h as-double) (v as-double))
-(define-c-typedef as-double-point-p (:pointer as-double-point))
-(define-c-struct as-double-rect
-                 (left as-double)
-                 (top as-double)
-                 (right as-double)
-                 (bottom as-double))
-(define-c-typedef as-double-rect-p (:pointer as-double-rect))
-(define-c-struct as-time-rec
-                 (year as-int16)
-                 (month as-int16)
-                 (date as-int16)
-                 (hour as-int16)
-                 (minute as-int16)
-                 (second as-int16)
-                 (millisecond as-int16)
-                 (day as-int16)
-                 (gmt-offset as-int16))
-(define-c-typedef as-time-rec-p (:pointer as-time-rec))
-(define-c-struct asio-request-rec
-                 (md-file asmd-file)
-                 (ptr (:pointer :void))
-                 (offset ast-file-pos)
-                 (count ast-array-size)
-                 (total-bytes-completed ast-array-size)
-                 (p-error as-error-code)
-                 (client-data (:pointer :void))
-                 (io-done-proc asio-done-proc)
-                 (io-done-proc-data (:pointer :void)))
-(define-c-struct as-progress-monitor-rec
-                 (size as-size-t)
-                 (begin-operation pm-begin-operation-proc)
-                 (end-operation pm-end-operation-proc)
-                 (set-duration pm-set-duration-proc)
-                 (set-curr-value pm-set-curr-value-proc)
-                 (get-duration pm-get-duration-proc)
-                 (get-curr-value pm-get-curr-value-proc)
-                 (set-text pm-set-text-proc))
-(define-c-typedef as-progress-monitor
-                  (:pointer as-progress-monitor-rec))
 (define-c-typedef as-stm-proc
                   (:pointer
                    (:function
@@ -405,6 +324,13 @@
                    (:function
                     (as-file-pos64 (:pointer :void))
                     :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-proc-stm-get-length
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-file-pos64
                     :calling-convention
                     :cdecl)))
 (define-c-typedef hft-server-provide-hft-proc
@@ -439,6 +365,13 @@
                    (:function
                     (asio-request)
                     :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-file-flags
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    as-flag-bits
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-async-read-proc
@@ -934,6 +867,240 @@
                     as-bool
                     :calling-convention
                     :cdecl)))
+(define-c-struct as-crypt-stm-rec
+                 (count as-int32)
+                 (current-pointer (:pointer :byte))
+                 (base-pointer (:pointer :byte))
+                 (mode-flag as-uns32)
+                 (procs (:pointer as-crypt-stm-procs))
+                 (base-stm as-stm)
+                 (n-bytes-wanted as-int32)
+                 (client-data (:pointer :void)))
+(define-c-struct as-proc-stm-rd-ex-handler-rec
+                 (size as-byte-count)
+                 (read-proc as-stm-proc)
+                 (destroy-proc as-proc-stm-destroy-proc)
+                 (seek-proc as-proc-stm-seek-proc)
+                 (get-length-proc as-proc-stm-get-length)
+                 (buf-size as-byte-count))
+(define-c-typedef as-proc-stm-rd-ex-handler
+                  (:pointer as-proc-stm-rd-ex-handler-rec))
+(define-c-struct hft-data-rec
+                 (size as-uns32)
+                 (contain (the number of methods that the hft can))
+                 (num-selectors as-count)
+                 (version as-version)
+                 (hft-procs (:pointer :void)))
+(define-c-struct as-fixed-matrix
+                 (a as-fixed)
+                 (b as-fixed)
+                 (c as-fixed)
+                 (d as-fixed)
+                 (h as-fixed)
+                 (v as-fixed))
+(define-c-typedef as-fixed-matrix-p (:pointer as-fixed-matrix))
+(define-c-struct as-fixed-point (h as-fixed) (v as-fixed))
+(define-c-typedef as-fixed-point-p (:pointer as-fixed-point))
+(define-c-struct as-fixed-rect
+                 (left as-fixed)
+                 (top as-fixed)
+                 (right as-fixed)
+                 (bottom as-fixed))
+(define-c-typedef as-fixed-rect-p (:pointer as-fixed-rect))
+(define-c-struct quad
+                 (tlh as-coord)
+                 (tlv as-coord)
+                 (trh as-coord)
+                 (trv as-coord)
+                 (blh as-coord)
+                 (blv as-coord)
+                 (brh as-coord)
+                 (brv as-coord))
+(define-c-typedef quad-p (:pointer quad))
+(define-c-struct as-fixed-quad
+                 (tl as-fixed-point)
+                 (tr as-fixed-point)
+                 (bl as-fixed-point)
+                 (br as-fixed-point))
+(define-c-typedef as-fixed-quad-p (:pointer as-fixed-quad))
+(define-c-struct as-real-point (h as-real) (v as-real))
+(define-c-struct as-real-rect
+                 (left as-real)
+                 (top as-real)
+                 (right as-real)
+                 (bottom as-real))
+(define-c-struct as-real-matrix
+                 (a as-real)
+                 (b as-real)
+                 (c as-real)
+                 (d as-real)
+                 (tx as-real)
+                 (ty as-real))
+(define-c-struct as-double-matrix
+                 (a as-double)
+                 (b as-double)
+                 (c as-double)
+                 (d as-double)
+                 (h as-double)
+                 (v as-double))
+(define-c-typedef as-double-matrix-p (:pointer as-double-matrix))
+(define-c-struct as-double-point (h as-double) (v as-double))
+(define-c-typedef as-double-point-p (:pointer as-double-point))
+(define-c-struct as-double-rect
+                 (left as-double)
+                 (top as-double)
+                 (right as-double)
+                 (bottom as-double))
+(define-c-typedef as-double-rect-p (:pointer as-double-rect))
+(define-c-struct as-time-rec
+                 (year as-int16)
+                 (month as-int16)
+                 (date as-int16)
+                 (hour as-int16)
+                 (minute as-int16)
+                 (second as-int16)
+                 (millisecond as-int16)
+                 (day as-int16)
+                 (gmt-offset as-int16))
+(define-c-typedef as-time-rec-p (:pointer as-time-rec))
+(define-c-struct asio-request-rec
+                 (md-file asmd-file)
+                 (ptr (:pointer :void))
+                 (offset ast-file-pos)
+                 (count ast-array-size)
+                 (total-bytes-completed ast-array-size)
+                 (p-error as-error-code)
+                 (client-data (:pointer :void))
+                 (io-done-proc asio-done-proc)
+                 (io-done-proc-data (:pointer :void)))
+(define-c-struct as-file-sys-item-props-rec
+                 (size as-size-t)
+                 (is-there as-bool)
+                 (type as-file-sys-item-type)
+                 (is-hidden as-bool)
+                 (is-read-only as-bool)
+                 (creation-date-known as-bool)
+                 (creation-date as-time-rec)
+                 (mod-date-known as-bool)
+                 (mod-date as-time-rec)
+                 (file-size as-byte-count)
+                 (file-size-high as-byte-count)
+                 (folder-size ast-count)
+                 (creator-code as-uns32)
+                 (type-code as-uns32))
+(define-c-typedef as-file-sys-item-props
+                  (:pointer as-file-sys-item-props-rec))
+(define-c-struct fs-ref-with-cf-string-ref-rec
+                 (ref (:pointer (struct fs-ref)))
+                 (str (:pointer (struct --cf-string))))
+(define-c-struct cfurl-ref-rec)
+(define-c-struct as-file-sys-rec
+                 (size as-size-t)
+                 (open as-file-sys-open-proc)
+                 (close as-file-sys-close-proc)
+                 (flush as-file-sys-flush-proc)
+                 (setpos as-file-sys-set-pos-proc)
+                 (getpos as-file-sys-get-pos-proc)
+                 (seteof as-file-sys-set-eof-proc)
+                 (geteof as-file-sys-get-eof-proc)
+                 (read as-file-sys-read-proc)
+                 (write as-file-sys-write-proc)
+                 (remove as-file-sys-remove-proc)
+                 (rename as-file-sys-rename-proc)
+                 (is-same-file as-file-sys-is-same-file-proc)
+                 (get-name as-file-sys-get-name-proc)
+                 (get-temp-path-name
+                  as-file-sys-get-temp-path-name-proc)
+                 (copy-path-name as-file-sys-copy-path-name-proc)
+                 (di-path-from-path as-file-sys-di-path-from-path-proc)
+                 (path-from-di-path as-file-sys-path-from-di-path-proc)
+                 (dispose-path-name as-file-sys-dispose-path-name-proc)
+                 (get-file-sys-name as-file-sys-get-file-sys-name-proc)
+                 (get-storage-free-space
+                  as-file-sys-get-storage-free-space-proc)
+                 (flush-volume as-file-sys-flush-volume-proc)
+                 (get-file-flags as-file-sys-get-file-flags)
+                 (read-async as-file-sys-async-read-proc)
+                 (write-async as-file-sys-async-write-proc)
+                 (abort-async as-file-sys-async-abort-proc)
+                 (yield as-file-sys-yield-proc)
+                 (mread-request as-file-sys-m-read-request-proc)
+                 (get-status as-file-sys-get-status-proc)
+                 (create-path-name as-file-sys-create-path-name-proc)
+                 (acquire-file-sys-path
+                  as-file-sys-acquire-file-sys-path-proc)
+                 (clear-outstanding-m-reads
+                  as-file-sys-clear-outstanding-m-reads-proc)
+                 (get-item-props as-file-sys-get-item-props-proc)
+                 (first-folder-item as-file-sys-first-folder-item-proc)
+                 (next-folder-item as-file-sys-next-folder-item-proc)
+                 (destroy-folder-iterator
+                  as-file-sys-destroy-folder-iterator-proc)
+                 (set-file-mode as-file-sys-set-mode-proc)
+                 (url-from-path as-file-sys-url-from-path-proc)
+                 (get-parent as-file-sys-get-parent-proc)
+                 (create-folder as-file-sys-create-folder-proc)
+                 (remove-folder as-file-sys-remove-folder-proc)
+                 (display-string-from-path
+                  as-file-sys-display-string-from-path-proc)
+                 (set-type-and-creator
+                  as-file-sys-set-type-and-creator-proc)
+                 (get-type-and-creator
+                  as-file-sys-get-type-and-creator-proc)
+                 (reopen as-file-sys-reopen-proc)
+                 (hard-flush as-file-sys-hard-flush-proc)
+                 (get-item-props-as-cab
+                  as-file-sys-get-item-props-as-cab-proc)
+                 (can-perform-op-on-item
+                  as-file-sys-can-perform-op-on-item-proc)
+                 (perform-op-on-item
+                  as-file-sys-perform-op-on-item-proc)
+                 (acquire-platform-path
+                  as-file-sys-acquire-platform-path-proc)
+                 (release-platform-path
+                  as-file-sys-release-platform-path-proc)
+                 (get-name-as-as-text
+                  as-file-sys-get-name-as-as-text-proc)
+                 (display-as-text-from-path
+                  as-file-sys-display-as-text-from-path-proc)
+                 (range-arrived as-file-sys-range-arrived-proc)
+                 (can-set-eof as-file-sys-can-set-eof-proc)
+                 (di-path-from-path-ex
+                  as-file-sys-di-path-from-path-ex-proc)
+                 (path-from-di-path-ex
+                  as-file-sys-path-from-di-path-ex-proc)
+                 (getfileposlimit
+                  as-file-sys-get-file-position-limit-proc)
+                 (open64 as-file-sys-open64proc)
+                 (setpos64 as-file-sys-set-pos64proc)
+                 (getpos64 as-file-sys-get-pos64proc)
+                 (seteof64 as-file-sys-set-eof64proc)
+                 (geteof64 as-file-sys-get-eof64proc)
+                 (get-name-for-display
+                  as-file-sys-get-name-for-display-proc)
+                 (get-storage-free-space64
+                  as-file-sys-get-storage-free-space64proc)
+                 (is-in-use as-file-sys-is-in-use-proc))
+(define-c-struct as-progress-monitor-rec
+                 (size as-size-t)
+                 (begin-operation pm-begin-operation-proc)
+                 (end-operation pm-end-operation-proc)
+                 (set-duration pm-set-duration-proc)
+                 (set-curr-value pm-set-curr-value-proc)
+                 (get-duration pm-get-duration-proc)
+                 (get-curr-value pm-get-curr-value-proc)
+                 (set-text pm-set-text-proc))
+(define-c-typedef as-progress-monitor
+                  (:pointer as-progress-monitor-rec))
+(define-c-struct as-calendar-time-span-rec
+                 (year as-uns32)
+                 (month as-uns32)
+                 (day as-uns32)
+                 (hour as-uns32)
+                 (minute as-uns32)
+                 (second as-uns32))
+(define-c-typedef as-calendar-time-span
+                  (:pointer as-calendar-time-span-rec))
 
 ;; #include <CorProcs.h>
 (defconstant +as-raise-sel+ 1)
