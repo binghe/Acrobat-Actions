@@ -34,8 +34,9 @@
   (create-scanner "typedef\\s+(.*)(?<!\\s)\\s+(\\w+)(,\\s*\\*(\\w+))?\\s*;"))
 
 ;; typedef void *HFTEntry;
+;; typedef const HFTDataRec *HFTData;
 (defparameter *typedef-regex2*
-  (create-scanner "typedef\\s+(\\w+)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
+  (create-scanner "typedef\\s+([\\w\\s]+)(?<!\\s)\\s+\\*(\\w+)\\s*;"))
 
 ;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
 (defparameter *typedef-regex3*
@@ -178,6 +179,25 @@ corresponding FLI:DEFINE-C-STRUCT definition."
         (pprint `(fli:define-c-typedef ,(mangle-name pointer-name) (:pointer ,lisp-name))))
       )))
 
+;; typedef ACCBPROTO1 void (ACCBPROTO2 *HFTServerDestroyProc)(HFTServer hftServer, void *rock);
+(defparameter *prototype-regex*
+  (create-scanner
+   "(?m)^typedef\\s+ACCBPROTO1\\s+(\\w+)\\s+\\(ACCBPROTO2\\s+\\*(\\w+Proc)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
+
+(defun handle-prototype (file-string)
+  (do-register-groups (return-type proc-name args) (*prototype-regex* file-string)
+    (let ((parsed-args (cond ((string= args "void") ; no args
+                              nil)
+                             (t
+                              (loop for arg in (split "\\s*,\\s*" args)
+                                    collect (type-and-name arg t))))))
+      (pprint `(fli:define-c-typedef ,(mangle-name proc-name)
+                 (:pointer
+                  (:function ,(loop for (type nil nil) in parsed-args
+                                    collect type)
+                   ,(make-fli-type return-type)
+                   :calling-convention :cdecl)))))))
+
 (defparameter *if-regex1*
   (create-scanner "^#\\s*ifdef\\s+(.*)"))
 
@@ -293,6 +313,8 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; xPROC(...)
       (do-register-groups (type name args) (*xproc-regex2* file-string)
         (handle-function type name args))
+      ;; prototypes
+      (handle-prototype file-string)
       (terpri))))
 
 (defun prepare ()

@@ -136,6 +136,20 @@
 ;; line 240
 (define-c-typedef os-size-t as-size-t)
 (define-c-struct opaque-64-bits (a opaque-32-bits) (b opaque-32-bits))
+(define-c-typedef restore-environ-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-extension-enum-proc
+                  (:pointer
+                   (:function
+                    (as-extension (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
 
 ;; #include <ASExpT.h>
 ;; line 70
@@ -192,6 +206,8 @@
 (define-opaque-pointer as-stm -t-as-stm-rec)
 ;; line 294
 (define-opaque-pointer as-crypt-stm -t-as-crypt-stm-rec)
+;; line 581
+(define-c-typedef hft-data (:pointer hft-data-rec))
 ;; line 589
 (define-opaque-pointer hft-server -t-hft-server)
 ;; line 640
@@ -366,6 +382,556 @@
                  (set-text pm-set-text-proc))
 (define-c-typedef as-progress-monitor
                   (:pointer as-progress-monitor-rec))
+(define-c-typedef as-stm-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     ast-array-size
+                     (:pointer :void))
+                    ast-count
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-proc-stm-destroy-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-proc-stm-seek-proc
+                  (:pointer
+                   (:function
+                    (as-file-pos64 (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef hft-server-provide-hft-proc
+                  (:pointer
+                   (:function
+                    (hft-server as-version (:pointer :void))
+                    hft
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef hft-server-destroy-proc
+                  (:pointer
+                   (:function
+                    (hft-server (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-completion-proc
+                  (:pointer
+                   (:function
+                    (as-file
+                     (:reference-pass :ef-mb-string)
+                     ast-file-pos
+                     ast-array-size
+                     ast-array-size
+                     as-error-code
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef asio-done-proc
+                  (:pointer
+                   (:function
+                    (asio-request)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-async-read-proc
+                  (:pointer
+                   (:function
+                    (asio-request)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-async-write-proc
+                  (:pointer
+                   (:function
+                    (asio-request)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-async-abort-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-yield-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-m-read-request-proc
+                  (:pointer
+                   (:function
+                    (asmd-file
+                     as-file
+                     (:pointer ast-file-pos)
+                     ast-array-size)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-clear-outstanding-m-reads-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-status-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    as-flag-bits
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-acquire-file-sys-path-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-file-sys)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-open-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-file-mode (:pointer asmd-file))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-close-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-flush-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-set-pos-proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-file-pos)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-pos-proc
+                  (:pointer
+                   (:function
+                    (asmd-file (:pointer as-file-pos))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-set-eof-proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-file-pos)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-eof-proc
+                  (:pointer
+                   (:function
+                    (asmd-file (:pointer as-file-pos))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-read-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     as-size-t
+                     as-size-t
+                     asmd-file
+                     (:pointer as-error-code))
+                    as-size-t
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-write-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     as-size-t
+                     as-size-t
+                     asmd-file
+                     (:pointer as-error-code))
+                    as-size-t
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-remove-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-rename-proc
+                  (:pointer
+                   (:function
+                    ((:pointer asmd-file) as-path-name as-path-name)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-is-same-file-proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-path-name as-path-name)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-name-proc
+                  (:pointer
+                   (:function
+                    (as-path-name
+                     (:reference-pass :ef-mb-string)
+                     ast-array-size)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-temp-path-name-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-copy-path-name-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-path-from-di-path-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string) as-path-name)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-dispose-path-name-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-file-sys-name-proc
+                  (:pointer
+                   (:function nil as-atom :calling-convention :cdecl)))
+(define-c-typedef as-file-sys-get-storage-free-space-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-disk-space
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-flush-volume-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-create-path-name-proc
+                  (:pointer
+                   (:function
+                    (as-atom (:pointer :void) (:pointer :void))
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-item-props-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-file-sys-item-props)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-first-folder-item-proc
+                  (:pointer
+                   (:function
+                    (as-path-name
+                     as-file-sys-item-props
+                     (:pointer as-path-name))
+                    as-folder-iterator
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-next-folder-item-proc
+                  (:pointer
+                   (:function
+                    (as-folder-iterator
+                     as-file-sys-item-props
+                     (:pointer as-path-name))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-destroy-folder-iterator-proc
+                  (:pointer
+                   (:function
+                    (as-folder-iterator)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-set-mode-proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-l-file-mode as-mask-bits)
+                    as-l-file-mode
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-parent-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-create-folder-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-remove-folder-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-set-type-and-creator-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-uns32 as-uns32)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-type-and-creator-proc
+                  (:pointer
+                   (:function
+                    (as-path-name
+                     (:pointer as-uns32)
+                     (:pointer as-uns32))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-reopen-proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-file-mode (:pointer as-error-code))
+                    asmd-file
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-hard-flush-proc
+                  (:pointer
+                   (:function
+                    (asmd-file)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-item-props-as-cab-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-cab)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-can-perform-op-on-item-proc
+                  (:pointer
+                   (:function
+                    (as-path-name (:reference-pass :ef-mb-string))
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-perform-op-on-item-proc
+                  (:pointer
+                   (:function
+                    (as-path-name
+                     (:reference-pass :ef-mb-string)
+                     as-cab)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-acquire-platform-path-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-atom (:pointer as-platform-path))
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-release-platform-path-proc
+                  (:pointer
+                   (:function
+                    (as-platform-path)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-name-as-as-text-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-text)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-display-as-text-from-path-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-text)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-can-set-eof-proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-file-pos)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-di-path-from-path-ex-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-path-name as-text)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-path-from-di-path-ex-proc
+                  (:pointer
+                   (:function
+                    (as-const-text as-path-name)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-open64proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-file-mode (:pointer asmd-file))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-file-position-limit-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-file-pos64))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-set-pos64proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-file-pos64)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-pos64proc
+                  (:pointer
+                   (:function
+                    (asmd-file (:pointer as-file-pos64))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-set-eof64proc
+                  (:pointer
+                   (:function
+                    (asmd-file as-file-pos64)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-eof64proc
+                  (:pointer
+                   (:function
+                    (asmd-file (:pointer as-file-pos64))
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-name-for-display-proc
+                  (:pointer
+                   (:function
+                    (as-path-name as-text)
+                    as-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-get-storage-free-space64proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-disk-space64
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-file-sys-is-in-use-proc
+                  (:pointer
+                   (:function
+                    (as-path-name)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-begin-operation-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-end-operation-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-set-duration-proc
+                  (:pointer
+                   (:function
+                    (as-duration (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-set-curr-value-proc
+                  (:pointer
+                   (:function
+                    (as-duration (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-get-duration-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-duration
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-get-curr-value-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-duration
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pm-set-text-proc
+                  (:pointer
+                   (:function
+                    (as-text (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-cancel-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
 
 ;; #include <CorProcs.h>
 (defconstant +as-raise-sel+ 1)
