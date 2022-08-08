@@ -1368,8 +1368,10 @@
         (list 'with-coerced-pointer
               (list 'temp ':type ''hft)
               '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-extension-mgr-get-hftsel+)
-              (nconc (list 'as-extension-mgr-get-hftselproto
+              (list 'incf-pointer
+                    'temp
+                    '+as-extension-mgr-get-hft-sel+)
+              (nconc (list 'as-extension-mgr-get-hft-selproto
                            (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
