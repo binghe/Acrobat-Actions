@@ -88,6 +88,9 @@ the Lisp symbol to denote a Lisp constant."
         (t
          (intern (string-upcase string) :pdf-plugin-tools))))
 
+(defparameter *type-and-name-regex*
+  (create-scanner "^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)\\s*$"))
+
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
 asterisk) into two values - the type and the \(Lisp-mangled)
@@ -96,7 +99,7 @@ is true, the result is supposed to be used as a function
 argument."
   (declare (ignore argp))
   (register-groups-bind (type pointerp name)
-      ("^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)\\s*$" string)
+      (*type-and-name-regex* string)
     (setq type (make-fli-type type))
     (let ((final-type
            (cond ((and pointerp (eq type :byte))

@@ -131,22 +131,10 @@
 (define-c-typedef max-int32 as-max-int32)
 ;; line 227
 (define-c-typedef min-int32 as-min-int32)
-;; line 229
-(define-c-typedef max-uns8 as-max-uns8)
-;; line 230
-(define-c-typedef min-uns8 as-min-uns8)
-;; line 231
-(define-c-typedef max-uns16 as-max-uns16)
-;; line 232
-(define-c-typedef min-uns16 as-min-uns16)
-;; line 233
-(define-c-typedef max-uns32 as-max-uns32)
-;; line 234
-(define-c-typedef min-uns32 as-min-uns32)
 ;; line 237
 (define-c-typedef boolean as-bool)
 ;; line 240
-(define-c-typedef os-size-t as-size)
+(define-c-typedef os-size-t as-size-t)
 (define-c-struct opaque-64-bits (a opaque-32-bits) (b opaque-32-bits))
 
 ;; #include <ASExpT.h>
@@ -244,86 +232,6 @@
 (define-opaque-pointer as-text -t-as-text-rec)
 ;; line 1457
 (define-opaque-pointer as-const-text -t-as-text-rec)
-;; line 1610
-(define-c-typedef k-acrobat-creator-code as-four-char-code)
-;; line 1615
-(define-c-typedef k-photoshop-creator-code as-four-char-code)
-;; line 1620
-(define-c-typedef k-image-ready-creator-code as-four-char-code)
-;; line 1625
-(define-c-typedef k-illustrator-creator-code as-four-char-code)
-;; line 1632
-(define-c-typedef k-pdf-type-code as-four-char-code)
-;; line 1637
-(define-c-typedef k-fdf-type-code as-four-char-code)
-;; line 1642
-(define-c-typedef k-xfdf-type-code as-four-char-code)
-;; line 1647
-(define-c-typedef k-xdp-type-code as-four-char-code)
-;; line 1652
-(define-c-typedef k-pxdf-type-code as-four-char-code)
-;; line 1657
-(define-c-typedef k-prefs-type-code as-four-char-code)
-;; line 1662
-(define-c-typedef k-pdx-type-code as-four-char-code)
-;; line 1667
-(define-c-typedef k-rmf-type-code as-four-char-code)
-;; line 1672
-(define-c-typedef k-apf-type-code as-four-char-code)
-;; line 1677
-(define-c-typedef k-sequence-type-code as-four-char-code)
-;; line 1682
-(define-c-typedef k-dictionary-type-code as-four-char-code)
-;; line 1687
-(define-c-typedef k-wha-type-code as-four-char-code)
-;; line 1692
-(define-c-typedef k-locale-type-code as-four-char-code)
-;; line 1697
-(define-c-typedef k-plugin-type-code as-four-char-code)
-;; line 1705
-(define-c-typedef k-plugin-new-type-code as-four-char-code)
-;; line 1710
-(define-c-typedef k-etd-type-code as-four-char-code)
-;; line 1715
-(define-c-typedef k-edn-type-code as-four-char-code)
-;; line 1722
-(define-c-typedef k-psd-type-code as-four-char-code)
-;; line 1727
-(define-c-typedef k-pict-type-code as-four-char-code)
-;; line 1732
-(define-c-typedef k-tiff-type-code as-four-char-code)
-;; line 1737
-(define-c-typedef k-gif-type-code as-four-char-code)
-;; line 1742
-(define-c-typedef k-jpeg-type-code as-four-char-code)
-;; line 1747
-(define-c-typedef k-png-type-code as-four-char-code)
-;; line 1754
-(define-c-typedef kai-type-code as-four-char-code)
-;; line 1759
-(define-c-typedef k-eps-type-code as-four-char-code)
-;; line 1765
-(define-c-typedef k-text-type-code as-four-char-code)
-;; line 1770
-(define-c-typedef k-rtf-type-code as-four-char-code)
-;; line 1775
-(define-c-typedef k-text-creator-code as-four-char-code)
-;; line 1780
-(define-c-typedef k-quick-time-type-code as-four-char-code)
-;; line 1785
-(define-c-typedef k-quick-time-creator-code as-four-char-code)
-;; line 1790
-(define-c-typedef k-html-type-code as-four-char-code)
-;; line 1795
-(define-c-typedef k-html-creator-code as-four-char-code)
-;; line 1800
-(define-c-typedef k-xml-type-code as-four-char-code)
-;; line 1805
-(define-c-typedef k-excel-creator-code as-four-char-code)
-;; line 1810
-(define-c-typedef k-word-creator-code as-four-char-code)
-;; line 1815
-(define-c-typedef k-power-point-creator-code as-four-char-code)
 ;; line 1833
 (define-opaque-pointer as-file-sys -t-as-file-sys-rec)
 ;; line 1846
@@ -379,6 +287,96 @@
 (define-opaque-pointer as-date -t-as-date-rec)
 ;; line 4075
 (define-opaque-pointer as-time-span -t-as-time-span-rec)
+(define-c-struct -s-as-proc-stm-rd-ex-handler
+                 (size as-byte-count)
+                 (read-proc as-stm-proc)
+                 (destroy-proc as-proc-stm-destroy-proc)
+                 (seek-proc as-proc-stm-seek-proc)
+                 (get-length-proc as-proc-stm-get-length)
+                 (buf-size as-byte-count))
+(define-c-typedef as-proc-stm-rd-ex-handler-rec
+                  -s-as-proc-stm-rd-ex-handler)
+(define-c-typedef as-proc-stm-rd-ex-handler
+                  (:pointer -s-as-proc-stm-rd-ex-handler))
+(define-c-struct -t-hft-data
+                 (size as-uns32)
+                 (contain (the number of methods that the hft can))
+                 (num-selectors as-count)
+                 (version as-version)
+                 (hft-procs (:pointer :void)))
+(define-c-typedef hft-data-rec -t-hft-data)
+(define-c-struct -t-as-fixed-matrix
+                 (a as-fixed)
+                 (b as-fixed)
+                 (c as-fixed)
+                 (d as-fixed)
+                 (h as-fixed)
+                 (v as-fixed))
+(define-c-typedef as-fixed-matrix -t-as-fixed-matrix)
+(define-c-typedef as-fixed-matrix-p (:pointer -t-as-fixed-matrix))
+(define-c-struct -t-as-fixed-point (h as-fixed) (v as-fixed))
+(define-c-typedef as-fixed-point -t-as-fixed-point)
+(define-c-typedef as-fixed-point-p (:pointer -t-as-fixed-point))
+(define-c-struct -t-as-fixed-rect
+                 (left as-fixed)
+                 (top as-fixed)
+                 (right as-fixed)
+                 (bottom as-fixed))
+(define-c-typedef as-fixed-rect -t-as-fixed-rect)
+(define-c-typedef as-fixed-rect-p (:pointer -t-as-fixed-rect))
+(define-c-struct -t-as-double-matrix
+                 (a as-double)
+                 (b as-double)
+                 (c as-double)
+                 (d as-double)
+                 (h as-double)
+                 (v as-double))
+(define-c-typedef as-double-matrix -t-as-double-matrix)
+(define-c-typedef as-double-matrix-p (:pointer -t-as-double-matrix))
+(define-c-struct -t-as-double-point (h as-double) (v as-double))
+(define-c-typedef as-double-point -t-as-double-point)
+(define-c-typedef as-double-point-p (:pointer -t-as-double-point))
+(define-c-struct -t-as-double-rect
+                 (left as-double)
+                 (top as-double)
+                 (right as-double)
+                 (bottom as-double))
+(define-c-typedef as-double-rect -t-as-double-rect)
+(define-c-typedef as-double-rect-p (:pointer -t-as-double-rect))
+(define-c-struct -t-as-time-rec
+                 (year as-int16)
+                 (month as-int16)
+                 (date as-int16)
+                 (hour as-int16)
+                 (minute as-int16)
+                 (second as-int16)
+                 (millisecond as-int16)
+                 (day as-int16)
+                 (gmt-offset as-int16))
+(define-c-typedef as-time-rec -t-as-time-rec)
+(define-c-typedef as-time-rec-p (:pointer -t-as-time-rec))
+(define-c-struct -t-asio-request-rec
+                 (md-file asmd-file)
+                 (ptr (:pointer :void))
+                 (offset ast-file-pos)
+                 (count ast-array-size)
+                 (total-bytes-completed ast-array-size)
+                 (p-error as-error-code)
+                 (client-data (:pointer :void))
+                 (io-done-proc asio-done-proc)
+                 (io-done-proc-data (:pointer :void)))
+(define-c-typedef asio-request-rec -t-asio-request-rec)
+(define-c-struct -t-progress-monitor
+                 (size as-size-t)
+                 (begin-operation pm-begin-operation-proc)
+                 (end-operation pm-end-operation-proc)
+                 (set-duration pm-set-duration-proc)
+                 (set-curr-value pm-set-curr-value-proc)
+                 (get-duration pm-get-duration-proc)
+                 (get-curr-value pm-get-curr-value-proc)
+                 (set-text pm-set-text-proc))
+(define-c-typedef as-progress-monitor-rec -t-progress-monitor)
+(define-c-typedef as-progress-monitor (:pointer -t-progress-monitor))
 
 ;; #include <CorProcs.h>
 (defconstant +as-raise-sel+ 1)
@@ -1969,6 +1967,4 @@
 
 ;; #include <ASCalls.h>
 ;; line 104
-(define-c-typedef as-calls-hft-version-10 as-calls-hft)
-;; line 517
-(define-c-typedef as-float-to-fixed float-to-as-fixed)
+(define-c-typedef as-calls-hft-version-10 as-calls-hft-latest-version)

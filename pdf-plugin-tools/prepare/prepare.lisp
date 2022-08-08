@@ -109,15 +109,16 @@ expression."
 
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
-  (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)"))
+  (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
 
 ;; #  define kASMAXEnum8 ASMAXInt16
 (defparameter *define-regex2*
-  (create-scanner "^#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z]+)"))
+  (create-scanner "^#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
 
 ;; #define ASPushExceptionFrame (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ...
 (defparameter *define-regex3*
-  (create-scanner "^#define (\\w+) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)"))
+  (create-scanner
+   "^#define (\\w+) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
 
 (defun handle-define (line)
   (cond ((scan *define-regex1* line)
@@ -152,19 +153,31 @@ expression."
                               (list 'error "Not implemented")))
                      ))))))
 
-(defun handle-struct (struct-name body)
+;; cf. *type-and-name-regex* (util.lisp)
+(defparameter *type-and-names-regex*
+  (create-scanner
+   "(?m)^\\s*([^,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;(?:\\s*//.*)?\\s*?$"))
+
+(defun handle-struct (struct-name body typedef-name pointer-name)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
   (let (slots)
-    (do-register-groups (type names)
-        ("(?m)^\\s*(\\w+)\\s+([\\w\\s,]+)\\s*;(?:\\s*//.*)?\\s*?$" body)
+    (do-register-groups (type pointerp names)
+        (*type-and-names-regex* body)
       (loop for name in (split "\\s*,\\s*" names)
             do
-         (push (list (make-fli-type type)
+         (push (list (cond (pointerp `(:pointer ,(make-fli-type type)))
+                           (t                    (make-fli-type type)))
                      (mangle-name name)) slots)))
-    (pprint `(fli:define-c-struct ,(mangle-name struct-name)
-               ,@(loop for (slot-type slot-name) in (nreverse slots)
-                       collect `(,slot-name ,slot-type))))))
+    (let ((lisp-name (mangle-name struct-name)))
+      (pprint `(fli:define-c-struct ,lisp-name
+                 ,@(loop for (slot-type slot-name) in (nreverse slots)
+                         collect `(,slot-name ,slot-type))))
+      (unless (string= struct-name typedef-name)
+        (pprint `(fli:define-c-typedef ,(mangle-name typedef-name) ,lisp-name)))
+      (when pointer-name
+        (pprint `(fli:define-c-typedef ,(mangle-name pointer-name) (:pointer ,lisp-name))))
+      )))
 
 (defparameter *if-regex1*
   (create-scanner "^#\\s*ifdef\\s+(.*)"))
@@ -269,9 +282,10 @@ corresponding C code to *STANDARD-OUTPUT*."
                         line-number contexts pos-contexts neg-contexts)
                 )))
       ;; typedef struct ...
-      (do-register-groups (name struct-body)
-          ("(?sm)^typedef struct ([\\w_]+)$\\s*\\{(.*)\\}\\s*\\1;" file-string)
-        (handle-struct name struct-body))
+      (do-register-groups (struct-name body typedef-name pointerp pointer-name)
+          ("(?sm)^typedef struct ([\\w_]+)$\\s*\\{([^{}]+)\\}\\s*([\\w_]+)(,\\s\\*([\\w_]+))?;" file-string)
+        (declare (ignore pointerp))
+        (handle-struct struct-name body typedef-name pointer-name))
       ;; xPROC(...)
       (do-register-groups (name) (*xproc-regex1* file-string)
         (let ((full-name (concatenate 'string name "SEL")))
