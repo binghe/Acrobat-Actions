@@ -65,7 +65,6 @@
     "HAS_MENUBAR" "HAS_FULL_SCREEN" "HAS_MENUS" "CAN_SELECT_GRAPHICS" ; used in AVProcs.h
     #+:macosx "MAC_PLATFORM"
     #+:win32  "WIN_PLATFORM"
-    #+:lispworks-64bit "AS_ARCH_64BIT"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
     "PI_CORE_VERSION != 0"
     "ASUSE_OBSOLETE_TYPES"
@@ -80,14 +79,15 @@
     "READER"          ; We are not building Reader plugins (but this is possible)
     "USE_NAMED_IDLE_PROCS"
     "USE_NAMED_LATE_INIT_PROCS"
-    "HAS_32BIT_ATOMS" "BAD_SELECTOR"
+    "HAS_32BIT_ATOMS"
+    "BAD_SELECTOR"
     "UNIX_PLATFORM"
     #-:macosx "MAC_PLATFORM"
     #-:win32  "WIN_PLATFORM"
-    #-:lispworks-64bit "AS_ARCH_64BIT"
     "__cplusplus"
     "STATIC_HFT"
     "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
+    "AS_ARCH_64BIT" ;; this is __LP64__ only
     ))
 
 (defvar *sdk-extern-location* nil

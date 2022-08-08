@@ -270,6 +270,8 @@
 (define-c-typedef cstring-ptr (:reference-pass :ef-mb-string))
 ;; line 2186
 (define-c-typedef posix-path-ptr (:reference-pass :ef-mb-string))
+;; line 2195
+(define-opaque-pointer fs-spec-ptr fs-spec)
 ;; line 2202
 (define-opaque-pointer fs-ref-ptr fs-ref)
 ;; line 2218

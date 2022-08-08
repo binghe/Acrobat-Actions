@@ -66,7 +66,8 @@
                (pprint `(fli:define-c-typedef
                             ,(mangle-name pointer-type) (:pointer ,name)))))))
         ((scan *typedef-regex2* line)
-         (register-groups-bind (existing-type pointer-type) (*typedef-regex2* line)
+         (register-groups-bind (existing-type pointer-type)
+             (*typedef-regex2* line)
            (let ((name (mangle-name pointer-type))
                  (fli-type (make-fli-type existing-type)))
              (format t "~%;; line ~D" *line-number*)
