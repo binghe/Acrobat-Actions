@@ -161,6 +161,7 @@ expression."
 (defun handle-struct (struct-name body typedef-name pointer-name)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
+  (declare (ignore struct-name))
   (let (slots)
     (do-register-groups (type pointerp names)
         (*type-and-names-regex* body)
@@ -169,12 +170,10 @@ corresponding FLI:DEFINE-C-STRUCT definition."
          (push (list (cond (pointerp `(:pointer ,(make-fli-type type)))
                            (t                    (make-fli-type type)))
                      (mangle-name name)) slots)))
-    (let ((lisp-name (mangle-name struct-name)))
+    (let ((lisp-name (mangle-name typedef-name)))
       (pprint `(fli:define-c-struct ,lisp-name
                  ,@(loop for (slot-type slot-name) in (nreverse slots)
                          collect `(,slot-name ,slot-type))))
-      (unless (string= struct-name typedef-name)
-        (pprint `(fli:define-c-typedef ,(mangle-name typedef-name) ,lisp-name)))
       (when pointer-name
         (pprint `(fli:define-c-typedef ,(mangle-name pointer-name) (:pointer ,lisp-name))))
       )))

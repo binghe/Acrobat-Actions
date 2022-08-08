@@ -287,63 +287,54 @@
 (define-opaque-pointer as-date -t-as-date-rec)
 ;; line 4075
 (define-opaque-pointer as-time-span -t-as-time-span-rec)
-(define-c-struct -s-as-proc-stm-rd-ex-handler
+(define-c-struct as-proc-stm-rd-ex-handler-rec
                  (size as-byte-count)
                  (read-proc as-stm-proc)
                  (destroy-proc as-proc-stm-destroy-proc)
                  (seek-proc as-proc-stm-seek-proc)
                  (get-length-proc as-proc-stm-get-length)
                  (buf-size as-byte-count))
-(define-c-typedef as-proc-stm-rd-ex-handler-rec
-                  -s-as-proc-stm-rd-ex-handler)
 (define-c-typedef as-proc-stm-rd-ex-handler
-                  (:pointer -s-as-proc-stm-rd-ex-handler))
-(define-c-struct -t-hft-data
+                  (:pointer as-proc-stm-rd-ex-handler-rec))
+(define-c-struct hft-data-rec
                  (size as-uns32)
                  (contain (the number of methods that the hft can))
                  (num-selectors as-count)
                  (version as-version)
                  (hft-procs (:pointer :void)))
-(define-c-typedef hft-data-rec -t-hft-data)
-(define-c-struct -t-as-fixed-matrix
+(define-c-struct as-fixed-matrix
                  (a as-fixed)
                  (b as-fixed)
                  (c as-fixed)
                  (d as-fixed)
                  (h as-fixed)
                  (v as-fixed))
-(define-c-typedef as-fixed-matrix -t-as-fixed-matrix)
-(define-c-typedef as-fixed-matrix-p (:pointer -t-as-fixed-matrix))
-(define-c-struct -t-as-fixed-point (h as-fixed) (v as-fixed))
-(define-c-typedef as-fixed-point -t-as-fixed-point)
-(define-c-typedef as-fixed-point-p (:pointer -t-as-fixed-point))
-(define-c-struct -t-as-fixed-rect
+(define-c-typedef as-fixed-matrix-p (:pointer as-fixed-matrix))
+(define-c-struct as-fixed-point (h as-fixed) (v as-fixed))
+(define-c-typedef as-fixed-point-p (:pointer as-fixed-point))
+(define-c-struct as-fixed-rect
                  (left as-fixed)
                  (top as-fixed)
                  (right as-fixed)
                  (bottom as-fixed))
-(define-c-typedef as-fixed-rect -t-as-fixed-rect)
-(define-c-typedef as-fixed-rect-p (:pointer -t-as-fixed-rect))
-(define-c-struct -t-as-double-matrix
+(define-c-typedef as-fixed-rect-p (:pointer as-fixed-rect))
+(define-c-struct as-double-matrix
                  (a as-double)
                  (b as-double)
                  (c as-double)
                  (d as-double)
                  (h as-double)
                  (v as-double))
-(define-c-typedef as-double-matrix -t-as-double-matrix)
-(define-c-typedef as-double-matrix-p (:pointer -t-as-double-matrix))
-(define-c-struct -t-as-double-point (h as-double) (v as-double))
-(define-c-typedef as-double-point -t-as-double-point)
-(define-c-typedef as-double-point-p (:pointer -t-as-double-point))
-(define-c-struct -t-as-double-rect
+(define-c-typedef as-double-matrix-p (:pointer as-double-matrix))
+(define-c-struct as-double-point (h as-double) (v as-double))
+(define-c-typedef as-double-point-p (:pointer as-double-point))
+(define-c-struct as-double-rect
                  (left as-double)
                  (top as-double)
                  (right as-double)
                  (bottom as-double))
-(define-c-typedef as-double-rect -t-as-double-rect)
-(define-c-typedef as-double-rect-p (:pointer -t-as-double-rect))
-(define-c-struct -t-as-time-rec
+(define-c-typedef as-double-rect-p (:pointer as-double-rect))
+(define-c-struct as-time-rec
                  (year as-int16)
                  (month as-int16)
                  (date as-int16)
@@ -353,9 +344,8 @@
                  (millisecond as-int16)
                  (day as-int16)
                  (gmt-offset as-int16))
-(define-c-typedef as-time-rec -t-as-time-rec)
-(define-c-typedef as-time-rec-p (:pointer -t-as-time-rec))
-(define-c-struct -t-asio-request-rec
+(define-c-typedef as-time-rec-p (:pointer as-time-rec))
+(define-c-struct asio-request-rec
                  (md-file asmd-file)
                  (ptr (:pointer :void))
                  (offset ast-file-pos)
@@ -365,8 +355,7 @@
                  (client-data (:pointer :void))
                  (io-done-proc asio-done-proc)
                  (io-done-proc-data (:pointer :void)))
-(define-c-typedef asio-request-rec -t-asio-request-rec)
-(define-c-struct -t-progress-monitor
+(define-c-struct as-progress-monitor-rec
                  (size as-size-t)
                  (begin-operation pm-begin-operation-proc)
                  (end-operation pm-end-operation-proc)
@@ -375,8 +364,8 @@
                  (get-duration pm-get-duration-proc)
                  (get-curr-value pm-get-curr-value-proc)
                  (set-text pm-set-text-proc))
-(define-c-typedef as-progress-monitor-rec -t-progress-monitor)
-(define-c-typedef as-progress-monitor (:pointer -t-progress-monitor))
+(define-c-typedef as-progress-monitor
+                  (:pointer as-progress-monitor-rec))
 
 ;; #include <CorProcs.h>
 (defconstant +as-raise-sel+ 1)
