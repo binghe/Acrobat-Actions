@@ -91,7 +91,7 @@ defintion and writes it to the output stream."
 If it is one, we write a corresponding function definition to the
 output stream."
   (let ((lisp-name (mangle-name
-                    (concatenate 'string c-name "SELPROTO"))))
+                    (concatenate 'string c-name "-SELPROTO"))))
     (write-function-definition lisp-name (make-fli-type result-type)
                                ;; args are separated by commas
                                (cond ((string= args "void") ; no args
@@ -158,15 +158,15 @@ expression."
 ;; cf. *type-and-name-regex* (util.lisp)
 (defparameter *type-and-names-regex*
   (create-scanner
-   "(?m)^\\s*([^,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;(?:\\s*//.*)?\\s*?$"))
+   "(?sm)\\s*(\\*\\*[^*]+\\*/\\s*)?([^,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"))
 
-(defun handle-struct (struct-name body typedef-name pointer-name)
+(defun handle-struct (body typedef-name pointer-name)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
-  (declare (ignore struct-name))
   (let (slots)
-    (do-register-groups (type pointerp names)
+    (do-register-groups (comments? type pointerp names)
         (*type-and-names-regex* body)
+      (declare (ignore comments?))
       (loop for name in (split "\\s*,\\s*" names)
             do
          (push (list (cond (pointerp `(:pointer ,(make-fli-type type)))
@@ -181,9 +181,10 @@ corresponding FLI:DEFINE-C-STRUCT definition."
       )))
 
 ;; typedef ACCBPROTO1 void (ACCBPROTO2 *HFTServerDestroyProc)(HFTServer hftServer, void *rock);
+;; typedef ACCBPROTO1 ASFilePos64 (ACCBPROTO2 *ASProcStmGetLength)(void *clientData);
 (defparameter *prototype-regex*
   (create-scanner
-   "(?m)^typedef\\s+ACCBPROTO1\\s+(\\w+)\\s+\\(ACCBPROTO2\\s+\\*(\\w+Proc)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
+   "(?m)^typedef\\s+ACCBPROTO1\\s+(\\w+)\\s+\\(ACCBPROTO2\\s+\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
 
 (defun handle-prototype (file-string)
   (do-register-groups (return-type proc-name args) (*prototype-regex* file-string)
@@ -211,9 +212,14 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 
 ;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
 (defparameter *xproc-regex2*
-  (create-scanner "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s+\\(([\\w\\s\\*,]+)\\)(,\\s*\\w+)?\\)"))
+  (create-scanner
+   "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s+\\(([\\w\\s\\*,]+)\\)(,\\s*\\w+)?\\)"))
 
-(defvar *line-number*)
+(defparameter *typedef-struct-regex*
+  (create-scanner
+   "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{([^{}]+)\\}\\s*([\\w_]+)(,\\s\\*([\\w_]+))?;"))
+
+(defvar *line-number* 0)
 
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
@@ -301,21 +307,21 @@ corresponding C code to *STANDARD-OUTPUT*."
                 (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
                         line-number contexts pos-contexts neg-contexts)
                 )))
+      ;; prototypes
+      (handle-prototype file-string)
       ;; typedef struct ...
-      (do-register-groups (struct-name body typedef-name pointerp pointer-name)
-          ("(?sm)^typedef struct ([\\w_]+)$\\s*\\{([^{}]+)\\}\\s*([\\w_]+)(,\\s\\*([\\w_]+))?;" file-string)
-        (declare (ignore pointerp))
-        (handle-struct struct-name body typedef-name pointer-name))
+      (do-register-groups (struct-name? body typedef-name pointerp pointer-name)
+          (*typedef-struct-regex* file-string)
+        (declare (ignore struct-name? pointerp))
+        (handle-struct body typedef-name pointer-name))
       ;; xPROC(...)
       (do-register-groups (name) (*xproc-regex1* file-string)
-        (let ((full-name (concatenate 'string name "SEL")))
+        (let ((full-name (concatenate 'string name "-SEL")))
           (pprint `(defconstant ,(mangle-name full-name :constant t) ,*hft-counter*)))
         (incf *hft-counter*))
       ;; xPROC(...)
       (do-register-groups (type name args) (*xproc-regex2* file-string)
         (handle-function type name args))
-      ;; prototypes
-      (handle-prototype file-string)
       (terpri))))
 
 (defun prepare ()

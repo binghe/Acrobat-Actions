@@ -57,7 +57,7 @@
     ("uintptr_t" :uintptr)))
 
 (defparameter *ignored-defines*
-  '())
+  '("boolean"))
 
 ;; These C macros are considered being defined as 1 in the SDK
 (defparameter *positive-macros*

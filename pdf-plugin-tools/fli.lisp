@@ -290,11 +290,11 @@
 ;; line 3878
 (define-c-typedef as-unicode-char as-uns32)
 ;; line 3879
-(define-c-typedef asutf32val as-uns32)
+(define-c-typedef as-utf32val as-uns32)
 ;; line 3891
-(define-c-typedef asutf16val as-uns16)
+(define-c-typedef as-utf16val as-uns16)
 ;; line 3896
-(define-c-typedef asutf8val as-uns8)
+(define-c-typedef as-utf8val as-uns8)
 ;; line 3973
 (define-c-typedef as-script as-int32)
 ;; line 4033
@@ -867,6 +867,14 @@
                     as-bool
                     :calling-convention
                     :cdecl)))
+(define-c-struct as-crypt-stm-procs
+                 (empty-buff as-crypt-stm-fil-buf-proc)
+                 (full-buff as-crypt-stm-fls-buf-proc)
+                 (un-get-ch as-crypt-stm-un-getc-proc)
+                 (flush-buff as-crypt-stm-f-flush-proc)
+                 (close as-crypt-stm-f-close-proc)
+                 (reset as-crypt-stm-f-reset-proc)
+                 (put-eof as-crypt-stm-f-put-eof-proc))
 (define-c-struct as-crypt-stm-rec
                  (count as-int32)
                  (current-pointer (:pointer :byte))
@@ -887,7 +895,6 @@
                   (:pointer as-proc-stm-rd-ex-handler-rec))
 (define-c-struct hft-data-rec
                  (size as-uns32)
-                 (contain (the number of methods that the hft can))
                  (num-selectors as-count)
                  (version as-version)
                  (hft-procs (:pointer :void)))
@@ -993,7 +1000,7 @@
 (define-c-struct fs-ref-with-cf-string-ref-rec
                  (ref (:pointer (struct fs-ref)))
                  (str (:pointer (struct --cf-string))))
-(define-c-struct cfurl-ref-rec)
+(define-c-struct cfurl-ref-rec (url (:pointer (struct --cfurl))))
 (define-c-struct as-file-sys-rec
                  (size as-size-t)
                  (open as-file-sys-open-proc)
@@ -1049,6 +1056,8 @@
                   as-file-sys-get-type-and-creator-proc)
                  (reopen as-file-sys-reopen-proc)
                  (hard-flush as-file-sys-hard-flush-proc)
+                 (get-platform-thing
+                  as-file-sys-get-platform-thing-proc)
                  (get-item-props-as-cab
                   as-file-sys-get-item-props-as-cab-proc)
                  (can-perform-op-on-item
@@ -1092,6 +1101,12 @@
                  (set-text pm-set-text-proc))
 (define-c-typedef as-progress-monitor
                   (:pointer as-progress-monitor-rec))
+(define-c-struct as-uuid
+                 (time-low as-uns32)
+                 (time-mid as-uns16)
+                 (time-hi-and-version as-uns16)
+                 (clock-seq-hi-and-reserved as-uns8)
+                 (clock-seq-low as-uns8))
 (define-c-struct as-calendar-time-span-rec
                  (year as-uns32)
                  (month as-uns32)
@@ -1353,10 +1368,8 @@
         (list 'with-coerced-pointer
               (list 'temp ':type ''hft)
               '*g-core-hft*
-              (list 'incf-pointer
-                    'temp
-                    '+as-extension-mgr-get-hft-sel+)
-              (nconc (list 'as-extension-mgr-get-hft-selproto
+              (list 'incf-pointer 'temp '+as-extension-mgr-get-hftsel+)
+              (nconc (list 'as-extension-mgr-get-hftselproto
                            (list 'dereference 'temp))
                      args))
         (list 'error "Not implemented")))
@@ -1456,7 +1469,7 @@
 (defconstant +as-file-m-read-request-sel+ 68)
 (defconstant +as-file-clear-outstanding-m-reads-sel+ 69)
 (defconstant +as-file-sys-url-from-path-sel+ 70)
-(defconstant +as-file-get-urlsel+ 71)
+(defconstant +as-file-get-url-sel+ 71)
 (defconstant +as-file-sys-create-folder-sel+ 72)
 (defconstant +as-file-sys-remove-folder-sel+ 73)
 (defconstant +as-file-get-open-mode-sel+ 74)
@@ -1495,20 +1508,20 @@
 (defconstant +as-get-ram-file-sys-sel+ 107)
 (defconstant +as-fixed-to-float-sel+ 108)
 (defconstant +float-to-as-fixed-sel+ 109)
-(defconstant +as-file-sys-open-file64sel+ 110)
+(defconstant +as-file-sys-open-file64-sel+ 110)
 (defconstant +as-file-sys-get-file-pos-limit-sel+ 111)
-(defconstant +as-file-set-pos64sel+ 112)
-(defconstant +as-file-get-pos64sel+ 113)
-(defconstant +as-file-set-eof64sel+ 114)
-(defconstant +as-file-get-eof64sel+ 115)
-(defconstant +as-ram-file-sys-set-limit-kbsel+ 116)
+(defconstant +as-file-set-pos64-sel+ 112)
+(defconstant +as-file-get-pos64-sel+ 113)
+(defconstant +as-file-set-eof64-sel+ 114)
+(defconstant +as-file-get-eof64-sel+ 115)
+(defconstant +as-ram-file-sys-set-limit-kb-sel+ 116)
 (defconstant +as-file-sys-get-name-from-path-for-display-sel+ 117)
 (defconstant +as-get-default-unicode-file-sys-sel+ 118)
 (defconstant +as-get-error-string-as-text-sel+ 119)
 (defconstant +as-register-error-string-as-text-sel+ 120)
 (defconstant +as-get-default-file-sys-for-path-sel+ 121)
 (defconstant +as-file-sys-is-local-sel+ 122)
-(defconstant +as-file-sys-get-storage-free-space64sel+ 123)
+(defconstant +as-file-sys-get-storage-free-space64-sel+ 123)
 (defconstant +as-double-matrix-concat-sel+ 124)
 (defconstant +as-double-matrix-invert-sel+ 125)
 (defconstant +as-double-matrix-transform-sel+ 126)
@@ -2165,7 +2178,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-get-urlselproto
+(define-foreign-funcallable as-file-get-url-selproto
                             ((asf as-file))
                             :result-type
                             (:reference-pass :ef-mb-string)
@@ -2289,7 +2302,7 @@
                             :language
                             :ansi-c)
 (define-foreign-funcallable as-uuid-gen-unique-selproto
-                            ((dst (:pointer asuuid)))
+                            ((dst (:pointer as-uuid)))
                             :result-type
                             as-bool
                             :calling-convention
@@ -2297,8 +2310,8 @@
                             :language
                             :ansi-c)
 (define-foreign-funcallable as-uuid-gen-from-name-selproto
-                            ((dst (:pointer asuuid))
-                             (ns (:pointer asuuid))
+                            ((dst (:pointer as-uuid))
+                             (ns (:pointer as-uuid))
                              (name (:pointer :void))
                              (bytes as-byte-count))
                             :result-type
@@ -2308,7 +2321,7 @@
                             :language
                             :ansi-c)
 (define-foreign-funcallable as-uuid-from-c-string-selproto
-                            ((dst (:pointer asuuid))
+                            ((dst (:pointer as-uuid))
                              (str (:reference-pass :ef-mb-string)))
                             :result-type
                             as-bool
@@ -2318,7 +2331,7 @@
                             :ansi-c)
 (define-foreign-funcallable as-uuid-to-c-string-selproto
                             ((dst (:reference-pass :ef-mb-string))
-                             (src (:pointer asuuid)))
+                             (src (:pointer as-uuid)))
                             :result-type
                             :void
                             :calling-convention
@@ -2517,7 +2530,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-sys-open-file64selproto
+(define-foreign-funcallable as-file-sys-open-file64-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
                              (mode as-file-mode)
@@ -2536,7 +2549,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-set-pos64selproto
+(define-foreign-funcallable as-file-set-pos64-selproto
                             ((a-file as-file) (pos as-file-pos64))
                             :result-type
                             :void
@@ -2544,7 +2557,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-get-pos64selproto
+(define-foreign-funcallable as-file-get-pos64-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-pos64
@@ -2552,7 +2565,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-set-eof64selproto
+(define-foreign-funcallable as-file-set-eof64-selproto
                             ((a-file as-file)
                              (new-file-size as-file-pos64))
                             :result-type
@@ -2561,7 +2574,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-get-eof64selproto
+(define-foreign-funcallable as-file-get-eof64-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-pos64
@@ -2569,7 +2582,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-ram-file-sys-set-limit-kbselproto
+(define-foreign-funcallable as-ram-file-sys-set-limit-kb-selproto
                             ((limit as-int32))
                             :result-type
                             :void
@@ -2630,7 +2643,7 @@
                             :cdecl
                             :language
                             :ansi-c)
-(define-foreign-funcallable as-file-sys-get-storage-free-space64selproto
+(define-foreign-funcallable as-file-sys-get-storage-free-space64-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
                             :result-type
