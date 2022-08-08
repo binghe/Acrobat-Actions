@@ -83,8 +83,7 @@ defintion and writes it to the output stream."
                ,(loop for (type name nil) in args
                       collect `(,name ,type))
              :result-type ,result-type
-             :calling-convention :cdecl
-             :language :ansi-c)))
+             :calling-convention :cdecl)))
 
 (defun handle-function (result-type c-name args)
   "Accepts one line of C code and checks if it's a function prototype.
@@ -320,8 +319,11 @@ corresponding C code to *STANDARD-OUTPUT*."
           (pprint `(defconstant ,(mangle-name full-name :constant t) ,*hft-counter*)))
         (incf *hft-counter*))
       ;; xPROC(...)
+      (setq *hft-counter* 1)
       (do-register-groups (type name args) (*xproc-regex2* file-string)
-        (handle-function type name args))
+        (format t "~%;; sel = ~A" *hft-counter*)
+        (handle-function type name args)
+        (incf *hft-counter*))
       (terpri))))
 
 (defun prepare ()
