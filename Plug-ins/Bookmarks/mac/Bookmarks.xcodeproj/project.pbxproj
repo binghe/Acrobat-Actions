@@ -179,7 +179,6 @@
 		4FA770FF2708B37A00E02C94 /* PIHeaders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PIHeaders.c; path = ../../PluginSupport/Headers/API/PIHeaders.c; sourceTree = "<group>"; };
 		4FA771002708B37A00E02C94 /* SpellerHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellerHFTProcs.h; path = ../../PluginSupport/Headers/API/SpellerHFTProcs.h; sourceTree = "<group>"; };
 		4FA771052708B39B00E02C94 /* PIHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIHeaders.h; path = ../../PluginSupport/Headers/SDK/PIHeaders.h; sourceTree = "<group>"; };
-		4FBD0BDC272DD3B7001019BA /* Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Regex.h; path = ../sources/Regex.h; sourceTree = "<group>"; };
 		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -365,7 +364,6 @@
 				4FA770F12708B37900E02C94 /* PIExcept.h */,
 				4FA770FF2708B37A00E02C94 /* PIHeaders.c */,
 				4FA770F42708B37900E02C94 /* PIHeaders.pch */,
-				4FA7709D2708B37800E02C94 /* PIMain.h */,
 				4FA770FB2708B37A00E02C94 /* PIPokes.h */,
 				4FA770ED2708B37900E02C94 /* PIPrefix.h */,
 				4FA770C72708B37900E02C94 /* PIRequir.h */,
@@ -409,7 +407,7 @@
 		4FBD0BDB272DD394001019BA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				4FBD0BDC272DD3B7001019BA /* Regex.h */,
+				4FA7709D2708B37800E02C94 /* PIMain.h */,
 				4FA771052708B39B00E02C94 /* PIHeaders.h */,
 				4FA211862386BFEE0057E287 /* Functions.hpp */,
 			);
