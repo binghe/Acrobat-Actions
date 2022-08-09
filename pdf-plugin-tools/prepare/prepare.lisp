@@ -215,7 +215,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
   (create-scanner "^#\\s*ifdef\\s+(.*)"))
 
 (defparameter *if-regex2*
-  (create-scanner "^#\\s*if\\s+(!)?([\\w\\s\\|\\(\\)<!=_]+)(?<!\\s)\\s*$"))
+  (create-scanner "^#\\s*if\\s+(!)?([\\w\\s\\|\\(\\)<!=_&]+)(?<!\\s)\\s*$"))
 
 ;; This pattern only retrieves the function name
 (defparameter *xproc-regex1*

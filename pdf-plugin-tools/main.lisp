@@ -118,20 +118,20 @@ SDK-provided functionality."
             (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
             (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
                   (*g-core-version* +core-hft-version-2+))
-              (plugin-log "[PISetupSDK] *g-core-hft* (bootstrap) = ~A~%" *g-core-hft*)
-              (plugin-log "[PISetupSDK] *g-core-version* (bootstrap) = #x~X~%" *g-core-version*)
+              (plugin-log "[PISetupSDK] *g-core-hft* (bootstrap) = ~A, #x~X~%"
+                          *g-core-hft* *g-core-version*)
               (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
                      (acro-support-name (as-atom-get-string acro-support-atom)))
                 (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
                             acro-support-atom acro-support-name)
                 (setq *g-acro-support-hft*
                       (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+))
+                (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
                 (when *g-acro-support-hft*
                   (setq *g-acro-support-version* +as-calls-hft-version-6+)
-                  (let* ((valid-p (hft-is-valid *g-acro-support-hft*))
-                         (version (hft-get-version *g-acro-support-hft*)))
-                    (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A, ~A (~A)~%"
-                                *g-acro-support-hft* version valid-p)
+                  (let ((version (hft-get-version *g-acro-support-hft*)))
+                    (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A, #x~X~%"
+                                *g-acro-support-hft* version)
                     )))
               (plugin-log "[PISetupSDK] end temporarily.~%")
               (return-from pi-setup-sdk success))))))

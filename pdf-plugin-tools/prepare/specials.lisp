@@ -69,6 +69,11 @@
     "PI_CORE_VERSION != 0"
     "ASUSE_OBSOLETE_TYPES"
     "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
+    "NEW_PDFEDIT_HFTS"
+    "NEW_PDSEDIT_HFTS"
+    "PDMETADATA_HFT"
+    "AS_ARCH_64BIT"
+    "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
     ))
 
 ;; These C macros are considered being defined as 0 in the SDK
@@ -87,7 +92,6 @@
     #-:win32  "WIN_PLATFORM"
     "__cplusplus"
     "STATIC_HFT"
-    "AS_ARCH_64BIT" ;; this is __LP64__ only
     ))
 
 (defvar *sdk-extern-location* nil
