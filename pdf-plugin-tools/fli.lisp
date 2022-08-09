@@ -1248,143 +1248,82 @@
 (define-c-typedef ac-get-exception-error-code
                   as-get-exception-error-code)
 ;; line 420
-(defmacro as-raise-impl (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-raise-sel+)
-              (nconc (list 'as-raise-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-raise-impl "ASRaiseImpl")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-raise-selproto
+                         *g-core-hft*
+                         +as-raise-sel+)
 ;; line 438
-(defmacro as-push-exception-frame (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-push-exception-frame-sel+)
-              (nconc (list 'as-push-exception-frame-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-push-exception-frame "ASPushExceptionFrame")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-push-exception-frame-selproto
+                         *g-core-hft*
+                         +as-push-exception-frame-sel+)
 ;; line 445
-(defmacro as-pop-exception-frame (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-pop-exception-frame-sel+)
-              (nconc (list 'as-pop-exception-frame-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-pop-exception-frame "ASPopExceptionFrame")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-pop-exception-frame-selproto
+                         *g-core-hft*
+                         +as-pop-exception-frame-sel+)
 ;; line 452
-(defmacro as-get-exception-error-code (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer
-                    'temp
-                    '+as-get-exception-error-code-sel+)
-              (nconc (list 'as-get-exception-error-code-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-get-exception-error-code "ASGetExceptionErrorCode")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-get-exception-error-code-selproto
+                         *g-core-hft*
+                         +as-get-exception-error-code-sel+)
 ;; line 461
-(defmacro as-atom-from-string (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-atom-from-string-sel+)
-              (nconc (list 'as-atom-from-string-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-atom-from-string "ASAtomFromString")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-atom-from-string-selproto
+                         *g-core-hft*
+                         +as-atom-from-string-sel+)
 ;; line 468
-(defmacro as-atom-exists-for-string (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer
-                    'temp
-                    '+as-atom-exists-for-string-sel+)
-              (nconc (list 'as-atom-exists-for-string-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-atom-exists-for-string "ASAtomExistsForString")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-atom-exists-for-string-selproto
+                         *g-core-hft*
+                         +as-atom-exists-for-string-sel+)
 ;; line 475
-(defmacro as-atom-get-string (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-atom-get-string-sel+)
-              (nconc (list 'as-atom-get-string-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-atom-get-string "ASAtomGetString")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-atom-get-string-selproto
+                         *g-core-hft*
+                         +as-atom-get-string-sel+)
 ;; line 510
-(defmacro as-callback-destroy (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-callback-destroy-sel+)
-              (nconc (list 'as-callback-destroy-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-callback-destroy "ASCallbackDestroy")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-callback-destroy-selproto
+                         *g-core-hft*
+                         +as-callback-destroy-sel+)
 ;; line 515
-(defmacro as-extension-mgr-get-hft (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer
-                    'temp
-                    '+as-extension-mgr-get-hft-sel+)
-              (nconc (list 'as-extension-mgr-get-hft-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-extension-mgr-get-hft "ASExtensionMgrGetHFT")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-extension-mgr-get-hft-selproto
+                         *g-core-hft*
+                         +as-extension-mgr-get-hft-sel+)
 ;; line 528
-(defmacro as-get-configuration (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-2+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-get-configuration-sel+)
-              (nconc (list 'as-get-configuration-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-get-configuration "ASGetConfiguration")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-get-configuration-selproto
+                         *g-core-hft*
+                         +as-get-configuration-sel+)
 ;; line 534
-(defmacro as-enum-extensions (&rest args)
-  (list 'if
-        (list '>= '*g-core-version* '+core-hft-version-4+)
-        (list 'with-coerced-pointer
-              (list 'temp ':type ''hft)
-              '*g-core-hft*
-              (list 'incf-pointer 'temp '+as-enum-extensions-sel+)
-              (nconc (list 'as-enum-extensions-selproto
-                           (list 'dereference 'temp))
-                     args))
-        (list 'error "Not implemented")))
+(define-acrobat-function (as-enum-extensions "ASEnumExtensions")
+                         *g-core-version*
+                         +core-hft-version-4+
+                         as-enum-extensions-selproto
+                         *g-core-hft*
+                         +as-enum-extensions-sel+)
 
 ;; #include <ASProcs.h>
 (defconstant +as-malloc-sel+ 1)

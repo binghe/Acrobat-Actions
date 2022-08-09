@@ -114,6 +114,27 @@ by FileMaker) to line feeds."
                            (otherwise char))
                          out))))
 
+(defmacro define-acrobat-function ((name c-name) ver-name version proto hft sel)
+  ;; use a gensym for POINTER-NAME that has some resemblance to C-NAME
+  (let ((pointer-name (gensym c-name)))
+    `(defmacro ,name (&rest args)
+       `(cond ((>= ,',ver-name ,',version)
+               (fli:with-coerced-pointer (,',pointer-name :type 'hft) ,',hft
+                 (fli:incf-pointer ,',pointer-name ,',sel)
+                 (,',proto (fli:dereference ,',pointer-name) ,@args)))
+              (t
+               (error "not implemented"))))))
+
+;; help the LispWorks IDE to find these definitions
+(define-form-parser define-acrobat-function (name)
+  `(,define-acrobat-function ,(first name)))
+
+(define-dspec-alias define-acrobat-function (name)
+  `(defun ,name))
+
+;; setup correct indentation of DEFINE-ACROBAT-FUNCTION
+(editor:setup-indent "define-acrobat-function" 2 2 4)
+
 ;; This is learnt from CXML web site
 (defun write-xml (node &key indent)
   (let ((sink (cxml:make-string-sink

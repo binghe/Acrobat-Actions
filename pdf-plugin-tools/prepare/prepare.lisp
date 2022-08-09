@@ -108,31 +108,6 @@ expression."
   ;; just read value as a number
   (read-from-string string))
 
-(defun write-versioned-funcall (name ver-name version proto hft sel)
-  (let ((hft-symbol  (intern "HFT"  :pdf-plugin-tools))
-        (args-symbol (intern "ARGS" :pdf-plugin-tools))
-        (temp-symbol (intern "TEMP" :pdf-plugin-tools)))
-    (pprint `(defmacro ,name (&rest ,args-symbol)
-               (list 'if (list '>= ',ver-name ',version)
-                     (list 'fli:with-coerced-pointer
-                           (list ',temp-symbol ':type '',hft-symbol) ',hft
-                           (list 'fli:incf-pointer ',temp-symbol ',sel)
-                           (nconc (list ',proto (list 'fli:dereference ',temp-symbol)) ,args-symbol))
-                     (list 'error "Not implemented"))))))
-
-#+ignore
-(defun write-versioned-funcall (name ver-name version proto hft sel)
-  (let ((hft-symbol  (intern "HFT"  :pdf-plugin-tools))
-        (args-symbol (intern "ARGS" :pdf-plugin-tools))
-        (temp-symbol (intern "TEMP" :pdf-plugin-tools)))
-    (pprint `(defmacro ,name (&rest ,args-symbol)
-               (list 'if (list '>= ',ver-name ',version)
-                     (list 'fli:with-coerced-pointer
-                           (list ',temp-symbol ':type '',hft-symbol) ',hft
-                           (list 'fli:incf-pointer ',temp-symbol ',sel)
-                           (nconc (list ',proto (list 'fli:dereference ',temp-symbol)) ,args))
-                     (list 'error "Not implemented"))))))
-
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
   (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
@@ -166,9 +141,10 @@ expression."
                   (lisp-version (mangle-name version :constant t))
                   (lisp-proto (mangle-name proto))
                   (lisp-hft (mangle-name hft :global t))
-                  (lisp-sel (mangle-name sel :constant t)))
-             (write-versioned-funcall lisp-name lisp-vername lisp-version
-                                      lisp-proto lisp-hft lisp-sel))))))
+                  (lisp-sel (mangle-name sel :constant t))
+                  (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
+             (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
+                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))))
 
 ;; cf. *type-and-name-regex* (util.lisp)
 (defparameter *type-and-names-regex*
