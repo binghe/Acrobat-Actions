@@ -91,7 +91,7 @@ the Lisp symbol to denote a Lisp constant."
          (intern (string-upcase string) :pdf-plugin-tools))))
 
 (defparameter *type-and-name-regex*
-  (create-scanner "^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)\\s*$"))
+  (create-scanner "^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))
 
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
@@ -100,12 +100,14 @@ name.  Returns as the third value the name as a string.  If ARGP
 is true, the result is supposed to be used as a function
 argument."
   (declare (ignore argp))
-  (register-groups-bind (type pointerp name)
+  (register-groups-bind (type pointerp name arrayp size)
       (*type-and-name-regex* string)
     (setq type (make-fli-type type))
     (let ((final-type
            (cond ((and pointerp (eq type :byte))
                   '(:reference-pass :ef-mb-string))
+                 (arrayp
+                  `(:c-array ,type ,(parse-integer size)))
                  (t
                   (if pointerp `(:pointer ,type) type)))))
       (list final-type

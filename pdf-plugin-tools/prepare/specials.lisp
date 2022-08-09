@@ -92,6 +92,7 @@
     #-:win32  "WIN_PLATFORM"
     "__cplusplus"
     "STATIC_HFT"
+    "_WIN32"
     ))
 
 (defvar *sdk-extern-location* nil

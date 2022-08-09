@@ -119,7 +119,7 @@ by FileMaker) to line feeds."
   (let ((pointer-name (gensym c-name)))
     `(defmacro ,name (&rest args)
        `(cond ((>= ,',ver-name ,',version)
-               (fli:with-coerced-pointer (,',pointer-name :type 'hft) ,',hft
+               (fli:with-coerced-pointer (,',pointer-name :type 'hft-entry) ,',hft
                  (fli:incf-pointer ,',pointer-name ,',sel)
                  (,',proto (fli:dereference ,',pointer-name) ,@args)))
               (t

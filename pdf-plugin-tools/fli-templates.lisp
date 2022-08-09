@@ -34,6 +34,6 @@
    #+:macosx
    (cf-bundle-ref    :no-alloc-p :error :size nil)
    (extension-id     :no-alloc-p :error :size nil)
-   (hft              :no-alloc-p :error :size t)
+   (hft-entry        :no-alloc-p :error :size t)
    (hft              :no-alloc-p :error :size nil)
    ))

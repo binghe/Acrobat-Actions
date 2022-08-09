@@ -1409,48 +1409,50 @@
 (defconstant +as-proc-stm-rd-open-ex-sel+ 83)
 (defconstant +as-uuid-gen-unique-sel+ 84)
 (defconstant +as-uuid-gen-from-name-sel+ 85)
-(defconstant +as-uuid-from-c-string-sel+ 86)
-(defconstant +as-uuid-to-c-string-sel+ 87)
-(defconstant +as-file-sys-get-platform-thing-sel+ 88)
-(defconstant +as-file-sys-acquire-platform-path-sel+ 89)
-(defconstant +as-file-sys-release-platform-path-sel+ 90)
-(defconstant +as-platform-path-get-cstring-ptr-sel+ 91)
-(defconstant +as-platform-path-get-fs-ref-ptr-sel+ 92)
-(defconstant +as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-sel+ 93)
-(defconstant +as-platform-path-get-cfurl-ref-rec-ptr-sel+ 94)
-(defconstant +as-platform-path-get-posix-path-ptr-sel+ 95)
-(defconstant +as-file-sys-get-name-from-path-as-as-text-sel+ 96)
-(defconstant +as-file-sys-display-as-text-from-path-sel+ 97)
-(defconstant +as-stm-flush-sel+ 98)
-(defconstant +as-file-can-set-eof-sel+ 99)
-(defconstant +hft-get-version-sel+ 100)
-(defconstant +hft-new-ex-sel+ 101)
-(defconstant +as-file-sys-di-path-from-path-ex-sel+ 102)
-(defconstant +as-file-sys-path-from-di-path-ex-sel+ 103)
-(defconstant +as-get-temp-file-sys-sel+ 104)
-(defconstant +as-set-temp-file-sys-sel+ 105)
-(defconstant +as-get-ram-file-sys-sel+ 106)
-(defconstant +as-fixed-to-float-sel+ 107)
-(defconstant +float-to-as-fixed-sel+ 108)
-(defconstant +as-file-sys-open-file64-sel+ 109)
-(defconstant +as-file-sys-get-file-pos-limit-sel+ 110)
-(defconstant +as-file-set-pos64-sel+ 111)
-(defconstant +as-file-get-pos64-sel+ 112)
-(defconstant +as-file-set-eof64-sel+ 113)
-(defconstant +as-file-get-eof64-sel+ 114)
-(defconstant +as-ram-file-sys-set-limit-kb-sel+ 115)
-(defconstant +as-file-sys-get-name-from-path-for-display-sel+ 116)
-(defconstant +as-get-default-unicode-file-sys-sel+ 117)
-(defconstant +as-get-error-string-as-text-sel+ 118)
-(defconstant +as-register-error-string-as-text-sel+ 119)
-(defconstant +as-get-default-file-sys-for-path-sel+ 120)
-(defconstant +as-file-sys-is-local-sel+ 121)
-(defconstant +as-file-sys-get-storage-free-space64-sel+ 122)
-(defconstant +as-double-matrix-concat-sel+ 123)
-(defconstant +as-double-matrix-invert-sel+ 124)
-(defconstant +as-double-matrix-transform-sel+ 125)
-(defconstant +as-double-matrix-transform-rect-sel+ 126)
-(defconstant +as-file-open-with-virtual-eof-sel+ 127)
+(defconstant +as-uuid-gen-from-hash-sel+ 86)
+(defconstant +as-uuid-from-c-string-sel+ 87)
+(defconstant +as-uuid-to-c-string-sel+ 88)
+(defconstant +as-file-sys-get-platform-thing-sel+ 89)
+(defconstant +as-file-sys-acquire-platform-path-sel+ 90)
+(defconstant +as-file-sys-release-platform-path-sel+ 91)
+(defconstant +as-platform-path-get-cstring-ptr-sel+ 92)
+(defconstant +as-platform-path-get-fs-ref-ptr-sel+ 93)
+(defconstant +as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-sel+ 94)
+(defconstant +as-platform-path-get-cfurl-ref-rec-ptr-sel+ 95)
+(defconstant +as-platform-path-get-posix-path-ptr-sel+ 96)
+(defconstant +as-file-sys-get-name-from-path-as-as-text-sel+ 97)
+(defconstant +as-file-sys-display-as-text-from-path-sel+ 98)
+(defconstant +as-stm-flush-sel+ 99)
+(defconstant +as-file-has-outstanding-m-reads-sel+ 100)
+(defconstant +as-file-can-set-eof-sel+ 101)
+(defconstant +hft-get-version-sel+ 102)
+(defconstant +hft-new-ex-sel+ 103)
+(defconstant +as-file-sys-di-path-from-path-ex-sel+ 104)
+(defconstant +as-file-sys-path-from-di-path-ex-sel+ 105)
+(defconstant +as-get-temp-file-sys-sel+ 106)
+(defconstant +as-set-temp-file-sys-sel+ 107)
+(defconstant +as-get-ram-file-sys-sel+ 108)
+(defconstant +as-fixed-to-float-sel+ 109)
+(defconstant +float-to-as-fixed-sel+ 110)
+(defconstant +as-file-sys-open-file64-sel+ 111)
+(defconstant +as-file-sys-get-file-pos-limit-sel+ 112)
+(defconstant +as-file-set-pos64-sel+ 113)
+(defconstant +as-file-get-pos64-sel+ 114)
+(defconstant +as-file-set-eof64-sel+ 115)
+(defconstant +as-file-get-eof64-sel+ 116)
+(defconstant +as-ram-file-sys-set-limit-kb-sel+ 117)
+(defconstant +as-file-sys-get-name-from-path-for-display-sel+ 118)
+(defconstant +as-get-default-unicode-file-sys-sel+ 119)
+(defconstant +as-get-error-string-as-text-sel+ 120)
+(defconstant +as-register-error-string-as-text-sel+ 121)
+(defconstant +as-get-default-file-sys-for-path-sel+ 122)
+(defconstant +as-file-sys-is-local-sel+ 123)
+(defconstant +as-file-sys-get-storage-free-space64-sel+ 124)
+(defconstant +as-double-matrix-concat-sel+ 125)
+(defconstant +as-double-matrix-invert-sel+ 126)
+(defconstant +as-double-matrix-transform-sel+ 127)
+(defconstant +as-double-matrix-transform-rect-sel+ 128)
+(defconstant +as-file-open-with-virtual-eof-sel+ 129)
 ;; sel = 1
 (define-foreign-funcallable as-malloc-selproto
                             ((n-bytes os-size-t))
@@ -2160,6 +2162,14 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 86
+(define-foreign-funcallable as-uuid-gen-from-hash-selproto
+                            ((dst (:pointer as-uuid))
+                             (hash (:c-array as-uns8 16)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 87
 (define-foreign-funcallable as-uuid-from-c-string-selproto
                             ((dst (:pointer as-uuid))
                              (str (:reference-pass :ef-mb-string)))
@@ -2167,7 +2177,7 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 87
+;; sel = 88
 (define-foreign-funcallable as-uuid-to-c-string-selproto
                             ((dst (:reference-pass :ef-mb-string))
                              (src (:pointer as-uuid)))
@@ -2175,7 +2185,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 88
+;; sel = 89
 (define-foreign-funcallable as-file-sys-get-platform-thing-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2184,7 +2194,7 @@
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 89
+;; sel = 90
 (define-foreign-funcallable as-file-sys-acquire-platform-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2195,7 +2205,7 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 90
+;; sel = 91
 (define-foreign-funcallable as-file-sys-release-platform-path-selproto
                             ((file-sys as-file-sys)
                              (platform-path as-platform-path))
@@ -2203,42 +2213,42 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 91
+;; sel = 92
 (define-foreign-funcallable as-platform-path-get-cstring-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             cstring-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 92
+;; sel = 93
 (define-foreign-funcallable as-platform-path-get-fs-ref-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             fs-ref-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 93
+;; sel = 94
 (define-foreign-funcallable as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             fs-ref-with-cf-string-ref-rec-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 94
+;; sel = 95
 (define-foreign-funcallable as-platform-path-get-cfurl-ref-rec-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             cfurl-ref-rec-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 95
+;; sel = 96
 (define-foreign-funcallable as-platform-path-get-posix-path-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             posix-path-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 96
+;; sel = 97
 (define-foreign-funcallable as-file-sys-get-name-from-path-as-as-text-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2247,7 +2257,7 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 97
+;; sel = 98
 (define-foreign-funcallable as-file-sys-display-as-text-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2256,35 +2266,42 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 98
+;; sel = 99
 (define-foreign-funcallable as-stm-flush-selproto
                             ((stm as-stm))
                             :result-type
                             ast-count
                             :calling-convention
                             :cdecl)
-;; sel = 99
+;; sel = 100
+(define-foreign-funcallable as-file-has-outstanding-m-reads-selproto
+                            ((f-n as-file))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 101
 (define-foreign-funcallable as-file-can-set-eof-selproto
                             ((file as-file) (new-file-size as-int32))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 100
+;; sel = 102
 (define-foreign-funcallable hft-get-version-selproto
                             ((hft hft))
                             :result-type
                             as-version
                             :calling-convention
                             :cdecl)
-;; sel = 101
+;; sel = 103
 (define-foreign-funcallable hft-new-ex-selproto
                             ((hft-server hft-server) (data hft-data))
                             :result-type
                             hft
                             :calling-convention
                             :cdecl)
-;; sel = 102
+;; sel = 104
 (define-foreign-funcallable as-file-sys-di-path-from-path-ex-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2294,7 +2311,7 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 103
+;; sel = 105
 (define-foreign-funcallable as-file-sys-path-from-di-path-ex-selproto
                             ((file-sys as-file-sys)
                              (di-path-text as-const-text)
@@ -2303,42 +2320,42 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 104
+;; sel = 106
 (define-foreign-funcallable as-get-temp-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 105
+;; sel = 107
 (define-foreign-funcallable as-set-temp-file-sys-selproto
                             ((file-sys as-file-sys))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 106
+;; sel = 108
 (define-foreign-funcallable as-get-ram-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 107
+;; sel = 109
 (define-foreign-funcallable as-fixed-to-float-selproto
                             ((in-as-fixed as-fixed))
                             :result-type
                             :float
                             :calling-convention
                             :cdecl)
-;; sel = 108
+;; sel = 110
 (define-foreign-funcallable float-to-as-fixed-selproto
                             ((in-float :double))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 109
+;; sel = 111
 (define-foreign-funcallable as-file-sys-open-file64-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2348,28 +2365,28 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 110
+;; sel = 112
 (define-foreign-funcallable as-file-sys-get-file-pos-limit-selproto
                             ((file-sys as-file-sys))
                             :result-type
                             as-file-pos64
                             :calling-convention
                             :cdecl)
-;; sel = 111
+;; sel = 113
 (define-foreign-funcallable as-file-set-pos64-selproto
                             ((a-file as-file) (pos as-file-pos64))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 112
+;; sel = 114
 (define-foreign-funcallable as-file-get-pos64-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-pos64
                             :calling-convention
                             :cdecl)
-;; sel = 113
+;; sel = 115
 (define-foreign-funcallable as-file-set-eof64-selproto
                             ((a-file as-file)
                              (new-file-size as-file-pos64))
@@ -2377,21 +2394,21 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 114
+;; sel = 116
 (define-foreign-funcallable as-file-get-eof64-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-pos64
                             :calling-convention
                             :cdecl)
-;; sel = 115
+;; sel = 117
 (define-foreign-funcallable as-ram-file-sys-set-limit-kb-selproto
                             ((limit as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 116
+;; sel = 118
 (define-foreign-funcallable as-file-sys-get-name-from-path-for-display-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2400,14 +2417,14 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 117
+;; sel = 119
 (define-foreign-funcallable as-get-default-unicode-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 118
+;; sel = 120
 (define-foreign-funcallable as-get-error-string-as-text-selproto
                             ((error-code as-error-code)
                              (error-string as-text))
@@ -2415,7 +2432,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 119
+;; sel = 121
 (define-foreign-funcallable as-register-error-string-as-text-selproto
                             ((severity as-err-severity)
                              (error-string as-text))
@@ -2423,7 +2440,7 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 120
+;; sel = 122
 (define-foreign-funcallable as-get-default-file-sys-for-path-selproto
                             ((path-spec-type as-atom)
                              (path-spec (:pointer :void)))
@@ -2431,14 +2448,14 @@
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 121
+;; sel = 123
 (define-foreign-funcallable as-file-sys-is-local-selproto
                             ((file-sys as-file-sys))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 122
+;; sel = 124
 (define-foreign-funcallable as-file-sys-get-storage-free-space64-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2446,7 +2463,7 @@
                             as-disk-space64
                             :calling-convention
                             :cdecl)
-;; sel = 123
+;; sel = 125
 (define-foreign-funcallable as-double-matrix-concat-selproto
                             ((result (:pointer as-double-matrix))
                              (m1 (:pointer as-double-matrix))
@@ -2455,7 +2472,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 124
+;; sel = 126
 (define-foreign-funcallable as-double-matrix-invert-selproto
                             ((result (:pointer as-double-matrix))
                              (m (:pointer as-double-matrix)))
@@ -2463,7 +2480,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 125
+;; sel = 127
 (define-foreign-funcallable as-double-matrix-transform-selproto
                             ((result (:pointer as-double-point))
                              (m (:pointer as-double-matrix))
@@ -2472,7 +2489,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 126
+;; sel = 128
 (define-foreign-funcallable as-double-matrix-transform-rect-selproto
                             ((result (:pointer as-double-rect))
                              (m (:pointer as-double-matrix))
@@ -2481,7 +2498,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 127
+;; sel = 129
 (define-foreign-funcallable as-file-open-with-virtual-eof-selproto
                             ((f-n as-file)
                              (virtual-eof as-file-pos64)

@@ -105,8 +105,8 @@
      (sdk-data          (:pointer :void)))
   "This routine is called by the host application to set up the plug-in's
 SDK-provided functionality."
-  (let ((success nil))
-    (block pi-setup-sdk
+  (block pi-setup-sdk
+    (let ((success nil))
       (plugin-log "[PISetupSDK] begin.~%")
       (when (= handshake-version +handshake-v0200+)
         (with-coerced-pointer (data :type 'pi-sdk-data-v0200) sdk-data
@@ -118,8 +118,7 @@ SDK-provided functionality."
             (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
             (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
                   (*g-core-version* +core-hft-version-2+))
-              (plugin-log "[PISetupSDK] *g-core-hft* (bootstrap) = ~A, #x~X~%"
-                          *g-core-hft* *g-core-version*)
+              (plugin-log "[PISetupSDK] *g-core-hft* (bootstrap) = ~A~%" *g-core-hft*)
               (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
                      (acro-support-name (as-atom-get-string acro-support-atom)))
                 (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
@@ -128,17 +127,17 @@ SDK-provided functionality."
                       (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+))
                 (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
                 (when *g-acro-support-hft*
-                  (setq *g-acro-support-version* +as-calls-hft-version-6+)
-                  (let ((version (hft-get-version *g-acro-support-hft*)))
-                    (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A, #x~X~%"
-                                *g-acro-support-hft* version)
-                    )))
+                  (setq *g-acro-support-version*
+                        (let ((*g-acro-support-version* +as-calls-hft-version-6+))
+                          (hft-get-version *g-acro-support-hft*)))
+                  (plugin-log "[PISetupSDK] *g-acro-support-version* = #x~X~%"
+                              *g-acro-support-version*)))
               (plugin-log "[PISetupSDK] end temporarily.~%")
               (return-from pi-setup-sdk success))))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
     (plugin-log "[PISetupSDK] end badly.~%")
-    success))
+    nil))
 
 (define-foreign-callable (pi-handshake :result-type as-bool
                                        :calling-convention :cdecl)

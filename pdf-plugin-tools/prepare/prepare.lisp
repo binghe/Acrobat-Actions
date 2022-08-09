@@ -217,15 +217,13 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *if-regex2*
   (create-scanner "^#\\s*if\\s+(!)?([\\w\\s\\|\\(\\)<!=_&]+)(?<!\\s)\\s*$"))
 
-;; This pattern only retrieves the function name
-(defparameter *xproc-regex1*
-  (create-scanner
-   "(?m)^\\w*PROC\\([\\w\\s\\*]+,\\s+(\\w+),\\s+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\)"))
-
 ;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
+;;
+;; NPROC(ASBool, ASUUIDGenFromHash, (ASUUID *dst, ASUns8 hash[16]))
+;; NPROC(ASBool,						ASFileHasOutstandingMReads,(ASFile fN))
 (defparameter *xproc-regex2*
   (create-scanner
-   "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s+\\(([\\w\\s\\*,]+)\\)(,\\s*\\w+)?\\)"))
+   "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
 
 (defparameter *typedef-struct-regex*
   (create-scanner
@@ -327,7 +325,7 @@ corresponding C code to *STANDARD-OUTPUT*."
         (declare (ignore struct-name? pointerp))
         (handle-struct body typedef-name pointer-name))
       ;; xPROC(...)
-      (do-register-groups (name) (*xproc-regex1* file-string)
+      (do-register-groups (nil name nil) (*xproc-regex2* file-string)
         (let ((full-name (concatenate 'string name "-SEL")))
           (pprint `(defconstant ,(mangle-name full-name :constant t) ,*hft-counter*)))
         (incf *hft-counter*))
