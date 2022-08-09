@@ -121,6 +121,11 @@ expression."
   (create-scanner
    "^#define (\\w+) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
 
+;; #define ASCallbackCreate(x) (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), *((ASCallbackCreateSELPROTO)(gCoreHFT[ASCallbackCreateSEL])))(gExtensionID, (void *)(x))
+(defparameter *define-regex5*
+  (create-scanner
+   "^#define (\\w+)\\(\\w+\\) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)"))
+
 ;; #define ASmalloc (ASSERT_AS_VER(0),*((ASmallocSELPROTO)(gAcroSupportHFT[ASmallocSEL])))
 (defparameter *define-regex4*
   (create-scanner
@@ -140,6 +145,18 @@ expression."
              (pprint `(fli:define-c-typedef ,(mangle-name name) ,(mangle-name alias))))))
         ((scan *define-regex3* line)
          (register-groups-bind (name vername version proto hft sel) (*define-regex3* line)
+           (format t "~%;; line ~D" *line-number*)
+           (let* ((lisp-name (mangle-name name))
+                  (lisp-vername (mangle-name vername :global t))
+                  (lisp-version (mangle-name version :constant t))
+                  (lisp-proto (mangle-name proto))
+                  (lisp-hft (mangle-name hft :global t))
+                  (lisp-sel (mangle-name sel :constant t))
+                  (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
+             (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
+                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))
+        ((scan *define-regex5* line)
+         (register-groups-bind (name vername version proto hft sel) (*define-regex5* line)
            (format t "~%;; line ~D" *line-number*)
            (let* ((lisp-name (mangle-name name))
                   (lisp-vername (mangle-name vername :global t))

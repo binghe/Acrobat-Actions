@@ -40,10 +40,12 @@
 (defvar *pi-acro-support-version* +as-calls-hft-version-8+
   "Most plug-ins will use calls from the AdobeSupport family.")
 
-#|
 (defvar *pi-cos-version* +cos-hft-version-6+
   "Many plug-ins will not need to access the low-level Cos functionality.")
 
+(defvar *pi-cos-optional* nil)
+
+#|
 (defvar *pi-pd-model-version* +pd-model-hft-version-6+
   "PDModel methods - the version of the PD level HFT.")
 
@@ -82,10 +84,6 @@
 (defvar *pi-pdalternates-version* +pd-alternates-hft-version-13+)
 |#
 
-(defvar *hft-info*
-  '(("Core" +pi-core-version+ *core-version* *g-core-hft* nil)
-    ("Cos"  +pi-cos-version+  *cos-version*  *g-cos-hft*  *pi-cos-optional*)))
-
 ;; HFT_ERROR_NO_VERSION (0xFFFFFFFF)
 (defconstant +hft-error-no-version+ #xFFFFFFFF)
 
@@ -108,6 +106,39 @@
              (setq ,resulting-ver ,result-ver)
              t))))))
 
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defparameter *hft-info*
+    '(("Core" *pi-core-version* *g-core-version* *g-core-hft* nil)
+      ("Cos"  *pi-cos-version*  *g-cos-version*  *g-cos-hft*  *pi-cos-optional*))))
+
+(defmacro get-requested-hfts ()
+  `(progn
+     ,@(loop for (name required-ver resulting-ver result-hft optional) in *hft-info* collect
+         `(when (and-plusp ,required-ver)
+            (setq success
+                  (get-requested-hft ,name ,required-ver ,resulting-ver ,result-hft))
+            (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
+            (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver)
+            (unless (or success ,optional)
+              (return-from pi-setup-sdk nil))))))
+
+(define-foreign-callable (pi-handshake :result-type as-bool
+                                       :calling-convention :cdecl)
+    ((handshake-version as-uns32)
+     (handshake-data    (:pointer :void)))
+  "PIHandshake function provides the initial interface between your plug-in and
+the application.  This function provides the callback functions to the
+application that allow it to register the plug-in with the application
+environment."
+  (plugin-log "[PIHandshake] begin.~%")
+  ;; (as-enum-extensions 1)
+  #+ignore
+  (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
+    (fli:print-collected-template-info :output-stream stream))
+  (plugin-log "[PIHandshake] end.~%")
+  t)
+(defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
+
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version as-uns32)
@@ -125,59 +156,38 @@
               (return-from pi-setup-sdk nil))
             (setq *extension-id* (foreign-slot-value data 'extension-id))
             (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
-            (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
-                  (*g-core-version* +core-hft-version-2+))
-              (plugin-log "[PISetupSDK] *g-core-hft* = ~A~%" *g-core-hft*)
-              (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
-                     (acro-support-name (as-atom-get-string acro-support-atom)))
-                (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
-                            acro-support-atom acro-support-name)
-                (setq *g-acro-support-hft*
-                      (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+))
-                (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
-                (when *g-acro-support-hft*
-                  (setq *g-acro-support-version*
-                        (let ((*g-acro-support-version* +as-calls-hft-version-6+))
-                          (hft-get-version *g-acro-support-hft*)))
-                  (plugin-log "[PISetupSDK] *g-acro-support-version* = #x~X~%"
-                              *g-acro-support-version*)
-                  (when (and-plusp *pi-acro-support-version*)
-                    (setq success
-                          (get-requested-hft "AcroSupport"
-                                             *pi-acro-support-version*
-                                             *g-acro-support-version*
-                                             *g-acro-support-hft*))
-                    (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
-                    (plugin-log "[PISetupSDK] *g-acro-support-version* = #x~X~%"
-                                *g-acro-support-version*))
-                  
-                  ))
-              (plugin-log "[PISetupSDK] end successfully.~%")
-              (return-from pi-setup-sdk success))))))
+            (setq *g-core-hft* (foreign-slot-value data 'core-hft)
+                  *g-core-version* +core-hft-version-2+)
+            (plugin-log "[PISetupSDK] *g-core-hft* = ~A~%" *g-core-hft*)
+            (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
+                   (acro-support-name (as-atom-get-string acro-support-atom)))
+              (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
+                          acro-support-atom acro-support-name)
+              (setq *g-acro-support-hft*
+                    (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+))
+              (unless *g-acro-support-hft*
+                (plugin-log "[PISetupSDK] cannot get initial *g-acro-support-hft*")
+                (return-from pi-setup-sdk nil))
+              (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
+              (setq *g-acro-support-version*
+                    (let ((*g-acro-support-version* +as-calls-hft-version-6+))
+                      (hft-get-version *g-acro-support-hft*)))
+              (plugin-log "[PISetupSDK] *g-acro-support-version* = #x~X~%"
+                          *g-acro-support-version*)
+              (setq success t))
+            (get-requested-hfts)
+            (let ((function-pointer
+                   (as-callback-create *extension-id* *pi-handshake*)))
+              (setf (foreign-slot-value data 'handshake-callback) function-pointer))
+            (plugin-log "[PISetupSDK] end successfully.~%")
+            (return-from pi-setup-sdk success)))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
     (plugin-log "[PISetupSDK] end badly.~%")
     nil))
 
-(define-foreign-callable (pi-handshake :result-type as-bool
-                                       :calling-convention :cdecl)
-    ((handshake-version as-uns32)
-     (handshake-data    (:pointer :void)))
-  "PIHandshake function provides the initial interface between your plug-in and
-the application.  This function provides the callback functions to the
-application that allow it to register the plug-in with the application
-environment."
-  (plugin-log "[PIHandshake] begin.~%")
-  ;; (as-enum-extensions 1)
-  (plugin-log "[PIHandshake] end.~%")
-  #+ignore
-  (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
-    (fli:print-collected-template-info :output-stream stream))
-  t)
-
 ;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
 (defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))
-(defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
 
 ;; TODO: not working for Windows
 (define-foreign-callable ("AcroPluginMain" :result-type as-bool

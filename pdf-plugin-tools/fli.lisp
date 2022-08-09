@@ -1294,6 +1294,13 @@
                          as-atom-get-string-selproto
                          *g-core-hft*
                          +as-atom-get-string-sel+)
+;; line 484
+(define-acrobat-function (as-callback-create "ASCallbackCreate")
+                         *g-core-version*
+                         +core-hft-version-2+
+                         as-callback-create-selproto
+                         *g-core-hft*
+                         +as-callback-create-sel+)
 ;; line 510
 (define-acrobat-function (as-callback-destroy "ASCallbackDestroy")
                          *g-core-version*
