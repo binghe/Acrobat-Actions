@@ -37,7 +37,7 @@
 (defvar *pi-core-version* +core-hft-version-5+
   "Everybody needs the Core HFT, so don't omit this one.")
 
-(defvar *pi-acrosupport-version* +as-calls-hft-version-8+
+(defvar *pi-acro-support-version* +as-calls-hft-version-8+
   "Most plug-ins will use calls from the AdobeSupport family.")
 
 #|
@@ -89,22 +89,31 @@
 ;; HFT_ERROR_NO_VERSION (0xFFFFFFFF)
 (defconstant +hft-error-no-version+ #xFFFFFFFF)
 
-;; GetRequestedHFT
-(defmacro get-requested-hft (table required-ver resulting-ver result-hft)
-  (let ((table-name (gensym))
-        (result-ver +hft-error-no-version+))
-    ))
-
-;; NOTE: When ALLOCATION is :STATIC (default), memory allocated by
-;; ALLOCATE-FOREIGN-OBJECT is in the C heap. Therefore pointer (and
-;; any copy) cannot be used after SAVE_IMAGE or DELIVER.
+(defmacro get-requested-hft (table-name required-ver resulting-ver result-hft)
+  "[GetRequestedHFT] pass in name of hft and minimum required version.  
+   returns hft and version of the returned hft (>= requiredVer) and true if successful
+   on failure, both resultHFT and resultingVer return as NULL"
+  (let ((table-atom (gensym))
+        (the-hft    (gensym))
+        (result-ver (gensym)))
+    `(let ((,table-atom (as-atom-from-string ,table-name))
+           (,result-ver +hft-error-no-version+))
+       (when (>= *g-acro-support-version* +as-calls-hft-version-6+)
+         (let ((,the-hft (as-extension-mgr-get-hft ,table-atom ,required-ver)))
+           (when ,the-hft
+             (setq ,result-ver (hft-get-version ,the-hft))
+             (when (= ,result-ver +hft-error-no-version+)
+               (error "HFTGetVersion failed"))
+             (setq ,result-hft ,the-hft)
+             (setq ,resulting-ver ,result-ver)
+             t))))))
 
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version as-uns32)
      (sdk-data          (:pointer :void)))
-  "This routine is called by the host application to set up the plug-in's
-SDK-provided functionality."
+  "[PISetupSDK] This routine is called by the host application to set up the
+ plug-in's SDK-provided functionality."
   (block pi-setup-sdk
     (let ((success nil))
       (plugin-log "[PISetupSDK] begin.~%")
@@ -118,7 +127,7 @@ SDK-provided functionality."
             (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
             (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
                   (*g-core-version* +core-hft-version-2+))
-              (plugin-log "[PISetupSDK] *g-core-hft* (bootstrap) = ~A~%" *g-core-hft*)
+              (plugin-log "[PISetupSDK] *g-core-hft* = ~A~%" *g-core-hft*)
               (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
                      (acro-support-name (as-atom-get-string acro-support-atom)))
                 (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
@@ -131,8 +140,19 @@ SDK-provided functionality."
                         (let ((*g-acro-support-version* +as-calls-hft-version-6+))
                           (hft-get-version *g-acro-support-hft*)))
                   (plugin-log "[PISetupSDK] *g-acro-support-version* = #x~X~%"
-                              *g-acro-support-version*)))
-              (plugin-log "[PISetupSDK] end temporarily.~%")
+                              *g-acro-support-version*)
+                  (when (and-plusp *pi-acro-support-version*)
+                    (setq success
+                          (get-requested-hft "AcroSupport"
+                                             *pi-acro-support-version*
+                                             *g-acro-support-version*
+                                             *g-acro-support-hft*))
+                    (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
+                    (plugin-log "[PISetupSDK] *g-acro-support-version* = #x~X~%"
+                                *g-acro-support-version*))
+                  
+                  ))
+              (plugin-log "[PISetupSDK] end successfully.~%")
               (return-from pi-setup-sdk success))))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
@@ -189,9 +209,9 @@ environment."
   ;; The version we want to use is returned to the application so it can adjust accordingly.
   (let ((version (the (unsigned-byte 32)
                       (min app-handshake-version +handshake-version+))))
-    (plugin-log "[AcroPluginMain] app-handshake-version = ~A~%" app-handshake-version)
+    (plugin-log "[AcroPluginMain] app-handshake-version = #x~X~%" app-handshake-version)
     (setf (dereference handshake-version) version)
-    (plugin-log "[AcroPluginMain] handshake-version = ~A~%" version))
+    (plugin-log "[AcroPluginMain] handshake-version = #x~X~%" version))
 
   ;; 3. Provide the routine for the host app to call to setup this plug-in
   (setf (dereference setup-proc) *pi-setup-sdk*)

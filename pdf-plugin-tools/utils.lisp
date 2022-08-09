@@ -140,3 +140,8 @@ by FileMaker) to line feeds."
   (let ((sink (cxml:make-string-sink
                :canonical nil :indentation indent)))
     (cxml-xmls:map-node sink node :include-namespace-uri nil)))
+
+(defmacro and-plusp (pi-var)
+  (let ((var (gensym)))
+    `(let ((,var ,pi-var))
+       (and ,var (plusp ,var)))))
