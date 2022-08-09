@@ -121,6 +121,11 @@ expression."
   (create-scanner
    "^#define (\\w+) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
 
+;; #define ASmalloc (ASSERT_AS_VER(0),*((ASmallocSELPROTO)(gAcroSupportHFT[ASmallocSEL])))
+(defparameter *define-regex4*
+  (create-scanner
+   "^#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),\\s*\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
+
 (defun handle-define (line)
   (cond ((scan *define-regex1* line)
          (register-groups-bind (name value-string) (*define-regex1* line)
@@ -144,7 +149,22 @@ expression."
                   (lisp-sel (mangle-name sel :constant t))
                   (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
              (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
-                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))))
+                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))
+        ((scan *define-regex4* line)
+         (register-groups-bind (name version proto hft sel) (*define-regex4* line)
+           (format t "~%;; line ~D" *line-number*)
+           (let* ((lisp-name (mangle-name name))
+                  (lisp-vername (mangle-name "gAcroSupportVersion" :global t))
+                  (lisp-version (or (parse-integer version :junk-allowed t)
+                                    (mangle-name version :constant t)))
+                  (lisp-proto (mangle-name proto))
+                  (lisp-hft (mangle-name hft :global t))
+                  (lisp-sel (mangle-name sel :constant t))
+                  (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
+             (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
+                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))
+        (t
+         nil)))
 
 ;; cf. *type-and-name-regex* (util.lisp)
 (defparameter *type-and-names-regex*
