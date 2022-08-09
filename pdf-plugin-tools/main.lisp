@@ -120,6 +120,9 @@ SDK-provided functionality."
                   (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
                   ))))
           (plugin-log "[PISetupSDK] end temporarily.~%")
+          #+ignore
+          (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
+            (fli:print-collected-template-info :output-stream stream))
           (return-from pi-setup-sdk nil))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
@@ -154,6 +157,9 @@ environment."
      #+:macosx
      (main-data             (:pointer plugin-main-data)))
   (plugin-log "[AcroPluginMain] begin.~%")
+
+  #+ignore
+  (fli:start-collecting-template-info)
 
   ;; 1. set *plugin-bundle* and *app-bundle* (Mac only)
   #+:macosx

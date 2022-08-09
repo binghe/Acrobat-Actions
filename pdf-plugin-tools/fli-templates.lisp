@@ -28,15 +28,12 @@
 
 (in-package :pdf-plugin-tools)
 
-#+ignore
-(with-open-file (stream "fli-templates.lisp" :direction :output)
-  (fli:print-collected-template-info :output-stream stream))
-
-;; this is needed for higher delivery levels
-(fli::define-precompiled-foreign-object-accessor-functions
- (((:pointer :void) :no-alloc-p :error :size nil)
-  #+:macosx
-  (cf-bundle-ref    :no-alloc-p :error :size nil)
-  (extension-id     :no-alloc-p :error :size nil)
-  (hft              :no-alloc-p :error :size nil)
-  ))
+;; This is needed for higher delivery levels (currently it doesn't work)
+(FLI::DEFINE-PRECOMPILED-FOREIGN-OBJECT-ACCESSOR-FUNCTIONS
+  (((:pointer :void) :no-alloc-p :error :size nil)
+   #+:macosx
+   (cf-bundle-ref    :no-alloc-p :error :size nil)
+   (extension-id     :no-alloc-p :error :size nil)
+   (hft              :no-alloc-p :error :size t)
+   (hft              :no-alloc-p :error :size nil)
+   ))
