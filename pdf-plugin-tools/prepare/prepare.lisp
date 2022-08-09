@@ -108,6 +108,31 @@ expression."
   ;; just read value as a number
   (read-from-string string))
 
+(defun write-versioned-funcall (name ver-name version proto hft sel)
+  (let ((hft-symbol  (intern "HFT"  :pdf-plugin-tools))
+        (args-symbol (intern "ARGS" :pdf-plugin-tools))
+        (temp-symbol (intern "TEMP" :pdf-plugin-tools)))
+    (pprint `(defmacro ,name (&rest ,args-symbol)
+               (list 'if (list '>= ',ver-name ',version)
+                     (list 'fli:with-coerced-pointer
+                           (list ',temp-symbol ':type '',hft-symbol) ',hft
+                           (list 'fli:incf-pointer ',temp-symbol ',sel)
+                           (nconc (list ',proto (list 'fli:dereference ',temp-symbol)) ,args-symbol))
+                     (list 'error "Not implemented"))))))
+
+#+ignore
+(defun write-versioned-funcall (name ver-name version proto hft sel)
+  (let ((hft-symbol  (intern "HFT"  :pdf-plugin-tools))
+        (args-symbol (intern "ARGS" :pdf-plugin-tools))
+        (temp-symbol (intern "TEMP" :pdf-plugin-tools)))
+    (pprint `(defmacro ,name (&rest ,args-symbol)
+               (list 'if (list '>= ',ver-name ',version)
+                     (list 'fli:with-coerced-pointer
+                           (list ',temp-symbol ':type '',hft-symbol) ',hft
+                           (list 'fli:incf-pointer ',temp-symbol ',sel)
+                           (nconc (list ',proto (list 'fli:dereference ',temp-symbol)) ,args))
+                     (list 'error "Not implemented"))))))
+
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
   (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
@@ -141,18 +166,9 @@ expression."
                   (lisp-version (mangle-name version :constant t))
                   (lisp-proto (mangle-name proto))
                   (lisp-hft (mangle-name hft :global t))
-                  (lisp-sel (mangle-name sel :constant t))
-                  (hft-type (intern "HFT" :pdf-plugin-tools))
-                  (args (intern "ARGS" :pdf-plugin-tools))
-                  (temp (intern "TEMP" :pdf-plugin-tools)))
-             (pprint `(defmacro ,lisp-name (&rest ,args)
-                        (list 'if (list '>= ',lisp-vername ',lisp-version)
-                              (list 'fli:with-coerced-pointer
-                                    (list ',temp ':type '',hft-type) ',lisp-hft
-                                    (list 'fli:incf-pointer ',temp ',lisp-sel)
-                                    (nconc (list ',lisp-proto (list 'fli:dereference ',temp)) ,args))
-                              (list 'error "Not implemented")))
-                     ))))))
+                  (lisp-sel (mangle-name sel :constant t)))
+             (write-versioned-funcall lisp-name lisp-vername lisp-version
+                                      lisp-proto lisp-hft lisp-sel))))))
 
 ;; cf. *type-and-name-regex* (util.lisp)
 (defparameter *type-and-names-regex*
@@ -207,7 +223,8 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 
 ;; This pattern only retrieves the function name
 (defparameter *xproc-regex1*
-  (create-scanner "(?m)^\\w*PROC\\([\\w\\s\\*]+,\\s+(\\w+),\\s+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\)"))
+  (create-scanner
+   "(?m)^\\w*PROC\\([\\w\\s\\*]+,\\s+(\\w+),\\s+\\([\\w\\s\\*,]+\\)(,\\s*\\w+)?\\)"))
 
 ;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
 (defparameter *xproc-regex2*
