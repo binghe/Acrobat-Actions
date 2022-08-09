@@ -68,6 +68,7 @@
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
     "PI_CORE_VERSION != 0"
     "ASUSE_OBSOLETE_TYPES"
+    "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
     ))
 
 ;; These C macros are considered being defined as 0 in the SDK
@@ -86,7 +87,6 @@
     #-:win32  "WIN_PLATFORM"
     "__cplusplus"
     "STATIC_HFT"
-    "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
     "AS_ARCH_64BIT" ;; this is __LP64__ only
     ))
 
