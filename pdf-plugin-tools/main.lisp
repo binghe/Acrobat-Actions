@@ -37,10 +37,10 @@
 (defvar *pi-core-version* +core-hft-version-5+
   "Everybody needs the Core HFT, so don't omit this one.")
 
-#|
 (defvar *pi-acrosupport-version* +as-calls-hft-version-8+
   "Most plug-ins will use calls from the AdobeSupport family.")
 
+#|
 (defvar *pi-cos-version* +cos-hft-version-6+
   "Many plug-ins will not need to access the low-level Cos functionality.")
 
@@ -86,53 +86,64 @@
   '(("Core" +pi-core-version+ *core-version* *g-core-hft* nil)
     ("Cos"  +pi-cos-version+  *cos-version*  *g-cos-hft*  *pi-cos-optional*)))
 
+;; HFT_ERROR_NO_VERSION (0xFFFFFFFF)
+(defconstant +hft-error-no-version+ #xFFFFFFFF)
+
+;; GetRequestedHFT
+(defmacro get-requested-hft (table required-ver resulting-ver result-hft)
+  (let ((table-name (gensym))
+        (result-ver +hft-error-no-version+))
+    ))
+
 ;; NOTE: When ALLOCATION is :STATIC (default), memory allocated by
 ;; ALLOCATE-FOREIGN-OBJECT is in the C heap. Therefore pointer (and
 ;; any copy) cannot be used after SAVE_IMAGE or DELIVER.
 
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
                                        :calling-convention :cdecl)
-    ((handshake-version     as-uns32)
-     (sdk-data              (:pointer :void)))
+    ((handshake-version as-uns32)
+     (sdk-data          (:pointer :void)))
   "This routine is called by the host application to set up the plug-in's
 SDK-provided functionality."
-  (block pi-setup-sdk
-    (plugin-log "[PISetupSDK] begin.~%")
-    (when (= handshake-version +handshake-v0200+)
-      (with-coerced-pointer (data :type 'pi-sdk-data-v0200) sdk-data
-        (let ((version (foreign-slot-value data 'handshake-version)))
-          (unless (= version +handshake-v0200+)
-            (plugin-log "[PISetupSDK] Someone lied.~%")
-            (return-from pi-setup-sdk nil))
-          (setq *extension-id* (foreign-slot-value data 'extension-id))
-          (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
-          (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
-                (*g-core-version* +core-hft-version-2+))
-            (plugin-log "[PISetupSDK] *g-core-hft* (initial) = ~A~%" *g-core-hft*)
-            (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
-                   (acro-support-name (as-atom-get-string acro-support-atom)))
-              (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
-                          acro-support-atom acro-support-name)
-              (let* ((*g-acro-support-hft*
-                      (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+)))
+  (let ((success nil))
+    (block pi-setup-sdk
+      (plugin-log "[PISetupSDK] begin.~%")
+      (when (= handshake-version +handshake-v0200+)
+        (with-coerced-pointer (data :type 'pi-sdk-data-v0200) sdk-data
+          (let ((version (foreign-slot-value data 'handshake-version)))
+            (unless (= version +handshake-v0200+)
+              (plugin-log "[PISetupSDK] Someone lied.~%")
+              (return-from pi-setup-sdk nil))
+            (setq *extension-id* (foreign-slot-value data 'extension-id))
+            (plugin-log "[PISetupSDK] *extension-id* = ~A~%" *extension-id*)
+            (let ((*g-core-hft* (foreign-slot-value data 'core-hft))
+                  (*g-core-version* +core-hft-version-2+))
+              (plugin-log "[PISetupSDK] *g-core-hft* (bootstrap) = ~A~%" *g-core-hft*)
+              (plugin-log "[PISetupSDK] *g-core-version* (bootstrap) = #x~X~%" *g-core-version*)
+              (let* ((acro-support-atom (as-atom-from-string "AcroSupport"))
+                     (acro-support-name (as-atom-get-string acro-support-atom)))
+                (plugin-log "[PISetupSDK] acro-support = ~A (~A)~%"
+                            acro-support-atom acro-support-name)
+                (setq *g-acro-support-hft*
+                      (as-extension-mgr-get-hft acro-support-atom +as-calls-hft-version-6+))
                 (when *g-acro-support-hft*
                   (setq *g-acro-support-version* +as-calls-hft-version-6+)
-                  (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A~%" *g-acro-support-hft*)
-                  ))))
-          (plugin-log "[PISetupSDK] end temporarily.~%")
-          #+ignore
-          (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
-            (fli:print-collected-template-info :output-stream stream))
-          (return-from pi-setup-sdk nil))))
+                  (let* ((valid-p (hft-is-valid *g-acro-support-hft*))
+                         (version (hft-get-version *g-acro-support-hft*)))
+                    (plugin-log "[PISetupSDK] *g-acro-support-hft* = ~A, ~A (~A)~%"
+                                *g-acro-support-hft* version valid-p)
+                    )))
+              (plugin-log "[PISetupSDK] end temporarily.~%")
+              (return-from pi-setup-sdk success))))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
     (plugin-log "[PISetupSDK] end badly.~%")
-    nil))
+    success))
 
 (define-foreign-callable (pi-handshake :result-type as-bool
                                        :calling-convention :cdecl)
-    ((handshake-version     as-uns32)
-     (handshake-data        (:pointer :void)))
+    ((handshake-version as-uns32)
+     (handshake-data    (:pointer :void)))
   "PIHandshake function provides the initial interface between your plug-in and
 the application.  This function provides the callback functions to the
 application that allow it to register the plug-in with the application
@@ -140,7 +151,10 @@ environment."
   (plugin-log "[PIHandshake] begin.~%")
   ;; (as-enum-extensions 1)
   (plugin-log "[PIHandshake] end.~%")
-  nil)
+  #+ignore
+  (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
+    (fli:print-collected-template-info :output-stream stream))
+  t)
 
 ;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
 (defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))
