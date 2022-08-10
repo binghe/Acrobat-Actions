@@ -3226,8 +3226,6 @@
                          +as-file-open-with-virtual-eof-sel+)
 
 ;; #include <PIVersn.h>
-;; line 108
-(define-c-typedef handshake-version handshake-v0200)
 (define-c-typedef pi-setup-sdk-proc-type
                   (:pointer
                    (:function

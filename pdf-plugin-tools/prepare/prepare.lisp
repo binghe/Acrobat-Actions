@@ -110,11 +110,14 @@ expression."
 
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
-  (create-scanner "^#\\s*define\\s+(.*)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
+  (create-scanner "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
 
 ;; #  define kASMAXEnum8 ASMAXInt16
 (defparameter *define-regex2*
-  (create-scanner "^#\\s*define\\s+(\\w+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
+  (create-scanner "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
+
+(defparameter *define-regex2a*
+  (create-scanner "^#\\s*define\\s+([A-Z_]+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
 
 ;; #define ASPushExceptionFrame (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ...
 (defparameter *define-regex3*
@@ -132,12 +135,16 @@ expression."
    "^#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),\\s*\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
 
 (defun handle-define (line)
-  (cond ((scan *define-regex1* line)
+  (cond ((scan *define-regex0* line)
+         nil)
+        ((scan *define-regex1* line)
          (register-groups-bind (name value-string) (*define-regex1* line)
            (let ((lisp-name (mangle-name name :constant t))
                  (value (read-enum-value value-string)))
              (format t "~%;; line ~D" *line-number*)
              (format t "~%(defconstant ~A #x~X)" lisp-name value))))
+        ((scan *define-regex2a* line)
+         nil)
         ((scan *define-regex2* line)
          (register-groups-bind (name alias) (*define-regex2* line)
            (unless (member name *ignored-defines* :test 'equal)
