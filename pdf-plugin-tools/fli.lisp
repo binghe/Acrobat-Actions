@@ -1140,7 +1140,7 @@
 ;; sel = 2
 (define-foreign-funcallable as-push-exception-frame-selproto
                             ((as-environ (:pointer :void))
-                             (restore-func acrestore-environ-proc))
+                             (restore-func ac-restore-environ-proc))
                             :result-type
                             :void
                             :calling-convention
@@ -1239,11 +1239,11 @@
 
 ;; #include <CorCalls.h>
 ;; line 329
-(define-c-typedef acpush-exception-frame as-push-exception-frame)
+(define-c-typedef ac-push-exception-frame as-push-exception-frame)
 ;; line 330
-(define-c-typedef acpop-exception-frame as-pop-exception-frame)
+(define-c-typedef ac-pop-exception-frame as-pop-exception-frame)
 ;; line 331
-(define-c-typedef acget-exception-error-code
+(define-c-typedef ac-get-exception-error-code
                   as-get-exception-error-code)
 ;; line 420
 (define-acrobat-function (as-raise-impl "ASRaiseImpl")
