@@ -106,21 +106,64 @@
              (setq ,resulting-ver ,result-ver)
              t))))))
 
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defparameter *hft-info*
-    '(("Core" *pi-core-version* *g-core-version* *g-core-hft* nil)
-      ("Cos"  *pi-cos-version*  *g-cos-version*  *g-cos-hft*  *pi-cos-optional*))))
+(define-foreign-callable (plugin-export-hfts :result-type as-bool
+                                             :calling-convention :cdecl)
+    ()
+  "Create and register the HFT's. @return true to continue loading plug-in,
+ false to cause plug-in loading to stop."
+  (plugin-log "[PluginExportHFTs] begin.~%")
+  (plugin-log "[PluginExportHFTs] end.~%")
+  t)
 
-(defmacro get-requested-hfts ()
-  `(progn
-     ,@(loop for (name required-ver resulting-ver result-hft optional) in *hft-info* collect
-         `(when (and-plusp ,required-ver)
-            (setq success
-                  (get-requested-hft ,name ,required-ver ,resulting-ver ,result-hft))
-            (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
-            (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver)
-            (unless (or success ,optional)
-              (return-from pi-setup-sdk nil))))))
+(define-foreign-callable (plugin-import-replace-and-register
+                          :result-type as-bool
+                          :calling-convention :cdecl)
+    ()
+  "The application calls this function to allow it to
+   <ul>
+	<li> Import plug-in supplied HFTs.
+	<li> Replace functions in the HFTs you're using (where allowed).
+	<li> Register to receive notification events.
+   </ul>
+
+   @return true to continue loading plug-in, false to cause plug-in loading to stop."
+  (plugin-log "[PluginImportReplaceAndRegister] begin.~%")
+  (plugin-log "[PluginImportReplaceAndRegister] end.~%")
+  t)
+
+(define-foreign-callable (plugin-init :result-type as-bool
+                                      :calling-convention :cdecl)
+    ()
+  "The main initialization routine. @return true to continue loading the plug-in,
+ false to cause plug-in loading to stop."
+  (plugin-log "[PluginInit] begin.~%")
+  (plugin-log "[PluginInit] end.~%")
+  t)
+
+(define-foreign-callable (plugin-unload :result-type as-bool
+                                        :calling-convention :cdecl)
+    ()
+  "The unload routine.
+
+Called when your plug-in is being unloaded when the application quits.
+Use this routine to release any system resources you may have allocated.
+
+Returning false will cause an alert to display that unloading failed.
+@return true to indicate the plug-in unloaded."
+  (plugin-log "[PluginUnload] begin.~%")
+  (cf-release *plugin-bundle*) ; cf-retain was called in [AcroPluginMain]
+  (cf-release *app-bundle*)    ; same here
+  (plugin-log "[PluginUnload] end.~%")
+  t)
+
+(defvar *plugin-export-hfts*
+  (foreign-function-pointer 'plugin-export-hfts))
+(defvar *plugin-import-replace-and-register*
+  (foreign-function-pointer 'plugin-import-replace-and-register))
+(defvar *plugin-init*
+  (foreign-function-pointer 'plugin-init))
+(defvar *plugin-unload*
+  (foreign-function-pointer 'plugin-unload))
 
 (define-foreign-callable (pi-handshake :result-type as-bool
                                        :calling-convention :cdecl)
@@ -131,18 +174,54 @@ the application.  This function provides the callback functions to the
 application that allow it to register the plug-in with the application
 environment."
   (plugin-log "[PIHandshake] begin.~%")
-  (when (= handshake-version +handshake-v0200+)
-    (with-coerced-pointer (hs-data :type 'pi-handshake-data-v0200) handshake-data
-      
-      )
-    #+ignore
-    (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
-      (fli:print-collected-template-info :output-stream stream)))
-  (plugin-log "[PIHandshake] end.~%")
-  t)
+  (cond ((= handshake-version +handshake-v0200+)
+         (with-coerced-pointer (hs-data :type 'pi-handshake-data-v0200)
+             handshake-data
+           (let ((extension-name (get-extension-name)))
+             (plugin-log "[PIHandshake] extension name: ~A~%" (as-atom-get-string extension-name))
+             (setf (foreign-slot-value hs-data 'extension-name) extension-name))
+           (plugin-log "[PIHandshake] *plugin-export-hfts* = ~A~%" *plugin-export-hfts*)
+           (setf (foreign-slot-value hs-data 'export-hft-s-callback)
+                 (as-callback-create-proto *plugin-export-hfts*))
+           (plugin-log "[PIHandshake] *plugin-import-replace-and-register* = ~A~%"
+                       *plugin-import-replace-and-register*)
+           (setf (foreign-slot-value hs-data 'import-replace-and-register-callback)
+                 (as-callback-create-proto *plugin-import-replace-and-register*))
+           (plugin-log "[PIHandshake] *plugin-init* = ~A~%" *plugin-init*)
+           (setf (foreign-slot-value hs-data 'init-callback)
+                 (as-callback-create-proto *plugin-init*))
+           (plugin-log "[PIHandshake] *plugin-unload* = ~A~%" *plugin-unload*)
+           (setf (foreign-slot-value hs-data 'unload-callback)
+                 (as-callback-create-proto *plugin-unload*)))
+         #+ignore
+         (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
+           (fli:print-collected-template-info :output-stream stream))
+         (plugin-log "[PIHandshake] end.~%")
+         t)
+        (t
+         (plugin-log "[PIHandshake] end badly.~%")
+         nil)))
 
 ;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
 (defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defparameter *hft-info*
+    '(("Core" *pi-core-version* *g-core-version* *g-core-hft* nil)
+      ("Cos"  *pi-cos-version*  *g-cos-version*  *g-cos-hft*  *pi-cos-optional*))
+    "A list of HFTs to be retrieved from the host application."))
+
+;; This macro only expands into pi-setup-sdk
+(defmacro get-requested-hfts ()
+  `(progn
+     ,@(loop for (name required-ver resulting-ver result-hft optional) in *hft-info* collect
+         `(when (and-plusp ,required-ver)
+            (setq success
+                  (get-requested-hft ,name ,required-ver ,resulting-ver ,result-hft))
+            (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
+            (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver)
+            (unless (or success ,optional)
+              (return-from pi-setup-sdk nil))))))
 
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
                                        :calling-convention :cdecl)
@@ -181,9 +260,8 @@ environment."
                           *g-acro-support-version*)
               (setq success t))
             (get-requested-hfts)
-            (let ((function-pointer
-                   (as-callback-create *extension-id* *pi-handshake*)))
-              (setf (foreign-slot-value data 'handshake-callback) function-pointer))
+            (setf (foreign-slot-value data 'handshake-callback)
+                  (as-callback-create-proto *pi-handshake*))
             (plugin-log "[PISetupSDK] end successfully.~%")
             (return-from pi-setup-sdk success)))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.

@@ -28,3 +28,8 @@
 
 (in-package :pdf-plugin-tools)
 
+(defun get-extension-name ()
+  (as-atom-from-string (concatenate 'string *plugin-id* ":" *plugin-name*)))
+
+(defun as-callback-create-proto (function)
+  (as-callback-create *extension-id* function))
