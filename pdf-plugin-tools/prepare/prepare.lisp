@@ -186,7 +186,7 @@ expression."
 ;; cf. *type-and-name-regex* (util.lisp)
 (defparameter *type-and-names-regex*
   (create-scanner
-   "(?sm)\\s*(\\*\\*[^*]+\\*/\\s*)?([^,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"))
+   "(?sm)\\s*(\\*[^*]+\\*/\\s*)?([^,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"))
 
 (defun handle-struct (body typedef-name pointer-name)
   "Handles the part between `struct {' and `}' - writes a

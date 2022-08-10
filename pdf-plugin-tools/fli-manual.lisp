@@ -30,38 +30,6 @@
 
 (define-c-typedef ac-restore-environ-proc restore-environ-proc)
 
-;;; Prototypes for plug-in supplied functions. <PIVersn.h>
-(define-c-typedef pi-setup-sdk-proc-type ; PISetupSDKProcType
-  (:pointer
-   (:function (as-uns32         #| handshakeVersion |#
-               (:pointer :void) #| sdkData |#)
-    as-bool :calling-convention :cdecl)))
-
-(define-c-typedef pi-handshake-proc-type ; PIHandshakeProcType
-  (:pointer
-   (:function (as-uns32         #| handshakeVersion |#
-               (:pointer :void) #| handshakeData |#)
-    as-bool :calling-convention :cdecl)))
-
-(define-c-typedef pi-export-hfts-proc-type ; PIExportHFTsProcType
-  (:pointer (:function () as-bool :calling-convention :cdecl)))
-
-(define-c-typedef pi-import-replace-and-register-proc-type
-                ; PIImportReplaceAndRegisterProcType
-  (:pointer (:function () as-bool :calling-convention :cdecl)))
-
-(define-c-typedef pi-init-proc-type ; PIInitProcType
-  (:pointer (:function () as-bool :calling-convention :cdecl)))
-
-(define-c-typedef pi-unload-proc-type ; PIUnloadProcType
-  (:pointer (:function () as-bool :calling-convention :cdecl)))
-
-(define-c-struct pi-sdk-data-v0200  ; PISDKData_V0200
-  (handshake-version  as-uns32)     ; IN  - Will always be HANDSHAKE_VERSION_V0200
-  (extension-id       extension-id) ; IN  - Opaque to extensions, used to identify the Extension
-  (core-hft           hft)          ; IN  - Host Function Table for "core" functions
-  (handshake-callback as-callback)) ; OUT - Address of PIHandshake()
-
 (defconstant +handshake-v0200+ #.(ash 2 16))
 (defconstant +handshake-version+ +handshake-v0200+)
 

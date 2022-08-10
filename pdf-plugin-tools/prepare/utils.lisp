@@ -73,14 +73,15 @@ converted to uppercase.
 
 If CONSTANT is true, a plus sign is added to the beginning and end of
 the Lisp symbol to denote a Lisp constant."
-  (setq string (regex-replace-all "^(AS)([a-z])" string "\\1-\\2")
-        string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT)"
+  (setq string (regex-replace-all "^(AST|AS|PI)([A-Za-z])" string "\\1-\\2")
+        string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)"
+                                  string "\\1-\\2")
+        string (regex-replace-all "(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)([A-Za-z])"
                                   string "\\1-\\2")
         string (regex-replace-all "([A-Za-z])(SEL)"
                                   string "\\1-\\2")
-        ;; string (regex-replace-all "IntPtr" string "Intptr")
-        string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
-        string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
+        ;; string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
+        ;; string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
         string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
         string (regex-replace-all "_" string "-"))
   (cond (constant

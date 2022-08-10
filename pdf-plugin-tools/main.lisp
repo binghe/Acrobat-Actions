@@ -131,12 +131,17 @@ the application.  This function provides the callback functions to the
 application that allow it to register the plug-in with the application
 environment."
   (plugin-log "[PIHandshake] begin.~%")
-  ;; (as-enum-extensions 1)
-  #+ignore
-  (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
-    (fli:print-collected-template-info :output-stream stream))
+  (when (= handshake-version +handshake-v0200+)
+    (with-coerced-pointer (hs-data :type 'pi-handshake-data-v0200) handshake-data
+      
+      )
+    #+ignore
+    (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
+      (fli:print-collected-template-info :output-stream stream)))
   (plugin-log "[PIHandshake] end.~%")
   t)
+
+;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
 (defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
 
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
@@ -185,8 +190,6 @@ environment."
     ;; This shouldn't ever happen since our main() routine chose the version number.
     (plugin-log "[PISetupSDK] end badly.~%")
     nil))
-
-;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
 (defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))
 
 ;; TODO: not working for Windows

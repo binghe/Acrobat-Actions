@@ -90,7 +90,7 @@
 ;; line 161
 (define-c-typedef hft (:pointer hft-entry))
 ;; line 186
-(define-opaque-pointer as-extension -t-as-extension)
+(define-opaque-pointer as-extension -t-asextension)
 ;; line 188
 (define-c-typedef extension-id as-extension)
 ;; line 190
@@ -201,9 +201,9 @@
 ;; line 260
 (define-c-typedef as-err-severity as-enum8)
 ;; line 274
-(define-opaque-pointer as-stm -t-as-stm-rec)
+(define-opaque-pointer as-stm -t-asstm-rec)
 ;; line 294
-(define-opaque-pointer as-crypt-stm -t-as-crypt-stm-rec)
+(define-opaque-pointer as-crypt-stm -t-ascrypt-stm-rec)
 ;; line 581
 (define-c-typedef hft-data (:pointer hft-data-rec))
 ;; line 589
@@ -239,42 +239,42 @@
 (define-c-typedef as-double :double)
 (define-c-typedef as-double-p (:pointer as-double))
 ;; line 1367
-(define-opaque-pointer as-cab -t-as-cabinet)
+(define-opaque-pointer as-cab -t-ascabinet)
 ;; line 1368
-(define-opaque-pointer as-const-cab -t-as-cabinet)
+(define-opaque-pointer as-const-cab -t-ascabinet)
 ;; line 1451
-(define-opaque-pointer as-text -t-as-text-rec)
+(define-opaque-pointer ast-ext -t-astext-rec)
 ;; line 1457
-(define-opaque-pointer as-const-text -t-as-text-rec)
+(define-opaque-pointer as-const-text -t-astext-rec)
 ;; line 1833
-(define-opaque-pointer as-file-sys -t-as-file-sys-rec)
+(define-opaque-pointer as-file-sys -t-asfile-sys-rec)
 ;; line 1846
-(define-opaque-pointer as-path-name -t-as-path-name-rec)
+(define-opaque-pointer as-path-name -t-aspath-name-rec)
 ;; line 1857
-(define-opaque-pointer as-file -t-as-file)
+(define-opaque-pointer as-file -t-asfile)
 ;; line 1924
-(define-c-typedef asmd-file (:pointer :void))
+(define-c-typedef as-mdfile (:pointer :void))
 ;; line 1926
-(define-c-typedef md-file asmd-file)
+(define-c-typedef mdfile as-mdfile)
 ;; line 1935
-(define-opaque-pointer asio-request -t-asio-request-rec)
+(define-opaque-pointer as-iorequest -t-asiorequest-rec)
 ;; line 2074
 (define-c-typedef as-file-sys-item-type as-enum16)
 ;; line 2167
-(define-opaque-pointer as-folder-iterator -t-as-folder-iterator)
+(define-opaque-pointer as-folder-iterator -t-asfolder-iterator)
 ;; line 2176
-(define-opaque-pointer as-platform-path -t-as-platform-path)
+(define-opaque-pointer as-platform-path -t-asplatform-path)
 ;; line 2181
 (define-c-typedef cstring-ptr (:reference-pass :ef-mb-string))
 ;; line 2186
-(define-c-typedef posix-path-ptr (:reference-pass :ef-mb-string))
+(define-c-typedef posixpath-ptr (:reference-pass :ef-mb-string))
 ;; line 2202
-(define-opaque-pointer fs-ref-ptr fs-ref)
+(define-opaque-pointer fsref-ptr fsref)
 ;; line 2218
-(define-c-typedef fs-ref-with-cf-string-ref-rec-ptr
-                  (:pointer fs-ref-with-cf-string-ref-rec))
+(define-c-typedef fsref-with-cfstring-ref-rec-ptr
+                  (:pointer fsref-with-cfstring-ref-rec))
 ;; line 2231
-(define-c-typedef cfurl-ref-rec-ptr (:pointer cfurl-ref-rec))
+(define-c-typedef cfurlref-rec-ptr (:pointer cfurlref-rec))
 ;; line 3701
 (define-c-typedef progress-monitor as-progress-monitor)
 ;; line 3702
@@ -298,9 +298,9 @@
 ;; line 4033
 (define-c-typedef as-date-time-format as-enum8)
 ;; line 4046
-(define-opaque-pointer as-date -t-as-date-rec)
+(define-opaque-pointer as-date -t-asdate-rec)
 ;; line 4075
-(define-opaque-pointer as-time-span -t-as-time-span-rec)
+(define-opaque-pointer ast-ime-span -t-astime-span-rec)
 (define-c-typedef as-stm-proc
                   (:pointer
                    (:function
@@ -358,69 +358,69 @@
                     :void
                     :calling-convention
                     :cdecl)))
-(define-c-typedef asio-done-proc
+(define-c-typedef as-iodone-proc
                   (:pointer
                    (:function
-                    (asio-request)
+                    (as-iorequest)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-file-flags
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     as-flag-bits
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-async-read-proc
                   (:pointer
                    (:function
-                    (asio-request)
+                    (as-iorequest)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-async-write-proc
                   (:pointer
                    (:function
-                    (asio-request)
+                    (as-iorequest)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-async-abort-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-yield-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     as-error-code
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-m-read-request-proc
+(define-c-typedef as-file-sys-mread-request-proc
                   (:pointer
                    (:function
-                    (asmd-file
+                    (as-mdfile
                      as-file
                      (:pointer ast-file-pos)
                      ast-array-size)
                     as-error-code
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-clear-outstanding-m-reads-proc
+(define-c-typedef as-file-sys-clear-outstanding-mreads-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-status-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     as-flag-bits
                     :calling-convention
                     :cdecl)))
@@ -434,49 +434,49 @@
 (define-c-typedef as-file-sys-open-proc
                   (:pointer
                    (:function
-                    (as-path-name as-file-mode (:pointer asmd-file))
+                    (as-path-name as-file-mode (:pointer as-mdfile))
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-close-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-flush-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-set-pos-proc
                   (:pointer
                    (:function
-                    (asmd-file as-file-pos)
+                    (as-mdfile as-file-pos)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-pos-proc
                   (:pointer
                    (:function
-                    (asmd-file (:pointer as-file-pos))
+                    (as-mdfile (:pointer as-file-pos))
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-set-eof-proc
                   (:pointer
                    (:function
-                    (asmd-file as-file-pos)
+                    (as-mdfile as-file-pos)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-eof-proc
                   (:pointer
                    (:function
-                    (asmd-file (:pointer as-file-pos))
+                    (as-mdfile (:pointer as-file-pos))
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -486,7 +486,7 @@
                     ((:pointer :void)
                      as-size-t
                      as-size-t
-                     asmd-file
+                     as-mdfile
                      (:pointer as-error-code))
                     as-size-t
                     :calling-convention
@@ -497,7 +497,7 @@
                     ((:pointer :void)
                      as-size-t
                      as-size-t
-                     asmd-file
+                     as-mdfile
                      (:pointer as-error-code))
                     as-size-t
                     :calling-convention
@@ -512,14 +512,14 @@
 (define-c-typedef as-file-sys-rename-proc
                   (:pointer
                    (:function
-                    ((:pointer asmd-file) as-path-name as-path-name)
+                    ((:pointer as-mdfile) as-path-name as-path-name)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-is-same-file-proc
                   (:pointer
                    (:function
-                    (asmd-file as-path-name as-path-name)
+                    (as-mdfile as-path-name as-path-name)
                     as-bool
                     :calling-convention
                     :cdecl)))
@@ -546,7 +546,7 @@
                     as-path-name
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-path-from-di-path-proc
+(define-c-typedef as-file-sys-path-from-dipath-proc
                   (:pointer
                    (:function
                     ((:reference-pass :ef-mb-string) as-path-name)
@@ -619,7 +619,7 @@
 (define-c-typedef as-file-sys-set-mode-proc
                   (:pointer
                    (:function
-                    (asmd-file as-l-file-mode as-mask-bits)
+                    (as-mdfile as-l-file-mode as-mask-bits)
                     as-l-file-mode
                     :calling-convention
                     :cdecl)))
@@ -663,14 +663,14 @@
 (define-c-typedef as-file-sys-reopen-proc
                   (:pointer
                    (:function
-                    (asmd-file as-file-mode (:pointer as-error-code))
-                    asmd-file
+                    (as-mdfile as-file-mode (:pointer as-error-code))
+                    as-mdfile
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-hard-flush-proc
                   (:pointer
                    (:function
-                    (asmd-file)
+                    (as-mdfile)
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -711,35 +711,35 @@
                     :void
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-get-name-as-as-text-proc
+(define-c-typedef as-file-sys-get-name-as-astext-proc
                   (:pointer
                    (:function
-                    (as-path-name as-text)
+                    (as-path-name ast-ext)
                     as-error-code
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-display-as-text-from-path-proc
+(define-c-typedef as-file-sys-display-astext-from-path-proc
                   (:pointer
                    (:function
-                    (as-path-name as-text)
+                    (as-path-name ast-ext)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-can-set-eof-proc
                   (:pointer
                    (:function
-                    (asmd-file as-file-pos)
+                    (as-mdfile as-file-pos)
                     as-bool
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-di-path-from-path-ex-proc
+(define-c-typedef as-file-sys-dipath-from-path-ex-proc
                   (:pointer
                    (:function
-                    (as-path-name as-path-name as-text)
+                    (as-path-name as-path-name ast-ext)
                     as-error-code
                     :calling-convention
                     :cdecl)))
-(define-c-typedef as-file-sys-path-from-di-path-ex-proc
+(define-c-typedef as-file-sys-path-from-dipath-ex-proc
                   (:pointer
                    (:function
                     (as-const-text as-path-name)
@@ -749,7 +749,7 @@
 (define-c-typedef as-file-sys-open64proc
                   (:pointer
                    (:function
-                    (as-path-name as-file-mode (:pointer asmd-file))
+                    (as-path-name as-file-mode (:pointer as-mdfile))
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -763,35 +763,35 @@
 (define-c-typedef as-file-sys-set-pos64proc
                   (:pointer
                    (:function
-                    (asmd-file as-file-pos64)
+                    (as-mdfile as-file-pos64)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-pos64proc
                   (:pointer
                    (:function
-                    (asmd-file (:pointer as-file-pos64))
+                    (as-mdfile (:pointer as-file-pos64))
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-set-eof64proc
                   (:pointer
                    (:function
-                    (asmd-file as-file-pos64)
+                    (as-mdfile as-file-pos64)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-eof64proc
                   (:pointer
                    (:function
-                    (asmd-file (:pointer as-file-pos64))
+                    (as-mdfile (:pointer as-file-pos64))
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-get-name-for-display-proc
                   (:pointer
                    (:function
-                    (as-path-name as-text)
+                    (as-path-name ast-ext)
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -809,52 +809,52 @@
                     as-bool
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-begin-operation-proc
+(define-c-typedef pmbegin-operation-proc
                   (:pointer
                    (:function
                     ((:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-end-operation-proc
+(define-c-typedef pmend-operation-proc
                   (:pointer
                    (:function
                     ((:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-set-duration-proc
+(define-c-typedef pmset-duration-proc
                   (:pointer
                    (:function
                     (as-duration (:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-set-curr-value-proc
+(define-c-typedef pmset-curr-value-proc
                   (:pointer
                    (:function
                     (as-duration (:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-get-duration-proc
+(define-c-typedef pmget-duration-proc
                   (:pointer
                    (:function
                     ((:pointer :void))
                     as-duration
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-get-curr-value-proc
+(define-c-typedef pmget-curr-value-proc
                   (:pointer
                    (:function
                     ((:pointer :void))
                     as-duration
                     :calling-convention
                     :cdecl)))
-(define-c-typedef pm-set-text-proc
+(define-c-typedef pmset-text-proc
                   (:pointer
                    (:function
-                    (as-text (:pointer :void))
+                    (ast-ext (:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))
@@ -869,10 +869,10 @@
                  (empty-buff as-crypt-stm-fil-buf-proc)
                  (full-buff as-crypt-stm-fls-buf-proc)
                  (un-get-ch as-crypt-stm-un-getc-proc)
-                 (flush-buff as-crypt-stm-f-flush-proc)
-                 (close as-crypt-stm-f-close-proc)
-                 (reset as-crypt-stm-f-reset-proc)
-                 (put-eof as-crypt-stm-f-put-eof-proc))
+                 (flush-buff as-crypt-stm-fflush-proc)
+                 (close as-crypt-stm-fclose-proc)
+                 (reset as-crypt-stm-freset-proc)
+                 (put-eof as-crypt-stm-fput-eof-proc))
 (define-c-struct as-crypt-stm-rec
                  (count as-int32)
                  (current-pointer (:pointer :byte))
@@ -957,7 +957,7 @@
                  (right as-double)
                  (bottom as-double))
 (define-c-typedef as-double-rect-p (:pointer as-double-rect))
-(define-c-struct as-time-rec
+(define-c-struct ast-ime-rec
                  (year as-int16)
                  (month as-int16)
                  (date as-int16)
@@ -967,17 +967,17 @@
                  (millisecond as-int16)
                  (day as-int16)
                  (gmt-offset as-int16))
-(define-c-typedef as-time-rec-p (:pointer as-time-rec))
-(define-c-struct asio-request-rec
-                 (md-file asmd-file)
+(define-c-typedef ast-ime-rec-p (:pointer ast-ime-rec))
+(define-c-struct as-iorequest-rec
+                 (md-file as-mdfile)
                  (ptr (:pointer :void))
                  (offset ast-file-pos)
                  (count ast-array-size)
                  (total-bytes-completed ast-array-size)
                  (p-error as-error-code)
                  (client-data (:pointer :void))
-                 (io-done-proc asio-done-proc)
-                 (io-done-proc-data (:pointer :void)))
+                 (iodone-proc as-iodone-proc)
+                 (iodone-proc-data (:pointer :void)))
 (define-c-struct as-file-sys-item-props-rec
                  (size as-size-t)
                  (is-there as-bool)
@@ -985,9 +985,9 @@
                  (is-hidden as-bool)
                  (is-read-only as-bool)
                  (creation-date-known as-bool)
-                 (creation-date as-time-rec)
+                 (creation-date ast-ime-rec)
                  (mod-date-known as-bool)
-                 (mod-date as-time-rec)
+                 (mod-date ast-ime-rec)
                  (file-size as-byte-count)
                  (file-size-high as-byte-count)
                  (folder-size ast-count)
@@ -995,10 +995,10 @@
                  (type-code as-uns32))
 (define-c-typedef as-file-sys-item-props
                   (:pointer as-file-sys-item-props-rec))
-(define-c-struct fs-ref-with-cf-string-ref-rec
-                 (ref (:pointer (struct fs-ref)))
-                 (str (:pointer (struct --cf-string))))
-(define-c-struct cfurl-ref-rec (url (:pointer (struct --cfurl))))
+(define-c-struct fsref-with-cfstring-ref-rec
+                 (ref (:pointer (struct fsref)))
+                 (str (:pointer (struct --cfstring))))
+(define-c-struct cfurlref-rec (url (:pointer (struct --cfurl))))
 (define-c-struct as-file-sys-rec
                  (size as-size-t)
                  (open as-file-sys-open-proc)
@@ -1018,7 +1018,7 @@
                   as-file-sys-get-temp-path-name-proc)
                  (copy-path-name as-file-sys-copy-path-name-proc)
                  (di-path-from-path as-file-sys-di-path-from-path-proc)
-                 (path-from-di-path as-file-sys-path-from-di-path-proc)
+                 (path-from-dipath as-file-sys-path-from-dipath-proc)
                  (dispose-path-name as-file-sys-dispose-path-name-proc)
                  (get-file-sys-name as-file-sys-get-file-sys-name-proc)
                  (get-storage-free-space
@@ -1029,20 +1029,20 @@
                  (write-async as-file-sys-async-write-proc)
                  (abort-async as-file-sys-async-abort-proc)
                  (yield as-file-sys-yield-proc)
-                 (mread-request as-file-sys-m-read-request-proc)
+                 (mread-request as-file-sys-mread-request-proc)
                  (get-status as-file-sys-get-status-proc)
                  (create-path-name as-file-sys-create-path-name-proc)
                  (acquire-file-sys-path
                   as-file-sys-acquire-file-sys-path-proc)
-                 (clear-outstanding-m-reads
-                  as-file-sys-clear-outstanding-m-reads-proc)
+                 (clear-outstanding-mreads
+                  as-file-sys-clear-outstanding-mreads-proc)
                  (get-item-props as-file-sys-get-item-props-proc)
                  (first-folder-item as-file-sys-first-folder-item-proc)
                  (next-folder-item as-file-sys-next-folder-item-proc)
                  (destroy-folder-iterator
                   as-file-sys-destroy-folder-iterator-proc)
                  (set-file-mode as-file-sys-set-mode-proc)
-                 (url-from-path as-file-sys-url-from-path-proc)
+                 (url-from-path as-file-sys-urlfrom-path-proc)
                  (get-parent as-file-sys-get-parent-proc)
                  (create-folder as-file-sys-create-folder-proc)
                  (remove-folder as-file-sys-remove-folder-proc)
@@ -1066,16 +1066,16 @@
                   as-file-sys-acquire-platform-path-proc)
                  (release-platform-path
                   as-file-sys-release-platform-path-proc)
-                 (get-name-as-as-text
-                  as-file-sys-get-name-as-as-text-proc)
-                 (display-as-text-from-path
-                  as-file-sys-display-as-text-from-path-proc)
+                 (get-name-as-astext
+                  as-file-sys-get-name-as-astext-proc)
+                 (display-astext-from-path
+                  as-file-sys-display-astext-from-path-proc)
                  (range-arrived as-file-sys-range-arrived-proc)
                  (can-set-eof as-file-sys-can-set-eof-proc)
                  (di-path-from-path-ex
-                  as-file-sys-di-path-from-path-ex-proc)
-                 (path-from-di-path-ex
-                  as-file-sys-path-from-di-path-ex-proc)
+                  as-file-sys-dipath-from-path-ex-proc)
+                 (path-from-dipath-ex
+                  as-file-sys-path-from-dipath-ex-proc)
                  (getfileposlimit
                   as-file-sys-get-file-position-limit-proc)
                  (open64 as-file-sys-open64proc)
@@ -1090,13 +1090,13 @@
                  (is-in-use as-file-sys-is-in-use-proc))
 (define-c-struct as-progress-monitor-rec
                  (size as-size-t)
-                 (begin-operation pm-begin-operation-proc)
-                 (end-operation pm-end-operation-proc)
-                 (set-duration pm-set-duration-proc)
-                 (set-curr-value pm-set-curr-value-proc)
-                 (get-duration pm-get-duration-proc)
-                 (get-curr-value pm-get-curr-value-proc)
-                 (set-text pm-set-text-proc))
+                 (begin-operation pmbegin-operation-proc)
+                 (end-operation pmend-operation-proc)
+                 (set-duration pmset-duration-proc)
+                 (set-curr-value pmset-curr-value-proc)
+                 (get-duration pmget-duration-proc)
+                 (get-curr-value pmget-curr-value-proc)
+                 (set-text pmset-text-proc))
 (define-c-typedef as-progress-monitor
                   (:pointer as-progress-monitor-rec))
 (define-c-struct as-uuid
@@ -1140,7 +1140,7 @@
 ;; sel = 2
 (define-foreign-funcallable as-push-exception-frame-selproto
                             ((as-environ (:pointer :void))
-                             (restore-func ac-restore-environ-proc))
+                             (restore-func acrestore-environ-proc))
                             :result-type
                             :void
                             :calling-convention
@@ -1239,11 +1239,11 @@
 
 ;; #include <CorCalls.h>
 ;; line 329
-(define-c-typedef ac-push-exception-frame as-push-exception-frame)
+(define-c-typedef acpush-exception-frame as-push-exception-frame)
 ;; line 330
-(define-c-typedef ac-pop-exception-frame as-pop-exception-frame)
+(define-c-typedef acpop-exception-frame as-pop-exception-frame)
 ;; line 331
-(define-c-typedef ac-get-exception-error-code
+(define-c-typedef acget-exception-error-code
                   as-get-exception-error-code)
 ;; line 420
 (define-acrobat-function (as-raise-impl "ASRaiseImpl")
@@ -1344,16 +1344,16 @@
 (defconstant +hft-get-replaced-entry-sel+ 11)
 (defconstant +as-fixed-mul-sel+ 12)
 (defconstant +as-fixed-div-sel+ 13)
-(defconstant +as-fixed-to-c-string-sel+ 14)
-(defconstant +asc-string-to-fixed-sel+ 15)
+(defconstant +as-fixed-to-cstring-sel+ 14)
+(defconstant +as-cstring-to-fixed-sel+ 15)
 (defconstant +as-fixed-matrix-concat-sel+ 16)
 (defconstant +as-fixed-matrix-invert-sel+ 17)
 (defconstant +as-fixed-matrix-transform-sel+ 18)
 (defconstant +as-fixed-matrix-transform-rect-sel+ 19)
 (defconstant +as-path-from-platform-path-sel+ 20)
 (defconstant +as-get-default-file-sys-sel+ 21)
-(defconstant +as-file-sys-di-path-from-path-sel+ 22)
-(defconstant +as-file-sys-path-from-di-path-sel+ 23)
+(defconstant +as-file-sys-dipath-from-path-sel+ 22)
+(defconstant +as-file-sys-path-from-dipath-sel+ 23)
 (defconstant +as-file-sys-copy-path-sel+ 24)
 (defconstant +as-file-sys-release-path-sel+ 25)
 (defconstant +as-file-sys-open-file-sel+ 26)
@@ -1380,8 +1380,8 @@
 (defconstant +as-file-push-data-sel+ 47)
 (defconstant +as-file-register-file-sys-sel+ 48)
 (defconstant +as-file-get-file-sys-by-name-sel+ 49)
-(defconstant +as-file-from-md-file-sel+ 50)
-(defconstant +as-file-get-md-file-sel+ 51)
+(defconstant +as-file-from-mdfile-sel+ 50)
+(defconstant +as-file-get-mdfile-sel+ 51)
 (defconstant +as-file-sys-create-path-name-sel+ 52)
 (defconstant +as-file-sys-acquire-file-sys-path-sel+ 53)
 (defconstant +as-file-set-mode-sel+ 54)
@@ -1398,9 +1398,9 @@
 (defconstant +as-file-sys-get-temp-path-name-sel+ 65)
 (defconstant +as-file-sys-get-storage-free-space-sel+ 66)
 (defconstant +as-file-sys-flush-volume-sel+ 67)
-(defconstant +as-file-m-read-request-sel+ 68)
-(defconstant +as-file-clear-outstanding-m-reads-sel+ 69)
-(defconstant +as-file-sys-url-from-path-sel+ 70)
+(defconstant +as-file-mread-request-sel+ 68)
+(defconstant +as-file-clear-outstanding-mreads-sel+ 69)
+(defconstant +as-file-sys-urlfrom-path-sel+ 70)
 (defconstant +as-file-get-url-sel+ 71)
 (defconstant +as-file-sys-create-folder-sel+ 72)
 (defconstant +as-file-sys-remove-folder-sel+ 73)
@@ -1409,7 +1409,7 @@
 (defconstant +as-get-secs-sel+ 76)
 (defconstant +as-file-sys-set-type-and-creator-sel+ 77)
 (defconstant +as-file-sys-get-type-and-creator-sel+ 78)
-(defconstant +as-host-mb-len-sel+ 79)
+(defconstant +as-host-mblen-sel+ 79)
 (defconstant +as-file-hard-flush-sel+ 80)
 (defconstant +hft-replace-entry-ex-sel+ 81)
 (defconstant +hft-unreplace-entry-sel+ 82)
@@ -1417,30 +1417,30 @@
 (defconstant +as-uuid-gen-unique-sel+ 84)
 (defconstant +as-uuid-gen-from-name-sel+ 85)
 (defconstant +as-uuid-gen-from-hash-sel+ 86)
-(defconstant +as-uuid-from-c-string-sel+ 87)
-(defconstant +as-uuid-to-c-string-sel+ 88)
+(defconstant +as-uuid-from-cstring-sel+ 87)
+(defconstant +as-uuid-to-cstring-sel+ 88)
 (defconstant +as-file-sys-get-platform-thing-sel+ 89)
 (defconstant +as-file-sys-acquire-platform-path-sel+ 90)
 (defconstant +as-file-sys-release-platform-path-sel+ 91)
 (defconstant +as-platform-path-get-cstring-ptr-sel+ 92)
-(defconstant +as-platform-path-get-fs-ref-ptr-sel+ 93)
-(defconstant +as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-sel+ 94)
-(defconstant +as-platform-path-get-cfurl-ref-rec-ptr-sel+ 95)
-(defconstant +as-platform-path-get-posix-path-ptr-sel+ 96)
-(defconstant +as-file-sys-get-name-from-path-as-as-text-sel+ 97)
-(defconstant +as-file-sys-display-as-text-from-path-sel+ 98)
+(defconstant +as-platform-path-get-fsref-ptr-sel+ 93)
+(defconstant +as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-sel+ 94)
+(defconstant +as-platform-path-get-cfurlref-rec-ptr-sel+ 95)
+(defconstant +as-platform-path-get-posixpath-ptr-sel+ 96)
+(defconstant +as-file-sys-get-name-from-path-as-astext-sel+ 97)
+(defconstant +as-file-sys-display-astext-from-path-sel+ 98)
 (defconstant +as-stm-flush-sel+ 99)
-(defconstant +as-file-has-outstanding-m-reads-sel+ 100)
+(defconstant +as-file-has-outstanding-mreads-sel+ 100)
 (defconstant +as-file-can-set-eof-sel+ 101)
 (defconstant +hft-get-version-sel+ 102)
 (defconstant +hft-new-ex-sel+ 103)
-(defconstant +as-file-sys-di-path-from-path-ex-sel+ 104)
-(defconstant +as-file-sys-path-from-di-path-ex-sel+ 105)
+(defconstant +as-file-sys-dipath-from-path-ex-sel+ 104)
+(defconstant +as-file-sys-path-from-dipath-ex-sel+ 105)
 (defconstant +as-get-temp-file-sys-sel+ 106)
 (defconstant +as-set-temp-file-sys-sel+ 107)
 (defconstant +as-get-ram-file-sys-sel+ 108)
 (defconstant +as-fixed-to-float-sel+ 109)
-(defconstant +float-to-as-fixed-sel+ 110)
+(defconstant +float-to-asfixed-sel+ 110)
 (defconstant +as-file-sys-open-file64-sel+ 111)
 (defconstant +as-file-sys-get-file-pos-limit-sel+ 112)
 (defconstant +as-file-set-pos64-sel+ 113)
@@ -1450,8 +1450,8 @@
 (defconstant +as-ram-file-sys-set-limit-kb-sel+ 117)
 (defconstant +as-file-sys-get-name-from-path-for-display-sel+ 118)
 (defconstant +as-get-default-unicode-file-sys-sel+ 119)
-(defconstant +as-get-error-string-as-text-sel+ 120)
-(defconstant +as-register-error-string-as-text-sel+ 121)
+(defconstant +as-get-error-string-astext-sel+ 120)
+(defconstant +as-register-error-string-astext-sel+ 121)
 (defconstant +as-get-default-file-sys-for-path-sel+ 122)
 (defconstant +as-file-sys-is-local-sel+ 123)
 (defconstant +as-file-sys-get-storage-free-space64-sel+ 124)
@@ -1470,7 +1470,7 @@
 ;; sel = 2
 (define-foreign-funcallable as-realloc-selproto
                             ((ptr (:pointer :void))
-                             (new-n-bytes os-size-t))
+                             (new-nbytes os-size-t))
                             :result-type
                             (:pointer :void)
                             :calling-convention
@@ -1566,7 +1566,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 14
-(define-foreign-funcallable as-fixed-to-c-string-selproto
+(define-foreign-funcallable as-fixed-to-cstring-selproto
                             ((f as-fixed)
                              (s (:reference-pass :ef-mb-string))
                              (max-length os-size-t)
@@ -1576,7 +1576,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 15
-(define-foreign-funcallable asc-string-to-fixed-selproto
+(define-foreign-funcallable as-cstring-to-fixed-selproto
                             ((s (:reference-pass :ef-mb-string)))
                             :result-type
                             as-fixed
@@ -1632,7 +1632,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 22
-(define-foreign-funcallable as-file-sys-di-path-from-path-selproto
+(define-foreign-funcallable as-file-sys-dipath-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
                              (relative-to-this-path as-path-name))
@@ -1641,7 +1641,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 23
-(define-foreign-funcallable as-file-sys-path-from-di-path-selproto
+(define-foreign-funcallable as-file-sys-path-from-dipath-selproto
                             ((file-sys as-file-sys)
                              (di-path (:reference-pass :ef-mb-string))
                              (relative-to-this-path as-path-name))
@@ -1860,8 +1860,8 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 50
-(define-foreign-funcallable as-file-from-md-file-selproto
-                            ((md-file asmd-file)
+(define-foreign-funcallable as-file-from-mdfile-selproto
+                            ((md-file as-mdfile)
                              (file-sys as-file-sys)
                              (pf-n (:pointer as-file)))
                             :result-type
@@ -1869,9 +1869,9 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 51
-(define-foreign-funcallable as-file-get-md-file-selproto
+(define-foreign-funcallable as-file-get-mdfile-selproto
                             ((f-n as-file)
-                             (p-file-id (:pointer asmd-file))
+                             (p-file-id (:pointer as-mdfile))
                              (p-file-sys (:pointer as-file-sys)))
                             :result-type
                             as-bool
@@ -2018,7 +2018,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 68
-(define-foreign-funcallable as-file-m-read-request-selproto
+(define-foreign-funcallable as-file-mread-request-selproto
                             ((f-n as-file)
                              (block-pairs (:pointer as-int32))
                              (n-block-pairs ast-count))
@@ -2027,14 +2027,14 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 69
-(define-foreign-funcallable as-file-clear-outstanding-m-reads-selproto
+(define-foreign-funcallable as-file-clear-outstanding-mreads-selproto
                             ((f-n as-file))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
 ;; sel = 70
-(define-foreign-funcallable as-file-sys-url-from-path-selproto
+(define-foreign-funcallable as-file-sys-urlfrom-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name))
                             :result-type
@@ -2108,7 +2108,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 79
-(define-foreign-funcallable as-host-mb-len-selproto
+(define-foreign-funcallable as-host-mblen-selproto
                             ((encoding as-host-encoding)
                              (byte as-uns8))
                             :result-type
@@ -2177,7 +2177,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 87
-(define-foreign-funcallable as-uuid-from-c-string-selproto
+(define-foreign-funcallable as-uuid-from-cstring-selproto
                             ((dst (:pointer as-uuid))
                              (str (:reference-pass :ef-mb-string)))
                             :result-type
@@ -2185,7 +2185,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 88
-(define-foreign-funcallable as-uuid-to-c-string-selproto
+(define-foreign-funcallable as-uuid-to-cstring-selproto
                             ((dst (:reference-pass :ef-mb-string))
                              (src (:pointer as-uuid)))
                             :result-type
@@ -2228,47 +2228,47 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 93
-(define-foreign-funcallable as-platform-path-get-fs-ref-ptr-selproto
+(define-foreign-funcallable as-platform-path-get-fsref-ptr-selproto
                             ((path as-platform-path))
                             :result-type
-                            fs-ref-ptr
+                            fsref-ptr
                             :calling-convention
                             :cdecl)
 ;; sel = 94
-(define-foreign-funcallable as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-selproto
+(define-foreign-funcallable as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-selproto
                             ((path as-platform-path))
                             :result-type
-                            fs-ref-with-cf-string-ref-rec-ptr
+                            fsref-with-cfstring-ref-rec-ptr
                             :calling-convention
                             :cdecl)
 ;; sel = 95
-(define-foreign-funcallable as-platform-path-get-cfurl-ref-rec-ptr-selproto
+(define-foreign-funcallable as-platform-path-get-cfurlref-rec-ptr-selproto
                             ((path as-platform-path))
                             :result-type
-                            cfurl-ref-rec-ptr
+                            cfurlref-rec-ptr
                             :calling-convention
                             :cdecl)
 ;; sel = 96
-(define-foreign-funcallable as-platform-path-get-posix-path-ptr-selproto
+(define-foreign-funcallable as-platform-path-get-posixpath-ptr-selproto
                             ((path as-platform-path))
                             :result-type
-                            posix-path-ptr
+                            posixpath-ptr
                             :calling-convention
                             :cdecl)
 ;; sel = 97
-(define-foreign-funcallable as-file-sys-get-name-from-path-as-as-text-selproto
+(define-foreign-funcallable as-file-sys-get-name-from-path-as-astext-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
-                             (name as-text))
+                             (name ast-ext))
                             :result-type
                             as-error-code
                             :calling-convention
                             :cdecl)
 ;; sel = 98
-(define-foreign-funcallable as-file-sys-display-as-text-from-path-selproto
+(define-foreign-funcallable as-file-sys-display-astext-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
-                             (display-text as-text))
+                             (display-text ast-ext))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2281,7 +2281,7 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 100
-(define-foreign-funcallable as-file-has-outstanding-m-reads-selproto
+(define-foreign-funcallable as-file-has-outstanding-mreads-selproto
                             ((f-n as-file))
                             :result-type
                             as-bool
@@ -2309,17 +2309,17 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 104
-(define-foreign-funcallable as-file-sys-di-path-from-path-ex-selproto
+(define-foreign-funcallable as-file-sys-dipath-from-path-ex-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
                              (relative-to-this-path as-path-name)
-                             (di-path-text as-text))
+                             (di-path-text ast-ext))
                             :result-type
                             as-error-code
                             :calling-convention
                             :cdecl)
 ;; sel = 105
-(define-foreign-funcallable as-file-sys-path-from-di-path-ex-selproto
+(define-foreign-funcallable as-file-sys-path-from-dipath-ex-selproto
                             ((file-sys as-file-sys)
                              (di-path-text as-const-text)
                              (relative-to-this-path as-path-name))
@@ -2350,13 +2350,13 @@
                             :cdecl)
 ;; sel = 109
 (define-foreign-funcallable as-fixed-to-float-selproto
-                            ((in-as-fixed as-fixed))
+                            ((in-asfixed as-fixed))
                             :result-type
                             :float
                             :calling-convention
                             :cdecl)
 ;; sel = 110
-(define-foreign-funcallable float-to-as-fixed-selproto
+(define-foreign-funcallable float-to-asfixed-selproto
                             ((in-float :double))
                             :result-type
                             as-fixed
@@ -2419,7 +2419,7 @@
 (define-foreign-funcallable as-file-sys-get-name-from-path-for-display-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
-                             (name-for-display as-text))
+                             (name-for-display ast-ext))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2432,17 +2432,17 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 120
-(define-foreign-funcallable as-get-error-string-as-text-selproto
+(define-foreign-funcallable as-get-error-string-astext-selproto
                             ((error-code as-error-code)
-                             (error-string as-text))
+                             (error-string ast-ext))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
 ;; sel = 121
-(define-foreign-funcallable as-register-error-string-as-text-selproto
+(define-foreign-funcallable as-register-error-string-astext-selproto
                             ((severity as-err-severity)
-                             (error-string as-text))
+                             (error-string ast-ext))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2589,19 +2589,19 @@
                          *g-acro-support-hft*
                          +as-fixed-div-sel+)
 ;; line 233
-(define-acrobat-function (as-fixed-to-c-string "ASFixedToCString")
+(define-acrobat-function (as-fixed-to-cstring "ASFixedToCString")
                          *g-acro-support-version*
                          0
-                         as-fixed-to-c-string-selproto
+                         as-fixed-to-cstring-selproto
                          *g-acro-support-hft*
-                         +as-fixed-to-c-string-sel+)
+                         +as-fixed-to-cstring-sel+)
 ;; line 236
-(define-acrobat-function (asc-string-to-fixed "ASCStringToFixed")
+(define-acrobat-function (as-cstring-to-fixed "ASCStringToFixed")
                          *g-acro-support-version*
                          0
-                         asc-string-to-fixed-selproto
+                         as-cstring-to-fixed-selproto
                          *g-acro-support-hft*
-                         +asc-string-to-fixed-sel+)
+                         +as-cstring-to-fixed-sel+)
 ;; line 240
 (define-acrobat-function (as-fixed-matrix-concat "ASFixedMatrixConcat")
                          *g-acro-support-version*
@@ -2652,19 +2652,21 @@
                          *g-acro-support-hft*
                          +as-ram-file-sys-set-limit-kb-sel+)
 ;; line 272
-(define-acrobat-function (as-file-sys-di-path-from-path "ASFileSysDIPathFromPath")
+(define-acrobat-function (as-file-sys-dipath-from-path
+                          "ASFileSysDIPathFromPath")
                          *g-acro-support-version*
                          0
-                         as-file-sys-di-path-from-path-selproto
+                         as-file-sys-dipath-from-path-selproto
                          *g-acro-support-hft*
-                         +as-file-sys-di-path-from-path-sel+)
+                         +as-file-sys-dipath-from-path-sel+)
 ;; line 275
-(define-acrobat-function (as-file-sys-path-from-di-path "ASFileSysPathFromDIPath")
+(define-acrobat-function (as-file-sys-path-from-dipath
+                          "ASFileSysPathFromDIPath")
                          *g-acro-support-version*
                          0
-                         as-file-sys-path-from-di-path-selproto
+                         as-file-sys-path-from-dipath-selproto
                          *g-acro-support-hft*
-                         +as-file-sys-path-from-di-path-sel+)
+                         +as-file-sys-path-from-dipath-sel+)
 ;; line 278
 (define-acrobat-function (as-file-sys-copy-path "ASFileSysCopyPath")
                          *g-acro-support-version*
@@ -2834,19 +2836,19 @@
                          *g-acro-support-hft*
                          +as-file-get-file-sys-by-name-sel+)
 ;; line 355
-(define-acrobat-function (as-file-from-md-file "ASFileFromMDFile")
+(define-acrobat-function (as-file-from-mdfile "ASFileFromMDFile")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
-                         as-file-from-md-file-selproto
+                         as-file-from-mdfile-selproto
                          *g-acro-support-hft*
-                         +as-file-from-md-file-sel+)
+                         +as-file-from-mdfile-sel+)
 ;; line 358
-(define-acrobat-function (as-file-get-md-file "ASFileGetMDFile")
+(define-acrobat-function (as-file-get-mdfile "ASFileGetMDFile")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
-                         as-file-get-md-file-selproto
+                         as-file-get-mdfile-selproto
                          *g-acro-support-hft*
-                         +as-file-get-md-file-sel+)
+                         +as-file-get-mdfile-sel+)
 ;; line 361
 (define-acrobat-function (as-file-sys-create-path-name "ASFileSysCreatePathName")
                          *g-acro-support-version*
@@ -2939,19 +2941,19 @@
                          *g-acro-support-hft*
                          +as-uuid-gen-from-hash-sel+)
 ;; line 444
-(define-acrobat-function (as-uuid-from-c-string "ASUUIDFromCString")
+(define-acrobat-function (as-uuid-from-cstring "ASUUIDFromCString")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-uuid-from-c-string-selproto
+                         as-uuid-from-cstring-selproto
                          *g-acro-support-hft*
-                         +as-uuid-from-c-string-sel+)
+                         +as-uuid-from-cstring-sel+)
 ;; line 445
-(define-acrobat-function (as-uuid-to-c-string "ASUUIDToCString")
+(define-acrobat-function (as-uuid-to-cstring "ASUUIDToCString")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-uuid-to-c-string-selproto
+                         as-uuid-to-cstring-selproto
                          *g-acro-support-hft*
-                         +as-uuid-to-c-string-sel+)
+                         +as-uuid-to-cstring-sel+)
 ;; line 446
 (define-acrobat-function (as-file-sys-get-platform-thing "ASFileSysGetPlatformThing")
                          *g-acro-support-version*
@@ -2981,47 +2983,53 @@
                          *g-acro-support-hft*
                          +as-platform-path-get-cstring-ptr-sel+)
 ;; line 453
-(define-acrobat-function (as-platform-path-get-fs-ref-ptr "ASPlatformPathGetFSRefPtr")
+(define-acrobat-function (as-platform-path-get-fsref-ptr
+                          "ASPlatformPathGetFSRefPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-platform-path-get-fs-ref-ptr-selproto
+                         as-platform-path-get-fsref-ptr-selproto
                          *g-acro-support-hft*
-                         +as-platform-path-get-fs-ref-ptr-sel+)
+                         +as-platform-path-get-fsref-ptr-sel+)
 ;; line 454
-(define-acrobat-function (as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr "ASPlatformPathGetFSRefWithCFStringRefRecPtr")
+(define-acrobat-function (as-platform-path-get-fsref-with-cfstring-ref-rec-ptr
+                          "ASPlatformPathGetFSRefWithCFStringRefRecPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-selproto
+                         as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-selproto
                          *g-acro-support-hft*
-                         +as-platform-path-get-fs-ref-with-cf-string-ref-rec-ptr-sel+)
+                         +as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-sel+)
 ;; line 455
-(define-acrobat-function (as-platform-path-get-cfurl-ref-rec-ptr "ASPlatformPathGetCFURLRefRecPtr")
+(define-acrobat-function (as-platform-path-get-cfurlref-rec-ptr
+                          "ASPlatformPathGetCFURLRefRecPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-platform-path-get-cfurl-ref-rec-ptr-selproto
+                         as-platform-path-get-cfurlref-rec-ptr-selproto
                          *g-acro-support-hft*
-                         +as-platform-path-get-cfurl-ref-rec-ptr-sel+)
+                         +as-platform-path-get-cfurlref-rec-ptr-sel+)
 ;; line 456
-(define-acrobat-function (as-platform-path-get-posix-path-ptr "ASPlatformPathGetPOSIXPathPtr")
+(define-acrobat-function (as-platform-path-get-posixpath-ptr
+                          "ASPlatformPathGetPOSIXPathPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-platform-path-get-posix-path-ptr-selproto
+                         as-platform-path-get-posixpath-ptr-selproto
                          *g-acro-support-hft*
-                         +as-platform-path-get-posix-path-ptr-sel+)
+                         +as-platform-path-get-posixpath-ptr-sel+)
 ;; line 457
-(define-acrobat-function (as-file-sys-get-name-from-path-as-as-text "ASFileSysGetNameFromPathAsASText")
+(define-acrobat-function (as-file-sys-get-name-from-path-as-astext
+                          "ASFileSysGetNameFromPathAsASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-file-sys-get-name-from-path-as-as-text-selproto
+                         as-file-sys-get-name-from-path-as-astext-selproto
                          *g-acro-support-hft*
-                         +as-file-sys-get-name-from-path-as-as-text-sel+)
+                         +as-file-sys-get-name-from-path-as-astext-sel+)
 ;; line 458
-(define-acrobat-function (as-file-sys-display-as-text-from-path "ASFileSysDisplayASTextFromPath")
+(define-acrobat-function (as-file-sys-display-astext-from-path
+                          "ASFileSysDisplayASTextFromPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-file-sys-display-as-text-from-path-selproto
+                         as-file-sys-display-astext-from-path-selproto
                          *g-acro-support-hft*
-                         +as-file-sys-display-as-text-from-path-sel+)
+                         +as-file-sys-display-astext-from-path-sel+)
 ;; line 460
 (define-acrobat-function (as-stm-flush "ASStmFlush")
                          *g-acro-support-version*
@@ -3030,12 +3038,13 @@
                          *g-acro-support-hft*
                          +as-stm-flush-sel+)
 ;; line 461
-(define-acrobat-function (as-file-has-outstanding-m-reads "ASFileHasOutstandingMReads")
+(define-acrobat-function (as-file-has-outstanding-mreads
+                          "ASFileHasOutstandingMReads")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-file-has-outstanding-m-reads-selproto
+                         as-file-has-outstanding-mreads-selproto
                          *g-acro-support-hft*
-                         +as-file-has-outstanding-m-reads-sel+)
+                         +as-file-has-outstanding-mreads-sel+)
 ;; line 462
 (define-acrobat-function (as-file-can-set-eof "ASFileCanSetEOF")
                          *g-acro-support-version*
@@ -3058,19 +3067,21 @@
                          *g-acro-support-hft*
                          +hft-new-ex-sel+)
 ;; line 465
-(define-acrobat-function (as-file-sys-di-path-from-path-ex "ASFileSysDIPathFromPathEx")
+(define-acrobat-function (as-file-sys-dipath-from-path-ex
+                          "ASFileSysDIPathFromPathEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-file-sys-di-path-from-path-ex-selproto
+                         as-file-sys-dipath-from-path-ex-selproto
                          *g-acro-support-hft*
-                         +as-file-sys-di-path-from-path-ex-sel+)
+                         +as-file-sys-dipath-from-path-ex-sel+)
 ;; line 466
-(define-acrobat-function (as-file-sys-path-from-di-path-ex "ASFileSysPathFromDIPathEx")
+(define-acrobat-function (as-file-sys-path-from-dipath-ex
+                          "ASFileSysPathFromDIPathEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
-                         as-file-sys-path-from-di-path-ex-selproto
+                         as-file-sys-path-from-dipath-ex-selproto
                          *g-acro-support-hft*
-                         +as-file-sys-path-from-di-path-ex-sel+)
+                         +as-file-sys-path-from-dipath-ex-sel+)
 ;; line 471
 (define-acrobat-function (as-fixed-to-float "ASFixedToFloat")
                          *g-acro-support-version*
@@ -3079,12 +3090,12 @@
                          *g-acro-support-hft*
                          +as-fixed-to-float-sel+)
 ;; line 472
-(define-acrobat-function (float-to-as-fixed "FloatToASFixed")
+(define-acrobat-function (float-to-asfixed "FloatToASFixed")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
-                         float-to-as-fixed-selproto
+                         float-to-asfixed-selproto
                          *g-acro-support-hft*
-                         +float-to-as-fixed-sel+)
+                         +float-to-asfixed-sel+)
 ;; line 479
 (define-acrobat-function (as-file-sys-open-file64 "ASFileSysOpenFile64")
                          *g-acro-support-version*
@@ -3142,19 +3153,21 @@
                          *g-acro-support-hft*
                          +as-get-default-unicode-file-sys-sel+)
 ;; line 492
-(define-acrobat-function (as-get-error-string-as-text "ASGetErrorStringASText")
+(define-acrobat-function (as-get-error-string-astext
+                          "ASGetErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
-                         as-get-error-string-as-text-selproto
+                         as-get-error-string-astext-selproto
                          *g-acro-support-hft*
-                         +as-get-error-string-as-text-sel+)
+                         +as-get-error-string-astext-sel+)
 ;; line 493
-(define-acrobat-function (as-register-error-string-as-text "ASRegisterErrorStringASText")
+(define-acrobat-function (as-register-error-string-astext
+                          "ASRegisterErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
-                         as-register-error-string-as-text-selproto
+                         as-register-error-string-astext-selproto
                          *g-acro-support-hft*
-                         +as-register-error-string-as-text-sel+)
+                         +as-register-error-string-astext-sel+)
 ;; line 494
 (define-acrobat-function (as-get-default-file-sys-for-path "ASGetDefaultFileSysForPath")
                          *g-acro-support-version*
@@ -3211,3 +3224,46 @@
                          as-file-open-with-virtual-eof-selproto
                          *g-acro-support-hft*
                          +as-file-open-with-virtual-eof-sel+)
+
+;; #include <PIVersn.h>
+;; line 108
+(define-c-typedef handshake-version handshake-v0200)
+(define-c-typedef pi-setup-sdk-proc-type
+                  (:pointer
+                   (:function
+                    (as-uns32 (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pi-handshake-proc-type
+                  (:pointer
+                   (:function
+                    (as-uns32 (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pi-export-hft-s-proc-type
+                  (:pointer
+                   (:function nil as-bool :calling-convention :cdecl)))
+(define-c-typedef pi-import-replace-and-register-proc-type
+                  (:pointer
+                   (:function nil as-bool :calling-convention :cdecl)))
+(define-c-typedef pi-init-proc-type
+                  (:pointer
+                   (:function nil as-bool :calling-convention :cdecl)))
+(define-c-typedef pi-unload-proc-type
+                  (:pointer
+                   (:function nil as-bool :calling-convention :cdecl)))
+(define-c-struct pi-sdk-data-v0200
+                 (handshake-version as-uns32)
+                 (extension-id extension-id)
+                 (core-hft hft)
+                 (handshake-callback as-callback))
+(define-c-struct pi-handshake-data-v0200
+                 (handshake-version as-uns32)
+                 (app-name as-atom)
+                 (extension-name as-atom)
+                 (export-hft-s-callback as-callback)
+                 (import-replace-and-register-callback as-callback)
+                 (init-callback as-callback)
+                 (unload-callback as-callback))

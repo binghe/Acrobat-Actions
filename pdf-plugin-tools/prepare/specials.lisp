@@ -37,6 +37,7 @@
     "CorCalls"
     "ASProcs"    ; Catalog of functions exported by AcroSupport
     "ASCalls"
+    "PIVersn"    ; Contains handshaking versioning types and data
     )
   "The list of involved Acrobat SDK header files in the right order.")
 
