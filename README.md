@@ -4,7 +4,7 @@ author: Chun Tian
 
 # Actions, Commands and Plug-ins for Adobe® Acrobat®
 
-This repository offers some Actions, Custom Commands, Preflights, PDF Stamps, JavaScripts and Plug-ins (C/C++ and Common Lisp) for Adobe® Acrobat® - the de-facto viewer and editor for Adobe PDF (Portable Document Format) files.
+This repository offers some Actions, Custom Commands, Preflights, PDF Stamps, JavaScripts and Plug-ins (C/C++ and Common Lisp) for Adobe® Acrobat® - the de-facto standard viewer and editor for Adobe PDF (Portable Document Format) files.
 
 ## Compatibility with Acrobat® versions
 
@@ -32,4 +32,4 @@ Some PDF tasks are impossible to implement in JavaScript, because Adobe didn't e
 
 ## Acrobat® Plug-ins in Common Lisp
 
-A new plugin tools is under development. This is inspired by [FM-PLUGIN-TOOLS](https://github.com/binghe/fm-plugin-tools).
+A new plugin tools is under development (currently the handshake is successful). This is inspired by Edi Weitz's [FM-PLUGIN-TOOLS](https://github.com/binghe/fm-plugin-tools).
