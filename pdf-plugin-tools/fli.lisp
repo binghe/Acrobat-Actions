@@ -2652,16 +2652,14 @@
                          *g-acro-support-hft*
                          +as-ram-file-sys-set-limit-kb-sel+)
 ;; line 272
-(define-acrobat-function (as-file-sys-dipath-from-path
-                          "ASFileSysDIPathFromPath")
+(define-acrobat-function (as-file-sys-dipath-from-path "ASFileSysDIPathFromPath")
                          *g-acro-support-version*
                          0
                          as-file-sys-dipath-from-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-dipath-from-path-sel+)
 ;; line 275
-(define-acrobat-function (as-file-sys-path-from-dipath
-                          "ASFileSysPathFromDIPath")
+(define-acrobat-function (as-file-sys-path-from-dipath "ASFileSysPathFromDIPath")
                          *g-acro-support-version*
                          0
                          as-file-sys-path-from-dipath-selproto
@@ -2983,48 +2981,42 @@
                          *g-acro-support-hft*
                          +as-platform-path-get-cstring-ptr-sel+)
 ;; line 453
-(define-acrobat-function (as-platform-path-get-fsref-ptr
-                          "ASPlatformPathGetFSRefPtr")
+(define-acrobat-function (as-platform-path-get-fsref-ptr "ASPlatformPathGetFSRefPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-fsref-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-fsref-ptr-sel+)
 ;; line 454
-(define-acrobat-function (as-platform-path-get-fsref-with-cfstring-ref-rec-ptr
-                          "ASPlatformPathGetFSRefWithCFStringRefRecPtr")
+(define-acrobat-function (as-platform-path-get-fsref-with-cfstring-ref-rec-ptr "ASPlatformPathGetFSRefWithCFStringRefRecPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-sel+)
 ;; line 455
-(define-acrobat-function (as-platform-path-get-cfurlref-rec-ptr
-                          "ASPlatformPathGetCFURLRefRecPtr")
+(define-acrobat-function (as-platform-path-get-cfurlref-rec-ptr "ASPlatformPathGetCFURLRefRecPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-cfurlref-rec-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-cfurlref-rec-ptr-sel+)
 ;; line 456
-(define-acrobat-function (as-platform-path-get-posixpath-ptr
-                          "ASPlatformPathGetPOSIXPathPtr")
+(define-acrobat-function (as-platform-path-get-posixpath-ptr "ASPlatformPathGetPOSIXPathPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-posixpath-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-posixpath-ptr-sel+)
 ;; line 457
-(define-acrobat-function (as-file-sys-get-name-from-path-as-astext
-                          "ASFileSysGetNameFromPathAsASText")
+(define-acrobat-function (as-file-sys-get-name-from-path-as-astext "ASFileSysGetNameFromPathAsASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-get-name-from-path-as-astext-selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-name-from-path-as-astext-sel+)
 ;; line 458
-(define-acrobat-function (as-file-sys-display-astext-from-path
-                          "ASFileSysDisplayASTextFromPath")
+(define-acrobat-function (as-file-sys-display-astext-from-path "ASFileSysDisplayASTextFromPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-display-astext-from-path-selproto
@@ -3038,8 +3030,7 @@
                          *g-acro-support-hft*
                          +as-stm-flush-sel+)
 ;; line 461
-(define-acrobat-function (as-file-has-outstanding-mreads
-                          "ASFileHasOutstandingMReads")
+(define-acrobat-function (as-file-has-outstanding-mreads "ASFileHasOutstandingMReads")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-has-outstanding-mreads-selproto
@@ -3067,16 +3058,14 @@
                          *g-acro-support-hft*
                          +hft-new-ex-sel+)
 ;; line 465
-(define-acrobat-function (as-file-sys-dipath-from-path-ex
-                          "ASFileSysDIPathFromPathEx")
+(define-acrobat-function (as-file-sys-dipath-from-path-ex "ASFileSysDIPathFromPathEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-dipath-from-path-ex-selproto
                          *g-acro-support-hft*
                          +as-file-sys-dipath-from-path-ex-sel+)
 ;; line 466
-(define-acrobat-function (as-file-sys-path-from-dipath-ex
-                          "ASFileSysPathFromDIPathEx")
+(define-acrobat-function (as-file-sys-path-from-dipath-ex "ASFileSysPathFromDIPathEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-path-from-dipath-ex-selproto
@@ -3153,16 +3142,14 @@
                          *g-acro-support-hft*
                          +as-get-default-unicode-file-sys-sel+)
 ;; line 492
-(define-acrobat-function (as-get-error-string-astext
-                          "ASGetErrorStringASText")
+(define-acrobat-function (as-get-error-string-astext "ASGetErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-get-error-string-astext-selproto
                          *g-acro-support-hft*
                          +as-get-error-string-astext-sel+)
 ;; line 493
-(define-acrobat-function (as-register-error-string-astext
-                          "ASRegisterErrorStringASText")
+(define-acrobat-function (as-register-error-string-astext "ASRegisterErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-register-error-string-astext-selproto

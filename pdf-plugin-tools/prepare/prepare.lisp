@@ -108,6 +108,10 @@ expression."
   ;; just read value as a number
   (read-from-string string))
 
+;; #define HANDSHAKE_VERSION		HANDSHAKE_V0200
+(defparameter *define-regex0*
+  (create-scanner "^#\\s*define\\s+([A-Z_]+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
+
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
   (create-scanner "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
@@ -115,9 +119,6 @@ expression."
 ;; #  define kASMAXEnum8 ASMAXInt16
 (defparameter *define-regex2*
   (create-scanner "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
-
-(defparameter *define-regex2a*
-  (create-scanner "^#\\s*define\\s+([A-Z_]+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
 
 ;; #define ASPushExceptionFrame (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ...
 (defparameter *define-regex3*
