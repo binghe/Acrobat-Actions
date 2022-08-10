@@ -144,8 +144,6 @@ expression."
                  (value (read-enum-value value-string)))
              (format t "~%;; line ~D" *line-number*)
              (format t "~%(defconstant ~A #x~X)" lisp-name value))))
-        ((scan *define-regex2a* line)
-         nil)
         ((scan *define-regex2* line)
          (register-groups-bind (name alias) (*define-regex2* line)
            (unless (member name *ignored-defines* :test 'equal)
