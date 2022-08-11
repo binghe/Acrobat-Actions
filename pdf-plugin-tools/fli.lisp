@@ -5704,6 +5704,1441 @@
                          *g-as-extra-hft*
                          +as-ucs-get-password-from-unicode-sel+)
 
+;; #include <PDBasicExpT.h>
+;; line 57
+(define-opaque-pointer pd-doc -t-pddoc)
+;; line 77
+(define-opaque-pointer pd-page -t-pdpage)
+;; line 96
+(define-opaque-pointer pd-font -t-pdf-ont)
+;; line 103
+(define-opaque-pointer pd-content -t-pdcontent)
+;; line 113
+(define-opaque-pointer pd-thumb -t-pdthumb)
+;; line 120
+(define-opaque-pointer pd-text-select -t-pdtext-select)
+;; line 144
+(define-opaque-pointer pd-res-tree -t-pdres-tree)
+
+;; #include <PDExpT.h>
+;; line 51
+(define-c-typedef pd-page-number as-int32)
+;; line 57
+(define-c-typedef pd-small-flag-bits as-uns16)
+;; line 62
+(define-c-typedef pd-font-metric as-uns16)
+;; line 67
+(define-c-typedef pd-font-angle as-int16)
+;; line 72
+(define-c-typedef pd-font-offset as-int16)
+;; line 77
+(define-c-typedef pd-i-font-metric as-int16)
+;; line 82
+(define-c-typedef pd-image-scalar as-int32)
+;; line 85
+(define-c-typedef pd-doc-version as-int16)
+;; line 93
+(define-c-typedef pd-doc-flags as-int32)
+;; line 96
+(define-c-typedef pd-char-offset as-uns16)
+;; line 101
+(define-c-typedef pd-count as-int32)
+;; line 124
+(define-c-typedef pd-action opaque-64-bits)
+;; line 126
+(define-opaque-pointer pd-action-handler -t-pdaction-handler)
+;; line 127
+(define-opaque-pointer pd-action-clipboard-data
+                       -t-pdaction-clipboard-data)
+;; line 137
+(define-c-typedef pd-action-handler-data (:pointer :void))
+;; line 318
+(define-c-typedef pd-annot opaque-64-bits)
+;; line 340
+(define-c-typedef pd-text-annot opaque-64-bits)
+;; line 361
+(define-c-typedef pd-link-annot opaque-64-bits)
+;; line 527
+(define-opaque-pointer pd-annot-handler -t-pdannot-handler)
+;; line 537
+(define-opaque-pointer pd-annot-clipboard-data
+                       -t-pdannot-clipboard-data)
+;; line 540
+(define-c-typedef pd-annot-handler-clipboard-data (:pointer :void))
+;; line 556
+(define-c-typedef pd-annot-print-op as-enum16)
+;; line 919
+(define-c-typedef pd-color-space as-enum8)
+;; line 953
+(define-opaque-pointer pd-const-color-value -t-pdcolor-value-rec)
+;; line 1015
+(define-c-typedef pd-operation as-enum8)
+;; line 1084
+(define-c-typedef pd-bookmark opaque-64-bits)
+;; line 1097
+(define-c-typedef pd-bookmark-flags as-enum8)
+;; line 1120
+(define-c-typedef pd-file-spec opaque-64-bits)
+;; line 1427
+(define-c-typedef pd-perms as-uns32)
+;; line 1496
+(define-c-typedef pd-save-flags as-enum16)
+;; line 1597
+(define-c-typedef pd-save-flags2 as-flag-bits)
+;; line 1801
+(define-opaque-pointer pd-doc-save-params -t-pddoc-save-params)
+;; line 1886
+(define-opaque-pointer pd-doc-insert-pages-params
+                       -t-pddoc-insert-pages-params)
+;; line 1894
+(define-opaque-pointer pd-doc-open-params -t-pddoc-open-params)
+;; line 1972
+(define-c-typedef pd-page-mode as-enum8)
+;; line 2009
+(define-c-typedef pd-layout-mode as-enum8)
+;; line 2112
+(define-opaque-pointer pd-find -t-pdf-ind)
+;; line 2139
+(define-c-typedef pd-find-flags as-enum8)
+;; line 2241
+(define-c-typedef pd-font-encoding as-enum8)
+;; line 2243
+(define-c-typedef pd-last-one-byte-encoding pd-last-known-encoding)
+;; line 2244
+(define-c-typedef pd-unicode-encoding pd-last-known-encoding)
+;; line 2267
+(define-c-typedef pd-char-set as-enum8)
+;; line 2405
+(define-c-typedef pd-rotate as-enum16)
+;; line 2421
+(define-opaque-pointer pd-xobject -t-pdxobject)
+;; line 2424
+(define-opaque-pointer pd-char-proc -t-pdchar-proc)
+;; line 2449
+(define-c-typedef pd-path-segment-op as-enum8)
+;; line 2475
+(define-c-typedef pd-path-paint-op as-enum8)
+;; line 2658
+(define-opaque-pointer pd-resource-enum-monitor
+                       -t-pdresource-enum-monitor)
+;; line 2796
+(define-opaque-pointer pd-graphic-enum-monitor
+                       -t-pdgraphic-enum-monitor)
+;; line 2945
+(define-opaque-pointer pd-path-enum-monitor -t-pdpath-enum-monitor)
+;; line 3144
+(define-c-typedef pd-thread opaque-64-bits)
+;; line 3158
+(define-c-typedef pd-bead opaque-64-bits)
+;; line 3234
+(define-opaque-pointer pd-thumb-creation-server
+                       -t-pdthumb-creation-server)
+;; line 3276
+(define-c-typedef pd-view-destination opaque-64-bits)
+;; line 3278
+(define-c-typedef pd-structure-destination opaque-64-bits)
+;; line 3301
+(define-opaque-pointer pd-word-finder -t-pdword-finder)
+;; line 3310
+(define-opaque-pointer pd-word -t-pdword)
+;; line 3317
+(define-opaque-pointer pd-style -t-pdstyle)
+;; line 3954
+(define-c-typedef pd-trans opaque-64-bits)
+;; line 4011
+(define-c-typedef pd-perm-req-status as-int16)
+;; line 4076
+(define-c-typedef pd-perm-req-obj as-uns32)
+;; line 4156
+(define-c-typedef pd-perm-req-opr as-uns32)
+;; line 5055
+(define-c-typedef pd-crypt-filter-string-proc cos-crypt-string-proc)
+;; line 5102
+(define-opaque-pointer pd-crypt-filter-handler
+                       -t-pdcrypt-filter-handler)
+;; line 5198
+(define-opaque-pointer pd-crypt-batch-handler -t-pdcrypt-batch-handler)
+;; line 5430
+(define-opaque-pointer pd-crypt-handler -t-pdcrypt-handler)
+;; line 5450
+(define-c-typedef pd-name-tree opaque-64-bits)
+;; line 5465
+(define-c-typedef pd-num-tree opaque-64-bits)
+;; line 5485
+(define-c-typedef pd-page-label opaque-64-bits)
+;; line 5531
+(define-c-typedef pd-print-what as-enum8)
+;; line 5541
+(define-opaque-pointer pd-ocg -t-pdocg)
+;; line 5546
+(define-opaque-pointer pd-ocmd -t-pdocmd)
+;; line 5559
+(define-opaque-pointer pd-occontext -t-pdoccontext)
+;; line 5568
+(define-opaque-pointer pd-occonfig -t-pdocconfig)
+;; line 5584
+(define-c-typedef pd-ocmdvis-policy as-uns8)
+;; line 5599
+(define-c-typedef pd-occontext-init-policy as-uns8)
+;; line 5616
+(define-c-typedef pd-occonfig-base-state as-uns8)
+;; line 5656
+(define-c-typedef pd-ocdraw-enum-type as-uns8)
+;; line 5674
+(define-c-typedef pd-occontext-change-type as-uns8)
+;; line 5717
+(define-c-typedef pd-doc-occhange-type as-uns8)
+;; line 5758
+(define-c-typedef pd-join-style as-enum8)
+;; line 5767
+(define-c-typedef pd-end-style as-enum8)
+;; line 5775
+(define-c-typedef pd-placement-types as-enum8)
+;; line 6268
+(define-c-typedef pd-page-area as-enum16)
+;; line 6428
+(define-c-typedef pd-doc-request-reason as-enum8)
+;; line 6460
+(define-opaque-pointer pd-efont -t-pdefont)
+;; line 6468
+(define-c-typedef pd-horiz-align as-enum8)
+;; line 6475
+(define-c-typedef pd-vert-align as-enum8)
+;; line 6674
+(define-c-typedef pd-page-draw-flags-pi as-uns32)
+;; line 6902
+(define-c-typedef pd-file-attachment opaque-64-bits)
+;; line 6931
+(define-c-typedef pd-collection opaque-64-bits)
+;; line 6940
+(define-c-typedef pd-navigator opaque-64-bits)
+;; line 6951
+(define-c-typedef pd-collection-view-type as-uns16)
+;; line 6966
+(define-c-typedef pd-collection-split-type as-uns16)
+;; line 6996
+(define-opaque-pointer pd-collection-schema cpdcollection-schema)
+;; line 7019
+(define-c-typedef pd-folder opaque-64-bits)
+(define-c-typedef pd-action-handler-get-type-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-action-handler-can-copy-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler pd-action)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-action-handler-can-paste-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler pd-doc pd-action-handler-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-action-handler-paste-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler pd-doc pd-action-handler-data)
+                    pd-action
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-action-handler-destroy-data-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler pd-action-handler-data)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-action-handler-destroy-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-get-annot-info-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-annot pd-page)
+                    pd-annot-info
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-delete-annot-info-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-annot-info)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-get-type-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-will-export-annot-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-annot pd-annot)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-will-import-annot-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-doc pd-page pd-annot)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-will-print-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-annot)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-get-annot-info-flags-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-annot)
+                    as-flag-bits
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-can-copy-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-page pd-annot)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-can-paste-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler
+                     pd-page
+                     (:pointer as-fixed-point)
+                     pd-annot-handler-clipboard-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-paste-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler
+                     pd-page
+                     (:pointer as-fixed-point)
+                     pd-annot-handler-clipboard-data)
+                    pd-annot
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-destroy-data-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-annot-handler-clipboard-data)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-destroy-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-get-heel-point-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler
+                     pd-annot
+                     (:pointer as-fixed-point))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-get-print-appearance-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler
+                     pd-annot
+                     (:pointer as-fixed-rect)
+                     pd-annot-print-op)
+                    cos-obj
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-file-spec-new-from-as-path-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) pd-doc as-path-name as-path-name)
+                    pd-file-spec
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-file-spec-acquire-as-path-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) pd-file-spec as-path-name)
+                    as-path-name
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-launch-action-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) pd-doc pd-action)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-auth-proc
+                  (:pointer
+                   (:function
+                    (pd-doc)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-auth-proc-ex
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-pre-save-proc
+                  (:pointer
+                   (:function
+                    (pd-doc pd-doc-pre-save-info (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-pre-write-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-font-enum-proc
+                  (:pointer
+                   (:function
+                    (pd-font (:pointer pd-font-flags) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-resource-enum-font-proc
+                  (:pointer
+                   (:function
+                    (pd-font
+                     (:reference-pass :ef-mb-string)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-resource-enum-xobject-proc
+                  (:pointer
+                   (:function
+                    (pd-xobject
+                     (:reference-pass :ef-mb-string)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-resource-enum-proc-set-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-resource-enum-color-space-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     cos-obj
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-text-proc
+                  (:pointer
+                   (:function
+                    (pd-text (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-path-proc
+                  (:pointer
+                   (:function
+                    (pd-path (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-image-proc
+                  (:pointer
+                   (:function
+                    (pd-inline-image (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-xobject-ref-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     (:pointer as-fixed-rect)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-save-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-restore-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-char-width-proc
+                  (:pointer
+                   (:function
+                    (as-fixed-point (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-graphic-enum-xobject-ref-matrix-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-matrix) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-move-to-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-point) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-line-to-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-point) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-curve-to-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-point)
+                     (:pointer as-fixed-point)
+                     (:pointer as-fixed-point)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-vcurve-to-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-point)
+                     (:pointer as-fixed-point)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-ycurve-to-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-point)
+                     (:pointer as-fixed-point)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-rect-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-fixed-point)
+                     (:pointer as-fixed-point)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-path-close-path-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-string-enum-proc
+                  (:pointer
+                   (:function
+                    (pd-font
+                     (:reference-pass :ef-mb-string)
+                     as-int32
+                     as-fixed
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-xobject-filter-enum-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     cos-obj
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-char-proc-enum-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     pd-char-proc
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-get-data-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     as-uns32
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-text-select-enum-quad-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     as-int32
+                     (:pointer as-fixed-quad))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-text-select-enum-text-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pd-font
+                     as-fixed
+                     pd-color-value
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-text-select-enum-rtftext-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pd-font
+                     as-fixed
+                     pd-color-value
+                     (:reference-pass :ef-mb-string)
+                     as-uns32
+                     as-int32)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-thumb-creation-notify-page-proc
+                  (:pointer
+                   (:function
+                    (as-int32 (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-thumb-creation-get-thumb-data-proc
+                  (:pointer
+                   (:function
+                    (pd-page
+                     as-fixed
+                     as-int32
+                     as-int32
+                     (:pointer :void)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-thumb-creation-draw-thumb-proc
+                  (:pointer
+                   (:function
+                    (pd-thumb (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-word-proc
+                  (:pointer
+                   (:function
+                    (pd-word-finder pd-word as-int32 (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-find-translate-string-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     as-int32
+                     pd-word
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-enum-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-word-finder-ctrl-proc
+                  (:pointer
+                   (:function
+                    (as-uns32 (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-page-stm-string-overflow-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     as-size-t
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-page-stm-image-data-proc
+                  (:pointer
+                   (:function
+                    ((:pointer as-uns8) as-size-t (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-authorize-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void) pd-perms)
+                    pd-perms
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-get-auth-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc pd-perms nil)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-validate-security-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-update-security-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer as-atom) nil)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-new-crypt-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc nil (:pointer as-int32))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-fill-encrypt-dict-proc
+                  (:pointer
+                   (:function
+                    (pd-doc cos-obj)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-get-security-info-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer as-uns32))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-free-security-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-free-auth-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-free-crypt-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc (:reference-pass :ef-mb-string))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-new-crypt-data-ex-proc
+                  (:pointer
+                   (:function
+                    (pd-doc
+                     nil
+                     (:pointer as-int32)
+                     (:pointer as-int32))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-authorize-ex-proc
+                  (:pointer
+                   (:function
+                    (pd-doc
+                     pd-perm-req-obj
+                     pd-perm-req-opr
+                     (:pointer :void))
+                    pd-perm-req-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-get-auth-data-ex-proc
+                  (:pointer
+                   (:function
+                    (pd-doc pd-perm-req-obj pd-perm-req-opr nil)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-new-security-data-from-original-doc-proc
+                  (:pointer
+                   (:function
+                    (pd-doc cos-obj pd-doc cos-obj nil)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-display-security-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc as-atom)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-can-parse-encrypt-dict-proc
+                  (:pointer
+                   (:function
+                    (pd-doc cos-obj)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-encrypt-doc-metadata
+                  (:pointer
+                   (:function
+                    (pd-doc)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-show-dialog-proc
+                  (:pointer
+                   (:function
+                    (as-cab)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-param-desc-proc
+                  (:pointer
+                   (:function
+                    (as-cab as-cab)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-authorize-proc
+                  (:pointer
+                   (:function
+                    (pd-doc
+                     pd-perm-req-obj
+                     pd-perm-req-opr
+                     (:pointer :void))
+                    pd-perm-req-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-free-auth-data-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-pre-sequence-proc
+                  (:pointer
+                   (:function
+                    (as-cab)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-post-sequence-proc
+                  (:pointer
+                   (:function
+                    (as-cab)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-batch-update-security-data-proc
+                  (:pointer
+                   (:function
+                    (pd-doc as-cab (:pointer as-atom) nil)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-filter-stream-proc
+                  (:pointer
+                   (:function
+                    (cos-doc
+                     as-atom
+                     as-crypt-stm
+                     as-bool
+                     cos-obj
+                     as-int32)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-filter-authorize-proc
+                  (:pointer
+                   (:function
+                    (cos-doc as-atom cos-obj as-bool as-bool)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-filter-get-data-proc
+                  (:pointer
+                   (:function
+                    (cos-doc as-atom nil as-bool as-bool)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-occonfig-enum-proc
+                  (:pointer
+                   (:function
+                    (pd-occonfig (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-page-enum-inks-callback
+                  (:pointer
+                   (:function
+                    (pd-page-ink (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-will-export-annot-callback
+                  (:pointer
+                   (:function
+                    (pd-doc pd-page pd-annot cos-obj)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-will-import-annot-callback
+                  (:pointer
+                   (:function
+                    (pd-doc pd-page pd-annot)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-request-pages-proc
+                  (:pointer
+                   (:function
+                    (pd-doc
+                     as-int32
+                     as-int32
+                     pd-doc-request-reason
+                     (:pointer :void))
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-doc-request-entire-file-proc
+                  (:pointer
+                   (:function
+                    (pd-doc pd-doc-request-reason (:pointer :void))
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-struct pd-action-handler-rec
+                 (size as-size-t)
+                 (user-data (:pointer :void))
+                 (get-type pd-action-handler-get-type-proc)
+                 (can-copy pd-action-handler-can-copy-proc)
+                 (copy pd-action-handler-copy-proc)
+                 (can-paste pd-action-handler-can-paste-proc)
+                 (paste pd-action-handler-paste-proc)
+                 (destroy-data pd-action-handler-destroy-data-proc)
+                 (destroy pd-action-handler-destroy-proc))
+(define-c-struct pd-annot-info-rec
+                 (size as-size-t)
+                 (n-operation-flags as-flag-bits)
+                 (c-author (:pointer (:unsigned :byte)))
+                 (c-contents (:pointer (:unsigned :byte)))
+                 (c-date (:pointer (:unsigned :byte)))
+                 (fx-layer as-fixed))
+(define-c-typedef pd-annot-info (:pointer pd-annot-info-rec))
+(define-c-struct pd-annot-handler-rec
+                 (size as-size-t)
+                 (user-data (:pointer :void))
+                 (get-type pd-annot-handler-get-type-proc)
+                 (get-annot-info pd-annot-handler-get-annot-info-proc)
+                 (delete-annot-info
+                  pd-annot-handler-delete-annot-info-proc)
+                 (will-export-annot pd-doc-will-export-annot-proc)
+                 (will-import-annot pd-doc-will-import-annot-proc)
+                 (will-print-annot pd-annot-will-print-proc)
+                 (get-annot-info-flags
+                  pd-annot-handler-get-annot-info-flags-proc)
+                 (can-copy pd-annot-handler-can-copy-proc)
+                 (copy pd-annot-handler-copy-proc)
+                 (can-paste pd-annot-handler-can-paste-proc)
+                 (paste pd-annot-handler-paste-proc)
+                 (destroy-data pd-annot-handler-destroy-data-proc)
+                 (destroy pd-annot-handler-destroy-proc)
+                 (get-heel-point pd-annot-handler-get-heel-point-proc)
+                 (get-print-appearance
+                  pd-annot-handler-get-print-appearance-proc))
+(define-c-struct pd-color-value-rec (space pd-color-space))
+(define-c-typedef pd-color-value (:pointer pd-color-value-rec))
+(define-c-struct pd-link-annot-border
+                 (h-corner-radius as-int32)
+                 (v-corner-radius as-int32)
+                 (width as-int32)
+                 (dash-array-len as-int32))
+(define-c-struct pd-file-spec-handler-rec
+                 (size as-size-t)
+                 (new-from-as-path pd-file-spec-new-from-as-path-proc)
+                 (acquire-as-path pd-file-spec-acquire-as-path-proc)
+                 (launch-action pd-launch-action-proc)
+                 (file-sys as-file-sys))
+(define-c-typedef pd-file-spec-handler
+                  (:pointer pd-file-spec-handler-rec))
+(define-c-struct pd-doc-pre-save-info-rec
+                 (size as-size-t)
+                 (callback-proc cos-obj-set-callback-flag-proc))
+(define-c-typedef pd-doc-pre-save-info
+                  (:pointer pd-doc-pre-save-info-rec))
+(define-c-struct pd-doc-save-params-rec
+                 (size as-size-t)
+                 (save-flags pd-save-flags)
+                 (new-path as-path-name)
+                 (file-sys as-file-sys)
+                 (mon as-progress-monitor)
+                 (mon-client-data (:pointer :void))
+                 (cancel-proc as-cancel-proc)
+                 (cancel-proc-client-data (:pointer :void))
+                 (pre-save-proc pd-doc-pre-save-proc)
+                 (pre-save-proc-client-data (:pointer :void))
+                 (offset-proc cos-obj-offset-proc)
+                 (offset-proc-client-data (:pointer :void))
+                 (major pd-doc-version)
+                 (minor pd-doc-version)
+                 (xmppacket-read-only as-bool)
+                 (xmppacket-padding-bytes as-int32)
+                 (pre-write-proc pd-doc-pre-write-proc)
+                 (pre-write-proc-client-data (:pointer :void))
+                 (num-sub-files-to-compact as-uns32)
+                 (offset-proc64 cos-obj-offset-proc64))
+(define-c-struct pd-doc-insert-pages-params-rec
+                 (size as-size-t)
+                 (target-doc pd-doc)
+                 (insert-after-this-page pd-page-number)
+                 (src-doc pd-doc)
+                 (src-from-page pd-page-number)
+                 (src-to-page pd-page-number)
+                 (insert-flags pd-small-flag-bits)
+                 (error as-error-code))
+(define-c-struct pd-doc-open-params-rec
+                 (size as-size-t)
+                 (file as-file)
+                 (file-name as-path-name)
+                 (file-sys as-file-sys)
+                 (auth-proc-ex pd-auth-proc-ex)
+                 (auth-proc-client-data (:pointer :void))
+                 (do-repair as-bool)
+                 (restrict-perms pd-perms))
+(define-c-struct pd-font-flags (not-used as-int32) (flags as-uns32))
+(define-c-struct pd-font-styles
+                 (s-family-class-id as-uns8)
+                 (s-family-subclass-id as-uns8)
+                 (b-family-type as-uns8)
+                 (b-serif-style as-uns8)
+                 (b-weight as-uns8)
+                 (b-proportion as-uns8))
+(define-c-struct pd-font-metrics
+                 (flags as-flag-bits)
+                 (font-bbox as-fixed-rect)
+                 (missing-width pd-i-font-metric)
+                 (stem-v pd-i-font-metric)
+                 (stem-h pd-i-font-metric)
+                 (cap-height pd-i-font-metric)
+                 (x-height pd-i-font-metric)
+                 (ascent pd-i-font-metric)
+                 (descent pd-i-font-metric)
+                 (leading pd-i-font-metric)
+                 (max-width pd-i-font-metric)
+                 (avg-width pd-i-font-metric)
+                 (italic-angle pd-font-angle)
+                 (style pd-font-styles)
+                 (base-line-adj pd-font-offset))
+(define-c-typedef pd-font-metrics-p (:pointer pd-font-metrics))
+(define-c-struct pd-graphic-state
+                 (ctm as-fixed-matrix)
+                 (fill-cspace as-atom)
+                 (stroke-cspace as-atom)
+                 (flatness as-fixed)
+                 (line-cap as-int32)
+                 (dash-phase as-fixed)
+                 (dash-len ast-array-size)
+                 (line-join as-int32)
+                 (line-width as-fixed)
+                 (miter-limit as-fixed))
+(define-c-typedef pd-graphic-state-p (:pointer pd-graphic-state))
+(define-c-struct pd-text-state
+                 (font pd-font)
+                 (char-spacing as-fixed)
+                 (word-spacing as-fixed)
+                 (horizontal-scale as-fixed)
+                 (leading as-fixed)
+                 (text-rise as-fixed)
+                 (text-size as-fixed)
+                 (render-mode as-int32)
+                 (text-matrix as-fixed-matrix))
+(define-c-typedef pd-text-state-p (:pointer pd-text-state))
+(define-c-struct pd-image-attrs
+                 (width pd-image-scalar)
+                 (height pd-image-scalar)
+                 (bits-per-component pd-count)
+                 (image-mask as-bool)
+                 (interpolate as-bool)
+                 (have-decode as-bool)
+                 (color-space-name as-atom)
+                 (is-indexed as-bool)
+                 (hi-val pd-count)
+                 (color-space cos-obj)
+                 (data-len ast-array-size)
+                 (comps pd-count))
+(define-c-typedef pd-image-attrs-p (:pointer pd-image-attrs))
+(define-c-struct pd-resource-enum-monitor-rec
+                 (size as-size-t)
+                 (enum-font pd-resource-enum-font-proc)
+                 (enum-xobject pd-resource-enum-xobject-proc)
+                 (enum-proc-set pd-resource-enum-proc-set-proc)
+                 (enum-color-space pd-resource-enum-color-space-proc))
+(define-c-struct pd-graphic-enum-monitor-rec
+                 (size as-size-t)
+                 (enum-text pd-graphic-enum-text-proc)
+                 (enum-path pd-graphic-enum-path-proc)
+                 (enum-image pd-graphic-enum-image-proc)
+                 (enum-xobject-ref pd-graphic-enum-xobject-ref-proc)
+                 (enum-save pd-graphic-enum-save-proc)
+                 (enum-restore pd-graphic-enum-restore-proc)
+                 (enum-char-width pd-graphic-enum-char-width-proc)
+                 (enum-cache-device pd-graphic-enum-cache-device-proc)
+                 (enum-xobject-ref-matrix
+                  pd-graphic-enum-xobject-ref-matrix-proc))
+(define-c-struct pd-path-enum-monitor-rec
+                 (size as-size-t)
+                 (move-to pd-path-move-to-proc)
+                 (line-to pd-path-line-to-proc)
+                 (curve-to pd-path-curve-to-proc)
+                 (vcurve-to pd-path-vcurve-to-proc)
+                 (ycurve-to pd-path-ycurve-to-proc)
+                 (rect pd-path-rect-proc)
+                 (close-path pd-path-close-path-proc))
+(define-c-struct hilite-entry
+                 (offset pd-char-offset)
+                 (length pd-char-offset))
+(define-c-struct pd-text-select-range-rec
+                 (start as-int32)
+                 (end as-int32)
+                 (ofs-start as-int32)
+                 (ofs-end as-int32))
+(define-c-typedef pd-text-select-range
+                  (:pointer pd-text-select-range-rec))
+(define-c-struct pd-thumb-creation-server-rec
+                 (size as-size-t)
+                 (notify-page pd-thumb-creation-notify-page-proc)
+                 (get-thumb-data pd-thumb-creation-get-thumb-data-proc)
+                 (draw-thumb pd-thumb-creation-draw-thumb-proc))
+(define-c-struct pd-chromaticity (x as-fixed) (y as-fixed))
+(define-c-struct pd-color-cal
+                 (white-chrom pd-chromaticity)
+                 (red-chrom pd-chromaticity)
+                 (green-chrom pd-chromaticity)
+                 (blue-chrom pd-chromaticity)
+                 (red-gamma as-fixed)
+                 (green-gamma as-fixed)
+                 (blue-gamma as-fixed))
+(define-c-typedef pd-color-cal-p (:pointer pd-color-cal))
+(define-c-struct pd-page-stm-token-rec
+                 (size as-size-t)
+                 (type cos-type)
+                 (flags as-uns32)
+                 (i-val as-int32)
+                 (s-val-len as-size-t))
+(define-c-typedef pd-page-stm-token (:pointer pd-page-stm-token-rec))
+(define-c-struct std-security-data-rec
+                 (size as-size-t)
+                 (new-user-pw as-bool)
+                 (has-user-pw as-bool)
+                 (user-pw std-password)
+                 (new-owner-pw as-bool)
+                 (has-owner-pw as-bool)
+                 (owner-pw std-password)
+                 (perms pd-perms)
+                 (key-length int32)
+                 (revision int32)
+                 (encrypt-metadata as-bool)
+                 (encrypt-method int32)
+                 (encrypt-attachments-only as-bool)
+                 (version int32))
+(define-c-typedef std-security-data (:pointer std-security-data-rec))
+(define-c-struct pd-crypt-filter-handler-rec
+                 (size as-size-t)
+                 (authorize pd-crypt-filter-authorize-proc)
+                 (get-data pd-crypt-filter-get-data-proc)
+                 (decrypt-stream pd-crypt-filter-stream-proc)
+                 (encrypt-stream pd-crypt-filter-stream-proc)
+                 (decrypt-string pd-crypt-filter-string-proc)
+                 (encrypt-string pd-crypt-filter-string-proc)
+                 (is-encryption-changed
+                  pd-crypt-filter-is-encryption-changed-proc))
+(define-c-struct pd-crypt-batch-handler-rec
+                 (size as-size-t)
+                 (batch-show-dialog pd-crypt-batch-show-dialog-proc)
+                 (batch-param-desc pd-crypt-batch-param-desc-proc)
+                 (batch-new-auth-data
+                  pd-crypt-batch-new-auth-data-proc)
+                 (batch-authorize pd-crypt-batch-authorize-proc)
+                 (batch-free-auth-data
+                  pd-crypt-batch-free-auth-data-proc)
+                 (batch-update-security-data
+                  pd-crypt-batch-update-security-data-proc)
+                 (batch-pre-sequence pd-crypt-batch-pre-sequence-proc)
+                 (batch-post-sequence
+                  pd-crypt-batch-post-sequence-proc))
+(define-c-struct pd-crypt-handler-rec
+                 (size as-size-t)
+                 (authorize pd-crypt-authorize-proc)
+                 (new-auth-data pd-crypt-new-auth-data-proc)
+                 (get-auth-data pd-crypt-get-auth-data-proc)
+                 (new-security-data pd-crypt-new-security-data-proc)
+                 (validate-security-data
+                  pd-crypt-validate-security-data-proc)
+                 (update-security-data
+                  pd-crypt-update-security-data-proc)
+                 (new-crypt-data pd-crypt-new-crypt-data-proc)
+                 (fill-encrypt-dict pd-crypt-fill-encrypt-dict-proc)
+                 (get-security-info pd-crypt-get-security-info-proc)
+                 (free-security-data pd-crypt-free-security-data-proc)
+                 (free-auth-data pd-crypt-free-auth-data-proc)
+                 (free-crypt-data pd-crypt-free-crypt-data-proc)
+                 (new-crypt-data-ex pd-crypt-new-crypt-data-ex-proc)
+                 (authorize-ex pd-crypt-authorize-ex-proc)
+                 (get-auth-data-ex pd-crypt-get-auth-data-ex-proc)
+                 (display-security-data
+                  pd-crypt-display-security-data-proc)
+                 (get-reserved-data pd-crypt-reserved-proc)
+                 (crypt-batch-handler pd-crypt-batch-handler)
+                 (can-parse-encrypt-dict
+                  pd-crypt-can-parse-encrypt-dict-proc)
+                 (crypt-filter-handler pd-crypt-filter-handler)
+                 (get-doc-perms pd-crypt-get-doc-perms-proc)
+                 (encrypt-doc-metadata pd-crypt-encrypt-doc-metadata)
+                 (new-security-data-from-org-doc
+                  pd-crypt-new-security-data-from-original-doc-proc)
+                 (get-info-text pd-crypt-get-info-text-proc)
+                 (set-test-perms pd-crypt-reserved-proc2))
+(define-c-struct pd-page-range
+                 (start-page as-int32)
+                 (end-page as-int32)
+                 (page-spec as-int32))
+(define-c-struct pd-trap-preset-rec
+                 (no-trap as-bool)
+                 (default-trap as-bool)
+                 (trap-width :float)
+                 (black-width :float)
+                 (image-trap-width :float)
+                 (trap-join-style as-uns32)
+                 (trap-end-style as-uns32)
+                 (step-limit as-uns32)
+                 (black-color-limit as-uns32)
+                 (black-density-limit :float)
+                 (sliding-trap-limit as-uns32)
+                 (trap-color-scaling as-uns32)
+                 (trap-placement as-uns32)
+                 (image-to-image-trapping as-bool)
+                 (image-to-object-trapping as-bool)
+                 (image-internal-trapping as-bool)
+                 (imagemask-trapping as-bool)
+                 (trap-style-name as-atom))
+(define-c-typedef pd-trap-preset (:pointer pd-trap-preset-rec))
+(define-c-struct pd-page-ink-rec
+                 (size as-size-t)
+                 (colorant-name as-atom)
+                 (is-process-color as-bool)
+                 (what-to-do as-uns8)
+                 (r as-uns8)
+                 (g as-uns8)
+                 (b as-uns8)
+                 (frequency :float)
+                 (angle :float)
+                 (ink-type as-uns8)
+                 (trap-sequence as-int32)
+                 (cyan :float)
+                 (magenta :float)
+                 (yellow :float)
+                 (black :float)
+                 (density :float)
+                 (alias as-atom))
+(define-c-typedef pd-page-ink (:pointer pd-page-ink-rec))
+(define-c-struct pd-host-seps-plate-rec
+                 (size as-size-t)
+                 (colorant-name as-atom)
+                 (what-to-do as-uns8)
+                 (was-color-set as-uns32)
+                 (eps-stm as-stm)
+                 (file as-file)
+                 (path as-path-name)
+                 (frequency :float)
+                 (angle :float)
+                 (ink-type as-uns8)
+                 (trap-sequence as-int32)
+                 (density :float)
+                 (alias as-atom))
+(define-c-typedef pd-host-seps-plate (:pointer pd-host-seps-plate-rec))
+(define-c-struct pd-host-seps-spec-rec
+                 (size as-size-t)
+                 (ps-level as-uns32)
+                 (binary-ok as-bool)
+                 (emit-annots as-bool)
+                 (emit-halftones as-bool)
+                 (emit-transfer-funcs as-bool)
+                 (emit-separable-images-only as-bool)
+                 (suppress-cjksubstitution as-bool)
+                 (emit-font-option as-enum8)
+                 (ttas-t42 as-bool)
+                 (printer-has-far-east-fonts as-bool)
+                 (transparency-level as-uns32)
+                 (use-cmykworking-colorspace as-bool)
+                 (convert-to-process-using-opp as-bool)
+                 (num-plates as-uns32)
+                 (plates (:pointer pd-host-seps-plate))
+                 (oc-context pd-occontext)
+                 (apply-ocgprint-overrides as-bool)
+                 (negative as-bool)
+                 (mirrorprint as-enum8)
+                 (which-marks as-uns32))
+(define-c-typedef pd-host-seps-spec (:pointer pd-host-seps-spec-rec))
+(define-c-struct pd-doc-copy-params-rec
+                 (size as-size-t)
+                 (new-path as-path-name)
+                 (file-sys as-file-sys)
+                 (prog-mon as-progress-monitor)
+                 (prog-mon-data (:pointer :void))
+                 (cancel-proc as-cancel-proc)
+                 (cancel-proc-data (:pointer :void))
+                 (save-changes as-bool))
+(define-c-typedef pd-doc-copy-params (:pointer pd-doc-copy-params-rec))
+(define-c-struct pd-tile-rec
+                 (overlap as-uns32)
+                 (center as-bool)
+                 (marksflags as-int32)
+                 (paper-width as-int32)
+                 (paper-height as-int32)
+                 (doc-title (:pointer :byte))
+                 (doc-date (:pointer :byte))
+                 (doc-time (:pointer :byte))
+                 (col as-int32)
+                 (row as-int32)
+                 (num-cols as-int32)
+                 (num-rows as-int32)
+                 (x-offset as-int32)
+                 (y-offset as-int32))
+(define-c-typedef pd-tile (:pointer pd-tile-rec))
+(define-c-struct pd-annot-array-rec
+                 (annot-count ast-array-size)
+                 (annots (:pointer pd-annot)))
+(define-c-typedef pd-annot-array (:pointer pd-annot-array-rec))
+(define-c-struct pd-draw-params-rec
+                 (size as-uns32)
+                 (window (:pointer :void))
+                 (display-context (:pointer :void))
+                 (matrix as-fixed-matrix)
+                 (flags as-uns32)
+                 (update-rect as-fixed-rect)
+                 (cancel-proc cancel-proc)
+                 (cancel-proc-client-data (:pointer :void))
+                 (client-occontext pd-occontext))
+(define-c-typedef pd-draw-params (:pointer pd-draw-params-rec))
+(define-c-struct pd-graphic-enum-params-rec
+                 (size as-uns32)
+                 (client-occontext pd-occontext)
+                 (used-occontext pd-occontext)
+                 (mon pd-graphic-enum-monitor)
+                 (mon-obj (:pointer :void)))
+(define-c-typedef pd-graphic-enum-params
+                  (:pointer pd-graphic-enum-params-rec))
+(define-c-struct pd-doc-watermark-text-params-rec
+                 (size as-size-t)
+                 (src-text as-text)
+                 (text-align pd-horiz-align)
+                 (pde-font pd-efont)
+                 (sys-font-name as-atom)
+                 (font-size :float)
+                 (color pd-color-value-rec))
+(define-c-typedef pd-doc-watermark-text-params
+                  (:pointer pd-doc-watermark-text-params-rec))
+(define-c-struct pd-redact-params-rec
+                 (size as-uns32)
+                 (page-num as-int32)
+                 (redact-quads (:pointer as-fixed-quad))
+                 (num-quads as-uns32)
+                 (color-val (:pointer pd-color-value-rec))
+                 (overlay-text as-text)
+                 (horiz-align pd-horiz-align))
+(define-c-typedef pd-redact-params (:pointer pd-redact-params-rec))
+(define-c-struct pd-apply-redaction-params-rec
+                 (size as-uns32)
+                 (redaction-annots (:pointer pd-annot))
+                 (redaction-count as-uns32)
+                 (keep-marks as-bool)
+                 (status-procs as-status-monitor-procs)
+                 (progress-text as-text)
+                 (progress-duration as-int32))
+(define-c-typedef pd-apply-redaction-params
+                  (:pointer pd-apply-redaction-params-rec))
+(define-c-struct pd-collection-schema-sort-pair-rec
+                 (field-name as-atom)
+                 (ascending as-bool))
+(define-c-struct pd-collection-view-data-rec
+                 (size as-size-t)
+                 (view pd-collection-view-type)
+                 (navigator pd-navigator)
+                 (split pd-collection-split-type)
+                 (split-pos as-int32))
+(define-c-struct pd-collection-field-rec
+                 (size as-size-t)
+                 (field-name as-atom)
+                 (index as-int32)
+                 (subtype as-atom)
+                 (field-text as-text)
+                 (visible as-bool)
+                 (can-edit as-bool))
+
 ;; #include <AVExpT.h>
 ;; line 92
 (define-c-typedef nselector as-int32)
@@ -5932,15 +7367,15 @@
 ;; line 10265
 (define-c-typedef k-avparagraph-direction as-enum8)
 ;; line 10303
-(define-c-typedef pdf-opt-downsampling-algo as-enum16)
+(define-c-typedef pd-fopt-downsampling-algo as-enum16)
 ;; line 10321
-(define-c-typedef pdf-opt-compression-algo as-enum16)
+(define-c-typedef pd-fopt-compression-algo as-enum16)
 ;; line 10341
-(define-c-typedef pdf-opt-compression-qlty as-enum16)
+(define-c-typedef pd-fopt-compression-qlty as-enum16)
 ;; line 10430
-(define-c-typedef pdf-opt-pdf-version as-enum16)
+(define-c-typedef pd-fopt-pdf-version as-enum16)
 ;; line 10443
-(define-c-typedef pdf-opt-object-compression as-enum16)
+(define-c-typedef pd-fopt-object-compression as-enum16)
 ;; line 10617
 (define-c-typedef av-app-file-save-handle (:pointer :void))
 ;; line 10640
@@ -6119,8 +7554,8 @@
                    (:function
                     (av-doc
                      (:pointer :void)
-                     pdpage-number
-                     pdpage-number)
+                     pd-page-number
+                     pd-page-number)
                     as-bool
                     :calling-convention
                     :cdecl)))
@@ -6284,7 +7719,7 @@
                   (:pointer
                    (:function
                     (av-doc
-                     pdpage-number
+                     pd-page-number
                      (:pointer av-dev-rect)
                      (:pointer :void))
                     as-bool
@@ -6332,8 +7767,8 @@
 (define-c-typedef av-doc-perm-req-proc
                   (:pointer
                    (:function
-                    (av-doc pdperm-req-obj pdperm-req-opr)
-                    pdperm-req-status
+                    (av-doc pd-perm-req-obj pd-perm-req-opr)
+                    pd-perm-req-status
                     :calling-convention
                     :cdecl)))
 (define-c-typedef cross-doc-link-proc
@@ -6377,7 +7812,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      (:pointer av-dev-rect))
                     :void
@@ -6387,7 +7822,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      (:pointer av-dev-rect))
                     :void
@@ -6397,7 +7832,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-dev-coord
                      av-dev-coord
@@ -6410,7 +7845,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-dev-coord
                      av-dev-coord)
@@ -6422,7 +7857,7 @@
                    (:function
                     (av-annot-handler
                      av-page-view
-                     pdannot
+                     pd-annot
                      av-dev-coord
                      av-dev-coord)
                     as-bool
@@ -6452,7 +7887,7 @@
 (define-c-typedef av-annot-handler-do-properties-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot av-doc)
+                    (av-annot-handler pd-annot av-doc)
                     :void
                     :calling-convention
                     :cdecl)))
@@ -6460,7 +7895,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-key-code
                      av-flag-bits16)
                     as-bool
@@ -6469,29 +7904,29 @@
 (define-c-typedef av-annot-handler-get-layer-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot)
+                    (av-annot-handler pd-annot)
                     as-fixed
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-annot-handler-cursor-enter-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot av-page-view)
+                    (av-annot-handler pd-annot av-page-view)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-annot-handler-cursor-exit-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot av-page-view)
+                    (av-annot-handler pd-annot av-page-view)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-annot-handler-copy-proc
                   (:pointer
                    (:function
-                    (av-annot-handler av-doc pdannot av-doc)
-                    pdannot
+                    (av-annot-handler av-doc pd-annot av-doc)
+                    pd-annot
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-annot-handler-get-info-proc
@@ -6512,7 +7947,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-annot-op
                      av-annot-op-data)
@@ -6523,7 +7958,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-annot-op
                      av-annot-op-data)
@@ -6534,7 +7969,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-key-code
                      av-flag-bits16)
@@ -6544,7 +7979,7 @@
 (define-c-typedef av-annot-handler-get-flags-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot)
+                    (av-annot-handler pd-annot)
                     av-flag-bits32
                     :calling-convention
                     :cdecl)))
@@ -6552,7 +7987,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      (:pointer as-uns32)
                      av-page-view
                      (:pointer cos-obj))
@@ -6563,7 +7998,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      (:pointer av-dev-rect)
                      (:pointer av-dev-rect))
@@ -6573,14 +8008,14 @@
 (define-c-typedef av-annot-handler-do-properties-ex-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot av-page-view)
+                    (av-annot-handler pd-annot av-page-view)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-annot-handler-get-layer-ex-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot av-page-view)
+                    (av-annot-handler pd-annot av-page-view)
                     as-fixed
                     :calling-convention
                     :cdecl)))
@@ -6588,7 +8023,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-click-params)
                     as-bool
@@ -6598,7 +8033,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      av-page-view
                      av-adjust-cursor-params)
                     as-bool
@@ -6608,8 +8043,8 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
-                     pdpage-number
+                     pd-annot
+                     pd-page-number
                      av-annot-acc-str-type
                      as-text)
                     as-bool
@@ -6618,7 +8053,7 @@
 (define-c-typedef av-annot-handler-get-aux-icon-count-proc
                   (:pointer
                    (:function
-                    (av-annot-handler pdannot av-page-view)
+                    (av-annot-handler pd-annot av-page-view)
                     as-int32
                     :calling-convention
                     :cdecl)))
@@ -6626,7 +8061,7 @@
                   (:pointer
                    (:function
                     (av-annot-handler
-                     pdannot
+                     pd-annot
                      (:pointer as-uns32)
                      av-page-view
                      (:pointer av-annot-appearance-data-rec))
@@ -6902,14 +8337,14 @@
 (define-c-typedef av-action-perform-proc
                   (:pointer
                    (:function
-                    ((:pointer :void) pdaction av-doc)
+                    ((:pointer :void) pd-action av-doc)
                     :void
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-action-do-properties-proc
                   (:pointer
                    (:function
-                    ((:pointer :void) pdaction av-doc)
+                    ((:pointer :void) pd-action av-doc)
                     :void
                     :calling-convention
                     :cdecl)))
@@ -6924,7 +8359,7 @@
                   (:pointer
                    (:function
                     ((:pointer :void)
-                     pdaction
+                     pd-action
                      (:reference-pass :ef-mb-string)
                      av-tarray-size
                      av-doc)
@@ -6935,7 +8370,7 @@
                   (:pointer
                    (:function
                     ((:pointer :void)
-                     pdaction
+                     pd-action
                      (:reference-pass :ef-mb-string)
                      av-tarray-size
                      av-doc)
@@ -6946,7 +8381,7 @@
                   (:pointer
                    (:function
                     ((:pointer :void)
-                     pdaction
+                     pd-action
                      (:reference-pass :ef-mb-string)
                      av-tarray-size
                      av-doc)
@@ -6957,7 +8392,7 @@
                   (:pointer
                    (:function
                     ((:pointer :void)
-                     pdaction
+                     pd-action
                      (:reference-pass :ef-mb-string)
                      av-tarray-size
                      av-doc)
@@ -6967,14 +8402,14 @@
 (define-c-typedef av-action-copy-proc
                   (:pointer
                    (:function
-                    ((:pointer :void) av-doc pdaction av-doc)
-                    pdaction
+                    ((:pointer :void) av-doc pd-action av-doc)
+                    pd-action
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-action-get-details-proc
                   (:pointer
                    (:function
-                    ((:pointer :void) av-doc pdaction as-cab)
+                    ((:pointer :void) av-doc pd-action as-cab)
                     :void
                     :calling-convention
                     :cdecl)))
@@ -6982,7 +8417,7 @@
                   (:pointer
                    (:function
                     ((:pointer :void)
-                     pdaction
+                     pd-action
                      av-doc
                      av-action-context)
                     :void
@@ -6993,7 +8428,7 @@
                    (:function
                     ((:pointer :void)
                      av-doc
-                     (:pointer pdaction)
+                     (:pointer pd-action)
                      as-array-size)
                     as-bool
                     :calling-convention
@@ -7020,7 +8455,7 @@
                   (:pointer
                    (:function
                     (av-trans-handler
-                     pdtrans
+                     pd-trans
                      av-transition-port
                      av-transition-port
                      as-fixed)
@@ -7031,7 +8466,7 @@
                   (:pointer
                    (:function
                     (av-trans-handler
-                     pdtrans
+                     pd-trans
                      (:reference-pass :ef-mb-string)
                      as-int32)
                     as-int32
@@ -7070,7 +8505,7 @@
 (define-c-typedef av-trans-handler-get-name-proc
                   (:pointer
                    (:function
-                    (av-trans-handler pdtrans)
+                    (av-trans-handler pd-trans)
                     as-atom
                     :calling-convention
                     :cdecl)))
@@ -7095,7 +8530,7 @@
                    (:function
                     (av-trans-handler
                      (:reference-pass :ef-mb-string)
-                     pdtrans)
+                     pd-trans)
                     :void
                     :calling-convention
                     :cdecl)))
@@ -7192,7 +8627,7 @@
                      av-conversion-flags
                      as-path-name
                      as-file-sys
-                     (:pointer pddoc)
+                     (:pointer pd-doc)
                      av-status-monitor-procs
                      av-conversion-client-data)
                     av-conversion-status
@@ -7205,7 +8640,7 @@
                      av-conversion-flags
                      as-stm
                      as-cab
-                     (:pointer pddoc)
+                     (:pointer pd-doc)
                      av-status-monitor-procs
                      av-conversion-client-data)
                     av-conversion-status
@@ -7218,7 +8653,7 @@
                      av-conversion-flags
                      as-path-name
                      as-file-sys
-                     pddoc
+                     pd-doc
                      av-status-monitor-procs
                      av-conversion-client-data)
                     av-conversion-status
@@ -7236,7 +8671,7 @@
                    (:function
                     (as-cab
                      av-conversion-flags
-                     pddoc
+                     pd-doc
                      as-path-name
                      as-file-sys
                      av-status-monitor-procs
@@ -7249,7 +8684,7 @@
                    (:function
                     (as-cab
                      av-conversion-flags
-                     pddoc
+                     pd-doc
                      as-stm
                      as-cab
                      av-status-monitor-procs
@@ -7373,14 +8808,14 @@
 (define-c-typedef av-command-preflight-file-proc
                   (:pointer
                    (:function
-                    (av-command pddoc)
+                    (av-command pd-doc)
                     av-command-status
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-command-postflight-file-proc
                   (:pointer
                    (:function
-                    (av-command pddoc)
+                    (av-command pd-doc)
                     av-command-status
                     :calling-convention
                     :cdecl)))
@@ -7527,17 +8962,17 @@
 (define-c-struct av-doc-view-def-rec
                  (size as-size-t)
                  (bring-to-front as-bool)
-                 (page-view-layout-mode pdlayout-mode)
-                 (page-view-page-num pdpage-number)
+                 (page-view-layout-mode pd-layout-mode)
+                 (page-view-page-num pd-page-number)
                  (page-view-zoom-type av-zoom-type)
                  (page-view-zoom as-fixed)
                  (page-view-x av-dev-coord)
                  (page-view-y av-dev-coord)
                  (page-view-start-thread as-bool)
                  (page-view-thread-index av-page-index)
-                 (page-view-bead pdbead)
+                 (page-view-bead pd-bead)
                  (use-over-view-info as-bool)
-                 (over-view-mode pdpage-mode)
+                 (over-view-mode pd-page-mode)
                  (over-view-pos av-pixel-offset)
                  (over-view-x as-int32)
                  (over-view-y as-int32)
@@ -7549,7 +8984,7 @@
                  (size as-size-t)
                  (named-dest (:pointer :byte))
                  (name-length av-tarray-size)
-                 (page-num pdpage-number)
+                 (page-num pd-page-number)
                  (fit-type as-atom)
                  (dest-rect as-fixed-rect)
                  (zoom as-fixed))
@@ -7863,7 +9298,7 @@
                  (emit-file-option as-enum8)
                  (emit-font-option as-enum8)
                  (emit-flags as-uns32)
-                 (ranges (:pointer pdpage-range))
+                 (ranges (:pointer pd-page-range))
                  (num-ranges av-tsmall-array-size)
                  (ttas-t42 as-bool)
                  (print-as-image as-bool)
@@ -7876,7 +9311,7 @@
                  (raster-data av-doc-print-rasterize-data)
                  (override-data av-doc-print-override-data)
                  (select-rect (:pointer as-fixed-rect))
-                 (oc-context pdoccontext)
+                 (oc-context pd-occontext)
                  (res-policy av-resource-policy)
                  (marks-flags as-uns32)
                  (n-up-data av-doc-print-nup-data)
@@ -7898,7 +9333,7 @@
                  (emit-file-option as-enum8)
                  (emit-flags as-uns32)
                  (page-size av-page-size)
-                 (seps-spec pdhost-seps-spec)
+                 (seps-spec pd-host-seps-spec)
                  (in-rip as-bool)
                  (trap-type as-int32)
                  (printer-spec as-platform-printer-spec))
@@ -8122,17 +9557,17 @@
                  (lang-id as-int32))
 (define-c-typedef av-app-language-params
                   (:pointer av-app-language-params-rec))
-(define-c-struct pdf-opt-image-options-rec
+(define-c-struct pd-fopt-image-options-rec
                  (size as-size-t)
-                 (enm-downsampling-algo pdf-opt-downsampling-algo)
+                 (enm-downsampling-algo pd-fopt-downsampling-algo)
                  (ppi-downsample-to as-int32)
                  (ppi-downsample-above as-int32)
-                 (enm-compression-algo pdf-opt-compression-algo)
-                 (enm-compression-qlty pdf-opt-compression-qlty)
+                 (enm-compression-algo pd-fopt-compression-algo)
+                 (enm-compression-qlty pd-fopt-compression-qlty)
                  (n-tile-size as-int32))
-(define-c-typedef pdf-opt-image-options
-                  (:pointer pdf-opt-image-options-rec))
-(define-c-struct pdf-opt-flatten-transparency-options-rec
+(define-c-typedef pd-fopt-image-options
+                  (:pointer pd-fopt-image-options-rec))
+(define-c-struct pd-fopt-flatten-transparency-options-rec
                  (size as-size-t)
                  (pct-raster-vector-balance as-int32)
                  (ppi-line-art-and-text as-int32)
@@ -8141,22 +9576,22 @@
                  (b-convert-strokes as-bool)
                  (b-clip-complex-regions as-bool)
                  (b-preserve-overprint as-bool))
-(define-c-typedef pdf-opt-flatten-transparency-options
-                  (:pointer pdf-opt-flatten-transparency-options-rec))
-(define-c-struct pdf-opt-params-rec
+(define-c-typedef pd-fopt-flatten-transparency-options
+                  (:pointer pd-fopt-flatten-transparency-options-rec))
+(define-c-struct pd-fopt-params-rec
                  (size as-size-t)
                  (as-path-dest as-path-name)
                  (file-sys as-file-sys)
                  (prog-mon progress-monitor)
                  (prog-mon-client-data (:pointer :void))
-                 (enm-acrobat-version pdf-opt-pdf-version)
-                 (image-options-color pdf-opt-image-options-rec)
-                 (image-options-grayscale pdf-opt-image-options-rec)
-                 (image-options-monochrome pdf-opt-image-options-rec)
-                 (arr-pdf-onts-to-unembed (:pointer pdf-ont))
+                 (enm-acrobat-version pd-fopt-pdf-version)
+                 (image-options-color pd-fopt-image-options-rec)
+                 (image-options-grayscale pd-fopt-image-options-rec)
+                 (image-options-monochrome pd-fopt-image-options-rec)
+                 (arr-pdf-onts-to-unembed (:pointer pd-font))
                  (c-pdf-onts-to-unembed as-int32)
                  (pdf-opt-flatten-transparency-options
-                  pdf-opt-flatten-transparency-options)
+                  pd-fopt-flatten-transparency-options)
                  (b-remove-form-actions as-bool)
                  (b-flatten-form-fields as-bool)
                  (b-remove-javascript-actions as-bool)
@@ -8175,7 +9610,7 @@
                  (b-remove-cross-refs as-bool)
                  (b-remove-private-data as-bool)
                  (b-flatten-visible-layers as-bool)
-                 (enm-object-compression pdf-opt-object-compression)
+                 (enm-object-compression pd-fopt-object-compression)
                  (b-unencoded-to-flate as-bool)
                  (b-lzwto-flate as-bool)
                  (b-remove-invalid-bookmarks as-bool)
@@ -8185,7 +9620,7 @@
                  (b-skip-irreducible-images as-bool)
                  (b-subset-embedded-fonts as-bool)
                  (b-optimize-content-stms as-bool))
-(define-c-typedef pdf-opt-params (:pointer pdf-opt-params-rec))
+(define-c-typedef pd-fopt-params (:pointer pd-fopt-params-rec))
 (define-c-struct av-notification-data-rec
                  (size as-uns32)
                  (notification (:pointer :byte)))
@@ -8204,3 +9639,5444 @@
                  (p-version-params av-version-params))
 (define-c-typedef av-extension-info-ex
                   (:pointer av-extension-info-rec-ex))
+
+;; #include <AVProcs.h>
+(defconstant +av-action-handler-get-type-sel+ 1)
+(defconstant +av-action-handler-get-uiname-sel+ 2)
+(defconstant +av-action-handler-get-procs-sel+ 3)
+(defconstant +av-alert-sel+ 4)
+(defconstant +av-alert-note-sel+ 5)
+(defconstant +av-alert-confirm-sel+ 6)
+(defconstant +av-app-get-version-sel+ 7)
+(defconstant +av-app-get-language-sel+ 8)
+(defconstant +av-app-get-name-sel+ 9)
+(defconstant +av-app-get-cancel-proc-sel+ 10)
+(defconstant +av-app-can-quit-sel+ 11)
+(defconstant +av-app-get-active-doc-sel+ 12)
+(defconstant +av-app-get-num-docs-sel+ 13)
+(defconstant +av-app-enum-docs-sel+ 14)
+(defconstant +av-app-get-doc-progress-monitor-sel+ 15)
+(defconstant +av-app-get-menubar-sel+ 16)
+(defconstant +av-app-get-legacy-tool-bar-sel+ 17)
+(defconstant +av-app-get-active-tool-sel+ 18)
+(defconstant +av-app-get-last-active-tool-sel+ 19)
+(defconstant +av-app-get-default-tool-sel+ 20)
+(defconstant +av-app-set-active-tool-sel+ 21)
+(defconstant +av-app-get-tool-by-name-sel+ 22)
+(defconstant +av-app-enum-tools-sel+ 23)
+(defconstant +old-avapp-register-tool-sel+ 24)
+(defconstant +av-app-get-annot-handler-by-name-sel+ 25)
+(defconstant +av-app-enum-annot-handlers-sel+ 26)
+(defconstant +old-avapp-register-annot-handler-sel+ 27)
+(defconstant +av-app-get-action-handler-by-type-sel+ 28)
+(defconstant +av-app-enum-action-handlers-sel+ 29)
+(defconstant +av-app-register-action-handler-sel+ 30)
+(defconstant +av-app-get-preference-sel+ 31)
+(defconstant +av-app-set-preference-sel+ 32)
+(defconstant +av-app-begin-full-screen-sel+ 33)
+(defconstant +av-app-end-full-screen-sel+ 34)
+(defconstant +av-app-doing-full-screen-sel+ 35)
+(defconstant +av-app-begin-modal-sel+ 36)
+(defconstant +av-app-modal-window-is-open-sel+ 37)
+(defconstant +av-app-end-modal-sel+ 38)
+(defconstant +av-app-register-idle-proc-sel+ 39)
+(defconstant +av-app-unregister-idle-proc-sel+ 40)
+(defconstant +av-app-register-notification-sel+ 41)
+(defconstant +av-app-unregister-notification-sel+ 42)
+(defconstant +old-avdoc-open-from-file-sel+ 43)
+(defconstant +old-avdoc-open-from-file-with-params-sel+ 44)
+(defconstant +old-avdoc-open-from-pddoc-sel+ 45)
+(defconstant +old-avdoc-open-from-pddoc-with-params-sel+ 46)
+(defconstant +av-doc-close-sel+ 47)
+(defconstant +av-doc-get-pddoc-sel+ 48)
+(defconstant +av-doc-get-page-view-sel+ 49)
+(defconstant +av-doc-get-avwindow-sel+ 50)
+(defconstant +av-doc-get-view-mode-sel+ 51)
+(defconstant +av-doc-set-view-mode-sel+ 52)
+(defconstant +av-doc-get-splitter-position-sel+ 53)
+(defconstant +av-doc-set-splitter-position-sel+ 54)
+(defconstant +av-doc-print-pages-sel+ 55)
+(defconstant +av-doc-get-selection-type-sel+ 56)
+(defconstant +av-doc-get-selection-sel+ 57)
+(defconstant +av-doc-set-selection-sel+ 58)
+(defconstant +av-doc-delete-selection-sel+ 59)
+(defconstant +av-doc-clear-selection-sel+ 60)
+(defconstant +av-doc-copy-selection-sel+ 61)
+(defconstant +av-doc-enum-selection-sel+ 62)
+(defconstant +av-doc-do-selection-properties-sel+ 63)
+(defconstant +av-doc-show-selection-sel+ 64)
+(defconstant +old-avdoc-get-selection-server-by-type-sel+ 65)
+(defconstant +old-avdoc-register-selection-server-sel+ 66)
+(defconstant +av-doc-perform-action-sel+ 67)
+(defconstant +av-menubar-show-sel+ 68)
+(defconstant +av-menubar-hide-sel+ 69)
+(defconstant +av-menubar-get-num-menus-sel+ 70)
+(defconstant +av-menubar-acquire-menu-by-name-sel+ 71)
+(defconstant +av-menubar-acquire-menu-by-index-sel+ 72)
+(defconstant +av-menubar-acquire-menu-by-predicate-sel+ 73)
+(defconstant +av-menubar-acquire-menu-item-by-name-sel+ 74)
+(defconstant +av-menubar-acquire-menu-item-by-predicate-sel+ 75)
+(defconstant +av-menubar-get-menu-index-sel+ 76)
+(defconstant +av-menubar-add-menu-sel+ 77)
+(defconstant +av-menu-new-sel+ 78)
+(defconstant +av-menu-acquire-sel+ 79)
+(defconstant +av-menu-release-sel+ 80)
+(defconstant +av-menu-remove-sel+ 81)
+(defconstant +av-menu-get-name-sel+ 82)
+(defconstant +av-menu-get-title-sel+ 83)
+(defconstant +av-menu-get-num-menu-items-sel+ 84)
+(defconstant +av-menu-acquire-menu-item-by-index-sel+ 85)
+(defconstant +av-menu-get-menu-item-index-sel+ 86)
+(defconstant +av-menu-get-parent-menubar-sel+ 87)
+(defconstant +av-menu-get-parent-menu-item-sel+ 88)
+(defconstant +av-menu-add-menu-item-sel+ 89)
+(defconstant +av-menu-item-new-sel+ 90)
+(defconstant +av-menu-item-acquire-sel+ 91)
+(defconstant +av-menu-item-release-sel+ 92)
+(defconstant +av-menu-item-remove-sel+ 93)
+(defconstant +av-menu-item-get-name-sel+ 94)
+(defconstant +av-menu-item-get-title-sel+ 95)
+(defconstant +av-menu-item-set-title-sel+ 96)
+(defconstant +av-menu-item-get-shortcut-sel+ 97)
+(defconstant +av-menu-item-get-long-only-sel+ 98)
+(defconstant +av-menu-item-set-execute-proc-sel+ 99)
+(defconstant +av-menu-item-set-compute-enabled-proc-sel+ 100)
+(defconstant +av-menu-item-set-compute-marked-proc-sel+ 101)
+(defconstant +av-menu-item-acquire-submenu-sel+ 102)
+(defconstant +av-menu-item-is-enabled-sel+ 103)
+(defconstant +av-menu-item-is-marked-sel+ 104)
+(defconstant +av-menu-item-execute-sel+ 105)
+(defconstant +av-menu-item-get-parent-menu-sel+ 106)
+(defconstant +av-page-view-get-avdoc-sel+ 107)
+(defconstant +old-avpage-view-get-aperture-sel+ 108)
+(defconstant +av-page-view-get-page-sel+ 109)
+(defconstant +av-page-view-get-zoom-sel+ 110)
+(defconstant +av-page-view-get-zoom-type-sel+ 111)
+(defconstant +av-page-view-get-page-num-sel+ 112)
+(defconstant +av-page-view-get-color-sel+ 113)
+(defconstant +av-page-view-set-color-sel+ 114)
+(defconstant +av-page-view-begin-operation-sel+ 115)
+(defconstant +av-page-view-end-operation-sel+ 116)
+(defconstant +av-page-view-go-to-sel+ 117)
+(defconstant +av-page-view-zoom-to-sel+ 118)
+(defconstant +old-avpage-view-scroll-to-sel+ 119)
+(defconstant +old-avpage-view-scroll-to-rect-sel+ 120)
+(defconstant +av-page-view-read-page-up-sel+ 121)
+(defconstant +av-page-view-read-page-down-sel+ 122)
+(defconstant +av-page-view-go-back-sel+ 123)
+(defconstant +av-page-view-go-forward-sel+ 124)
+(defconstant +av-page-view-to-view-dest-sel+ 125)
+(defconstant +old-avpage-view-invalidate-rect-sel+ 126)
+(defconstant +av-page-view-draw-now-sel+ 127)
+(defconstant +old-avpage-view-invert-rect-sel+ 128)
+(defconstant +old-avpage-view-invert-rect-outline-sel+ 129)
+(defconstant +old-avpage-view-draw-rect-outline-sel+ 130)
+(defconstant +old-avpage-view-draw-rect-sel+ 131)
+(defconstant +old-avpage-view-get-mouse-position-sel+ 132)
+(defconstant +old-avpage-view-drag-out-new-rect-sel+ 133)
+(defconstant +old-avpage-view-drag-rect-sel+ 134)
+(defconstant +old-avapp-register-for-page-view-drawing-sel+ 135)
+(defconstant +av-app-unregister-for-page-view-drawing-sel+ 136)
+(defconstant +old-avapp-register-for-page-view-clicks-sel+ 137)
+(defconstant +av-app-unregister-for-page-view-clicks-sel+ 138)
+(defconstant +old-avapp-register-for-page-view-adjust-cursor-sel+ 139)
+(defconstant +av-app-unregister-for-page-view-adjust-cursor-sel+ 140)
+(defconstant +old-avpage-view-is-annot-at-point-sel+ 141)
+(defconstant +old-avpage-view-get-annot-rect-sel+ 142)
+(defconstant +old-avpage-view-set-annot-location-sel+ 143)
+(defconstant +av-page-view-start-reading-thread-sel+ 144)
+(defconstant +av-page-view-get-thread-index-sel+ 145)
+(defconstant +av-page-view-get-active-bead-sel+ 146)
+(defconstant +old-avpage-view-is-bead-at-point-sel+ 147)
+(defconstant +av-page-view-get-page-to-dev-matrix-sel+ 148)
+(defconstant +av-page-view-get-dev-to-page-matrix-sel+ 149)
+(defconstant +old-avpage-view-point-to-device-sel+ 150)
+(defconstant +old-avpage-view-device-point-to-page-sel+ 151)
+(defconstant +old-avpage-view-rect-to-device-sel+ 152)
+(defconstant +old-avpage-view-device-rect-to-page-sel+ 153)
+(defconstant +av-sys-get-modifiers-sel+ 154)
+(defconstant +av-sys-mouse-is-still-down-sel+ 155)
+(defconstant +av-sys-beep-sel+ 156)
+(defconstant +av-sys-get-standard-cursor-sel+ 157)
+(defconstant +av-sys-set-cursor-sel+ 158)
+(defconstant +av-sys-get-cursor-sel+ 159)
+(defconstant +old-avtool-bar-get-frame-sel+ 160)
+(defconstant +av-legacy-tool-bar-get-button-by-name-sel+ 161)
+(defconstant +av-legacy-tool-bar-enum-buttons-sel+ 162)
+(defconstant +av-legacy-tool-bar-add-button-sel+ 163)
+(defconstant +av-legacy-tool-bar-get-num-buttons-sel+ 164)
+(defconstant +av-legacy-tool-bar-is-room-for-sel+ 165)
+(defconstant +av-legacy-tool-bar-update-button-states-sel+ 166)
+(defconstant +av-legacy-tool-button-new-sel+ 167)
+(defconstant +av-legacy-tool-button-destroy-sel+ 168)
+(defconstant +av-legacy-tool-button-remove-sel+ 169)
+(defconstant +av-legacy-tool-button-is-separator-sel+ 170)
+(defconstant +av-legacy-tool-button-get-name-sel+ 171)
+(defconstant +av-legacy-tool-button-execute-sel+ 172)
+(defconstant +av-legacy-tool-button-set-execute-proc-sel+ 173)
+(defconstant +av-legacy-tool-button-set-compute-enabled-proc-sel+ 174)
+(defconstant +av-legacy-tool-button-set-compute-marked-proc-sel+ 175)
+(defconstant +av-legacy-tool-button-is-enabled-sel+ 176)
+(defconstant +av-legacy-tool-button-is-marked-sel+ 177)
+(defconstant +av-tool-get-type-sel+ 178)
+(defconstant +av-tool-is-persistent-sel+ 179)
+(defconstant +old-avwindow-new-sel+ 180)
+(defconstant +old-avwindow-new-from-platform-thing-sel+ 181)
+(defconstant +av-window-destroy-sel+ 182)
+(defconstant +av-window-user-close-sel+ 183)
+(defconstant +av-window-maximize-sel+ 184)
+(defconstant +av-window-show-sel+ 185)
+(defconstant +av-window-hide-sel+ 186)
+(defconstant +av-window-is-visible-sel+ 187)
+(defconstant +av-window-get-platform-thing-sel+ 188)
+(defconstant +av-window-get-owner-data-sel+ 189)
+(defconstant +av-window-set-owner-data-sel+ 190)
+(defconstant +old-avwindow-get-title-sel+ 191)
+(defconstant +old-avwindow-set-title-sel+ 192)
+(defconstant +old-avwindow-get-frame-sel+ 193)
+(defconstant +old-avwindow-set-frame-sel+ 194)
+(defconstant +old-avwindow-get-interior-sel+ 195)
+(defconstant +av-window-bring-to-front-sel+ 196)
+(defconstant +old-avwindow-invalidate-rect-sel+ 197)
+(defconstant +av-window-draw-now-sel+ 198)
+(defconstant +av-window-set-wants-key-sel+ 199)
+(defconstant +av-window-is-key-sel+ 200)
+(defconstant +av-window-become-key-sel+ 201)
+(defconstant +av-window-resign-key-sel+ 202)
+(defconstant +av-graf-select-create-sel+ 203)
+(defconstant +av-graf-select-destroy-sel+ 204)
+(defconstant +av-graf-select-get-bounding-rect-sel+ 205)
+(defconstant +av-crypt-do-std-security-sel+ 206)
+(defconstant +av-crypt-get-password-sel+ 207)
+(defconstant +av-doc-do-save-sel+ 208)
+(defconstant +av-doc-get-client-name-sel+ 209)
+(defconstant +av-doc-set-client-name-sel+ 210)
+(defconstant +av-doc-get-page-text-sel+ 211)
+(defconstant +av-legacy-tool-button-set-help-text-sel+ 212)
+(defconstant +old-avpage-view-track-text-sel+ 213)
+(defconstant +av-page-view-highlight-text-sel+ 214)
+(defconstant +av-page-view-invalidate-text-sel+ 215)
+(defconstant +old-avpage-view-point-in-text-sel+ 216)
+(defconstant +av-page-view-get-first-visible-page-num-sel+ 217)
+(defconstant +av-page-view-get-last-visible-page-num-sel+ 218)
+(defconstant +av-page-view-page-num-is-visible-sel+ 219)
+(defconstant +av-page-view-set-page-num-sel+ 220)
+(defconstant +av-page-view-get-selected-annot-page-num-sel+ 221)
+(defconstant +av-doc-send-aux-data-sel+ 222)
+(defconstant +av-has-aux-data-handler-sel+ 223)
+(defconstant +old-avregister-aux-data-handler-sel+ 224)
+(defconstant +av-unregister-aux-data-handler-sel+ 225)
+(defconstant +old-avdoc-print-pages-with-params-sel+ 226)
+(defconstant +old-avpage-view-draw-cos-obj-sel+ 227)
+(defconstant +av-doc-set-dead-sel+ 228)
+(defconstant +av-legacy-tool-button-set-external-sel+ 229)
+(defconstant +av-app-is-idle-sel+ 230)
+(defconstant +old-avdoc-open-from-as-file-with-params-sel+ 231)
+(defconstant +av-page-view-get-next-view-sel+ 232)
+(defconstant +old-avdoc-get-view-def-sel+ 233)
+(defconstant +old-avdoc-set-view-def-sel+ 234)
+(defconstant +av-window-handle-platform-event-sel+ 235)
+(defconstant +av-window-get-cursor-at-point-sel+ 236)
+(defconstant +av-doc-do-action-props-dialog-sel+ 237)
+(defconstant +av-app-get-trans-handler-by-type-sel+ 238)
+(defconstant +av-app-enum-trans-handlers-sel+ 239)
+(defconstant +av-app-register-trans-handler-sel+ 240)
+(defconstant +av-doc-do-save-as-sel+ 241)
+(defconstant +av-page-view-set-layout-mode-sel+ 242)
+(defconstant +av-page-view-get-layout-mode-sel+ 243)
+(defconstant +old-avpage-view-inset-rect-sel+ 244)
+(defconstant +av-doc-is-external-sel+ 245)
+(defconstant +av-page-view-use-this-destination-sel+ 246)
+(defconstant +av-auth-open-sel+ 247)
+(defconstant +av-doc-copy-annot-sel+ 248)
+(defconstant +av-doc-copy-annot-common-sel+ 249)
+(defconstant +av-doc-copy-action-sel+ 250)
+(defconstant +av-doc-copy-action-common-sel+ 251)
+(defconstant +av-doc-copy-additional-actions-sel+ 252)
+(defconstant +old-avpage-view-draw-cos-obj-ex-sel+ 253)
+(defconstant +av-page-view-to-dest-info-sel+ 254)
+(defconstant +av-page-view-use-dest-info-sel+ 255)
+(defconstant +av-dest-info-destroy-sel+ 256)
+(defconstant +av-doc-do-copy-as-sel+ 257)
+(defconstant +old-avpage-view-draw-annot-sequence-sel+ 258)
+(defconstant +av-doc-do-print-sel+ 259)
+(defconstant +av-doc-do-save-as-with-params-sel+ 260)
+(defconstant +av-annot-handler-get-info-sel+ 261)
+(defconstant +av-annot-handler-delete-info-sel+ 262)
+(defconstant +old-avpage-view-do-popup-menu-sel+ 263)
+(defconstant +av-page-view-transform-rect-rz-sel+ 264)
+(defconstant +av-page-view-appearance-get-avmatrix-sel+ 265)
+(defconstant +av-page-view-get-visible-annot-page-sel+ 266)
+(defconstant +av-page-view-invert-quad-sel+ 267)
+(defconstant +av-sys-alloc-time-string-from-time-rec-sel+ 268)
+(defconstant +av-app-handle-platform-event-sel+ 269)
+(defconstant +av-doc-set-read-only-sel+ 270)
+(defconstant +av-doc-is-read-only-sel+ 271)
+(defconstant +av-page-view-show-control-sel+ 272)
+(defconstant +av-legacy-tool-bar-new-flyout-sel+ 273)
+(defconstant +av-legacy-tool-button-set-flyout-sel+ 274)
+(defconstant +av-legacy-tool-button-get-flyout-sel+ 275)
+(defconstant +av-legacy-tool-button-set-menu-sel+ 276)
+(defconstant +av-legacy-tool-button-get-menu-sel+ 277)
+(defconstant +av-legacy-tool-button-set-icon-sel+ 278)
+(defconstant +av-legacy-tool-button-get-icon-sel+ 279)
+(defconstant +old-avpage-view-device-rect-to-page-rz-sel+ 280)
+(defconstant +av-doc-alert-sel+ 281)
+(defconstant +av-doc-alert-note-sel+ 282)
+(defconstant +av-doc-alert-confirm-sel+ 283)
+(defconstant +av-doc-alert-yes-no-sel+ 284)
+(defconstant +av-menubar-add-hidden-menu-sel+ 285)
+(defconstant +av-menu-is-hidden-on-menubar-sel+ 286)
+(defconstant +av-app-open-help-file-sel+ 287)
+(defconstant +old-avpage-view-get-gray-rect-sel+ 288)
+(defconstant +av-doc-selection-enum-page-ranges-sel+ 289)
+(defconstant +old-avwindow-get-min-max-size-sel+ 290)
+(defconstant +old-avwindow-set-min-max-size-sel+ 291)
+(defconstant +av-app-register-for-page-view-key-down-sel+ 292)
+(defconstant +av-app-unregister-for-page-view-key-down-sel+ 293)
+(defconstant +av-app-register-to-pdf-handler-sel+ 294)
+(defconstant +av-app-register-from-pdf-handler-sel+ 295)
+(defconstant +av-conversion-enum-to-pdf-converters-sel+ 296)
+(defconstant +av-conversion-enum-from-pdf-converters-sel+ 297)
+(defconstant +av-conversion-convert-to-pdf-with-handler-sel+ 298)
+(defconstant +av-conversion-convert-from-pdf-with-handler-sel+ 299)
+(defconstant +av-conversion-convert-to-pdf-sel+ 300)
+(defconstant +av-command-new-sel+ 301)
+(defconstant +av-command-destroy-sel+ 302)
+(defconstant +av-command-get-name-sel+ 303)
+(defconstant +av-command-get-status-sel+ 304)
+(defconstant +av-command-get-cab-sel+ 305)
+(defconstant +av-command-put-cab-sel+ 306)
+(defconstant +av-command-set-params-sel+ 307)
+(defconstant +av-command-get-params-sel+ 308)
+(defconstant +av-command-set-config-sel+ 309)
+(defconstant +av-command-get-config-sel+ 310)
+(defconstant +av-command-get-props-sel+ 311)
+(defconstant +av-command-set-inputs-sel+ 312)
+(defconstant +av-command-get-inputs-sel+ 313)
+(defconstant +av-command-show-dialog-sel+ 314)
+(defconstant +av-command-work-sel+ 315)
+(defconstant +av-command-cancel-sel+ 316)
+(defconstant +av-command-reset-sel+ 317)
+(defconstant +av-command-get-uipolicy-sel+ 318)
+(defconstant +av-command-get-avdoc-sel+ 319)
+(defconstant +av-command-get-pddoc-sel+ 320)
+(defconstant +av-command-get-report-proc-sel+ 321)
+(defconstant +av-command-get-progress-monitor-sel+ 322)
+(defconstant +av-command-get-cancel-proc-sel+ 323)
+(defconstant +av-app-register-command-handler-sel+ 324)
+(defconstant +av-app-find-command-handler-by-name-sel+ 325)
+(defconstant +av-app-register-global-command-sel+ 326)
+(defconstant +av-app-find-global-command-by-name-sel+ 327)
+(defconstant +av-app-unregister-global-command-sel+ 328)
+(defconstant +av-command-execute-sel+ 329)
+(defconstant +av-acquire-special-folder-path-name-sel+ 330)
+(defconstant +av-page-view-get-focus-annot-sel+ 331)
+(defconstant +av-page-view-set-focus-annot-sel+ 332)
+(defconstant +av-page-view-clear-focus-annot-sel+ 333)
+(defconstant +av-page-view-is-focus-annot-sel+ 334)
+(defconstant +av-util-get-base-name-and-extension-by-path-name-sel+ 335)
+(defconstant +av-util-get-base-name-and-extension-by-string-sel+ 336)
+(defconstant +av-identity-get-text-sel+ 337)
+(defconstant +av-identity-set-text-sel+ 338)
+(defconstant +av-page-view-focus-annot-perform-op-sel+ 339)
+(defconstant +av-page-view-filter-key-down-for-focus-annot-sel+ 340)
+(defconstant +old-avpage-view-ghost-rect-outline-sel+ 341)
+(defconstant +av-legacy-tool-bar-new-sel+ 342)
+(defconstant +old-avapp-register-legacy-tool-bar-position-sel+ 343)
+(defconstant +old-avpage-view-snap-point-sel+ 344)
+(defconstant +old-avpage-view-get-mouse-position-snapped-sel+ 345)
+(defconstant +old-avpage-view-drag-out-new-rect-snapped-sel+ 346)
+(defconstant +old-avpage-view-drag-rect-snapped-sel+ 347)
+(defconstant +old-avrect-handle-hit-test-sel+ 348)
+(defconstant +old-avpage-view-draw-rect-outline-with-handles-sel+ 349)
+(defconstant +old-avpage-view-is-annot-of-type-at-point-sel+ 350)
+(defconstant +av-window-center-sel+ 351)
+(defconstant +av-doc-from-pddoc-sel+ 352)
+(defconstant +old-avpage-view-snap-rect-sel+ 353)
+(defconstant +av-app-get-report-proc-sel+ 354)
+(defconstant +av-doc-is-dead-sel+ 355)
+(defconstant +av-app-get-pref-bool-sel+ 356)
+(defconstant +av-app-get-pref-int-sel+ 357)
+(defconstant +av-app-get-pref-atom-sel+ 358)
+(defconstant +av-app-get-pref-double-sel+ 359)
+(defconstant +av-app-get-pref-string-sel+ 360)
+(defconstant +av-app-get-pref-text-sel+ 361)
+(defconstant +av-app-get-pref-cab-sel+ 362)
+(defconstant +av-app-get-pref-path-name-sel+ 363)
+(defconstant +av-alert-with-params-sel+ 364)
+(defconstant +av-alert-set-pref-sel+ 365)
+(defconstant +av-alert-get-pref-sel+ 366)
+(defconstant +av-alert-reset-prefs-sel+ 367)
+(defconstant +av-doc-perform-action-ex-sel+ 368)
+(defconstant +av-extension-get-num-plug-ins-sel+ 369)
+(defconstant +av-extension-acquire-info-sel+ 370)
+(defconstant +av-extension-release-info-sel+ 371)
+(defconstant +av-page-view-device-to-info-sel+ 372)
+(defconstant +av-page-view-info-to-device-sel+ 373)
+(defconstant +av-page-view-point-to-info-sel+ 374)
+(defconstant +av-page-view-info-to-point-sel+ 375)
+(defconstant +av-page-view-update-info-panel-sel+ 376)
+(defconstant +av-app-get-legacy-tool-bar-by-name-sel+ 377)
+(defconstant +av-app-get-language-encoding-sel+ 378)
+(defconstant +av-page-view-scroll-to-annot-sel+ 379)
+(defconstant +av-sys-set-wait-cursor-sel+ 380)
+(defconstant +av-doc-perm-request-sel+ 381)
+(defconstant +av-page-view-suspend-offscreen-drawing-sel+ 382)
+(defconstant +av-page-view-resume-offscreen-drawing-sel+ 383)
+(defconstant +av-app-yield-to-other-apps-sel+ 384)
+(defconstant +av-window-ensure-in-bounds-sel+ 385)
+(defconstant +av-menu-clone-sel+ 386)
+(defconstant +av-page-view-scroll-to-sel+ 387)
+(defconstant +av-app-register-for-page-view-adjust-cursor-sel+ 388)
+(defconstant +av-app-register-for-page-view-clicks-sel+ 389)
+(defconstant +av-app-register-for-page-view-drawing-sel+ 390)
+(defconstant +av-doc-open-from-file-with-params-sel+ 391)
+(defconstant +av-doc-open-from-pddoc-with-params-sel+ 392)
+(defconstant +av-doc-open-from-as-file-with-params-sel+ 393)
+(defconstant +av-doc-print-pages-with-params-sel+ 394)
+(defconstant +av-doc-get-view-def-sel+ 395)
+(defconstant +av-doc-set-view-def-sel+ 396)
+(defconstant +av-doc-get-selection-server-by-type-sel+ 397)
+(defconstant +av-doc-register-selection-server-sel+ 398)
+(defconstant +av-page-view-get-aperture-sel+ 399)
+(defconstant +av-page-view-scroll-to-rect-sel+ 400)
+(defconstant +av-page-view-invalidate-rect-sel+ 401)
+(defconstant +av-page-view-invert-rect-sel+ 402)
+(defconstant +av-page-view-draw-rect-outline-sel+ 403)
+(defconstant +av-page-view-draw-rect-sel+ 404)
+(defconstant +av-page-view-get-annot-rect-sel+ 405)
+(defconstant +av-page-view-rect-to-device-sel+ 406)
+(defconstant +av-page-view-device-rect-to-page-sel+ 407)
+(defconstant +av-page-view-draw-cos-obj-sel+ 408)
+(defconstant +av-page-view-inset-rect-sel+ 409)
+(defconstant +av-page-view-draw-cos-obj-ex-sel+ 410)
+(defconstant +av-page-view-draw-annot-sequence-sel+ 411)
+(defconstant +av-page-view-get-gray-rect-sel+ 412)
+(defconstant +av-page-view-ghost-rect-outline-sel+ 413)
+(defconstant +av-rect-handle-hit-test-sel+ 414)
+(defconstant +av-page-view-draw-rect-outline-with-handles-sel+ 415)
+(defconstant +av-page-view-get-mouse-position-sel+ 416)
+(defconstant +av-page-view-drag-out-new-rect-sel+ 417)
+(defconstant +av-page-view-drag-rect-sel+ 418)
+(defconstant +av-page-view-is-annot-at-point-sel+ 419)
+(defconstant +av-page-view-is-bead-at-point-sel+ 420)
+(defconstant +av-page-view-device-point-to-page-sel+ 421)
+(defconstant +av-page-view-track-text-sel+ 422)
+(defconstant +av-page-view-point-in-text-sel+ 423)
+(defconstant +av-page-view-do-popup-menu-sel+ 424)
+(defconstant +av-page-view-device-rect-to-page-rz-sel+ 425)
+(defconstant +av-page-view-snap-point-sel+ 426)
+(defconstant +av-page-view-get-mouse-position-snapped-sel+ 427)
+(defconstant +av-page-view-drag-out-new-rect-snapped-sel+ 428)
+(defconstant +av-page-view-drag-rect-snapped-sel+ 429)
+(defconstant +av-page-view-snap-rect-sel+ 430)
+(defconstant +av-page-view-invert-rect-outline-sel+ 431)
+(defconstant +av-page-view-point-to-device-sel+ 432)
+(defconstant +av-page-view-is-annot-of-type-at-point-sel+ 433)
+(defconstant +av-page-view-set-annot-location-sel+ 434)
+(defconstant +av-app-register-annot-handler-sel+ 435)
+(defconstant +av-app-register-tool-sel+ 436)
+(defconstant +av-window-new-sel+ 437)
+(defconstant +av-window-new-from-platform-thing-sel+ 438)
+(defconstant +av-window-get-frame-sel+ 439)
+(defconstant +av-window-set-frame-sel+ 440)
+(defconstant +av-window-get-interior-sel+ 441)
+(defconstant +av-window-invalidate-rect-sel+ 442)
+(defconstant +av-window-get-min-max-size-sel+ 443)
+(defconstant +av-window-set-min-max-size-sel+ 444)
+(defconstant +av-app-get-uuid-sel+ 445)
+(defconstant +av-sys-get-icon-from-filename-sel+ 446)
+(defconstant +av-sys-get-icon-from-mime-type-sel+ 447)
+(defconstant +av-sys-get-icon-from-type-and-creator-sel+ 448)
+(defconstant +av-conversion-convert-stream-to-pdf-with-handler-sel+ 449)
+(defconstant +av-conversion-convert-stream-from-pdf-with-handler-sel+ 450)
+(defconstant +av-conversion-convert-stream-from-struct-node-with-handler-sel+ 451)
+(defconstant +av-conversion-convert-stream-to-pdf-sel+ 452)
+(defconstant +av-menu-do-pop-up-sel+ 453)
+(defconstant +av-doc-get-num-page-views-sel+ 454)
+(defconstant +av-doc-get-nth-page-view-sel+ 455)
+(defconstant +av-doc-open-from-file-with-param-string-sel+ 456)
+(defconstant +av-doc-open-from-pddoc-with-param-string-sel+ 457)
+(defconstant +av-doc-open-from-as-file-with-param-string-sel+ 458)
+(defconstant +av-app-help-search-sel+ 459)
+(defconstant +av-app-help-show-index-sel+ 460)
+(defconstant +av-app-open-help-file-with-params-sel+ 461)
+(defconstant +av-legacy-tool-button-add-animation-icon-sel+ 462)
+(defconstant +av-legacy-tool-button-get-animation-icon-count-sel+ 463)
+(defconstant +av-legacy-tool-button-start-animation-sel+ 464)
+(defconstant +av-legacy-tool-button-stop-animation-sel+ 465)
+(defconstant +av-legacy-tool-button-is-animation-running-sel+ 466)
+(defconstant +av-legacy-tool-button-set-animation-period-sel+ 467)
+(defconstant +av-legacy-tool-button-get-animation-period-sel+ 468)
+(defconstant +av-legacy-tool-button-remove-animation-icons-sel+ 469)
+(defconstant +av-menu-new-with-as-text-sel+ 470)
+(defconstant +av-menu-get-title-as-as-text-sel+ 471)
+(defconstant +av-menu-item-new-with-as-text-sel+ 472)
+(defconstant +av-menu-item-get-title-as-as-text-sel+ 473)
+(defconstant +av-menu-item-set-title-with-as-text-sel+ 474)
+(defconstant +av-window-get-title-sel+ 475)
+(defconstant +av-window-set-title-sel+ 476)
+(defconstant +av-doc-open-from-file-sel+ 477)
+(defconstant +av-doc-open-from-pddoc-sel+ 478)
+(defconstant +av-util-get-base-name-and-extension-ex-sel+ 479)
+(defconstant +av-page-view-set-visible-inks-sel+ 480)
+(defconstant +av-page-view-set-ink-preview-sel+ 481)
+(defconstant +av-page-view-get-num-visible-inks-sel+ 482)
+(defconstant +av-page-view-get-visible-inks-sel+ 483)
+(defconstant +av-page-view-get-pixel-information-at-point-sel+ 484)
+(defconstant +av-undo-new-sel+ 485)
+(defconstant +av-undo-set-data-sel+ 486)
+(defconstant +av-undo-get-data-sel+ 487)
+(defconstant +av-undo-get-avdoc-sel+ 488)
+(defconstant +av-undo-get-type-sel+ 489)
+(defconstant +av-doc-clear-undos-sel+ 490)
+(defconstant +av-doc-get-top-undo-sel+ 491)
+(defconstant +av-doc-begin-undo-operation-sel+ 492)
+(defconstant +av-doc-end-undo-operation-sel+ 493)
+(defconstant +av-page-view-draw-now-with-transition-sel+ 494)
+(defconstant +av-doc-print-separations-sel+ 495)
+(defconstant +av-doc-get-view-def-ex-sel+ 496)
+(defconstant +av-doc-set-view-def-ex-sel+ 497)
+(defconstant +av-window-do-modal-sel+ 498)
+(defconstant +av-window-end-modal-sel+ 499)
+(defconstant +av-sys-get-use-pen-for-input-sel+ 500)
+(defconstant +av-page-view-snap-point-ex-sel+ 501)
+(defconstant +av-page-view-drag-rect-snapped-ex-sel+ 502)
+(defconstant +av-legacy-tool-button-set-compute-tooltip-proc-sel+ 503)
+(defconstant +av-legacy-tool-button-set-label-text-sel+ 504)
+(defconstant +av-legacy-tool-button-get-label-text-sel+ 505)
+(defconstant +av-menu-item-clone-sel+ 506)
+(defconstant +av-app-get-language-with-params-sel+ 507)
+(defconstant +av-app-create-icon-bundle6-sel+ 508)
+(defconstant +av-legacy-tool-button-set-notify-tooltip-proc-sel+ 509)
+(defconstant +av-window-get-border-widths-sel+ 510)
+(defconstant +av-page-view-draw-polygon-sel+ 511)
+(defconstant +av-page-view-draw-polygon-outline-sel+ 512)
+(defconstant +av-app-register-how-to-panel-sel+ 513)
+(defconstant +av-app-set-how-to-panel-auto-show-text-sel+ 514)
+(defconstant +av-app-get-how-to-panel-auto-show-sel+ 515)
+(defconstant +av-app-set-how-to-panel-auto-show-sel+ 516)
+(defconstant +av-app-auto-show-how-to-panel-sel+ 517)
+(defconstant +av-menu-item-set-compute-visible-proc-sel+ 518)
+(defconstant +av-menu-item-is-visible-sel+ 519)
+(defconstant +av-legacy-tool-button-set-compute-visible-proc-sel+ 520)
+(defconstant +av-app-register-legacy-tool-bar-position-sel+ 521)
+(defconstant +av-doc-get-top-undo-and-redo-sel+ 522)
+(defconstant +av-app-register-for-context-menu-addition-sel+ 523)
+(defconstant +av-page-view-get-page-to-dev-scaling-sel+ 524)
+(defconstant +av-doc-get-active-tool-sel+ 525)
+(defconstant +av-doc-set-active-tool-sel+ 526)
+(defconstant +av-app-register-for-page-view-right-clicks-sel+ 527)
+(defconstant +av-app-unregister-for-page-view-right-clicks-sel+ 528)
+(defconstant +av-doc-is-slow-sel+ 529)
+(defconstant +av-window-get-desktop-bounds-sel+ 530)
+(defconstant +av-doc-get-server-type-sel+ 531)
+(defconstant +av-app-unregister-for-page-view-drawing-ex-sel+ 532)
+(defconstant +av-page-view-set-wireframe-drawing-sel+ 533)
+(defconstant +av-page-view-get-wireframe-drawing-sel+ 534)
+(defconstant +av-app-should-key-delete-object-sel+ 535)
+(defconstant +av-app-register-late-init-proc-sel+ 536)
+(defconstant +av-doc-get-bookmarks-sel+ 537)
+(defconstant +av-doc-get-last-active-tool-sel+ 538)
+(defconstant +av-doc-get-num-windows-sel+ 539)
+(defconstant +av-doc-get-nth-window-sel+ 540)
+(defconstant +av-page-view-get-avwindow-sel+ 541)
+(defconstant +av-doc-do-annot-properties-sel+ 542)
+(defconstant +av-sys-track-mouse-sel+ 543)
+(defconstant +av-doc-save-optimized-sel+ 544)
+(defconstant +av-get-optimizer-presets-sel+ 545)
+(defconstant +av-get-optimizer-params-for-preset-sel+ 546)
+(defconstant +av-app-get-annot-appearance-padding-sel+ 547)
+(defconstant +av-menu-item-is-scriptable-sel+ 548)
+(defconstant +av-sys-time-as-text-from-time-rec-sel+ 549)
+(defconstant +av-legacy-tool-button-set-menu-icon-sel+ 550)
+(defconstant +av-listen-for-custom-notification-sel+ 551)
+(defconstant +av-unlisten-for-custom-notification-sel+ 552)
+(defconstant +av-broadcast-custom-notification-sel+ 553)
+(defconstant +av-register-aux-data-handler-sel+ 554)
+(defconstant +av-doc-apply-redactions-sel+ 555)
+(defconstant +av-legacy-tool-bar-add-button-ex-sel+ 556)
+(defconstant +av-app-begin-save-sel+ 557)
+(defconstant +av-app-end-save-sel+ 558)
+(defconstant +av-app-cancel-save-sel+ 559)
+(defconstant +av-page-view-get-ink-preview-sel+ 560)
+(defconstant +av-page-view-acquire-draw-context-sel+ 561)
+(defconstant +av-page-view-release-draw-context-sel+ 562)
+(defconstant +av-legacy-tool-button-set-help-text-with-as-text-sel+ 563)
+(defconstant +av-legacy-tool-bar-new-with-as-text-sel+ 564)
+(defconstant +av-app-unregister-annot-handler-sel+ 565)
+(defconstant +av-conversion-append-to-pdf-with-handler-sel+ 566)
+(defconstant +av-conversion-get-conversion-queue-status-with-handler-sel+ 567)
+(defconstant +av-conversion-to-pdf-set-settings-sel+ 568)
+(defconstant +av-doc-is-in-protected-view-sel+ 569)
+(defconstant +av-app-register-idle-proc-with-name-sel+ 570)
+(defconstant +av-app-register-late-init-proc-with-name-sel+ 571)
+(defconstant +av-app-unregister-for-context-menu-addition-sel+ 572)
+(defconstant +av-app-save-dialog-ex-sel+ 573)
+(defconstant +av-app-begin-save-ex-sel+ 574)
+(defconstant +av-app-register-idle-proc-ex-with-name-sel+ 575)
+(defconstant +av-app-get-version-ex-sel+ 576)
+(defconstant +av-extension-acquire-info-ex-sel+ 577)
+(defconstant +av-extension-release-info-ex-sel+ 578)
+(defconstant +av-doc-bring-to-front-sel+ 579)
+(defconstant +av-doc-get-display-title-sel+ 580)
+(defconstant +av-icon-create-from-pdf-sel+ 581)
+(defconstant +av-window-get-platform-thing-ex-sel+ 582)
+;; sel = 1
+(define-foreign-funcallable av-action-handler-get-type-selproto
+                            ((handler av-action-handler))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable av-action-handler-get-uiname-selproto
+                            ((handler av-action-handler))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable av-action-handler-get-procs-selproto
+                            ((handler av-action-handler))
+                            :result-type
+                            av-action-handler-procs
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable av-alert-selproto
+                            ((icon-type as-int32)
+                             (msg (:reference-pass :ef-mb-string))
+                             (button1 (:reference-pass :ef-mb-string))
+                             (button2 (:reference-pass :ef-mb-string))
+                             (button3 (:reference-pass :ef-mb-string))
+                             (beep as-bool))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable av-alert-note-selproto
+                            ((msg (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable av-alert-confirm-selproto
+                            ((msg (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable av-app-get-version-selproto
+                            ((major-p (:pointer av-tversion-num-part))
+                             (minor-p (:pointer av-tversion-num-part)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable av-app-get-language-selproto
+                            ((buffer (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable av-app-get-name-selproto
+                            nil
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable av-app-get-cancel-proc-selproto
+                            ((nil nil))
+                            :result-type
+                            cancel-proc
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable av-app-can-quit-selproto
+                            nil
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable av-app-get-active-doc-selproto
+                            nil
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable av-app-get-num-docs-selproto
+                            nil
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable av-app-enum-docs-selproto
+                            ((enum-proc av-doc-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable av-app-get-doc-progress-monitor-selproto
+                            ((nil nil))
+                            :result-type
+                            as-progress-monitor
+                            :calling-convention
+                            :cdecl)
+;; sel = 16
+(define-foreign-funcallable av-app-get-menubar-selproto
+                            nil
+                            :result-type
+                            av-menubar
+                            :calling-convention
+                            :cdecl)
+;; sel = 17
+(define-foreign-funcallable av-app-get-legacy-tool-bar-selproto
+                            nil
+                            :result-type
+                            av-tool-bar
+                            :calling-convention
+                            :cdecl)
+;; sel = 18
+(define-foreign-funcallable av-app-get-active-tool-selproto
+                            nil
+                            :result-type
+                            av-tool
+                            :calling-convention
+                            :cdecl)
+;; sel = 19
+(define-foreign-funcallable av-app-get-last-active-tool-selproto
+                            nil
+                            :result-type
+                            av-tool
+                            :calling-convention
+                            :cdecl)
+;; sel = 20
+(define-foreign-funcallable av-app-get-default-tool-selproto
+                            nil
+                            :result-type
+                            av-tool
+                            :calling-convention
+                            :cdecl)
+;; sel = 21
+(define-foreign-funcallable av-app-set-active-tool-selproto
+                            ((tool av-tool) (persistent as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 22
+(define-foreign-funcallable av-app-get-tool-by-name-selproto
+                            ((name as-atom))
+                            :result-type
+                            av-tool
+                            :calling-convention
+                            :cdecl)
+;; sel = 23
+(define-foreign-funcallable av-app-enum-tools-selproto
+                            ((enum-proc av-tool-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 24
+(define-foreign-funcallable old-avapp-register-tool-selproto
+                            ((tool av-tool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 25
+(define-foreign-funcallable av-app-get-annot-handler-by-name-selproto
+                            ((name as-atom))
+                            :result-type
+                            av-annot-handler
+                            :calling-convention
+                            :cdecl)
+;; sel = 26
+(define-foreign-funcallable av-app-enum-annot-handlers-selproto
+                            ((enum-proc av-annot-handler-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 27
+(define-foreign-funcallable old-avapp-register-annot-handler-selproto
+                            ((handler av-annot-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 28
+(define-foreign-funcallable av-app-get-action-handler-by-type-selproto
+                            ((type as-atom))
+                            :result-type
+                            av-action-handler
+                            :calling-convention
+                            :cdecl)
+;; sel = 29
+(define-foreign-funcallable av-app-enum-action-handlers-selproto
+                            ((enum-proc av-action-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 30
+(define-foreign-funcallable av-app-register-action-handler-selproto
+                            ((action-handler av-action-handler-procs)
+                             (action-handler-obj (:pointer :void))
+                             (pdf-name (:reference-pass :ef-mb-string))
+                             (user-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 31
+(define-foreign-funcallable av-app-get-preference-selproto
+                            ((preference av-prefs-type))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 32
+(define-foreign-funcallable av-app-set-preference-selproto
+                            ((preference av-prefs-type)
+                             (new-value (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 33
+(define-foreign-funcallable av-app-begin-full-screen-selproto
+                            ((color pd-color-value))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 34
+(define-foreign-funcallable av-app-end-full-screen-selproto
+                            nil
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 35
+(define-foreign-funcallable av-app-doing-full-screen-selproto
+                            nil
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 36
+(define-foreign-funcallable av-app-begin-modal-selproto
+                            ((window av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 37
+(define-foreign-funcallable av-app-modal-window-is-open-selproto
+                            nil
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 38
+(define-foreign-funcallable av-app-end-modal-selproto
+                            nil
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 39
+(define-foreign-funcallable av-app-register-idle-proc-selproto
+                            ((idle-proc av-idle-proc)
+                             (client-data (:pointer :void))
+                             (period as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 40
+(define-foreign-funcallable av-app-unregister-idle-proc-selproto
+                            ((idle-proc av-idle-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 41
+(define-foreign-funcallable av-app-register-notification-selproto
+                            ((nsel nselector)
+                             (owner as-extension)
+                             (proc (:pointer :void))
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 42
+(define-foreign-funcallable av-app-unregister-notification-selproto
+                            ((nsel nselector)
+                             (owner as-extension)
+                             (proc (:pointer :void))
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 43
+(define-foreign-funcallable old-avdoc-open-from-file-selproto
+                            ((path-name as-path-name)
+                             (file-sys as-file-sys)
+                             (temp-title
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 44
+(define-foreign-funcallable old-avdoc-open-from-file-with-params-selproto
+                            ((path-name as-path-name)
+                             (file-sys as-file-sys)
+                             (temp-title
+                              (:reference-pass :ef-mb-string))
+                             (params old-avdoc-open-params))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 45
+(define-foreign-funcallable old-avdoc-open-from-pddoc-selproto
+                            ((doc pd-doc)
+                             (temp-title
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 46
+(define-foreign-funcallable old-avdoc-open-from-pddoc-with-params-selproto
+                            ((pd-doc pd-doc)
+                             (temp-title
+                              (:reference-pass :ef-mb-string))
+                             (params old-avdoc-open-params))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 47
+(define-foreign-funcallable av-doc-close-selproto
+                            ((doc av-doc) (no-save as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 48
+(define-foreign-funcallable av-doc-get-pddoc-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            pd-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 49
+(define-foreign-funcallable av-doc-get-page-view-selproto
+                            ((doc av-doc))
+                            :result-type
+                            av-page-view
+                            :calling-convention
+                            :cdecl)
+;; sel = 50
+(define-foreign-funcallable av-doc-get-avwindow-selproto
+                            ((doc av-doc))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 51
+(define-foreign-funcallable av-doc-get-view-mode-selproto
+                            ((doc av-doc))
+                            :result-type
+                            pd-page-mode
+                            :calling-convention
+                            :cdecl)
+;; sel = 52
+(define-foreign-funcallable av-doc-set-view-mode-selproto
+                            ((doc av-doc) (new-mode pd-page-mode))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 53
+(define-foreign-funcallable av-doc-get-splitter-position-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-int16
+                            :calling-convention
+                            :cdecl)
+;; sel = 54
+(define-foreign-funcallable av-doc-set-splitter-position-selproto
+                            ((doc av-doc) (new-position as-int16))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 55
+(define-foreign-funcallable av-doc-print-pages-selproto
+                            ((doc av-doc)
+                             (first-page av-page-index)
+                             (last-page av-page-index)
+                             (ps-level as-int32)
+                             (binary-ok as-bool)
+                             (shrink-to-fit as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 56
+(define-foreign-funcallable av-doc-get-selection-type-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 57
+(define-foreign-funcallable av-doc-get-selection-selproto
+                            ((doc av-doc))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 58
+(define-foreign-funcallable av-doc-set-selection-selproto
+                            ((doc av-doc)
+                             (type as-atom)
+                             (data (:pointer :void))
+                             (highlight as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 59
+(define-foreign-funcallable av-doc-delete-selection-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 60
+(define-foreign-funcallable av-doc-clear-selection-selproto
+                            ((doc av-doc) (highlight as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 61
+(define-foreign-funcallable av-doc-copy-selection-selproto
+                            ((doc av-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 62
+(define-foreign-funcallable av-doc-enum-selection-selproto
+                            ((doc av-doc)
+                             (proc av-selection-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 63
+(define-foreign-funcallable av-doc-do-selection-properties-selproto
+                            ((doc av-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 64
+(define-foreign-funcallable av-doc-show-selection-selproto
+                            ((doc av-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 65
+(define-foreign-funcallable old-avdoc-get-selection-server-by-type-selproto
+                            ((type as-atom))
+                            :result-type
+                            old-avdoc-selection-server
+                            :calling-convention
+                            :cdecl)
+;; sel = 66
+(define-foreign-funcallable old-avdoc-register-selection-server-selproto
+                            ((server old-avdoc-selection-server))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 67
+(define-foreign-funcallable av-doc-perform-action-selproto
+                            ((doc av-doc) (action pd-action))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 68
+(define-foreign-funcallable av-menubar-show-selproto
+                            ((menubar av-menubar))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 69
+(define-foreign-funcallable av-menubar-hide-selproto
+                            ((menubar av-menubar))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 70
+(define-foreign-funcallable av-menubar-get-num-menus-selproto
+                            ((menubar av-menubar))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 71
+(define-foreign-funcallable av-menubar-acquire-menu-by-name-selproto
+                            ((menubar av-menubar)
+                             (name (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 72
+(define-foreign-funcallable av-menubar-acquire-menu-by-index-selproto
+                            ((menubar av-menubar)
+                             (menu-index av-menu-index))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 73
+(define-foreign-funcallable av-menubar-acquire-menu-by-predicate-selproto
+                            ((menubar av-menubar)
+                             (predicate av-menu-predicate)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 74
+(define-foreign-funcallable av-menubar-acquire-menu-item-by-name-selproto
+                            ((menubar av-menubar)
+                             (name (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 75
+(define-foreign-funcallable av-menubar-acquire-menu-item-by-predicate-selproto
+                            ((menubar av-menubar)
+                             (predicate av-menu-item-predicate)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 76
+(define-foreign-funcallable av-menubar-get-menu-index-selproto
+                            ((menubar av-menubar) (menu av-menu))
+                            :result-type
+                            av-menu-index
+                            :calling-convention
+                            :cdecl)
+;; sel = 77
+(define-foreign-funcallable av-menubar-add-menu-selproto
+                            ((menubar av-menubar)
+                             (menu av-menu)
+                             (menu-index av-menu-index))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 78
+(define-foreign-funcallable av-menu-new-selproto
+                            ((title (:reference-pass :ef-mb-string))
+                             (name (:reference-pass :ef-mb-string))
+                             (owner as-extension))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 79
+(define-foreign-funcallable av-menu-acquire-selproto
+                            ((menu av-menu))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 80
+(define-foreign-funcallable av-menu-release-selproto
+                            ((menu av-menu))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 81
+(define-foreign-funcallable av-menu-remove-selproto
+                            ((menu av-menu))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 82
+(define-foreign-funcallable av-menu-get-name-selproto
+                            ((menu av-menu))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 83
+(define-foreign-funcallable av-menu-get-title-selproto
+                            ((menu av-menu)
+                             (buffer (:reference-pass :ef-mb-string))
+                             (buffer-size av-tarray-size))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 84
+(define-foreign-funcallable av-menu-get-num-menu-items-selproto
+                            ((menu av-menu))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 85
+(define-foreign-funcallable av-menu-acquire-menu-item-by-index-selproto
+                            ((menu av-menu)
+                             (menu-item-index av-menu-index))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 86
+(define-foreign-funcallable av-menu-get-menu-item-index-selproto
+                            ((menu av-menu) (menu-item av-menu-item))
+                            :result-type
+                            av-menu-index
+                            :calling-convention
+                            :cdecl)
+;; sel = 87
+(define-foreign-funcallable av-menu-get-parent-menubar-selproto
+                            ((menu av-menu))
+                            :result-type
+                            av-menubar
+                            :calling-convention
+                            :cdecl)
+;; sel = 88
+(define-foreign-funcallable av-menu-get-parent-menu-item-selproto
+                            ((menu av-menu))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 89
+(define-foreign-funcallable av-menu-add-menu-item-selproto
+                            ((menu av-menu)
+                             (menu-item av-menu-item)
+                             (menu-item-index av-menu-index))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 90
+(define-foreign-funcallable av-menu-item-new-selproto
+                            ((title (:reference-pass :ef-mb-string))
+                             (name (:reference-pass :ef-mb-string))
+                             (submenu av-menu)
+                             (long-menus-only as-bool)
+                             (shortcut :byte)
+                             (flags av-flag-bits16)
+                             (icon av-icon)
+                             (owner as-extension))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 91
+(define-foreign-funcallable av-menu-item-acquire-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 92
+(define-foreign-funcallable av-menu-item-release-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 93
+(define-foreign-funcallable av-menu-item-remove-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 94
+(define-foreign-funcallable av-menu-item-get-name-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 95
+(define-foreign-funcallable av-menu-item-get-title-selproto
+                            ((menu-item av-menu-item)
+                             (buffer (:reference-pass :ef-mb-string))
+                             (buffer-size av-tarray-size))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 96
+(define-foreign-funcallable av-menu-item-set-title-selproto
+                            ((menu-item av-menu-item)
+                             (title (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 97
+(define-foreign-funcallable av-menu-item-get-shortcut-selproto
+                            ((menu-item av-menu-item)
+                             (key (:reference-pass :ef-mb-string))
+                             (flags (:pointer av-flag-bits16)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 98
+(define-foreign-funcallable av-menu-item-get-long-only-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 99
+(define-foreign-funcallable av-menu-item-set-execute-proc-selproto
+                            ((menu-item av-menu-item)
+                             (proc av-execute-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 100
+(define-foreign-funcallable av-menu-item-set-compute-enabled-proc-selproto
+                            ((menu-item av-menu-item)
+                             (proc av-compute-enabled-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 101
+(define-foreign-funcallable av-menu-item-set-compute-marked-proc-selproto
+                            ((menu-item av-menu-item)
+                             (proc av-compute-marked-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 102
+(define-foreign-funcallable av-menu-item-acquire-submenu-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 103
+(define-foreign-funcallable av-menu-item-is-enabled-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 104
+(define-foreign-funcallable av-menu-item-is-marked-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 105
+(define-foreign-funcallable av-menu-item-execute-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 106
+(define-foreign-funcallable av-menu-item-get-parent-menu-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 107
+(define-foreign-funcallable av-page-view-get-avdoc-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 108
+(define-foreign-funcallable old-avpage-view-get-aperture-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 109
+(define-foreign-funcallable av-page-view-get-page-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-page
+                            :calling-convention
+                            :cdecl)
+;; sel = 110
+(define-foreign-funcallable av-page-view-get-zoom-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            as-fixed
+                            :calling-convention
+                            :cdecl)
+;; sel = 111
+(define-foreign-funcallable av-page-view-get-zoom-type-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            av-zoom-type
+                            :calling-convention
+                            :cdecl)
+;; sel = 112
+(define-foreign-funcallable av-page-view-get-page-num-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-page-number
+                            :calling-convention
+                            :cdecl)
+;; sel = 113
+(define-foreign-funcallable av-page-view-get-color-selproto
+                            ((page-view av-page-view)
+                             (color pd-color-value))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 114
+(define-foreign-funcallable av-page-view-set-color-selproto
+                            ((page-view av-page-view)
+                             (color pd-const-color-value))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 115
+(define-foreign-funcallable av-page-view-begin-operation-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 116
+(define-foreign-funcallable av-page-view-end-operation-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 117
+(define-foreign-funcallable av-page-view-go-to-selproto
+                            ((page-view av-page-view)
+                             (page-num pd-page-number))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 118
+(define-foreign-funcallable av-page-view-zoom-to-selproto
+                            ((page-view av-page-view)
+                             (zoom-type av-zoom-type)
+                             (scale as-fixed))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 119
+(define-foreign-funcallable old-avpage-view-scroll-to-selproto
+                            ((page-view av-page-view)
+                             (x-origin as-int16)
+                             (y-origin as-int16))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 120
+(define-foreign-funcallable old-avpage-view-scroll-to-rect-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect))
+                             (favor-left as-bool)
+                             (favor-top as-bool)
+                             (margin as-int16))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 121
+(define-foreign-funcallable av-page-view-read-page-up-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 122
+(define-foreign-funcallable av-page-view-read-page-down-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 123
+(define-foreign-funcallable av-page-view-go-back-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 124
+(define-foreign-funcallable av-page-view-go-forward-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 125
+(define-foreign-funcallable av-page-view-to-view-dest-selproto
+                            ((page-view av-page-view)
+                             (fit-type as-atom)
+                             (src-pddoc pd-doc))
+                            :result-type
+                            pd-view-destination
+                            :calling-convention
+                            :cdecl)
+;; sel = 126
+(define-foreign-funcallable old-avpage-view-invalidate-rect-selproto
+                            ((page-view av-page-view)
+                             (area (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 127
+(define-foreign-funcallable av-page-view-draw-now-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 128
+(define-foreign-funcallable old-avpage-view-invert-rect-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect))
+                             (highlight as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 129
+(define-foreign-funcallable old-avpage-view-invert-rect-outline-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 130
+(define-foreign-funcallable old-avpage-view-draw-rect-outline-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect))
+                             (line-width as-int16)
+                             (dash-array (:pointer as-fixed))
+                             (array-len av-tarray-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 131
+(define-foreign-funcallable old-avpage-view-draw-rect-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 132
+(define-foreign-funcallable old-avpage-view-get-mouse-position-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer as-int16))
+                             (y (:pointer as-int16)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 133
+(define-foreign-funcallable old-avpage-view-drag-out-new-rect-selproto
+                            ((page-view av-page-view)
+                             (x-start as-int16)
+                             (y-start as-int16)
+                             (result-rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 134
+(define-foreign-funcallable old-avpage-view-drag-rect-selproto
+                            ((page-view av-page-view)
+                             (x-start as-int16)
+                             (y-start as-int16)
+                             (start-rect (:pointer old-avrect))
+                             (result-rect (:pointer old-avrect))
+                             (drag-type as-int32)
+                             (extrema (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 135
+(define-foreign-funcallable old-avapp-register-for-page-view-drawing-selproto
+                            ((proc old-avpage-view-draw-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 136
+(define-foreign-funcallable av-app-unregister-for-page-view-drawing-selproto
+                            ((proc av-page-view-draw-proc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 137
+(define-foreign-funcallable old-avapp-register-for-page-view-clicks-selproto
+                            ((click-proc old-avpage-view-click-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 138
+(define-foreign-funcallable av-app-unregister-for-page-view-clicks-selproto
+                            ((click-proc av-page-view-click-proc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 139
+(define-foreign-funcallable old-avapp-register-for-page-view-adjust-cursor-selproto
+                            ((cursor-proc old-avpage-view-cursor-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 140
+(define-foreign-funcallable av-app-unregister-for-page-view-adjust-cursor-selproto
+                            ((cursor-proc av-page-view-cursor-proc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 141
+(define-foreign-funcallable old-avpage-view-is-annot-at-point-selproto
+                            ((page-view av-page-view)
+                             (x-hit as-int16)
+                             (y-hit as-int16)
+                             (hit-annot (:pointer pd-annot)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 142
+(define-foreign-funcallable old-avpage-view-get-annot-rect-selproto
+                            ((page-view av-page-view)
+                             (an-annot pd-annot)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 143
+(define-foreign-funcallable old-avpage-view-set-annot-location-selproto
+                            ((an-annot pd-annot)
+                             (page-view av-page-view)
+                             (x as-int16)
+                             (y as-int16))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 144
+(define-foreign-funcallable av-page-view-start-reading-thread-selproto
+                            ((page-view av-page-view)
+                             (thread pd-thread))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 145
+(define-foreign-funcallable av-page-view-get-thread-index-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 146
+(define-foreign-funcallable av-page-view-get-active-bead-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-bead
+                            :calling-convention
+                            :cdecl)
+;; sel = 147
+(define-foreign-funcallable old-avpage-view-is-bead-at-point-selproto
+                            ((page-view av-page-view)
+                             (x-hit as-int16)
+                             (y-hit as-int16)
+                             (bead-p (:pointer pd-bead)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 148
+(define-foreign-funcallable av-page-view-get-page-to-dev-matrix-selproto
+                            ((page-view av-page-view)
+                             (page-to-dev-matrix
+                              (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 149
+(define-foreign-funcallable av-page-view-get-dev-to-page-matrix-selproto
+                            ((page-view av-page-view)
+                             (dev-to-page-matrix
+                              (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 150
+(define-foreign-funcallable old-avpage-view-point-to-device-selproto
+                            ((page-view av-page-view)
+                             (p as-fixed-point-p)
+                             (x (:pointer as-int16))
+                             (y (:pointer as-int16)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 151
+(define-foreign-funcallable old-avpage-view-device-point-to-page-selproto
+                            ((page-view av-page-view)
+                             (x as-int16)
+                             (y as-int16)
+                             (p (:pointer as-fixed-point)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 152
+(define-foreign-funcallable old-avpage-view-rect-to-device-selproto
+                            ((page-view av-page-view)
+                             (p as-fixed-rect-p)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 153
+(define-foreign-funcallable old-avpage-view-device-rect-to-page-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect))
+                             (p (:pointer as-fixed-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 154
+(define-foreign-funcallable av-sys-get-modifiers-selproto
+                            nil
+                            :result-type
+                            av-flag-bits32
+                            :calling-convention
+                            :cdecl)
+;; sel = 155
+(define-foreign-funcallable av-sys-mouse-is-still-down-selproto
+                            nil
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 156
+(define-foreign-funcallable av-sys-beep-selproto
+                            ((duration as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 157
+(define-foreign-funcallable av-sys-get-standard-cursor-selproto
+                            ((cursor-id as-int32))
+                            :result-type
+                            av-cursor
+                            :calling-convention
+                            :cdecl)
+;; sel = 158
+(define-foreign-funcallable av-sys-set-cursor-selproto
+                            ((cursor av-cursor))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 159
+(define-foreign-funcallable av-sys-get-cursor-selproto
+                            nil
+                            :result-type
+                            av-cursor
+                            :calling-convention
+                            :cdecl)
+;; sel = 160
+(define-foreign-funcallable old-avtool-bar-get-frame-selproto
+                            ((tool-bar av-tool-bar)
+                             (frame (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 161
+(define-foreign-funcallable av-legacy-tool-bar-get-button-by-name-selproto
+                            ((tool-bar av-tool-bar)
+                             (button-name as-atom))
+                            :result-type
+                            av-tool-button
+                            :calling-convention
+                            :cdecl)
+;; sel = 162
+(define-foreign-funcallable av-legacy-tool-bar-enum-buttons-selproto
+                            ((tool-bar av-tool-bar)
+                             (enum-proc av-tool-button-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 163
+(define-foreign-funcallable av-legacy-tool-bar-add-button-selproto
+                            ((tool-bar av-tool-bar)
+                             (button av-tool-button)
+                             (before as-bool)
+                             (other-button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 164
+(define-foreign-funcallable av-legacy-tool-bar-get-num-buttons-selproto
+                            ((tool-bar av-tool-bar))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 165
+(define-foreign-funcallable av-legacy-tool-bar-is-room-for-selproto
+                            ((tool-bar av-tool-bar)
+                             (n-buttons av-tcount)
+                             (n-separators av-tcount))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 166
+(define-foreign-funcallable av-legacy-tool-bar-update-button-states-selproto
+                            ((toolbar av-tool-bar))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 167
+(define-foreign-funcallable av-legacy-tool-button-new-selproto
+                            ((name as-atom)
+                             (icon av-icon)
+                             (long-only as-bool)
+                             (is-separator as-bool))
+                            :result-type
+                            av-tool-button
+                            :calling-convention
+                            :cdecl)
+;; sel = 168
+(define-foreign-funcallable av-legacy-tool-button-destroy-selproto
+                            ((tool-button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 169
+(define-foreign-funcallable av-legacy-tool-button-remove-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 170
+(define-foreign-funcallable av-legacy-tool-button-is-separator-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 171
+(define-foreign-funcallable av-legacy-tool-button-get-name-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 172
+(define-foreign-funcallable av-legacy-tool-button-execute-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 173
+(define-foreign-funcallable av-legacy-tool-button-set-execute-proc-selproto
+                            ((button av-tool-button)
+                             (proc av-execute-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 174
+(define-foreign-funcallable av-legacy-tool-button-set-compute-enabled-proc-selproto
+                            ((button av-tool-button)
+                             (proc av-compute-enabled-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 175
+(define-foreign-funcallable av-legacy-tool-button-set-compute-marked-proc-selproto
+                            ((button av-tool-button)
+                             (proc av-compute-marked-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 176
+(define-foreign-funcallable av-legacy-tool-button-is-enabled-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 177
+(define-foreign-funcallable av-legacy-tool-button-is-marked-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 178
+(define-foreign-funcallable av-tool-get-type-selproto
+                            ((tool av-tool))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 179
+(define-foreign-funcallable av-tool-is-persistent-selproto
+                            ((tool av-tool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 180
+(define-foreign-funcallable old-avwindow-new-selproto
+                            ((layer av-window-layer)
+                             (flags av-flag-bits32)
+                             (handler old-avwindow-handler)
+                             (owner as-extension))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 181
+(define-foreign-funcallable old-avwindow-new-from-platform-thing-selproto
+                            ((layer av-window-layer)
+                             (flags av-flag-bits32)
+                             (handler old-avwindow-handler)
+                             (owner as-extension)
+                             (platform-thing av-platform-window-ref))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 182
+(define-foreign-funcallable av-window-destroy-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 183
+(define-foreign-funcallable av-window-user-close-selproto
+                            ((win av-window) (quitting as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 184
+(define-foreign-funcallable av-window-maximize-selproto
+                            ((win av-window) (maximize as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 185
+(define-foreign-funcallable av-window-show-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 186
+(define-foreign-funcallable av-window-hide-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 187
+(define-foreign-funcallable av-window-is-visible-selproto
+                            ((win av-window))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 188
+(define-foreign-funcallable av-window-get-platform-thing-selproto
+                            ((win av-window))
+                            :result-type
+                            av-platform-window-ref
+                            :calling-convention
+                            :cdecl)
+;; sel = 189
+(define-foreign-funcallable av-window-get-owner-data-selproto
+                            ((win av-window))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 190
+(define-foreign-funcallable av-window-set-owner-data-selproto
+                            ((win av-window)
+                             (new-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 191
+(define-foreign-funcallable old-avwindow-get-title-selproto
+                            ((win av-window)
+                             (buffer (:reference-pass :ef-mb-string))
+                             (buffer-len av-tbuffer-size))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 192
+(define-foreign-funcallable old-avwindow-set-title-selproto
+                            ((win av-window)
+                             (new-title
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 193
+(define-foreign-funcallable old-avwindow-get-frame-selproto
+                            ((win av-window)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 194
+(define-foreign-funcallable old-avwindow-set-frame-selproto
+                            ((win av-window)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 195
+(define-foreign-funcallable old-avwindow-get-interior-selproto
+                            ((win av-window)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 196
+(define-foreign-funcallable av-window-bring-to-front-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 197
+(define-foreign-funcallable old-avwindow-invalidate-rect-selproto
+                            ((win av-window)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 198
+(define-foreign-funcallable av-window-draw-now-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 199
+(define-foreign-funcallable av-window-set-wants-key-selproto
+                            ((win av-window) (wants-key as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 200
+(define-foreign-funcallable av-window-is-key-selproto
+                            ((win av-window))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 201
+(define-foreign-funcallable av-window-become-key-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 202
+(define-foreign-funcallable av-window-resign-key-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 203
+(define-foreign-funcallable av-graf-select-create-selproto
+                            ((page-view av-page-view)
+                             (sel-rect as-fixed-rect-p))
+                            :result-type
+                            av-graf-select
+                            :calling-convention
+                            :cdecl)
+;; sel = 204
+(define-foreign-funcallable av-graf-select-destroy-selproto
+                            ((av-graf av-graf-select))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 205
+(define-foreign-funcallable av-graf-select-get-bounding-rect-selproto
+                            ((av-graf av-graf-select)
+                             (bound-rect-p (:pointer as-fixed-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 206
+(define-foreign-funcallable av-crypt-do-std-security-selproto
+                            ((pd-doc pd-doc)
+                             (sec-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 207
+(define-foreign-funcallable av-crypt-get-password-selproto
+                            ((pd-doc pd-doc)
+                             (perm-wanted pd-perms)
+                             (nil nil))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 208
+(define-foreign-funcallable av-doc-do-save-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 209
+(define-foreign-funcallable av-doc-get-client-name-selproto
+                            ((av-doc av-doc)
+                             (buffer (:reference-pass :ef-mb-string))
+                             (buf-size av-tbuffer-size))
+                            :result-type
+                            av-tarray-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 210
+(define-foreign-funcallable av-doc-set-client-name-selproto
+                            ((av-doc av-doc)
+                             (client-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 211
+(define-foreign-funcallable av-doc-get-page-text-selproto
+                            ((doc av-doc)
+                             (page-num pd-page-number)
+                             (pd-text pd-text-select)
+                             (format as-atom)
+                             (copy-proc av-text-copy-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 212
+(define-foreign-funcallable av-legacy-tool-button-set-help-text-selproto
+                            ((button av-tool-button)
+                             (text (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 213
+(define-foreign-funcallable old-avpage-view-track-text-selproto
+                            ((page-view av-page-view)
+                             (x-hit as-int16)
+                             (y-hit as-int16)
+                             (current pd-text-select))
+                            :result-type
+                            pd-text-select
+                            :calling-convention
+                            :cdecl)
+;; sel = 214
+(define-foreign-funcallable av-page-view-highlight-text-selproto
+                            ((page-view av-page-view)
+                             (text-select pd-text-select))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 215
+(define-foreign-funcallable av-page-view-invalidate-text-selproto
+                            ((page-view av-page-view)
+                             (text-select pd-text-select))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 216
+(define-foreign-funcallable old-avpage-view-point-in-text-selproto
+                            ((page-view av-page-view)
+                             (x-hit as-int16)
+                             (y-hit as-int16)
+                             (pd-text pd-text-select))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 217
+(define-foreign-funcallable av-page-view-get-first-visible-page-num-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-page-number
+                            :calling-convention
+                            :cdecl)
+;; sel = 218
+(define-foreign-funcallable av-page-view-get-last-visible-page-num-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-page-number
+                            :calling-convention
+                            :cdecl)
+;; sel = 219
+(define-foreign-funcallable av-page-view-page-num-is-visible-selproto
+                            ((page-view av-page-view)
+                             (page-num pd-page-number))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 220
+(define-foreign-funcallable av-page-view-set-page-num-selproto
+                            ((page-view av-page-view)
+                             (page-num pd-page-number))
+                            :result-type
+                            pd-page-number
+                            :calling-convention
+                            :cdecl)
+;; sel = 221
+(define-foreign-funcallable av-page-view-get-selected-annot-page-num-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-page-number
+                            :calling-convention
+                            :cdecl)
+;; sel = 222
+(define-foreign-funcallable av-doc-send-aux-data-selproto
+                            ((av-doc av-doc)
+                             (aux-data-type as-atom)
+                             (aux-data (:pointer :void))
+                             (aux-data-len av-tbuffer-size))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 223
+(define-foreign-funcallable av-has-aux-data-handler-selproto
+                            ((aux-data-type as-atom))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 224
+(define-foreign-funcallable old-avregister-aux-data-handler-selproto
+                            ((extension as-extension)
+                             (aux-data-type as-atom)
+                             (handler old-avaux-data-handler))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 225
+(define-foreign-funcallable av-unregister-aux-data-handler-selproto
+                            ((extension as-extension)
+                             (aux-data-type as-atom)
+                             (handler av-aux-data-handler))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 226
+(define-foreign-funcallable old-avdoc-print-pages-with-params-selproto
+                            ((doc av-doc) (params av-doc-print-params))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 227
+(define-foreign-funcallable old-avpage-view-draw-cos-obj-selproto
+                            ((page-view av-page-view)
+                             (cos-obj cos-obj)
+                             (r (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 228
+(define-foreign-funcallable av-doc-set-dead-selproto
+                            ((doc av-doc) (dead as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 229
+(define-foreign-funcallable av-legacy-tool-button-set-external-selproto
+                            ((button av-tool-button)
+                             (external av-tflag-bits16))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 230
+(define-foreign-funcallable av-app-is-idle-selproto
+                            nil
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 231
+(define-foreign-funcallable old-avdoc-open-from-as-file-with-params-selproto
+                            ((file as-file)
+                             (temp-title
+                              (:reference-pass :ef-mb-string))
+                             (params old-avdoc-open-params))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 232
+(define-foreign-funcallable av-page-view-get-next-view-selproto
+                            ((page-view av-page-view)
+                             (pd-doc (:pointer pd-doc))
+                             (page-num (:pointer pd-page-number))
+                             (scale (:pointer as-fixed)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 233
+(define-foreign-funcallable old-avdoc-get-view-def-selproto
+                            ((doc av-doc)
+                             (view-def old-avdoc-view-def))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 234
+(define-foreign-funcallable old-avdoc-set-view-def-selproto
+                            ((doc av-doc)
+                             (view-def old-avdoc-view-def))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 235
+(define-foreign-funcallable av-window-handle-platform-event-selproto
+                            ((win av-window)
+                             (platform-event (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 236
+(define-foreign-funcallable av-window-get-cursor-at-point-selproto
+                            ((win av-window)
+                             (x av-l-coord)
+                             (y av-l-coord))
+                            :result-type
+                            av-cursor
+                            :calling-convention
+                            :cdecl)
+;; sel = 237
+(define-foreign-funcallable av-doc-do-action-props-dialog-selproto
+                            ((doc av-doc)
+                             (action (:pointer pd-action))
+                             (dialog-title
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 238
+(define-foreign-funcallable av-app-get-trans-handler-by-type-selproto
+                            ((name as-atom))
+                            :result-type
+                            av-trans-handler
+                            :calling-convention
+                            :cdecl)
+;; sel = 239
+(define-foreign-funcallable av-app-enum-trans-handlers-selproto
+                            ((enum-proc av-trans-handler-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 240
+(define-foreign-funcallable av-app-register-trans-handler-selproto
+                            ((avth av-trans-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 241
+(define-foreign-funcallable av-doc-do-save-as-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 242
+(define-foreign-funcallable av-page-view-set-layout-mode-selproto
+                            ((page-view av-page-view)
+                             (mode pd-layout-mode))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 243
+(define-foreign-funcallable av-page-view-get-layout-mode-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            pd-layout-mode
+                            :calling-convention
+                            :cdecl)
+;; sel = 244
+(define-foreign-funcallable old-avpage-view-inset-rect-selproto
+                            ((page-view av-page-view)
+                             (rr (:pointer old-avrect))
+                             (down as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 245
+(define-foreign-funcallable av-doc-is-external-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 246
+(define-foreign-funcallable av-page-view-use-this-destination-selproto
+                            ((page-view av-page-view)
+                             (view-dest pd-view-destination)
+                             (source-zoom as-fixed))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 247
+(define-foreign-funcallable av-auth-open-selproto
+                            ((pd-doc pd-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 248
+(define-foreign-funcallable av-doc-copy-annot-selproto
+                            ((from-doc av-doc)
+                             (an-annot pd-annot)
+                             (to-doc av-doc))
+                            :result-type
+                            pd-annot
+                            :calling-convention
+                            :cdecl)
+;; sel = 249
+(define-foreign-funcallable av-doc-copy-annot-common-selproto
+                            ((from-doc av-doc)
+                             (an-annot pd-annot)
+                             (to-doc av-doc))
+                            :result-type
+                            pd-annot
+                            :calling-convention
+                            :cdecl)
+;; sel = 250
+(define-foreign-funcallable av-doc-copy-action-selproto
+                            ((from-doc av-doc)
+                             (an-action pd-action)
+                             (to-doc av-doc))
+                            :result-type
+                            pd-action
+                            :calling-convention
+                            :cdecl)
+;; sel = 251
+(define-foreign-funcallable av-doc-copy-action-common-selproto
+                            ((from-doc av-doc)
+                             (an-action pd-action)
+                             (to-doc av-doc))
+                            :result-type
+                            pd-action
+                            :calling-convention
+                            :cdecl)
+;; sel = 252
+(define-foreign-funcallable av-doc-copy-additional-actions-selproto
+                            ((av-fr av-doc)
+                             (co-fr cos-obj)
+                             (av-to av-doc)
+                             (co-to cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 253
+(define-foreign-funcallable old-avpage-view-draw-cos-obj-ex-selproto
+                            ((page-view av-page-view)
+                             (cos-obj cos-obj)
+                             (r (:pointer old-avrect))
+                             (matrix (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 254
+(define-foreign-funcallable av-page-view-to-dest-info-selproto
+                            ((page-view av-page-view)
+                             (fit-type as-atom))
+                            :result-type
+                            av-dest-info
+                            :calling-convention
+                            :cdecl)
+;; sel = 255
+(define-foreign-funcallable av-page-view-use-dest-info-selproto
+                            ((page-view av-page-view)
+                             (dest-info av-dest-info))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 256
+(define-foreign-funcallable av-dest-info-destroy-selproto
+                            ((dest-info av-dest-info))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 257
+(define-foreign-funcallable av-doc-do-copy-as-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 258
+(define-foreign-funcallable old-avpage-view-draw-annot-sequence-selproto
+                            ((pv av-page-view)
+                             (an pd-annot)
+                             (bbox (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 259
+(define-foreign-funcallable av-doc-do-print-selproto
+                            ((doc av-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 260
+(define-foreign-funcallable av-doc-do-save-as-with-params-selproto
+                            ((doc av-doc) (params av-doc-save-params))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 261
+(define-foreign-funcallable av-annot-handler-get-info-selproto
+                            ((avanh av-annot-handler))
+                            :result-type
+                            av-annot-handler-info
+                            :calling-convention
+                            :cdecl)
+;; sel = 262
+(define-foreign-funcallable av-annot-handler-delete-info-selproto
+                            ((avanh av-annot-handler)
+                             (info av-annot-handler-info))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 263
+(define-foreign-funcallable old-avpage-view-do-popup-menu-selproto
+                            ((page-view av-page-view)
+                             (menu av-menu)
+                             (x-hit as-int16)
+                             (y-hit as-int16)
+                             (right-mouse as-bool)
+                             (choice av-menu-index))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 264
+(define-foreign-funcallable av-page-view-transform-rect-rz-selproto
+                            ((pv av-page-view)
+                             (flags av-tflag-bits)
+                             (ar (:pointer as-fixed-rect))
+                             (mr (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 265
+(define-foreign-funcallable av-page-view-appearance-get-avmatrix-selproto
+                            ((page-view av-page-view)
+                             (flags av-flag-bits32)
+                             (appear cos-obj)
+                             (ar (:pointer as-fixed-rect))
+                             (mr (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 266
+(define-foreign-funcallable av-page-view-get-visible-annot-page-selproto
+                            ((page-view av-page-view) (annot pd-annot))
+                            :result-type
+                            pd-page-number
+                            :calling-convention
+                            :cdecl)
+;; sel = 267
+(define-foreign-funcallable av-page-view-invert-quad-selproto
+                            ((page-view av-page-view)
+                             (quad (:pointer quad))
+                             (highlight as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 268
+(define-foreign-funcallable av-sys-alloc-time-string-from-time-rec-selproto
+                            ((time-rec as-time-rec-p))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 269
+(define-foreign-funcallable av-app-handle-platform-event-selproto
+                            ((platform-event (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 270
+(define-foreign-funcallable av-doc-set-read-only-selproto
+                            ((doc av-doc) (read-only as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 271
+(define-foreign-funcallable av-doc-is-read-only-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 272
+(define-foreign-funcallable av-page-view-show-control-selproto
+                            ((page-view av-page-view)
+                             (control-id av-page-view-control-id)
+                             (show as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 273
+(define-foreign-funcallable av-legacy-tool-bar-new-flyout-selproto
+                            nil
+                            :result-type
+                            av-tool-bar
+                            :calling-convention
+                            :cdecl)
+;; sel = 274
+(define-foreign-funcallable av-legacy-tool-button-set-flyout-selproto
+                            ((button av-tool-button)
+                             (flyout av-tool-bar))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 275
+(define-foreign-funcallable av-legacy-tool-button-get-flyout-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            av-tool-bar
+                            :calling-convention
+                            :cdecl)
+;; sel = 276
+(define-foreign-funcallable av-legacy-tool-button-set-menu-selproto
+                            ((button av-tool-button) (menu av-menu))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 277
+(define-foreign-funcallable av-legacy-tool-button-get-menu-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 278
+(define-foreign-funcallable av-legacy-tool-button-set-icon-selproto
+                            ((button av-tool-button) (icon av-icon))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 279
+(define-foreign-funcallable av-legacy-tool-button-get-icon-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            av-icon
+                            :calling-convention
+                            :cdecl)
+;; sel = 280
+(define-foreign-funcallable old-avpage-view-device-rect-to-page-rz-selproto
+                            ((page-view av-page-view)
+                             (flags av-tflag-bits)
+                             (x-hot as-int16)
+                             (y-hot as-int16)
+                             (rect (:pointer old-avrect))
+                             (p (:pointer as-fixed-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 281
+(define-foreign-funcallable av-doc-alert-selproto
+                            ((doc av-doc)
+                             (icon-type av-icon-type)
+                             (msg (:reference-pass :ef-mb-string))
+                             (button1 (:reference-pass :ef-mb-string))
+                             (button2 (:reference-pass :ef-mb-string))
+                             (button3 (:reference-pass :ef-mb-string))
+                             (beep as-bool))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 282
+(define-foreign-funcallable av-doc-alert-note-selproto
+                            ((doc av-doc)
+                             (msg (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 283
+(define-foreign-funcallable av-doc-alert-confirm-selproto
+                            ((doc av-doc)
+                             (msg (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 284
+(define-foreign-funcallable av-doc-alert-yes-no-selproto
+                            ((doc av-doc)
+                             (icon-type av-icon-type)
+                             (msg (:reference-pass :ef-mb-string))
+                             (cancel as-bool)
+                             (beep as-bool))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 285
+(define-foreign-funcallable av-menubar-add-hidden-menu-selproto
+                            ((menubar av-menubar) (menu av-menu))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 286
+(define-foreign-funcallable av-menu-is-hidden-on-menubar-selproto
+                            ((menu av-menu))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 287
+(define-foreign-funcallable av-app-open-help-file-selproto
+                            ((file-name
+                              (:reference-pass :ef-mb-string))
+                             (do-search as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 288
+(define-foreign-funcallable old-avpage-view-get-gray-rect-selproto
+                            ((page-view av-page-view)
+                             (grey-rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 289
+(define-foreign-funcallable av-doc-selection-enum-page-ranges-selproto
+                            ((doc av-doc)
+                             (enum-proc
+                              av-selection-page-range-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 290
+(define-foreign-funcallable old-avwindow-get-min-max-size-selproto
+                            ((win av-window)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 291
+(define-foreign-funcallable old-avwindow-set-min-max-size-selproto
+                            ((win av-window)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 292
+(define-foreign-funcallable av-app-register-for-page-view-key-down-selproto
+                            ((proc av-page-view-key-down-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 293
+(define-foreign-funcallable av-app-unregister-for-page-view-key-down-selproto
+                            ((proc av-page-view-key-down-proc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 294
+(define-foreign-funcallable av-app-register-to-pdf-handler-selproto
+                            ((conversion-handler
+                              av-conversion-to-pdf-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 295
+(define-foreign-funcallable av-app-register-from-pdf-handler-selproto
+                            ((conversion-handler
+                              av-conversion-from-pdf-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 296
+(define-foreign-funcallable av-conversion-enum-to-pdf-converters-selproto
+                            ((proc av-conversion-to-pdf-enum-proc)
+                             (data av-conversion-enum-proc-data))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 297
+(define-foreign-funcallable av-conversion-enum-from-pdf-converters-selproto
+                            ((proc av-conversion-from-pdf-enum-proc)
+                             (data av-conversion-enum-proc-data))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 298
+(define-foreign-funcallable av-conversion-convert-to-pdf-with-handler-selproto
+                            ((in-handler av-conversion-to-pdf-handler)
+                             (in-settings as-cab)
+                             (flags av-conversion-flags)
+                             (in-path as-path-name)
+                             (in-file-sys as-file-sys)
+                             (out-pddoc (:pointer pd-doc))
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 299
+(define-foreign-funcallable av-conversion-convert-from-pdf-with-handler-selproto
+                            ((in-handler
+                              av-conversion-from-pdf-handler)
+                             (in-settings as-cab)
+                             (flags av-conversion-flags)
+                             (in-pddoc pd-doc)
+                             (out-path as-path-name)
+                             (out-file-sys as-file-sys)
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 300
+(define-foreign-funcallable av-conversion-convert-to-pdf-selproto
+                            ((flags av-conversion-flags)
+                             (in-path as-path-name)
+                             (in-file-sys as-file-sys)
+                             (out-pddoc (:pointer pd-doc))
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 301
+(define-foreign-funcallable av-command-new-selproto
+                            ((name as-atom))
+                            :result-type
+                            av-command
+                            :calling-convention
+                            :cdecl)
+;; sel = 302
+(define-foreign-funcallable av-command-destroy-selproto
+                            ((cmd av-command))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 303
+(define-foreign-funcallable av-command-get-name-selproto
+                            ((cmd av-command))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 304
+(define-foreign-funcallable av-command-get-status-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 305
+(define-foreign-funcallable av-command-get-cab-selproto
+                            ((cmd av-command)
+                             (cab-name (:reference-pass :ef-mb-string))
+                             (create as-bool))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 306
+(define-foreign-funcallable av-command-put-cab-selproto
+                            ((cmd av-command)
+                             (cab-name (:reference-pass :ef-mb-string))
+                             (cab-val as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 307
+(define-foreign-funcallable av-command-set-params-selproto
+                            ((cmd av-command) (params as-cab))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 308
+(define-foreign-funcallable av-command-get-params-selproto
+                            ((cmd av-command) (params as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 309
+(define-foreign-funcallable av-command-set-config-selproto
+                            ((cmd av-command) (config as-cab))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 310
+(define-foreign-funcallable av-command-get-config-selproto
+                            ((cmd av-command) (config as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 311
+(define-foreign-funcallable av-command-get-props-selproto
+                            ((cmd av-command) (props as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 312
+(define-foreign-funcallable av-command-set-inputs-selproto
+                            ((cmd av-command) (inputs as-cab))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 313
+(define-foreign-funcallable av-command-get-inputs-selproto
+                            ((cmd av-command) (inputs as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 314
+(define-foreign-funcallable av-command-show-dialog-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 315
+(define-foreign-funcallable av-command-work-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 316
+(define-foreign-funcallable av-command-cancel-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 317
+(define-foreign-funcallable av-command-reset-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 318
+(define-foreign-funcallable av-command-get-uipolicy-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-uipolicy
+                            :calling-convention
+                            :cdecl)
+;; sel = 319
+(define-foreign-funcallable av-command-get-avdoc-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 320
+(define-foreign-funcallable av-command-get-pddoc-selproto
+                            ((cmd av-command))
+                            :result-type
+                            pd-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 321
+(define-foreign-funcallable av-command-get-report-proc-selproto
+                            ((cmd av-command))
+                            :result-type
+                            as-report-proc
+                            :calling-convention
+                            :cdecl)
+;; sel = 322
+(define-foreign-funcallable av-command-get-progress-monitor-selproto
+                            ((cmd av-command))
+                            :result-type
+                            as-progress-monitor
+                            :calling-convention
+                            :cdecl)
+;; sel = 323
+(define-foreign-funcallable av-command-get-cancel-proc-selproto
+                            ((cmd av-command))
+                            :result-type
+                            as-cancel-proc
+                            :calling-convention
+                            :cdecl)
+;; sel = 324
+(define-foreign-funcallable av-app-register-command-handler-selproto
+                            ((name as-atom)
+                             (handler av-command-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 325
+(define-foreign-funcallable av-app-find-command-handler-by-name-selproto
+                            ((name as-atom))
+                            :result-type
+                            av-command-handler
+                            :calling-convention
+                            :cdecl)
+;; sel = 326
+(define-foreign-funcallable av-app-register-global-command-selproto
+                            ((cmd av-command))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 327
+(define-foreign-funcallable av-app-find-global-command-by-name-selproto
+                            ((name as-atom))
+                            :result-type
+                            av-command
+                            :calling-convention
+                            :cdecl)
+;; sel = 328
+(define-foreign-funcallable av-app-unregister-global-command-selproto
+                            ((cmd av-command))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 329
+(define-foreign-funcallable av-command-execute-selproto
+                            ((cmd av-command))
+                            :result-type
+                            av-command-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 330
+(define-foreign-funcallable av-acquire-special-folder-path-name-selproto
+                            ((cat av-special-category)
+                             (fld av-special-folder)
+                             (b-create as-bool)
+                             (asfs (:pointer as-file-sys))
+                             (asp (:pointer as-path-name)))
+                            :result-type
+                            as-error-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 331
+(define-foreign-funcallable av-page-view-get-focus-annot-selproto
+                            ((page-view av-page-view)
+                             (annot (:pointer pd-annot)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 332
+(define-foreign-funcallable av-page-view-set-focus-annot-selproto
+                            ((page-view av-page-view)
+                             (focus-annot pd-annot)
+                             (op-data av-annot-op-data))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 333
+(define-foreign-funcallable av-page-view-clear-focus-annot-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 334
+(define-foreign-funcallable av-page-view-is-focus-annot-selproto
+                            ((page-view av-page-view) (annot pd-annot))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 335
+(define-foreign-funcallable av-util-get-base-name-and-extension-by-path-name-selproto
+                            ((file-sys as-file-sys)
+                             (path-name as-path-name)
+                             (num-add-ext av-tarray-size)
+                             (add-ext (:pointer (:pointer :char)))
+                             (nil nil)
+                             (nil nil))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 336
+(define-foreign-funcallable av-util-get-base-name-and-extension-by-string-selproto
+                            ((file-name
+                              (:reference-pass :ef-mb-string))
+                             (num-add-ext av-tarray-size)
+                             (add-ext (:pointer (:pointer :char)))
+                             (nil nil)
+                             (nil nil))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 337
+(define-foreign-funcallable av-identity-get-text-selproto
+                            ((it av-identity) (ast as-text))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 338
+(define-foreign-funcallable av-identity-set-text-selproto
+                            ((it av-identity) (ast as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 339
+(define-foreign-funcallable av-page-view-focus-annot-perform-op-selproto
+                            ((page-view av-page-view)
+                             (annot-op av-annot-op))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 340
+(define-foreign-funcallable av-page-view-filter-key-down-for-focus-annot-selproto
+                            ((page-view av-page-view)
+                             (key av-key-code)
+                             (flags av-flag-bits16)
+                             (annot-will-lose-focus
+                              (:pointer as-bool)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 341
+(define-foreign-funcallable old-avpage-view-ghost-rect-outline-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 342
+(define-foreign-funcallable av-legacy-tool-bar-new-selproto
+                            ((name (:reference-pass :ef-mb-string))
+                             (title (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-tool-bar
+                            :calling-convention
+                            :cdecl)
+;; sel = 343
+(define-foreign-funcallable old-avapp-register-legacy-tool-bar-position-selproto
+                            ((tool-bar-name
+                              (:reference-pass :ef-mb-string))
+                             (external as-bool)
+                             (position old-avtool-bar-position))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 344
+(define-foreign-funcallable old-avpage-view-snap-point-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer as-int16))
+                             (y (:pointer as-int16))
+                             (direction av-drag-type))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 345
+(define-foreign-funcallable old-avpage-view-get-mouse-position-snapped-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer as-int16))
+                             (y (:pointer as-int16))
+                             (direction av-drag-type))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 346
+(define-foreign-funcallable old-avpage-view-drag-out-new-rect-snapped-selproto
+                            ((page-view av-page-view)
+                             (x-start as-int16)
+                             (y-start as-int16)
+                             (result-rect (:pointer old-avrect))
+                             (cursor-array (:pointer av-cursor))
+                             (n-cursors av-tsmall-array-size))
+                            :result-type
+                            av-tflag-bits
+                            :calling-convention
+                            :cdecl)
+;; sel = 347
+(define-foreign-funcallable old-avpage-view-drag-rect-snapped-selproto
+                            ((page-view av-page-view)
+                             (x-start as-int16)
+                             (y-start as-int16)
+                             (start-rect (:pointer old-avrect))
+                             (result-rect (:pointer old-avrect))
+                             (drag-type av-l-drag-type)
+                             (extrema (:pointer old-avrect))
+                             (cursor-array (:pointer av-cursor))
+                             (n-cursors av-tsmall-array-size))
+                            :result-type
+                            av-tflag-bits
+                            :calling-convention
+                            :cdecl)
+;; sel = 348
+(define-foreign-funcallable old-avrect-handle-hit-test-selproto
+                            ((rect (:pointer old-avrect))
+                             (b-midpoints as-bool)
+                             (x as-int16)
+                             (y as-int16))
+                            :result-type
+                            av-drag-type-ex
+                            :calling-convention
+                            :cdecl)
+;; sel = 349
+(define-foreign-funcallable old-avpage-view-draw-rect-outline-with-handles-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer old-avrect))
+                             (b-midpoints as-bool)
+                             (b-thin as-bool)
+                             (dash-array (:pointer as-fixed))
+                             (array-len av-tarray-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 350
+(define-foreign-funcallable old-avpage-view-is-annot-of-type-at-point-selproto
+                            ((page-view av-page-view)
+                             (x-hit as-int16)
+                             (y-hit as-int16)
+                             (annot-type as-atom)
+                             (below-others as-bool)
+                             (annot (:pointer pd-annot)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 351
+(define-foreign-funcallable av-window-center-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 352
+(define-foreign-funcallable av-doc-from-pddoc-selproto
+                            ((pd-doc pd-doc))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 353
+(define-foreign-funcallable old-avpage-view-snap-rect-selproto
+                            ((page-view av-page-view)
+                             (x-start as-int16)
+                             (y-start as-int16)
+                             (x-now as-int16)
+                             (y-now as-int16)
+                             (start-rect (:pointer old-avrect))
+                             (result-rect (:pointer old-avrect))
+                             (handle-type as-int32)
+                             (modifiers as-uns32)
+                             (extrema (:pointer old-avrect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 354
+(define-foreign-funcallable av-app-get-report-proc-selproto
+                            ((nil nil))
+                            :result-type
+                            as-report-proc
+                            :calling-convention
+                            :cdecl)
+;; sel = 355
+(define-foreign-funcallable av-doc-is-dead-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 356
+(define-foreign-funcallable av-app-get-pref-bool-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string))
+                             (def-value as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 357
+(define-foreign-funcallable av-app-get-pref-int-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string))
+                             (def-val as-int32))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 358
+(define-foreign-funcallable av-app-get-pref-atom-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string))
+                             (def-val as-atom))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 359
+(define-foreign-funcallable av-app-get-pref-double-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string))
+                             (def-val :double))
+                            :result-type
+                            :double
+                            :calling-convention
+                            :cdecl)
+;; sel = 360
+(define-foreign-funcallable av-app-get-pref-string-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 361
+(define-foreign-funcallable av-app-get-pref-text-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 362
+(define-foreign-funcallable av-app-get-pref-cab-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 363
+(define-foreign-funcallable av-app-get-pref-path-name-selproto
+                            ((section (:reference-pass :ef-mb-string))
+                             (key (:reference-pass :ef-mb-string))
+                             (file-sys-val (:pointer as-file-sys))
+                             (path-name-val (:pointer as-path-name)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 364
+(define-foreign-funcallable av-alert-with-params-selproto
+                            ((params av-alert-params))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 365
+(define-foreign-funcallable av-alert-set-pref-selproto
+                            ((name (:reference-pass :ef-mb-string))
+                             (n-answer as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 366
+(define-foreign-funcallable av-alert-get-pref-selproto
+                            ((name (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 367
+(define-foreign-funcallable av-alert-reset-prefs-selproto
+                            nil
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 368
+(define-foreign-funcallable av-doc-perform-action-ex-selproto
+                            ((doc av-doc)
+                             (action pd-action)
+                             (data av-action-context))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 369
+(define-foreign-funcallable av-extension-get-num-plug-ins-selproto
+                            nil
+                            :result-type
+                            av-array-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 370
+(define-foreign-funcallable av-extension-acquire-info-selproto
+                            ((n-index av-array-size))
+                            :result-type
+                            av-extension-info
+                            :calling-convention
+                            :cdecl)
+;; sel = 371
+(define-foreign-funcallable av-extension-release-info-selproto
+                            ((info av-extension-info))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 372
+(define-foreign-funcallable av-page-view-device-to-info-selproto
+                            ((page-view av-page-view)
+                             (x av-l-coord)
+                             (y av-l-coord)
+                             (info (:pointer as-fixed-point)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 373
+(define-foreign-funcallable av-page-view-info-to-device-selproto
+                            ((page-view av-page-view)
+                             (info (:pointer as-fixed-point))
+                             (x (:pointer av-l-coord))
+                             (y (:pointer av-l-coord)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 374
+(define-foreign-funcallable av-page-view-point-to-info-selproto
+                            ((page-view av-page-view)
+                             (pt (:pointer as-fixed-point))
+                             (info (:pointer as-fixed-point)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 375
+(define-foreign-funcallable av-page-view-info-to-point-selproto
+                            ((page-view av-page-view)
+                             (info (:pointer as-fixed-point))
+                             (pt (:pointer as-fixed-point)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 376
+(define-foreign-funcallable av-page-view-update-info-panel-selproto
+                            ((page-view av-page-view)
+                             (update-type av-info-panel-update-type)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 377
+(define-foreign-funcallable av-app-get-legacy-tool-bar-by-name-selproto
+                            ((name (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-tool-bar
+                            :calling-convention
+                            :cdecl)
+;; sel = 378
+(define-foreign-funcallable av-app-get-language-encoding-selproto
+                            nil
+                            :result-type
+                            as-host-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 379
+(define-foreign-funcallable av-page-view-scroll-to-annot-selproto
+                            ((page-view av-page-view) (annot pd-annot))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 380
+(define-foreign-funcallable av-sys-set-wait-cursor-selproto
+                            ((turn-on as-bool) (time-limit as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 381
+(define-foreign-funcallable av-doc-perm-request-selproto
+                            ((doc av-doc)
+                             (obj pd-perm-req-obj)
+                             (opr pd-perm-req-opr))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 382
+(define-foreign-funcallable av-page-view-suspend-offscreen-drawing-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 383
+(define-foreign-funcallable av-page-view-resume-offscreen-drawing-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 384
+(define-foreign-funcallable av-app-yield-to-other-apps-selproto
+                            ((yield-timeout :double))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 385
+(define-foreign-funcallable av-window-ensure-in-bounds-selproto
+                            ((win av-window))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 386
+(define-foreign-funcallable av-menu-clone-selproto
+                            ((menu av-menu))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 387
+(define-foreign-funcallable av-page-view-scroll-to-selproto
+                            ((page-view av-page-view)
+                             (x-origin av-dev-coord)
+                             (y-origin av-dev-coord))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 388
+(define-foreign-funcallable av-app-register-for-page-view-adjust-cursor-selproto
+                            ((cursor-proc av-page-view-cursor-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 389
+(define-foreign-funcallable av-app-register-for-page-view-clicks-selproto
+                            ((click-proc av-page-view-click-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 390
+(define-foreign-funcallable av-app-register-for-page-view-drawing-selproto
+                            ((proc av-page-view-draw-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 391
+(define-foreign-funcallable av-doc-open-from-file-with-params-selproto
+                            ((path-name as-path-name)
+                             (file-sys as-file-sys)
+                             (temp-title as-text)
+                             (params av-doc-open-params))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 392
+(define-foreign-funcallable av-doc-open-from-pddoc-with-params-selproto
+                            ((pd-doc pd-doc)
+                             (temp-title as-text)
+                             (params av-doc-open-params))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 393
+(define-foreign-funcallable av-doc-open-from-as-file-with-params-selproto
+                            ((file as-file)
+                             (temp-title as-text)
+                             (params av-doc-open-params))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 394
+(define-foreign-funcallable av-doc-print-pages-with-params-selproto
+                            ((doc av-doc) (params av-doc-print-params))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 395
+(define-foreign-funcallable av-doc-get-view-def-selproto
+                            ((doc av-doc) (view-def av-doc-view-def))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 396
+(define-foreign-funcallable av-doc-set-view-def-selproto
+                            ((doc av-doc) (view-def av-doc-view-def))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 397
+(define-foreign-funcallable av-doc-get-selection-server-by-type-selproto
+                            ((type as-atom))
+                            :result-type
+                            av-doc-selection-server
+                            :calling-convention
+                            :cdecl)
+;; sel = 398
+(define-foreign-funcallable av-doc-register-selection-server-selproto
+                            ((server av-doc-selection-server))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 399
+(define-foreign-funcallable av-page-view-get-aperture-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 400
+(define-foreign-funcallable av-page-view-scroll-to-rect-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect))
+                             (favor-left as-bool)
+                             (favor-top as-bool)
+                             (margin av-dev-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 401
+(define-foreign-funcallable av-page-view-invalidate-rect-selproto
+                            ((page-view av-page-view)
+                             (area (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 402
+(define-foreign-funcallable av-page-view-invert-rect-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect))
+                             (highlight as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 403
+(define-foreign-funcallable av-page-view-draw-rect-outline-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect))
+                             (line-width av-dev-size)
+                             (dash-array (:pointer as-fixed))
+                             (array-len av-tarray-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 404
+(define-foreign-funcallable av-page-view-draw-rect-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 405
+(define-foreign-funcallable av-page-view-get-annot-rect-selproto
+                            ((page-view av-page-view)
+                             (an-annot pd-annot)
+                             (rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 406
+(define-foreign-funcallable av-page-view-rect-to-device-selproto
+                            ((page-view av-page-view)
+                             (p as-fixed-rect-p)
+                             (rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 407
+(define-foreign-funcallable av-page-view-device-rect-to-page-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect))
+                             (p (:pointer as-fixed-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 408
+(define-foreign-funcallable av-page-view-draw-cos-obj-selproto
+                            ((page-view av-page-view)
+                             (cos-obj cos-obj)
+                             (r (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 409
+(define-foreign-funcallable av-page-view-inset-rect-selproto
+                            ((page-view av-page-view)
+                             (rr (:pointer av-dev-rect))
+                             (down as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 410
+(define-foreign-funcallable av-page-view-draw-cos-obj-ex-selproto
+                            ((page-view av-page-view)
+                             (cos-obj cos-obj)
+                             (r (:pointer av-dev-rect))
+                             (matrix (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 411
+(define-foreign-funcallable av-page-view-draw-annot-sequence-selproto
+                            ((pv av-page-view)
+                             (an pd-annot)
+                             (bbox (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 412
+(define-foreign-funcallable av-page-view-get-gray-rect-selproto
+                            ((page-view av-page-view)
+                             (grey-rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 413
+(define-foreign-funcallable av-page-view-ghost-rect-outline-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 414
+(define-foreign-funcallable av-rect-handle-hit-test-selproto
+                            ((rect (:pointer av-dev-rect))
+                             (b-midpoints as-bool)
+                             (x av-dev-coord)
+                             (y av-dev-coord))
+                            :result-type
+                            av-drag-type-ex
+                            :calling-convention
+                            :cdecl)
+;; sel = 415
+(define-foreign-funcallable av-page-view-draw-rect-outline-with-handles-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect))
+                             (b-midpoints as-bool)
+                             (b-thin as-bool)
+                             (dash-array (:pointer as-fixed))
+                             (array-len av-tarray-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 416
+(define-foreign-funcallable av-page-view-get-mouse-position-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer av-dev-coord))
+                             (y (:pointer av-dev-coord)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 417
+(define-foreign-funcallable av-page-view-drag-out-new-rect-selproto
+                            ((page-view av-page-view)
+                             (x-start av-dev-coord)
+                             (y-start av-dev-coord)
+                             (result-rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 418
+(define-foreign-funcallable av-page-view-drag-rect-selproto
+                            ((page-view av-page-view)
+                             (x-start av-dev-coord)
+                             (y-start av-dev-coord)
+                             (start-rect (:pointer av-dev-rect))
+                             (result-rect (:pointer av-dev-rect))
+                             (drag-type as-int32)
+                             (extrema (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 419
+(define-foreign-funcallable av-page-view-is-annot-at-point-selproto
+                            ((page-view av-page-view)
+                             (x-hit av-dev-coord)
+                             (y-hit av-dev-coord)
+                             (hit-annot (:pointer pd-annot)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 420
+(define-foreign-funcallable av-page-view-is-bead-at-point-selproto
+                            ((page-view av-page-view)
+                             (x-hit av-dev-coord)
+                             (y-hit av-dev-coord)
+                             (bead-p (:pointer pd-bead)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 421
+(define-foreign-funcallable av-page-view-device-point-to-page-selproto
+                            ((page-view av-page-view)
+                             (x av-dev-coord)
+                             (y av-dev-coord)
+                             (p (:pointer as-fixed-point)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 422
+(define-foreign-funcallable av-page-view-track-text-selproto
+                            ((page-view av-page-view)
+                             (x-hit av-dev-coord)
+                             (y-hit av-dev-coord)
+                             (current pd-text-select))
+                            :result-type
+                            pd-text-select
+                            :calling-convention
+                            :cdecl)
+;; sel = 423
+(define-foreign-funcallable av-page-view-point-in-text-selproto
+                            ((page-view av-page-view)
+                             (x-hit av-dev-coord)
+                             (y-hit av-dev-coord)
+                             (pd-text pd-text-select))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 424
+(define-foreign-funcallable av-page-view-do-popup-menu-selproto
+                            ((page-view av-page-view)
+                             (menu av-menu)
+                             (x-hit av-dev-coord)
+                             (y-hit av-dev-coord)
+                             (right-mouse as-bool)
+                             (choice av-menu-index))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 425
+(define-foreign-funcallable av-page-view-device-rect-to-page-rz-selproto
+                            ((page-view av-page-view)
+                             (flags av-tflag-bits)
+                             (x-hot av-dev-coord)
+                             (y-hot av-dev-coord)
+                             (rect (:pointer av-dev-rect))
+                             (p (:pointer as-fixed-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 426
+(define-foreign-funcallable av-page-view-snap-point-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer av-dev-coord))
+                             (y (:pointer av-dev-coord))
+                             (direction av-drag-type))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 427
+(define-foreign-funcallable av-page-view-get-mouse-position-snapped-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer av-dev-coord))
+                             (y (:pointer av-dev-coord))
+                             (direction av-drag-type))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 428
+(define-foreign-funcallable av-page-view-drag-out-new-rect-snapped-selproto
+                            ((page-view av-page-view)
+                             (x-start av-dev-coord)
+                             (y-start av-dev-coord)
+                             (result-rect (:pointer av-dev-rect))
+                             (cursor-array (:pointer av-cursor))
+                             (n-cursors av-tsmall-array-size))
+                            :result-type
+                            av-tflag-bits
+                            :calling-convention
+                            :cdecl)
+;; sel = 429
+(define-foreign-funcallable av-page-view-drag-rect-snapped-selproto
+                            ((page-view av-page-view)
+                             (x-start av-dev-coord)
+                             (y-start av-dev-coord)
+                             (start-rect (:pointer av-dev-rect))
+                             (result-rect (:pointer av-dev-rect))
+                             (drag-type av-l-drag-type)
+                             (extrema (:pointer av-dev-rect))
+                             (cursor-array (:pointer av-cursor))
+                             (n-cursors av-tsmall-array-size))
+                            :result-type
+                            av-tflag-bits
+                            :calling-convention
+                            :cdecl)
+;; sel = 430
+(define-foreign-funcallable av-page-view-snap-rect-selproto
+                            ((page-view av-page-view)
+                             (x-start av-dev-coord)
+                             (y-start av-dev-coord)
+                             (x-now av-dev-coord)
+                             (y-now av-dev-coord)
+                             (start-rect (:pointer av-dev-rect))
+                             (result-rect (:pointer av-dev-rect))
+                             (handle-type as-int32)
+                             (modifiers as-uns32)
+                             (extrema (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 431
+(define-foreign-funcallable av-page-view-invert-rect-outline-selproto
+                            ((page-view av-page-view)
+                             (rect (:pointer av-dev-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 432
+(define-foreign-funcallable av-page-view-point-to-device-selproto
+                            ((page-view av-page-view)
+                             (p as-fixed-point-p)
+                             (x (:pointer av-dev-coord))
+                             (y (:pointer av-dev-coord)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 433
+(define-foreign-funcallable av-page-view-is-annot-of-type-at-point-selproto
+                            ((page-view av-page-view)
+                             (x-hit av-dev-coord)
+                             (y-hit av-dev-coord)
+                             (annot-type as-atom)
+                             (below-others as-bool)
+                             (annot (:pointer pd-annot)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 434
+(define-foreign-funcallable av-page-view-set-annot-location-selproto
+                            ((an-annot pd-annot)
+                             (page-view av-page-view)
+                             (x av-dev-coord)
+                             (y av-dev-coord))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 435
+(define-foreign-funcallable av-app-register-annot-handler-selproto
+                            ((handler av-annot-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 436
+(define-foreign-funcallable av-app-register-tool-selproto
+                            ((tool av-tool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 437
+(define-foreign-funcallable av-window-new-selproto
+                            ((layer av-window-layer)
+                             (flags av-flag-bits32)
+                             (handler av-window-handler)
+                             (owner as-extension))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 438
+(define-foreign-funcallable av-window-new-from-platform-thing-selproto
+                            ((layer av-window-layer)
+                             (flags av-flag-bits32)
+                             (handler av-window-handler)
+                             (owner as-extension)
+                             (platform-thing av-platform-window-ref))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 439
+(define-foreign-funcallable av-window-get-frame-selproto
+                            ((win av-window)
+                             (rect (:pointer av-screen-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 440
+(define-foreign-funcallable av-window-set-frame-selproto
+                            ((win av-window)
+                             (rect (:pointer av-screen-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 441
+(define-foreign-funcallable av-window-get-interior-selproto
+                            ((win av-window)
+                             (rect (:pointer av-window-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 442
+(define-foreign-funcallable av-window-invalidate-rect-selproto
+                            ((win av-window)
+                             (rect (:pointer av-window-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 443
+(define-foreign-funcallable av-window-get-min-max-size-selproto
+                            ((win av-window) (rect (:pointer av-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 444
+(define-foreign-funcallable av-window-set-min-max-size-selproto
+                            ((win av-window) (rect (:pointer av-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 445
+(define-foreign-funcallable av-app-get-uuid-selproto
+                            ((type av-app-uuid-type)
+                             (dst (:pointer as-uuid)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 446
+(define-foreign-funcallable av-sys-get-icon-from-filename-selproto
+                            ((fname as-text) (itype av-sys-icon-type))
+                            :result-type
+                            av-icon
+                            :calling-convention
+                            :cdecl)
+;; sel = 447
+(define-foreign-funcallable av-sys-get-icon-from-mime-type-selproto
+                            ((mime-type
+                              (:reference-pass :ef-mb-string))
+                             (itype av-sys-icon-type))
+                            :result-type
+                            av-icon
+                            :calling-convention
+                            :cdecl)
+;; sel = 448
+(define-foreign-funcallable av-sys-get-icon-from-type-and-creator-selproto
+                            ((type as-uns32)
+                             (creator as-uns32)
+                             (itype av-sys-icon-type))
+                            :result-type
+                            av-icon
+                            :calling-convention
+                            :cdecl)
+;; sel = 449
+(define-foreign-funcallable av-conversion-convert-stream-to-pdf-with-handler-selproto
+                            ((in-handler av-conversion-to-pdf-handler)
+                             (in-settings as-cab)
+                             (flags av-conversion-flags)
+                             (stream as-stm)
+                             (meta-data as-cab)
+                             (out-pddoc (:pointer pd-doc))
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 450
+(define-foreign-funcallable av-conversion-convert-stream-from-pdf-with-handler-selproto
+                            ((in-handler
+                              av-conversion-from-pdf-handler)
+                             (in-settings as-cab)
+                             (flags av-conversion-flags)
+                             (in-pddoc pd-doc)
+                             (stream as-stm)
+                             (meta-data as-cab)
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 451
+(define-foreign-funcallable av-conversion-convert-stream-from-struct-node-with-handler-selproto
+                            ((in-handler
+                              av-conversion-from-pdf-handler)
+                             (in-settings as-cab)
+                             (flags av-conversion-flags)
+                             (in-struct-node av-struct-node)
+                             (stream as-stm)
+                             (meta-data as-cab)
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 452
+(define-foreign-funcallable av-conversion-convert-stream-to-pdf-selproto
+                            ((flags av-conversion-flags)
+                             (mime-type
+                              (:reference-pass :ef-mb-string))
+                             (stream as-stm)
+                             (meta-data as-cab)
+                             (out-pddoc (:pointer pd-doc))
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 453
+(define-foreign-funcallable av-menu-do-pop-up-selproto
+                            ((menu av-menu)
+                             (x as-int16)
+                             (y as-int16)
+                             (right-button as-bool)
+                             (choice as-int32))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 454
+(define-foreign-funcallable av-doc-get-num-page-views-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            as-count
+                            :calling-convention
+                            :cdecl)
+;; sel = 455
+(define-foreign-funcallable av-doc-get-nth-page-view-selproto
+                            ((av-doc av-doc) (n as-count))
+                            :result-type
+                            av-page-view
+                            :calling-convention
+                            :cdecl)
+;; sel = 456
+(define-foreign-funcallable av-doc-open-from-file-with-param-string-selproto
+                            ((path-name as-path-name)
+                             (file-sys as-file-sys)
+                             (temp-title as-text)
+                             (p av-doc-open-params)
+                             (s (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 457
+(define-foreign-funcallable av-doc-open-from-pddoc-with-param-string-selproto
+                            ((pd-doc pd-doc)
+                             (temp-title as-text)
+                             (p av-doc-open-params)
+                             (s (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 458
+(define-foreign-funcallable av-doc-open-from-as-file-with-param-string-selproto
+                            ((file as-file)
+                             (temp-title as-text)
+                             (p av-doc-open-params)
+                             (s (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 459
+(define-foreign-funcallable av-app-help-search-selproto
+                            ((file-name
+                              (:reference-pass :ef-mb-string))
+                             (search-text
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 460
+(define-foreign-funcallable av-app-help-show-index-selproto
+                            ((file-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 461
+(define-foreign-funcallable av-app-open-help-file-with-params-selproto
+                            ((file-name
+                              (:reference-pass :ef-mb-string))
+                             (do-search as-bool)
+                             (p av-doc-open-params))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 462
+(define-foreign-funcallable av-legacy-tool-button-add-animation-icon-selproto
+                            ((button av-tool-button)
+                             (new-icon av-icon))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 463
+(define-foreign-funcallable av-legacy-tool-button-get-animation-icon-count-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 464
+(define-foreign-funcallable av-legacy-tool-button-start-animation-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 465
+(define-foreign-funcallable av-legacy-tool-button-stop-animation-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 466
+(define-foreign-funcallable av-legacy-tool-button-is-animation-running-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 467
+(define-foreign-funcallable av-legacy-tool-button-set-animation-period-selproto
+                            ((button av-tool-button)
+                             (new-period as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 468
+(define-foreign-funcallable av-legacy-tool-button-get-animation-period-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 469
+(define-foreign-funcallable av-legacy-tool-button-remove-animation-icons-selproto
+                            ((button av-tool-button))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 470
+(define-foreign-funcallable av-menu-new-with-as-text-selproto
+                            ((title as-const-text)
+                             (name (:reference-pass :ef-mb-string))
+                             (owner as-extension))
+                            :result-type
+                            av-menu
+                            :calling-convention
+                            :cdecl)
+;; sel = 471
+(define-foreign-funcallable av-menu-get-title-as-as-text-selproto
+                            ((menu av-menu) (title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 472
+(define-foreign-funcallable av-menu-item-new-with-as-text-selproto
+                            ((title as-const-text)
+                             (name (:reference-pass :ef-mb-string))
+                             (submenu av-menu)
+                             (long-menus-only as-bool)
+                             (shortcut :byte)
+                             (flags av-flag-bits16)
+                             (icon av-icon)
+                             (owner as-extension))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 473
+(define-foreign-funcallable av-menu-item-get-title-as-as-text-selproto
+                            ((menu-item av-menu-item) (title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 474
+(define-foreign-funcallable av-menu-item-set-title-with-as-text-selproto
+                            ((menu-item av-menu-item)
+                             (title as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 475
+(define-foreign-funcallable av-window-get-title-selproto
+                            ((win av-window) (title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 476
+(define-foreign-funcallable av-window-set-title-selproto
+                            ((win av-window) (new-title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 477
+(define-foreign-funcallable av-doc-open-from-file-selproto
+                            ((path-name as-path-name)
+                             (file-sys as-file-sys)
+                             (temp-title as-text))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 478
+(define-foreign-funcallable av-doc-open-from-pddoc-selproto
+                            ((doc pd-doc) (temp-title as-text))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 479
+(define-foreign-funcallable av-util-get-base-name-and-extension-ex-selproto
+                            ((file-sys as-file-sys)
+                             (path-name as-path-name)
+                             (file-name as-text)
+                             (num-add-ext as-int32)
+                             (add-ext (:pointer (:pointer :char)))
+                             (base-name as-text)
+                             (nil nil))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 480
+(define-foreign-funcallable av-page-view-set-visible-inks-selproto
+                            ((page-view av-page-view)
+                             (n-inks as-int32)
+                             (inks (:pointer pd-page-ink-rec)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 481
+(define-foreign-funcallable av-page-view-set-ink-preview-selproto
+                            ((page-view av-page-view)
+                             (ink-preview as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 482
+(define-foreign-funcallable av-page-view-get-num-visible-inks-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 483
+(define-foreign-funcallable av-page-view-get-visible-inks-selproto
+                            ((page-view av-page-view)
+                             (inks (:pointer pd-page-ink-rec)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 484
+(define-foreign-funcallable av-page-view-get-pixel-information-at-point-selproto
+                            ((page-view av-page-view)
+                             (x av-dev-coord)
+                             (y av-dev-coord)
+                             (ink-vector (:pointer av-ink-value))
+                             (ink-vector-length (:pointer as-uns32)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 485
+(define-foreign-funcallable av-undo-new-selproto
+                            ((doc av-doc)
+                             (handler av-undo-handler)
+                             (undo-data av-undo-handler-data))
+                            :result-type
+                            av-undo
+                            :calling-convention
+                            :cdecl)
+;; sel = 486
+(define-foreign-funcallable av-undo-set-data-selproto
+                            ((undo av-undo)
+                             (handler-data av-undo-handler-data))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 487
+(define-foreign-funcallable av-undo-get-data-selproto
+                            ((undo av-undo))
+                            :result-type
+                            av-undo-handler-data
+                            :calling-convention
+                            :cdecl)
+;; sel = 488
+(define-foreign-funcallable av-undo-get-avdoc-selproto
+                            ((undo av-undo))
+                            :result-type
+                            av-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 489
+(define-foreign-funcallable av-undo-get-type-selproto
+                            ((undo av-undo))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 490
+(define-foreign-funcallable av-doc-clear-undos-selproto
+                            ((doc av-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 491
+(define-foreign-funcallable av-doc-get-top-undo-selproto
+                            ((doc av-doc)
+                             (desired-type
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            av-undo
+                            :calling-convention
+                            :cdecl)
+;; sel = 492
+(define-foreign-funcallable av-doc-begin-undo-operation-selproto
+                            ((doc av-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 493
+(define-foreign-funcallable av-doc-end-undo-operation-selproto
+                            ((doc av-doc)
+                             (undo-title as-text)
+                             (redo-title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 494
+(define-foreign-funcallable av-page-view-draw-now-with-transition-selproto
+                            ((page-view av-page-view) (trans pd-trans))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 495
+(define-foreign-funcallable av-doc-print-separations-selproto
+                            ((params av-doc-print-seps-params))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 496
+(define-foreign-funcallable av-doc-get-view-def-ex-selproto
+                            ((doc av-doc) (view-def as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 497
+(define-foreign-funcallable av-doc-set-view-def-ex-selproto
+                            ((doc av-doc) (view-def as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 498
+(define-foreign-funcallable av-window-do-modal-selproto
+                            ((window av-window))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 499
+(define-foreign-funcallable av-window-end-modal-selproto
+                            ((window av-window))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 500
+(define-foreign-funcallable av-sys-get-use-pen-for-input-selproto
+                            nil
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 501
+(define-foreign-funcallable av-page-view-snap-point-ex-selproto
+                            ((page-view av-page-view)
+                             (pt (:pointer as-fixed-point))
+                             (direction av-drag-type))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 502
+(define-foreign-funcallable av-page-view-drag-rect-snapped-ex-selproto
+                            ((params
+                              (:pointer av-drag-rect-params-rec)))
+                            :result-type
+                            av-tflag-bits
+                            :calling-convention
+                            :cdecl)
+;; sel = 503
+(define-foreign-funcallable av-legacy-tool-button-set-compute-tooltip-proc-selproto
+                            ((button av-tool-button)
+                             (proc av-compute-tooltip-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 504
+(define-foreign-funcallable av-legacy-tool-button-set-label-text-selproto
+                            ((button av-tool-button)
+                             (label-text as-const-text)
+                             (priority av-tool-button-label-priority))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 505
+(define-foreign-funcallable av-legacy-tool-button-get-label-text-selproto
+                            ((button av-tool-button)
+                             (result-text as-text)
+                             (priority
+                              (:pointer
+                               av-tool-button-label-priority)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 506
+(define-foreign-funcallable av-menu-item-clone-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            av-menu-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 507
+(define-foreign-funcallable av-app-get-language-with-params-selproto
+                            ((params av-app-language-params))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 508
+(define-foreign-funcallable av-app-create-icon-bundle6-selproto
+                            ((e-data-format av-icon-data-format)
+                             (data-recs (:pointer av-icon-data-rec))
+                             (num-recs as-count))
+                            :result-type
+                            av-icon-bundle6
+                            :calling-convention
+                            :cdecl)
+;; sel = 509
+(define-foreign-funcallable av-legacy-tool-button-set-notify-tooltip-proc-selproto
+                            ((button av-tool-button)
+                             (proc av-notify-tooltip-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 510
+(define-foreign-funcallable av-window-get-border-widths-selproto
+                            ((win av-window) (rect (:pointer av-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 511
+(define-foreign-funcallable av-page-view-draw-polygon-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer av-dev-coord))
+                             (y (:pointer av-dev-coord))
+                             (num-points as-count)
+                             (invert as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 512
+(define-foreign-funcallable av-page-view-draw-polygon-outline-selproto
+                            ((page-view av-page-view)
+                             (x (:pointer av-dev-coord))
+                             (y (:pointer av-dev-coord))
+                             (num-points as-count)
+                             (invert as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 513
+(define-foreign-funcallable av-app-register-how-to-panel-selproto
+                            ((panel-name as-atom)
+                             (panel-url
+                              (:reference-pass :ef-mb-string))
+                             (panel-icon av-icon)
+                             (panel-title as-const-text)
+                             (show-in-homepage as-bool)
+                             (url-directory as-path-name)
+                             (sort-key as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 514
+(define-foreign-funcallable av-app-set-how-to-panel-auto-show-text-selproto
+                            ((panel-name as-atom)
+                             (check-box-text as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 515
+(define-foreign-funcallable av-app-get-how-to-panel-auto-show-selproto
+                            ((panel-name as-atom))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 516
+(define-foreign-funcallable av-app-set-how-to-panel-auto-show-selproto
+                            ((panel-name as-atom) (auto-show as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 517
+(define-foreign-funcallable av-app-auto-show-how-to-panel-selproto
+                            ((avdoc av-doc) (panel-name as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 518
+(define-foreign-funcallable av-menu-item-set-compute-visible-proc-selproto
+                            ((menu-item av-menu-item)
+                             (proc av-compute-visible-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 519
+(define-foreign-funcallable av-menu-item-is-visible-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 520
+(define-foreign-funcallable av-legacy-tool-button-set-compute-visible-proc-selproto
+                            ((button av-tool-button)
+                             (p av-compute-visible-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 521
+(define-foreign-funcallable av-app-register-legacy-tool-bar-position-selproto
+                            ((tool-bar-name
+                              (:reference-pass :ef-mb-string))
+                             (external as-bool)
+                             (position av-tool-bar-position))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 522
+(define-foreign-funcallable av-doc-get-top-undo-and-redo-selproto
+                            ((doc av-doc)
+                             (undo (:pointer av-undo))
+                             (redo (:pointer av-undo))
+                             (desired-type
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 523
+(define-foreign-funcallable av-app-register-for-context-menu-addition-selproto
+                            ((menu-name as-atom)
+                             (proc av-context-menu-addition-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 524
+(define-foreign-funcallable av-page-view-get-page-to-dev-scaling-selproto
+                            ((page-view av-page-view)
+                             (x-scale (:pointer :float))
+                             (y-scale (:pointer :float)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 525
+(define-foreign-funcallable av-doc-get-active-tool-selproto
+                            ((doc av-doc))
+                            :result-type
+                            av-tool
+                            :calling-convention
+                            :cdecl)
+;; sel = 526
+(define-foreign-funcallable av-doc-set-active-tool-selproto
+                            ((doc av-doc)
+                             (tool av-tool)
+                             (persistent as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 527
+(define-foreign-funcallable av-app-register-for-page-view-right-clicks-selproto
+                            ((click-proc av-page-view-click-proc)
+                             (data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 528
+(define-foreign-funcallable av-app-unregister-for-page-view-right-clicks-selproto
+                            ((click-proc av-page-view-click-proc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 529
+(define-foreign-funcallable av-doc-is-slow-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 530
+(define-foreign-funcallable av-window-get-desktop-bounds-selproto
+                            ((win av-window)
+                             (frame (:pointer av-rect))
+                             (bounds (:pointer av-rect)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 531
+(define-foreign-funcallable av-doc-get-server-type-selproto
+                            ((doc av-doc))
+                            :result-type
+                            av-doc-server-type
+                            :calling-convention
+                            :cdecl)
+;; sel = 532
+(define-foreign-funcallable av-app-unregister-for-page-view-drawing-ex-selproto
+                            ((proc av-page-view-draw-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 533
+(define-foreign-funcallable av-page-view-set-wireframe-drawing-selproto
+                            ((page-view av-page-view)
+                             (draw-wireframe as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 534
+(define-foreign-funcallable av-page-view-get-wireframe-drawing-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 535
+(define-foreign-funcallable av-app-should-key-delete-object-selproto
+                            ((key av-key-code) (flags av-flag-bits16))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 536
+(define-foreign-funcallable av-app-register-late-init-proc-selproto
+                            ((late-init-proc av-idle-proc)
+                             (client-data (:pointer :void))
+                             (delay as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 537
+(define-foreign-funcallable av-doc-get-bookmarks-selproto
+                            ((av-doc av-doc)
+                             (av-bookmark-filter av-bookmark-filter)
+                             (nil nil))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 538
+(define-foreign-funcallable av-doc-get-last-active-tool-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            av-tool
+                            :calling-convention
+                            :cdecl)
+;; sel = 539
+(define-foreign-funcallable av-doc-get-num-windows-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            as-count
+                            :calling-convention
+                            :cdecl)
+;; sel = 540
+(define-foreign-funcallable av-doc-get-nth-window-selproto
+                            ((av-doc av-doc) (n as-count))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 541
+(define-foreign-funcallable av-page-view-get-avwindow-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            av-window
+                            :calling-convention
+                            :cdecl)
+;; sel = 542
+(define-foreign-funcallable av-doc-do-annot-properties-selproto
+                            ((doc av-doc)
+                             (page-num as-int32)
+                             (annot pd-annot))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 543
+(define-foreign-funcallable av-sys-track-mouse-selproto
+                            ((canceled (:pointer as-bool))
+                             (committed (:pointer as-bool))
+                             (remove-events as-bool))
+                            :result-type
+                            av-flag-bits32
+                            :calling-convention
+                            :cdecl)
+;; sel = 544
+(define-foreign-funcallable av-doc-save-optimized-selproto
+                            ((av-doc av-doc)
+                             (pdf-opt-params
+                              (:pointer pd-fopt-params-rec)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 545
+(define-foreign-funcallable av-get-optimizer-presets-selproto
+                            ((nil nil))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 546
+(define-foreign-funcallable av-get-optimizer-params-for-preset-selproto
+                            ((preset-name as-text)
+                             (av-doc av-doc)
+                             (pdf-opt-params pd-fopt-params))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 547
+(define-foreign-funcallable av-app-get-annot-appearance-padding-selproto
+                            ((flags as-uns32))
+                            :result-type
+                            as-count
+                            :calling-convention
+                            :cdecl)
+;; sel = 548
+(define-foreign-funcallable av-menu-item-is-scriptable-selproto
+                            ((menu-item av-menu-item))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 549
+(define-foreign-funcallable av-sys-time-as-text-from-time-rec-selproto
+                            ((time-rec as-time-rec-p) (text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 550
+(define-foreign-funcallable av-legacy-tool-button-set-menu-icon-selproto
+                            ((button av-tool-button) (icon av-icon))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 551
+(define-foreign-funcallable av-listen-for-custom-notification-selproto
+                            ((notification
+                              (:reference-pass :ef-mb-string))
+                             (proc av-custom-notification-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 552
+(define-foreign-funcallable av-unlisten-for-custom-notification-selproto
+                            ((notification
+                              (:reference-pass :ef-mb-string))
+                             (proc av-custom-notification-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 553
+(define-foreign-funcallable av-broadcast-custom-notification-selproto
+                            ((notification
+                              (:reference-pass :ef-mb-string))
+                             (data av-notification-data))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 554
+(define-foreign-funcallable av-register-aux-data-handler-selproto
+                            ((aux-data-type as-atom)
+                             (handler av-aux-data-handler)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 555
+(define-foreign-funcallable av-doc-apply-redactions-selproto
+                            ((av-doc av-doc)
+                             (apply-params pd-apply-redaction-params)
+                             (show-confirmation as-bool)
+                             (show-warnings as-bool)
+                             (show-errors as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 556
+(define-foreign-funcallable av-legacy-tool-bar-add-button-ex-selproto
+                            ((tool-bar av-tool-bar)
+                             (button av-tool-button)
+                             (params av-tool-bar-add-button-params))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 557
+(define-foreign-funcallable av-app-begin-save-selproto
+                            ((dialog-params av-open-save-dialog-params)
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-name-to-write
+                              (:pointer as-path-name))
+                             (out-chosen-filter-index
+                              (:pointer as-int16))
+                             (out-as-path-name-chosen
+                              (:pointer as-path-name))
+                             (out-file-save-handle
+                              (:pointer av-app-file-save-handle)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 558
+(define-foreign-funcallable av-app-end-save-selproto
+                            ((in-file-save-handle
+                              av-app-file-save-handle)
+                             (in-as-path-name-written as-path-name))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 559
+(define-foreign-funcallable av-app-cancel-save-selproto
+                            ((in-file-save-handle
+                              av-app-file-save-handle))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 560
+(define-foreign-funcallable av-page-view-get-ink-preview-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 561
+(define-foreign-funcallable av-page-view-acquire-draw-context-selproto
+                            ((page-view av-page-view)
+                             (context-type draw-context-type))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 562
+(define-foreign-funcallable av-page-view-release-draw-context-selproto
+                            ((page-view av-page-view)
+                             (context-type draw-context-type)
+                             (draw-context (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 563
+(define-foreign-funcallable av-legacy-tool-button-set-help-text-with-as-text-selproto
+                            ((button av-tool-button)
+                             (text as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 564
+(define-foreign-funcallable av-legacy-tool-bar-new-with-as-text-selproto
+                            ((name (:reference-pass :ef-mb-string))
+                             (title as-const-text))
+                            :result-type
+                            av-tool-bar
+                            :calling-convention
+                            :cdecl)
+;; sel = 565
+(define-foreign-funcallable av-app-unregister-annot-handler-selproto
+                            ((handler av-annot-handler))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 566
+(define-foreign-funcallable av-conversion-append-to-pdf-with-handler-selproto
+                            ((in-handler av-conversion-to-pdf-handler)
+                             (in-settings as-cab)
+                             (flags av-conversion-flags)
+                             (in-path as-path-name)
+                             (in-file-sys as-file-sys)
+                             (out-pddoc pd-doc)
+                             (status-monitor av-status-monitor-procs))
+                            :result-type
+                            av-conversion-status
+                            :calling-convention
+                            :cdecl)
+;; sel = 567
+(define-foreign-funcallable av-conversion-get-conversion-queue-status-with-handler-selproto
+                            ((in-handler av-conversion-to-pdf-handler))
+                            :result-type
+                            as-uns32
+                            :calling-convention
+                            :cdecl)
+;; sel = 568
+(define-foreign-funcallable av-conversion-to-pdf-set-settings-selproto
+                            ((in-handler av-conversion-to-pdf-handler)
+                             (in-settings as-cab))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 569
+(define-foreign-funcallable av-doc-is-in-protected-view-selproto
+                            ((av-doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 570
+(define-foreign-funcallable av-app-register-idle-proc-with-name-selproto
+                            ((idle-proc av-idle-proc)
+                             (client-data (:pointer :void))
+                             (period as-uns32)
+                             (p-pgm-file-name
+                              (:reference-pass :ef-mb-string))
+                             (p-proc-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 571
+(define-foreign-funcallable av-app-register-late-init-proc-with-name-selproto
+                            ((idle-proc av-idle-proc)
+                             (client-data (:pointer :void))
+                             (period as-uns32)
+                             (p-pgm-file-name
+                              (:reference-pass :ef-mb-string))
+                             (p-proc-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 572
+(define-foreign-funcallable av-app-unregister-for-context-menu-addition-selproto
+                            ((menu-name as-atom)
+                             (proc av-context-menu-addition-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 573
+(define-foreign-funcallable av-app-save-dialog-ex-selproto
+                            ((dialog-params av-open-save-dialog-params)
+                             (out-dialog-params
+                              av-open-save-dialog-out-params))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 574
+(define-foreign-funcallable av-app-begin-save-ex-selproto
+                            ((dialog-params av-open-save-dialog-params)
+                             (out-dialog-params
+                              av-open-save-dialog-out-params)
+                             (out-as-path-name-to-write
+                              (:pointer as-path-name))
+                             (out-file-save-handle
+                              (:pointer av-app-file-save-handle)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 575
+(define-foreign-funcallable av-app-register-idle-proc-ex-with-name-selproto
+                            ((idle-proc av-idle-proc)
+                             (client-data (:pointer :void))
+                             (low-priority as-bool)
+                             (initial-delay as-uns32)
+                             (repeating as-bool)
+                             (period as-uns32)
+                             (max-period as-uns32)
+                             (p-pgm-file-name
+                              (:reference-pass :ef-mb-string))
+                             (p-proc-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 576
+(define-foreign-funcallable av-app-get-version-ex-selproto
+                            ((av-version-params av-version-params))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 577
+(define-foreign-funcallable av-extension-acquire-info-ex-selproto
+                            ((n-index av-array-size))
+                            :result-type
+                            av-extension-info-ex
+                            :calling-convention
+                            :cdecl)
+;; sel = 578
+(define-foreign-funcallable av-extension-release-info-ex-selproto
+                            ((info av-extension-info-ex))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 579
+(define-foreign-funcallable av-doc-bring-to-front-selproto
+                            ((doc av-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 580
+(define-foreign-funcallable av-doc-get-display-title-selproto
+                            ((doc av-doc) (title as-text))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 581
+(define-foreign-funcallable av-icon-create-from-pdf-selproto
+                            ((pd-doc pd-doc)
+                             (page-num as-int32)
+                             (width as-int32)
+                             (height as-int32))
+                            :result-type
+                            av-icon
+                            :calling-convention
+                            :cdecl)
+;; sel = 582
+(define-foreign-funcallable av-window-get-platform-thing-ex-selproto
+                            ((win av-window))
+                            :result-type
+                            av-platform-window-ref
+                            :calling-convention
+                            :cdecl)

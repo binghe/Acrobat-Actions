@@ -70,7 +70,7 @@ instead of a list if the string contained only one word."
          (register-groups-bind (head rest) (*mangle-name-regex1* string)
            (concatenate 'string head "-" (mangle-name1 rest))))
         (t
-         (setq string (regex-replace-all "^(AS|AV|PI|AC)([A-Za-z])" string "\\1-\\2")
+         (setq string (regex-replace-all "^(AC|AS|AV|PD|PI)([A-Za-z])" string "\\1-\\2")
                string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)"
                                          string "\\1-\\2")
                string (regex-replace-all "(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)([A-Za-z])"
@@ -99,8 +99,10 @@ the Lisp symbol to denote a Lisp constant."
           (t
            (intern (string-upcase new-string) :pdf-plugin-tools)))))
 
+;; void **cancelProcClientDataP
+;; const char * const *addExt
 (defparameter *type-and-name-regex*
-  (create-scanner "^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))
+  (create-scanner "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(\\s+const\\s*\\*)?\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))
 
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
@@ -109,16 +111,24 @@ name.  Returns as the third value the name as a string.  If ARGP
 is true, the result is supposed to be used as a function
 argument."
   (declare (ignore argp))
-  (register-groups-bind (type pointerp name arrayp size)
+  (register-groups-bind (type pointerp nil name arrayp size)
       (*type-and-name-regex* string)
     (setq type (make-fli-type type))
     (let ((final-type
            (cond ((and pointerp (eq type :byte))
-                  '(:reference-pass :ef-mb-string))
+                  (cond ((scan "\\*[^*]*\\*" pointerp)
+                         `(:pointer (:pointer :char)))
+                        (t
+                         '(:reference-pass :ef-mb-string))))
                  (arrayp
                   `(:c-array ,type ,(parse-integer size)))
+                 (pointerp
+                  (cond ((scan "\\*\\*" pointerp)
+                         `(:pointer (:pointer ,type)))
+                        (t
+                         `(:pointer ,type))))
                  (t
-                  (if pointerp `(:pointer ,type) type)))))
+                  type))))
       (list final-type
             (mangle-name name)
             name))))

@@ -139,6 +139,10 @@ expression."
 (defparameter *define-regex6*
   (create-scanner "#define (\\w+) ASEXTRAROUTINE\\(([\\w_]+),([\\w_]+)\\)$"))
 
+;; TODO: merge with *define-regex6*
+(defparameter *define-regex7*
+  (create-scanner "#define (\\w+) AVROUTINE\\(([\\w_]+),([\\w_]+)\\)$"))
+
 (defun handle-define (line)
   (cond ((scan *define-regex0* line)
          nil)
@@ -202,10 +206,22 @@ expression."
                   (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
              (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
                                     ,lisp-proto ,lisp-hft ,lisp-sel)))))
+        ((scan *define-regex7* line)
+         (register-groups-bind (name version proto) (*define-regex7* line)
+           (format t "~%;; line ~D" *line-number*)
+           (let* ((lisp-name (mangle-name name))
+                  (lisp-vername (mangle-name "gAcroViewVersion" :global t))
+                  (lisp-version (mangle-name version :constant t))
+                  (lisp-proto (mangle-name (concatenate 'string proto "-SELPROTO")))
+                  (lisp-hft (mangle-name "gAcroViewHFT" :global t))
+                  (lisp-sel (mangle-name (concatenate 'string proto "-SEL") :constant t))
+                  (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
+             (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
+                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))
         (t
          nil)))
 
-;; cf. *type-and-name-regex* (util.lisp)
+;; /* comment1 */ type [*]var1, [*]var2; // comment2
 (defparameter *type-and-names-regex*
   (create-scanner
    "(?m)\\s*(\\*[^*]+\\*/\\s*)?([^/;,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;\\s*(//.*)?$"))

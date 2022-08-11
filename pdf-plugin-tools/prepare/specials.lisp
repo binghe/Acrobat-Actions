@@ -43,7 +43,12 @@
     "ASExtraProcs" ; Catalog of functions exported by the ASExtra HFT
     "ASExtraCalls"
 
-    "AVExpT"     ; Types, macros, structures, etc. required to use the AcroView HFT
+    "PDBasicExpT"  ; Types required to use the PDModel HFT (ONLY handles to exported types)
+    "PDExpT"       ; Types, macros, structures, etc. required to use the PDModel HFT
+    "AVExpT"       ; Types, macros, structures, etc. required to use the AcroView HFT
+
+    "AVProcs"    ; Catalog of functions exported by AcroView
+    ; "AVCalls"
     )
   "The list of involved Acrobat SDK header files in the right order.")
 
