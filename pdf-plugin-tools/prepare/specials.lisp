@@ -51,9 +51,9 @@
     "CosExpT"      ; Types, macros, structures, etc. required to use the Cos HFT
 
     "AVProcs"      ; Catalog of functions exported by AcroView
-    ;; "AVCalls"
+    "AVCalls"
 
-    ;; "PDProcs"   ; Catalog of functions exported by the PDModel HFT
+    ;; "PDProcs"      ; Catalog of functions exported by the PDModel HFT
     ;; "PDCalls"
     )
   "The list of involved Acrobat SDK header files in the right order.")

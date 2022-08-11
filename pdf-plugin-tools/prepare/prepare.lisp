@@ -160,7 +160,7 @@ expression."
 
 ;; TODO: merge with *define-regex6*
 (defparameter *define-regex7*
-  (create-scanner "#define (\\w+) AVROUTINE\\(([\\w_]+),([\\w_]+)\\)$"))
+  (create-scanner "#define (\\w+) AVROUTINE\\(([\\w_]+),\\s*([\\w_]+)\\)$"))
 
 (defun handle-define (line)
   (cond ((scan *define-regex0* line)
