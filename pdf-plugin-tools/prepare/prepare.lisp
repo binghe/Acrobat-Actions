@@ -123,7 +123,9 @@ expression."
 
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
 (defparameter *define-regex1*
-  (create-scanner "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$"))
+  (create-scanner (concatenate 'string
+                               "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+"
+                               "\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$")))
 
 ;; #  define kASMAXEnum8 ASMAXInt16
 (defparameter *define-regex2*
@@ -132,19 +134,27 @@ expression."
 ;; #define ASPushExceptionFrame (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ...
 (defparameter *define-regex3*
   (create-scanner
-   "^#define (\\w+) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
+   (concatenate 'string
+                "^#define (\\w+) "
+                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
+                "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$")))
 
-;; #define ASCallbackCreate(x) (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), *((ASCallbackCreateSELPROTO)(gCoreHFT[ASCallbackCreateSEL])))(gExtensionID, (void *)(x))
+;; #define ASCallbackCreate(x) (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ..
 (defparameter *define-regex5*
   (create-scanner
-   "^#define (\\w+)\\(\\w+\\) \\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), \\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)"))
+   (concatenate 'string
+                "^#define (\\w+)\\(\\w+\\) "
+                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
+                "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)")))
 
 ;; #define ASmalloc (ASSERT_AS_VER(0),*((ASmallocSELPROTO)(gAcroSupportHFT[ASmallocSEL])))
 (defparameter *define-regex4*
   (create-scanner
-   "^#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),\\s*\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
+   (concatenate 'string
+                "^#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),"
+                "\\s*\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$")))
 
-;;	#define ASScriptToHostEncoding ASEXTRAROUTINE(ASExtraHFT_VERSION_5,ASScriptToHostEncoding)
+;; #define ASScriptToHostEncoding ASEXTRAROUTINE(ASExtraHFT_VERSION_5,ASScriptToHostEncoding)
 (defparameter *define-regex6*
   (create-scanner "#define (\\w+) ASEXTRAROUTINE\\(([\\w_]+),([\\w_]+)\\)$"))
 
@@ -253,17 +263,18 @@ EXPORT statement."
     (when type-name
       (pprint `(fli:define-c-typedef ,(mangle-name type-name) :int)))))
 
-;; /* comment1 */ type [*]var1, [*]var2; // comment2 or /* comment 2 */
-
-;; The regex string /\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/ for matching C comments
-;; is learnt from https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
+;; NOTE: the regex string /\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/ for matching C
+;; comments is learnt from (non-greedy matching doesn't work)
+;; https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
+;;
+;; /* comment1 */ type [*]var1, [*]var2; // comment2
 (defparameter *type-and-names-regex*
   (create-scanner
    (concatenate 'string
                 "(?sm)\\s*"
                 "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments (multiple blocks)
                 "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"
-                "\\s*(?://[^\\r\\n]*)?" ; C++ comments
+                "\\s*(?://[^\\r\\n]*)?" ; C++ comments (one block)
                 )))
 
 (defun handle-struct (body typedef-name &optional pointer-name)
@@ -290,10 +301,11 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 
 ;; typedef ACCBPROTO1 void (ACCBPROTO2 *HFTServerDestroyProc)(HFTServer hftServer, void *rock);
 ;; typedef ACCBPROTO1 ASFilePos64 (ACCBPROTO2 *ASProcStmGetLength)(void *clientData);
-;; typedef ACCBPROTO1 void* (ACCBPROTO2 *AVDocSelectionAddedToSelectionProc)( AVDoc doc, void *curData, void *addData, ASBool highlight);
 (defparameter *prototype-regex*
   (create-scanner
-   "(?m)^typedef\\s+(?:ACCBPROTO1\\s+)?([\\w*]+)\\s+\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
+   (concatenate 'string
+                "(?m)^typedef\\s+(?:ACCBPROTO1\\s+)?([\\w*]+)\\s+"
+                "\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$")))
 
 (defun handle-prototype (file-string)
   (do-register-groups (return-type proc-name args)
