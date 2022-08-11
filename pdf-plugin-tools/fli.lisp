@@ -998,7 +998,7 @@
 (define-c-struct fsref-with-cfstring-ref-rec
                  (ref (:pointer (struct fsref)))
                  (str (:pointer (struct --cfstring))))
-(define-c-struct cfurlref-rec (url (:pointer (struct --cfurl))))
+(define-c-struct cfurlref-rec)
 (define-c-struct as-file-sys-rec
                  (size as-size-t)
                  (open as-file-sys-open-proc)
@@ -1054,8 +1054,6 @@
                   as-file-sys-get-type-and-creator-proc)
                  (reopen as-file-sys-reopen-proc)
                  (hard-flush as-file-sys-hard-flush-proc)
-                 (get-platform-thing
-                  as-file-sys-get-platform-thing-proc)
                  (get-item-props-as-cab
                   as-file-sys-get-item-props-as-cab-proc)
                  (can-perform-op-on-item
@@ -3009,16 +3007,14 @@
                          *g-acro-support-hft*
                          +as-platform-path-get-posixpath-ptr-sel+)
 ;; line 457
-(define-acrobat-function (as-file-sys-get-name-from-path-as-as-text
-                          "ASFileSysGetNameFromPathAsASText")
+(define-acrobat-function (as-file-sys-get-name-from-path-as-as-text "ASFileSysGetNameFromPathAsASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-get-name-from-path-as-as-text-selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-name-from-path-as-as-text-sel+)
 ;; line 458
-(define-acrobat-function (as-file-sys-display-as-text-from-path
-                          "ASFileSysDisplayASTextFromPath")
+(define-acrobat-function (as-file-sys-display-as-text-from-path "ASFileSysDisplayASTextFromPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-display-as-text-from-path-selproto
@@ -3144,16 +3140,14 @@
                          *g-acro-support-hft*
                          +as-get-default-unicode-file-sys-sel+)
 ;; line 492
-(define-acrobat-function (as-get-error-string-as-text
-                          "ASGetErrorStringASText")
+(define-acrobat-function (as-get-error-string-as-text "ASGetErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-get-error-string-as-text-selproto
                          *g-acro-support-hft*
                          +as-get-error-string-as-text-sel+)
 ;; line 493
-(define-acrobat-function (as-register-error-string-as-text
-                          "ASRegisterErrorStringASText")
+(define-acrobat-function (as-register-error-string-as-text "ASRegisterErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-register-error-string-as-text-selproto
@@ -3243,19 +3237,8 @@
 (define-c-typedef pi-unload-proc-type
                   (:pointer
                    (:function nil as-bool :calling-convention :cdecl)))
-(define-c-struct pi-sdk-data-v0200
-                 (handshake-version as-uns32)
-                 (extension-id extension-id)
-                 (core-hft hft)
-                 (handshake-callback as-callback))
-(define-c-struct pi-handshake-data-v0200
-                 (handshake-version as-uns32)
-                 (app-name as-atom)
-                 (extension-name as-atom)
-                 (export-hft-s-callback as-callback)
-                 (import-replace-and-register-callback as-callback)
-                 (init-callback as-callback)
-                 (unload-callback as-callback))
+(define-c-struct pi-sdk-data-v0200)
+(define-c-struct pi-handshake-data-v0200)
 
 ;; #include <ASExtraExpT.h>
 ;; line 39
@@ -4678,16 +4661,14 @@
 ;; line 101
 (define-c-typedef as-extra-hft-version-9 as-extra-hft-latest-version)
 ;; line 160
-(define-acrobat-function (as-script-to-host-encoding
-                          "ASScriptToHostEncoding")
+(define-acrobat-function (as-script-to-host-encoding "ASScriptToHostEncoding")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-script-to-host-encoding-selproto
                          *g-as-extra-hft*
                          +as-script-to-host-encoding-sel+)
 ;; line 161
-(define-acrobat-function (as-script-from-host-encoding
-                          "ASScriptFromHostEncoding")
+(define-acrobat-function (as-script-from-host-encoding "ASScriptFromHostEncoding")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-script-from-host-encoding-selproto
@@ -4708,8 +4689,7 @@
                          *g-as-extra-hft*
                          +as-text-from-unicode-sel+)
 ;; line 164
-(define-acrobat-function (as-text-from-sized-unicode
-                          "ASTextFromSizedUnicode")
+(define-acrobat-function (as-text-from-sized-unicode "ASTextFromSizedUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-unicode-selproto
@@ -4723,24 +4703,21 @@
                          *g-as-extra-hft*
                          +as-text-from-encoded-sel+)
 ;; line 166
-(define-acrobat-function (as-text-from-sized-encoded
-                          "ASTextFromSizedEncoded")
+(define-acrobat-function (as-text-from-sized-encoded "ASTextFromSizedEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-from-sized-encoded-sel+)
 ;; line 167
-(define-acrobat-function (as-text-from-script-text
-                          "ASTextFromScriptText")
+(define-acrobat-function (as-text-from-script-text "ASTextFromScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-from-script-text-sel+)
 ;; line 168
-(define-acrobat-function (as-text-from-sized-script-text
-                          "ASTextFromSizedScriptText")
+(define-acrobat-function (as-text-from-sized-script-text "ASTextFromSizedScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-script-text-selproto
@@ -4754,8 +4731,7 @@
                          *g-as-extra-hft*
                          +as-text-from-pdtext-sel+)
 ;; line 170
-(define-acrobat-function (as-text-from-sized-pdtext
-                          "ASTextFromSizedPDText")
+(define-acrobat-function (as-text-from-sized-pdtext "ASTextFromSizedPDText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-pdtext-selproto
@@ -4776,8 +4752,7 @@
                          *g-as-extra-hft*
                          +as-text-set-unicode-sel+)
 ;; line 173
-(define-acrobat-function (as-text-set-sized-unicode
-                          "ASTextSetSizedUnicode")
+(define-acrobat-function (as-text-set-sized-unicode "ASTextSetSizedUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-unicode-selproto
@@ -4791,24 +4766,21 @@
                          *g-as-extra-hft*
                          +as-text-set-encoded-sel+)
 ;; line 175
-(define-acrobat-function (as-text-set-sized-encoded
-                          "ASTextSetSizedEncoded")
+(define-acrobat-function (as-text-set-sized-encoded "ASTextSetSizedEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-set-sized-encoded-sel+)
 ;; line 176
-(define-acrobat-function (as-text-set-script-text
-                          "ASTextSetScriptText")
+(define-acrobat-function (as-text-set-script-text "ASTextSetScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-set-script-text-sel+)
 ;; line 177
-(define-acrobat-function (as-text-set-sized-script-text
-                          "ASTextSetSizedScriptText")
+(define-acrobat-function (as-text-set-sized-script-text "ASTextSetSizedScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-script-text-selproto
@@ -4822,8 +4794,7 @@
                          *g-as-extra-hft*
                          +as-text-set-pdtext-sel+)
 ;; line 179
-(define-acrobat-function (as-text-set-sized-pdtext
-                          "ASTextSetSizedPDText")
+(define-acrobat-function (as-text-set-sized-pdtext "ASTextSetSizedPDText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-pdtext-selproto
@@ -4837,8 +4808,7 @@
                          *g-as-extra-hft*
                          +as-text-get-unicode-sel+)
 ;; line 181
-(define-acrobat-function (as-text-get-unicode-copy
-                          "ASTextGetUnicodeCopy")
+(define-acrobat-function (as-text-get-unicode-copy "ASTextGetUnicodeCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-unicode-copy-selproto
@@ -4852,48 +4822,42 @@
                          *g-as-extra-hft*
                          +as-text-get-encoded-sel+)
 ;; line 183
-(define-acrobat-function (as-text-get-encoded-copy
-                          "ASTextGetEncodedCopy")
+(define-acrobat-function (as-text-get-encoded-copy "ASTextGetEncodedCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-encoded-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-encoded-copy-sel+)
 ;; line 184
-(define-acrobat-function (as-text-get-script-text
-                          "ASTextGetScriptText")
+(define-acrobat-function (as-text-get-script-text "ASTextGetScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-get-script-text-sel+)
 ;; line 185
-(define-acrobat-function (as-text-get-script-text-copy
-                          "ASTextGetScriptTextCopy")
+(define-acrobat-function (as-text-get-script-text-copy "ASTextGetScriptTextCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-script-text-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-script-text-copy-sel+)
 ;; line 186
-(define-acrobat-function (as-text-get-pdtext-copy
-                          "ASTextGetPDTextCopy")
+(define-acrobat-function (as-text-get-pdtext-copy "ASTextGetPDTextCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-pdtext-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-pdtext-copy-sel+)
 ;; line 187
-(define-acrobat-function (as-text-get-best-encoding
-                          "ASTextGetBestEncoding")
+(define-acrobat-function (as-text-get-best-encoding "ASTextGetBestEncoding")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-best-encoding-selproto
                          *g-as-extra-hft*
                          +as-text-get-best-encoding-sel+)
 ;; line 188
-(define-acrobat-function (as-text-get-best-script
-                          "ASTextGetBestScript")
+(define-acrobat-function (as-text-get-best-script "ASTextGetBestScript")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-best-script-selproto
@@ -5096,8 +5060,7 @@
                          *g-as-extra-hft*
                          +as-cab-get-pointer-raw-sel+)
 ;; line 218
-(define-acrobat-function (as-cab-detach-pointer-raw
-                          "ASCabDetachPointerRaw")
+(define-acrobat-function (as-cab-detach-pointer-raw "ASCabDetachPointerRaw")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-pointer-raw-selproto
@@ -5111,16 +5074,14 @@
                          *g-as-extra-hft*
                          +as-cab-put-pointer-raw-sel+)
 ;; line 220
-(define-acrobat-function (as-cab-get-pointer-destroy-proc
-                          "ASCabGetPointerDestroyProc")
+(define-acrobat-function (as-cab-get-pointer-destroy-proc "ASCabGetPointerDestroyProc")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-pointer-destroy-proc-selproto
                          *g-as-extra-hft*
                          +as-cab-get-pointer-destroy-proc-sel+)
 ;; line 221
-(define-acrobat-function (as-cab-get-pointer-type
-                          "ASCabGetPointerType")
+(define-acrobat-function (as-cab-get-pointer-type "ASCabGetPointerType")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-pointer-type-selproto
@@ -5288,16 +5249,14 @@
                          *g-as-extra-hft*
                          +as-cab-put-path-name-sel+)
 ;; line 245
-(define-acrobat-function (as-cab-get-path-name-copy
-                          "ASCabGetPathNameCopy")
+(define-acrobat-function (as-cab-get-path-name-copy "ASCabGetPathNameCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-path-name-copy-selproto
                          *g-as-extra-hft*
                          +as-cab-get-path-name-copy-sel+)
 ;; line 246
-(define-acrobat-function (as-cab-detach-path-name
-                          "ASCabDetachPathName")
+(define-acrobat-function (as-cab-detach-path-name "ASCabDetachPathName")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-path-name-selproto
@@ -5311,8 +5270,7 @@
                          *g-as-extra-hft*
                          +as-cab-write-to-stream-sel+)
 ;; line 248
-(define-acrobat-function (as-cab-read-from-stream
-                          "ASCabReadFromStream")
+(define-acrobat-function (as-cab-read-from-stream "ASCabReadFromStream")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-read-from-stream-selproto
@@ -5333,8 +5291,7 @@
                          *g-as-extra-hft*
                          +as-text-is-empty-sel+)
 ;; line 252
-(define-acrobat-function (as-text-normalize-end-of-line
-                          "ASTextNormalizeEndOfLine")
+(define-acrobat-function (as-text-normalize-end-of-line "ASTextNormalizeEndOfLine")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-normalize-end-of-line-selproto
@@ -5362,8 +5319,7 @@
                          *g-as-extra-hft*
                          +as-text-make-empty-sel+)
 ;; line 261
-(define-acrobat-function (as-text-replace-bad-chars
-                          "ASTextReplaceBadChars")
+(define-acrobat-function (as-text-replace-bad-chars "ASTextReplaceBadChars")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-text-replace-bad-chars-selproto
@@ -5447,64 +5403,56 @@
                          *g-as-extra-hft*
                          +as-time-span-destroy-sel+)
 ;; line 275
-(define-acrobat-function (as-date-set-to-current-utctime
-                          "ASDateSetToCurrentUTCTime")
+(define-acrobat-function (as-date-set-to-current-utctime "ASDateSetToCurrentUTCTime")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-to-current-utctime-selproto
                          *g-as-extra-hft*
                          +as-date-set-to-current-utctime-sel+)
 ;; line 276
-(define-acrobat-function (as-date-set-to-current-local-time
-                          "ASDateSetToCurrentLocalTime")
+(define-acrobat-function (as-date-set-to-current-local-time "ASDateSetToCurrentLocalTime")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-to-current-local-time-selproto
                          *g-as-extra-hft*
                          +as-date-set-to-current-local-time-sel+)
 ;; line 277
-(define-acrobat-function (as-date-set-local-time-offset
-                          "ASDateSetLocalTimeOffset")
+(define-acrobat-function (as-date-set-local-time-offset "ASDateSetLocalTimeOffset")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-local-time-offset-selproto
                          *g-as-extra-hft*
                          +as-date-set-local-time-offset-sel+)
 ;; line 278
-(define-acrobat-function (as-date-set-time-from-string
-                          "ASDateSetTimeFromString")
+(define-acrobat-function (as-date-set-time-from-string "ASDateSetTimeFromString")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-time-from-string-selproto
                          *g-as-extra-hft*
                          +as-date-set-time-from-string-sel+)
 ;; line 279
-(define-acrobat-function (as-date-set-time-from-rec
-                          "ASDateSetTimeFromRec")
+(define-acrobat-function (as-date-set-time-from-rec "ASDateSetTimeFromRec")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-time-from-rec-selproto
                          *g-as-extra-hft*
                          +as-date-set-time-from-rec-sel+)
 ;; line 280
-(define-acrobat-function (as-date-subtract-calendar-time-span
-                          "ASDateSubtractCalendarTimeSpan")
+(define-acrobat-function (as-date-subtract-calendar-time-span "ASDateSubtractCalendarTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-subtract-calendar-time-span-selproto
                          *g-as-extra-hft*
                          +as-date-subtract-calendar-time-span-sel+)
 ;; line 281
-(define-acrobat-function (as-date-add-calendar-time-span
-                          "ASDateAddCalendarTimeSpan")
+(define-acrobat-function (as-date-add-calendar-time-span "ASDateAddCalendarTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-add-calendar-time-span-selproto
                          *g-as-extra-hft*
                          +as-date-add-calendar-time-span-sel+)
 ;; line 282
-(define-acrobat-function (as-date-subtract-time-span
-                          "ASDateSubtractTimeSpan")
+(define-acrobat-function (as-date-subtract-time-span "ASDateSubtractTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-subtract-time-span-selproto
@@ -5532,8 +5480,7 @@
                          *g-as-extra-hft*
                          +as-date-exact-diff-sel+)
 ;; line 286
-(define-acrobat-function (as-date-get-time-string
-                          "ASDateGetTimeString")
+(define-acrobat-function (as-date-get-time-string "ASDateGetTimeString")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-get-time-string-selproto
@@ -5547,8 +5494,7 @@
                          *g-as-extra-hft*
                          +as-date-get-utctime-sel+)
 ;; line 288
-(define-acrobat-function (as-date-get-local-time-no-dst
-                          "ASDateGetLocalTimeNoDST")
+(define-acrobat-function (as-date-get-local-time-no-dst "ASDateGetLocalTimeNoDST")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-get-local-time-no-dst-selproto
@@ -5562,8 +5508,7 @@
                          *g-as-extra-hft*
                          +as-date-get-local-time-sel+)
 ;; line 290
-(define-acrobat-function (as-calendar-time-span-compare
-                          "ASCalendarTimeSpanCompare")
+(define-acrobat-function (as-calendar-time-span-compare "ASCalendarTimeSpanCompare")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-calendar-time-span-compare-selproto
@@ -5577,8 +5522,7 @@
                          *g-as-extra-hft*
                          +as-time-span-compare-sel+)
 ;; line 292
-(define-acrobat-function (as-calendar-time-span-add-with-base
-                          "ASCalendarTimeSpanAddWithBase")
+(define-acrobat-function (as-calendar-time-span-add-with-base "ASCalendarTimeSpanAddWithBase")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-calendar-time-span-add-with-base-selproto
@@ -5592,8 +5536,7 @@
                          *g-as-extra-hft*
                          +as-time-span-add-sel+)
 ;; line 294
-(define-acrobat-function (as-calendar-time-span-diff
-                          "ASCalendarTimeSpanDiff")
+(define-acrobat-function (as-calendar-time-span-diff "ASCalendarTimeSpanDiff")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-calendar-time-span-diff-selproto
@@ -5614,16 +5557,14 @@
                          *g-as-extra-hft*
                          +as-date-compare-sel+)
 ;; line 297
-(define-acrobat-function (as-time-span-set-from-as-int32
-                          "ASTimeSpanSetFromASInt32")
+(define-acrobat-function (as-time-span-set-from-as-int32 "ASTimeSpanSetFromASInt32")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-set-from-as-int32-selproto
                          *g-as-extra-hft*
                          +as-time-span-set-from-as-int32-sel+)
 ;; line 298
-(define-acrobat-function (as-time-span-set-from-string
-                          "ASTimeSpanSetFromString")
+(define-acrobat-function (as-time-span-set-from-string "ASTimeSpanSetFromString")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-set-from-string-selproto
@@ -5651,40 +5592,35 @@
                          *g-as-extra-hft*
                          +as-text-eval-sel+)
 ;; line 304
-(define-acrobat-function (as-file-sys-get-item-props-as-cab
-                          "ASFileSysGetItemPropsAsCab")
+(define-acrobat-function (as-file-sys-get-item-props-as-cab "ASFileSysGetItemPropsAsCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-get-item-props-as-cab-selproto
                          *g-as-extra-hft*
                          +as-file-sys-get-item-props-as-cab-sel+)
 ;; line 305
-(define-acrobat-function (as-file-sys-convert-cab-to-item-props
-                          "ASFileSysConvertCabToItemProps")
+(define-acrobat-function (as-file-sys-convert-cab-to-item-props "ASFileSysConvertCabToItemProps")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-convert-cab-to-item-props-selproto
                          *g-as-extra-hft*
                          +as-file-sys-convert-cab-to-item-props-sel+)
 ;; line 306
-(define-acrobat-function (as-file-sys-convert-item-props-to-cab
-                          "ASFileSysConvertItemPropsToCab")
+(define-acrobat-function (as-file-sys-convert-item-props-to-cab "ASFileSysConvertItemPropsToCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-convert-item-props-to-cab-selproto
                          *g-as-extra-hft*
                          +as-file-sys-convert-item-props-to-cab-sel+)
 ;; line 307
-(define-acrobat-function (as-file-sys-can-perform-op-on-item
-                          "ASFileSysCanPerformOpOnItem")
+(define-acrobat-function (as-file-sys-can-perform-op-on-item "ASFileSysCanPerformOpOnItem")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-can-perform-op-on-item-selproto
                          *g-as-extra-hft*
                          +as-file-sys-can-perform-op-on-item-sel+)
 ;; line 308
-(define-acrobat-function (as-file-sys-perform-op-on-item
-                          "ASFileSysPerformOpOnItem")
+(define-acrobat-function (as-file-sys-perform-op-on-item "ASFileSysPerformOpOnItem")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-perform-op-on-item-selproto
@@ -5698,8 +5634,7 @@
                          *g-as-extra-hft*
                          +as-is-valid-utf8-sel+)
 ;; line 311
-(define-acrobat-function (as-text-case-sensitive-cmp
-                          "ASTextCaseSensitiveCmp")
+(define-acrobat-function (as-text-case-sensitive-cmp "ASTextCaseSensitiveCmp")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-text-case-sensitive-cmp-selproto
@@ -5720,8 +5655,7 @@
                          *g-as-extra-hft*
                          +as-text-filter-sel+)
 ;; line 317
-(define-acrobat-function (as-time-span-get-as-int32
-                          "ASTimeSpanGetASInt32")
+(define-acrobat-function (as-time-span-get-as-int32 "ASTimeSpanGetASInt32")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-get-as-int32-selproto
@@ -5756,18 +5690,2517 @@
                          *g-as-extra-hft*
                          +as-cab-put-uns64-sel+)
 ;; line 326
-(define-acrobat-function (as-text-make-empty-clear
-                          "ASTextMakeEmptyClear")
+(define-acrobat-function (as-text-make-empty-clear "ASTextMakeEmptyClear")
                          *g-as-extra-version*
                          +as-extra-hft-version-9+
                          as-text-make-empty-clear-selproto
                          *g-as-extra-hft*
                          +as-text-make-empty-clear-sel+)
 ;; line 327
-(define-acrobat-function (as-ucs-get-password-from-unicode
-                          "ASUCS_GetPasswordFromUnicode")
+(define-acrobat-function (as-ucs-get-password-from-unicode "ASUCS_GetPasswordFromUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-9+
                          as-ucs-get-password-from-unicode-selproto
                          *g-as-extra-hft*
                          +as-ucs-get-password-from-unicode-sel+)
+
+;; #include <AVExpT.h>
+;; line 92
+(define-c-typedef nselector as-int32)
+;; line 150
+(define-c-typedef av-prefs-type as-uns8)
+;; line 195
+(define-c-typedef av-pixel-offset as-int16)
+;; line 206
+(define-c-typedef av-array-size as-uns16)
+;; line 217
+(define-c-typedef av-flag-bits16 as-int16)
+;; line 228
+(define-c-typedef av-flag-bits32 as-uns32)
+;; line 231
+(define-c-typedef av-mouse-event-code as-int16)
+;; line 241
+(define-c-typedef av-key-code as-uns16)
+;; line 244
+(define-c-typedef av-priority as-int16)
+;; line 247
+(define-c-typedef av-version-num-part as-uns16)
+;; line 250
+(define-c-typedef av-buffer-size as-uns32)
+;; line 253
+(define-c-typedef av-drag-type-ex as-int16)
+;; line 265
+(define-c-typedef av-menu-index as-int32)
+;; line 268
+(define-c-typedef av-icon-type as-int32)
+;; line 275
+(define-c-typedef av-filter-index as-int16)
+;; line 283
+(define-c-typedef av-page-index as-int32)
+;; line 286
+(define-c-typedef av-cursor-id as-int32)
+;; line 311
+(define-c-typedef av-tarray-size as-int32)
+;; line 318
+(define-c-typedef av-tbuffer-size as-int32)
+;; line 325
+(define-c-typedef av-tsmall-array-size as-int16)
+;; line 334
+(define-c-typedef av-tflag-bits as-int32)
+;; line 340
+(define-c-typedef av-tflag-bits16 as-uns16)
+;; line 348
+(define-c-typedef av-tcount as-int16)
+;; line 355
+(define-c-typedef av-tversion-num-part as-int16)
+;; line 358
+(define-c-typedef av-sdk-dependent-integer as-int16)
+;; line 368
+(define-c-typedef av-dev-size av-sdk-dependent-integer)
+;; line 374
+(define-c-typedef av-dev-coord av-sdk-dependent-integer)
+;; line 382
+(define-c-typedef av-window-coord av-sdk-dependent-integer)
+;; line 388
+(define-c-typedef av-screen-coord av-sdk-dependent-integer)
+;; line 407
+(define-c-typedef av-icon-id (:reference-pass :ef-mb-string))
+;; line 408
+(define-c-typedef av-icon (:pointer :void))
+;; line 425
+(define-c-typedef av-icon-bundle-icon-ref (:pointer :void))
+;; line 488
+(define-c-typedef av-icon-color-format as-enum16)
+;; line 525
+(define-c-typedef av-icon-data-format as-enum16)
+;; line 549
+(define-opaque-pointer av-icon-bundle6 -t-avicon-bundle-rec6)
+;; line 790
+(define-opaque-pointer av-page-view -t-avpage-view)
+;; line 853
+(define-c-typedef av-zoom-type as-enum8)
+;; line 890
+(define-c-typedef av-page-view-control-id as-enum16)
+;; line 986
+(define-c-typedef av-mouse-event as-enum16)
+;; line 1042
+(define-opaque-pointer av-doc -t-avdoc)
+;; line 1116
+(define-c-typedef av-dev-rect av-rect)
+;; line 1121
+(define-c-typedef av-dev-rect-p av-rect-p)
+;; line 1132
+(define-c-typedef av-window-rect av-rect)
+;; line 1143
+(define-c-typedef av-screen-rect av-rect)
+;; line 1280
+(define-opaque-pointer av-menu -t-avmenu)
+;; line 1347
+(define-opaque-pointer av-menubar -t-avmenubar)
+;; line 1392
+(define-opaque-pointer av-menu-item -t-avmenu-item)
+;; line 2467
+(define-opaque-pointer av-window -t-avwindow)
+;; line 2504
+(define-c-typedef av-doc-open-flags as-uns32)
+;; line 3059
+(define-c-typedef av-annot-op as-enum16)
+;; line 3152
+(define-opaque-pointer av-annot-handler -t-avannot-handler)
+;; line 3843
+(define-c-typedef av-annot-acc-str-type as-enum8)
+;; line 4208
+(define-opaque-pointer av-cursor -t-avcursor)
+;; line 4479
+(define-opaque-pointer av-tool -t-avtool)
+;; line 4656
+(define-c-typedef av-tool-mouse-wheel-direction as-enum16)
+;; line 4828
+(define-opaque-pointer av-tool-bar -t-avtool-bar)
+;; line 4883
+(define-opaque-pointer av-tool-button -t-avtool-button)
+;; line 4924
+(define-c-typedef av-window-layer as-int32)
+;; line 5412
+(define-opaque-pointer av-graf-select -t-avgraf-select)
+;; line 5454
+(define-c-typedef av-alert-type as-enum16)
+;; line 5575
+(define-opaque-pointer av-action-handler -t-avaction-handler)
+;; line 5580
+(define-opaque-pointer av-action-handler-procs
+                       -t-avaction-handler-procs)
+;; line 5963
+(define-c-typedef av-rect32 av-rect)
+;; line 5980
+(define-c-typedef av-rect32p av-rect-p)
+;; line 6201
+(define-c-typedef av-tile-mark as-enum16)
+;; line 6248
+(define-c-typedef av-page-size as-enum16)
+;; line 6272
+(define-c-typedef av-color-forcing as-enum16)
+;; line 6289
+(define-c-typedef av-use-value as-enum16)
+;; line 6311
+(define-c-typedef av-resource-policy as-enum16)
+;; line 6324
+(define-c-typedef av-n-up-page-order as-enum16)
+;; line 6345
+(define-c-typedef av-booklet-binding as-enum16)
+;; line 6356
+(define-c-typedef av-booklet-duplex-mode as-enum16)
+;; line 6657
+(define-c-typedef av-rasterize-flags as-uns32)
+;; line 6767
+(define-opaque-pointer av-doc-print-params -t-avdoc-print-params)
+;; line 6781
+(define-c-typedef av-print-duplex-type as-enum8)
+;; line 7039
+(define-opaque-pointer av-doc-print-seps-params
+                       -t-avdoc-print-seps-params)
+;; line 7052
+(define-c-typedef av-print-trap-type as-enum8)
+;; line 7151
+(define-opaque-pointer av-trans-handler -t-avtrans-handler)
+;; line 7772
+(define-c-typedef av-open-save-dialog-flags as-uns32)
+;; line 8315
+(define-opaque-pointer av-conversion-client-data
+                       -t-avconversion-client-data)
+;; line 8337
+(define-c-typedef av-conversion-flags as-uns32)
+;; line 8387
+(define-c-typedef av-conversion-status as-enum16)
+;; line 8654
+(define-c-typedef av-struct-node (:pointer (struct -t-avstruct-node)))
+;; line 8857
+(define-opaque-pointer av-conversion-enum-proc-data
+                       -t-avconversion-enum-proc-data)
+;; line 9032
+(define-c-typedef av-command-status as-enum16)
+;; line 9057
+(define-c-typedef av-command-uipolicy as-enum16)
+;; line 9066
+(define-opaque-pointer av-command -t-avcommand-rec)
+;; line 9386
+(define-c-typedef av-command-handler (:pointer av-command-handler-rec))
+;; line 9447
+(define-c-typedef av-drag-type as-enum8)
+;; line 9482
+(define-c-typedef av-rect-handle-type as-enum8)
+;; line 9563
+(define-c-typedef av-access-color-policy as-enum8)
+;; line 9588
+(define-c-typedef av-access-read-order as-enum8)
+;; line 9613
+(define-c-typedef av-tool-bar-dock-position as-enum8)
+;; line 9631
+(define-c-typedef av-tool-bar-layout as-enum8)
+;; line 9717
+(define-c-typedef av-full-screen-monitor as-enum8)
+;; line 9775
+(define-c-typedef av-info-panel-update-type as-enum8)
+;; line 9787
+(define-opaque-pointer av-batch-context -t-avbatch-context)
+;; line 9801
+(define-c-typedef av-app-uuid-type as-enum8)
+;; line 9817
+(define-c-typedef av-sys-icon-type as-enum8)
+;; line 9842
+(define-opaque-pointer av-simple-sel-obj -t-avsimple-sel-obj)
+;; line 9872
+(define-opaque-pointer av-status-item -t-avstatus-item)
+;; line 9881
+(define-opaque-pointer av-undo -t-avundo)
+;; line 9890
+(define-c-typedef av-undo-handler-data (:pointer :void))
+;; line 10071
+(define-c-typedef av-tool-button-label-priority as-enum16)
+;; line 10111
+(define-c-typedef av-how-to-topic-sort-key as-uns32)
+;; line 10143
+(define-c-typedef av-task-order-numbers as-enum16)
+;; line 10168
+(define-c-typedef av-tools-menu-order-numbers as-enum16)
+;; line 10205
+(define-c-typedef av-app-language-format as-enum16)
+;; line 10216
+(define-c-typedef av-app-language-selector as-enum16)
+;; line 10248
+(define-c-typedef av-bookmark-filter as-enum16)
+;; line 10265
+(define-c-typedef k-avparagraph-direction as-enum8)
+;; line 10303
+(define-c-typedef pdf-opt-downsampling-algo as-enum16)
+;; line 10321
+(define-c-typedef pdf-opt-compression-algo as-enum16)
+;; line 10341
+(define-c-typedef pdf-opt-compression-qlty as-enum16)
+;; line 10430
+(define-c-typedef pdf-opt-pdf-version as-enum16)
+;; line 10443
+(define-c-typedef pdf-opt-object-compression as-enum16)
+;; line 10617
+(define-c-typedef av-app-file-save-handle (:pointer :void))
+;; line 10640
+(define-opaque-pointer av-platform-window-ref -t-avplatform-window-ref)
+;; line 10643
+(define-opaque-pointer admwindow-ref -t-admwindow-ref)
+;; line 10689
+(define-c-typedef av-storage-error-code as-enum8)
+;; line 10699
+(define-c-typedef av-storage-icon-set as-enum8)
+(define-c-typedef av-icon-handler-measure-proc
+                  (:pointer
+                   (:function
+                    (av-icon-bundle6
+                     (:pointer as-int32)
+                     (:pointer as-int32))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-icon-handler-open-stm-proc
+                  (:pointer
+                   (:function
+                    (av-icon-bundle6 av-icon-color-format)
+                    as-stm
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-icon-handler-get-flags-proc
+                  (:pointer
+                   (:function
+                    (av-icon-bundle6)
+                    av-flag-bits32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-icon-handler-release-proc
+                  (:pointer
+                   (:function
+                    (av-icon-bundle6)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-icon-handler-resize-proc
+                  (:pointer
+                   (:function
+                    (av-icon-bundle6 as-int32 as-int32)
+                    av-icon
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-page-view-draw-proc
+                  (:pointer
+                   (:function
+                    (av-page-view (:pointer av-dev-rect) nil)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-page-view-click-proc
+                  (:pointer
+                   (:function
+                    (av-page-view
+                     av-dev-coord
+                     av-dev-coord
+                     av-flag-bits16
+                     av-tcount
+                     nil)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-page-view-cursor-proc
+                  (:pointer
+                   (:function
+                    (av-page-view
+                     av-dev-coord
+                     av-dev-coord
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-page-view-key-down-proc
+                  (:pointer
+                   (:function
+                    (av-page-view
+                     av-key-code
+                     av-flag-bits16
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-text-copy-proc
+                  (:pointer
+                   (:function
+                    (as-atom
+                     (:pointer :void)
+                     av-tbuffer-size
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-menu-predicate
+                  (:pointer
+                   (:function
+                    (av-menu (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-context-menu-addition-proc
+                  (:pointer
+                   (:function
+                    (as-atom av-menu (:pointer :void) (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-execute-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-compute-enabled-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-compute-marked-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-compute-visible-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-menu-item-predicate
+                  (:pointer
+                   (:function
+                    (av-menu-item (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-compute-tooltip-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) as-bool)
+                    as-text
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-notify-tooltip-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-enum-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-selection-enum-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-selection-page-range-enum-proc
+                  (:pointer
+                   (:function
+                    (av-doc
+                     (:pointer :void)
+                     pdpage-number
+                     pdpage-number)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-get-type-proc
+                  (:pointer
+                   (:function
+                    (nil)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-getting-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) as-bool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-losing-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) as-bool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-select-all-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-properties-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-properties-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-delete-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-delete-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-copy-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-copy-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-enum-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc
+                     (:pointer :void)
+                     av-selection-enum-proc
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-show-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-cut-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-cut-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-paste-proc
+                  (:pointer
+                   (:function
+                    (av-doc)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-paste-proc
+                  (:pointer
+                   (:function
+                    (av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-key-down-proc
+                  (:pointer
+                   (:function
+                    (av-doc
+                     (:pointer :void)
+                     av-key-code
+                     av-flag-bits16)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-highlight-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-highlight-selection-ex-proc
+                  (:pointer
+                   (:function
+                    (av-doc av-page-view (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-get-selection-type-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-enum-page-ranges-proc
+                  (:pointer
+                   (:function
+                    (av-doc
+                     (:pointer :void)
+                     av-selection-page-range-enum-proc
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-get-avrect-proc
+                  (:pointer
+                   (:function
+                    (av-doc
+                     pdpage-number
+                     (:pointer av-dev-rect)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-show-menu-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) av-dev-coord av-dev-coord)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-acquire-quads-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) as-int32 nil)
+                    as-array-size
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-can-paste-from-platform-proc
+                  (:pointer
+                   (:function
+                    (av-doc)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-paste-from-platform-proc
+                  (:pointer
+                   (:function
+                    (av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-unicode-key-down-proc
+                  (:pointer
+                   (:function
+                    (av-doc
+                     (:pointer :void)
+                     as-count
+                     (:pointer as-utf16val)
+                     av-flag-bits16)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-perm-req-proc
+                  (:pointer
+                   (:function
+                    (av-doc pdperm-req-obj pdperm-req-opr)
+                    pdperm-req-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef cross-doc-link-proc
+                  (:pointer
+                   (:function
+                    (as-path-name
+                     as-file-sys
+                     av-doc-view-def
+                     av-doc
+                     (:pointer :void))
+                    av-doc
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-set-message-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string) (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-set-focus-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef cross-doc-link-with-dest-proc
+                  (:pointer
+                   (:function
+                    (as-path-name
+                     as-file-sys
+                     av-doc-view-def
+                     av-dest-info
+                     av-doc
+                     (:pointer :void))
+                    av-doc
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-draw-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     (:pointer av-dev-rect))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-post-draw-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     (:pointer av-dev-rect))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-do-click-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-dev-coord
+                     av-dev-coord
+                     av-flag-bits16
+                     av-tcount)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-adjust-cursor-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-dev-coord
+                     av-dev-coord)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-pt-in-annot-view-bbox-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     av-page-view
+                     pdannot
+                     av-dev-coord
+                     av-dev-coord)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-enum-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-type-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-notify-destroy-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-do-properties-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-do-key-down-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-key-code
+                     av-flag-bits16)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-layer-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot)
+                    as-fixed
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-cursor-enter-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot av-page-view)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-cursor-exit-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot av-page-view)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-copy-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler av-doc pdannot av-doc)
+                    pdannot
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-info-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler)
+                    av-annot-handler-info
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-delete-info-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler av-annot-handler-info)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-can-perform-op-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-annot-op
+                     av-annot-op-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-perform-op-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-annot-op
+                     av-annot-op-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-do-key-down-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-key-code
+                     av-flag-bits16)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-flags-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot)
+                    av-flag-bits32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-appearance-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     (:pointer as-uns32)
+                     av-page-view
+                     (:pointer cos-obj))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-appearance-drawing-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     (:pointer av-dev-rect)
+                     (:pointer av-dev-rect))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-do-properties-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot av-page-view)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-layer-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot av-page-view)
+                    as-fixed
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-do-click-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-click-params)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-adjust-cursor-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     av-page-view
+                     av-adjust-cursor-params)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-accessibility-string-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     pdpage-number
+                     av-annot-acc-str-type
+                     as-text)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-aux-icon-count-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler pdannot av-page-view)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-annot-handler-get-appearance-ex-proc
+                  (:pointer
+                   (:function
+                    (av-annot-handler
+                     pdannot
+                     (:pointer as-uns32)
+                     av-page-view
+                     (:pointer av-annot-appearance-data-rec))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-idle-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef adjust-cursor-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool av-page-view av-dev-coord av-dev-coord)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef do-click-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool
+                     av-page-view
+                     av-dev-coord
+                     av-dev-coord
+                     av-flag-bits16
+                     av-tcount)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef activate-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool as-bool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef deactivate-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef do-key-down-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool av-key-code av-flag-bits16)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef get-type-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef is-persistent-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef do-leave-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool av-page-view)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef get-selection-server-proc-type
+                  (:pointer
+                   (:function
+                    (av-tool av-doc)
+                    av-doc-selection-server
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-tool-destroy-proc
+                  (:pointer
+                   (:function
+                    (av-tool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-tool-get-label-proc
+                  (:pointer
+                   (:function
+                    (av-tool as-text)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-tool-get-label-icon-proc
+                  (:pointer
+                   (:function
+                    (av-tool)
+                    av-icon
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-tool-get-tool-tip-proc
+                  (:pointer
+                   (:function
+                    (av-tool as-text)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef handle-mouse-wheel-scroll-proc
+                  (:pointer
+                   (:function
+                    (av-tool
+                     av-page-view
+                     av-tool-mouse-wheel-direction
+                     av-tcount
+                     av-flag-bits16)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-tool-enum-proc
+                  (:pointer
+                   (:function
+                    (av-tool (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-tool-button-enum-proc
+                  (:pointer
+                   (:function
+                    (av-tool-button (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-mouse-down-proc
+                  (:pointer
+                   (:function
+                    (av-window
+                     av-window-coord
+                     av-window-coord
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-draw-proc
+                  (:pointer
+                   (:function
+                    (av-window (:pointer av-window-rect))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-will-be-resized-proc
+                  (:pointer
+                   (:function
+                    (av-window (:pointer av-screen-rect))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-adjust-cursor-proc
+                  (:pointer
+                   (:function
+                    (av-window av-window-coord av-window-coord)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-resize-proc
+                  (:pointer
+                   (:function
+                    (av-window (:pointer av-screen-rect))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-maximize-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-collapse-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-move-proc
+                  (:pointer
+                   (:function
+                    (av-window (:pointer av-screen-rect))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-will-close-proc
+                  (:pointer
+                   (:function
+                    (av-window as-bool)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-close-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-activate-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-did-become-key-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-key-down-proc
+                  (:pointer
+                   (:function
+                    (av-window :byte (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-will-resign-key-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-will-deactivate-proc
+                  (:pointer
+                   (:function
+                    (av-window)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-perform-edit-op-proc
+                  (:pointer
+                   (:function
+                    (av-window as-atom)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-can-perform-edit-op-proc
+                  (:pointer
+                   (:function
+                    (av-window as-atom)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-window-destroy-platform-thing-proc
+                  (:pointer
+                   (:function
+                    (av-window (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-enum-proc
+                  (:pointer
+                   (:function
+                    (as-atom
+                     (:reference-pass :ef-mb-string)
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-perform-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) pdaction av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-do-properties-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) pdaction av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-fill-action-dict-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) cos-obj av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-get-instructions-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pdaction
+                     (:reference-pass :ef-mb-string)
+                     av-tarray-size
+                     av-doc)
+                    av-tarray-size
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-get-button-text-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pdaction
+                     (:reference-pass :ef-mb-string)
+                     av-tarray-size
+                     av-doc)
+                    av-tarray-size
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-get-string-one-text-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pdaction
+                     (:reference-pass :ef-mb-string)
+                     av-tarray-size
+                     av-doc)
+                    av-tarray-size
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-get-string-two-text-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pdaction
+                     (:reference-pass :ef-mb-string)
+                     av-tarray-size
+                     av-doc)
+                    av-tarray-size
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-copy-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) av-doc pdaction av-doc)
+                    pdaction
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-get-details-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void) av-doc pdaction as-cab)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-perform-ex-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     pdaction
+                     av-doc
+                     av-action-context)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-action-do-properties-ex-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void)
+                     av-doc
+                     (:pointer pdaction)
+                     as-array-size)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-aux-data-perform-proc
+                  (:pointer
+                   (:function
+                    (as-atom
+                     (:pointer :void)
+                     av-tbuffer-size
+                     av-doc
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-type-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-execute-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     pdtrans
+                     av-transition-port
+                     av-transition-port
+                     as-fixed)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-uiname-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     pdtrans
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-item-uiname-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     as-int32
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-item-direction-uiname-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler as-int32 as-text)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-bi-dir-enabled-proc
+                  (:pointer
+                   (:function nil as-bool :calling-convention :cdecl)))
+(define-c-typedef av-trans-handler-get-smooth-action-enabled-proc
+                  (:pointer
+                   (:function nil as-bool :calling-convention :cdecl)))
+(define-c-typedef av-trans-handler-get-item-name-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler as-int32)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-name-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler pdtrans)
+                    as-atom
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-init-trans-dict-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler cos-obj)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-complete-trans-dict-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     (:reference-pass :ef-mb-string)
+                     cos-obj)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-do-properties-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     (:reference-pass :ef-mb-string)
+                     pdtrans)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-instructions-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-button-text-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-string-one-text-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-get-string-two-text-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler
+                     (:reference-pass :ef-mb-string)
+                     as-int32)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-trans-handler-enum-proc
+                  (:pointer
+                   (:function
+                    (av-trans-handler (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-open-save-dialog-settings-compute-enabled-proc
+                  (:pointer
+                   (:function
+                    ((:pointer av-file-filter-rec) (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-open-save-dialog-settings-execute-proc
+                  (:pointer
+                   (:function
+                    ((:pointer av-file-filter-rec) (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-default-settings-proc
+                  (:pointer
+                   (:function
+                    ((:reference-pass :ef-mb-string)
+                     av-conversion-client-data)
+                    as-cab
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-set-settings-proc
+                  (:pointer
+                   (:function
+                    (as-cab av-conversion-client-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-param-desc-proc
+                  (:pointer
+                   (:function
+                    (as-cab as-cab av-conversion-client-data)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-settings-dialog-proc
+                  (:pointer
+                   (:function
+                    (as-cab av-conversion-client-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-convert-to-pdf-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     av-conversion-flags
+                     as-path-name
+                     as-file-sys
+                     (:pointer pddoc)
+                     av-status-monitor-procs
+                     av-conversion-client-data)
+                    av-conversion-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-convert-stream-to-pdf-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     av-conversion-flags
+                     as-stm
+                     as-cab
+                     (:pointer pddoc)
+                     av-status-monitor-procs
+                     av-conversion-client-data)
+                    av-conversion-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-append-to-pdf-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     av-conversion-flags
+                     as-path-name
+                     as-file-sys
+                     pddoc
+                     av-status-monitor-procs
+                     av-conversion-client-data)
+                    av-conversion-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-get-queue-status-proc
+                  (:pointer
+                   (:function
+                    (av-conversion-client-data)
+                    as-uns32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-convert-from-pdf-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     av-conversion-flags
+                     pddoc
+                     as-path-name
+                     as-file-sys
+                     av-status-monitor-procs
+                     av-conversion-client-data)
+                    av-conversion-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-convert-stream-from-pdf-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     av-conversion-flags
+                     pddoc
+                     as-stm
+                     as-cab
+                     av-status-monitor-procs
+                     av-conversion-client-data)
+                    av-conversion-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-convert-stream-from-struct-node-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     av-conversion-flags
+                     av-struct-node
+                     as-stm
+                     as-cab
+                     av-status-monitor-procs
+                     av-conversion-client-data)
+                    av-conversion-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-to-pdf-enum-proc
+                  (:pointer
+                   (:function
+                    (av-conversion-to-pdf-handler
+                     av-conversion-enum-proc-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-conversion-from-pdf-enum-proc
+                  (:pointer
+                   (:function
+                    (av-conversion-from-pdf-handler
+                     av-conversion-enum-proc-data)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-cmd-handler-init-proc
+                  (:pointer
+                   (:function
+                    (as-atom)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-cmd-handler-term-proc
+                  (:pointer
+                   (:function
+                    (as-atom)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-register-commands-proc
+                  (:pointer
+                   (:function
+                    (as-atom)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-created-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-destroy-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-set-proc
+                  (:pointer
+                   (:function
+                    (av-command as-cab)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-get-proc
+                  (:pointer
+                   (:function
+                    (av-command as-cab)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-show-dialog-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-work-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-cancel-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-reset-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-preflight-sequence-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-preflight-file-proc
+                  (:pointer
+                   (:function
+                    (av-command pddoc)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-postflight-file-proc
+                  (:pointer
+                   (:function
+                    (av-command pddoc)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-command-postflight-sequence-proc
+                  (:pointer
+                   (:function
+                    (av-command)
+                    av-command-status
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-simple-sel-hilite-proc
+                  (:pointer
+                   (:function
+                    (av-simple-sel-obj av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-simple-sel-de-hilite-proc
+                  (:pointer
+                   (:function
+                    (av-simple-sel-obj av-doc)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-simple-sel-data-destroy-proc
+                  (:pointer
+                   (:function
+                    (av-simple-sel-obj)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-undo-verify-proc
+                  (:pointer
+                   (:function
+                    (av-undo)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-undo-release-proc
+                  (:pointer
+                   (:function
+                    (av-undo)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-undo-execute-proc
+                  (:pointer
+                   (:function
+                    (av-undo)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-undo-get-title-proc
+                  (:pointer
+                   (:function
+                    (av-undo as-text)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-undo-begin-end-proc
+                  (:pointer
+                   (:function
+                    (av-doc as-bool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-struct av-icon-bundle-rec
+                 (tag1 as-uns32)
+                 (tag2 as-uns32)
+                 (version as-int32)
+                 (gray-icon av-icon-bundle-icon-ref)
+                 (color-icon av-icon-bundle-icon-ref))
+(define-c-typedef av-icon-bundle (:pointer av-icon-bundle-rec))
+(define-c-struct av-icon-handler-rec
+                 (size as-int32)
+                 (client-data (:pointer :void))
+                 (measure av-icon-handler-measure-proc)
+                 (open-stm av-icon-handler-open-stm-proc)
+                 (get-flags av-icon-handler-get-flags-proc)
+                 (release av-icon-handler-release-proc)
+                 (resize av-icon-handler-resize-proc))
+(define-c-typedef av-icon-handler (:pointer av-icon-handler-rec))
+(define-c-struct av-icon-data-rec
+                 (data-stm as-stm)
+                 (e-color-format av-icon-color-format))
+(define-c-typedef av-icon-data (:pointer av-icon-data-rec))
+(define-c-struct os2port-rec (h-wnd hwnd) (h-ps hps))
+(define-c-typedef os2port (:pointer os2port-rec))
+(define-c-struct av-rect
+                 (left av-sdk-dependent-integer)
+                 (top av-sdk-dependent-integer)
+                 (right av-sdk-dependent-integer)
+                 (bottom av-sdk-dependent-integer))
+(define-c-typedef av-rect-p (:pointer av-rect))
+(define-c-struct av-point (h as-int32) (v as-int32))
+(define-c-struct av-doc-selection-server-rec
+                 (size as-size-t)
+                 (get-type av-doc-selection-get-type-proc)
+                 (getting-selection
+                  av-doc-selection-getting-selection-proc)
+                 (added-to-selection
+                  av-doc-selection-added-to-selection-proc)
+                 (losing-selection
+                  av-doc-selection-losing-selection-proc)
+                 (removed-from-selection
+                  av-doc-selection-removed-from-selection-proc)
+                 (can-select-all av-doc-selection-can-select-all-proc)
+                 (select-all av-doc-selection-select-all-proc)
+                 (can-properties av-doc-selection-can-properties-proc)
+                 (properties av-doc-selection-properties-proc)
+                 (can-delete av-doc-selection-can-delete-proc)
+                 (delete av-doc-selection-delete-proc)
+                 (can-copy av-doc-selection-can-copy-proc)
+                 (copy av-doc-selection-copy-proc)
+                 (enum-selection av-doc-selection-enum-selection-proc)
+                 (show-selection av-doc-selection-show-selection-proc)
+                 (can-cut av-doc-selection-can-cut-proc)
+                 (cut av-doc-selection-cut-proc)
+                 (can-paste av-doc-selection-can-paste-proc)
+                 (paste av-doc-selection-paste-proc)
+                 (key-down av-doc-selection-key-down-proc)
+                 (highlight-selection
+                  av-doc-selection-highlight-selection-proc)
+                 (get-selection-type
+                  av-doc-selection-get-selection-type-proc)
+                 (enum-page-ranges
+                  av-doc-selection-enum-page-ranges-proc)
+                 (old-get-avrect old-avdoc-selection-get-avrect-proc)
+                 (old-show-menu old-avdoc-selection-show-menu-proc)
+                 (get-avrect av-doc-selection-get-avrect-proc)
+                 (show-menu av-doc-selection-show-menu-proc)
+                 (highlight-selection-ex
+                  av-doc-selection-highlight-selection-ex-proc)
+                 (acquire-quads av-doc-selection-acquire-quads-proc)
+                 (can-paste-from-platform
+                  av-doc-selection-can-paste-from-platform-proc)
+                 (paste-from-platform
+                  av-doc-selection-paste-from-platform-proc)
+                 (unicode-key-down
+                  av-doc-selection-unicode-key-down-proc)
+                 (type as-atom))
+(define-c-typedef av-doc-selection-server
+                  (:pointer av-doc-selection-server-rec))
+(define-c-struct av-doc-view-def-rec
+                 (size as-size-t)
+                 (bring-to-front as-bool)
+                 (page-view-layout-mode pdlayout-mode)
+                 (page-view-page-num pdpage-number)
+                 (page-view-zoom-type av-zoom-type)
+                 (page-view-zoom as-fixed)
+                 (page-view-x av-dev-coord)
+                 (page-view-y av-dev-coord)
+                 (page-view-start-thread as-bool)
+                 (page-view-thread-index av-page-index)
+                 (page-view-bead pdbead)
+                 (use-over-view-info as-bool)
+                 (over-view-mode pdpage-mode)
+                 (over-view-pos av-pixel-offset)
+                 (over-view-x as-int32)
+                 (over-view-y as-int32)
+                 (use-window-info as-bool)
+                 (window-frame av-screen-rect)
+                 (window-maximized as-bool))
+(define-c-typedef av-doc-view-def (:pointer av-doc-view-def-rec))
+(define-c-struct av-dest-info-rec
+                 (size as-size-t)
+                 (named-dest (:pointer :byte))
+                 (name-length av-tarray-size)
+                 (page-num pdpage-number)
+                 (fit-type as-atom)
+                 (dest-rect as-fixed-rect)
+                 (zoom as-fixed))
+(define-c-typedef av-dest-info (:pointer av-dest-info-rec))
+(define-c-struct av-doc-open-params-rec
+                 (size as-size-t)
+                 (use-frame as-bool)
+                 (frame av-screen-rect)
+                 (use-visible as-bool)
+                 (visible as-bool)
+                 (use-server-type as-bool)
+                 (server-type (:pointer :byte))
+                 (server-creation-data (:pointer :void))
+                 (use-source-doc as-bool)
+                 (source-doc av-doc)
+                 (use-read-only as-bool)
+                 (read-only as-bool)
+                 (use-view-type as-bool)
+                 (view-type (:pointer :byte))
+                 (use-view-def as-bool)
+                 (view-def av-doc-view-def)
+                 (use-perm-req-proc as-bool)
+                 (perm-req-proc av-doc-perm-req-proc)
+                 (open-actions as-cab)
+                 (suppress-dialogs as-bool)
+                 (use-collection-pref as-bool)
+                 (collection-pref as-bool)
+                 (use-minimize as-bool)
+                 (minimize as-bool)
+                 (force-open-protected-view\  as-bool)
+                 (force-open-option av-doc-force-open-option)
+                 (open-flags av-doc-open-flags))
+(define-c-typedef av-doc-open-params (:pointer av-doc-open-params-rec))
+(define-c-struct external-doc-server-creation-data-rec
+                 (size as-size-t)
+                 (platform-window external-doc-window-data)
+                 (acrobat-proc av-execute-proc)
+                 (acrobat-proc-data (:pointer :void))
+                 (cross-doc-link-proc cross-doc-link-proc)
+                 (cross-doc-link-proc-data (:pointer :void))
+                 (set-message av-set-message-proc)
+                 (set-message-proc-data (:pointer :void))
+                 (cross-doc-link-with-dest-proc
+                  cross-doc-link-with-dest-proc)
+                 (cross-doc-link-with-dest-data (:pointer :void))
+                 (set-focus av-set-focus-proc)
+                 (set-focus-proc-data (:pointer :void))
+                 (set-focus-shifttab av-set-focus-proc)
+                 (set-focus-shifttabproc-data (:pointer :void))
+                 (set-focus-ctrltab av-set-focus-proc)
+                 (set-focus-ctrltabproc-data (:pointer :void)))
+(define-c-typedef external-doc-server-creation-data
+                  (:pointer external-doc-server-creation-data-rec))
+(define-c-struct av-annot-handler-info-rec
+                 (size as-size-t)
+                 (c-name (:pointer (:unsigned :byte)))
+                 (v-bitmap (:pointer :void)))
+(define-c-typedef av-annot-handler-info
+                  (:pointer av-annot-handler-info-rec))
+(define-c-struct av-annot-op-data-rec
+                 (size as-size-t)
+                 (x av-dev-coord)
+                 (y av-dev-coord)
+                 (client-data (:pointer :void))
+                 (reason av-annot-op-reason)
+                 (page-num as-int32))
+(define-c-typedef av-annot-op-data (:pointer av-annot-op-data-rec))
+(define-c-struct av-click-params-rec
+                 (size as-size-t)
+                 (x-hit av-dev-coord)
+                 (y-hit av-dev-coord)
+                 (flags av-flag-bits16)
+                 (click-no av-tcount)
+                 (tool-type as-atom))
+(define-c-typedef av-click-params (:pointer av-click-params-rec))
+(define-c-struct av-adjust-cursor-params-rec
+                 (size as-size-t)
+                 (x-hit av-dev-coord)
+                 (y-hit av-dev-coord)
+                 (tool-type as-atom))
+(define-c-typedef av-adjust-cursor-params
+                  (:pointer av-adjust-cursor-params-rec))
+(define-c-struct av-annot-appearance-data-rec
+                 (size as-size-t)
+                 (appearance-object cos-obj)
+                 (selected-shape-appearance-obj cos-obj))
+(define-c-struct av-annot-handler-rec
+                 (size as-size-t)
+                 (flags av-flag-bits32)
+                 (old-do-click old-avannot-handler-do-click-proc)
+                 (old-adjust-cursor
+                  old-avannot-handler-adjust-cursor-proc)
+                 (old-pt-in-annot-view-bbox
+                  old-avannot-handler-pt-in-annot-view-bbox-proc)
+                 (old-get-annot-view-bbox
+                  old-avannot-handler-get-annot-view-bbox-proc)
+                 (notify-annot-removed-from-selection
+                  av-annot-handler-notify-annot-removed-from-selection-proc)
+                 (notify-annot-added-to-selection
+                  av-annot-handler-notify-annot-added-to-selection-proc)
+                 (draw av-annot-handler-draw-proc)
+                 (new av-annot-handler-new-proc)
+                 (get-type av-annot-handler-get-type-proc)
+                 (notify-destroy av-annot-handler-notify-destroy-proc)
+                 (do-properties av-annot-handler-do-properties-proc)
+                 (do-key-down av-annot-handler-do-key-down-proc)
+                 (get-layer av-annot-handler-get-layer-proc)
+                 (cursor-enter av-annot-handler-cursor-enter-proc)
+                 (cursor-exit av-annot-handler-cursor-exit-proc)
+                 (copy av-annot-handler-copy-proc)
+                 (old-do-right-click old-avannot-handler-do-click-proc)
+                 (get-info av-annot-handler-get-info-proc)
+                 (delete-info av-annot-handler-delete-info-proc)
+                 (can-perform-op av-annot-handler-can-perform-op-proc)
+                 (perform-op av-annot-handler-perform-op-proc)
+                 (do-key-down-ex av-annot-handler-do-key-down-ex-proc)
+                 (old-draw-ex old-avannot-handler-draw-ex-proc)
+                 (get-flags av-annot-handler-get-flags-proc)
+                 (do-click av-annot-handler-do-click-proc)
+                 (adjust-cursor av-annot-handler-adjust-cursor-proc)
+                 (pt-in-annot-view-bbox
+                  av-annot-handler-pt-in-annot-view-bbox-proc)
+                 (get-annot-view-bbox
+                  av-annot-handler-get-annot-view-bbox-proc)
+                 (do-right-click av-annot-handler-do-click-proc)
+                 (draw-ex av-annot-handler-draw-ex-proc)
+                 (get-appearance av-annot-handler-get-appearance-proc)
+                 (begin-appearance-drawing
+                  av-annot-handler-appearance-drawing-proc)
+                 (finish-appearance-drawing
+                  av-annot-handler-appearance-drawing-proc)
+                 (cancel-appearance-drawing
+                  av-annot-handler-appearance-drawing-proc)
+                 (do-properties-ex
+                  av-annot-handler-do-properties-ex-proc)
+                 (get-layer-ex av-annot-handler-get-layer-ex-proc)
+                 (do-click-ex av-annot-handler-do-click-ex-proc)
+                 (do-right-click-ex av-annot-handler-do-click-ex-proc)
+                 (adjust-cursor-ex
+                  av-annot-handler-adjust-cursor-ex-proc)
+                 (get-accessibility-string
+                  av-annot-handler-get-accessibility-string-proc)
+                 (get-annot-in-tab-order
+                  av-annot-handler-get-annot-in-tab-order-proc)
+                 (get-aux-icon-count
+                  av-annot-handler-get-aux-icon-count-proc)
+                 (get-aux-icons av-annot-handler-get-aux-icons-proc)
+                 (get-appearance-ex
+                  av-annot-handler-get-appearance-ex-proc)
+                 (post-draw av-annot-handler-post-draw-proc))
+(define-c-struct av-tool-rec
+                 (size as-size-t)
+                 (activate activate-proc-type)
+                 (deactivate deactivate-proc-type)
+                 (old-do-click old-do-click-proc-type)
+                 (old-adjust-cursor old-adjust-cursor-proc-type)
+                 (do-key-down do-key-down-proc-type)
+                 (get-type get-type-proc-type)
+                 (is-persistent is-persistent-proc-type)
+                 (cursor-id av-cursor-id)
+                 (compute-enabled av-compute-enabled-proc)
+                 (compute-enabled-data (:pointer :void))
+                 (old-do-right-click old-do-click-proc-type)
+                 (do-leave do-leave-proc-type)
+                 (get-selection-server get-selection-server-proc-type)
+                 (do-click do-click-proc-type)
+                 (adjust-cursor adjust-cursor-proc-type)
+                 (do-right-click do-click-proc-type)
+                 (client-data (:pointer :void))
+                 (destroy av-tool-destroy-proc)
+                 (old-get-label old-avtool-get-label-proc)
+                 (get-label-icon av-tool-get-label-icon-proc)
+                 (handle-mouse-wheel handle-mouse-wheel-scroll-proc)
+                 (get-label av-tool-get-label-proc)
+                 (get-tool-tip av-tool-get-tool-tip-proc))
+(define-c-struct av-tool-bar-add-button-params-rec
+                 (size as-size-t)
+                 (neighbor-button av-tool-button)
+                 (before as-bool)
+                 (hidden-default as-bool))
+(define-c-typedef av-tool-bar-add-button-params
+                  (:pointer av-tool-bar-add-button-params-rec))
+(define-c-struct av-window-handler-rec
+                 (size as-size-t)
+                 (mouse-down av-window-mouse-down-proc)
+                 (will-close av-window-will-close-proc)
+                 (did-close av-window-did-close-proc)
+                 (did-activate av-window-did-activate-proc)
+                 (did-become-key av-window-did-become-key-proc)
+                 (key-down av-window-key-down-proc)
+                 (will-resign-key av-window-will-resign-key-proc)
+                 (will-deactivate av-window-will-deactivate-proc)
+                 (draw av-window-draw-proc)
+                 (will-be-resized av-window-will-be-resized-proc)
+                 (perform-edit-op av-window-perform-edit-op-proc)
+                 (can-perform-edit-op
+                  av-window-can-perform-edit-op-proc)
+                 (adjust-cursor av-window-adjust-cursor-proc)
+                 (did-resize av-window-did-resize-proc)
+                 (destroy-platform-thing
+                  av-window-destroy-platform-thing-proc)
+                 (did-maximize av-window-did-maximize-proc)
+                 (did-collapse av-window-did-collapse-proc)
+                 (did-move av-window-did-move-proc))
+(define-c-typedef av-window-handler (:pointer av-window-handler-rec))
+(define-c-struct av-alert-button-info (show as-bool) (title as-text))
+(define-c-struct av-alert-check-box-info
+                 (show as-bool)
+                 (title as-text)
+                 (value as-bool))
+(define-c-struct av-alert-params-rec
+                 (size as-size-t)
+                 (parent-doc av-doc)
+                 (window-title as-text)
+                 (icon-type av-icon-type)
+                 (message as-text)
+                 (beep as-bool)
+                 (button1 av-alert-button-info)
+                 (button2 av-alert-button-info)
+                 (button3 av-alert-button-info)
+                 (checkbox av-alert-check-box-info)
+                 (alert-type av-alert-type)
+                 (parent-window av-window))
+(define-c-typedef av-alert-params (:pointer av-alert-params-rec))
+(define-c-struct av-action-context-rec
+                 (size as-size-t)
+                 (co cos-obj)
+                 (asa-type as-atom)
+                 (asa-key as-atom))
+(define-c-typedef av-action-context (:pointer av-action-context-rec))
+(define-c-struct av-action-handler-procs-rec
+                 (size as-size-t)
+                 (perform av-action-perform-proc)
+                 (do-properties av-action-do-properties-proc)
+                 (fill-action-dict av-action-fill-action-dict-proc)
+                 (get-instructions av-action-get-instructions-proc)
+                 (get-button-text av-action-get-button-text-proc)
+                 (get-string-one-text
+                  av-action-get-string-one-text-proc)
+                 (get-string-two-text
+                  av-action-get-string-two-text-proc)
+                 (copy av-action-copy-proc)
+                 (perform-ex av-action-perform-ex-proc)
+                 (do-properties-ex av-action-do-properties-ex-proc)
+                 (get-details av-action-get-details-proc))
+(define-c-struct av-aux-data-handler-rec
+                 (size as-size-t)
+                 (perform-proc av-aux-data-perform-proc))
+(define-c-typedef av-aux-data-handler
+                  (:pointer av-aux-data-handler-rec))
+(define-c-struct as-platform-printer-spec-rec
+                 (size as-size-t)
+                 (h-res :short)
+                 (v-res :short))
+(define-c-typedef as-platform-printer-spec
+                  (:pointer as-platform-printer-spec-rec))
+(define-c-struct av-doc-print-tile-data-rec
+                 (size as-size-t)
+                 (overlap as-uns32)
+                 (scale as-fixed)
+                 (label as-bool)
+                 (mark-type av-tile-mark))
+(define-c-typedef av-doc-print-tile-data
+                  (:pointer av-doc-print-tile-data-rec))
+(define-c-struct av-doc-print-nup-data-rec
+                 (size as-size-t)
+                 (num-pages-per-sheet-h as-int32)
+                 (num-pages-per-sheet-v as-int32)
+                 (page-order av-n-up-page-order)
+                 (page-border as-bool)
+                 (auto-rotate as-bool)
+                 (booklet-binding av-booklet-binding)
+                 (booklet-duplex-mode av-booklet-duplex-mode)
+                 (booklet-subset-from as-int32)
+                 (booklet-subset-to as-int32))
+(define-c-typedef av-doc-print-nup-data
+                  (:pointer av-doc-print-nup-data-rec))
+(define-c-struct av-doc-print-rasterize-data-rec
+                 (size as-size-t)
+                 (flags av-rasterize-flags)
+                 (transparency as-int32)
+                 (bitmap-resolution as-uns32)
+                 (gradient-resolution as-uns32)
+                 (print-as-image-resolution as-uns32))
+(define-c-typedef av-doc-print-rasterize-data
+                  (:pointer av-doc-print-rasterize-data-rec))
+(define-c-struct av-doc-print-override-data-rec
+                 (size as-size-t)
+                 (color-override av-color-forcing)
+                 (use-printer-crd av-use-value)
+                 (use-t1conversion av-use-value))
+(define-c-typedef av-doc-print-override-data
+                  (:pointer av-doc-print-override-data-rec))
+(define-c-struct av-doc-print-params-rec
+                 (size as-size-t)
+                 (interactive as-bool)
+                 (cancel-dialog as-bool)
+                 (first-page as-int32)
+                 (last-page as-int32)
+                 (ps-level as-int32)
+                 (binary-ok as-bool)
+                 (shrink-to-fit as-bool)
+                 (file-sys-name as-atom)
+                 (file-path-name as-path-name)
+                 (printer-spec as-platform-printer-spec)
+                 (embedded as-bool)
+                 (embedded-rect av-rect)
+                 (emit-to-printer as-bool)
+                 (emit-to-file as-bool)
+                 (do-color-separations as-bool)
+                 (emit-file-option as-enum8)
+                 (emit-font-option as-enum8)
+                 (emit-flags as-uns32)
+                 (ranges (:pointer pdpage-range))
+                 (num-ranges av-tsmall-array-size)
+                 (ttas-t42 as-bool)
+                 (print-as-image as-bool)
+                 (printer-has-far-east-fonts as-bool)
+                 (reverse as-bool)
+                 (page-spec as-int32)
+                 (transparency-level as-int32)
+                 (page-size av-page-size)
+                 (tile-data av-doc-print-tile-data)
+                 (raster-data av-doc-print-rasterize-data)
+                 (override-data av-doc-print-override-data)
+                 (select-rect (:pointer as-fixed-rect))
+                 (oc-context pdoccontext)
+                 (res-policy av-resource-policy)
+                 (marks-flags as-uns32)
+                 (n-up-data av-doc-print-nup-data)
+                 (marks-style as-int32)
+                 (print-dialog-was-cancelled as-bool)
+                 (parent-window av-window)
+                 (ppd-path (:pointer :byte))
+                 (custom-marks-file-name as-path-name)
+                 (num-copies as-int32)
+                 (duplex-type av-print-duplex-type)
+                 (save-toner as-bool))
+(define-c-struct av-doc-print-seps-params-rec
+                 (size as-size-t)
+                 (av-doc av-doc)
+                 (first-page as-int32)
+                 (last-page as-int32)
+                 (file-sys-name as-atom)
+                 (file-path-name as-path-name)
+                 (emit-file-option as-enum8)
+                 (emit-flags as-uns32)
+                 (page-size av-page-size)
+                 (seps-spec pdhost-seps-spec)
+                 (in-rip as-bool)
+                 (trap-type as-int32)
+                 (printer-spec as-platform-printer-spec))
+(define-c-struct av-transition-port-rec
+                 (reserved (:pointer :void))
+                 (rect32 av-rect32))
+(define-c-typedef av-transition-port (:pointer av-transition-port-rec))
+(define-c-struct av-trans-handler-rec
+                 (size as-size-t)
+                 (get-type av-trans-handler-get-type-proc)
+                 (execute av-trans-handler-execute-proc)
+                 (get-uiname av-trans-handler-get-uiname-proc)
+                 (get-item-uiname
+                  av-trans-handler-get-item-uiname-proc)
+                 (init-trans-dict
+                  av-trans-handler-init-trans-dict-proc)
+                 (complete-trans-dict
+                  av-trans-handler-complete-trans-dict-proc)
+                 (do-properties av-trans-handler-do-properties-proc)
+                 (get-instructions
+                  av-trans-handler-get-instructions-proc)
+                 (get-button-text
+                  av-trans-handler-get-button-text-proc)
+                 (get-string-one-text
+                  av-trans-handler-get-string-one-text-proc)
+                 (get-string-two-text
+                  av-trans-handler-get-string-two-text-proc)
+                 (get-name av-trans-handler-get-name-proc)
+                 (get-item-name av-trans-handler-get-item-name-proc)
+                 (disclude-from-random as-bool)
+                 (disclude-from-ui as-bool)
+                 (get-item-direction-uiname
+                  av-trans-handler-get-item-direction-uiname-proc)
+                 (get-bi-dir-enabled
+                  av-trans-handler-get-bi-dir-enabled-proc)
+                 (get-smooth-action-enabled
+                  av-trans-handler-get-smooth-action-enabled-proc))
+(define-c-struct av-doc-save-params-rec
+                 (size as-size-t)
+                 (use-save-dialog as-bool)
+                 (dont-allow-conversions as-bool)
+                 (filter-id (:pointer :byte))
+                 (use-defaults as-bool))
+(define-c-typedef av-doc-save-params (:pointer av-doc-save-params-rec))
+(define-c-struct av-status-monitor-procs-rec
+                 (size as-size-t)
+                 (prog-mon as-progress-monitor)
+                 (prog-mon-client-data (:pointer :void))
+                 (cancel-proc as-cancel-proc)
+                 (cancel-proc-client-data (:pointer :void))
+                 (report-proc as-report-proc)
+                 (report-proc-client-data (:pointer :void)))
+(define-c-typedef av-status-monitor-procs
+                  (:pointer av-status-monitor-procs-rec))
+(define-c-struct av-file-desc-rec
+                 (mac-file-type as-uns32)
+                 (mac-file-creator as-uns32))
+(define-c-struct av-file-filter-rec
+                 (filter-description as-text)
+                 (file-descs (:pointer av-file-desc-rec))
+                 (num-file-descs av-array-size))
+(define-c-struct av-open-save-dialog-params-rec
+                 (size as-size-t)
+                 (flags av-open-save-dialog-flags)
+                 (parent-window av-window)
+                 (window-title as-text)
+                 (action-button-title as-text)
+                 (cancel-button-title as-text)
+                 (initial-file-sys as-file-sys)
+                 (initial-path-name as-path-name)
+                 (initial-file-name as-text)
+                 (num-file-filters av-array-size)
+                 (settings-compute-enabled-proc
+                  av-open-save-dialog-settings-compute-enabled-proc)
+                 (settings-execute-proc
+                  av-open-save-dialog-settings-execute-proc)
+                 (settings-proc-data (:pointer :void))
+                 (show-export-checkbox as-bool)
+                 (file-options-rfs as-text)
+                 (custom-input-data-size as-size-t)
+                 (custom-input-data (:pointer :void))
+                 (custom-output-data-size as-size-t)
+                 (custom-output-data (:pointer :void)))
+(define-c-typedef av-open-save-dialog-params
+                  (:pointer av-open-save-dialog-params-rec))
+(define-c-struct av-open-save-dialog-out-params-rec
+                 (chosen-file-sys as-file-sys)
+                 (chosen-path-name as-path-name)
+                 (chosen-filter-index as-int16)
+                 (launch-file as-bool))
+(define-c-typedef av-open-save-dialog-out-params
+                  (:pointer av-open-save-dialog-out-params-rec))
+(define-c-struct av-conversion-to-pdf-handler-rec
+                 (conv-filter av-file-filter-rec)
+                 (size as-size-t)
+                 (can-do-sync as-bool)
+                 (priority av-priority)
+                 (default-settings av-conversion-default-settings-proc)
+                 (set-settings av-conversion-set-settings-proc)
+                 (parameter-description av-conversion-param-desc-proc)
+                 (settings-dialog av-conversion-settings-dialog-proc)
+                 (convert av-conversion-convert-to-pdf-proc)
+                 (append av-conversion-append-to-pdf-proc)
+                 (get-queue-status av-conversion-get-queue-status-proc)
+                 (client-data av-conversion-client-data)
+                 (stream-mime-types
+                  (:pointer av-conversion-mime-type-string))
+                 (num-stream-mime-types av-array-size)
+                 (convert-stream
+                  av-conversion-convert-stream-to-pdf-proc)
+                 (reserved av-conversion-client-data))
+(define-c-typedef av-conversion-to-pdf-handler
+                  (:pointer av-conversion-to-pdf-handler-rec))
+(define-c-struct av-conversion-from-pdf-handler-rec
+                 (conv-filter av-file-filter-rec)
+                 (size as-size-t)
+                 (can-do-sync as-bool)
+                 (priority av-priority)
+                 (default-settings av-conversion-default-settings-proc)
+                 (parameter-description av-conversion-param-desc-proc)
+                 (settings-dialog av-conversion-settings-dialog-proc)
+                 (convert av-conversion-convert-from-pdf-proc)
+                 (client-data av-conversion-client-data)
+                 (stream-mime-types
+                  (:pointer av-conversion-mime-type-string))
+                 (num-stream-mime-types av-array-size)
+                 (convert-stream
+                  av-conversion-convert-stream-from-pdf-proc)
+                 (convert-struct-node
+                  av-conversion-convert-stream-from-struct-node-proc))
+(define-c-typedef av-conversion-from-pdf-handler
+                  (:pointer av-conversion-from-pdf-handler-rec))
+(define-c-struct av-command-handler-rec
+                 (size as-size-t)
+                 (initialize av-cmd-handler-init-proc)
+                 (terminate av-cmd-handler-term-proc)
+                 (register-commands av-register-commands-proc)
+                 (created av-command-created-proc)
+                 (destroy av-command-destroy-proc)
+                 (set-params av-command-set-proc)
+                 (get-params av-command-get-proc)
+                 (get-props av-command-get-proc)
+                 (show-dialog av-command-show-dialog-proc)
+                 (work av-command-work-proc)
+                 (cancel av-command-cancel-proc)
+                 (reset av-command-reset-proc)
+                 (preflight-sequence
+                  av-command-preflight-sequence-proc)
+                 (preflight-file av-command-preflight-file-proc)
+                 (postflight-file av-command-postflight-file-proc)
+                 (postflight-sequence
+                  av-command-postflight-sequence-proc)
+                 (reserved (:pointer :void)))
+(define-c-struct av-drag-rect-params-rec
+                 (size as-size-t)
+                 (page-view av-page-view)
+                 (x-start as-int32)
+                 (y-start as-int32)
+                 (start-rect (:pointer as-fixed-rect))
+                 (result-rect (:pointer as-fixed-rect))
+                 (drag-type av-drag-type)
+                 (extrema (:pointer av-dev-rect))
+                 (cursor-array (:pointer av-cursor))
+                 (n-cursors as-int32)
+                 (draw-proc av-page-view-draw-proc)
+                 (min-rect (:pointer av-dev-rect)))
+(define-c-typedef av-drag-rect-params
+                  (:pointer av-drag-rect-params-rec))
+(define-c-struct av-tool-bar-position-rec
+                 (size as-size-t)
+                 (in-doc as-bool)
+                 (dock-position av-tool-bar-dock-position)
+                 (floating-window-name (:pointer :byte))
+                 (stack-num as-int32)
+                 (offset as-int32)
+                 (order as-int32)
+                 (window-frame av-screen-rect)
+                 (layout av-tool-bar-layout)
+                 (hidden as-bool)
+                 (window-hidden as-bool))
+(define-c-typedef av-tool-bar-position
+                  (:pointer av-tool-bar-position-rec))
+(define-c-struct av-extension-info-rec
+                 (asa-name as-atom)
+                 (b-loaded as-bool)
+                 (b-certified as-bool)
+                 (n-major-version av-version-num-part)
+                 (n-minor-version av-version-num-part)
+                 (c-date (:pointer :byte))
+                 (asp-file as-path-name)
+                 (c-description (:pointer :byte))
+                 (c-legal (:pointer :byte))
+                 (c-dependencies (:pointer :byte)))
+(define-c-typedef av-extension-info (:pointer av-extension-info-rec))
+(define-c-struct av-simple-sel-procs-rec
+                 (size as-size-t)
+                 (type (:pointer :byte))
+                 (hilite-proc av-simple-sel-hilite-proc)
+                 (de-hilite-proc av-simple-sel-de-hilite-proc)
+                 (destroy-proc av-simple-sel-data-destroy-proc))
+(define-c-typedef av-simple-sel-procs
+                  (:pointer av-simple-sel-procs-rec))
+(define-c-struct av-undo-handler-rec
+                 (size as-size-t)
+                 (type (:pointer :byte))
+                 (verify-undo av-undo-verify-proc)
+                 (undo av-undo-execute-proc)
+                 (verify-redo av-undo-verify-proc)
+                 (redo av-undo-execute-proc)
+                 (get-undo-title av-undo-get-title-proc)
+                 (get-redo-title av-undo-get-title-proc)
+                 (release av-undo-release-proc)
+                 (begin-undo-redo av-undo-begin-end-proc)
+                 (end-undo-redo av-undo-begin-end-proc))
+(define-c-typedef av-undo-handler (:pointer av-undo-handler-rec))
+(define-c-struct av-ink-value (ink-name as-atom) (value :float))
+(define-c-struct av-app-language-params-rec
+                 (size as-size-t)
+                 (k-lang-format av-app-language-format)
+                 (k-lang-selector av-app-language-selector)
+                 (lang-id as-int32))
+(define-c-typedef av-app-language-params
+                  (:pointer av-app-language-params-rec))
+(define-c-struct pdf-opt-image-options-rec
+                 (size as-size-t)
+                 (enm-downsampling-algo pdf-opt-downsampling-algo)
+                 (ppi-downsample-to as-int32)
+                 (ppi-downsample-above as-int32)
+                 (enm-compression-algo pdf-opt-compression-algo)
+                 (enm-compression-qlty pdf-opt-compression-qlty)
+                 (n-tile-size as-int32))
+(define-c-typedef pdf-opt-image-options
+                  (:pointer pdf-opt-image-options-rec))
+(define-c-struct pdf-opt-flatten-transparency-options-rec
+                 (size as-size-t)
+                 (pct-raster-vector-balance as-int32)
+                 (ppi-line-art-and-text as-int32)
+                 (ppi-gradient-and-mesh as-int32)
+                 (b-convert-text as-bool)
+                 (b-convert-strokes as-bool)
+                 (b-clip-complex-regions as-bool)
+                 (b-preserve-overprint as-bool))
+(define-c-typedef pdf-opt-flatten-transparency-options
+                  (:pointer pdf-opt-flatten-transparency-options-rec))
+(define-c-struct pdf-opt-params-rec
+                 (size as-size-t)
+                 (as-path-dest as-path-name)
+                 (file-sys as-file-sys)
+                 (prog-mon progress-monitor)
+                 (prog-mon-client-data (:pointer :void))
+                 (enm-acrobat-version pdf-opt-pdf-version)
+                 (image-options-color pdf-opt-image-options-rec)
+                 (image-options-grayscale pdf-opt-image-options-rec)
+                 (image-options-monochrome pdf-opt-image-options-rec)
+                 (arr-pdf-onts-to-unembed (:pointer pdf-ont))
+                 (c-pdf-onts-to-unembed as-int32)
+                 (pdf-opt-flatten-transparency-options
+                  pdf-opt-flatten-transparency-options)
+                 (b-remove-form-actions as-bool)
+                 (b-flatten-form-fields as-bool)
+                 (b-remove-javascript-actions as-bool)
+                 (b-remove-alternate-images as-bool)
+                 (b-remove-thumbnails as-bool)
+                 (b-remove-document-tags as-bool)
+                 (b-smoothen-lines as-bool)
+                 (b-merge-image-fragments as-bool)
+                 (b-remove-print-settings as-bool)
+                 (b-remove-srch-index as-bool)
+                 (b-remove-bookmarks as-bool)
+                 (b-remove-comments-and-widgets as-bool)
+                 (b-remove-doc-info-and-metadata as-bool)
+                 (b-remove-object-data as-bool)
+                 (b-remove-file-attachments as-bool)
+                 (b-remove-cross-refs as-bool)
+                 (b-remove-private-data as-bool)
+                 (b-flatten-visible-layers as-bool)
+                 (enm-object-compression pdf-opt-object-compression)
+                 (b-unencoded-to-flate as-bool)
+                 (b-lzwto-flate as-bool)
+                 (b-remove-invalid-bookmarks as-bool)
+                 (b-remove-invalid-links as-bool)
+                 (b-remove-unreferenced-named-dests as-bool)
+                 (b-linearize as-bool)
+                 (b-skip-irreducible-images as-bool)
+                 (b-subset-embedded-fonts as-bool)
+                 (b-optimize-content-stms as-bool))
+(define-c-typedef pdf-opt-params (:pointer pdf-opt-params-rec))
+(define-c-struct av-notification-data-rec
+                 (size as-uns32)
+                 (notification (:pointer :byte)))
+(define-c-typedef av-notification-data
+                  (:pointer av-notification-data-rec))
+(define-c-struct av-version-params-rec
+                 (size as-size-t)
+                 (major as-uns32)
+                 (minor as-uns32)
+                 (minor-minor as-uns32)
+                 (minor-minor-minor as-uns32))
+(define-c-typedef av-version-params (:pointer av-version-params-rec))
+(define-c-struct av-extension-info-rec-ex
+                 (size as-size-t)
+                 (p-extension-info av-extension-info)
+                 (p-version-params av-version-params))
+(define-c-typedef av-extension-info-ex
+                  (:pointer av-extension-info-rec-ex))

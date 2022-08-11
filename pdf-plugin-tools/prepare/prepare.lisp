@@ -208,15 +208,14 @@ expression."
 ;; cf. *type-and-name-regex* (util.lisp)
 (defparameter *type-and-names-regex*
   (create-scanner
-   "(?sm)\\s*(\\*[^*]+\\*/\\s*)?([^,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"))
+   "(?m)\\s*(\\*[^*]+\\*/\\s*)?([^/;,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;\\s*(//.*)?$"))
 
-(defun handle-struct (body typedef-name pointer-name)
+(defun handle-struct (body typedef-name &optional pointer-name)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
   (let (slots)
-    (do-register-groups (comments? type pointerp names)
+    (do-register-groups (nil type pointerp names)
         (*type-and-names-regex* body)
-      (declare (ignore comments?))
       (loop for name in (split "\\s*,\\s*" names)
             do
          (push (list (cond (pointerp `(:pointer ,(make-fli-type type)))

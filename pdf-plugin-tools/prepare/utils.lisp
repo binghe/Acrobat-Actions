@@ -70,7 +70,7 @@ instead of a list if the string contained only one word."
          (register-groups-bind (head rest) (*mangle-name-regex1* string)
            (concatenate 'string head "-" (mangle-name1 rest))))
         (t
-         (setq string (regex-replace-all "^(AS|PI|AC)([A-Za-z])" string "\\1-\\2")
+         (setq string (regex-replace-all "^(AS|AV|PI|AC)([A-Za-z])" string "\\1-\\2")
                string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)"
                                          string "\\1-\\2")
                string (regex-replace-all "(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)([A-Za-z])"
