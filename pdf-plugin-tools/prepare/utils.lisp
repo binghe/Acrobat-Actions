@@ -63,6 +63,23 @@ instead of a list if the string contained only one word."
             (t
              pointer-type)))))
 
+(defparameter *mangle-name-regex1* (create-scanner "^(AST)([A-Z].*)$"))
+
+(defun mangle-name1 (string)
+  (cond ((scan *mangle-name-regex1* string)
+         (register-groups-bind (head rest) (*mangle-name-regex1* string)
+           (concatenate 'string head "-" (mangle-name1 rest))))
+        (t
+         (setq string (regex-replace-all "^(AS|PI|AC)([A-Za-z])" string "\\1-\\2")
+               string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)"
+                                         string "\\1-\\2")
+               string (regex-replace-all "(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)([A-Za-z])"
+                                         string "\\1-\\2")
+               string (regex-replace-all "([A-Za-z])(SEL)"
+                                         string "\\1-\\2")
+               string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
+               string (regex-replace-all "_" string "-")))))
+
 (defun mangle-name (string &key constant global)
   "Converts the string STRING representing a C name to a suitable Lisp
 symbol in the PDF-PLUGIN-TOOLS package.  Underline characters at the
@@ -73,23 +90,13 @@ converted to uppercase.
 
 If CONSTANT is true, a plus sign is added to the beginning and end of
 the Lisp symbol to denote a Lisp constant."
-  (setq string (regex-replace-all "^(AST|AS|PI|AC)([A-Za-z])" string "\\1-\\2")
-        string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)"
-                                  string "\\1-\\2")
-        string (regex-replace-all "(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)([A-Za-z])"
-                                  string "\\1-\\2")
-        string (regex-replace-all "([A-Za-z])(SEL)"
-                                  string "\\1-\\2")
-        ;; string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
-        ;; string (regex-replace-all "([A-Za-z])([A-Z][a-z])" string "\\1-\\2")
-        string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
-        string (regex-replace-all "_" string "-"))
-  (cond (constant
-         (intern (format nil "+~A+" (string-upcase string)) :pdf-plugin-tools))
-        (global
-         (intern (format nil "*~A*" (string-upcase string)) :pdf-plugin-tools))
-        (t
-         (intern (string-upcase string) :pdf-plugin-tools))))
+  (let ((new-string (mangle-name1 string)))
+    (cond (constant
+           (intern (format nil "+~A+" (string-upcase new-string)) :pdf-plugin-tools))
+          (global
+           (intern (format nil "*~A*" (string-upcase new-string)) :pdf-plugin-tools))
+          (t
+           (intern (string-upcase new-string) :pdf-plugin-tools)))))
 
 (defparameter *type-and-name-regex*
   (create-scanner "^\\s*([^*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))

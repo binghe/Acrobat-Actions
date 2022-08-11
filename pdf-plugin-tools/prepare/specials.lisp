@@ -38,6 +38,9 @@
     "ASProcs"    ; Catalog of functions exported by AcroSupport
     "ASCalls"
     "PIVersn"    ; Contains handshaking versioning types and data
+
+    "ASExtraExpT"  ; Types, macros, structures, etc. required to use the ASExtra HFT
+    "ASExtraProcs" ; Catalog of functions exported by the ASExtra HFT
     )
   "The list of involved Acrobat SDK header files in the right order.")
 

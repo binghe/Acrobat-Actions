@@ -243,7 +243,7 @@
 ;; line 1368
 (define-opaque-pointer as-const-cab -t-ascabinet)
 ;; line 1451
-(define-opaque-pointer ast-ext -t-astext-rec)
+(define-opaque-pointer as-text -t-astext-rec)
 ;; line 1457
 (define-opaque-pointer as-const-text -t-astext-rec)
 ;; line 1833
@@ -300,7 +300,7 @@
 ;; line 4046
 (define-opaque-pointer as-date -t-asdate-rec)
 ;; line 4075
-(define-opaque-pointer ast-ime-span -t-astime-span-rec)
+(define-opaque-pointer as-time-span -t-astime-span-rec)
 (define-c-typedef as-stm-proc
                   (:pointer
                    (:function
@@ -714,14 +714,14 @@
 (define-c-typedef as-file-sys-get-name-as-astext-proc
                   (:pointer
                    (:function
-                    (as-path-name ast-ext)
+                    (as-path-name as-text)
                     as-error-code
                     :calling-convention
                     :cdecl)))
 (define-c-typedef as-file-sys-display-astext-from-path-proc
                   (:pointer
                    (:function
-                    (as-path-name ast-ext)
+                    (as-path-name as-text)
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -735,7 +735,7 @@
 (define-c-typedef as-file-sys-dipath-from-path-ex-proc
                   (:pointer
                    (:function
-                    (as-path-name as-path-name ast-ext)
+                    (as-path-name as-path-name as-text)
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -791,7 +791,7 @@
 (define-c-typedef as-file-sys-get-name-for-display-proc
                   (:pointer
                    (:function
-                    (as-path-name ast-ext)
+                    (as-path-name as-text)
                     as-error-code
                     :calling-convention
                     :cdecl)))
@@ -854,7 +854,7 @@
 (define-c-typedef pmset-text-proc
                   (:pointer
                    (:function
-                    (ast-ext (:pointer :void))
+                    (as-text (:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))
@@ -957,7 +957,7 @@
                  (right as-double)
                  (bottom as-double))
 (define-c-typedef as-double-rect-p (:pointer as-double-rect))
-(define-c-struct ast-ime-rec
+(define-c-struct as-time-rec
                  (year as-int16)
                  (month as-int16)
                  (date as-int16)
@@ -967,7 +967,7 @@
                  (millisecond as-int16)
                  (day as-int16)
                  (gmt-offset as-int16))
-(define-c-typedef ast-ime-rec-p (:pointer ast-ime-rec))
+(define-c-typedef as-time-rec-p (:pointer as-time-rec))
 (define-c-struct as-iorequest-rec
                  (md-file as-mdfile)
                  (ptr (:pointer :void))
@@ -985,9 +985,9 @@
                  (is-hidden as-bool)
                  (is-read-only as-bool)
                  (creation-date-known as-bool)
-                 (creation-date ast-ime-rec)
+                 (creation-date as-time-rec)
                  (mod-date-known as-bool)
-                 (mod-date ast-ime-rec)
+                 (mod-date as-time-rec)
                  (file-size as-byte-count)
                  (file-size-high as-byte-count)
                  (folder-size ast-count)
@@ -2259,7 +2259,7 @@
 (define-foreign-funcallable as-file-sys-get-name-from-path-as-astext-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
-                             (name ast-ext))
+                             (name as-text))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2268,7 +2268,7 @@
 (define-foreign-funcallable as-file-sys-display-astext-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
-                             (display-text ast-ext))
+                             (display-text as-text))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2313,7 +2313,7 @@
                             ((file-sys as-file-sys)
                              (path as-path-name)
                              (relative-to-this-path as-path-name)
-                             (di-path-text ast-ext))
+                             (di-path-text as-text))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2419,7 +2419,7 @@
 (define-foreign-funcallable as-file-sys-get-name-from-path-for-display-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
-                             (name-for-display ast-ext))
+                             (name-for-display as-text))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -2434,7 +2434,7 @@
 ;; sel = 120
 (define-foreign-funcallable as-get-error-string-astext-selproto
                             ((error-code as-error-code)
-                             (error-string ast-ext))
+                             (error-string as-text))
                             :result-type
                             :void
                             :calling-convention
@@ -2442,7 +2442,7 @@
 ;; sel = 121
 (define-foreign-funcallable as-register-error-string-astext-selproto
                             ((severity as-err-severity)
-                             (error-string ast-ext))
+                             (error-string as-text))
                             :result-type
                             as-error-code
                             :calling-convention
@@ -3252,3 +3252,1420 @@
                  (import-replace-and-register-callback as-callback)
                  (init-callback as-callback)
                  (unload-callback as-callback))
+
+;; #include <ASExtraExpT.h>
+;; line 39
+(define-c-typedef as-uni-char as-utf16val)
+;; line 41
+(define-c-typedef as-country-code as-uns16)
+;; line 43
+(define-c-typedef as-language-code as-uns16)
+;; line 91
+(define-c-typedef as-text-filter-type as-enum16)
+;; line 151
+(define-c-typedef as-cab-value-type as-enum16)
+;; line 298
+(define-c-typedef as-cab-munge-action as-enum16)
+;; line 362
+(define-c-typedef as-report-type as-enum16)
+(define-c-typedef as-cab-enum-proc
+                  (:pointer
+                   (:function
+                    (as-cab
+                     (:reference-pass :ef-mb-string)
+                     as-cab-value-type
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-const-cab-enum-proc
+                  (:pointer
+                   (:function
+                    (as-const-cab
+                     (:reference-pass :ef-mb-string)
+                     as-cab-value-type
+                     (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-cab-pointer-destroy-proc
+                  (:pointer
+                   (:function
+                    ((:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-report-proc
+                  (:pointer
+                   (:function
+                    (as-report-type
+                     as-int32
+                     as-text
+                     as-text
+                     as-cab
+                     (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-text-eval-proc
+                  (:pointer
+                   (:function
+                    (as-cab)
+                    as-text
+                    :calling-convention
+                    :cdecl)))
+(define-c-struct as-cab-entry-rec
+                 (key-name (:pointer :byte))
+                 (type as-cab-value-type)
+                 (int-val as-int32)
+                 (ptr-val (:pointer :void))
+                 (double-val :double))
+(define-c-struct as-status-monitor-procs-rec
+                 (size as-size-t)
+                 (prog-mon as-progress-monitor)
+                 (prog-mon-client-data (:pointer :void))
+                 (cancel-proc as-cancel-proc)
+                 (cancel-proc-client-data (:pointer :void))
+                 (report-proc as-report-proc)
+                 (report-proc-client-data (:pointer :void)))
+(define-c-typedef as-status-monitor-procs
+                  (:pointer as-status-monitor-procs-rec))
+
+;; #include <ASExtraProcs.h>
+(defconstant +as-script-to-host-encoding-sel+ 1)
+(defconstant +as-script-from-host-encoding-sel+ 2)
+(defconstant +as-text-new-sel+ 3)
+(defconstant +as-text-from-unicode-sel+ 4)
+(defconstant +as-text-from-sized-unicode-sel+ 5)
+(defconstant +as-text-from-encoded-sel+ 6)
+(defconstant +as-text-from-sized-encoded-sel+ 7)
+(defconstant +as-text-from-script-text-sel+ 8)
+(defconstant +as-text-from-sized-script-text-sel+ 9)
+(defconstant +as-text-from-pdtext-sel+ 10)
+(defconstant +as-text-from-sized-pdtext-sel+ 11)
+(defconstant +as-text-destroy-sel+ 12)
+(defconstant +as-text-set-unicode-sel+ 13)
+(defconstant +as-text-set-sized-unicode-sel+ 14)
+(defconstant +as-text-set-encoded-sel+ 15)
+(defconstant +as-text-set-sized-encoded-sel+ 16)
+(defconstant +as-text-set-script-text-sel+ 17)
+(defconstant +as-text-set-sized-script-text-sel+ 18)
+(defconstant +as-text-set-pdtext-sel+ 19)
+(defconstant +as-text-set-sized-pdtext-sel+ 20)
+(defconstant +as-text-get-unicode-sel+ 21)
+(defconstant +as-text-get-unicode-copy-sel+ 22)
+(defconstant +as-text-get-encoded-sel+ 23)
+(defconstant +as-text-get-encoded-copy-sel+ 24)
+(defconstant +as-text-get-script-text-sel+ 25)
+(defconstant +as-text-get-script-text-copy-sel+ 26)
+(defconstant +as-text-get-pdtext-copy-sel+ 27)
+(defconstant +as-text-get-best-encoding-sel+ 28)
+(defconstant +as-text-get-best-script-sel+ 29)
+(defconstant +as-text-get-country-sel+ 30)
+(defconstant +as-text-set-country-sel+ 31)
+(defconstant +as-text-get-language-sel+ 32)
+(defconstant +as-text-set-language-sel+ 33)
+(defconstant +as-text-cat-sel+ 34)
+(defconstant +as-text-copy-sel+ 35)
+(defconstant +as-text-dup-sel+ 36)
+(defconstant +as-text-cmp-sel+ 37)
+(defconstant +as-text-replace-sel+ 38)
+(defconstant +as-text-replace-ascii-sel+ 39)
+(defconstant +as-cab-new-sel+ 40)
+(defconstant +as-cab-from-entry-list-sel+ 41)
+(defconstant +as-cab-destroy-sel+ 42)
+(defconstant +as-cab-num-entries-sel+ 43)
+(defconstant +as-cab-known-sel+ 44)
+(defconstant +as-cab-get-type-sel+ 45)
+(defconstant +as-cab-enum-sel+ 46)
+(defconstant +as-cab-remove-sel+ 47)
+(defconstant +as-cab-get-bool-sel+ 48)
+(defconstant +as-cab-put-bool-sel+ 49)
+(defconstant +as-cab-get-int-sel+ 50)
+(defconstant +as-cab-put-int-sel+ 51)
+(defconstant +as-cab-get-atom-sel+ 52)
+(defconstant +as-cab-put-atom-sel+ 53)
+(defconstant +as-cab-get-double-sel+ 54)
+(defconstant +as-cab-put-double-sel+ 55)
+(defconstant +as-cab-get-pointer-raw-sel+ 56)
+(defconstant +as-cab-detach-pointer-raw-sel+ 57)
+(defconstant +as-cab-put-pointer-raw-sel+ 58)
+(defconstant +as-cab-get-pointer-destroy-proc-sel+ 59)
+(defconstant +as-cab-get-pointer-type-sel+ 60)
+(defconstant +as-cab-put-cab-sel+ 61)
+(defconstant +as-cab-get-cab-sel+ 62)
+(defconstant +as-cab-detach-cab-sel+ 63)
+(defconstant +as-cab-get-string-sel+ 64)
+(defconstant +as-cab-get-string-copy-sel+ 65)
+(defconstant +as-cab-detach-string-sel+ 66)
+(defconstant +as-cab-put-string-sel+ 67)
+(defconstant +as-cab-get-text-sel+ 68)
+(defconstant +as-cab-detach-text-sel+ 69)
+(defconstant +as-cab-put-text-sel+ 70)
+(defconstant +as-cab-get-binary-sel+ 71)
+(defconstant +as-cab-get-binary-copy-sel+ 72)
+(defconstant +as-cab-detach-binary-sel+ 73)
+(defconstant +as-cab-put-binary-sel+ 74)
+(defconstant +as-cab-put-null-sel+ 75)
+(defconstant +as-cab-make-empty-sel+ 76)
+(defconstant +as-cab-destroy-empties-sel+ 77)
+(defconstant +as-cab-copy-sel+ 78)
+(defconstant +as-cab-dup-sel+ 79)
+(defconstant +as-cab-value-equal-sel+ 80)
+(defconstant +as-cab-equal-sel+ 81)
+(defconstant +as-cab-munge-sel+ 82)
+(defconstant +as-cab-put-path-name-sel+ 83)
+(defconstant +as-cab-get-path-name-copy-sel+ 84)
+(defconstant +as-cab-detach-path-name-sel+ 85)
+(defconstant +as-cab-write-to-stream-sel+ 86)
+(defconstant +as-cab-read-from-stream-sel+ 87)
+(defconstant +as-cab-rename-sel+ 88)
+(defconstant +as-text-is-empty-sel+ 89)
+(defconstant +as-text-normalize-end-of-line-sel+ 90)
+(defconstant +as-text-from-int32-sel+ 91)
+(defconstant +as-text-from-uns32-sel+ 92)
+(defconstant +as-text-make-empty-sel+ 93)
+(defconstant +as-text-replace-bad-chars-sel+ 94)
+(defconstant +as-cab-get-uns-sel+ 95)
+(defconstant +as-cab-put-uns-sel+ 96)
+(defconstant +as-date-new-sel+ 97)
+(defconstant +as-date-dup-sel+ 98)
+(defconstant +as-date-clear-sel+ 99)
+(defconstant +as-date-copy-sel+ 100)
+(defconstant +as-date-destroy-sel+ 101)
+(defconstant +as-time-span-new-sel+ 102)
+(defconstant +as-time-span-dup-sel+ 103)
+(defconstant +as-time-span-copy-sel+ 104)
+(defconstant +as-time-span-destroy-sel+ 105)
+(defconstant +as-date-set-to-current-utctime-sel+ 106)
+(defconstant +as-date-set-to-current-local-time-sel+ 107)
+(defconstant +as-date-set-local-time-offset-sel+ 108)
+(defconstant +as-date-set-time-from-string-sel+ 109)
+(defconstant +as-date-set-time-from-rec-sel+ 110)
+(defconstant +as-date-subtract-calendar-time-span-sel+ 111)
+(defconstant +as-date-add-calendar-time-span-sel+ 112)
+(defconstant +as-date-subtract-time-span-sel+ 113)
+(defconstant +as-date-add-time-span-sel+ 114)
+(defconstant +as-date-calendar-diff-sel+ 115)
+(defconstant +as-date-exact-diff-sel+ 116)
+(defconstant +as-date-get-time-string-sel+ 117)
+(defconstant +as-date-get-utctime-sel+ 118)
+(defconstant +as-date-get-local-time-sel+ 119)
+(defconstant +as-calendar-time-span-compare-sel+ 120)
+(defconstant +as-time-span-compare-sel+ 121)
+(defconstant +as-calendar-time-span-add-with-base-sel+ 122)
+(defconstant +as-time-span-add-sel+ 123)
+(defconstant +as-calendar-time-span-diff-sel+ 124)
+(defconstant +as-time-span-diff-sel+ 125)
+(defconstant +as-date-compare-sel+ 126)
+(defconstant +as-time-span-set-from-asint32-sel+ 127)
+(defconstant +as-time-span-set-from-string-sel+ 128)
+(defconstant +as-time-span-set-sel+ 129)
+(defconstant +as-text-eval-sel+ 130)
+(defconstant +as-file-sys-get-item-props-as-cab-sel+ 131)
+(defconstant +as-file-sys-convert-cab-to-item-props-sel+ 132)
+(defconstant +as-file-sys-convert-item-props-to-cab-sel+ 133)
+(defconstant +as-file-sys-can-perform-op-on-item-sel+ 134)
+(defconstant +as-file-sys-perform-op-on-item-sel+ 135)
+(defconstant +as-is-valid-utf8-sel+ 136)
+(defconstant +as-text-case-sensitive-cmp-sel+ 137)
+(defconstant +as-const-cab-enum-sel+ 138)
+(defconstant +as-text-filter-sel+ 139)
+(defconstant +as-time-span-get-asint32-sel+ 140)
+(defconstant +as-cab-get-int64-sel+ 141)
+(defconstant +as-cab-put-int64-sel+ 142)
+(defconstant +as-cab-get-uns64-sel+ 143)
+(defconstant +as-cab-put-uns64-sel+ 144)
+(defconstant +as-text-make-empty-clear-sel+ 145)
+;; sel = 1
+(define-foreign-funcallable as-script-to-host-encoding-selproto
+                            ((as-script as-script))
+                            :result-type
+                            as-host-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable as-script-from-host-encoding-selproto
+                            ((os-script as-host-encoding))
+                            :result-type
+                            as-script
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable as-text-new-selproto
+                            nil
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable as-text-from-unicode-selproto
+                            ((ucs (:pointer as-utf16val))
+                             (format as-unicode-format))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable as-text-from-sized-unicode-selproto
+                            ((ucs (:pointer as-utf16val))
+                             (format as-unicode-format)
+                             (len ast-array-size))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable as-text-from-encoded-selproto
+                            ((str (:reference-pass :ef-mb-string))
+                             (encoding as-host-encoding))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable as-text-from-sized-encoded-selproto
+                            ((str (:reference-pass :ef-mb-string))
+                             (len ast-array-size)
+                             (encoding as-host-encoding))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable as-text-from-script-text-selproto
+                            ((str (:reference-pass :ef-mb-string))
+                             (script as-script))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable as-text-from-sized-script-text-selproto
+                            ((str (:reference-pass :ef-mb-string))
+                             (len ast-array-size)
+                             (script as-script))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable as-text-from-pdtext-selproto
+                            ((str (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable as-text-from-sized-pdtext-selproto
+                            ((str (:reference-pass :ef-mb-string))
+                             (length ast-array-size))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable as-text-destroy-selproto
+                            ((str as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable as-text-set-unicode-selproto
+                            ((str as-text)
+                             (ucs-value (:pointer as-utf16val))
+                             (format as-unicode-format))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable as-text-set-sized-unicode-selproto
+                            ((str as-text)
+                             (ucs-value (:pointer as-utf16val))
+                             (format as-unicode-format)
+                             (len ast-array-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable as-text-set-encoded-selproto
+                            ((str as-text)
+                             (text (:reference-pass :ef-mb-string))
+                             (encoding as-host-encoding))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 16
+(define-foreign-funcallable as-text-set-sized-encoded-selproto
+                            ((str as-text)
+                             (text (:reference-pass :ef-mb-string))
+                             (len ast-array-size)
+                             (encoding as-host-encoding))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 17
+(define-foreign-funcallable as-text-set-script-text-selproto
+                            ((str as-text)
+                             (text (:reference-pass :ef-mb-string))
+                             (script as-script))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 18
+(define-foreign-funcallable as-text-set-sized-script-text-selproto
+                            ((str as-text)
+                             (text (:reference-pass :ef-mb-string))
+                             (len ast-array-size)
+                             (script as-script))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 19
+(define-foreign-funcallable as-text-set-pdtext-selproto
+                            ((str as-text)
+                             (text (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 20
+(define-foreign-funcallable as-text-set-sized-pdtext-selproto
+                            ((str as-text)
+                             (text (:reference-pass :ef-mb-string))
+                             (length ast-array-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 21
+(define-foreign-funcallable as-text-get-unicode-selproto
+                            ((str as-const-text))
+                            :result-type
+                            (:pointer as-utf16val)
+                            :calling-convention
+                            :cdecl)
+;; sel = 22
+(define-foreign-funcallable as-text-get-unicode-copy-selproto
+                            ((str as-const-text)
+                             (format as-unicode-format))
+                            :result-type
+                            (:pointer as-utf16val)
+                            :calling-convention
+                            :cdecl)
+;; sel = 23
+(define-foreign-funcallable as-text-get-encoded-selproto
+                            ((str as-const-text)
+                             (encoding as-host-encoding))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 24
+(define-foreign-funcallable as-text-get-encoded-copy-selproto
+                            ((str as-const-text)
+                             (encoding as-host-encoding))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 25
+(define-foreign-funcallable as-text-get-script-text-selproto
+                            ((str as-const-text) (script as-script))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 26
+(define-foreign-funcallable as-text-get-script-text-copy-selproto
+                            ((str as-const-text) (script as-script))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 27
+(define-foreign-funcallable as-text-get-pdtext-copy-selproto
+                            ((str as-const-text)
+                             (len (:pointer ast-array-size)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 28
+(define-foreign-funcallable as-text-get-best-encoding-selproto
+                            ((str as-const-text)
+                             (preferred-encoding as-host-encoding))
+                            :result-type
+                            as-host-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 29
+(define-foreign-funcallable as-text-get-best-script-selproto
+                            ((str as-const-text)
+                             (preferred-script as-script))
+                            :result-type
+                            as-script
+                            :calling-convention
+                            :cdecl)
+;; sel = 30
+(define-foreign-funcallable as-text-get-country-selproto
+                            ((text as-const-text))
+                            :result-type
+                            as-country-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 31
+(define-foreign-funcallable as-text-set-country-selproto
+                            ((text as-text) (country as-country-code))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 32
+(define-foreign-funcallable as-text-get-language-selproto
+                            ((text as-const-text))
+                            :result-type
+                            as-language-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 33
+(define-foreign-funcallable as-text-set-language-selproto
+                            ((text as-text)
+                             (language as-language-code))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 34
+(define-foreign-funcallable as-text-cat-selproto
+                            ((to as-text) (from as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 35
+(define-foreign-funcallable as-text-copy-selproto
+                            ((to as-text) (from as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 36
+(define-foreign-funcallable as-text-dup-selproto
+                            ((str as-const-text))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 37
+(define-foreign-funcallable as-text-cmp-selproto
+                            ((str1 as-const-text) (str2 as-const-text))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 38
+(define-foreign-funcallable as-text-replace-selproto
+                            ((src as-text)
+                             (to-replace as-const-text)
+                             (replacement as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 39
+(define-foreign-funcallable as-text-replace-ascii-selproto
+                            ((src as-text)
+                             (to-replace
+                              (:reference-pass :ef-mb-string))
+                             (replacement as-const-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 40
+(define-foreign-funcallable as-cab-new-selproto
+                            nil
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 41
+(define-foreign-funcallable as-cab-from-entry-list-selproto
+                            ((entry-list (:pointer as-cab-entry-rec)))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 42
+(define-foreign-funcallable as-cab-destroy-selproto
+                            ((the-cab as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 43
+(define-foreign-funcallable as-cab-num-entries-selproto
+                            ((the-cab as-const-cab))
+                            :result-type
+                            ast-array-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 44
+(define-foreign-funcallable as-cab-known-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 45
+(define-foreign-funcallable as-cab-get-type-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-cab-value-type
+                            :calling-convention
+                            :cdecl)
+;; sel = 46
+(define-foreign-funcallable as-cab-enum-selproto
+                            ((the-cab as-cab)
+                             (enum-proc as-cab-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 47
+(define-foreign-funcallable as-cab-remove-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 48
+(define-foreign-funcallable as-cab-get-bool-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 49
+(define-foreign-funcallable as-cab-put-bool-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-bool as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 50
+(define-foreign-funcallable as-cab-get-int-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value as-int32))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 51
+(define-foreign-funcallable as-cab-put-int-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-int as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 52
+(define-foreign-funcallable as-cab-get-atom-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value as-atom))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 53
+(define-foreign-funcallable as-cab-put-atom-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (atom-value as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 54
+(define-foreign-funcallable as-cab-get-double-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value :double))
+                            :result-type
+                            :double
+                            :calling-convention
+                            :cdecl)
+;; sel = 55
+(define-foreign-funcallable as-cab-put-double-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (float-value :double))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 56
+(define-foreign-funcallable as-cab-get-pointer-raw-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (expected-type
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 57
+(define-foreign-funcallable as-cab-detach-pointer-raw-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (expected-type
+                              (:reference-pass :ef-mb-string))
+                             (no-refs (:pointer as-bool)))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 58
+(define-foreign-funcallable as-cab-put-pointer-raw-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-type (:reference-pass :ef-mb-string))
+                             (the-ptr (:pointer :void))
+                             (destroy as-cab-pointer-destroy-proc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 59
+(define-foreign-funcallable as-cab-get-pointer-destroy-proc-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-cab-pointer-destroy-proc
+                            :calling-convention
+                            :cdecl)
+;; sel = 60
+(define-foreign-funcallable as-cab-get-pointer-type-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 61
+(define-foreign-funcallable as-cab-put-cab-selproto
+                            ((the-cab as-cab)
+                             (key-name (:reference-pass :ef-mb-string))
+                             (put-cab as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 62
+(define-foreign-funcallable as-cab-get-cab-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 63
+(define-foreign-funcallable as-cab-detach-cab-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 64
+(define-foreign-funcallable as-cab-get-string-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 65
+(define-foreign-funcallable as-cab-get-string-copy-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 66
+(define-foreign-funcallable as-cab-detach-string-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 67
+(define-foreign-funcallable as-cab-put-string-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-str (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 68
+(define-foreign-funcallable as-cab-get-text-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 69
+(define-foreign-funcallable as-cab-detach-text-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 70
+(define-foreign-funcallable as-cab-put-text-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 71
+(define-foreign-funcallable as-cab-get-binary-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (num-bytes (:pointer ast-array-size)))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 72
+(define-foreign-funcallable as-cab-get-binary-copy-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (num-bytes (:pointer ast-array-size)))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 73
+(define-foreign-funcallable as-cab-detach-binary-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (num-bytes (:pointer ast-array-size)))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 74
+(define-foreign-funcallable as-cab-put-binary-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-blob (:pointer :void))
+                             (blob-size ast-array-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 75
+(define-foreign-funcallable as-cab-put-null-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 76
+(define-foreign-funcallable as-cab-make-empty-selproto
+                            ((the-cab as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 77
+(define-foreign-funcallable as-cab-destroy-empties-selproto
+                            ((the-cab as-cab) (recurse as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 78
+(define-foreign-funcallable as-cab-copy-selproto
+                            ((src-cab as-const-cab) (dst-cab as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 79
+(define-foreign-funcallable as-cab-dup-selproto
+                            ((src-cab as-const-cab))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 80
+(define-foreign-funcallable as-cab-value-equal-selproto
+                            ((cab1 as-const-cab)
+                             (key-name1
+                              (:reference-pass :ef-mb-string))
+                             (cab2 as-const-cab)
+                             (key-name2
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 81
+(define-foreign-funcallable as-cab-equal-selproto
+                            ((cab1 as-const-cab) (cab2 as-const-cab))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 82
+(define-foreign-funcallable as-cab-munge-selproto
+                            ((the-cab as-cab)
+                             (key-cab as-const-cab)
+                             (action as-cab-munge-action))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 83
+(define-foreign-funcallable as-cab-put-path-name-selproto
+                            ((the-cab as-cab)
+                             (key-name (:reference-pass :ef-mb-string))
+                             (file-sys as-file-sys)
+                             (path-name as-path-name))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 84
+(define-foreign-funcallable as-cab-get-path-name-copy-selproto
+                            ((the-cab as-const-cab)
+                             (key-name (:reference-pass :ef-mb-string))
+                             (file-sys (:pointer as-file-sys))
+                             (path-name (:pointer as-path-name)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 85
+(define-foreign-funcallable as-cab-detach-path-name-selproto
+                            ((the-cab as-cab)
+                             (key-name (:reference-pass :ef-mb-string))
+                             (file-sys (:pointer as-file-sys))
+                             (path-name (:pointer as-path-name)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 86
+(define-foreign-funcallable as-cab-write-to-stream-selproto
+                            ((the-cab as-const-cab) (the-stm as-stm))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 87
+(define-foreign-funcallable as-cab-read-from-stream-selproto
+                            ((stm as-stm))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 88
+(define-foreign-funcallable as-cab-rename-selproto
+                            ((the-cab as-cab)
+                             (old-key-name
+                              (:reference-pass :ef-mb-string))
+                             (new-key-name
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 89
+(define-foreign-funcallable as-text-is-empty-selproto
+                            ((str as-const-text))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 90
+(define-foreign-funcallable as-text-normalize-end-of-line-selproto
+                            ((text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 91
+(define-foreign-funcallable as-text-from-int32-selproto
+                            ((num as-int32))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 92
+(define-foreign-funcallable as-text-from-uns32-selproto
+                            ((num as-uns32))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 93
+(define-foreign-funcallable as-text-make-empty-selproto
+                            ((str as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 94
+(define-foreign-funcallable as-text-replace-bad-chars-selproto
+                            ((str as-text)
+                             (psz-bad-char-list
+                              (:reference-pass :ef-mb-string))
+                             (replace-char :byte))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 95
+(define-foreign-funcallable as-cab-get-uns-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value as-uns32))
+                            :result-type
+                            as-uns32
+                            :calling-convention
+                            :cdecl)
+;; sel = 96
+(define-foreign-funcallable as-cab-put-uns-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-uns as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 97
+(define-foreign-funcallable as-date-new-selproto
+                            nil
+                            :result-type
+                            as-date
+                            :calling-convention
+                            :cdecl)
+;; sel = 98
+(define-foreign-funcallable as-date-dup-selproto
+                            ((date as-date))
+                            :result-type
+                            as-date
+                            :calling-convention
+                            :cdecl)
+;; sel = 99
+(define-foreign-funcallable as-date-clear-selproto
+                            ((ret-val as-date))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 100
+(define-foreign-funcallable as-date-copy-selproto
+                            ((original as-date) (copy as-date))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 101
+(define-foreign-funcallable as-date-destroy-selproto
+                            ((date as-date))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 102
+(define-foreign-funcallable as-time-span-new-selproto
+                            nil
+                            :result-type
+                            as-time-span
+                            :calling-convention
+                            :cdecl)
+;; sel = 103
+(define-foreign-funcallable as-time-span-dup-selproto
+                            ((time-span as-time-span))
+                            :result-type
+                            as-time-span
+                            :calling-convention
+                            :cdecl)
+;; sel = 104
+(define-foreign-funcallable as-time-span-copy-selproto
+                            ((original as-time-span)
+                             (copy as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 105
+(define-foreign-funcallable as-time-span-destroy-selproto
+                            ((time-span as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 106
+(define-foreign-funcallable as-date-set-to-current-utctime-selproto
+                            ((ret-val as-date))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 107
+(define-foreign-funcallable as-date-set-to-current-local-time-selproto
+                            ((date as-date))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 108
+(define-foreign-funcallable as-date-set-local-time-offset-selproto
+                            ((date as-date))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 109
+(define-foreign-funcallable as-date-set-time-from-string-selproto
+                            ((date as-date)
+                             (time-string
+                              (:reference-pass :ef-mb-string))
+                             (format as-date-time-format))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 110
+(define-foreign-funcallable as-date-set-time-from-rec-selproto
+                            ((date as-date)
+                             (time-rec (:pointer as-time-rec)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 111
+(define-foreign-funcallable as-date-subtract-calendar-time-span-selproto
+                            ((date as-date)
+                             (time-span as-calendar-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 112
+(define-foreign-funcallable as-date-add-calendar-time-span-selproto
+                            ((date as-date)
+                             (time-span as-calendar-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 113
+(define-foreign-funcallable as-date-subtract-time-span-selproto
+                            ((date as-date) (time-span as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 114
+(define-foreign-funcallable as-date-add-time-span-selproto
+                            ((date as-date) (time-span as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 115
+(define-foreign-funcallable as-date-calendar-diff-selproto
+                            ((date1 as-date)
+                             (date2 as-date)
+                             (result as-calendar-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 116
+(define-foreign-funcallable as-date-exact-diff-selproto
+                            ((date1 as-date)
+                             (date2 as-date)
+                             (result as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 117
+(define-foreign-funcallable as-date-get-time-string-selproto
+                            ((date as-date)
+                             (format as-date-time-format))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 118
+(define-foreign-funcallable as-date-get-utctime-selproto
+                            ((date as-date))
+                            :result-type
+                            as-time-rec
+                            :calling-convention
+                            :cdecl)
+;; sel = 119
+(define-foreign-funcallable as-date-get-local-time-selproto
+                            ((date as-date))
+                            :result-type
+                            as-time-rec
+                            :calling-convention
+                            :cdecl)
+;; sel = 120
+(define-foreign-funcallable as-calendar-time-span-compare-selproto
+                            ((time-span1 as-calendar-time-span)
+                             (time-span2 as-calendar-time-span)
+                             (base-date as-date))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 121
+(define-foreign-funcallable as-time-span-compare-selproto
+                            ((time-span1 as-time-span)
+                             (time-span2 as-time-span))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 122
+(define-foreign-funcallable as-calendar-time-span-add-with-base-selproto
+                            ((time-span1 as-calendar-time-span)
+                             (time-span2 as-calendar-time-span)
+                             (base-date as-date)
+                             (result as-calendar-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 123
+(define-foreign-funcallable as-time-span-add-selproto
+                            ((time-span1 as-time-span)
+                             (time-span2 as-time-span)
+                             (result as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 124
+(define-foreign-funcallable as-calendar-time-span-diff-selproto
+                            ((time-span1 as-calendar-time-span)
+                             (time-span2 as-calendar-time-span)
+                             (base-date as-date)
+                             (result as-calendar-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 125
+(define-foreign-funcallable as-time-span-diff-selproto
+                            ((time-span1 as-time-span)
+                             (time-span2 as-time-span)
+                             (result as-time-span))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 126
+(define-foreign-funcallable as-date-compare-selproto
+                            ((date1 as-date) (date2 as-date))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 127
+(define-foreign-funcallable as-time-span-set-from-asint32-selproto
+                            ((time-span as-time-span)
+                             (num-seconds as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 128
+(define-foreign-funcallable as-time-span-set-from-string-selproto
+                            ((time-span as-time-span)
+                             (num-seconds-string
+                              (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 129
+(define-foreign-funcallable as-time-span-set-selproto
+                            ((time-span as-time-span)
+                             (high-bits as-int32)
+                             (low-bits as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 130
+(define-foreign-funcallable as-text-eval-selproto
+                            ((the-text as-text) (params as-cab))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 131
+(define-foreign-funcallable as-file-sys-get-item-props-as-cab-selproto
+                            ((file-sys as-file-sys)
+                             (path-name as-path-name)
+                             (the-cab as-cab))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 132
+(define-foreign-funcallable as-file-sys-convert-cab-to-item-props-selproto
+                            ((props as-file-sys-item-props)
+                             (the-cab as-cab))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 133
+(define-foreign-funcallable as-file-sys-convert-item-props-to-cab-selproto
+                            ((the-cab as-cab)
+                             (props
+                              (:pointer as-file-sys-item-props-rec)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 134
+(define-foreign-funcallable as-file-sys-can-perform-op-on-item-selproto
+                            ((file-sys as-file-sys)
+                             (path-name as-path-name)
+                             (op (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 135
+(define-foreign-funcallable as-file-sys-perform-op-on-item-selproto
+                            ((file-sys as-file-sys)
+                             (path-name as-path-name)
+                             (op (:reference-pass :ef-mb-string))
+                             (params as-cab))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 136
+(define-foreign-funcallable as-is-valid-utf8-selproto
+                            ((c-in (:pointer as-uns8))
+                             (c-in-len as-count))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 137
+(define-foreign-funcallable as-text-case-sensitive-cmp-selproto
+                            ((str1 as-const-text) (str2 as-const-text))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 138
+(define-foreign-funcallable as-const-cab-enum-selproto
+                            ((the-cab as-const-cab)
+                             (enum-proc as-const-cab-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 139
+(define-foreign-funcallable as-text-filter-selproto
+                            ((text as-text)
+                             (filter as-text-filter-type))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 140
+(define-foreign-funcallable as-time-span-get-asint32-selproto
+                            ((time-span as-time-span)
+                             (out-overflow (:pointer as-bool)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 141
+(define-foreign-funcallable as-cab-get-int64-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value as-int64))
+                            :result-type
+                            as-int64
+                            :calling-convention
+                            :cdecl)
+;; sel = 142
+(define-foreign-funcallable as-cab-put-int64-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-int as-int64))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 143
+(define-foreign-funcallable as-cab-get-uns64-selproto
+                            ((the-cab as-const-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (def-value as-uns64))
+                            :result-type
+                            as-uns64
+                            :calling-convention
+                            :cdecl)
+;; sel = 144
+(define-foreign-funcallable as-cab-put-uns64-selproto
+                            ((the-cab as-cab)
+                             (the-key (:reference-pass :ef-mb-string))
+                             (the-int as-uns64))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 145
+(define-foreign-funcallable as-text-make-empty-clear-selproto
+                            ((str as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
