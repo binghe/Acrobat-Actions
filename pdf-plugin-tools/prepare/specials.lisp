@@ -29,15 +29,15 @@
 (in-package :prepare-pdf-plugin-tools)
 
 (defparameter *header-file-names*
-  '("ASNumTypes" ; Basic integer types.
-    "CoreExpT"   ; Types, macros, structures, etc. required to use the Core HFT
-    "ASExpT"     ; Types, macros, structures, etc. required to use the AcroSupport HFT
-    "CorProcs"   ; Catalog of the "core" exported functions
-                 ; (this table is handed off to the plug-in at initialization time)
+  '("ASNumTypes"   ; Basic integer types.
+    "CoreExpT"     ; Types, macros, structures, etc. required to use the Core HFT
+    "ASExpT"       ; Types, macros, structures, etc. required to use the AcroSupport HFT
+    "CorProcs"     ; Catalog of the "core" exported functions
+                   ; (this table is handed off to the plug-in at initialization time)
     "CorCalls"
-    "ASProcs"    ; Catalog of functions exported by AcroSupport
+    "ASProcs"      ; Catalog of functions exported by AcroSupport
     "ASCalls"
-    "PIVersn"    ; Contains handshaking versioning types and data
+    "PIVersn"      ; Contains handshaking versioning types and data
 
     "ASExtraExpT"  ; Types, macros, structures, etc. required to use the ASExtra HFT
     "ASExtraProcs" ; Catalog of functions exported by the ASExtra HFT
@@ -47,8 +47,11 @@
     "PDExpT"       ; Types, macros, structures, etc. required to use the PDModel HFT
     "AVExpT"       ; Types, macros, structures, etc. required to use the AcroView HFT
 
-    "AVProcs"    ; Catalog of functions exported by AcroView
-    ; "AVCalls"
+    "AVProcs"      ; Catalog of functions exported by AcroView
+    ;; "AVCalls"
+
+    ;; "PDProcs"   ; Catalog of functions exported by the PDModel HFT
+    ;; "PDCalls"
     )
   "The list of involved Acrobat SDK header files in the right order.")
 

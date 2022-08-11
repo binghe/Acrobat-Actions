@@ -6845,7 +6845,7 @@
 (define-c-typedef pd-crypt-get-auth-data-proc
                   (:pointer
                    (:function
-                    (pd-doc pd-perms nil)
+                    (pd-doc pd-perms (:pointer (:pointer :void)))
                     as-bool
                     :calling-convention
                     :cdecl)))
@@ -6859,14 +6859,18 @@
 (define-c-typedef pd-crypt-update-security-data-proc
                   (:pointer
                    (:function
-                    (pd-doc (:pointer as-atom) nil)
+                    (pd-doc
+                     (:pointer as-atom)
+                     (:pointer (:pointer :void)))
                     as-bool
                     :calling-convention
                     :cdecl)))
 (define-c-typedef pd-crypt-new-crypt-data-proc
                   (:pointer
                    (:function
-                    (pd-doc nil (:pointer as-int32))
+                    (pd-doc
+                     (:pointer (:pointer :char))
+                     (:pointer as-int32))
                     :void
                     :calling-convention
                     :cdecl)))
@@ -6909,7 +6913,7 @@
                   (:pointer
                    (:function
                     (pd-doc
-                     nil
+                     (:pointer (:pointer :char))
                      (:pointer as-int32)
                      (:pointer as-int32))
                     :void
@@ -6928,14 +6932,21 @@
 (define-c-typedef pd-crypt-get-auth-data-ex-proc
                   (:pointer
                    (:function
-                    (pd-doc pd-perm-req-obj pd-perm-req-opr nil)
+                    (pd-doc
+                     pd-perm-req-obj
+                     pd-perm-req-opr
+                     (:pointer (:pointer :void)))
                     as-bool
                     :calling-convention
                     :cdecl)))
 (define-c-typedef pd-crypt-new-security-data-from-original-doc-proc
                   (:pointer
                    (:function
-                    (pd-doc cos-obj pd-doc cos-obj nil)
+                    (pd-doc
+                     cos-obj
+                     pd-doc
+                     cos-obj
+                     (:pointer (:pointer :void)))
                     as-bool
                     :calling-convention
                     :cdecl)))
@@ -7008,7 +7019,10 @@
 (define-c-typedef pd-crypt-batch-update-security-data-proc
                   (:pointer
                    (:function
-                    (pd-doc as-cab (:pointer as-atom) nil)
+                    (pd-doc
+                     as-cab
+                     (:pointer as-atom)
+                     (:pointer (:pointer :void)))
                     as-bool
                     :calling-convention
                     :cdecl)))
@@ -7034,7 +7048,11 @@
 (define-c-typedef pd-crypt-filter-get-data-proc
                   (:pointer
                    (:function
-                    (cos-doc as-atom nil as-bool as-bool)
+                    (cos-doc
+                     as-atom
+                     (:pointer (:pointer :char))
+                     as-bool
+                     as-bool)
                     as-int32
                     :calling-convention
                     :cdecl)))
@@ -8590,7 +8608,10 @@
 (define-c-typedef av-doc-selection-acquire-quads-proc
                   (:pointer
                    (:function
-                    (av-doc (:pointer :void) as-int32 nil)
+                    (av-doc
+                     (:pointer :void)
+                     as-int32
+                     (:pointer (:pointer as-fixed-quad)))
                     as-array-size
                     :calling-convention
                     :cdecl)))
@@ -11159,7 +11180,8 @@
                             :cdecl)
 ;; sel = 10
 (define-foreign-funcallable av-app-get-cancel-proc-selproto
-                            ((nil nil))
+                            ((cancel-proc-client-data-p
+                              (:pointer (:pointer :void))))
                             :result-type
                             cancel-proc
                             :calling-convention
@@ -11195,7 +11217,8 @@
                             :cdecl)
 ;; sel = 15
 (define-foreign-funcallable av-app-get-doc-progress-monitor-selproto
-                            ((nil nil))
+                            ((prog-mon-client-data
+                              (:pointer (:pointer :void))))
                             :result-type
                             as-progress-monitor
                             :calling-convention
@@ -12714,7 +12737,7 @@
 (define-foreign-funcallable av-crypt-get-password-selproto
                             ((pd-doc pd-doc)
                              (perm-wanted pd-perms)
-                             (nil nil))
+                             (auth-data-p (:pointer (:pointer :void))))
                             :result-type
                             as-bool
                             :calling-convention
@@ -13759,8 +13782,8 @@
                              (path-name as-path-name)
                              (num-add-ext av-tarray-size)
                              (add-ext (:pointer (:pointer :char)))
-                             (nil nil)
-                             (nil nil))
+                             (base-name (:pointer (:pointer :char)))
+                             (base-ext (:pointer (:pointer :char))))
                             :result-type
                             as-bool
                             :calling-convention
@@ -13771,8 +13794,8 @@
                               (:reference-pass :ef-mb-string))
                              (num-add-ext av-tarray-size)
                              (add-ext (:pointer (:pointer :char)))
-                             (nil nil)
-                             (nil nil))
+                             (base-name (:pointer (:pointer :char)))
+                             (base-ext (:pointer (:pointer :char))))
                             :result-type
                             as-bool
                             :calling-convention
@@ -13949,7 +13972,8 @@
                             :cdecl)
 ;; sel = 354
 (define-foreign-funcallable av-app-get-report-proc-selproto
-                            ((nil nil))
+                            ((as-report-proc-client-data-p
+                              (:pointer (:pointer :void))))
                             :result-type
                             as-report-proc
                             :calling-convention
@@ -15064,7 +15088,7 @@
                              (num-add-ext as-int32)
                              (add-ext (:pointer (:pointer :char)))
                              (base-name as-text)
-                             (nil nil))
+                             (base-ext (:pointer (:pointer :char))))
                             :result-type
                             as-bool
                             :calling-convention
@@ -15542,7 +15566,8 @@
 (define-foreign-funcallable av-doc-get-bookmarks-selproto
                             ((av-doc av-doc)
                              (av-bookmark-filter av-bookmark-filter)
-                             (nil nil))
+                             (p-pdbookmark-array
+                              (:pointer (:pointer pd-bookmark))))
                             :result-type
                             as-int32
                             :calling-convention
@@ -15604,7 +15629,8 @@
                             :cdecl)
 ;; sel = 545
 (define-foreign-funcallable av-get-optimizer-presets-selproto
-                            ((nil nil))
+                            ((p-preset-names
+                              (:pointer (:pointer as-text))))
                             :result-type
                             as-int32
                             :calling-convention

@@ -102,7 +102,7 @@ the Lisp symbol to denote a Lisp constant."
 ;; void **cancelProcClientDataP
 ;; const char * const *addExt
 (defparameter *type-and-name-regex*
-  (create-scanner "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(\\s+const\\s*\\*)?\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))
+  (create-scanner "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))
 
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
@@ -111,7 +111,7 @@ name.  Returns as the third value the name as a string.  If ARGP
 is true, the result is supposed to be used as a function
 argument."
   (declare (ignore argp))
-  (register-groups-bind (type pointerp nil name arrayp size)
+  (register-groups-bind (type pointerp name arrayp size)
       (*type-and-name-regex* string)
     (setq type (make-fli-type type))
     (let ((final-type
@@ -129,6 +129,4 @@ argument."
                          `(:pointer ,type))))
                  (t
                   type))))
-      (list final-type
-            (mangle-name name)
-            name))))
+      (list final-type (mangle-name name) name))))
