@@ -975,8 +975,8 @@
                  (put-eof as-crypt-stm-fput-eof-proc))
 (define-c-struct as-crypt-stm-rec
                  (count as-int32)
-                 (current-pointer (:pointer :byte))
-                 (base-pointer (:pointer :byte))
+                 (current-pointer (:reference-pass :ef-mb-string))
+                 (base-pointer (:reference-pass :ef-mb-string))
                  (mode-flag as-uns32)
                  (procs (:pointer as-crypt-stm-procs))
                  (base-stm as-stm)
@@ -1098,7 +1098,7 @@
 (define-c-struct fsref-with-cfstring-ref-rec
                  (ref fsref-ptr)
                  (str (:pointer :void)))
-(define-c-struct cfurlref-rec)
+(define-c-struct cfurlref-rec (url (:pointer :void)))
 (define-c-struct as-file-sys-rec
                  (size as-size-t)
                  (open as-file-sys-open-proc)
@@ -1154,6 +1154,8 @@
                   as-file-sys-get-type-and-creator-proc)
                  (reopen as-file-sys-reopen-proc)
                  (hard-flush as-file-sys-hard-flush-proc)
+                 (get-platform-thing
+                  as-file-sys-get-platform-thing-proc)
                  (get-item-props-as-cab
                   as-file-sys-get-item-props-as-cab-proc)
                  (can-perform-op-on-item
@@ -3341,8 +3343,19 @@
 (define-c-typedef pi-unload-proc-type
                   (:pointer
                    (:function nil as-bool :calling-convention :cdecl)))
-(define-c-struct pi-sdk-data-v0200)
-(define-c-struct pi-handshake-data-v0200)
+(define-c-struct pi-sdk-data-v0200
+                 (handshake-version as-uns32)
+                 (extension-id extension-id)
+                 (core-hft hft)
+                 (handshake-callback as-callback))
+(define-c-struct pi-handshake-data-v0200
+                 (handshake-version as-uns32)
+                 (app-name as-atom)
+                 (extension-name as-atom)
+                 (export-hft-s-callback as-callback)
+                 (import-replace-and-register-callback as-callback)
+                 (init-callback as-callback)
+                 (unload-callback as-callback))
 
 ;; #include <ASExtraExpT.h>
 ;; line 39
@@ -3443,7 +3456,7 @@
                     :calling-convention
                     :cdecl)))
 (define-c-struct as-cab-entry-rec
-                 (key-name (:pointer :byte))
+                 (key-name (:reference-pass :ef-mb-string))
                  (type as-cab-value-type)
                  (int-val as-int32)
                  (ptr-val (:pointer :void))
@@ -7180,6 +7193,7 @@
                  (xmppacket-padding-bytes as-int32)
                  (pre-write-proc pd-doc-pre-write-proc)
                  (pre-write-proc-client-data (:pointer :void))
+                 (save-flags2 pd-save-flags2)
                  (num-sub-files-to-compact as-uns32)
                  (offset-proc64 cos-obj-offset-proc64))
 (define-c-struct pd-doc-insert-pages-params-rec
@@ -7472,7 +7486,12 @@
                  (apply-ocgprint-overrides as-bool)
                  (negative as-bool)
                  (mirrorprint as-enum8)
-                 (which-marks as-uns32))
+                 (which-marks as-uns32)
+                 (western as-bool)
+                 (do-in-rip-trapping as-bool)
+                 (marks-style as-int32)
+                 (trap-type as-int32)
+                 (custom-marks-path as-path-name))
 (define-c-typedef pd-host-seps-spec (:pointer pd-host-seps-spec-rec))
 (define-c-struct pd-doc-copy-params-rec
                  (size as-size-t)
@@ -7490,9 +7509,9 @@
                  (marksflags as-int32)
                  (paper-width as-int32)
                  (paper-height as-int32)
-                 (doc-title (:pointer :byte))
-                 (doc-date (:pointer :byte))
-                 (doc-time (:pointer :byte))
+                 (doc-title (:reference-pass :ef-mb-string))
+                 (doc-date (:reference-pass :ef-mb-string))
+                 (doc-time (:reference-pass :ef-mb-string))
                  (col as-int32)
                  (row as-int32)
                  (num-cols as-int32)
@@ -9869,6 +9888,7 @@
 (define-c-struct av-doc-view-def-rec
                  (size as-size-t)
                  (bring-to-front as-bool)
+                 (use-page-view-info as-bool)
                  (page-view-layout-mode pd-layout-mode)
                  (page-view-page-num pd-page-number)
                  (page-view-zoom-type av-zoom-type)
@@ -9885,11 +9905,12 @@
                  (over-view-y as-int32)
                  (use-window-info as-bool)
                  (window-frame av-screen-rect)
-                 (window-maximized as-bool))
+                 (window-maximized as-bool)
+                 (unused2 (:reference-pass :ef-mb-string)))
 (define-c-typedef av-doc-view-def (:pointer av-doc-view-def-rec))
 (define-c-struct av-dest-info-rec
                  (size as-size-t)
-                 (named-dest (:pointer :byte))
+                 (named-dest (:reference-pass :ef-mb-string))
                  (name-length av-tarray-size)
                  (page-num pd-page-number)
                  (fit-type as-atom)
@@ -9903,14 +9924,14 @@
                  (use-visible as-bool)
                  (visible as-bool)
                  (use-server-type as-bool)
-                 (server-type (:pointer :byte))
+                 (server-type (:reference-pass :ef-mb-string))
                  (server-creation-data (:pointer :void))
                  (use-source-doc as-bool)
                  (source-doc av-doc)
                  (use-read-only as-bool)
                  (read-only as-bool)
                  (use-view-type as-bool)
-                 (view-type (:pointer :byte))
+                 (view-type (:reference-pass :ef-mb-string))
                  (use-view-def as-bool)
                  (view-def av-doc-view-def)
                  (use-perm-req-proc as-bool)
@@ -9921,7 +9942,7 @@
                  (collection-pref as-bool)
                  (use-minimize as-bool)
                  (minimize as-bool)
-                 (force-open-protected-view\  as-bool)
+                 (force-open-protected-view as-bool)
                  (force-open-option av-doc-force-open-option)
                  (open-flags av-doc-open-flags))
 (define-c-typedef av-doc-open-params (:pointer av-doc-open-params-rec))
@@ -10139,6 +10160,7 @@
                  (get-details av-action-get-details-proc))
 (define-c-struct av-aux-data-handler-rec
                  (size as-size-t)
+                 (old-perform-proc old-avaux-data-perform-proc)
                  (perform-proc av-aux-data-perform-proc))
 (define-c-typedef av-aux-data-handler
                   (:pointer av-aux-data-handler-rec))
@@ -10225,7 +10247,7 @@
                  (marks-style as-int32)
                  (print-dialog-was-cancelled as-bool)
                  (parent-window av-window)
-                 (ppd-path (:pointer :byte))
+                 (ppd-path (:reference-pass :ef-mb-string))
                  (custom-marks-file-name as-path-name)
                  (num-copies as-int32)
                  (duplex-type av-print-duplex-type)
@@ -10240,6 +10262,8 @@
                  (emit-file-option as-enum8)
                  (emit-flags as-uns32)
                  (page-size av-page-size)
+                 (raster-data av-doc-print-rasterize-data)
+                 (override-data av-doc-print-override-data)
                  (seps-spec pd-host-seps-spec)
                  (in-rip as-bool)
                  (trap-type as-int32)
@@ -10282,7 +10306,7 @@
                  (size as-size-t)
                  (use-save-dialog as-bool)
                  (dont-allow-conversions as-bool)
-                 (filter-id (:pointer :byte))
+                 (filter-id (:reference-pass :ef-mb-string))
                  (use-defaults as-bool))
 (define-c-typedef av-doc-save-params (:pointer av-doc-save-params-rec))
 (define-c-struct av-status-monitor-procs-rec
@@ -10413,7 +10437,7 @@
                  (size as-size-t)
                  (in-doc as-bool)
                  (dock-position av-tool-bar-dock-position)
-                 (floating-window-name (:pointer :byte))
+                 (floating-window-name (:reference-pass :ef-mb-string))
                  (stack-num as-int32)
                  (offset as-int32)
                  (order as-int32)
@@ -10429,15 +10453,15 @@
                  (b-certified as-bool)
                  (n-major-version av-version-num-part)
                  (n-minor-version av-version-num-part)
-                 (c-date (:pointer :byte))
+                 (c-date (:reference-pass :ef-mb-string))
                  (asp-file as-path-name)
-                 (c-description (:pointer :byte))
-                 (c-legal (:pointer :byte))
-                 (c-dependencies (:pointer :byte)))
+                 (c-description (:reference-pass :ef-mb-string))
+                 (c-legal (:reference-pass :ef-mb-string))
+                 (c-dependencies (:reference-pass :ef-mb-string)))
 (define-c-typedef av-extension-info (:pointer av-extension-info-rec))
 (define-c-struct av-simple-sel-procs-rec
                  (size as-size-t)
-                 (type (:pointer :byte))
+                 (type (:reference-pass :ef-mb-string))
                  (hilite-proc av-simple-sel-hilite-proc)
                  (de-hilite-proc av-simple-sel-de-hilite-proc)
                  (destroy-proc av-simple-sel-data-destroy-proc))
@@ -10445,7 +10469,7 @@
                   (:pointer av-simple-sel-procs-rec))
 (define-c-struct av-undo-handler-rec
                  (size as-size-t)
-                 (type (:pointer :byte))
+                 (type (:reference-pass :ef-mb-string))
                  (verify-undo av-undo-verify-proc)
                  (undo av-undo-execute-proc)
                  (verify-redo av-undo-verify-proc)
@@ -10530,7 +10554,7 @@
 (define-c-typedef pd-fopt-params (:pointer pd-fopt-params-rec))
 (define-c-struct av-notification-data-rec
                  (size as-uns32)
-                 (notification (:pointer :byte)))
+                 (notification (:reference-pass :ef-mb-string)))
 (define-c-typedef av-notification-data
                   (:pointer av-notification-data-rec))
 (define-c-struct av-version-params-rec
@@ -10751,7 +10775,16 @@
 
 ;; #include <AVExpTObsolete2.h>
 (define-c-struct old-avopen-save-dialog-params-rec
+                 (size as-size-t)
                  (flags av-open-save-dialog-flags)
+                 (parent-window av-window)
+                 (window-title as-text)
+                 (action-button-title as-text)
+                 (cancel-button-title as-text)
+                 (initial-file-sys as-file-sys)
+                 (initial-path-name as-path-name)
+                 (initial-file-name (:reference-pass :ef-mb-string))
+                 (num-file-filters av-array-size)
                  (settings-compute-enabled-proc
                   av-open-save-dialog-settings-compute-enabled-proc)
                  (settings-execute-proc
@@ -10760,6 +10793,7 @@
 (define-c-typedef old-avopen-save-dialog-params
                   (:pointer old-avopen-save-dialog-params-rec))
 (define-c-struct old-avdoc-selection-server-rec
+                 (size as-size-t)
                  (get-type av-doc-selection-get-type-proc)
                  (getting-selection
                   av-doc-selection-getting-selection-proc)
@@ -10797,6 +10831,7 @@
 (define-c-struct old-avdoc-view-def-rec
                  (size as-size-t)
                  (bring-to-front as-bool)
+                 (use-page-view-info as-bool)
                  (page-view-layout-mode pd-layout-mode)
                  (page-view-page-num pd-page-number)
                  (page-view-zoom-type av-zoom-type)
@@ -10806,19 +10841,42 @@
                  (page-view-start-thread as-bool)
                  (page-view-thread-index av-page-index)
                  (page-view-bead pd-bead)
+                 (use-over-view-info as-bool)
                  (over-view-mode pd-page-mode)
+                 (over-view-pos av-pixel-offset)
                  (over-view-x as-int32)
                  (over-view-y as-int32)
-                 (window-frame old-avrect))
+                 (use-window-info as-bool)
+                 (window-frame old-avrect)
+                 (unused1 as-bool)
+                 (unused2 (:reference-pass :ef-mb-string)))
 (define-c-typedef old-avdoc-view-def (:pointer old-avdoc-view-def-rec))
-(define-c-struct old-avdoc-open-params-rec (size as-size-t))
+(define-c-struct old-avdoc-open-params-rec
+                 (size as-size-t)
+                 (use-frame as-bool)
+                 (frame old-avrect)
+                 (use-visible as-bool)
+                 (visible as-bool)
+                 (use-server-type as-bool)
+                 (server-type (:reference-pass :ef-mb-string))
+                 (server-creation-data (:pointer :void))
+                 (use-source-doc as-bool)
+                 (source-doc av-doc)
+                 (use-read-only as-bool)
+                 (read-only as-bool)
+                 (use-view-type as-bool)
+                 (view-type (:reference-pass :ef-mb-string))
+                 (use-view-def as-bool)
+                 (view-def old-avdoc-view-def)
+                 (use-perm-req-proc as-bool)
+                 (perm-req-proc av-doc-perm-req-proc))
 (define-c-typedef old-avdoc-open-params
                   (:pointer old-avdoc-open-params-rec))
 (define-c-struct old-avtool-bar-position-rec
                  (size as-size-t)
                  (in-doc as-bool)
                  (dock-position av-tool-bar-dock-position)
-                 (floating-window-name (:pointer :byte))
+                 (floating-window-name (:reference-pass :ef-mb-string))
                  (stack-num as-int32)
                  (offset as-int32)
                  (order as-int32)
@@ -11020,13 +11078,13 @@
                  (open-flags as-flag-bits)
                  (file-sys as-file-sys)
                  (path-name as-path-name)
-                 (header-string (:pointer :byte)))
+                 (header-string (:reference-pass :ef-mb-string)))
 (define-c-typedef cos-doc-open-params
                   (:pointer cos-doc-open-params-rec))
 (define-c-struct cos-doc-save-params-rec
                  (size as-size-t)
-                 (header (:pointer :byte))
-                 (crypt-data (:pointer :byte))
+                 (header (:reference-pass :ef-mb-string))
+                 (crypt-data (:reference-pass :ef-mb-string))
                  (crypt-data-len ast-array-size)
                  (mon as-progress-monitor)
                  (mon-client-data (:pointer :void))

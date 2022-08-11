@@ -253,10 +253,18 @@ EXPORT statement."
     (when type-name
       (pprint `(fli:define-c-typedef ,(mangle-name type-name) :int)))))
 
-;; /* comment1 */ type [*]var1, [*]var2; // comment2
+;; /* comment1 */ type [*]var1, [*]var2; // comment2 or /* comment 2 */
+
+;; The regex string /\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/ for matching C comments
+;; is learnt from https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
 (defparameter *type-and-names-regex*
   (create-scanner
-   "(?m)\\s*(?:\\*[^*]+\\*/\\s*)?([^/;,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;\\s*(?://.*)?$"))
+   (concatenate 'string
+                "(?sm)\\s*"
+                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments (multiple blocks)
+                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"
+                "\\s*(?://[^\\r\\n]*)?" ; C++ comments
+                )))
 
 (defun handle-struct (body typedef-name &optional pointer-name)
   "Handles the part between `struct {' and `}' - writes a
@@ -264,17 +272,14 @@ corresponding FLI:DEFINE-C-STRUCT definition."
   (let (slots)
     (do-register-groups (type pointerp names)
         (*type-and-names-regex* body)
-      (loop for name in (split "\\s*,\\s*" names)
-            do
-         (push (list (cond (pointerp
-                            (let ((final-type `(:pointer ,(make-fli-type type))))
-                              ;; convert :pointer (:struct ...) types to their opaque pointer types
-                              (when-let (new-type (cdr (assoc final-type *typedefs* :test 'equal)))
-                                (setq final-type new-type))
-                              final-type))
-                           (t
-                            (make-fli-type type)))
-                     (mangle-name name)) slots)))
+      (let* ((parsed-names (split "\\s*,\\s*" names))
+             (type-and-first-name
+              (concatenate 'string type " " pointerp " " (first parsed-names))))
+        (destructuring-bind (type lisp-name c-name) (type-and-name type-and-first-name)
+          (declare (ignore c-name))
+          (push (list type lisp-name) slots)
+          (loop for name in (rest parsed-names)
+                do (push (list type (mangle-name name)) slots)))))
     (let ((lisp-name (mangle-name typedef-name)))
       (pprint `(fli:define-c-struct ,lisp-name
                  ,@(loop for (slot-type slot-name) in (nreverse slots)
