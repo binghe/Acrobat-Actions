@@ -78,6 +78,7 @@ instead of a list if the string contained only one word."
                string (regex-replace-all "([A-Za-z])(SEL)"
                                          string "\\1-\\2")
                string (regex-replace-all "([a-z])([A-Z])" string "\\1-\\2")
+               string (regex-replace-all "-(AS|PI|AC)([A-Za-z])" string "-\\1-\\2")
                string (regex-replace-all "_" string "-")))))
 
 (defun mangle-name (string &key constant global)

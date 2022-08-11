@@ -41,6 +41,7 @@
 
     "ASExtraExpT"  ; Types, macros, structures, etc. required to use the ASExtra HFT
     "ASExtraProcs" ; Catalog of functions exported by the ASExtra HFT
+    "ASExtraCalls"
     )
   "The list of involved Acrobat SDK header files in the right order.")
 

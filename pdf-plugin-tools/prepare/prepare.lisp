@@ -135,6 +135,10 @@ expression."
   (create-scanner
    "^#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),\\s*\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$"))
 
+;;	#define ASScriptToHostEncoding ASEXTRAROUTINE(ASExtraHFT_VERSION_5,ASScriptToHostEncoding)
+(defparameter *define-regex6*
+  (create-scanner "#define (\\w+) ASEXTRAROUTINE\\(([\\w_]+),([\\w_]+)\\)$"))
+
 (defun handle-define (line)
   (cond ((scan *define-regex0* line)
          nil)
@@ -183,6 +187,18 @@ expression."
                   (lisp-proto (mangle-name proto))
                   (lisp-hft (mangle-name hft :global t))
                   (lisp-sel (mangle-name sel :constant t))
+                  (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
+             (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
+                                    ,lisp-proto ,lisp-hft ,lisp-sel)))))
+        ((scan *define-regex6* line)
+         (register-groups-bind (name version proto) (*define-regex6* line)
+           (format t "~%;; line ~D" *line-number*)
+           (let* ((lisp-name (mangle-name name))
+                  (lisp-vername (mangle-name "gASExtraVersion" :global t))
+                  (lisp-version (mangle-name version :constant t))
+                  (lisp-proto (mangle-name (concatenate 'string proto "-SELPROTO")))
+                  (lisp-hft (mangle-name "gASExtraHFT" :global t))
+                  (lisp-sel (mangle-name (concatenate 'string proto "-SEL") :constant t))
                   (define-name (intern "DEFINE-ACROBAT-FUNCTION" :pdf-plugin-tools)))
              (pprint `(,define-name (,lisp-name ,name) ,lisp-vername ,lisp-version
                                     ,lisp-proto ,lisp-hft ,lisp-sel)))))
