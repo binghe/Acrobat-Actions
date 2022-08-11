@@ -75,7 +75,7 @@ if nothing was found, or TYPE itself if DEFAULT is NIL."
          (register-groups-bind (head rest) (*mangle-name-regex1* string)
            (concatenate 'string head "-" (mangle-name1 rest))))
         (t
-         (setq string (regex-replace-all "^(AC|AS|AV|PD|PI)([A-Za-z])" string "\\1-\\2")
+         (setq string (regex-replace-all "^(AC|AS|AV|CF|PD|PI)([A-Za-z])" string "\\1-\\2")
                string (regex-replace-all "([A-Za-z])(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)"
                                          string "\\1-\\2")
                string (regex-replace-all "(UTF|UUID|PDF|MAX|MIN|EOF|HFT|SDK)([A-Za-z])"

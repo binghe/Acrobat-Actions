@@ -343,11 +343,11 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *typedef-enum-regex*
   (create-scanner "(?s)(?:typedef\\s+)?enum(?:\\s+\\w+)?\\s*\\{\\s*(.*?)\\s*,?\\s*\\}(?:\\s*(\\w+))?"))
 
-(defun parse-header-files ()
+(defun parse-header-files (header-file-names)
   "Loops through all C header files in *HEADER-FILE-NAMES*,
 checks for enums, structs or function prototypes and writes the
 corresponding C code to *STANDARD-OUTPUT*."
-  (dolist (name *header-file-names*)
+  (dolist (name header-file-names)
     (let ((header-file (make-pathname :name name :type "h"
                                       :defaults *sdk-extern-location*))
           (file-string (make-array '(0) :element-type 'simple-char
@@ -453,25 +453,74 @@ corresponding C code to *STANDARD-OUTPUT*."
         (incf *hft-counter*))
       (terpri))))
 
-(defun prepare ()
+(defun prepare (&optional (group 0))
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
 the C header files of Acrobat Pro."
   ;; find out where to look for headers
   (unless *sdk-extern-location* (set-sdk-extern-location))
-  (setq *typedefs* (copy-list *typedefs-init*))
-  ;; redirect *STANDARD-OUTPUT* to `fli.lisp'
-  (with-open-file (*standard-output* *fli-file*
-                                     :direction :output
-                                     :if-exists :supersede)
-    ;; use correct package for output and refrain from writing
-    ;; everything in uppercase
-    (with-standard-io-syntax 
-      (let ((*package* (find-package :pdf-plugin-tools))
-            (*print-case* :downcase))
-        (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
-        (terpri)
-        (print '(in-package :pdf-plugin-tools))
-        (terpri)
-        ;; let this function do all the work
-        (parse-header-files))))
+  (when (<= group 0)
+    (setq *typedefs* (copy-list *typedefs-init*))
+    ;; redirect *STANDARD-OUTPUT* to `fli.lisp'
+    (with-open-file (*standard-output* *fli-file*
+                                       :direction :output
+                                       :if-exists :supersede)
+      ;; use correct package for output and refrain from writing
+      ;; everything in uppercase
+      (with-standard-io-syntax 
+        (let ((*package* (find-package :pdf-plugin-tools))
+              (*print-case* :downcase))
+          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (terpri)
+          (print '(in-package :pdf-plugin-tools))
+          (terpri)
+          ;; let this function do all the work
+          (parse-header-files *header-file-names*)))))
+  ;; another group
+  (when (<= group 1)
+    (with-open-file (*standard-output* *fli-file-1*
+                                       :direction :output
+                                       :if-exists :supersede)
+      ;; use correct package for output and refrain from writing
+      ;; everything in uppercase
+      (with-standard-io-syntax 
+        (let ((*package* (find-package :pdf-plugin-tools))
+              (*print-case* :downcase))
+          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (terpri)
+          (print '(in-package :pdf-plugin-tools))
+          (terpri)
+          ;; let this function do all the work
+          (parse-header-files *header-file-names-1*)))))
+  ;; another group
+  (when (<= group 2)
+    (with-open-file (*standard-output* *fli-file-2*
+                                       :direction :output
+                                       :if-exists :supersede)
+      ;; use correct package for output and refrain from writing
+      ;; everything in uppercase
+      (with-standard-io-syntax 
+        (let ((*package* (find-package :pdf-plugin-tools))
+              (*print-case* :downcase))
+          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (terpri)
+          (print '(in-package :pdf-plugin-tools))
+          (terpri)
+          ;; let this function do all the work
+          (parse-header-files *header-file-names-2*)))))
+  ;; another group
+  (when (<= group 3)
+    (with-open-file (*standard-output* *fli-file-3*
+                                       :direction :output
+                                       :if-exists :supersede)
+      ;; use correct package for output and refrain from writing
+      ;; everything in uppercase
+      (with-standard-io-syntax 
+        (let ((*package* (find-package :pdf-plugin-tools))
+              (*print-case* :downcase))
+          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (terpri)
+          (print '(in-package :pdf-plugin-tools))
+          (terpri)
+          ;; let this function do all the work
+          (parse-header-files *header-file-names-3*)))))
   :done)
