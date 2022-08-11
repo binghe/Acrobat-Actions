@@ -46,6 +46,9 @@
     "PDBasicExpT"  ; Types required to use the PDModel HFT (ONLY handles to exported types)
     "PDExpT"       ; Types, macros, structures, etc. required to use the PDModel HFT
     "AVExpT"       ; Types, macros, structures, etc. required to use the AcroView HFT
+    "AVExpTObsolete1"
+    "AVExpTObsolete2"
+    "CosExpT"      ; Types, macros, structures, etc. required to use the Cos HFT
 
     "AVProcs"      ; Catalog of functions exported by AcroView
     ;; "AVCalls"
@@ -89,6 +92,7 @@
     "PDMETADATA_HFT"
     "AS_ARCH_64BIT"
     "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
+    "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)"
     ))
 
 ;; These C macros are considered being defined as 0 in the SDK
