@@ -331,14 +331,17 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
 ;;
 ;; NPROC(ASBool, ASUUIDGenFromHash, (ASUUID *dst, ASUns8 hash[16]))
-;; NPROC(ASBool,						ASFileHasOutstandingMReads,(ASFile fN))
+;; NPROC(ASBool,	ASFileHasOutstandingMReads,(ASFile fN))
 (defparameter *xproc-regex2*
   (create-scanner
    "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
 
 (defparameter *typedef-struct-regex*
   (create-scanner
-   "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{([^{}]+)\\}\\s*([\\w_]+)(,\\s\\*([\\w_]+))?;"))
+   (concatenate 'string
+                "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
+                ".*?"
+                ")\\}\\s*([\\w_]+)(?:,\\s\\*([\\w_]+))?;")))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner
@@ -457,9 +460,9 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; prototypes
       (handle-prototype file-string)
       ;; typedef struct ...
-      (do-register-groups (struct-name? body typedef-name pointerp pointer-name)
+      (do-register-groups (struct-name? body typedef-name pointer-name)
           (*typedef-struct-regex* file-string)
-        (declare (ignore struct-name? pointerp))
+        (declare (ignore struct-name?))
         (handle-struct body typedef-name pointer-name))
       ;; xPROC(...)
       (do-register-groups (nil name nil) (*xproc-regex2* file-string)
