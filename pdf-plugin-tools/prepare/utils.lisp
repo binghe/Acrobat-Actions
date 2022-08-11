@@ -106,8 +106,12 @@ the Lisp symbol to denote a Lisp constant."
 
 ;; void **cancelProcClientDataP
 ;; const char * const *addExt
+;; CosObj funcDict, const float inVals[], float outVals[]
 (defparameter *type-and-name-regex*
-  (create-scanner "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)(\\w+)(\\[(\\d+)\\])?\\s*$"))
+  (create-scanner
+   (concatenate 'string
+                "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)"
+                "(\\w+)(\\[(\\d+)?\\])?\\s*$")))
 
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
@@ -125,13 +129,14 @@ argument."
                          `(:pointer (:pointer :char)))
                         (t
                          '(:reference-pass :ef-mb-string))))
-                 (arrayp
-                  `(:c-array ,type ,(parse-integer size)))
                  (pointerp
                   (cond ((scan "\\*\\*" pointerp)
                          `(:pointer (:pointer ,type)))
                         (t
                          `(:pointer ,type))))
+                 (arrayp
+                  (cond (size `(:c-array ,type ,(parse-integer size)))
+                        (t    `(:pointer ,type))))
                  (t
                   type))))
       ;; convert :struct types to their opaque pointer types

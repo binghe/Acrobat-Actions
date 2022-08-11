@@ -3297,7 +3297,9 @@
                             :cdecl)
 ;; sel = 339
 (define-foreign-funcallable pd-apply-function-selproto
-                            ((func-dict cos-obj) (nil nil) (nil nil))
+                            ((func-dict cos-obj)
+                             (in-vals (:pointer :float))
+                             (out-vals (:pointer :float)))
                             :result-type
                             :void
                             :calling-convention
@@ -4829,9 +4831,9 @@
 ;; sel = 523
 (define-foreign-funcallable pd-apply-function-ex-selproto
                             ((func-dict cos-obj)
-                             (nil nil)
+                             (in-vals (:pointer :float))
                              (n-input as-array-size)
-                             (nil nil)
+                             (out-vals (:pointer :float))
                              (n-output as-array-size))
                             :result-type
                             :void

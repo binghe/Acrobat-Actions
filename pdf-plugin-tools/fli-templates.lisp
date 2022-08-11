@@ -28,8 +28,8 @@
 
 (in-package :pdf-plugin-tools)
 
-;; This is needed for higher delivery levels (currently it doesn't work)
-(FLI::DEFINE-PRECOMPILED-FOREIGN-OBJECT-ACCESSOR-FUNCTIONS
+;; This is needed for higher delivery levels
+(fli::define-precompiled-foreign-object-accessor-functions
   (((:pointer :void) :no-alloc-p :error :size nil)
    #+:macosx
    (cf-bundle-ref    :no-alloc-p :error :size nil)
