@@ -4233,6 +4233,10 @@
                  (field-text as-text)
                  (visible as-bool)
                  (can-edit as-bool))
+(define-opaque-pointer pd-graphic -t-pdgraphic)
+(define-opaque-pointer pd-text -t-pdgraphic)
+(define-opaque-pointer pd-path -t-pdgraphic)
+(define-opaque-pointer pd-inline-image -t-pdgraphic)
 
 ;; #include <AVExpT.h>
 ;; line 92

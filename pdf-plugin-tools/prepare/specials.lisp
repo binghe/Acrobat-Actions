@@ -57,7 +57,9 @@
     "AVCalls"))
 
 (defparameter *header-file-names-3*
-  '("PDProcs"      ; Catalog of functions exported by the PDModel HFT
+  '("PDSExpT"      ; Types, macros, structures, etc. required to use the PDSEdit HFT
+    ;; "AcroColorExpT"
+    "PDProcs"      ; Catalog of functions exported by the PDModel HFT
     ;; "PDCalls"
     ))
 

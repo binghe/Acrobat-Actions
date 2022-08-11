@@ -340,6 +340,27 @@ corresponding FLI:DEFINE-C-STRUCT definition."
   (create-scanner
    "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{([^{}]+)\\}\\s*([\\w_]+)(,\\s\\*([\\w_]+))?;"))
 
+(defparameter *typedef-opaque-pointers*
+  (create-scanner
+   (concatenate 'string
+                "(?sm)\\s*"
+                "typedef\\s+struct\\s+(\\w+)(?<!\\s)\\s*"
+                "\\*(\\w+),\\s*"
+                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)?" ; C comments (optional)
+                "\\*(\\w+),\\s*"
+                "\\*(\\w+),\\s*"
+                "\\*(\\w+);"
+                )))
+
+(defun handle-opaque-pointers (file-string)
+  (do-register-groups (tag-name type1 type2 type3 type4)
+      (*typedef-opaque-pointers* file-string)
+    (let ((name (mangle-name tag-name)))
+      (pprint `(fli:define-opaque-pointer ,(mangle-name type1) ,name))
+      (pprint `(fli:define-opaque-pointer ,(mangle-name type2) ,name))
+      (pprint `(fli:define-opaque-pointer ,(mangle-name type3) ,name))
+      (pprint `(fli:define-opaque-pointer ,(mangle-name type4) ,name)))))
+
 (defparameter *typedef-enum-regex*
   (create-scanner "(?s)(?:typedef\\s+)?enum(?:\\s+\\w+)?\\s*\\{\\s*(.*?)\\s*,?\\s*\\}(?:\\s*(\\w+))?"))
 
@@ -355,7 +376,7 @@ corresponding C code to *STANDARD-OUTPUT*."
           (*line-number* 0)
           (*hft-counter* 1))
       (format t "~%;; #include <~A.h>" name)
-      (format *error-output* "Processing ~A...~%" name)
+      (format *error-output* "Processing ~A.h...~%" name)
       (with-open-file (in header-file)
         (with-output-to-string (out file-string)
           (loop with contexts = '(:error)     ; the polarity of the current #if context
@@ -451,6 +472,8 @@ corresponding C code to *STANDARD-OUTPUT*."
         (format t "~%;; sel = ~A" *hft-counter*)
         (handle-function type name args)
         (incf *hft-counter*))
+      ;; special: opaque pointers
+      (handle-opaque-pointers file-string)
       (terpri))))
 
 (defun prepare (&optional (group 0))

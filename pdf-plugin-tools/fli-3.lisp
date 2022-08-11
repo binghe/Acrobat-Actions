@@ -2,6 +2,63 @@
 
 (in-package :pdf-plugin-tools) 
 
+;; #include <PDSExpT.h>
+;; line 84
+(define-c-typedef pds-element cos-obj)
+;; line 95
+(define-c-typedef pds-tree-root cos-obj)
+;; line 108
+(define-c-typedef pds-attr-obj cos-obj)
+;; line 114
+(define-c-typedef pds-mcr cos-obj)
+;; line 123
+(define-c-typedef pds-mc pd-econtainer)
+;; line 129
+(define-c-typedef pds-objr cos-obj)
+;; line 138
+(define-c-typedef pds-role-map cos-obj)
+;; line 148
+(define-c-typedef pds-class-map cos-obj)
+;; line 160
+(define-opaque-pointer pds-mcref -t-pdsmcref)
+(defconstant +k-pdselement+ 0)
+(defconstant +k-pdsattr-obj+ 1)
+(defconstant +k-pdsmcr+ 2)
+(defconstant +k-pdsmc+ 3)
+(defconstant +k-pdsrole-map+ 4)
+(defconstant +k-pdsclass-map+ 5)
+(defconstant +k-pdslast-type+ 6)
+(define-c-typedef pds-type :int)
+(define-c-typedef pds-element-enum-user-properties-as-as-text-proc
+                  (:pointer
+                   (:function
+                    (as-text as-text (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pds-element-enum-user-properties-as-cos-obj-proc
+                  (:pointer
+                   (:function
+                    (cos-obj (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef enum-elements-with-user-properties-proc
+                  (:pointer
+                   (:function
+                    (pds-element pds-element (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-struct pds-mcinfo
+                 (size as-size-t)
+                 (mcid as-int32)
+                 (direct-content as-bool)
+                 (containing-stm cos-obj)
+                 (stm-owner cos-obj)
+                 (page cos-obj))
+(define-c-typedef pds-mcinfo-p (:pointer pds-mcinfo))
+
 ;; #include <PDProcs.h>
 (defconstant +pd-action-new-sel+ 1)
 (defconstant +pd-action-new-from-dest-sel+ 2)

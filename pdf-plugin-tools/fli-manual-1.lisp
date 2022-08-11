@@ -1,4 +1,4 @@
-;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-USER; Base: 10 -*-
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: PDF-PLUGIN-TOOLS; Base: 10 -*-
 
 ;;; Copyright (c) 2022, Chun Tian (binghe).  All rights reserved.
 
@@ -26,23 +26,7 @@
 ;;; NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(asdf:defsystem :pdf-plugin-tools
-  :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
-  :author "Chun Tian (binghe)"
-  :license "BSD"
-  :version "0.1.0"
-  :serial t
-  :components ((:file "packages")
-               (:file "specials")
-               (:file "utils")
-               (:file "fli-manual")
-               (:file "fli")   ; not included in distribution
-               (:file "fli-1") ; not included in distribution
-               (:file "fli-2") ; not included in distribution
-               (:file "fli-manual-1")
-               (:file "fli-3") ; not included in distribution
-               (:file "fli-templates")
-               (:file "functions")
-               (:file "main"))
-  :depends-on (:cxml/xml
-               :parenscript))
+(in-package :pdf-plugin-tools)
+
+;; <AcroColorExpT.h>
+(define-opaque-pointer ac-profile -t-ac-profile)
