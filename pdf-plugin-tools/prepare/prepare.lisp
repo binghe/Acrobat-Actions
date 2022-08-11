@@ -221,16 +221,34 @@ expression."
         (t
          nil)))
 
+(defparameter *handle-enum-regex*
+  (create-scanner "(?m)^\\s*(\\w+)\\s*(?:=\\s*([^,/]*\\z|.*?)\\s*)?(?:,|(?:/.*)?$)"))
+
+(defun handle-enum (body &optional type-name)
+  "Handles the part between `enum {' and `}'.  Loops through all
+lines, writes one DEFCONSTANT per item and the corresponding
+EXPORT statement."
+  (let ((counter 0))
+    (do-register-groups (name value) (*handle-enum-regex* body)
+      ;; use value if provided in enum, COUNTER otherwise
+      (setq value (if value (read-enum-value value) counter))
+      (let ((lisp-name (mangle-name name :constant t)))
+        (pprint `(defconstant ,lisp-name ,value)))
+      ;; increment counter or continue with successor of value
+      (setq counter (1+ (if (numberp value) value counter))))
+    (when type-name
+      (pprint `(fli:define-c-typedef ,(mangle-name type-name) :int)))))
+
 ;; /* comment1 */ type [*]var1, [*]var2; // comment2
 (defparameter *type-and-names-regex*
   (create-scanner
-   "(?m)\\s*(\\*[^*]+\\*/\\s*)?([^/;,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;\\s*(//.*)?$"))
+   "(?m)\\s*(?:\\*[^*]+\\*/\\s*)?([^/;,*]*)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;\\s*(?://.*)?$"))
 
 (defun handle-struct (body typedef-name &optional pointer-name)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
   (let (slots)
-    (do-register-groups (nil type pointerp names)
+    (do-register-groups (type pointerp names)
         (*type-and-names-regex* body)
       (loop for name in (split "\\s*,\\s*" names)
             do
@@ -283,7 +301,8 @@ corresponding FLI:DEFINE-C-STRUCT definition."
   (create-scanner
    "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{([^{}]+)\\}\\s*([\\w_]+)(,\\s\\*([\\w_]+))?;"))
 
-(defvar *line-number* 0)
+(defparameter *typedef-enum-regex*
+  (create-scanner "(?s)(?:typedef\\s+)?enum(?:\\s+\\w+)?\\s*\\{\\s*(.*?)\\s*,?\\s*\\}(?:\\s*(\\w+))?"))
 
 (defun parse-header-files ()
   "Loops through all C header files in *HEADER-FILE-NAMES*,
@@ -371,6 +390,10 @@ corresponding C code to *STANDARD-OUTPUT*."
                 (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
                         line-number contexts pos-contexts neg-contexts)
                 )))
+      ;; enum + typedef
+      (do-register-groups (enum-body type-name)
+          (*typedef-enum-regex* file-string)
+        (handle-enum enum-body type-name))
       ;; prototypes
       (handle-prototype file-string)
       ;; typedef struct ...
