@@ -40,6 +40,7 @@
 (defconstant +cos-hft-version-6+ #x00060000)
 (defconstant +cos-hft-version-7+ #x00070000)
 (defconstant +cos-hft-version-8+ #x00080000)
+(defconstant +cos-hft-version-9+ #x00090000)
 
 (defconstant +as-calls-hft-version-2+   #x00020000)
 (defconstant +as-calls-hft-version-2-2+ #x00020002)
@@ -51,6 +52,44 @@
 (defconstant +as-calls-hft-version-8+   #x00080000)
 (defconstant +as-calls-hft-version-9+   #x00090000)
 (defconstant +as-calls-hft-version-10+  #x000A0000)
+
+(defconstant +as-extra-hft-version-5+   #x00050000)
+(defconstant +as-extra-hft-version-6+   #x00060000)
+(defconstant +as-extra-hft-version-7+   #x00070000)
+(defconstant +as-extra-hft-version-9+   #x00090000)
+
+(defconstant +acro-view-hft-version-2+    #x00020000)
+(defconstant +acro-view-hft-version-2-1+  #x00020001)
+(defconstant +acro-view-hft-version-2-2+  #x00020002)
+(defconstant +acro-view-hft-version-2-3+  #x00020003)
+(defconstant +acro-view-hft-version-4+    #x00040000)
+(defconstant +acro-view-hft-version-4-5+  #x00040005)
+(defconstant +acro-view-hft-version-5+    #x00050000)
+(defconstant +acro-view-hft-version-5-1+  #x00050001)
+(defconstant +acro-view-hft-version-6+    #x00060000)
+(defconstant +acro-view-hft-version-7+    #x00070000)
+(defconstant +acro-view-hft-version-8+    #x00080000)
+(defconstant +acro-view-hft-version-9+    #x00090000)
+(defconstant +acro-view-hft-version-10+   #x000A0000)
+(defconstant +acro-view-hft-version-11+   #x000B0000)
+(defconstant +acro-view-hft-version-11-6+ #x000B0006)
+(defconstant +acro-view-hft-version-12+   #x000C0000)
+(defconstant +acro-view-hft-version-12-3+ #x000C0003)
+
+(defconstant +pd-model-hft-version-2+   #x00020000)
+(defconstant +pd-model-hft-version-2-1+ #x00020001)
+(defconstant +pd-model-hft-version-2-2+ #x00020002)
+(defconstant +pd-model-hft-version-2-3+ #x00020003)
+(defconstant +pd-model-hft-version-4+   #x00040000)
+(defconstant +pd-model-hft-version-5+   #x00050000)
+(defconstant +pd-model-hft-version-6+   #x00060000)
+(defconstant +pd-model-hft-version-7+   #x00070000)
+(defconstant +pd-model-hft-version-8+   #x00080000)
+(defconstant +pd-model-hft-version-9+   #x00090000)
+(defconstant +pd-model-hft-version-10+  #x000A0000)
+(defconstant +pd-model-hft-version-11+  #x000B0000)
+(defconstant +pd-model-hft-version-12+  #x000C0000)
+(defconstant +pd-model-hft-version-13+  #x000D0000)
 
 ;; Some code below are code from Gregory C. Wuller's "corefoundation"
 ;; https://github.com/ngwese/core-foundation.git
@@ -104,3 +143,7 @@
   (size       :size-t)
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
+
+;; <AcroColorExpT.h>
+(define-opaque-pointer ac-profile -t-ac-profile)
+(define-c-typedef ac-render-intent :int) ; enum

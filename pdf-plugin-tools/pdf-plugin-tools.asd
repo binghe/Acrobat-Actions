@@ -39,7 +39,6 @@
                (:file "fli")   ; not included in distribution
                (:file "fli-1") ; not included in distribution
                (:file "fli-2") ; not included in distribution
-               (:file "fli-manual-1")
                (:file "fli-3") ; not included in distribution
                (:file "fli-templates")
                (:file "functions")

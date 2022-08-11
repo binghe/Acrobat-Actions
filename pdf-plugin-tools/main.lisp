@@ -45,16 +45,22 @@
 
 (defvar *pi-cos-optional* nil)
 
-#|
 (defvar *pi-pd-model-version* +pd-model-hft-version-6+
   "PDModel methods - the version of the PD level HFT.")
 
-(defvar *pi-acroview-version* +acroview-hft-version-6+
+(defvar *pi-pd-model-optional* nil)
+
+(defvar *pi-acro-view-version* +acro-view-hft-version-6+
   "AcroView methods - the version of the Acrobat viewer level HFT.")
+
+(defvar *pi-acro-view-optional* nil)
 
 (defvar *pi-as-extra-version* +as-extra-hft-version-6+
   "ASExtra methods")
 
+(defvar *pi-as-extra-optional* nil)
+
+#|
 (defvar *pi-macintosh-version* +macintosh-hft-version-2_2+
   "Macintosh specific methods (AppleEvents, AVRect conversions, etc.)
  - the version of the Mac OS-only methods HFT")
@@ -156,14 +162,11 @@ Returning false will cause an alert to display that unloading failed.
   (plugin-log "[PluginUnload] end.~%")
   t)
 
-(defvar *plugin-export-hfts*
-  (foreign-function-pointer 'plugin-export-hfts))
+(defvar *plugin-export-hfts* (foreign-function-pointer 'plugin-export-hfts))
 (defvar *plugin-import-replace-and-register*
   (foreign-function-pointer 'plugin-import-replace-and-register))
-(defvar *plugin-init*
-  (foreign-function-pointer 'plugin-init))
-(defvar *plugin-unload*
-  (foreign-function-pointer 'plugin-unload))
+(defvar *plugin-init*   (foreign-function-pointer 'plugin-init))
+(defvar *plugin-unload* (foreign-function-pointer 'plugin-unload))
 
 (define-foreign-callable (pi-handshake :result-type as-bool
                                        :calling-convention :cdecl)
@@ -207,8 +210,12 @@ environment."
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defparameter *hft-info*
-    '(("Core" *pi-core-version* *g-core-version* *g-core-hft* nil)
-      ("Cos"  *pi-cos-version*  *g-cos-version*  *g-cos-hft*  *pi-cos-optional*))
+    '(("Core"     *pi-core-version*      *g-core-version*      *g-core-hft*      nil)
+      ("ASExtra"  *pi-as-extra-version*  *g-as-extra-version*  *g-as-extra-hft*  *pi-as-extra-optional*)
+      ("AcroView" *pi-acro-view-version* *g-acro-view-version* *g-acro-view-hft* *pi-acro-view-optional*)
+      ("PDModel"  *pi-pd-model-version*  *g-pd-model-version*  *g-pd-model-hft*  *pi-pd-model-optional*)
+      ("Cos"      *pi-cos-version*       *g-cos-version*       *g-cos-hft*       *pi-cos-optional*)
+      )
     "A list of HFTs to be retrieved from the host application."))
 
 ;; This macro only expands into pi-setup-sdk
