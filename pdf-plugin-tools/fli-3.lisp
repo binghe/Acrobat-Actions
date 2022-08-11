@@ -4932,7 +4932,7 @@
 ;; sel = 534
 (define-foreign-funcallable pd-structure-dest-create-selproto
                             ((doc pd-doc)
-                             (struct-elem pd-selement)
+                             (struct-elem pds-element)
                              (initial-fit-type as-atom)
                              (initial-rect as-fixed-rect-p)
                              (initial-zoom as-fixed))
@@ -4959,7 +4959,7 @@
                             ((dest pd-structure-destination)
                              (elem-id (:pointer as-text)))
                             :result-type
-                            pd-selement
+                            pds-element
                             :calling-convention
                             :cdecl)
 ;; sel = 538

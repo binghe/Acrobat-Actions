@@ -68,7 +68,7 @@ instead of a list if the string contained only one word."
 if nothing was found, or TYPE itself if DEFAULT is NIL."
   (or (cdr (assoc type *typedefs*)) default type))
 
-(defparameter *mangle-name-regex1* (create-scanner "^(AST)([A-Z].*)$"))
+(defparameter *mangle-name-regex1* (create-scanner "^(AST|PDS)([A-Z].*)$"))
 
 (defun mangle-name1 (string)
   (cond ((scan *mangle-name-regex1* string)
@@ -98,9 +98,11 @@ If CONSTANT is true, a plus sign is added to the beginning and end of
 the Lisp symbol to denote a Lisp constant."
   (let ((new-string (mangle-name1 string)))
     (cond (constant
-           (intern (format nil "+~A+" (string-upcase new-string)) :pdf-plugin-tools))
+           (intern (concatenate 'string "+" (string-upcase new-string) "+")
+                   :pdf-plugin-tools))
           (global
-           (intern (format nil "*~A*" (string-upcase new-string)) :pdf-plugin-tools))
+           (intern (concatenate 'string "*" (string-upcase new-string) "*")
+                   :pdf-plugin-tools))
           (t
            (intern (string-upcase new-string) :pdf-plugin-tools)))))
 
