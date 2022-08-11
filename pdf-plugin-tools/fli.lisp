@@ -74,9 +74,9 @@
 ;; line 76
 (define-c-typedef as-enum16 as-int16)
 ;; line 79
-(define-c-typedef k-as-max-enum8 as-max-int8)
+(defconstant +k-as-max-enum8+ +as-max-int8+)
 ;; line 81
-(define-c-typedef k-as-max-enum16 as-max-int16)
+(defconstant +k-as-max-enum16+ +as-max-int16+)
 ;; line 99
 (define-c-typedef opaque-32-bits as-int32)
 ;; line 133
@@ -1096,8 +1096,8 @@
 (define-c-typedef as-file-sys-item-props
                   (:pointer as-file-sys-item-props-rec))
 (define-c-struct fsref-with-cfstring-ref-rec
-                 (ref (:pointer (struct fsref)))
-                 (str (:pointer (struct --cfstring))))
+                 (ref fsref-ptr)
+                 (str (:pointer :void)))
 (define-c-struct cfurlref-rec)
 (define-c-struct as-file-sys-rec
                  (size as-size-t)
@@ -6235,7 +6235,7 @@
 (defconstant +pd-print-what-document-and-stamps+ 2)
 (defconstant +pd-print-what-form-fields-only+ 3)
 (defconstant +pd-print-what-count+ 4)
-(defconstant +pd-print-what-min+ pdprintwhat_document)
+(defconstant +pd-print-what-min+ +pd-print-what-document+)
 (defconstant +k-ocmdvisibility-all-on+ 0)
 (defconstant +k-ocmdvisibility-any-on+ 1)
 (defconstant +k-ocmdvisibility-any-off+ 2)
@@ -6250,13 +6250,13 @@
 (defconstant +k-pdoc-visible-oc+ 0)
 (defconstant +k-pdoc-all-oc+ 1)
 (defconstant +k-pdoc-no-oc+ 2)
-(defconstant +k-pdoc-last-draw-enum-type+ kpdoc_nooc)
+(defconstant +k-pdoc-last-draw-enum-type+ +k-pdoc-no-oc+)
 (defconstant +k-pdocgstate+ 0)
 (defconstant +k-pdoccontext-draw-enum-type+ 1)
 (defconstant +k-pdoccontext-non-ocdrawing+ 2)
 (defconstant +k-pdoccontext-intent+ 3)
 (defconstant +k-pdoccontext-init+ 4)
-(defconstant +k-pdoc-last-context-change-type+ kpdoccontextinit)
+(defconstant +k-pdoc-last-context-change-type+ +k-pdoccontext-init+)
 (defconstant +k-pdocgcreate+ 0)
 (defconstant +k-pdocgproperties+ 1)
 (defconstant +k-pdocgreplace+ 2)
@@ -6267,7 +6267,7 @@
 (defconstant +k-pdocconfig-change+ 7)
 (defconstant +k-pdocconfig-destroy+ 8)
 (defconstant +k-pddoc-remove-oc+ 9)
-(defconstant +k-pdoc-last-doc-change-type+ kpddocremoveoc)
+(defconstant +k-pdoc-last-doc-change-type+ +k-pddoc-remove-oc+)
 (defconstant +k-pdjoin-miter+ 0)
 (defconstant +k-pdjoin-round+ 1)
 (defconstant +k-pdjoin-bevel+ 2)
@@ -7739,7 +7739,7 @@
 ;; line 8387
 (define-c-typedef av-conversion-status as-enum16)
 ;; line 8654
-(define-c-typedef av-struct-node (:pointer (struct -t-avstruct-node)))
+(define-opaque-pointer av-struct-node -t-avstruct-node)
 ;; line 8857
 (define-opaque-pointer av-conversion-enum-proc-data
                        -t-avconversion-enum-proc-data)
@@ -7873,7 +7873,7 @@
 (defconstant +k-avdoc-open-in-new-window+ 1)
 (defconstant +av-doc-server-unknown+ 0)
 (defconstant +av-doc-server-default+ 1)
-(defconstant +av-doc-server-internal+ avdocserverdefault)
+(defconstant +av-doc-server-internal+ +av-doc-server-default+)
 (defconstant +av-doc-server-external+ 3)
 (defconstant +av-doc-server-help+ 4)
 (define-c-typedef av-doc-server-type :int)
@@ -8169,7 +8169,7 @@
 (defconstant +k-av3dsort-key+ 650)
 (defconstant +k-avengineering-tools-sort-key+ 700)
 (defconstant +k-avprint-production-sort-key+ 800)
-(defconstant +k-avhow-to-sort-key+ asmaxuns32)
+(defconstant +k-avhow-to-sort-key+ +as-max-uns32+)
 (defconstant +k-ave-book-task-order+ 100)
 (defconstant +k-avnew-document-task-order+ 200)
 (defconstant +k-avcombine-files-task-order+ 300)
@@ -8192,7 +8192,7 @@
 (defconstant +k-avmeasuring-menu-order+ 700)
 (defconstant +k-avrotate-view-menu-order+ 800)
 (defconstant +k-avfind-menu-order+ 900)
-(defconstant +k-avend-menu-order+ kasmaxenum16)
+(defconstant +k-avend-menu-order+ +k-as-max-enum16+)
 (defconstant +k-avapp-language-rfc1766+ 0)
 (defconstant +k-avapp-language-lcid+ 1)
 (defconstant +k-avapp-language-iso4char+ 2)
@@ -8446,6 +8446,13 @@
                     :void
                     :calling-convention
                     :cdecl)))
+(define-c-typedef av-doc-selection-added-to-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) (:pointer :void) as-bool)
+                    (:pointer :void)
+                    :calling-convention
+                    :cdecl)))
 (define-c-typedef av-doc-selection-losing-selection-proc
                   (:pointer
                    (:function
@@ -8453,11 +8460,25 @@
                     :void
                     :calling-convention
                     :cdecl)))
+(define-c-typedef av-doc-selection-removed-from-selection-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void) (:pointer :void) as-bool)
+                    (:pointer :void)
+                    :calling-convention
+                    :cdecl)))
 (define-c-typedef av-doc-selection-can-select-all-proc
                   (:pointer
                    (:function
                     (av-doc (:pointer :void))
                     as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-doc-selection-select-all-proc
+                  (:pointer
+                   (:function
+                    (av-doc (:pointer :void))
+                    (:pointer :void)
                     :calling-convention
                     :cdecl)))
 (define-c-typedef av-doc-selection-can-properties-proc
@@ -10927,11 +10948,11 @@
 (defconstant +k-adobe-acrobat9-1version+ 67333)
 (defconstant +k-adobe-acrobat10version+ 67336)
 (defconstant +k-adobe-acrobat11version+ 67339)
-(defconstant +k-min-save-version+ kadobeacrobat4version)
-(defconstant +k-min-xref-stream-version+ kadobeacrobat6version)
-(defconstant +k-default-pdf-version+ kadobeacrobat7version)
+(defconstant +k-min-save-version+ +k-adobe-acrobat4version+)
+(defconstant +k-min-xref-stream-version+ +k-adobe-acrobat6version+)
+(defconstant +k-default-pdf-version+ +k-adobe-acrobat7version+)
 (defconstant +k-last-adobe1xversion-without-ext+ 67328)
-(defconstant +k-last-adobe1xversion-with-ext+ kadobeacrobat11version)
+(defconstant +k-last-adobe1xversion-with-ext+ +k-adobe-acrobat11version+)
 (defconstant +k-min-pdf-next-version+ 131072)
 (defconstant +k-current-pdf-version+ 131072)
 (define-c-typedef adobe-pdf-version :int)

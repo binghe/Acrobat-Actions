@@ -41,7 +41,7 @@
 ;; typedef struct _t_ASExtension *ASExtension; (opaque pointer)
 (defparameter *typedef-regex3*
   (create-scanner
-    "typedef\\s+(const\\s+)?struct\\s+(\\w+)(?<!\\s)\\s+((\\w+),)?\\s*\\*(\\w+)\\s*;"))
+    "typedef\\s+(const\\s+)?struct\\s+(\\w+)(?<!\\s)\\s*((\\w+),)?\\s*\\*\\s*(\\w+)\\s*;"))
 
 (defun handle-typedef (line)
   (cond ((scan *typedef-regex3* line)
@@ -51,7 +51,13 @@
            (let ((name (mangle-name pointer-type))
                  (opaque-name (mangle-name opaque-type)))
              (format t "~%;; line ~D" *line-number*)
-             (pprint `(fli:define-opaque-pointer ,name ,opaque-name)))))
+             (pprint `(fli:define-opaque-pointer ,name ,opaque-name))
+
+             ;; add `(:pointer (:struct ,opaque-name))` to *typedefs*
+             (pushnew (cons `(:pointer (:struct ,opaque-name))
+                            name)
+                      *typedefs*
+                      :key #'car))))
         ((scan *typedef-regex1* line)
          (register-groups-bind (existing-type defined-type nil pointer-type)
              (*typedef-regex1* line)
@@ -103,10 +109,13 @@ output stream."
   "Reads the optional value part of a C enum and returns a
 corresponding Lisp value - either a number or a LOGIOR
 expression."
-  ;; convert hex marker for Lisp reader
-  (setq string (regex-replace-all "0x" string "#x"))
-  ;; just read value as a number
-  (read-from-string string))
+  (cond ((scan "^0x.*" string)
+         ;; convert hex marker for Lisp reader
+         (setq string (regex-replace-all "0x" string "#x"))
+         (read-from-string string))
+        (t
+         (or (parse-integer string :junk-allowed t)
+             (mangle-name string :constant t)))))
 
 ;; #define HANDSHAKE_VERSION		HANDSHAKE_V0200
 (defparameter *define-regex0*
@@ -156,7 +165,12 @@ expression."
          (register-groups-bind (name alias) (*define-regex2* line)
            (unless (member name *ignored-defines* :test 'equal)
              (format t "~%;; line ~D" *line-number*)
-             (pprint `(fli:define-c-typedef ,(mangle-name name) ,(mangle-name alias))))))
+             (cond ((eql (elt name 0) #\k)
+                    (pprint `(defconstant ,(mangle-name name :constant t)
+                               ,(mangle-name alias :constant t))))
+                   (t
+                    (pprint `(fli:define-c-typedef ,(mangle-name name)
+                               ,(mangle-name alias))))))))
         ((scan *define-regex3* line)
          (register-groups-bind (name vername version proto hft sel) (*define-regex3* line)
            (format t "~%;; line ~D" *line-number*)
@@ -252,8 +266,14 @@ corresponding FLI:DEFINE-C-STRUCT definition."
         (*type-and-names-regex* body)
       (loop for name in (split "\\s*,\\s*" names)
             do
-         (push (list (cond (pointerp `(:pointer ,(make-fli-type type)))
-                           (t                    (make-fli-type type)))
+         (push (list (cond (pointerp
+                            (let ((final-type `(:pointer ,(make-fli-type type))))
+                              ;; convert :pointer (:struct ...) types to their opaque pointer types
+                              (when-let (new-type (cdr (assoc final-type *typedefs* :test 'equal)))
+                                (setq final-type new-type))
+                              final-type))
+                           (t
+                            (make-fli-type type)))
                      (mangle-name name)) slots)))
     (let ((lisp-name (mangle-name typedef-name)))
       (pprint `(fli:define-c-struct ,lisp-name
@@ -265,9 +285,10 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 
 ;; typedef ACCBPROTO1 void (ACCBPROTO2 *HFTServerDestroyProc)(HFTServer hftServer, void *rock);
 ;; typedef ACCBPROTO1 ASFilePos64 (ACCBPROTO2 *ASProcStmGetLength)(void *clientData);
+;; typedef ACCBPROTO1 void* (ACCBPROTO2 *AVDocSelectionAddedToSelectionProc)( AVDoc doc, void *curData, void *addData, ASBool highlight);
 (defparameter *prototype-regex*
   (create-scanner
-   "(?m)^typedef\\s+(?:ACCBPROTO1\\s+)?(\\w+)\\s+\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
+   "(?m)^typedef\\s+(?:ACCBPROTO1\\s+)?([\\w*]+)\\s+\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
 
 (defun handle-prototype (file-string)
   (do-register-groups (return-type proc-name args)
@@ -420,6 +441,7 @@ corresponding C code to *STANDARD-OUTPUT*."
 the C header files of Acrobat Pro."
   ;; find out where to look for headers
   (unless *sdk-extern-location* (set-sdk-extern-location))
+  (setq *typedefs* (copy-list *typedefs-init*))
   ;; redirect *STANDARD-OUTPUT* to `fli.lisp'
   (with-open-file (*standard-output* *fli-file*
                                      :direction :output

@@ -63,6 +63,11 @@ instead of a list if the string contained only one word."
             (t
              pointer-type)))))
 
+(defun find-type (type &optional default)
+  "Tries to find TYPE in the *TYPEDEFS* alist.  Returns DEFAULT
+if nothing was found, or TYPE itself if DEFAULT is NIL."
+  (or (cdr (assoc type *typedefs*)) default type))
+
 (defparameter *mangle-name-regex1* (create-scanner "^(AST)([A-Z].*)$"))
 
 (defun mangle-name1 (string)
@@ -129,4 +134,7 @@ argument."
                          `(:pointer ,type))))
                  (t
                   type))))
+      ;; convert :struct types to their opaque pointer types
+      (when-let (new-type (cdr (assoc final-type *typedefs* :test 'equal)))
+        (setq final-type new-type))
       (list final-type (mangle-name name) name))))
