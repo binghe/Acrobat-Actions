@@ -352,6 +352,55 @@
 (defconstant +k-as-time-universal-h+ 3)
 (defconstant +k-as-time-utc-asn1+ 4)
 (defconstant +k-as-time-generalized-asn1+ 5)
+(define-c-typedef as-crypt-stm-fil-buf-proc
+                  (:pointer
+                   (:function
+                    (as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-crypt-stm-fls-buf-proc
+                  (:pointer
+                   (:function
+                    (as-int32 as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-crypt-stm-un-getc-proc
+                  (:pointer
+                   (:function
+                    (as-int32 as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-crypt-stm-fflush-proc
+                  (:pointer
+                   (:function
+                    (as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-crypt-stm-fclose-proc
+                  (:pointer
+                   (:function
+                    (as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-crypt-stm-freset-proc
+                  (:pointer
+                   (:function
+                    (as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef as-crypt-stm-fput-eof-proc
+                  (:pointer
+                   (:function
+                    (as-crypt-stm)
+                    as-int32
+                    :calling-convention
+                    :cdecl)))
 (define-c-typedef as-stm-proc
                   (:pointer
                    (:function
@@ -9685,6 +9734,16 @@
                   (:pointer
                    (:function
                     (av-doc as-bool)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef plugin-exec-proc
+                  (:pointer
+                   (:function (nil) :void :calling-convention :cdecl)))
+(define-c-typedef av-custom-notification-proc
+                  (:pointer
+                   (:function
+                    (av-notification-data (:pointer :void))
                     :void
                     :calling-convention
                     :cdecl)))

@@ -267,10 +267,11 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; typedef ACCBPROTO1 ASFilePos64 (ACCBPROTO2 *ASProcStmGetLength)(void *clientData);
 (defparameter *prototype-regex*
   (create-scanner
-   "(?m)^typedef\\s+ACCBPROTO1\\s+(\\w+)\\s+\\(ACCBPROTO2\\s+\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
+   "(?m)^typedef\\s+(?:ACCBPROTO1\\s+)?(\\w+)\\s+\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$"))
 
 (defun handle-prototype (file-string)
-  (do-register-groups (return-type proc-name args) (*prototype-regex* file-string)
+  (do-register-groups (return-type proc-name args)
+      (*prototype-regex* file-string)
     (let ((parsed-args (cond ((string= args "void") ; no args
                               nil)
                              (t
