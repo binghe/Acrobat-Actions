@@ -341,7 +341,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
    (concatenate 'string
                 "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
                 ".*?"
-                ")\\}\\s*([\\w_]+)(?:,\\s\\*([\\w_]+))?;")))
+                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?;")))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner

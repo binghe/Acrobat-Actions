@@ -4220,7 +4220,7 @@
                  (color pd-color-value-rec))
 (define-c-typedef pd-doc-watermark-text-params
                   (:pointer pd-doc-watermark-text-params-rec))
-(define-c-struct pd-redact-params-rec
+(define-c-struct pd-doc-add-watermark-params-rec
                  (size as-size-t)
                  (target-range pd-page-range)
                  (fixed-print as-bool)
@@ -4238,8 +4238,10 @@
                  (prog-mon as-progress-monitor)
                  (prog-mon-data (:pointer :void))
                  (cancel-proc as-cancel-proc)
-                 (cancel-proc-data (:pointer :void))
-                 (pd-page-draw-flags-pi (typedef as-uns32))
+                 (cancel-proc-data (:pointer :void)))
+(define-c-typedef pd-doc-add-watermark-params
+                  (:pointer pd-doc-add-watermark-params-rec))
+(define-c-struct pd-redact-params-rec
                  (size as-uns32)
                  (page-num as-int32)
                  (redact-quads (:pointer as-fixed-quad))
