@@ -4345,7 +4345,7 @@
 (define-c-typedef av-icon-id (:reference-pass :ef-mb-string))
 ;; line 408
 (define-c-typedef av-icon (:pointer :void))
-;; line 425
+;; line 420
 (define-c-typedef av-icon-bundle-icon-ref (:pointer :void))
 ;; line 488
 (define-c-typedef av-icon-color-format as-enum16)
@@ -6639,6 +6639,21 @@
                  (force-open-option av-doc-force-open-option)
                  (open-flags av-doc-open-flags))
 (define-c-typedef av-doc-open-params (:pointer av-doc-open-params-rec))
+(define-c-struct external-doc-window-ref-data-rec
+                 (plugin-view (:pointer nsview))
+                 (x (:pointer as-uns32))
+                 (y (:pointer as-uns32))
+                 (width (:pointer as-uns32))
+                 (height (:pointer as-uns32))
+                 (portx (:pointer as-int32))
+                 (porty (:pointer as-int32)))
+(define-c-typedef external-doc-window-ref-data
+                  (:pointer external-doc-window-ref-data-rec))
+(define-c-struct external-doc-window-data-rec
+                 (ref (:pointer external-doc-window-ref-data-rec))
+                 (set-cursor-proc-data (:pointer :void)))
+(define-c-typedef external-doc-window-data
+                  (:pointer external-doc-window-data-rec))
 (define-c-struct external-doc-server-creation-data-rec
                  (size as-size-t)
                  (platform-window external-doc-window-data)
@@ -6863,18 +6878,6 @@
                  (v-res :short))
 (define-c-typedef as-platform-printer-spec
                   (:pointer as-platform-printer-spec-rec))
-(define-c-struct as-platform-printer-spec-rec
-                 (size as-size-t)
-                 (create-meta-file as-bool)
-                 (win32 (code> if))
-                 (win16hdc as-int32)
-                 (h-res as-int32)
-                 (v-res as-int32)
-                 (color-depth as-int32)
-                 (is-post-script as-bool)
-                 (ps-height as-int32))
-(define-c-typedef as-platform-printer-spec
-                  (:pointer as-platform-printer-spec-rec))
 (define-c-struct av-doc-print-tile-data-rec
                  (size as-size-t)
                  (overlap as-uns32)
@@ -6975,7 +6978,11 @@
                  (printer-spec as-platform-printer-spec))
 (define-c-struct av-transition-port-rec
                  (reserved (:pointer :void))
-                 (rect32 av-rect32))
+                 (rect32 av-rect32)
+                 (acrobat8for-mac-does-not-support-the-avtransition-port
+                  :int)
+                 (please-contact-developer-support-if-this-is-an-issue-for-you
+                  :int))
 (define-c-typedef av-transition-port (:pointer av-transition-port-rec))
 (define-c-struct av-trans-handler-rec
                  (size as-size-t)

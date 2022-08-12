@@ -94,7 +94,6 @@
 (defparameter *ignored-defines*
   '("boolean"))
 
-;; These C macros are considered being defined as 1 in the SDK
 (defparameter *positive-macros*
   '("PLUGIN"          ; Yes, we are building plugins!
     "HAS_MENUBAR" "HAS_FULL_SCREEN" "HAS_MENUS" "CAN_SELECT_GRAPHICS" ; used in AVProcs.h
@@ -110,9 +109,11 @@
     "AS_ARCH_64BIT"
     "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)"
-    ))
+    "(ACRO_SDK_LEVEL >= 0x00060000)"
+    )
+  "C macros that are considered being defined as 1 in the SDK")
 
-;; These C macros are considered being defined as 0 in the SDK
+
 (defparameter *negative-macros*
   '("DEBUG" "0"
     "TOOLKIT"
@@ -128,8 +129,10 @@
     #-:win32  "WIN_PLATFORM"
     "__cplusplus"
     "STATIC_HFT"
-    "_WIN32"
-    ))
+    #+:macosx "_WIN32"
+    "OS2_PLATFORM"
+    )
+  "C macros that are considered being defined as 0 in the SDK")
 
 (defvar *sdk-extern-location* nil
   "A pathname designator denoting where exactly Acrobat Pro SDK's

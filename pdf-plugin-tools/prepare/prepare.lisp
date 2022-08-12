@@ -326,7 +326,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
   (create-scanner "^#\\s*ifdef\\s+(.*)"))
 
 (defparameter *if-regex2*
-  (create-scanner "^#\\s*if\\s+(!)?([\\w\\s\\|\\(\\)<!=_&]+)(?<!\\s)\\s*$"))
+  (create-scanner "^#\\s*(el)?if\\s+(!)?([\\w\\s\\|\\(\\)<!=_&]+)(?<!\\s)\\s*$"))
 
 ;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
 ;;
@@ -374,8 +374,10 @@ corresponding C code to *STANDARD-OUTPUT*."
   (dolist (name header-file-names)
     (let ((header-file (make-pathname :name name :type "h"
                                       :defaults *sdk-extern-location*))
-          (file-string (make-array '(0) :element-type 'simple-char
-                                   :fill-pointer 0 :adjustable t))
+          (file-string (make-array '(0)
+                                   :element-type 'simple-char
+                                   :fill-pointer 0
+                                   :adjustable t))
           (*line-number* 0)
           (*hft-counter* 1))
       (format t "~%;; #include <~A.h>" name)
@@ -397,9 +399,19 @@ corresponding C code to *STANDARD-OUTPUT*."
                      (if (member context *negative-macros* :test 'equal)
                          (push :disable contexts)
                          (push :enable contexts))))
-                  ;; if [!]...
+                  ;; (el)if [!]...
                   ((scan *if-regex2* line)
-                   (register-groups-bind (neg-p context) (*if-regex2* line)
+                   (register-groups-bind (elif-p neg-p context) (*if-regex2* line)
+                     (when elif-p ; #elif = #endif + #if
+                       (let ((context (pop contexts)))
+                         (ecase context
+                           ((:enable :disable)
+                            t)
+                           (:positive
+                            (pop pos-contexts))
+                           (:negative
+                            (pop neg-contexts)))))
+                     ;; the #if part
                      (setq context (regex-replace-all "\\s+" context " "))
                      (if (or (member context *positive-macros* :test 'equal)
                              (member context *negative-macros* :test 'equal))
@@ -411,8 +423,20 @@ corresponding C code to *STANDARD-OUTPUT*."
                                 (push :positive contexts)))
                        ;; an irrelevant condition, we choose the first branch
                        (push :enable contexts))))
-                  ((scan "^#\\s*if\\s+(.*)" line) ; the fallback case of #if
-                   (push :enable contexts))
+                  ((scan "^#\\s*(el)?if\\s+.*" line) ; the fallback case of #if
+                   (register-groups-bind (elif-p)
+                       ("^#\\s*(el)?if\\s+.*" line)
+                     (when elif-p ; #elif = #else + #if
+                       (let ((context (pop contexts)))
+                         (ecase context
+                           ((:enable :disable)
+                            t)
+                           (:positive
+                            (pop pos-contexts))
+                           (:negative
+                            (pop neg-contexts)))))
+                     ;; :enable by default for dont-care #if
+                     (push :enable contexts)))
                   ;; turn over the context if we met #else
                   ((scan "^#\\s*else" line)
                    (let ((context (pop contexts)))
