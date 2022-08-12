@@ -33,3 +33,56 @@
 
 (defun as-callback-create-proto (function)
   (as-callback-create *extension-id* function))
+
+(define-foreign-callable (plugin-about :result-type :void
+                                       :calling-convention :cdecl)
+    ((client-data (:pointer :void)))
+  (declare (ignore client-data))
+  (plugin-log "[plugin-about] begin.~%")
+  (av-alert-note (format nil "About ~A:~A" *plugin-id* *plugin-name*))
+  (plugin-log "[plugin-about] end.~%"))
+
+(defvar *plugin-about* (foreign-function-pointer 'plugin-about))
+
+(defvar *about-menu-item* nil)
+
+(defun plugin-set-menu ()
+  (plugin-log "[plugin-set-menu] begin.~%")
+  (let ((menubar (av-app-get-menubar)))
+    (plugin-log "[plugin-set-menu] menubar = ~A~%" menubar)
+    (unless menubar
+      (return-from plugin-set-menu nil))
+    (let* ((about-menu (av-menubar-acquire-menu-by-name menubar "AboutExtensions")))
+      (setq *about-menu-item*
+            (av-menu-item-new (format nil "~A..." *plugin-name*)
+                              (format nil "~A:About~A" *plugin-id* *plugin-name*)
+                              nil ; submenu
+                              t   ; long-menus-only
+                              0   ; shortcut
+                              0   ; flags
+                              nil ; icon
+                              *extension-id*))
+      (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
+      (with-coerced-pointer (functor :pointer-type 'av-execute-proc)
+          (as-callback-create-proto *plugin-about*)
+        (av-menu-item-set-execute-proc *about-menu-item* functor nil))
+      (av-menu-add-menu-item about-menu *about-menu-item* 9999) ; APPEND_MENUITEM
+      (av-menu-release about-menu)))
+  (plugin-log "[plugin-set-menu] end.~%")
+  t)
+
+(defun plugin-unload-menu ()
+  (plugin-log "[plugin-unload-menu] begin.~%")
+  (when *about-menu-item*
+    (av-menu-item-remove *about-menu-item*))
+  (plugin-log "[plugin-unload-menu] end.~%"))
+
+(defun plugin-set-commands ()
+  (plugin-log "[plugin-set-commands] begin.~%")
+  (plugin-log "[plugin-set-commands] end.~%")
+  t)
+
+(defun plugin-set-toolbar ()
+  (plugin-log "[plugin-set-toolbar] begin.~%")
+  (plugin-log "[plugin-set-toolbar] end.~%")
+  t)

@@ -143,8 +143,18 @@
   "The main initialization routine. @return true to continue loading the plug-in,
  false to cause plug-in loading to stop."
   (plugin-log "[PluginInit] begin.~%")
-  (plugin-log "[PluginInit] end.~%")
-  t)
+  (block plugin-init
+    (unless (plugin-set-menu)
+      (plugin-log "[PluginInit] end badly.~%")
+      (return-from plugin-init nil))
+    (unless (plugin-set-commands)
+      (plugin-log "[PluginInit] end badly.~%")
+      (return-from plugin-init nil))
+    (unless (plugin-set-toolbar)
+      (plugin-log "[PluginInit] end badly.~%")
+      (return-from plugin-init nil))
+    (plugin-log "[PluginInit] end.~%")
+    t))
 
 (define-foreign-callable (plugin-unload :result-type as-bool
                                         :calling-convention :cdecl)
@@ -157,6 +167,7 @@ Use this routine to release any system resources you may have allocated.
 Returning false will cause an alert to display that unloading failed.
 @return true to indicate the plug-in unloaded."
   (plugin-log "[PluginUnload] begin.~%")
+  (plugin-unload-menu)
   (cf-release *plugin-bundle*) ; cf-retain was called in [AcroPluginMain]
   (cf-release *app-bundle*)    ; same here
   (plugin-log "[PluginUnload] end.~%")
