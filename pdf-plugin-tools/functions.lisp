@@ -53,7 +53,8 @@
 (defun plugin-load-patch-function ()
   )
 
-(define-foreign-callable (plugin-about :result-type :void
+(define-foreign-callable (plugin-about :encode :lisp
+                                       :result-type :void
                                        :calling-convention :cdecl)
     ((client-data (:pointer :void)))
   (declare (ignore client-data))
@@ -61,7 +62,8 @@
   (plugin-about-function)
   (plugin-log "[plugin-about] end.~%"))
 
-(define-foreign-callable (plugin-load-patch :result-type :void
+(define-foreign-callable (plugin-load-patch :encode :lisp
+                                            :result-type :void
                                             :calling-convention :cdecl)
     ((client-data (:pointer :void)))
   (declare (ignore client-data))
@@ -71,19 +73,19 @@
 
 (defun plugin-set-menu ()
   (plugin-log "[plugin-set-menu] begin.~%")
+  (setq *about-menu-item*
+        (av-menu-item-new (format nil "~A..." *plugin-name*)
+                          (format nil "~A:About~A" *plugin-id* *plugin-name*)
+                          nil ; submenu
+                          t   ; long-menus-only
+                          0   ; shortcut
+                          0   ; flags
+                          nil ; icon
+                          *extension-id*))
+  (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
+  (av-menu-item-set-execute-proc-proto *about-menu-item*
+                                       (foreign-function-pointer 'plugin-about))
   (with-av-menubar-menu-by-name (about-menu "AboutExtensions")
-    (setq *about-menu-item*
-          (av-menu-item-new (format nil "~A..." *plugin-name*)
-                            (format nil "~A:About~A" *plugin-id* *plugin-name*)
-                            nil ; submenu
-                            t   ; long-menus-only
-                            0   ; shortcut
-                            0   ; flags
-                            nil ; icon
-                            *extension-id*))
-    (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
-    (av-menu-item-set-execute-proc-proto *about-menu-item*
-                                         (foreign-function-pointer 'plugin-about))
     (av-menu-add-menu-item about-menu *about-menu-item* 9999)) ; APPEND_MENUITEM
   (plugin-log "[plugin-set-menu] end.~%")
   t)

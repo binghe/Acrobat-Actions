@@ -104,7 +104,8 @@
              (setq ,resulting-ver ,result-ver)
              t))))))
 
-(define-foreign-callable (plugin-export-hfts :result-type as-bool
+(define-foreign-callable (plugin-export-hfts :encode :lisp
+                                             :result-type as-bool
                                              :calling-convention :cdecl)
     ()
   "Create and register the HFT's. @return true to continue loading plug-in,
@@ -114,6 +115,7 @@
   t)
 
 (define-foreign-callable (plugin-import-replace-and-register
+                          :encode :lisp
                           :result-type as-bool
                           :calling-convention :cdecl)
     ()
@@ -129,7 +131,8 @@
   (plugin-log "[PluginImportReplaceAndRegister] end.~%")
   t)
 
-(define-foreign-callable (plugin-init :result-type as-bool
+(define-foreign-callable (plugin-init :encode :lisp
+                                      :result-type as-bool
                                       :calling-convention :cdecl)
     ()
   "The main initialization routine. @return true to continue loading the plug-in,
@@ -148,7 +151,8 @@
     (plugin-log "[PluginInit] end.~%")
     t))
 
-(define-foreign-callable (plugin-unload :result-type as-bool
+(define-foreign-callable (plugin-unload :encode :lisp
+                                        :result-type as-bool
                                         :calling-convention :cdecl)
     ()
   "The unload routine.
@@ -165,7 +169,8 @@ Returning false will cause an alert to display that unloading failed.
   (plugin-log "[PluginUnload] end.~%")
   t)
 
-(define-foreign-callable (pi-handshake :result-type as-bool
+(define-foreign-callable (pi-handshake :encode :lisp
+                                       :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version as-uns32)
      (handshake-data    (:pointer :void)))
@@ -221,7 +226,8 @@ environment."
             (unless success
               (return-from pi-setup-sdk nil))))))
 
-(define-foreign-callable (pi-setup-sdk :result-type as-bool
+(define-foreign-callable (pi-setup-sdk :encode :lisp
+                                       :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version as-uns32)
      (sdk-data          (:pointer :void)))
