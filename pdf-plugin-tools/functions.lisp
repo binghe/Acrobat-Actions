@@ -44,37 +44,43 @@
 
 (defvar *plugin-about* (foreign-function-pointer 'plugin-about))
 
-(defvar *about-menu-item* nil)
+(defmacro with-av-menubar-menu-by-name ((menu-item menu-name) &body body)
+  (let ((menubar (gensym)))
+    `(let* ((,menubar (av-app-get-menubar))
+            (,menu-item (av-menubar-acquire-menu-by-name ,menubar ,menu-name)))
+       (unwind-protect
+           (progn ,@body)
+         (av-menu-release ,menu-item)))))
+
+(defun av-menu-item-set-execute-proc-proto (menu-item callback)
+  (with-coerced-pointer (functor :pointer-type 'av-execute-proc)
+      (as-callback-create-proto callback)
+    (av-menu-item-set-execute-proc menu-item functor nil)))
 
 (defun plugin-set-menu ()
   (plugin-log "[plugin-set-menu] begin.~%")
-  (let ((menubar (av-app-get-menubar)))
-    (plugin-log "[plugin-set-menu] menubar = ~A~%" menubar)
-    (unless menubar
-      (return-from plugin-set-menu nil))
-    (let* ((about-menu (av-menubar-acquire-menu-by-name menubar "AboutExtensions")))
-      (setq *about-menu-item*
-            (av-menu-item-new (format nil "~A..." *plugin-name*)
-                              (format nil "~A:About~A" *plugin-id* *plugin-name*)
-                              nil ; submenu
-                              t   ; long-menus-only
-                              0   ; shortcut
-                              0   ; flags
-                              nil ; icon
-                              *extension-id*))
-      (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
-      (with-coerced-pointer (functor :pointer-type 'av-execute-proc)
-          (as-callback-create-proto *plugin-about*)
-        (av-menu-item-set-execute-proc *about-menu-item* functor nil))
-      (av-menu-add-menu-item about-menu *about-menu-item* 9999) ; APPEND_MENUITEM
-      (av-menu-release about-menu)))
+  (with-av-menubar-menu-by-name (about-menu "AboutExtensions")
+    (setq *about-menu-item*
+          (av-menu-item-new (format nil "~A..." *plugin-name*)
+                            (format nil "~A:About~A" *plugin-id* *plugin-name*)
+                            nil ; submenu
+                            t   ; long-menus-only
+                            0   ; shortcut
+                            0   ; flags
+                            nil ; icon
+                            *extension-id*))
+    (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
+    (av-menu-item-set-execute-proc-proto *about-menu-item* *plugin-about*)
+    (av-menu-add-menu-item about-menu *about-menu-item* 9999)) ; APPEND_MENUITEM
   (plugin-log "[plugin-set-menu] end.~%")
   t)
 
 (defun plugin-unload-menu ()
   (plugin-log "[plugin-unload-menu] begin.~%")
   (when *about-menu-item*
-    (av-menu-item-remove *about-menu-item*))
+    (av-menu-item-remove *about-menu-item*)
+    (setq *about-menu-item* nil)
+    (plugin-log "[plugin-unload-menu] *about-menu-item* unloaded.~%"))
   (plugin-log "[plugin-unload-menu] end.~%"))
 
 (defun plugin-set-commands ()

@@ -119,3 +119,5 @@ image.  Only needed for delivery level 5.")
 (defvar *g-pd-model-version*)
 (defvar *g-cos-hft*)
 (defvar *g-cos-version*)
+
+(defvar *about-menu-item* nil)
