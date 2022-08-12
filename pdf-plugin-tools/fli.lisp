@@ -15,21 +15,21 @@
 ;; line 54
 (define-c-typedef as-int64 (:signed :long :long :int))
 ;; line 57
-(defconstant +as-max-int8+ #x7F)
+(defconstant +as-max-int8+ 127)
 ;; line 59
-(defconstant +as-min-int8+ #x80)
+(defconstant +as-min-int8+ 128)
 ;; line 61
-(defconstant +as-max-int16+ #x7FFF)
+(defconstant +as-max-int16+ 32767)
 ;; line 63
-(defconstant +as-min-int16+ #x8000)
+(defconstant +as-min-int16+ 32768)
 ;; line 65
-(defconstant +as-max-int32+ #x7FFFFFFF)
+(defconstant +as-max-int32+ 2147483647)
 ;; line 67
-(defconstant +as-min-int32+ #x80000000)
+(defconstant +as-min-int32+ 2147483648)
 ;; line 69
-(defconstant +as-max-int64+ #x7FFFFFFFFFFFFFFF)
+(defconstant +as-max-int64+ 9223372036854775807)
 ;; line 71
-(defconstant +as-min-int64+ #x8000000000000000)
+(defconstant +as-min-int64+ 9223372036854775808)
 ;; line 78
 (define-c-typedef as-uns8 (:unsigned :byte))
 (define-c-typedef as-uns8p (:pointer as-uns8))
@@ -46,21 +46,21 @@
 ;; line 97
 (define-c-typedef as-uns-or-ptr :uintptr)
 ;; line 100
-(defconstant +as-max-uns8+ #xFF)
+(defconstant +as-max-uns8+ 255)
 ;; line 102
-(defconstant +as-min-uns8+ #x0)
+(defconstant +as-min-uns8+ 0)
 ;; line 104
-(defconstant +as-max-uns16+ #xFFFF)
+(defconstant +as-max-uns16+ 65535)
 ;; line 106
-(defconstant +as-min-uns16+ #x0)
+(defconstant +as-min-uns16+ 0)
 ;; line 108
-(defconstant +as-max-uns32+ #xFFFFFFFF)
+(defconstant +as-max-uns32+ 4294967295)
 ;; line 110
-(defconstant +as-min-uns32+ #x0)
+(defconstant +as-min-uns32+ 0)
 ;; line 112
-(defconstant +as-max-uns64+ #xFFFFFFFFFFFFFFFF)
+(defconstant +as-max-uns64+ 18446744073709551615)
 ;; line 114
-(defconstant +as-min-uns64+ #x0)
+(defconstant +as-min-uns64+ 0)
 ;; line 118
 (define-c-typedef as-bool (:boolean as-uns16))
 ;; line 147

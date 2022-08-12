@@ -52,7 +52,6 @@
                  (opaque-name (mangle-name opaque-type)))
              (format t "~%;; line ~D" *line-number*)
              (pprint `(fli:define-opaque-pointer ,name ,opaque-name))
-
              ;; add `(:pointer (:struct ,opaque-name))` to *typedefs*
              (pushnew (cons `(:pointer (:struct ,opaque-name))
                             name)
@@ -170,7 +169,7 @@ expression."
            (let ((lisp-name (mangle-name name :constant t))
                  (value (read-enum-value value-string)))
              (format t "~%;; line ~D" *line-number*)
-             (format t "~%(defconstant ~A #x~X)" lisp-name value))))
+             (pprint `(defconstant ,lisp-name ,value)))))
         ((scan *define-regex2* line)
          (register-groups-bind (name alias) (*define-regex2* line)
            (unless (member name *ignored-defines* :test 'equal)
@@ -402,7 +401,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                   ;; (el)if [!]...
                   ((scan *if-regex2* line)
                    (register-groups-bind (elif-p neg-p context) (*if-regex2* line)
-                     (when elif-p ; #elif = #endif + #if
+                     (when elif-p ; #elif = #endif + #if (not #else + #if !!!)
                        (let ((context (pop contexts)))
                          (ecase context
                            ((:enable :disable)
@@ -475,7 +474,7 @@ corresponding C code to *STANDARD-OUTPUT*."
                 ;; still inside the loop
                 #+ignore
                 (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
-                        line-number contexts pos-contexts neg-contexts)
+                        *line-number* contexts pos-contexts neg-contexts)
                 )))
       ;; enum + typedef
       (do-register-groups (enum-body type-name)

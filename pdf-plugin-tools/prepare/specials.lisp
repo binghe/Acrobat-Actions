@@ -95,10 +95,13 @@
   '("boolean"))
 
 (defparameter *positive-macros*
-  '("PLUGIN"          ; Yes, we are building plugins!
-    "HAS_MENUBAR" "HAS_FULL_SCREEN" "HAS_MENUS" "CAN_SELECT_GRAPHICS" ; used in AVProcs.h
+  '("PLUGIN"
+    "HAS_MENUBAR"
+    "HAS_FULL_SCREEN"
+    "HAS_MENUS"
+    "CAN_SELECT_GRAPHICS"
     #+:macosx "MAC_PLATFORM"
-    #+:win32  "WIN_PLATFORM"
+    #+:mswindows "WIN_PLATFORM"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
     "PI_CORE_VERSION != 0"
     "ASUSE_OBSOLETE_TYPES"
@@ -113,20 +116,20 @@
     )
   "C macros that are considered being defined as 1 in the SDK")
 
-
 (defparameter *negative-macros*
-  '("DEBUG" "0"
+  '("0"
+    "DEBUG"
     "TOOLKIT"
-    "ACROBAT_LIBRARY" ; We are definitely NOT using Adobe PDFL
+    "ACROBAT_LIBRARY"
     "THREAD_SAFE_PDFL"
-    "READER"          ; We are not building Reader plugins (but this is possible)
+    "READER"
     "USE_NAMED_IDLE_PROCS"
     "USE_NAMED_LATE_INIT_PROCS"
     "HAS_32BIT_ATOMS"
     "BAD_SELECTOR"
     "UNIX_PLATFORM"
-    #-:macosx "MAC_PLATFORM"
-    #-:win32  "WIN_PLATFORM"
+    #+:macosx "WIN_PLATFORM"
+    #+:mswindows "MAC_PLATFORM"
     "__cplusplus"
     "STATIC_HFT"
     #+:macosx "_WIN32"
