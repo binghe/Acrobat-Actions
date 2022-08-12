@@ -43,22 +43,14 @@
 (defvar *pi-cos-version* +cos-hft-version-6+
   "Many plug-ins will not need to access the low-level Cos functionality.")
 
-(defvar *pi-cos-optional* nil)
-
 (defvar *pi-pd-model-version* +pd-model-hft-version-6+
   "PDModel methods - the version of the PD level HFT.")
-
-(defvar *pi-pd-model-optional* nil)
 
 (defvar *pi-acro-view-version* +acro-view-hft-version-6+
   "AcroView methods - the version of the Acrobat viewer level HFT.")
 
-(defvar *pi-acro-view-optional* nil)
-
 (defvar *pi-as-extra-version* +as-extra-hft-version-6+
   "ASExtra methods")
-
-(defvar *pi-as-extra-optional* nil)
 
 #|
 (defvar *pi-macintosh-version* +macintosh-hft-version-2_2+
@@ -173,12 +165,6 @@ Returning false will cause an alert to display that unloading failed.
   (plugin-log "[PluginUnload] end.~%")
   t)
 
-(defvar *plugin-export-hfts* (foreign-function-pointer 'plugin-export-hfts))
-(defvar *plugin-import-replace-and-register*
-  (foreign-function-pointer 'plugin-import-replace-and-register))
-(defvar *plugin-init*   (foreign-function-pointer 'plugin-init))
-(defvar *plugin-unload* (foreign-function-pointer 'plugin-unload))
-
 (define-foreign-callable (pi-handshake :result-type as-bool
                                        :calling-convention :cdecl)
     ((handshake-version as-uns32)
@@ -194,51 +180,45 @@ environment."
            (let ((extension-name (get-extension-name)))
              (plugin-log "[PIHandshake] extension name: ~A~%" (as-atom-get-string extension-name))
              (setf (foreign-slot-value hs-data 'extension-name) extension-name))
-           (plugin-log "[PIHandshake] *plugin-export-hfts* = ~A~%" *plugin-export-hfts*)
            (setf (foreign-slot-value hs-data 'export-hft-s-callback)
-                 (as-callback-create-proto *plugin-export-hfts*))
-           (plugin-log "[PIHandshake] *plugin-import-replace-and-register* = ~A~%"
-                       *plugin-import-replace-and-register*)
+                 (as-callback-create-proto
+                  (foreign-function-pointer 'plugin-export-hfts)))
            (setf (foreign-slot-value hs-data 'import-replace-and-register-callback)
-                 (as-callback-create-proto *plugin-import-replace-and-register*))
-           (plugin-log "[PIHandshake] *plugin-init* = ~A~%" *plugin-init*)
+                 (as-callback-create-proto
+                  (foreign-function-pointer 'plugin-import-replace-and-register)))
            (setf (foreign-slot-value hs-data 'init-callback)
-                 (as-callback-create-proto *plugin-init*))
-           (plugin-log "[PIHandshake] *plugin-unload* = ~A~%" *plugin-unload*)
+                 (as-callback-create-proto (foreign-function-pointer 'plugin-init)))
            (setf (foreign-slot-value hs-data 'unload-callback)
-                 (as-callback-create-proto *plugin-unload*)))
+                 (as-callback-create-proto (foreign-function-pointer 'plugin-unload))))
          #+ignore
          (with-open-file (stream "/tmp/fli-templates.lisp" :direction :output)
            (fli:print-collected-template-info :output-stream stream))
          (plugin-log "[PIHandshake] end.~%")
          t)
         (t
-         (plugin-log "[PIHandshake] end badly.~%")
+         (plugin-log "[PIHandshake] end badly (wrong handshake version: ~A).~%"
+                     handshake-version)
          nil)))
-
-;; NOTE: The results of FOREIGN-FUNCTION-POINTER are updated on image restart.
-(defvar *pi-handshake* (foreign-function-pointer 'pi-handshake))
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defparameter *hft-info*
-    '(("Core"     *pi-core-version*      *g-core-version*      *g-core-hft*      nil)
-      ("ASExtra"  *pi-as-extra-version*  *g-as-extra-version*  *g-as-extra-hft*  *pi-as-extra-optional*)
-      ("AcroView" *pi-acro-view-version* *g-acro-view-version* *g-acro-view-hft* *pi-acro-view-optional*)
-      ("PDModel"  *pi-pd-model-version*  *g-pd-model-version*  *g-pd-model-hft*  *pi-pd-model-optional*)
-      ("Cos"      *pi-cos-version*       *g-cos-version*       *g-cos-hft*       *pi-cos-optional*)
-      )
+    '(("Core"     *pi-core-version*      *g-core-version*      *g-core-hft*)
+      ("ASExtra"  *pi-as-extra-version*  *g-as-extra-version*  *g-as-extra-hft*)
+      ("AcroView" *pi-acro-view-version* *g-acro-view-version* *g-acro-view-hft*)
+      ("PDModel"  *pi-pd-model-version*  *g-pd-model-version*  *g-pd-model-hft*)
+      ("Cos"      *pi-cos-version*       *g-cos-version*       *g-cos-hft*))
     "A list of HFTs to be retrieved from the host application."))
 
 ;; This macro only expands into pi-setup-sdk
 (defmacro get-requested-hfts ()
   `(progn
-     ,@(loop for (name required-ver resulting-ver result-hft optional) in *hft-info* collect
+     ,@(loop for (name required-ver resulting-ver result-hft) in *hft-info* collect
          `(when (and-plusp ,required-ver)
             (setq success
                   (get-requested-hft ,name ,required-ver ,resulting-ver ,result-hft))
             (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
             (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver)
-            (unless (or success ,optional)
+            (unless success
               (return-from pi-setup-sdk nil))))))
 
 (define-foreign-callable (pi-setup-sdk :result-type as-bool
@@ -279,14 +259,13 @@ environment."
               (setq success t))
             (get-requested-hfts)
             (setf (foreign-slot-value data 'handshake-callback)
-                  (as-callback-create-proto *pi-handshake*))
+                  (as-callback-create-proto (foreign-function-pointer 'pi-handshake)))
             (plugin-log "[PISetupSDK] end successfully.~%")
             (return-from pi-setup-sdk success)))))
     ;; If we reach here, then we were passed a handshake version number we don't know about.
     ;; This shouldn't ever happen since our main() routine chose the version number.
     (plugin-log "[PISetupSDK] end badly.~%")
     nil))
-(defvar *pi-setup-sdk* (foreign-function-pointer 'pi-setup-sdk))
 
 ;; TODO: not working for Windows
 (define-foreign-callable ("AcroPluginMain" :result-type as-bool
@@ -323,8 +302,7 @@ environment."
     (plugin-log "[AcroPluginMain] handshake-version = #x~X~%" version))
 
   ;; 3. Provide the routine for the host app to call to setup this plug-in
-  (setf (dereference setup-proc) *pi-setup-sdk*)
-  (plugin-log "[AcroPluginMain] *pi-setup-sdk* = ~A~%" *pi-setup-sdk*)
+  (setf (dereference setup-proc) (foreign-function-pointer 'pi-setup-sdk))
 
   ;; 4. return TRUE (otherwise Acrobat won't call "PISetupSDK")
   (plugin-log "[AcroPluginMain] end.~%")

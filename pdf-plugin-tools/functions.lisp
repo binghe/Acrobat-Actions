@@ -34,16 +34,6 @@
 (defun as-callback-create-proto (function)
   (as-callback-create *extension-id* function))
 
-(define-foreign-callable (plugin-about :result-type :void
-                                       :calling-convention :cdecl)
-    ((client-data (:pointer :void)))
-  (declare (ignore client-data))
-  (plugin-log "[plugin-about] begin.~%")
-  (av-alert-note (format nil "About ~A:~A" *plugin-id* *plugin-name*))
-  (plugin-log "[plugin-about] end.~%"))
-
-(defvar *plugin-about* (foreign-function-pointer 'plugin-about))
-
 (defmacro with-av-menubar-menu-by-name ((menu-item menu-name) &body body)
   (let ((menubar (gensym)))
     `(let* ((,menubar (av-app-get-menubar))
@@ -56,6 +46,28 @@
   (with-coerced-pointer (functor :pointer-type 'av-execute-proc)
       (as-callback-create-proto callback)
     (av-menu-item-set-execute-proc menu-item functor nil)))
+
+(defun plugin-about-function ()
+  (av-alert-note (format nil "About ~A:~A" *plugin-id* *plugin-name*)))
+
+(defun plugin-load-patch-function ()
+  )
+
+(define-foreign-callable (plugin-about :result-type :void
+                                       :calling-convention :cdecl)
+    ((client-data (:pointer :void)))
+  (declare (ignore client-data))
+  (plugin-log "[plugin-about] begin.~%")
+  (plugin-about-function)
+  (plugin-log "[plugin-about] end.~%"))
+
+(define-foreign-callable (plugin-load-patch :result-type :void
+                                            :calling-convention :cdecl)
+    ((client-data (:pointer :void)))
+  (declare (ignore client-data))
+  (plugin-log "[plugin-load-patch] begin.~%")
+  (plugin-load-patch-function)
+  (plugin-log "[plugin-load-patch] end.~%"))
 
 (defun plugin-set-menu ()
   (plugin-log "[plugin-set-menu] begin.~%")
@@ -70,7 +82,8 @@
                             nil ; icon
                             *extension-id*))
     (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
-    (av-menu-item-set-execute-proc-proto *about-menu-item* *plugin-about*)
+    (av-menu-item-set-execute-proc-proto *about-menu-item*
+                                         (foreign-function-pointer 'plugin-about))
     (av-menu-add-menu-item about-menu *about-menu-item* 9999)) ; APPEND_MENUITEM
   (plugin-log "[plugin-set-menu] end.~%")
   t)
