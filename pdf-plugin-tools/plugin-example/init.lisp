@@ -37,6 +37,7 @@
       ;; see ASDF system definition
       *plugin-version* cl-user:*plugin-example-version*
       *company-name* "Chun Tian"
+      *product-name* "PDFLisp (sample Acrobat Pro plugin)"
       *copyright-message* "Copyright (c) 2022, Chun Tian.  All rights reserved."
       ;; we want a backtrace if something goes wrong
       *log-backtraces-p* t)

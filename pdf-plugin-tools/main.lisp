@@ -164,8 +164,8 @@ Returning false will cause an alert to display that unloading failed.
 @return true to indicate the plug-in unloaded."
   (plugin-log "[PluginUnload] begin.~%")
   (plugin-unload-menu)
-  (cf-release *plugin-bundle*) ; cf-retain was called in [AcroPluginMain]
-  (cf-release *app-bundle*)    ; same here
+  #+:macosx (cf-release *plugin-bundle*) ; cf-retain was called in [AcroPluginMain]
+  #+:macosx (cf-release *app-bundle*)    ; same here
   (plugin-log "[PluginUnload] end.~%")
   t)
 
@@ -221,10 +221,12 @@ environment."
          `(when (and-plusp ,required-ver)
             (setq success
                   (get-requested-hft ,name ,required-ver ,resulting-ver ,result-hft))
-            (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
-            (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver)
-            (unless success
-              (return-from pi-setup-sdk nil))))))
+            (cond (success
+                   (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
+                   (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver))
+                  (t
+                   (plugin-log "[PISetupSDK] failed when getting ~A?!~%" (symbol-name ',resulting-ver))
+                   (return-from pi-setup-sdk nil)))))))
 
 (define-foreign-callable (pi-setup-sdk :encode :lisp
                                        :result-type as-bool
@@ -273,13 +275,15 @@ environment."
     (plugin-log "[PISetupSDK] end badly.~%")
     nil))
 
-;; TODO: not working for Windows
-(define-foreign-callable ("AcroPluginMain" :result-type as-bool
-                                           :calling-convention :cdecl)
+(define-foreign-callable (#+:mswindows "PlugInMain"
+                          #-:mswindows "AcroPluginMain"
+                          :result-type as-bool
+                          :calling-convention
+                          #+:mswindows :stdcall #-:mswindows :cdecl)
     ((app-handshake-version as-uns32)
      (handshake-version     as-uns32p)
      (setup-proc            (:pointer pi-setup-sdk-proc-type))
-     #+:win32
+     #+:mswindows
      (windows-data          (:pointer :void))
      #+:macosx
      (main-data             (:pointer plugin-main-data)))
@@ -296,6 +300,13 @@ environment."
           *app-bundle*    (cf-retain app-bundle))
     (plugin-log "[AcroPluginMain] *plugin-bundle* = ~A~%" *plugin-bundle*)
     (plugin-log "[AcroPluginMain] *app-bundle* = ~A~%" *app-bundle*))
+
+  #+:mswindows
+  (with-coerced-pointer (data-ptr :type 'v0200-data) windows-data
+    (setq *g-hwnd*      (foreign-slot-value data-ptr 'hwnd))
+    (setq *g-hinstance* (foreign-slot-value data-ptr 'hinstance))
+    (plugin-log "[AcroPluginMain] *g-hwnd* = ~A~%" *g-hwnd*)
+    (plugin-log "[AcroPluginMain] *g-hinstance* = ~A~%" *g-hinstance*))
 
   ;; 2. appsHandshakeVersion tells us which version of the handshake struct the application has sent us.
   ;; HANDSHAKE_VERSION is the latest version that we, the plug-in, know about (see PIVersn.h)

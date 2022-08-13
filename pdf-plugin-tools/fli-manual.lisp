@@ -152,6 +152,11 @@
 (fli:define-c-typedef hinstance
   (:unsigned :long))
 
+#+:mswindows
+(define-c-struct v0200-data
+  (hwnd      hwnd)
+  (hinstance hinstance))
+
 ;; <AcroColorExpT.h>
 (define-opaque-pointer ac-profile -t-ac-profile)
 (define-c-typedef ac-render-intent :int) ; enum

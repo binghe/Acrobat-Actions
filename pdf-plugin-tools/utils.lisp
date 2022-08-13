@@ -145,3 +145,10 @@ by FileMaker) to line feeds."
   (let ((var (gensym)))
     `(let ((,var ,pi-var))
        (and ,var (plusp ,var)))))
+
+;; NOTE: this is learnt from CFFI. To make it work, it requires that
+;; DEFINE-FOREIGN-CALLABLE takes a symbol (instead of a string) for the
+;; foreign function name and pass (:ENCODE :LISP).
+#+:lispworks6
+(defun foreign-function-pointer (symbol)
+  (make-pointer :symbol-name symbol :module :callbacks))

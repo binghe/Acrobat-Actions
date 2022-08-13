@@ -42,6 +42,11 @@
 (defvar *app-bundle*)
 (defvar *extension-id*)
 
+#+:mswindows
+(defvar *g-hwnd*)
+#+:mswindows
+(defvar *g-hinstance*)
+
 ;; we set the documentation here so that the values above stay unbound
 (setf (documentation '*plugin-id* 'variable)
       "The ID of the plug-in.  A four character creator code - see

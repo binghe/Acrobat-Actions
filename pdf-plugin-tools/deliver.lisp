@@ -30,8 +30,11 @@
 
 (lw:load-all-patches)
 
+;; #+mswindows
+;; (gp:ensure-gdiplus)
+
 (defvar *system-homedir*
-  #+win32 #p"C:/" #-win32 (user-homedir-pathname))
+  #+mswindows #p"C:/" #-mswindows (user-homedir-pathname))
 
 ;;; The following lines added by ql:add-to-init-file:
 #+(not quicklisp)
@@ -44,7 +47,7 @@
 (ql:quickload :cl-fad)
 
 ;;; Local ASDF repositories, it's fine some directorie do not exist.
-(dolist (i '("Lisp/pdf-plugin-tools/"))
+(dolist (i '("D:/Acrobat Actions/pdf-plugin-tools/"))
   (pushnew (merge-pathnames i *system-homedir*)
            asdf:*central-registry* :test #'equal))
 
@@ -96,7 +99,7 @@ depend on PDF-PLUGIN-TOOLS.")
 
 ;; create DLL (Windows) or loadable bundle (Mac OS X)
 (lw:deliver *start-function*
-            #+:win32
+            #+:mswindows
             (format nil "~A.api"
                     (or (fourth sys:*line-arguments-list*) *default-name*))
             #+:macosx
@@ -111,7 +114,7 @@ depend on PDF-PLUGIN-TOOLS.")
              :identifier plugin:*plugin-bundle-identifier*
              :version (plugin:version-string)
              :executable-name (fourth sys:*line-arguments-list*)
-             :package-type "XTNc" ; recommended by Adobe
+             :package-type "XTNc" ; recommended by Adobe (was: XTND)
              :extension "acroplugin"
              :document-types nil)
             *deliver-level*
@@ -121,8 +124,9 @@ depend on PDF-PLUGIN-TOOLS.")
             :keep-symbols plugin:*symbols-to-keep*
             :keep-lisp-reader t
             :keep-debug-mode (or plugin:*log-backtraces-p* (< *deliver-level* 5))
-            #+:win32 #+:win32 ; this is Windows only
+            #+:mswindows #+:mswindows
             :versioninfo *version-info*
-            :dll-exports '("AcroPluginMain")
+            :dll-exports '(#+:mswindows "PlugInMain"
+                           #-:mswindows "AcroPluginMain")
             :interface (and *capi-required-p* :capi)
             :multiprocessing (or *capi-required-p* *mp-required-p*))
