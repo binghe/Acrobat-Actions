@@ -43,5 +43,5 @@
                (:file "fli-templates")
                (:file "functions")
                (:file "main"))
-  :depends-on (:cxml/xml
-               :parenscript))
+  :depends-on (:cxml/xml)) ; :parenscript
+
