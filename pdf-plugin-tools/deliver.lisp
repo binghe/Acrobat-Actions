@@ -33,8 +33,7 @@
 ;; #+mswindows
 ;; (gp:ensure-gdiplus)
 
-(defvar *system-homedir*
-  #+mswindows #p"C:/" #-mswindows (user-homedir-pathname))
+(defvar *system-homedir* (user-homedir-pathname))
 
 ;;; The following lines added by ql:add-to-init-file:
 #+(not quicklisp)
@@ -47,7 +46,8 @@
 (ql:quickload :cl-fad)
 
 ;;; Local ASDF repositories, it's fine some directorie do not exist.
-(dolist (i '("D:/Acrobat Actions/pdf-plugin-tools/"))
+(dolist (i '(#+mswindows "D:/Acrobat Actions/pdf-plugin-tools/"
+             #-mswindows "Lisp/pdf-plugin-tools/"))
   (pushnew (merge-pathnames i *system-homedir*)
            asdf:*central-registry* :test #'equal))
 
