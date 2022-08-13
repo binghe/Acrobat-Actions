@@ -144,6 +144,14 @@
   (bundle     cf-bundle-ref)
   (app-bundle cf-bundle-ref))
 
+#+:mswindows
+(fli:define-c-typedef hwnd
+  (:unsigned :long))
+
+#+:mswindows
+(fli:define-c-typedef hinstance
+  (:unsigned :long))
+
 ;; <AcroColorExpT.h>
 (define-opaque-pointer ac-profile -t-ac-profile)
 (define-c-typedef ac-render-intent :int) ; enum
