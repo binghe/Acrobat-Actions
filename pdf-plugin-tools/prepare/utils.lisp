@@ -109,11 +109,12 @@ the Lisp symbol to denote a Lisp constant."
 ;; void **cancelProcClientDataP
 ;; const char * const *addExt
 ;; CosObj funcDict, const float inVals[], float outVals[]
+;; ASFixed  dashArray[PDAnnotMaxDashes]
 (defparameter *type-and-name-regex*
   (create-scanner
    (concatenate 'string
                 "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)"
-                "(\\w+)(\\[(\\d+)?\\])?\\s*$")))
+                "(\\w+)(\\[(\\w+)?\\])?\\s*$")))
 
 (defun type-and-name (string &optional argp)
   "Divides pairs like \"int foo\" or \"void *bar\" \(note the
@@ -122,7 +123,7 @@ name.  Returns as the third value the name as a string.  If ARGP
 is true, the result is supposed to be used as a function
 argument."
   (declare (ignore argp))
-  (register-groups-bind (type pointerp name arrayp size)
+  (register-groups-bind (type pointerp name arrayp size-string)
       (*type-and-name-regex* string)
     (setq type (make-fli-type type))
     (let ((final-type
@@ -137,7 +138,13 @@ argument."
                         (t
                          `(:pointer ,type))))
                  (arrayp
-                  (cond (size `(:c-array ,type ,(parse-integer size)))
+                  (cond (size-string
+                         (let ((size (parse-integer size-string :junk-allowed t)))
+                           (cond (size ; literal number
+                                  `(:c-array ,type ,size))
+                                 (t    ; size is given by a constant defined by #define
+                                  `(:c-array ,type
+                                    ,(mangle-name size-string :constant t))))))
                         (t    `(:pointer ,type))))
                  (t
                   type))))

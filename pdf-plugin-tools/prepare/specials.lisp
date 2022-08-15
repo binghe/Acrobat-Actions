@@ -81,8 +81,10 @@
     ("size_t"     :size-t)
     ("intptr_t"   :intptr)
     ("uintptr_t"  :uintptr)
-    ("__CFString" :cf-string) ; see ASExpT.h, line 2214
-    ("__CFURL"    :cf-url)
+    ("__CFString"        :cf-string) ; see ASExpT.h, line 2214 (macOS)
+    ("__CFStringPlacebo" :cf-string) ; see ASExpT.h, line 2239 (Windows)
+    ("__CFURL"           :cf-url)    ; see ASExpT.h, line 2227 (macOS)
+    ("__CFURLPlacebo"    :cf-url)    ; see ASExpT.h, line 2243 (Windows)
     ("struct"))) ; this last one is to be handled by *typedefs*
 
 (defparameter *typedefs-init*
@@ -140,6 +142,7 @@
     #+:macosx "_WIN32"
     #+:macosx "_WIN64"
     "OS2_PLATFORM"
+    "OS2_ENV"
     )
   "C macros that are considered being defined as 0 in the SDK")
 

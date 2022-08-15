@@ -118,13 +118,14 @@ expression."
 
 ;; #define HANDSHAKE_VERSION		HANDSHAKE_V0200
 (defparameter *define-regex0*
-  (create-scanner "^#\\s*define\\s+([A-Z_]+)(?<!\\s)\\s+([A-Z][0-9A-Za-z_]+)$"))
+  (create-scanner "^#\\s*define\\s+([A-Z_]+)(?<!\\s)\\s+([\\w_]+)$"))
 
 ;; #define ASMAXInt64			((ASInt64)0x7FFFFFFFFFFFFFFFLL)
+;; #define kMaxLanguageNameLen 27
 (defparameter *define-regex1*
   (create-scanner (concatenate 'string
                                "^#\\s*define\\s+([A-Za-z0-9_]+)(?<!\\s)\\s+"
-                               "\\(\\(\\w+\\)([x0-9A-F]+)L?L?\\)$")))
+                               "(\\(\\(\\w+\\)(0x[0-9A-F]+|\\d+)L?L?\\)|\\d+)$")))
 
 ;; #  define kASMAXEnum8 ASMAXInt16
 (defparameter *define-regex2*
@@ -165,18 +166,20 @@ expression."
   (cond ((scan *define-regex0* line)
          nil)
         ((scan *define-regex1* line)
-         (register-groups-bind (name value-string) (*define-regex1* line)
+         (register-groups-bind (name value-string hex-p) (*define-regex1* line)
            (let ((lisp-name (mangle-name name :constant t))
-                 (value (read-enum-value value-string)))
+                 (value (read-enum-value (or hex-p value-string))))
              (format t "~%;; line ~D" *line-number*)
-             (pprint `(defconstant ,lisp-name ,value)))))
+             (pprint `(eval-when (:compile-toplevel :load-toplevel :execute)
+                        (defconstant ,lisp-name ,value))))))
         ((scan *define-regex2* line)
          (register-groups-bind (name alias) (*define-regex2* line)
            (unless (member name *ignored-defines* :test 'equal)
              (format t "~%;; line ~D" *line-number*)
              (cond ((eql (elt name 0) #\k)
-                    (pprint `(defconstant ,(mangle-name name :constant t)
-                               ,(mangle-name alias :constant t))))
+                    (pprint `(eval-when (:compile-toplevel :load-toplevel :execute)
+                               (defconstant ,(mangle-name name :constant t)
+                                 ,(mangle-name alias :constant t)))))
                    (t
                     (pprint `(fli:define-c-typedef ,(mangle-name name)
                                ,(mangle-name alias))))))))
@@ -256,7 +259,8 @@ EXPORT statement."
       ;; use value if provided in enum, COUNTER otherwise
       (setq value (if value (read-enum-value value) counter))
       (let ((lisp-name (mangle-name name :constant t)))
-        (pprint `(defconstant ,lisp-name ,value)))
+        (pprint `(eval-when (:compile-toplevel :load-toplevel :execute)
+                   (defconstant ,lisp-name ,value))))
       ;; increment counter or continue with successor of value
       (setq counter (1+ (if (numberp value) value counter))))
     (when type-name
@@ -272,11 +276,11 @@ EXPORT statement."
    (concatenate 'string
                 "(?sm)\\s*"
                 "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments (multiple blocks)
-                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,]+)\\s*;"
+                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
                 "\\s*(?://[^\\r\\n]*)?" ; C++ comments (one block)
                 )))
 
-(defun handle-struct (body typedef-name &optional pointer-name)
+(defun handle-struct-body (body typedef-name &optional pointer-name)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
   (let (slots)
@@ -297,6 +301,19 @@ corresponding FLI:DEFINE-C-STRUCT definition."
       (when pointer-name
         (pprint `(fli:define-c-typedef ,(mangle-name pointer-name) (:pointer ,lisp-name))))
       )))
+
+(defparameter *typedef-struct-regex*
+  (create-scanner
+   (concatenate 'string
+                "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
+                ".*?"
+                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?;")))
+
+(defun handle-struct (file-string)
+  (do-register-groups (struct-name? body typedef-name pointer-name)
+      (*typedef-struct-regex* file-string)
+    (declare (ignore struct-name?))
+    (handle-struct-body body typedef-name pointer-name)))
 
 ;; typedef ACCBPROTO1 void (ACCBPROTO2 *HFTServerDestroyProc)(HFTServer hftServer, void *rock);
 ;; typedef ACCBPROTO1 ASFilePos64 (ACCBPROTO2 *ASProcStmGetLength)(void *clientData);
@@ -334,13 +351,6 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *xproc-regex2*
   (create-scanner
    "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
-
-(defparameter *typedef-struct-regex*
-  (create-scanner
-   (concatenate 'string
-                "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
-                ".*?"
-                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?;")))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner
@@ -483,14 +493,12 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; prototypes
       (handle-prototype file-string)
       ;; typedef struct ...
-      (do-register-groups (struct-name? body typedef-name pointer-name)
-          (*typedef-struct-regex* file-string)
-        (declare (ignore struct-name?))
-        (handle-struct body typedef-name pointer-name))
+      (handle-struct file-string)
       ;; xPROC(...)
       (do-register-groups (nil name nil) (*xproc-regex2* file-string)
         (let ((full-name (concatenate 'string name "-SEL")))
-          (pprint `(defconstant ,(mangle-name full-name :constant t) ,*hft-counter*)))
+          (pprint `(eval-when (:compile-toplevel :load-toplevel :execute)
+                     (defconstant ,(mangle-name full-name :constant t) ,*hft-counter*))))
         (incf *hft-counter*))
       ;; xPROC(...)
       (setq *hft-counter* 1)

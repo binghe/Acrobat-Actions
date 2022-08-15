@@ -153,6 +153,10 @@
   (:unsigned :long))
 
 #+:mswindows
+(fli:define-c-typedef hicon
+  (:unsigned :long))
+
+#+:mswindows
 (define-c-struct v0200-data
   (hwnd      hwnd)
   (hinstance hinstance))
