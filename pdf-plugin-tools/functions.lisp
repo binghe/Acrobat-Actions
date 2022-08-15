@@ -54,7 +54,8 @@
   (av-alert-note (format nil "About ~A:~A" *plugin-id* *plugin-name*)))
 
 (defun plugin-load-patch-function ()
-  )
+  "Load patches from disk (or network)"
+  t)
 
 (define-foreign-callable (plugin-about :encode :lisp
                                        :result-type :void
@@ -62,8 +63,8 @@
     ((client-data (:pointer :void)))
   (declare (ignore client-data))
   (plugin-log "[plugin-about] begin.~%")
-  (plugin-about-function)
-  (plugin-log "[plugin-about] end.~%"))
+  (prog1 (plugin-about-function)
+    (plugin-log "[plugin-about] end.~%")))
 
 (define-foreign-callable (plugin-load-patch :encode :lisp
                                             :result-type :void
