@@ -7,8 +7,8 @@
 The needed Acrobat® SDK headers can be downloaded from
 [Acrobat Developer Home](https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsdk/).
 
-Extract it somewhere on your disk. Then call `(prepare:prepare)` after loading `:prepare-pdf-plugin-tools`, by registering the folder `pdf-plugin-tools` in your
-[Quicklisp](https://www.quicklisp.org/beta/) environment.
+Extract it somewhere on your disk. Then call `(prepare:prepare)` after loading `:prepare-pdf-plugin-tools` (Of course, you must register the folder `pdf-plugin-tools` into your local
+[Quicklisp](https://www.quicklisp.org/beta/) environment first.)
 
 ## Compatibility with Acrobat® versions
 
@@ -28,7 +28,7 @@ The following Acrobat® SDK versions are confirmed working:
 
 - Acrobat® SDK 2021v3
 
-## Compatibility with LispWorkst® SDKs
+## Compatibility with LispWorks® SDKs
 
 The following LispWorks® versions are confirmed working: (7.0 or later is recommended)
 
