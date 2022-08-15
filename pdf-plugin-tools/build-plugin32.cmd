@@ -13,7 +13,7 @@ REM The FileMaker extension directory
 set target_dir="C:\Program Files (x86)\Adobe\Acrobat 11.0\Acrobat\plug_ins"
 
 REM The delivery script
-set script="D:\Acrobat Actions\pdf-plugin-tools\deliver.lisp"
+set script="C:\Acrobat Actions\pdf-plugin-tools\deliver.lisp"
 
 REM The LispWorks executable
 set lispworks="C:\Program Files (x86)\LispWorks\lispworks-6-1-0-x86-win32.exe"
