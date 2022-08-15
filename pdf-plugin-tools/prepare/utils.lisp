@@ -110,10 +110,13 @@ the Lisp symbol to denote a Lisp constant."
 ;; const char * const *addExt
 ;; CosObj funcDict, const float inVals[], float outVals[]
 ;; ASFixed  dashArray[PDAnnotMaxDashes]
+;; void** outPassword
+;; ASMDFile* f
 (defparameter *type-and-name-regex*
   (create-scanner
    (concatenate 'string
-                "^\\s*([^*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)"
+                "^\\s*([^*]+)(?<!\\s)"
+                "(?:(\\s*\\*(?:\\s*\\*)?\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)"
                 "(\\w+)(\\[(\\w+)?\\])?\\s*$")))
 
 (defun type-and-name (string &optional argp)

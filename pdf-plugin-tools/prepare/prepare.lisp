@@ -305,7 +305,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *typedef-struct-regex*
   (create-scanner
    (concatenate 'string
-                "(?sm)^typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
+                "(?sm)^\\s*typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
                 ".*?"
                 ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?;")))
 
@@ -320,7 +320,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *prototype-regex*
   (create-scanner
    (concatenate 'string
-                "(?m)^typedef\\s+(?:ACCBPROTO1\\s+)?([\\w*]+)\\s+"
+                "(?m)^\\s*typedef\\s+(?:ACCBPROTO1\\s+)?([\\w*]+)\\s*"
                 "\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$")))
 
 (defun handle-prototype (file-string)
@@ -348,6 +348,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;;
 ;; NPROC(ASBool, ASUUIDGenFromHash, (ASUUID *dst, ASUns8 hash[16]))
 ;; NPROC(ASBool,	ASFileHasOutstandingMReads,(ASFile fN))
+;; NPROC(void, ASUCS_GetPasswordFromUnicode, (ASUTF16Val* inPassword, void** outPassword, ASBool useUTF))
 (defparameter *xproc-regex2*
   (create-scanner
    "(?m)^\\s*\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
