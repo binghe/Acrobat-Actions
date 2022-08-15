@@ -905,6 +905,13 @@
                     as-error-code
                     :calling-convention
                     :cdecl)))
+(define-c-typedef as-file-sys-range-arrived-proc
+                  (:pointer
+                   (:function
+                    (as-int32 as-int32 (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
 (define-c-typedef as-file-sys-can-set-eof-proc
                   (:pointer
                    (:function

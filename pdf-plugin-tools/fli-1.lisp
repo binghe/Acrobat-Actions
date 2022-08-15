@@ -445,6 +445,8 @@
   (defconstant +as-cab-put-uns64-sel+ 144))
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +as-text-make-empty-clear-sel+ 145))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-ucs-get-password-from-unicode-sel+ 146))
 ;; sel = 1
 (define-foreign-funcallable as-script-to-host-encoding-selproto
                             ((as-script as-script))
@@ -1633,6 +1635,15 @@
 ;; sel = 145
 (define-foreign-funcallable as-text-make-empty-clear-selproto
                             ((str as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 146
+(define-foreign-funcallable as-ucs-get-password-from-unicode-selproto
+                            ((in-password (:pointer as-utf16val))
+                             (out-password (:pointer (:pointer :void)))
+                             (use-utf as-bool))
                             :result-type
                             :void
                             :calling-convention
@@ -3499,6 +3510,13 @@
                     as-bool
                     :calling-convention
                     :cdecl)))
+(define-c-typedef pd-action-handler-copy-proc
+                  (:pointer
+                   (:function
+                    (pd-action-handler pd-action)
+                    pd-action-handler-data
+                    :calling-convention
+                    :cdecl)))
 (define-c-typedef pd-action-handler-can-paste-proc
                   (:pointer
                    (:function
@@ -3581,6 +3599,13 @@
                    (:function
                     (pd-annot-handler pd-page pd-annot)
                     as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-annot-handler-copy-proc
+                  (:pointer
+                   (:function
+                    (pd-annot-handler pd-page pd-annot)
+                    pd-annot-handler-clipboard-data
                     :calling-convention
                     :cdecl)))
 (define-c-typedef pd-annot-handler-can-paste-proc
@@ -4206,6 +4231,13 @@
                      as-bool
                      as-bool)
                     as-int32
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef pd-crypt-filter-is-encryption-changed-proc
+                  (:pointer
+                   (:function
+                    (cos-doc)
+                    as-bool
                     :calling-convention
                     :cdecl)))
 (define-c-typedef pd-occonfig-enum-proc
@@ -7489,6 +7521,71 @@
                     :void
                     :calling-convention
                     :cdecl)))
+(define-c-typedef av-storage-add-account-proc
+                  (:pointer
+                   (:function
+                    (as-const-text as-text as-cab)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-storage-remove-account-proc
+                  (:pointer
+                   (:function
+                    (as-const-text as-const-text)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-storage-is-enabled-proc
+                  (:pointer
+                   (:function
+                    (as-const-text)
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-storage-get-icon-from-resource-idproc
+                  (:pointer
+                   (:function
+                    (as-const-text
+                     av-storage-icon-set
+                     as-int32
+                     as-int32
+                     as-bool)
+                    av-icon
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-storage-get-root-proc
+                  (:pointer
+                   (:function
+                    (as-const-text
+                     as-const-text
+                     (:pointer as-path-name))
+                    av-storage-error-code
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-web-response-handler-proc
+                  (:pointer
+                   (:function
+                    (av-web-service-response)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef av-web-request-progress-proc
+                  (:pointer
+                   (:function
+                    (as-byte-count as-byte-count (:pointer :void))
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef eureka-per-request-completion-proc-acrobat
+                  (:pointer
+                   (:function
+                    (as-int32
+                     (:pointer :void)
+                     (:pointer :void)
+                     eureka-review-info)
+                    :void
+                    :calling-convention
+                    :cdecl)))
 (define-c-struct av-icon-bundle-rec
                  (tag1 as-uns32)
                  (tag2 as-uns32)
@@ -8284,6 +8381,75 @@
                  (p-version-params av-version-params))
 (define-c-typedef av-extension-info-ex
                   (:pointer av-extension-info-rec-ex))
+(define-c-struct av-storage-entry-rec
+                 (size as-size-t)
+                 (storage-key as-text)
+                 (default-label as-text)
+                 (storage-account-add-proc av-storage-add-account-proc)
+                 (storage-account-remove-proc
+                  av-storage-remove-account-proc)
+                 (storage-enable-proc av-storage-is-enabled-proc)
+                 (storage-get-icon-from-resource-proc
+                  av-storage-get-icon-from-resource-idproc)
+                 (storage-get-root-proc av-storage-get-root-proc)
+                 (other-data-cab as-cab)
+                 (supported-features as-int32))
+(define-c-typedef av-storage-entry (:pointer av-storage-entry-rec))
+(define-c-struct av-httpheader-rec
+                 (name (:reference-pass :ef-mb-string))
+                 (value (:reference-pass :ef-mb-string)))
+(define-c-typedef av-httpheader (:pointer av-httpheader-rec))
+(define-c-struct av-httpheader-array-rec
+                 (count as-uns32)
+                 (headers (:pointer av-httpheader-rec)))
+(define-c-typedef av-httpheader-array
+                  (:pointer av-httpheader-array-rec))
+(define-c-struct av-httpheader-names-array-rec (count as-uns32))
+(define-c-typedef av-httpheader-names-array
+                  (:pointer av-httpheader-names-array-rec))
+(define-c-struct av-web-service-response-rec
+                 (size as-size-t)
+                 (status-code as-int32)
+                 (headers av-httpheader-array)
+                 (response-body as-stm)
+                 (client-data (:pointer :void))
+                 (error-message as-text))
+(define-c-typedef av-web-service-response
+                  (:pointer av-web-service-response-rec))
+(define-c-struct av-web-service-request-rec
+                 (size as-size-t)
+                 (verb (:reference-pass :ef-mb-string))
+                 (url (:reference-pass :ef-mb-string))
+                 (headers av-httpheader-array)
+                 (request-body as-stm)
+                 (handler av-web-response-handler-proc)
+                 (request-write-progress-proc
+                  av-web-request-progress-proc)
+                 (response-read-progress-proc
+                  av-web-request-progress-proc)
+                 (client-data (:pointer :void))
+                 (progress-cbclient-data (:pointer :void))
+                 (is-sync as-bool)
+                 (response-header-names-array
+                  av-httpheader-names-array))
+(define-c-typedef av-web-service-request
+                  (:pointer av-web-service-request-rec))
+(define-c-struct eureka-review-info-rec
+                 (eureka-command as-text)
+                 (review-id as-text)
+                 (invitation-id as-text)
+                 (etag-participant as-text)
+                 (participant-id as-text)
+                 (parcel-id as-text))
+(define-c-typedef eureka-review-info (:pointer eureka-review-info-rec))
+(define-c-struct eureka-request-info-rec
+                 (eureka-review-info eureka-review-info-rec)
+                 (call-back-proc
+                  eureka-per-request-completion-proc-acrobat)
+                 (client-data (:pointer :void))
+                 (data (:pointer :void)))
+(define-c-typedef eureka-request-info
+                  (:pointer eureka-request-info-rec))
 
 ;; #include <AVExpTObsolete1.h>
 ;; line 23
