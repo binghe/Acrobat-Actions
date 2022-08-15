@@ -14,13 +14,15 @@ Extract it somewhere on your disk. Then call `(prepare:prepare)` after loading `
 
 The following Acrobat® versions are confirmed working:
 
-- Acrobat® Pro XI (Windows, 32-bit)
-- Acrobat® Pro 2017 Classic (Windows, 32-bit)
-- Acrobat® Pro 2017 Classic (macOS, 64-bit)
+- Acrobat® Pro XI (Windows, x86)
+- Acrobat® Pro 2017 classic track (Windows, x86)
+- Acrobat® Pro 2017 classic track (macOS, x86_64)
 
 The following Acrobat® versions are confirmed NOT working:
 
 - Acrobat® Pro XI (macOS, 32-bit)
+
+NOTE: The new macOS arm64 plug-ins are completely untested. The author doesn't have any M1 Mac, nor have any Acrobat® Pro DC Continuous Track versions.
 
 ## Compatibility with Acrobat® SDKs
 
