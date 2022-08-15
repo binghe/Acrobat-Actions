@@ -94,14 +94,14 @@
 (define-c-typedef as-int-ptr-t :intptr)
 
 ;; #include <CoreExpT.h>
-;; line 56
-(define-c-typedef as-enum8 as-int16)
-;; line 61
+;; line 71
+(define-c-typedef as-enum8 as-int8)
+;; line 76
 (define-c-typedef as-enum16 as-int16)
-;; line 64
+;; line 79
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +k-as-max-enum8+ +as-max-int16+))
-;; line 66
+  (defconstant +k-as-max-enum8+ +as-max-int8+))
+;; line 81
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +k-as-max-enum16+ +as-max-int16+))
 ;; line 99
@@ -298,15 +298,13 @@
 (define-c-typedef cstring-ptr (:reference-pass :ef-mb-string))
 ;; line 2186
 (define-c-typedef posixpath-ptr (:reference-pass :ef-mb-string))
-;; line 2235
-(define-opaque-pointer fsspec-ptr fsspec-placebo)
-;; line 2236
-(define-opaque-pointer fsref-ptr fsref-placebo)
-;; line 2241
+;; line 2202
+(define-opaque-pointer fsref-ptr fsref)
+;; line 2218
 (define-c-typedef fsref-with-cfstring-ref-rec-ptr
-                  (:pointer fsref-with-cfstring-ref-rec-placebo))
-;; line 2245
-(define-c-typedef cf-urlref-rec-ptr (:pointer cf-urlref-rec-placebo))
+                  (:pointer fsref-with-cfstring-ref-rec))
+;; line 2231
+(define-c-typedef cf-urlref-rec-ptr (:pointer cf-urlref-rec))
 ;; line 3701
 (define-c-typedef progress-monitor as-progress-monitor)
 ;; line 3702
@@ -1177,10 +1175,10 @@
                  (type-code as-uns32))
 (define-c-typedef as-file-sys-item-props
                   (:pointer as-file-sys-item-props-rec))
-(define-c-struct fsref-with-cfstring-ref-rec-placebo
+(define-c-struct fsref-with-cfstring-ref-rec
                  (ref fsref-ptr)
                  (str (:pointer :void)))
-(define-c-struct cf-urlref-rec-placebo (url (:pointer :void)))
+(define-c-struct cf-urlref-rec (url (:pointer :void)))
 (define-c-struct as-file-sys-rec
                  (size as-size-t)
                  (open as-file-sys-open-proc)
