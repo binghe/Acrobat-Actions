@@ -182,7 +182,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>..\..\PluginSupport\Headers\SDK;..\..\PluginSupport\Headers\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <CompileAsWinRT>false</CompileAsWinRT>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
@@ -291,7 +291,7 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>..\..\PluginSupport\Headers\SDK;..\..\PluginSupport\Headers\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <CompileAsWinRT>false</CompileAsWinRT>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
@@ -322,7 +322,6 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
     <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c" />
     <ClCompile Include="..\sources\Functions.cpp" />
     <ClCompile Include="..\sources\PluginInit.cpp" />
-    <ClCompile Include="..\sources\Regex.cpp" />
     <ClCompile Include="..\sources\strcasestr.c" />
   </ItemGroup>
   <ItemGroup>
@@ -476,7 +475,6 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\PIHeaders.h" />
     <ClInclude Include="..\..\PluginSupport\Headers\SDK\WinPIHeaders.h" />
     <ClInclude Include="..\sources\Functions.hpp" />
-    <ClInclude Include="..\sources\Regex.h" />
     <ClInclude Include="..\sources\strcasestr.h" />
   </ItemGroup>
   <ItemGroup>
