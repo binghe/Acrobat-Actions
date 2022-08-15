@@ -1,5 +1,7 @@
 # PDF-PLUGIN-TOOLS - A toolkit for Acrobat® plug-in development in Common Lisp
 
+This toolkit allows to develop Acrobat® plug-ins in Common Lisp, built by [LispWorks®](http://www.lispworks.com).
+
 ## Preparing `fli.lisp`, etc.
 
 ### Download the SDK Headers
@@ -30,7 +32,7 @@ The following Acrobat® SDK versions are confirmed working:
 
 - Acrobat® SDK 2021v3
 
-## Compatibility with LispWorks® SDKs
+## Compatibility with LispWorks® versions
 
 The following LispWorks® versions are confirmed working: (7.0 or later is recommended)
 
