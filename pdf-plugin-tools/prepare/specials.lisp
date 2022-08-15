@@ -28,6 +28,7 @@
 
 (in-package :prepare-pdf-plugin-tools)
 
+;; Core support and plug-in handshaking
 (defparameter *header-file-names*
   '("ASNumTypes"   ; Basic integer types.
     "CoreExpT"     ; Types, macros, structures, etc. required to use the Core HFT
@@ -40,6 +41,7 @@
     "PIVersn")     ; Contains handshaking versioning types and data
   "The list of involved Acrobat SDK header files in the right order.")
 
+;; Base support
 (defparameter *header-file-names-1*
   '("ASExtraExpT"  ; Types, macros, structures, etc. required to use the ASExtra HFT
     "ASExtraProcs" ; Catalog of functions exported by the ASExtra HFT
@@ -52,10 +54,12 @@
     "AVExpTObsolete2"
     "CosExpT"))    ; Types, macros, structures, etc. required to use the Cos HFT
 
+;; Application UI
 (defparameter *header-file-names-2*
   '("AVProcs"      ; Catalog of functions exported by AcroView
     "AVCalls"))
 
+;; PDF manipulation
 (defparameter *header-file-names-3*
   '("PDSExpT"      ; Types, macros, structures, etc. required to use the PDSEdit HFT
     "PDProcs"      ; Catalog of functions exported by the PDModel HFT

@@ -12,10 +12,6 @@
 	<string>com.github.binghe.PDFLisp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-	</array>
 	<key>CFBundleLongVersionString</key>
 	<string>1.0, Copyright 2022, Chun Tian (binghe).  All rights reserved.</string>
 	<key>CFBundleName</key>
@@ -32,8 +28,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>CSResourcesFileMapped</key>
-	<true/>
 	<key>MainEntryPointV2</key>
 	<string>AcroPluginMain</string>
 	<key>NSHumanReadableCopyright</key>
