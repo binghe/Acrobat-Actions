@@ -36,4 +36,4 @@
    (extension-id     :no-alloc-p :error :size nil)
    (hft-entry        :no-alloc-p :error :size t)
    (hft              :no-alloc-p :error :size nil)
-   ))
+   (AV-EXECUTE-PROC  :NO-ALLOC-P :PTR :SIZE T)))

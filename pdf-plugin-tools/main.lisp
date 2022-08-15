@@ -94,15 +94,17 @@
         (result-ver (gensym)))
     `(let ((,table-atom (as-atom-from-string ,table-name))
            (,result-ver +hft-error-no-version+))
-       (when (>= *g-acro-support-version* +as-calls-hft-version-6+)
-         (let ((,the-hft (as-extension-mgr-get-hft ,table-atom ,required-ver)))
-           (when ,the-hft
-             (setq ,result-ver (hft-get-version ,the-hft))
-             (when (= ,result-ver +hft-error-no-version+)
-               (error "HFTGetVersion failed"))
-             (setq ,result-hft ,the-hft)
-             (setq ,resulting-ver ,result-ver)
-             t))))))
+       (cond ((>= *g-acro-support-version* +as-calls-hft-version-6+)
+              (let ((,the-hft (as-extension-mgr-get-hft ,table-atom ,required-ver)))
+                (when ,the-hft
+                  (setq ,result-ver (hft-get-version ,the-hft))
+                  (when (= ,result-ver +hft-error-no-version+)
+                    (error "HFTGetVersion failed"))
+                  (setq ,result-hft ,the-hft)
+                  (setq ,resulting-ver ,result-ver)
+                  t)))
+             (t
+              (error "Not implemented"))))))
 
 (define-foreign-callable (plugin-export-hfts :encode :lisp
                                              :result-type as-bool
@@ -225,7 +227,8 @@ environment."
                    (plugin-log "[PISetupSDK] ~A = ~A~%" (symbol-name ',result-hft) ,result-hft)
                    (plugin-log "[PISetupSDK] ~A = #x~X~%" (symbol-name ',resulting-ver) ,resulting-ver))
                   (t
-                   (plugin-log "[PISetupSDK] failed when getting ~A?!~%" (symbol-name ',resulting-ver))
+                   (plugin-log "[PISetupSDK] failed when getting HFT ~A?!~%"
+                               (symbol-name ',result-hft))
                    (return-from pi-setup-sdk nil)))))))
 
 (define-foreign-callable (pi-setup-sdk :encode :lisp

@@ -117,6 +117,7 @@
     "NEW_PDSEDIT_HFTS"
     "PDMETADATA_HFT"
     "AS_ARCH_64BIT"
+    #+(and :macosx :lispworks-64bit)
     "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)"
     "(ACRO_SDK_LEVEL >= 0x00060000)"
@@ -137,6 +138,7 @@
     "UNIX_PLATFORM"
     #+:macosx "WIN_PLATFORM"
     #+:mswindows "MAC_PLATFORM"
+    #+:mswindows "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
     "__cplusplus"
     "STATIC_HFT"
     #+:macosx "_WIN32"
