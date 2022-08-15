@@ -11,3 +11,9 @@ The following Acrobat® versions are confirmed working:
 The following Acrobat® versions are confirmed NOT working:
 
 - Acrobat® Pro XI (macOS, 32-bit)
+
+## Compatibility with Acrobat® SDKs
+
+The following Acrobat® SDK versions are confirmed working:
+
+- Acrobat® SDK 2021v3
