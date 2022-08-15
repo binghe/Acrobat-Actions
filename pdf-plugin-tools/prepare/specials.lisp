@@ -78,6 +78,7 @@
     ("long")
     ("float")
     ("double")
+    ("bool"       (:boolean :int))   ; see AVProc.h, line 10546
     ("size_t"     :size-t)
     ("intptr_t"   :intptr)
     ("uintptr_t"  :uintptr)

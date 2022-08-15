@@ -6100,7 +6100,7 @@
                             :cdecl)
 ;; sel = 589
 (define-foreign-funcallable av-make-acrobat-default-selproto
-                            ((show-successwindow bool))
+                            ((show-successwindow (:boolean :int)))
                             :result-type
                             :void
                             :calling-convention
