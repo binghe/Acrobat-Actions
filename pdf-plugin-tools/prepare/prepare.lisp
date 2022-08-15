@@ -350,7 +350,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; NPROC(ASBool,	ASFileHasOutstandingMReads,(ASFile fN))
 (defparameter *xproc-regex2*
   (create-scanner
-   "(?m)^\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
+   "(?m)^\\s*\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner

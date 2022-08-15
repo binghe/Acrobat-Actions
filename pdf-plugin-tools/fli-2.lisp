@@ -1166,7 +1166,23 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +av-icon-create-from-pdf-sel+ 581))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-platform-thing-ex-sel+ 582))
+  (defconstant +av-tool-bar-set-icon-sel+ 582))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-storage-register-new-storage-sel+ 583))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-storage-register-account-sel+ 584))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-storage-get-account-info-sel+ 585))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-storage-perform-oauth2authentication-sel+ 586))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-make-web-services-request-sel+ 587))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-page-view-draw-now-optimized-sel+ 588))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-make-acrobat-default-sel+ 589))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-window-get-platform-thing-ex-sel+ 590))
 ;; sel = 1
 (define-foreign-funcallable av-action-handler-get-type-selproto
                             ((handler av-action-handler))
@@ -6023,6 +6039,73 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 582
+(define-foreign-funcallable av-tool-bar-set-icon-selproto
+                            ((toolbar av-tool-bar)
+                             (normal-icon av-icon)
+                             (active-icon av-icon))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 583
+(define-foreign-funcallable av-storage-register-new-storage-selproto
+                            ((fs-name as-atom)
+                             (info av-storage-entry)
+                             (additional-info as-const-cab))
+                            :result-type
+                            av-storage-error-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 584
+(define-foreign-funcallable av-storage-register-account-selproto
+                            ((storage-key as-const-text)
+                             (account-label as-const-text)
+                             (info as-const-cab))
+                            :result-type
+                            as-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 585
+(define-foreign-funcallable av-storage-get-account-info-selproto
+                            ((storage-key as-const-text)
+                             (account-id as-const-text))
+                            :result-type
+                            as-cab
+                            :calling-convention
+                            :cdecl)
+;; sel = 586
+(define-foreign-funcallable av-storage-perform-oauth2authentication-selproto
+                            ((standard-oauth-params-cab as-cab)
+                             (auth-step-additional-data as-cab)
+                             (accesstoken-step-additional-header-cab
+                              as-cab)
+                             (out-result-cab as-cab))
+                            :result-type
+                            oauth2error-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 587
+(define-foreign-funcallable av-make-web-services-request-selproto
+                            ((request av-web-service-request))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 588
+(define-foreign-funcallable av-page-view-draw-now-optimized-selproto
+                            ((page-view av-page-view))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 589
+(define-foreign-funcallable av-make-acrobat-default-selproto
+                            ((show-successwindow bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 590
 (define-foreign-funcallable av-window-get-platform-thing-ex-selproto
                             ((win av-window))
                             :result-type
