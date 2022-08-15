@@ -164,3 +164,12 @@
 ;; <AcroColorExpT.h>
 (define-opaque-pointer ac-profile -t-ac-profile)
 (define-c-typedef ac-render-intent :int) ; enum
+
+;; <AVExpT.h>, line 1349-1357
+(defconstant +bad-menu-item-index+ -1)
+(defconstant +prepend-menu-item+   -2)
+(defconstant +append-menu-item+  9999)
+(defconstant +bad-menu-index+     -1)
+(defconstant +prepend-menu        -2)
+(defconstant +append-menu+      9999)
+(defconstant +no-shortcut+         0)

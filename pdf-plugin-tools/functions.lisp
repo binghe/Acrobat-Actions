@@ -82,7 +82,7 @@
                           (format nil "~A:About~A" *plugin-id* *plugin-name*)
                           nil ; submenu
                           t   ; long-menus-only
-                          0   ; shortcut
+                          +no-shortcut+
                           0   ; flags
                           nil ; icon
                           *extension-id*))
@@ -90,7 +90,7 @@
   (av-menu-item-set-execute-proc-proto *about-menu-item*
                                        (foreign-function-pointer 'plugin-about))
   (with-av-menubar-menu-by-name (about-menu "AboutExtensions")
-    (av-menu-add-menu-item about-menu *about-menu-item* 9999)) ; APPEND_MENUITEM
+    (av-menu-add-menu-item about-menu *about-menu-item* +append-menu-item+))
   (plugin-log "[plugin-set-menu] end.~%")
   t)
 
