@@ -117,9 +117,9 @@
     "NEW_PDFEDIT_HFTS"
     "NEW_PDSEDIT_HFTS"
     "PDMETADATA_HFT"
-    "AS_ARCH_64BIT"
+    #+lispworks-64bit "AS_ARCH_64BIT"
     #+(and :macosx :lispworks-64bit)
-    "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
+    "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)" ; only appears with ! prefix
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)"
     "(ACRO_SDK_LEVEL >= 0x00060000)"
     )
