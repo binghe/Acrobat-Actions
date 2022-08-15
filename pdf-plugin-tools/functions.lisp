@@ -28,8 +28,11 @@
 
 (in-package :pdf-plugin-tools)
 
+(defvar *extension-name* nil)
 (defun get-extension-name ()
-  (as-atom-from-string (concatenate 'string *plugin-id* ":" *plugin-name*)))
+  (unless *extension-name*
+    (setq *extension-name* (concatenate 'string *plugin-id* ":" *plugin-name*)))
+  (as-atom-from-string *extension-name*))
 
 (defun as-callback-create-proto (function)
   (as-callback-create *extension-id* function))
