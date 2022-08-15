@@ -58,9 +58,8 @@
 
 (defparameter *header-file-names-3*
   '("PDSExpT"      ; Types, macros, structures, etc. required to use the PDSEdit HFT
-    ;; "AcroColorExpT"
     "PDProcs"      ; Catalog of functions exported by the PDModel HFT
-    ;; "PDCalls"
+    "PDCalls"
     ))
 
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is
@@ -102,6 +101,8 @@
     "CAN_SELECT_GRAPHICS"
     #+:macosx "MAC_PLATFORM"
     #+:mswindows "WIN_PLATFORM"
+    #+:mswindows "_WIN32"
+    #+(and :mswindows :lispworks-64bit) "_WIN64"
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
     "PI_CORE_VERSION != 0"
     "ASUSE_OBSOLETE_TYPES"
@@ -133,6 +134,7 @@
     "__cplusplus"
     "STATIC_HFT"
     #+:macosx "_WIN32"
+    #+:macosx "_WIN64"
     "OS2_PLATFORM"
     )
   "C macros that are considered being defined as 0 in the SDK")
