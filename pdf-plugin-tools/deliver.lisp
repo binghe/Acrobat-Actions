@@ -46,7 +46,7 @@
 (ql:quickload :cl-fad)
 
 ;;; Local ASDF repositories, it's fine some directorie do not exist.
-(dolist (i '(#+mswindows "D:/Acrobat Actions/pdf-plugin-tools/"
+(dolist (i '(#+mswindows "C:/Acrobat Actions/pdf-plugin-tools/"
              #-mswindows "Lisp/pdf-plugin-tools/"))
   (pushnew (merge-pathnames i *system-homedir*)
            asdf:*central-registry* :test #'equal))
