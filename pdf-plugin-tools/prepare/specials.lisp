@@ -100,9 +100,9 @@
 (defparameter *ignored-defines*
   '("boolean"))
 
+;; NOTE: platform features should only appear in positive keywords.
 (defparameter *positive-macros*
-  '("PLUGIN"
-    "HAS_MENUBAR"
+  '("HAS_MENUBAR"
     "HAS_FULL_SCREEN"
     "HAS_MENUS"
     "CAN_SELECT_GRAPHICS"
@@ -110,7 +110,6 @@
     #+:mswindows "WIN_PLATFORM"
     #+:mswindows "_WIN32"
     #+(and :mswindows :lispworks-64bit) "_WIN64"
-    "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"
     "PI_CORE_VERSION != 0"
     "ASUSE_OBSOLETE_TYPES"
     "USE_CPLUSPLUS_EXCEPTIONS_FOR_ASEXCEPTIONS"
@@ -119,15 +118,15 @@
     "PDMETADATA_HFT"
     #+lispworks-64bit "AS_ARCH_64BIT"
     #+(and :macosx :lispworks-64bit)
-    "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)" ; only appears with ! prefix
-    "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)"
+    "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"         ; only appears negatively
+    "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)" ; only appears negatively
+    "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"          ; only appears negatively
     "(ACRO_SDK_LEVEL >= 0x00060000)"
-    )
+    "PLUGIN")
   "C macros that are considered being defined as 1 in the SDK")
 
 (defparameter *negative-macros*
-  '("0"
-    "DEBUG"
+  '("DEBUG"
     "TOOLKIT"
     "ACROBAT_LIBRARY"
     "THREAD_SAFE_PDFL"
@@ -142,11 +141,13 @@
     #+:mswindows "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
     "__cplusplus"
     "STATIC_HFT"
-    #+:macosx "_WIN32"
-    #+:macosx "_WIN64"
+    #+(or :macosx :mswindows) "_WIN32"
+    #+(or :macosx
+          (and :mswindows (not :lispworks-64bit))) "_WIN64"
     "OS2_PLATFORM"
     "OS2_ENV"
-    )
+    #-lispworks-64bit "AS_ARCH_64BIT"
+    "0")
   "C macros that are considered being defined as 0 in the SDK")
 
 (defvar *sdk-extern-location* nil
