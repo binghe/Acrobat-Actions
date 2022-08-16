@@ -114,7 +114,7 @@ depend on PDF-PLUGIN-TOOLS.")
              :identifier plugin:*plugin-bundle-identifier*
              :version (plugin:version-string)
              :executable-name (fourth sys:*line-arguments-list*)
-             :package-type "XTNc" ; recommended by Adobe (was: XTND)
+             :package-type "XTND"
              :extension "acroplugin"
              :document-types nil)
             *deliver-level*
