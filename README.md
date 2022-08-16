@@ -32,4 +32,4 @@ Some PDF tasks are impossible to implement in JavaScript, because Adobe didn't e
 
 ## Acrobat® Plug-ins in Common Lisp
 
-A new plugin tools is under development (currently the handshake is successful). This is inspired by Edi Weitz's [FM-PLUGIN-TOOLS](https://github.com/binghe/fm-plugin-tools).
+It's possible to develop Acrobat® Plug-ins in more advanced dynamic languages like Lisp. A new plugin tools is under [pdf-plugin-tools](pdf-plugin-tools). This tool is inspired by Edi Weitz's [FM-PLUGIN-TOOLS](https://github.com/binghe/fm-plugin-tools).
