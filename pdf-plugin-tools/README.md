@@ -1,3 +1,7 @@
+---
+author: Chun Tian
+---
+
 # PDF-PLUGIN-TOOLS - A toolkit for Acrobat® plug-in development in Common Lisp
 
 This toolkit allows to develop Acrobat® plug-ins in Common Lisp, built by [LispWorks®](http://www.lispworks.com).
@@ -43,3 +47,17 @@ The following LispWorks® versions are confirmed working: (7.0 or later is recom
 
 (NOTE: The bitness of LispWorks® must match the bitness of Acrobat® plug-ins, which in turn
 must match the bitness of Acrobat® versions. LispWorks® professional editions are enough, no enterprise features are needed.)
+
+---
+```
+      _---~~(~~-_.
+    _{        )   )
+  ,   ) -~~- ( ,-' )_
+ (  `-,_..`., )-- '_,)
+( ` _)  (  -~( -_ `,  }
+(_-  _  ~_-~~~~`,  ,' )
+  `~ -^(    __;-,((()))
+        ~~~~ {_ -_(())
+               `\  }
+                 { }   Chun Tian
+```
