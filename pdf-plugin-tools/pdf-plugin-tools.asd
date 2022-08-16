@@ -30,7 +30,7 @@
   :description "A toolkit for developing Acrobat Pro plug-ins in Common Lisp"
   :author "Chun Tian (binghe)"
   :license "BSD"
-  :version "0.1.0"
+  :version "0.2.0"
   :serial t
   :components ((:file "packages")
                (:file "specials")
