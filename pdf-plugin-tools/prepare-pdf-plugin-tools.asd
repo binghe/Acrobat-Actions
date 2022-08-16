@@ -27,7 +27,7 @@
 ;;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 (asdf:defsystem :prepare-pdf-plugin-tools
-  :version "0.1.0"
+  :version "0.2.0"
   :components ((:module "prepare"
                         :serial t
                         :components ((:file "packages")
