@@ -135,7 +135,7 @@ expression."
 (defparameter *define-regex3*
   (create-scanner
    (concatenate 'string
-                "^#define (\\w+) "
+                "^\\s*#define (\\w+) "
                 "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
                 "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$")))
 
@@ -143,7 +143,7 @@ expression."
 (defparameter *define-regex5*
   (create-scanner
    (concatenate 'string
-                "^#define (\\w+)\\(\\w+\\) "
+                "^\\s*#define (\\w+)\\(\\w+\\) "
                 "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
                 "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)")))
 
@@ -151,7 +151,7 @@ expression."
 (defparameter *define-regex4*
   (create-scanner
    (concatenate 'string
-                "^#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),"
+                "^\\s*#define (\\w+) \\(ASSERT_AS_VER\\(([\\w_]+)\\),"
                 "\\s*\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$")))
 
 ;; #define ASScriptToHostEncoding ASEXTRAROUTINE(ASExtraHFT_VERSION_5,ASScriptToHostEncoding)
@@ -280,7 +280,8 @@ EXPORT statement."
                 "\\s*(?://[^\\r\\n]*)?" ; C++ comments (one block)
                 )))
 
-(defun handle-struct-body (body typedef-name &optional pointer-name)
+(defun handle-struct-body (class body typedef-name
+                           pointer-name? second-name? second-pointer-name?)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
   (let (slots)
@@ -295,25 +296,38 @@ corresponding FLI:DEFINE-C-STRUCT definition."
           (loop for name in (rest parsed-names)
                 do (push (list type (mangle-name name)) slots)))))
     (let ((lisp-name (mangle-name typedef-name)))
-      (pprint `(fli:define-c-struct ,lisp-name
-                 ,@(loop for (slot-type slot-name) in (nreverse slots)
-                         collect `(,slot-name ,slot-type))))
-      (when pointer-name
-        (pprint `(fli:define-c-typedef ,(mangle-name pointer-name) (:pointer ,lisp-name))))
+      (cond ((string= class "struct")
+             (pprint `(fli:define-c-struct ,lisp-name
+                        ,@(loop for (slot-type slot-name) in (nreverse slots)
+                                collect `(,slot-name ,slot-type)))))
+            (t
+             (pprint `(fli:define-c-union ,lisp-name
+                        ,@(loop for (slot-type slot-name) in (nreverse slots)
+                                collect `(,slot-name ,slot-type))))))
+      (when pointer-name?
+        (pprint `(fli:define-c-typedef ,(mangle-name pointer-name?) (:pointer ,lisp-name))))
+      (when second-name?
+        (pprint `(fli:define-c-typedef ,(mangle-name second-name?) ,lisp-name)))
+      (when second-pointer-name?
+        (pprint `(fli:define-c-typedef ,(mangle-name second-pointer-name?)
+                   (:pointer ,(mangle-name second-name?)))))
       )))
 
 (defparameter *typedef-struct-regex*
   (create-scanner
    (concatenate 'string
-                "(?sm)^\\s*typedef\\s+struct\\s*([\\w_]+)?\\s*\\{("
+                "(?sm)^\\s*typedef\\s+(struct|union)\\s*([\\w_]+)?\\s*\\{("
                 ".*?"
-                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?;")))
+                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?"
+                "(?:,\\s*([\\w_]+))?(?:,\\s*\\*([\\w_]+))?;")))
 
 (defun handle-struct (file-string)
-  (do-register-groups (struct-name? body typedef-name pointer-name)
+  (do-register-groups (class struct-name? body typedef-name
+                             pointer-name second-name second-pointer-name)
       (*typedef-struct-regex* file-string)
     (declare (ignore struct-name?))
-    (handle-struct-body body typedef-name pointer-name)))
+    (handle-struct-body class body typedef-name pointer-name
+                        second-name second-pointer-name)))
 
 ;; typedef ACCBPROTO1 void (ACCBPROTO2 *HFTServerDestroyProc)(HFTServer hftServer, void *rock);
 ;; typedef ACCBPROTO1 ASFilePos64 (ACCBPROTO2 *ASProcStmGetLength)(void *clientData);
@@ -321,7 +335,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
   (create-scanner
    (concatenate 'string
                 "(?m)^\\s*typedef\\s+(?:ACCBPROTO1\\s+)?([\\w*]+)\\s*"
-                "\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\)\\s*\\(([\\w\\s\\*,]+)\\);$")))
+                "\\((?:ACCBPROTO2\\s+)?\\*(\\w+)\\s*\\)\\s*\\(([\\w\\s\\*,]+)\\);$")))
 
 (defun handle-prototype (file-string)
   (do-register-groups (return-type proc-name args)
@@ -351,7 +365,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; NPROC(void, ASUCS_GetPasswordFromUnicode, (ASUTF16Val* inPassword, void** outPassword, ASBool useUTF))
 (defparameter *xproc-regex2*
   (create-scanner
-   "(?m)^\\s*\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\)"))
+   "(?m)^\\s*\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\s*\\)"))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner
@@ -493,7 +507,7 @@ corresponding C code to *STANDARD-OUTPUT*."
         (handle-enum enum-body type-name))
       ;; prototypes
       (handle-prototype file-string)
-      ;; typedef struct ...
+      ;; typedef struct (or union) ...
       (handle-struct file-string)
       ;; xPROC(...)
       (do-register-groups (nil name nil) (*xproc-regex2* file-string)

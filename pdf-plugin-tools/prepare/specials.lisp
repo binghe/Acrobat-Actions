@@ -66,9 +66,13 @@
     "PDCalls"
     ))
 
-;; PDF modification
+;; PDF contents (reading and writing)
 (defparameter *header-file-names-4*
-  '("PEExpT"))
+  '("PEExpT"
+    "PDSysFontExpT"
+    "PERProcs"
+    "PERCalls"
+    ))
 
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is
 ;; given by (intern (string-upcase part) :keyword)

@@ -513,13 +513,18 @@
                  (h-scale as-fixed)
                  (text-rise as-fixed))
 (define-c-typedef pde-text-state-p (:pointer pde-text-state))
-(define-c-struct pde-filter-spec
+(define-c-struct pde-image-attrs
                  (flags as-uns32)
                  (width as-int32)
                  (height as-int32)
                  (bits-per-component as-int32)
                  (decode (:c-array as-fixed 8))
-                 (intent as-atom)
+                 (intent as-atom))
+(define-c-typedef pde-image-attrs-p (:pointer pde-image-attrs))
+(define-c-typedef pde-image-flate-attrs pde-image-attrs)
+(define-c-typedef pde-image-flate-attrs-p
+                  (:pointer pde-image-flate-attrs))
+(define-c-struct pde-filter-spec
                  (decode-parms cos-obj)
                  (encode-parms cos-obj)
                  (name as-atom)
@@ -664,6 +669,15 @@
                  (n-names as-uns32)
                  (alt pde-color-space)
                  (tint-transform cos-obj))
+(define-c-union pde-color-space-struct
+                (cal-gray (:pointer pde-gray-cal-flt))
+                (cal-rgb (:pointer pde-rgbcal-flt))
+                (lab (:pointer pde-lab-cal-flt))
+                (icc (:pointer pde-iccbased-color-data))
+                (indexed (:pointer pde-indexed-color-data))
+                (patternbase pde-pattern-color-space)
+                (sep (:pointer pde-separation-color-data))
+                (devn (:pointer pde-device-ncolor-data)))
 (define-c-struct pde-image-jpxattrs
                  (flags as-uns32)
                  (width as-int32)
@@ -682,6 +696,48 @@
                  (lab-range (:c-array as-uns32 3))
                  (lab-offset (:c-array as-uns32 3)))
 (define-c-typedef jpxcsenum-attrs-p (:pointer jpxcsenum-attrs))
+
+;; #include <PDSysFontExpT.h>
+;; line 39
+(define-c-typedef atsfont-ref uint32)
+;; line 40
+(define-c-typedef atsfont-family-ref uint32)
+;; line 50
+(define-c-typedef pd-sys-font-mode as-int16)
+;; line 53
+(define-c-typedef pd-sys-font-fref atsfont-ref)
+;; line 55
+(define-c-typedef pd-sys-font-font-family-ref atsfont-family-ref)
+;; line 59
+(define-c-typedef pd-sys-font-fstyle as-int16)
+;; line 71
+(define-opaque-pointer pd-sys-font -t-pdsys-font)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +k-pdsys-font-match-name-and-char-set+ 1))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +k-pdsys-font-match-font-type+ 2))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +k-pdsys-font-match-writing-mode+ 4))
+(define-c-typedef pd-sys-font-match-flags :int)
+(define-c-typedef pd-sys-font-enum-proc
+                  (:pointer
+                   (:function
+                    (pd-sys-font (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
+(define-c-struct pde-font-info-rec
+                 (name as-atom)
+                 (type as-atom)
+                 (char-set as-atom)
+                 (encoding as-atom)
+                 (w-mode pd-sys-font-mode))
+(define-c-typedef pde-font-info-p (:pointer pde-font-info-rec))
+(define-c-struct pd-sys-font-plat-data
+                 (size as-size-t)
+                 (font-ref pd-sys-font-fref))
+(define-c-typedef pd-sys-font-plat-data-p
+                  (:pointer pd-sys-font-plat-data))
 
 ;; #include <PERProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)

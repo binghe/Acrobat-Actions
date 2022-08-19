@@ -51,9 +51,14 @@
 list of keywords like (:UNSIGNED :SHORT).  Returns a symbol
 instead of a list if the string contained only one word."
   (register-groups-bind (types pointerp) (*fli-type-regex* string)
+    (setq types (regex-replace-all "([^\\w])(const|IN|OUT)([^\\w])" types "\\1 \\3")
+          types (regex-replace-all "^(const|IN|OUT)([^\\w])" types "\\2")
+          types (regex-replace-all "[^\\w](const|IN|OUT)$" types "\\1")
+          types (regex-replace-all "^(\\s+)" types "")
+          types (regex-replace-all "(\\s+)$" types ""))
     (let* ((keyword-list
-           (loop for part in (delete "const" (split "\\s+" types) :test 'equal)
-                 collect (make-fli-type1 part)))
+            (loop for part in (split "\\s+" types)
+                  collect (make-fli-type1 part)))
            (result-type
             (if (cdr keyword-list) keyword-list (car keyword-list)))
            (pointer-type
@@ -68,7 +73,8 @@ instead of a list if the string contained only one word."
 if nothing was found, or TYPE itself if DEFAULT is NIL."
   (or (cdr (assoc type *typedefs*)) default type))
 
-(defparameter *mangle-name-regex1* (create-scanner "^(AST|PDS)([A-Z].*)$"))
+(defparameter *mangle-name-regex1*
+  (create-scanner "^(AST|PDS|PDE|PDF)([A-Z].*)$"))
 
 (defun mangle-name1 (string)
   (cond ((scan *mangle-name-regex1* string)
