@@ -2937,7 +2937,7 @@
 ;; line 6428
 (define-c-typedef pd-doc-request-reason as-enum8)
 ;; line 6460
-(define-opaque-pointer pd-efont -t-pdefont)
+(define-opaque-pointer pde-font -t-pdefont)
 ;; line 6468
 (define-c-typedef pd-horiz-align as-enum8)
 ;; line 6475
@@ -3150,7 +3150,7 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +pd-std-encoding+ 3))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-fdoc-encoding+ 4))
+  (defconstant +pdf-doc-encoding+ 4))
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +pd-last-known-encoding+ 5))
 (eval-when (:compile-toplevel :load-toplevel :execute)
@@ -4240,6 +4240,13 @@
                     as-bool
                     :calling-convention
                     :cdecl)))
+(define-c-typedef pd-ocgenum-proc
+                  (:pointer
+                   (:function
+                    (pd-ocg (:pointer :void))
+                    as-bool
+                    :calling-convention
+                    :cdecl)))
 (define-c-typedef pd-occonfig-enum-proc
                   (:pointer
                    (:function
@@ -4749,7 +4756,7 @@
                  (size as-size-t)
                  (src-text as-text)
                  (text-align pd-horiz-align)
-                 (pde-font pd-efont)
+                 (pde-font pde-font)
                  (sys-font-name as-atom)
                  (font-size :float)
                  (color pd-color-value-rec))
@@ -5099,15 +5106,15 @@
 ;; line 10265
 (define-c-typedef k-avparagraph-direction as-enum8)
 ;; line 10303
-(define-c-typedef pd-fopt-downsampling-algo as-enum16)
+(define-c-typedef pdf-opt-downsampling-algo as-enum16)
 ;; line 10321
-(define-c-typedef pd-fopt-compression-algo as-enum16)
+(define-c-typedef pdf-opt-compression-algo as-enum16)
 ;; line 10341
-(define-c-typedef pd-fopt-compression-qlty as-enum16)
+(define-c-typedef pdf-opt-compression-qlty as-enum16)
 ;; line 10430
-(define-c-typedef pd-fopt-pdf-version as-enum16)
+(define-c-typedef pdf-opt-pdf-version as-enum16)
 ;; line 10443
-(define-c-typedef pd-fopt-object-compression as-enum16)
+(define-c-typedef pdf-opt-object-compression as-enum16)
 ;; line 10617
 (define-c-typedef av-app-file-save-handle (:pointer :void))
 ;; line 10640
@@ -8294,17 +8301,17 @@
                  (lang-id as-int32))
 (define-c-typedef av-app-language-params
                   (:pointer av-app-language-params-rec))
-(define-c-struct pd-fopt-image-options-rec
+(define-c-struct pdf-opt-image-options-rec
                  (size as-size-t)
-                 (enm-downsampling-algo pd-fopt-downsampling-algo)
+                 (enm-downsampling-algo pdf-opt-downsampling-algo)
                  (ppi-downsample-to as-int32)
                  (ppi-downsample-above as-int32)
-                 (enm-compression-algo pd-fopt-compression-algo)
-                 (enm-compression-qlty pd-fopt-compression-qlty)
+                 (enm-compression-algo pdf-opt-compression-algo)
+                 (enm-compression-qlty pdf-opt-compression-qlty)
                  (n-tile-size as-int32))
-(define-c-typedef pd-fopt-image-options
-                  (:pointer pd-fopt-image-options-rec))
-(define-c-struct pd-fopt-flatten-transparency-options-rec
+(define-c-typedef pdf-opt-image-options
+                  (:pointer pdf-opt-image-options-rec))
+(define-c-struct pdf-opt-flatten-transparency-options-rec
                  (size as-size-t)
                  (pct-raster-vector-balance as-int32)
                  (ppi-line-art-and-text as-int32)
@@ -8313,22 +8320,22 @@
                  (b-convert-strokes as-bool)
                  (b-clip-complex-regions as-bool)
                  (b-preserve-overprint as-bool))
-(define-c-typedef pd-fopt-flatten-transparency-options
-                  (:pointer pd-fopt-flatten-transparency-options-rec))
-(define-c-struct pd-fopt-params-rec
+(define-c-typedef pdf-opt-flatten-transparency-options
+                  (:pointer pdf-opt-flatten-transparency-options-rec))
+(define-c-struct pdf-opt-params-rec
                  (size as-size-t)
                  (as-path-dest as-path-name)
                  (file-sys as-file-sys)
                  (prog-mon progress-monitor)
                  (prog-mon-client-data (:pointer :void))
-                 (enm-acrobat-version pd-fopt-pdf-version)
-                 (image-options-color pd-fopt-image-options-rec)
-                 (image-options-grayscale pd-fopt-image-options-rec)
-                 (image-options-monochrome pd-fopt-image-options-rec)
+                 (enm-acrobat-version pdf-opt-pdf-version)
+                 (image-options-color pdf-opt-image-options-rec)
+                 (image-options-grayscale pdf-opt-image-options-rec)
+                 (image-options-monochrome pdf-opt-image-options-rec)
                  (arr-pdf-onts-to-unembed (:pointer pd-font))
                  (c-pdf-onts-to-unembed as-int32)
                  (pdf-opt-flatten-transparency-options
-                  pd-fopt-flatten-transparency-options)
+                  pdf-opt-flatten-transparency-options)
                  (b-remove-form-actions as-bool)
                  (b-flatten-form-fields as-bool)
                  (b-remove-javascript-actions as-bool)
@@ -8347,7 +8354,7 @@
                  (b-remove-cross-refs as-bool)
                  (b-remove-private-data as-bool)
                  (b-flatten-visible-layers as-bool)
-                 (enm-object-compression pd-fopt-object-compression)
+                 (enm-object-compression pdf-opt-object-compression)
                  (b-unencoded-to-flate as-bool)
                  (b-lzwto-flate as-bool)
                  (b-remove-invalid-bookmarks as-bool)
@@ -8357,7 +8364,7 @@
                  (b-skip-irreducible-images as-bool)
                  (b-subset-embedded-fonts as-bool)
                  (b-optimize-content-stms as-bool))
-(define-c-typedef pd-fopt-params (:pointer pd-fopt-params-rec))
+(define-c-typedef pdf-opt-params (:pointer pdf-opt-params-rec))
 (define-c-struct exec-proc-data
                  (size as-uns32)
                  (menu-id (:pointer (union { :byte)))
