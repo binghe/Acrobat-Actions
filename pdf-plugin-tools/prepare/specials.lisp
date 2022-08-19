@@ -52,7 +52,9 @@
     "AVExpT"       ; Types, macros, structures, etc. required to use the AcroView HFT
     "AVExpTObsolete1"
     "AVExpTObsolete2"
-    "CosExpT"))    ; Types, macros, structures, etc. required to use the Cos HFT
+    "CosExpT"      ; Types, macros, structures, etc. required to use the Cos HFT
+    "CosProcs"     ; Catalog of functions exported by Cos
+    "CosCalls"))
 
 ;; Application UI
 (defparameter *header-file-names-2*

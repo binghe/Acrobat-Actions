@@ -9014,3 +9014,1588 @@
                  (crypt-version cos-crypt-version))
 (define-c-typedef cos-doc-save-params
                   (:pointer cos-doc-save-params-rec))
+
+;; #include <CosProcs.h>
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-equal-sel+ 1))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-get-type-sel+ 2))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-is-indirect-sel+ 3))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-enum-sel+ 4))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-get-doc-sel+ 5))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-null-sel+ 6))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-integer-sel+ 7))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-fixed-sel+ 8))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-boolean-sel+ 9))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-name-sel+ 10))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-string-sel+ 11))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-array-sel+ 12))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-dict-sel+ 13))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-stream-sel+ 14))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-destroy-sel+ 15))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-integer-value-sel+ 16))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-fixed-value-sel+ 17))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-boolean-value-sel+ 18))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-name-value-sel+ 19))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-string-value-sel+ 20))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-get-sel+ 21))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-put-sel+ 22))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-remove-sel+ 23))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-known-sel+ 24))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-get-sel+ 25))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-put-sel+ 26))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-insert-sel+ 27))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-remove-sel+ 28))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-length-sel+ 29))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-stream-length-sel+ 30))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-stream-dict-sel+ 31))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-stream-open-stm-sel+ 32))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-stream-pos-sel+ 33))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-get-root-sel+ 34))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-get-info-dict-sel+ 35))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-decrypt-data-sel+ 36))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-encrypt-data-sel+ 37))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-open-with-params-sel+ 38))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-close-sel+ 39))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-create-sel+ 40))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-set-dirty-sel+ 41))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-get-id-sel+ 42))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-get-generation-sel+ 43))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-get-obj-by-id-sel+ 44))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-enum-eof-s-sel+ 45))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-string-set-hex-flag-sel+ 46))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-string-get-hex-flag-sel+ 47))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-hash-sel+ 48))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-copy-sel+ 49))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-remove-nth-sel+ 50))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-enum-indirect-sel+ 51))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-decrypt-get-max-key-bytes-sel+ 52))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-encrypt-get-max-key-bytes-sel+ 53))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-copy-string-value-sel+ 54))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-string-value-safe-sel+ 55))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-get-id-sel+ 56))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-cmp-sel+ 57))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-set-max-doc-storage-sel+ 58))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-obj-is-within-range-sel+ 59))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-is-compressed-sel+ 60))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-obj-collection-sel+ 61))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-collection-is-null-sel+ 62))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-get-collection-sel+ 63))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-add-to-collection-sel+ 64))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-remove-from-collection-sel+ 65))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-set-compressibility-sel+ 66))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-get-compressibility-sel+ 67))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-collection-size-sel+ 68))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-collection-equal-sel+ 69))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-collection-enum-sel+ 70))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-refresh-after-linearized-save-sel+ 71))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-has-full-compression-sel+ 72))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-has-partial-compression-sel+ 73))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-integer64-sel+ 74))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-integer64value-sel+ 75))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-float-sel+ 76))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-float-value-sel+ 77))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-get-key-sel+ 78))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-known-key-sel+ 79))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-put-key-sel+ 80))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-remove-key-sel+ 81))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-get-key-string-sel+ 82))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-known-key-string-sel+ 83))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-put-key-string-sel+ 84))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-remove-key-string-sel+ 85))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-set-weak-reference-sel+ 86))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-dict-is-weak-reference-sel+ 87))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-set-weak-reference-sel+ 88))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-array-is-weak-reference-sel+ 89))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-acquire-sel+ 90))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-obj-release-sel+ 91))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-name-from-string-sel+ 92))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-copy-name-string-value-sel+ 93))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-enum-eof-s64-sel+ 94))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-number-is-within-as-int32range-sel+ 95))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-number-is-within-as-fixed-range-sel+ 96))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-obj-is-within-range64-sel+ 97))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-stream64-sel+ 98))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-stream-length64-sel+ 99))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-stream-pos64-sel+ 100))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-double-sel+ 101))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-new-double-ex-sel+ 102))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-double-value-sel+ 103))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-has-isoextensions-sel+ 104))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-get-adobe-extension-level-sel+ 105))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cos-doc-set-adobe-extension-level-sel+ 106))
+;; sel = 1
+(define-foreign-funcallable cos-obj-equal-selproto
+                            ((obj1 cos-obj) (obj2 cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable cos-obj-get-type-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            cos-type
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable cos-obj-is-indirect-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable cos-obj-enum-selproto
+                            ((obj cos-obj)
+                             (proc cos-obj-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable cos-obj-get-doc-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            cos-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable cos-new-null-selproto
+                            nil
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable cos-new-integer-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value as-int32))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable cos-new-fixed-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value as-fixed))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable cos-new-boolean-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value as-bool))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable cos-new-name-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (name as-atom))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable cos-new-string-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (str (:reference-pass :ef-mb-string))
+                             (n-bytes ast-array-size))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable cos-new-array-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (n-elements ast-array-size))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable cos-new-dict-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (n-entries ast-array-size))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable cos-new-stream-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (stm as-stm)
+                             (source-start cos-stream-start-and-code)
+                             (encode-the-source-data as-bool)
+                             (attributes-dict cos-obj)
+                             (encode-parms cos-obj)
+                             (source-length cos-byte-max))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable cos-obj-destroy-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 16
+(define-foreign-funcallable cos-integer-value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 17
+(define-foreign-funcallable cos-fixed-value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-fixed
+                            :calling-convention
+                            :cdecl)
+;; sel = 18
+(define-foreign-funcallable cos-boolean-value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 19
+(define-foreign-funcallable cos-name-value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 20
+(define-foreign-funcallable cos-string-value-selproto
+                            ((obj cos-obj)
+                             (n-bytes (:pointer ast-count)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 21
+(define-foreign-funcallable cos-dict-get-selproto
+                            ((dict cos-obj) (key as-atom))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 22
+(define-foreign-funcallable cos-dict-put-selproto
+                            ((dict cos-obj)
+                             (key as-atom)
+                             (val cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 23
+(define-foreign-funcallable cos-dict-remove-selproto
+                            ((dict cos-obj) (key as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 24
+(define-foreign-funcallable cos-dict-known-selproto
+                            ((dict cos-obj) (key as-atom))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 25
+(define-foreign-funcallable cos-array-get-selproto
+                            ((array cos-obj) (index ast-array-size))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 26
+(define-foreign-funcallable cos-array-put-selproto
+                            ((array cos-obj)
+                             (index ast-array-size)
+                             (obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 27
+(define-foreign-funcallable cos-array-insert-selproto
+                            ((array cos-obj)
+                             (pos ast-array-size)
+                             (obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 28
+(define-foreign-funcallable cos-array-remove-selproto
+                            ((array cos-obj) (obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 29
+(define-foreign-funcallable cos-array-length-selproto
+                            ((array cos-obj))
+                            :result-type
+                            ast-array-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 30
+(define-foreign-funcallable cos-stream-length-selproto
+                            ((stream cos-obj))
+                            :result-type
+                            ast-array-size
+                            :calling-convention
+                            :cdecl)
+;; sel = 31
+(define-foreign-funcallable cos-stream-dict-selproto
+                            ((stream cos-obj))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 32
+(define-foreign-funcallable cos-stream-open-stm-selproto
+                            ((stream cos-obj)
+                             (mode cos-stream-open-mode))
+                            :result-type
+                            as-stm
+                            :calling-convention
+                            :cdecl)
+;; sel = 33
+(define-foreign-funcallable cos-stream-pos-selproto
+                            ((stream cos-obj))
+                            :result-type
+                            ast-count
+                            :calling-convention
+                            :cdecl)
+;; sel = 34
+(define-foreign-funcallable cos-doc-get-root-selproto
+                            ((d-p cos-doc))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 35
+(define-foreign-funcallable cos-doc-get-info-dict-selproto
+                            ((d-p cos-doc))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 36
+(define-foreign-funcallable cos-decrypt-data-selproto
+                            ((src (:pointer :void))
+                             (len ast-array-size)
+                             (dst (:pointer :void))
+                             (crypt-data
+                              (:reference-pass :ef-mb-string))
+                             (crypt-data-len ast-array-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 37
+(define-foreign-funcallable cos-encrypt-data-selproto
+                            ((src (:pointer :void))
+                             (len ast-array-size)
+                             (dst (:pointer :void))
+                             (crypt-data
+                              (:reference-pass :ef-mb-string))
+                             (crypt-data-len ast-array-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 38
+(define-foreign-funcallable cos-doc-open-with-params-selproto
+                            ((params cos-doc-open-params))
+                            :result-type
+                            cos-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 39
+(define-foreign-funcallable cos-doc-close-selproto
+                            ((cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 40
+(define-foreign-funcallable cos-doc-create-selproto
+                            ((create-flags as-flag-bits))
+                            :result-type
+                            cos-doc
+                            :calling-convention
+                            :cdecl)
+;; sel = 41
+(define-foreign-funcallable cos-doc-set-dirty-selproto
+                            ((cos-doc cos-doc) (is-dirty as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 42
+(define-foreign-funcallable cos-obj-get-id-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            cos-id
+                            :calling-convention
+                            :cdecl)
+;; sel = 43
+(define-foreign-funcallable cos-obj-get-generation-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            cos-generation
+                            :calling-convention
+                            :cdecl)
+;; sel = 44
+(define-foreign-funcallable cos-doc-get-obj-by-id-selproto
+                            ((d-p cos-doc) (obj-num cos-id))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 45
+(define-foreign-funcallable cos-doc-enum-eof-s-selproto
+                            ((cos-doc cos-doc)
+                             (proc cos-doc-enum-eof-s-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 46
+(define-foreign-funcallable cos-string-set-hex-flag-selproto
+                            ((cos-obj cos-obj) (set-hex as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 47
+(define-foreign-funcallable cos-string-get-hex-flag-selproto
+                            ((cos-obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 48
+(define-foreign-funcallable cos-obj-hash-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            cos-hash-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 49
+(define-foreign-funcallable cos-obj-copy-selproto
+                            ((src-obj cos-obj)
+                             (dest-doc cos-doc)
+                             (copy-indirect as-bool))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 50
+(define-foreign-funcallable cos-array-remove-nth-selproto
+                            ((array cos-obj) (pos ast-array-size))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 51
+(define-foreign-funcallable cos-doc-enum-indirect-selproto
+                            ((d-p cos-doc)
+                             (proc cos-obj-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 52
+(define-foreign-funcallable cos-decrypt-get-max-key-bytes-selproto
+                            ((crypt-version ast-version))
+                            :result-type
+                            cos-byte-max
+                            :calling-convention
+                            :cdecl)
+;; sel = 53
+(define-foreign-funcallable cos-encrypt-get-max-key-bytes-selproto
+                            ((crypt-version ast-version))
+                            :result-type
+                            cos-byte-max
+                            :calling-convention
+                            :cdecl)
+;; sel = 54
+(define-foreign-funcallable cos-copy-string-value-selproto
+                            ((obj cos-obj)
+                             (n-bytes (:pointer ast-count)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 55
+(define-foreign-funcallable cos-string-value-safe-selproto
+                            ((obj cos-obj)
+                             (buffer (:reference-pass :ef-mb-string))
+                             (buffer-size ast-array-size)
+                             (n-bytes (:pointer ast-count)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 56
+(define-foreign-funcallable cos-doc-get-id-selproto
+                            ((d-p cos-doc)
+                             (p-instance-id
+                              (:pointer (:pointer cos-byte)))
+                             (p-perma-id
+                              (:pointer (:pointer cos-byte)))
+                             (inst-idlength (:pointer ast-count))
+                             (perm-idlength (:pointer ast-count)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 57
+(define-foreign-funcallable cos-obj-cmp-selproto
+                            ((obj1 cos-obj) (obj2 cos-obj))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 58
+(define-foreign-funcallable cos-set-max-doc-storage-selproto
+                            ((max-memory as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 59
+(define-foreign-funcallable cos-doc-obj-is-within-range-selproto
+                            ((obj cos-obj)
+                             (byte-ranges (:pointer as-int32))
+                             (num-entries as-int32))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 60
+(define-foreign-funcallable cos-obj-is-compressed-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 61
+(define-foreign-funcallable cos-new-obj-collection-selproto
+                            ((d-p cos-doc))
+                            :result-type
+                            cos-obj-collection
+                            :calling-convention
+                            :cdecl)
+;; sel = 62
+(define-foreign-funcallable cos-obj-collection-is-null-selproto
+                            ((coll cos-obj-collection))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 63
+(define-foreign-funcallable cos-obj-get-collection-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            cos-obj-collection
+                            :calling-convention
+                            :cdecl)
+;; sel = 64
+(define-foreign-funcallable cos-obj-add-to-collection-selproto
+                            ((coll cos-obj-collection) (item cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 65
+(define-foreign-funcallable cos-obj-remove-from-collection-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 66
+(define-foreign-funcallable cos-obj-set-compressibility-selproto
+                            ((obj cos-obj) (compressible as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 67
+(define-foreign-funcallable cos-obj-get-compressibility-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 68
+(define-foreign-funcallable cos-obj-collection-size-selproto
+                            ((coll cos-obj-collection))
+                            :result-type
+                            as-uns32
+                            :calling-convention
+                            :cdecl)
+;; sel = 69
+(define-foreign-funcallable cos-obj-collection-equal-selproto
+                            ((c1 cos-obj-collection)
+                             (c2 cos-obj-collection))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 70
+(define-foreign-funcallable cos-obj-collection-enum-selproto
+                            ((coll cos-obj-collection)
+                             (proc cos-obj-enum-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 71
+(define-foreign-funcallable cos-obj-refresh-after-linearized-save-selproto
+                            ((obj (:pointer cos-obj)) (doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 72
+(define-foreign-funcallable cos-doc-has-full-compression-selproto
+                            ((doc cos-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 73
+(define-foreign-funcallable cos-doc-has-partial-compression-selproto
+                            ((doc cos-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 74
+(define-foreign-funcallable cos-new-integer64-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value as-int64))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 75
+(define-foreign-funcallable cos-integer64value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-int64
+                            :calling-convention
+                            :cdecl)
+;; sel = 76
+(define-foreign-funcallable cos-new-float-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value :float))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 77
+(define-foreign-funcallable cos-float-value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            :float
+                            :calling-convention
+                            :cdecl)
+;; sel = 78
+(define-foreign-funcallable cos-dict-get-key-selproto
+                            ((dict cos-obj) (key cos-obj))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 79
+(define-foreign-funcallable cos-dict-known-key-selproto
+                            ((dict cos-obj) (key cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 80
+(define-foreign-funcallable cos-dict-put-key-selproto
+                            ((dict cos-obj)
+                             (key cos-obj)
+                             (val cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 81
+(define-foreign-funcallable cos-dict-remove-key-selproto
+                            ((dict cos-obj) (key cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 82
+(define-foreign-funcallable cos-dict-get-key-string-selproto
+                            ((dict cos-obj)
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 83
+(define-foreign-funcallable cos-dict-known-key-string-selproto
+                            ((dict cos-obj)
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 84
+(define-foreign-funcallable cos-dict-put-key-string-selproto
+                            ((dict cos-obj)
+                             (key (:reference-pass :ef-mb-string))
+                             (val cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 85
+(define-foreign-funcallable cos-dict-remove-key-string-selproto
+                            ((dict cos-obj)
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 86
+(define-foreign-funcallable cos-dict-set-weak-reference-selproto
+                            ((dict cos-obj)
+                             (key (:reference-pass :ef-mb-string))
+                             (is-weak as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 87
+(define-foreign-funcallable cos-dict-is-weak-reference-selproto
+                            ((dict cos-obj)
+                             (key (:reference-pass :ef-mb-string)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 88
+(define-foreign-funcallable cos-array-set-weak-reference-selproto
+                            ((array cos-obj)
+                             (n as-int32)
+                             (is-weak as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 89
+(define-foreign-funcallable cos-array-is-weak-reference-selproto
+                            ((array cos-obj) (n as-int32))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 90
+(define-foreign-funcallable cos-obj-acquire-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 91
+(define-foreign-funcallable cos-obj-release-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 92
+(define-foreign-funcallable cos-new-name-from-string-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (namestring (:reference-pass
+                                          :ef-mb-string)))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 93
+(define-foreign-funcallable cos-copy-name-string-value-selproto
+                            ((obj cos-obj)
+                             (n-bytes (:pointer ast-count)))
+                            :result-type
+                            (:reference-pass :ef-mb-string)
+                            :calling-convention
+                            :cdecl)
+;; sel = 94
+(define-foreign-funcallable cos-doc-enum-eof-s64-selproto
+                            ((cos-doc cos-doc)
+                             (proc cos-doc-enum-eof-s-proc64)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 95
+(define-foreign-funcallable cos-number-is-within-as-int32range-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 96
+(define-foreign-funcallable cos-number-is-within-as-fixed-range-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 97
+(define-foreign-funcallable cos-doc-obj-is-within-range64-selproto
+                            ((obj cos-obj)
+                             (byte-ranges (:pointer as-file-pos64))
+                             (num-entries as-int32))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 98
+(define-foreign-funcallable cos-new-stream64-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (stm as-stm)
+                             (stm-start-pos as-int64)
+                             (stm-data-is-decoded as-bool)
+                             (attributes-dict cos-obj)
+                             (encode-parms cos-obj)
+                             (source-length as-int64)
+                             (allow-delayed-read as-bool))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 99
+(define-foreign-funcallable cos-stream-length64-selproto
+                            ((stream cos-obj))
+                            :result-type
+                            as-int64
+                            :calling-convention
+                            :cdecl)
+;; sel = 100
+(define-foreign-funcallable cos-stream-pos64-selproto
+                            ((stream cos-obj))
+                            :result-type
+                            as-file-pos64
+                            :calling-convention
+                            :cdecl)
+;; sel = 101
+(define-foreign-funcallable cos-new-double-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value :double))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 102
+(define-foreign-funcallable cos-new-double-ex-selproto
+                            ((d-p cos-doc)
+                             (indirect as-bool)
+                             (value :double)
+                             (num-sig-digs as-uns8))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 103
+(define-foreign-funcallable cos-double-value-selproto
+                            ((obj cos-obj))
+                            :result-type
+                            :double
+                            :calling-convention
+                            :cdecl)
+;; sel = 104
+(define-foreign-funcallable cos-doc-has-isoextensions-selproto
+                            ((d-p cos-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 105
+(define-foreign-funcallable cos-doc-get-adobe-extension-level-selproto
+                            ((d-p cos-doc)
+                             (base-version (:pointer cos-obj))
+                             (extension (:pointer as-uns32)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 106
+(define-foreign-funcallable cos-doc-set-adobe-extension-level-selproto
+                            ((d-p cos-doc)
+                             (base-version cos-obj)
+                             (extension as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+
+;; #include <CosCalls.h>
+;; line 91
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +-cos-hft-is-beta+ 0))
+;; line 105
+(define-c-typedef cos-hft-version-9 cos-hft-latest-version)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cosbad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +cosnum-selectorsplus-one+ 1))
+;; line 494
+(define-acrobat-function (cos-obj-equal "CosObjEqual")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-obj-equal-selproto
+                         *g-cos-hft*
+                         +cos-obj-equal-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-get-type "CosObjGetType")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-obj-get-type-selproto
+                         *g-cos-hft*
+                         +cos-obj-get-type-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-is-indirect "CosObjIsIndirect")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-obj-is-indirect-selproto
+                         *g-cos-hft*
+                         +cos-obj-is-indirect-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-enum "CosObjEnum")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-obj-enum-selproto
+                         *g-cos-hft*
+                         +cos-obj-enum-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-get-doc "CosObjGetDoc")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-obj-get-doc-selproto
+                         *g-cos-hft*
+                         +cos-obj-get-doc-sel+)
+;; line 494
+(define-acrobat-function (cos-new-null "CosNewNull")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-null-selproto
+                         *g-cos-hft*
+                         +cos-new-null-sel+)
+;; line 494
+(define-acrobat-function (cos-new-integer "CosNewInteger")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-integer-selproto
+                         *g-cos-hft*
+                         +cos-new-integer-sel+)
+;; line 494
+(define-acrobat-function (cos-new-fixed "CosNewFixed")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-fixed-selproto
+                         *g-cos-hft*
+                         +cos-new-fixed-sel+)
+;; line 494
+(define-acrobat-function (cos-new-boolean "CosNewBoolean")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-boolean-selproto
+                         *g-cos-hft*
+                         +cos-new-boolean-sel+)
+;; line 494
+(define-acrobat-function (cos-new-name "CosNewName")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-name-selproto
+                         *g-cos-hft*
+                         +cos-new-name-sel+)
+;; line 494
+(define-acrobat-function (cos-new-string "CosNewString")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-string-selproto
+                         *g-cos-hft*
+                         +cos-new-string-sel+)
+;; line 494
+(define-acrobat-function (cos-new-array "CosNewArray")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-array-selproto
+                         *g-cos-hft*
+                         +cos-new-array-sel+)
+;; line 494
+(define-acrobat-function (cos-new-dict "CosNewDict")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-dict-selproto
+                         *g-cos-hft*
+                         +cos-new-dict-sel+)
+;; line 494
+(define-acrobat-function (cos-new-stream "CosNewStream")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-new-stream-selproto
+                         *g-cos-hft*
+                         +cos-new-stream-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-destroy "CosObjDestroy")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-obj-destroy-selproto
+                         *g-cos-hft*
+                         +cos-obj-destroy-sel+)
+;; line 494
+(define-acrobat-function (cos-integer-value "CosIntegerValue")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-integer-value-selproto
+                         *g-cos-hft*
+                         +cos-integer-value-sel+)
+;; line 494
+(define-acrobat-function (cos-fixed-value "CosFixedValue")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-fixed-value-selproto
+                         *g-cos-hft*
+                         +cos-fixed-value-sel+)
+;; line 494
+(define-acrobat-function (cos-boolean-value "CosBooleanValue")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-boolean-value-selproto
+                         *g-cos-hft*
+                         +cos-boolean-value-sel+)
+;; line 494
+(define-acrobat-function (cos-name-value "CosNameValue")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-name-value-selproto
+                         *g-cos-hft*
+                         +cos-name-value-sel+)
+;; line 494
+(define-acrobat-function (cos-string-value "CosStringValue")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-string-value-selproto
+                         *g-cos-hft*
+                         +cos-string-value-sel+)
+;; line 494
+(define-acrobat-function (cos-dict-get "CosDictGet")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-dict-get-selproto
+                         *g-cos-hft*
+                         +cos-dict-get-sel+)
+;; line 494
+(define-acrobat-function (cos-dict-put "CosDictPut")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-dict-put-selproto
+                         *g-cos-hft*
+                         +cos-dict-put-sel+)
+;; line 494
+(define-acrobat-function (cos-dict-remove "CosDictRemove")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-dict-remove-selproto
+                         *g-cos-hft*
+                         +cos-dict-remove-sel+)
+;; line 494
+(define-acrobat-function (cos-dict-known "CosDictKnown")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-dict-known-selproto
+                         *g-cos-hft*
+                         +cos-dict-known-sel+)
+;; line 494
+(define-acrobat-function (cos-array-get "CosArrayGet")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-array-get-selproto
+                         *g-cos-hft*
+                         +cos-array-get-sel+)
+;; line 494
+(define-acrobat-function (cos-array-put "CosArrayPut")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-array-put-selproto
+                         *g-cos-hft*
+                         +cos-array-put-sel+)
+;; line 494
+(define-acrobat-function (cos-array-insert "CosArrayInsert")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-array-insert-selproto
+                         *g-cos-hft*
+                         +cos-array-insert-sel+)
+;; line 494
+(define-acrobat-function (cos-array-remove "CosArrayRemove")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-array-remove-selproto
+                         *g-cos-hft*
+                         +cos-array-remove-sel+)
+;; line 494
+(define-acrobat-function (cos-array-length "CosArrayLength")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-array-length-selproto
+                         *g-cos-hft*
+                         +cos-array-length-sel+)
+;; line 494
+(define-acrobat-function (cos-stream-length "CosStreamLength")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-stream-length-selproto
+                         *g-cos-hft*
+                         +cos-stream-length-sel+)
+;; line 494
+(define-acrobat-function (cos-stream-dict "CosStreamDict")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-stream-dict-selproto
+                         *g-cos-hft*
+                         +cos-stream-dict-sel+)
+;; line 494
+(define-acrobat-function (cos-stream-open-stm "CosStreamOpenStm")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-stream-open-stm-selproto
+                         *g-cos-hft*
+                         +cos-stream-open-stm-sel+)
+;; line 494
+(define-acrobat-function (cos-stream-pos "CosStreamPos")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-stream-pos-selproto
+                         *g-cos-hft*
+                         +cos-stream-pos-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-get-root "CosDocGetRoot")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-doc-get-root-selproto
+                         *g-cos-hft*
+                         +cos-doc-get-root-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-get-info-dict "CosDocGetInfoDict")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-doc-get-info-dict-selproto
+                         *g-cos-hft*
+                         +cos-doc-get-info-dict-sel+)
+;; line 494
+(define-acrobat-function (cos-decrypt-data "CosDecryptData")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-decrypt-data-selproto
+                         *g-cos-hft*
+                         +cos-decrypt-data-sel+)
+;; line 494
+(define-acrobat-function (cos-encrypt-data "CosEncryptData")
+                         *g-cos-version*
+                         +cos-hft-version-2+
+                         cos-encrypt-data-selproto
+                         *g-cos-hft*
+                         +cos-encrypt-data-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-open-with-params
+                          "CosDocOpenWithParams")
+                         *g-cos-version*
+                         +cos-hft-version-3+
+                         cos-doc-open-with-params-selproto
+                         *g-cos-hft*
+                         +cos-doc-open-with-params-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-close "CosDocClose")
+                         *g-cos-version*
+                         +cos-hft-version-3+
+                         cos-doc-close-selproto
+                         *g-cos-hft*
+                         +cos-doc-close-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-create "CosDocCreate")
+                         *g-cos-version*
+                         +cos-hft-version-3+
+                         cos-doc-create-selproto
+                         *g-cos-hft*
+                         +cos-doc-create-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-save-to-file "CosDocSaveToFile")
+                         *g-cos-version*
+                         +cos-hft-version-3+
+                         cos-doc-save-to-file-selproto
+                         *g-cos-hft*
+                         +cos-doc-save-to-file-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-set-dirty "CosDocSetDirty")
+                         *g-cos-version*
+                         +cos-hft-version-3+
+                         cos-doc-set-dirty-selproto
+                         *g-cos-hft*
+                         +cos-doc-set-dirty-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-get-id "CosObjGetID")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-obj-get-id-selproto
+                         *g-cos-hft*
+                         +cos-obj-get-id-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-get-generation "CosObjGetGeneration")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-obj-get-generation-selproto
+                         *g-cos-hft*
+                         +cos-obj-get-generation-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-get-obj-by-id "CosDocGetObjByID")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-doc-get-obj-by-id-selproto
+                         *g-cos-hft*
+                         +cos-doc-get-obj-by-id-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-save-with-params
+                          "CosDocSaveWithParams")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-doc-save-with-params-selproto
+                         *g-cos-hft*
+                         +cos-doc-save-with-params-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-enum-eof-s "CosDocEnumEOFs")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-doc-enum-eof-s-selproto
+                         *g-cos-hft*
+                         +cos-doc-enum-eof-s-sel+)
+;; line 494
+(define-acrobat-function (cos-array-remove-nth "CosArrayRemoveNth")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-array-remove-nth-selproto
+                         *g-cos-hft*
+                         +cos-array-remove-nth-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-enum-indirect "CosDocEnumIndirect")
+                         *g-cos-version*
+                         +cos-hft-version-4+
+                         cos-doc-enum-indirect-selproto
+                         *g-cos-hft*
+                         +cos-doc-enum-indirect-sel+)
+;; line 494
+(define-acrobat-function (cos-decrypt-get-max-key-bytes
+                          "CosDecryptGetMaxKeyBytes")
+                         *g-cos-version*
+                         +cos-hft-version-4-5+
+                         cos-decrypt-get-max-key-bytes-selproto
+                         *g-cos-hft*
+                         +cos-decrypt-get-max-key-bytes-sel+)
+;; line 494
+(define-acrobat-function (cos-encrypt-get-max-key-bytes
+                          "CosEncryptGetMaxKeyBytes")
+                         *g-cos-version*
+                         +cos-hft-version-4-5+
+                         cos-encrypt-get-max-key-bytes-selproto
+                         *g-cos-hft*
+                         +cos-encrypt-get-max-key-bytes-sel+)
+;; line 494
+(define-acrobat-function (cos-copy-string-value "CosCopyStringValue")
+                         *g-cos-version*
+                         +cos-hft-version-5+
+                         cos-copy-string-value-selproto
+                         *g-cos-hft*
+                         +cos-copy-string-value-sel+)
+;; line 494
+(define-acrobat-function (cos-string-value-safe "CosStringValueSafe")
+                         *g-cos-version*
+                         +cos-hft-version-5+
+                         cos-string-value-safe-selproto
+                         *g-cos-hft*
+                         +cos-string-value-safe-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-get-id "CosDocGetID")
+                         *g-cos-version*
+                         +cos-hft-version-5+
+                         cos-doc-get-id-selproto
+                         *g-cos-hft*
+                         +cos-doc-get-id-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-cmp "CosObjCmp")
+                         *g-cos-version*
+                         +cos-hft-version-5+
+                         cos-obj-cmp-selproto
+                         *g-cos-hft*
+                         +cos-obj-cmp-sel+)
+;; line 494
+(define-acrobat-function (cos-set-max-doc-storage
+                          "CosSetMaxDocStorage")
+                         *g-cos-version*
+                         +cos-hft-version-5-1+
+                         cos-set-max-doc-storage-selproto
+                         *g-cos-hft*
+                         +cos-set-max-doc-storage-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-obj-is-within-range
+                          "CosDocObjIsWithinRange")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-doc-obj-is-within-range-selproto
+                         *g-cos-hft*
+                         +cos-doc-obj-is-within-range-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-is-compressed "CosObjIsCompressed")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-is-compressed-selproto
+                         *g-cos-hft*
+                         +cos-obj-is-compressed-sel+)
+;; line 494
+(define-acrobat-function (cos-new-obj-collection "CosNewObjCollection")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-new-obj-collection-selproto
+                         *g-cos-hft*
+                         +cos-new-obj-collection-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-collection-is-null
+                          "CosObjCollectionIsNull")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-collection-is-null-selproto
+                         *g-cos-hft*
+                         +cos-obj-collection-is-null-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-get-collection "CosObjGetCollection")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-get-collection-selproto
+                         *g-cos-hft*
+                         +cos-obj-get-collection-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-add-to-collection
+                          "CosObjAddToCollection")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-add-to-collection-selproto
+                         *g-cos-hft*
+                         +cos-obj-add-to-collection-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-remove-from-collection
+                          "CosObjRemoveFromCollection")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-remove-from-collection-selproto
+                         *g-cos-hft*
+                         +cos-obj-remove-from-collection-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-set-compressibility
+                          "CosObjSetCompressibility")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-set-compressibility-selproto
+                         *g-cos-hft*
+                         +cos-obj-set-compressibility-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-get-compressibility
+                          "CosObjGetCompressibility")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-get-compressibility-selproto
+                         *g-cos-hft*
+                         +cos-obj-get-compressibility-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-collection-size
+                          "CosObjCollectionSize")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-collection-size-selproto
+                         *g-cos-hft*
+                         +cos-obj-collection-size-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-collection-equal
+                          "CosObjCollectionEqual")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-collection-equal-selproto
+                         *g-cos-hft*
+                         +cos-obj-collection-equal-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-collection-enum
+                          "CosObjCollectionEnum")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-collection-enum-selproto
+                         *g-cos-hft*
+                         +cos-obj-collection-enum-sel+)
+;; line 494
+(define-acrobat-function (cos-obj-refresh-after-linearized-save
+                          "CosObjRefreshAfterLinearizedSave")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-obj-refresh-after-linearized-save-selproto
+                         *g-cos-hft*
+                         +cos-obj-refresh-after-linearized-save-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-has-full-compression
+                          "CosDocHasFullCompression")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-doc-has-full-compression-selproto
+                         *g-cos-hft*
+                         +cos-doc-has-full-compression-sel+)
+;; line 494
+(define-acrobat-function (cos-doc-has-partial-compression
+                          "CosDocHasPartialCompression")
+                         *g-cos-version*
+                         +cos-hft-version-6+
+                         cos-doc-has-partial-compression-selproto
+                         *g-cos-hft*
+                         +cos-doc-has-partial-compression-sel+)
