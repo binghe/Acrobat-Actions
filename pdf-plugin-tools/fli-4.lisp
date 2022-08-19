@@ -2142,48 +2142,42 @@
 (define-c-typedef pdf-edit-read-hft-version-10
                   pdf-edit-read-hft-latest-version)
 ;; line 185
-(define-acrobat-function (pde-text-run-get-num-chars
-                          "PDETextRunGetNumChars")
+(define-acrobat-function (pde-text-run-get-num-chars "PDETextRunGetNumChars")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-run-get-num-chars-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-run-get-num-chars-sel+)
 ;; line 247
-(define-acrobat-function (pde-color-space-get-base-num-comps
-                          "PDEColorSpaceGetBaseNumComps")
+(define-acrobat-function (pde-color-space-get-base-num-comps "PDEColorSpaceGetBaseNumComps")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-base-num-comps-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-base-num-comps-sel+)
 ;; line 281
-(define-acrobat-function (pde-soft-mask-get-cos-obj
-                          "PDESoftMaskGetCosObj")
+(define-acrobat-function (pde-soft-mask-get-cos-obj "PDESoftMaskGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-get-cos-obj-sel+)
 ;; line 282
-(define-acrobat-function (pde-soft-mask-acquire-form
-                          "PDESoftMaskAcquireForm")
+(define-acrobat-function (pde-soft-mask-acquire-form "PDESoftMaskAcquireForm")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-acquire-form-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-acquire-form-sel+)
 ;; line 283
-(define-acrobat-function (pde-soft-mask-get-backdrop-color
-                          "PDESoftMaskGetBackdropColor")
+(define-acrobat-function (pde-soft-mask-get-backdrop-color "PDESoftMaskGetBackdropColor")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-backdrop-color-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-get-backdrop-color-sel+)
 ;; line 284
-(define-acrobat-function (pde-soft-mask-get-transfer-function
-                          "PDESoftMaskGetTransferFunction")
+(define-acrobat-function (pde-soft-mask-get-transfer-function "PDESoftMaskGetTransferFunction")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-transfer-function-selproto
@@ -2197,32 +2191,28 @@
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-get-cos-obj-sel+)
 ;; line 287
-(define-acrobat-function (pde-xgroup-get-knockout
-                          "PDEXGroupGetKnockout")
+(define-acrobat-function (pde-xgroup-get-knockout "PDEXGroupGetKnockout")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-get-knockout-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-get-knockout-sel+)
 ;; line 288
-(define-acrobat-function (pde-xgroup-get-isolated
-                          "PDEXGroupGetIsolated")
+(define-acrobat-function (pde-xgroup-get-isolated "PDEXGroupGetIsolated")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-get-isolated-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-get-isolated-sel+)
 ;; line 289
-(define-acrobat-function (pde-xgroup-acquire-color-space
-                          "PDEXGroupAcquireColorSpace")
+(define-acrobat-function (pde-xgroup-acquire-color-space "PDEXGroupAcquireColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-acquire-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-acquire-color-space-sel+)
 ;; line 291
-(define-acrobat-function (pde-form-acquire-xgroup
-                          "PDEFormAcquireXGroup")
+(define-acrobat-function (pde-form-acquire-xgroup "PDEFormAcquireXGroup")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-form-acquire-xgroup-selproto
@@ -2243,40 +2233,35 @@
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opm-sel+)
 ;; line 297
-(define-acrobat-function (pde-ext-gstate-get-opfill
-                          "PDEExtGStateGetOPFill")
+(define-acrobat-function (pde-ext-gstate-get-opfill "PDEExtGStateGetOPFill")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opfill-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opfill-sel+)
 ;; line 298
-(define-acrobat-function (pde-ext-gstate-get-opstroke
-                          "PDEExtGStateGetOPStroke")
+(define-acrobat-function (pde-ext-gstate-get-opstroke "PDEExtGStateGetOPStroke")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opstroke-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opstroke-sel+)
 ;; line 299
-(define-acrobat-function (pde-ext-gstate-get-opacity-fill
-                          "PDEExtGStateGetOpacityFill")
+(define-acrobat-function (pde-ext-gstate-get-opacity-fill "PDEExtGStateGetOpacityFill")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opacity-fill-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opacity-fill-sel+)
 ;; line 300
-(define-acrobat-function (pde-ext-gstate-get-opacity-stroke
-                          "PDEExtGStateGetOpacityStroke")
+(define-acrobat-function (pde-ext-gstate-get-opacity-stroke "PDEExtGStateGetOpacityStroke")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opacity-stroke-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opacity-stroke-sel+)
 ;; line 301
-(define-acrobat-function (pde-ext-gstate-get-blend-mode
-                          "PDEExtGStateGetBlendMode")
+(define-acrobat-function (pde-ext-gstate-get-blend-mode "PDEExtGStateGetBlendMode")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-blend-mode-selproto
@@ -2290,16 +2275,14 @@
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-ais-sel+)
 ;; line 303
-(define-acrobat-function (pde-ext-gstate-has-soft-mask
-                          "PDEExtGStateHasSoftMask")
+(define-acrobat-function (pde-ext-gstate-has-soft-mask "PDEExtGStateHasSoftMask")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-has-soft-mask-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-has-soft-mask-sel+)
 ;; line 304
-(define-acrobat-function (pde-ext-gstate-acquire-soft-mask
-                          "PDEExtGStateAcquireSoftMask")
+(define-acrobat-function (pde-ext-gstate-acquire-soft-mask "PDEExtGStateAcquireSoftMask")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-acquire-soft-mask-selproto
@@ -2320,8 +2303,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-image-get-smask-sel+)
 ;; line 308
-(define-acrobat-function (pde-image-get-matte-array
-                          "PDEImageGetMatteArray")
+(define-acrobat-function (pde-image-get-matte-array "PDEImageGetMatteArray")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-image-get-matte-array-selproto
@@ -2370,8 +2352,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-font-get-sys-font-sel+)
 ;; line 331
-(define-acrobat-function (pde-font-get-sys-encoding
-                          "PDEFontGetSysEncoding")
+(define-acrobat-function (pde-font-get-sys-encoding "PDEFontGetSysEncoding")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-font-get-sys-encoding-selproto
@@ -2392,40 +2373,35 @@
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-font-sel+)
 ;; line 334
-(define-acrobat-function (pde-text-item-get-text-matrix
-                          "PDETextItemGetTextMatrix")
+(define-acrobat-function (pde-text-item-get-text-matrix "PDETextItemGetTextMatrix")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-text-matrix-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-matrix-sel+)
 ;; line 335
-(define-acrobat-function (pde-text-item-get-text-state
-                          "PDETextItemGetTextState")
+(define-acrobat-function (pde-text-item-get-text-state "PDETextItemGetTextState")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-text-state-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-state-sel+)
 ;; line 336
-(define-acrobat-function (pde-text-item-get-text-len
-                          "PDETextItemGetTextLen")
+(define-acrobat-function (pde-text-item-get-text-len "PDETextItemGetTextLen")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-text-len-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-len-sel+)
 ;; line 337
-(define-acrobat-function (pde-text-item-copy-text
-                          "PDETextItemCopyText")
+(define-acrobat-function (pde-text-item-copy-text "PDETextItemCopyText")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-copy-text-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-copy-text-sel+)
 ;; line 338
-(define-acrobat-function (pde-text-item-get-gstate
-                          "PDETextItemGetGState")
+(define-acrobat-function (pde-text-item-get-gstate "PDETextItemGetGState")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-gstate-selproto
@@ -2446,56 +2422,49 @@
                          *g-pdf-edit-read-hft*
                          +pde-image-get-type-sel+)
 ;; line 344
-(define-acrobat-function (pde-image-acquire-image-flate
-                          "PDEImageAcquireImageFlate")
+(define-acrobat-function (pde-image-acquire-image-flate "PDEImageAcquireImageFlate")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-acquire-image-flate-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-acquire-image-flate-sel+)
 ;; line 345
-(define-acrobat-function (pde-image-acquire-image-jpx
-                          "PDEImageAcquireImageJPX")
+(define-acrobat-function (pde-image-acquire-image-jpx "PDEImageAcquireImageJPX")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-acquire-image-jpx-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-acquire-image-jpx-sel+)
 ;; line 347
-(define-acrobat-function (pde-image-jpxget-cos-obj
-                          "PDEImageJPXGetCosObj")
+(define-acrobat-function (pde-image-jpxget-cos-obj "PDEImageJPXGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-cos-obj-sel+)
 ;; line 349
-(define-acrobat-function (pde-image-flate-get-cos-obj
-                          "PDEImageFlateGetCosObj")
+(define-acrobat-function (pde-image-flate-get-cos-obj "PDEImageFlateGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-get-cos-obj-sel+)
 ;; line 350
-(define-acrobat-function (pde-image-flate-get-attrs
-                          "PDEImageFlateGetAttrs")
+(define-acrobat-function (pde-image-flate-get-attrs "PDEImageFlateGetAttrs")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-get-attrs-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-get-attrs-sel+)
 ;; line 351
-(define-acrobat-function (pde-image-flate-acquire-color-space
-                          "PDEImageFlateAcquireColorSpace")
+(define-acrobat-function (pde-image-flate-acquire-color-space "PDEImageFlateAcquireColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-acquire-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-acquire-color-space-sel+)
 ;; line 352
-(define-acrobat-function (pde-image-flate-get-data-stm
-                          "PDEImageFlateGetDataStm")
+(define-acrobat-function (pde-image-flate-get-data-stm "PDEImageFlateGetDataStm")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-get-data-stm-selproto
@@ -2509,72 +2478,63 @@
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-attrs-sel+)
 ;; line 355
-(define-acrobat-function (pde-image-jpxacquire-color-space
-                          "PDEImageJPXAcquireColorSpace")
+(define-acrobat-function (pde-image-jpxacquire-color-space "PDEImageJPXAcquireColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxacquire-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxacquire-color-space-sel+)
 ;; line 356
-(define-acrobat-function (pde-image-jpxget-data-stm
-                          "PDEImageJPXGetDataStm")
+(define-acrobat-function (pde-image-jpxget-data-stm "PDEImageJPXGetDataStm")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-data-stm-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-data-stm-sel+)
 ;; line 357
-(define-acrobat-function (pde-image-jpxget-num-color-spaces
-                          "PDEImageJPXGetNumColorSpaces")
+(define-acrobat-function (pde-image-jpxget-num-color-spaces "PDEImageJPXGetNumColorSpaces")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-num-color-spaces-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-num-color-spaces-sel+)
 ;; line 358
-(define-acrobat-function (pde-image-jpxacquire-jpxcolor-space
-                          "PDEImageJPXAcquireJPXColorSpace")
+(define-acrobat-function (pde-image-jpxacquire-jpxcolor-space "PDEImageJPXAcquireJPXColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxacquire-jpxcolor-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxacquire-jpxcolor-space-sel+)
 ;; line 359
-(define-acrobat-function (pde-image-jpxhas-palette
-                          "PDEImageJPXHasPalette")
+(define-acrobat-function (pde-image-jpxhas-palette "PDEImageJPXHasPalette")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxhas-palette-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxhas-palette-sel+)
 ;; line 360
-(define-acrobat-function (pde-image-jpxacquire-palette
-                          "PDEImageJPXAcquirePalette")
+(define-acrobat-function (pde-image-jpxacquire-palette "PDEImageJPXAcquirePalette")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxacquire-palette-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxacquire-palette-sel+)
 ;; line 362
-(define-acrobat-function (jpxpalette-get-num-entries
-                          "JPXPaletteGetNumEntries")
+(define-acrobat-function (jpxpalette-get-num-entries "JPXPaletteGetNumEntries")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-num-entries-selproto
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-num-entries-sel+)
 ;; line 363
-(define-acrobat-function (jpxpalette-get-bit-depths
-                          "JPXPaletteGetBitDepths")
+(define-acrobat-function (jpxpalette-get-bit-depths "JPXPaletteGetBitDepths")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-bit-depths-selproto
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-bit-depths-sel+)
 ;; line 364
-(define-acrobat-function (jpxpalette-get-num-components
-                          "JPXPaletteGetNumComponents")
+(define-acrobat-function (jpxpalette-get-num-components "JPXPaletteGetNumComponents")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-num-components-selproto
@@ -2588,64 +2548,56 @@
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-table-sel+)
 ;; line 367
-(define-acrobat-function (jpxcolor-space-acquire-next
-                          "JPXColorSpaceAcquireNext")
+(define-acrobat-function (jpxcolor-space-acquire-next "JPXColorSpaceAcquireNext")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-acquire-next-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-acquire-next-sel+)
 ;; line 368
-(define-acrobat-function (jpxcolor-space-get-type
-                          "JPXColorSpaceGetType")
+(define-acrobat-function (jpxcolor-space-get-type "JPXColorSpaceGetType")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-get-type-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-get-type-sel+)
 ;; line 369
-(define-acrobat-function (jpxcolor-space-get-enum-attrs
-                          "JPXColorSpaceGetEnumAttrs")
+(define-acrobat-function (jpxcolor-space-get-enum-attrs "JPXColorSpaceGetEnumAttrs")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-get-enum-attrs-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-get-enum-attrs-sel+)
 ;; line 370
-(define-acrobat-function (jpxcolor-space-get-profile
-                          "JPXColorSpaceGetProfile")
+(define-acrobat-function (jpxcolor-space-get-profile "JPXColorSpaceGetProfile")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-get-profile-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-get-profile-sel+)
 ;; line 374
-(define-acrobat-function (pde-image-get-color-space-ex
-                          "PDEImageGetColorSpaceEx")
+(define-acrobat-function (pde-image-get-color-space-ex "PDEImageGetColorSpaceEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-9+
                          pde-image-get-color-space-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-get-color-space-ex-sel+)
 ;; line 375
-(define-acrobat-function (pde-form-get-content-to-cos-obj-flags
-                          "PDEFormGetContentToCosObjFlags")
+(define-acrobat-function (pde-form-get-content-to-cos-obj-flags "PDEFormGetContentToCosObjFlags")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-9+
                          pde-form-get-content-to-cos-obj-flags-selproto
                          *g-pdf-edit-read-hft*
                          +pde-form-get-content-to-cos-obj-flags-sel+)
 ;; line 379
-(define-acrobat-function (pde-soft-mask-acquire-form-ex
-                          "PDESoftMaskAcquireFormEx")
+(define-acrobat-function (pde-soft-mask-acquire-form-ex "PDESoftMaskAcquireFormEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-soft-mask-acquire-form-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-acquire-form-ex-sel+)
 ;; line 380
-(define-acrobat-function (pde-text-item-get-text-matrix-ex
-                          "PDETextItemGetTextMatrixEx")
+(define-acrobat-function (pde-text-item-get-text-matrix-ex "PDETextItemGetTextMatrixEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-text-item-get-text-matrix-ex-selproto

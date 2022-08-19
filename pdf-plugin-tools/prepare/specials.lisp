@@ -68,9 +68,9 @@
 
 ;; PDF contents (reading and writing)
 (defparameter *header-file-names-4*
-  '("PEExpT"
-    "PDSysFontExpT"
-    "PERProcs"
+  '("PEExpT"        ; Types, macros, structures, etc. required to use the PDFEdit HFTs
+    "PDSysFontExpT" ; PDSysFont Types header file.
+    "PERProcs"      ; Catalog of functions exported by the PDFEditRead HFT
     "PERCalls"
     ))
 
@@ -80,21 +80,22 @@
   '(("void")
     ("unsigned")
     ("signed")
-    ("char"       :byte)
+    ("char"      :byte)
     ("short")
     ("int")
     ("long")
     ("float")
     ("double")
-    ("bool"       :boolean)          ; see AVProc.h, line 10546
-    ("size_t"     :size-t)
-    ("intptr_t"   :intptr)
-    ("uintptr_t"  :uintptr)
+    ("bool"      :boolean)          ; see AVProc.h, line 10546
+    ("size_t"    :size-t)
+    ("intptr_t"  :intptr)
+    ("uintptr_t" :uintptr)
     ("__CFString"        :cf-string) ; see ASExpT.h, line 2214 (macOS)
     ("__CFStringPlacebo" :cf-string) ; see ASExpT.h, line 2239 (Windows)
     ("__CFURL"           :cf-url)    ; see ASExpT.h, line 2227 (macOS)
     ("__CFURLPlacebo"    :cf-url)    ; see ASExpT.h, line 2243 (Windows)
-    ("struct"))) ; this last one is to be handled by *typedefs*
+    ("struct") ; this last one is to be handled by *typedefs*
+    ))
 
 (defparameter *typedefs-init*
   '(((:pointer (:struct :cf-string)) . (:pointer :void))
@@ -134,7 +135,7 @@
   "C macros that are considered being defined as 1 in the SDK")
 
 (defparameter *negative-macros*
-  '("DEBUG"
+  '("0" "DEBUG"
     "TOOLKIT"
     "ACROBAT_LIBRARY"
     "THREAD_SAFE_PDFL"
@@ -154,8 +155,7 @@
           (and :mswindows (not :lispworks-64bit))) "_WIN64"
     "OS2_PLATFORM"
     "OS2_ENV"
-    #-lispworks-64bit "AS_ARCH_64BIT"
-    "0")
+    #-lispworks-64bit "AS_ARCH_64BIT")
   "C macros that are considered being defined as 0 in the SDK")
 
 (defvar *sdk-extern-location* nil
