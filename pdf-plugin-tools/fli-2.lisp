@@ -6146,3206 +6146,3206 @@
                             :cdecl)
 
 ;; #include <AVCalls.h>
-;; line 317
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-num-selectorsplus-one+ 1))
+;; line 1703
 (define-acrobat-function (av-action-handler-get-type "AVActionHandlerGetType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-action-handler-get-type-selproto
                          *g-acro-view-hft*
                          +av-action-handler-get-type-sel+)
-;; line 320
+;; line 1703
 (define-acrobat-function (av-action-handler-get-uiname "AVActionHandlerGetUIName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-action-handler-get-uiname-selproto
                          *g-acro-view-hft*
                          +av-action-handler-get-uiname-sel+)
-;; line 323
+;; line 1703
 (define-acrobat-function (av-action-handler-get-procs "AVActionHandlerGetProcs")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-action-handler-get-procs-selproto
                          *g-acro-view-hft*
                          +av-action-handler-get-procs-sel+)
-;; line 326
+;; line 1703
 (define-acrobat-function (av-alert "AVAlert")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-alert-selproto
                          *g-acro-view-hft*
                          +av-alert-sel+)
-;; line 329
+;; line 1703
 (define-acrobat-function (av-alert-note "AVAlertNote")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-alert-note-selproto
                          *g-acro-view-hft*
                          +av-alert-note-sel+)
-;; line 332
+;; line 1703
 (define-acrobat-function (av-alert-confirm "AVAlertConfirm")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-alert-confirm-selproto
                          *g-acro-view-hft*
                          +av-alert-confirm-sel+)
-;; line 335
+;; line 1703
 (define-acrobat-function (av-app-get-version "AVAppGetVersion")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-version-selproto
                          *g-acro-view-hft*
                          +av-app-get-version-sel+)
-;; line 338
+;; line 1703
 (define-acrobat-function (av-app-get-language "AVAppGetLanguage")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-language-selproto
                          *g-acro-view-hft*
                          +av-app-get-language-sel+)
-;; line 341
+;; line 1703
 (define-acrobat-function (av-app-get-name "AVAppGetName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-name-selproto
                          *g-acro-view-hft*
                          +av-app-get-name-sel+)
-;; line 344
+;; line 1703
 (define-acrobat-function (av-app-get-cancel-proc "AVAppGetCancelProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-cancel-proc-selproto
                          *g-acro-view-hft*
                          +av-app-get-cancel-proc-sel+)
-;; line 347
+;; line 1703
 (define-acrobat-function (av-app-can-quit "AVAppCanQuit")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-can-quit-selproto
                          *g-acro-view-hft*
                          +av-app-can-quit-sel+)
-;; line 350
+;; line 1703
 (define-acrobat-function (av-app-get-active-doc "AVAppGetActiveDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-active-doc-selproto
                          *g-acro-view-hft*
                          +av-app-get-active-doc-sel+)
-;; line 353
+;; line 1703
 (define-acrobat-function (av-app-get-num-docs "AVAppGetNumDocs")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-num-docs-selproto
                          *g-acro-view-hft*
                          +av-app-get-num-docs-sel+)
-;; line 356
+;; line 1703
 (define-acrobat-function (av-app-enum-docs "AVAppEnumDocs")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-enum-docs-selproto
                          *g-acro-view-hft*
                          +av-app-enum-docs-sel+)
-;; line 359
+;; line 1703
 (define-acrobat-function (av-app-get-doc-progress-monitor "AVAppGetDocProgressMonitor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-doc-progress-monitor-selproto
                          *g-acro-view-hft*
                          +av-app-get-doc-progress-monitor-sel+)
-;; line 362
+;; line 1703
 (define-acrobat-function (av-app-get-menubar "AVAppGetMenubar")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-menubar-selproto
                          *g-acro-view-hft*
                          +av-app-get-menubar-sel+)
-;; line 365
+;; line 1703
 (define-acrobat-function (av-app-get-active-tool "AVAppGetActiveTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-active-tool-selproto
                          *g-acro-view-hft*
                          +av-app-get-active-tool-sel+)
-;; line 368
+;; line 1703
 (define-acrobat-function (av-app-get-last-active-tool "AVAppGetLastActiveTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-last-active-tool-selproto
                          *g-acro-view-hft*
                          +av-app-get-last-active-tool-sel+)
-;; line 371
+;; line 1703
 (define-acrobat-function (av-app-get-default-tool "AVAppGetDefaultTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-default-tool-selproto
                          *g-acro-view-hft*
                          +av-app-get-default-tool-sel+)
-;; line 374
+;; line 1703
 (define-acrobat-function (av-app-set-active-tool "AVAppSetActiveTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-set-active-tool-selproto
                          *g-acro-view-hft*
                          +av-app-set-active-tool-sel+)
-;; line 377
+;; line 1703
 (define-acrobat-function (av-app-get-tool-by-name "AVAppGetToolByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-tool-by-name-selproto
                          *g-acro-view-hft*
                          +av-app-get-tool-by-name-sel+)
-;; line 380
+;; line 1703
 (define-acrobat-function (av-app-enum-tools "AVAppEnumTools")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-enum-tools-selproto
                          *g-acro-view-hft*
                          +av-app-enum-tools-sel+)
-;; line 386
+;; line 1703
 (define-acrobat-function (av-app-get-annot-handler-by-name "AVAppGetAnnotHandlerByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-annot-handler-by-name-selproto
                          *g-acro-view-hft*
                          +av-app-get-annot-handler-by-name-sel+)
-;; line 389
+;; line 1703
 (define-acrobat-function (av-app-enum-annot-handlers "AVAppEnumAnnotHandlers")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-enum-annot-handlers-selproto
                          *g-acro-view-hft*
                          +av-app-enum-annot-handlers-sel+)
-;; line 395
+;; line 1703
 (define-acrobat-function (av-app-unregister-annot-handler "AVAppUnregisterAnnotHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-10+
                          av-app-unregister-annot-handler-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-annot-handler-sel+)
-;; line 398
+;; line 1703
 (define-acrobat-function (av-app-get-action-handler-by-type "AVAppGetActionHandlerByType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-action-handler-by-type-selproto
                          *g-acro-view-hft*
                          +av-app-get-action-handler-by-type-sel+)
-;; line 401
+;; line 1703
 (define-acrobat-function (av-app-enum-action-handlers "AVAppEnumActionHandlers")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-enum-action-handlers-selproto
                          *g-acro-view-hft*
                          +av-app-enum-action-handlers-sel+)
-;; line 404
+;; line 1703
 (define-acrobat-function (av-app-register-action-handler "AVAppRegisterActionHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-register-action-handler-selproto
                          *g-acro-view-hft*
                          +av-app-register-action-handler-sel+)
-;; line 407
+;; line 1703
 (define-acrobat-function (av-app-get-preference "AVAppGetPreference")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-preference-selproto
                          *g-acro-view-hft*
                          +av-app-get-preference-sel+)
-;; line 410
+;; line 1703
 (define-acrobat-function (av-app-set-preference "AVAppSetPreference")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-set-preference-selproto
                          *g-acro-view-hft*
                          +av-app-set-preference-sel+)
-;; line 413
+;; line 1703
 (define-acrobat-function (av-app-begin-full-screen "AVAppBeginFullScreen")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-begin-full-screen-selproto
                          *g-acro-view-hft*
                          +av-app-begin-full-screen-sel+)
-;; line 416
+;; line 1703
 (define-acrobat-function (av-app-end-full-screen "AVAppEndFullScreen")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-end-full-screen-selproto
                          *g-acro-view-hft*
                          +av-app-end-full-screen-sel+)
-;; line 419
+;; line 1703
 (define-acrobat-function (av-app-doing-full-screen "AVAppDoingFullScreen")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-doing-full-screen-selproto
                          *g-acro-view-hft*
                          +av-app-doing-full-screen-sel+)
-;; line 422
+;; line 1703
 (define-acrobat-function (av-app-begin-modal "AVAppBeginModal")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-begin-modal-selproto
                          *g-acro-view-hft*
                          +av-app-begin-modal-sel+)
-;; line 425
+;; line 1703
 (define-acrobat-function (av-app-modal-window-is-open "AVAppModalWindowIsOpen")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-modal-window-is-open-selproto
                          *g-acro-view-hft*
                          +av-app-modal-window-is-open-sel+)
-;; line 428
+;; line 1703
 (define-acrobat-function (av-app-end-modal "AVAppEndModal")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-end-modal-selproto
                          *g-acro-view-hft*
                          +av-app-end-modal-sel+)
-;; line 434
+;; line 1703
 (define-acrobat-function (av-app-register-idle-proc "AVAppRegisterIdleProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-register-idle-proc-selproto
                          *g-acro-view-hft*
                          +av-app-register-idle-proc-sel+)
-;; line 438
+;; line 1703
 (define-acrobat-function (av-app-unregister-idle-proc "AVAppUnregisterIdleProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-unregister-idle-proc-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-idle-proc-sel+)
-;; line 441
+;; line 1703
 (define-acrobat-function (av-app-register-notification "AVAppRegisterNotification")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-register-notification-selproto
                          *g-acro-view-hft*
                          +av-app-register-notification-sel+)
-;; line 444
+;; line 1703
 (define-acrobat-function (av-app-unregister-notification "AVAppUnregisterNotification")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-unregister-notification-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-notification-sel+)
-;; line 459
+;; line 1703
 (define-acrobat-function (av-doc-open-from-file-with-param-string "AVDocOpenFromFileWithParamString")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-open-from-file-with-param-string-selproto
                          *g-acro-view-hft*
                          +av-doc-open-from-file-with-param-string-sel+)
-;; line 462
+;; line 1703
 (define-acrobat-function (av-doc-open-from-pddoc-with-param-string "AVDocOpenFromPDDocWithParamString")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-open-from-pddoc-with-param-string-selproto
                          *g-acro-view-hft*
                          +av-doc-open-from-pddoc-with-param-string-sel+)
-;; line 465
+;; line 1703
 (define-acrobat-function (av-doc-open-from-as-file-with-param-string "AVDocOpenFromASFileWithParamString")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-open-from-as-file-with-param-string-selproto
                          *g-acro-view-hft*
                          +av-doc-open-from-as-file-with-param-string-sel+)
-;; line 468
+;; line 1703
 (define-acrobat-function (av-doc-close "AVDocClose")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-close-selproto
                          *g-acro-view-hft*
                          +av-doc-close-sel+)
-;; line 471
+;; line 1703
 (define-acrobat-function (av-doc-get-pddoc "AVDocGetPDDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-pddoc-selproto
                          *g-acro-view-hft*
                          +av-doc-get-pddoc-sel+)
-;; line 474
+;; line 1703
 (define-acrobat-function (av-doc-get-page-view "AVDocGetPageView")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-page-view-selproto
                          *g-acro-view-hft*
                          +av-doc-get-page-view-sel+)
-;; line 477
+;; line 1703
 (define-acrobat-function (av-doc-get-avwindow "AVDocGetAVWindow")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-avwindow-selproto
                          *g-acro-view-hft*
                          +av-doc-get-avwindow-sel+)
-;; line 480
+;; line 1703
 (define-acrobat-function (av-doc-get-view-mode "AVDocGetViewMode")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-view-mode-selproto
                          *g-acro-view-hft*
                          +av-doc-get-view-mode-sel+)
-;; line 483
+;; line 1703
 (define-acrobat-function (av-doc-set-view-mode "AVDocSetViewMode")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-set-view-mode-selproto
                          *g-acro-view-hft*
                          +av-doc-set-view-mode-sel+)
-;; line 486
+;; line 1703
 (define-acrobat-function (av-doc-get-splitter-position "AVDocGetSplitterPosition")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-splitter-position-selproto
                          *g-acro-view-hft*
                          +av-doc-get-splitter-position-sel+)
-;; line 489
+;; line 1703
 (define-acrobat-function (av-doc-set-splitter-position "AVDocSetSplitterPosition")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-set-splitter-position-selproto
                          *g-acro-view-hft*
                          +av-doc-set-splitter-position-sel+)
-;; line 492
+;; line 1703
 (define-acrobat-function (av-doc-print-pages "AVDocPrintPages")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-print-pages-selproto
                          *g-acro-view-hft*
                          +av-doc-print-pages-sel+)
-;; line 495
+;; line 1703
 (define-acrobat-function (av-doc-get-selection-type "AVDocGetSelectionType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-selection-type-selproto
                          *g-acro-view-hft*
                          +av-doc-get-selection-type-sel+)
-;; line 498
+;; line 1703
 (define-acrobat-function (av-doc-get-selection "AVDocGetSelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-get-selection-sel+)
-;; line 501
+;; line 1703
 (define-acrobat-function (av-doc-set-selection "AVDocSetSelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-set-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-set-selection-sel+)
-;; line 504
+;; line 1703
 (define-acrobat-function (av-doc-delete-selection "AVDocDeleteSelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-delete-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-delete-selection-sel+)
-;; line 507
+;; line 1703
 (define-acrobat-function (av-doc-clear-selection "AVDocClearSelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-clear-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-clear-selection-sel+)
-;; line 510
+;; line 1703
 (define-acrobat-function (av-doc-copy-selection "AVDocCopySelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-copy-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-copy-selection-sel+)
-;; line 513
+;; line 1703
 (define-acrobat-function (av-doc-enum-selection "AVDocEnumSelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-enum-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-enum-selection-sel+)
-;; line 516
+;; line 1703
 (define-acrobat-function (av-doc-do-selection-properties "AVDocDoSelectionProperties")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-do-selection-properties-selproto
                          *g-acro-view-hft*
                          +av-doc-do-selection-properties-sel+)
-;; line 519
+;; line 1703
 (define-acrobat-function (av-doc-show-selection "AVDocShowSelection")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-show-selection-selproto
                          *g-acro-view-hft*
                          +av-doc-show-selection-sel+)
-;; line 522
+;; line 1703
 (define-acrobat-function (av-doc-get-selection-server-by-type "AVDocGetSelectionServerByType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-get-selection-server-by-type-selproto
                          *g-acro-view-hft*
                          +av-doc-get-selection-server-by-type-sel+)
-;; line 528
+;; line 1703
 (define-acrobat-function (av-doc-perform-action "AVDocPerformAction")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-perform-action-selproto
                          *g-acro-view-hft*
                          +av-doc-perform-action-sel+)
-;; line 531
+;; line 1703
 (define-acrobat-function (av-menubar-show "AVMenubarShow")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-show-selproto
                          *g-acro-view-hft*
                          +av-menubar-show-sel+)
-;; line 534
+;; line 1703
 (define-acrobat-function (av-menubar-hide "AVMenubarHide")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-hide-selproto
                          *g-acro-view-hft*
                          +av-menubar-hide-sel+)
-;; line 537
+;; line 1703
 (define-acrobat-function (av-menubar-get-num-menus "AVMenubarGetNumMenus")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-get-num-menus-selproto
                          *g-acro-view-hft*
                          +av-menubar-get-num-menus-sel+)
-;; line 540
+;; line 1703
 (define-acrobat-function (av-menubar-acquire-menu-by-name "AVMenubarAcquireMenuByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-acquire-menu-by-name-selproto
                          *g-acro-view-hft*
                          +av-menubar-acquire-menu-by-name-sel+)
-;; line 543
+;; line 1703
 (define-acrobat-function (av-menubar-acquire-menu-by-index "AVMenubarAcquireMenuByIndex")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-acquire-menu-by-index-selproto
                          *g-acro-view-hft*
                          +av-menubar-acquire-menu-by-index-sel+)
-;; line 546
+;; line 1703
 (define-acrobat-function (av-menubar-acquire-menu-by-predicate "AVMenubarAcquireMenuByPredicate")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-acquire-menu-by-predicate-selproto
                          *g-acro-view-hft*
                          +av-menubar-acquire-menu-by-predicate-sel+)
-;; line 549
+;; line 1703
 (define-acrobat-function (av-menubar-acquire-menu-item-by-name "AVMenubarAcquireMenuItemByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-acquire-menu-item-by-name-selproto
                          *g-acro-view-hft*
                          +av-menubar-acquire-menu-item-by-name-sel+)
-;; line 552
+;; line 1703
 (define-acrobat-function (av-menubar-acquire-menu-item-by-predicate "AVMenubarAcquireMenuItemByPredicate")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-acquire-menu-item-by-predicate-selproto
                          *g-acro-view-hft*
                          +av-menubar-acquire-menu-item-by-predicate-sel+)
-;; line 555
+;; line 1703
 (define-acrobat-function (av-menubar-get-menu-index "AVMenubarGetMenuIndex")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-get-menu-index-selproto
                          *g-acro-view-hft*
                          +av-menubar-get-menu-index-sel+)
-;; line 558
+;; line 1703
 (define-acrobat-function (av-menubar-add-menu "AVMenubarAddMenu")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menubar-add-menu-selproto
                          *g-acro-view-hft*
                          +av-menubar-add-menu-sel+)
-;; line 561
+;; line 1703
 (define-acrobat-function (av-menu-new "AVMenuNew")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-new-selproto
                          *g-acro-view-hft*
                          +av-menu-new-sel+)
-;; line 564
+;; line 1703
 (define-acrobat-function (av-menu-acquire "AVMenuAcquire")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-acquire-selproto
                          *g-acro-view-hft*
                          +av-menu-acquire-sel+)
-;; line 567
+;; line 1703
 (define-acrobat-function (av-menu-release "AVMenuRelease")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-release-selproto
                          *g-acro-view-hft*
                          +av-menu-release-sel+)
-;; line 570
+;; line 1703
 (define-acrobat-function (av-menu-remove "AVMenuRemove")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-remove-selproto
                          *g-acro-view-hft*
                          +av-menu-remove-sel+)
-;; line 573
+;; line 1703
 (define-acrobat-function (av-menu-get-name "AVMenuGetName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-get-name-selproto
                          *g-acro-view-hft*
                          +av-menu-get-name-sel+)
-;; line 576
+;; line 1703
 (define-acrobat-function (av-menu-get-title "AVMenuGetTitle")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-get-title-selproto
                          *g-acro-view-hft*
                          +av-menu-get-title-sel+)
-;; line 580
+;; line 1703
 (define-acrobat-function (av-menu-get-num-menu-items "AVMenuGetNumMenuItems")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-get-num-menu-items-selproto
                          *g-acro-view-hft*
                          +av-menu-get-num-menu-items-sel+)
-;; line 583
+;; line 1703
 (define-acrobat-function (av-menu-acquire-menu-item-by-index "AVMenuAcquireMenuItemByIndex")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-acquire-menu-item-by-index-selproto
                          *g-acro-view-hft*
                          +av-menu-acquire-menu-item-by-index-sel+)
-;; line 586
+;; line 1703
 (define-acrobat-function (av-menu-get-menu-item-index "AVMenuGetMenuItemIndex")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-get-menu-item-index-selproto
                          *g-acro-view-hft*
                          +av-menu-get-menu-item-index-sel+)
-;; line 589
+;; line 1703
 (define-acrobat-function (av-menu-get-parent-menubar "AVMenuGetParentMenubar")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-get-parent-menubar-selproto
                          *g-acro-view-hft*
                          +av-menu-get-parent-menubar-sel+)
-;; line 592
+;; line 1703
 (define-acrobat-function (av-menu-get-parent-menu-item "AVMenuGetParentMenuItem")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-get-parent-menu-item-selproto
                          *g-acro-view-hft*
                          +av-menu-get-parent-menu-item-sel+)
-;; line 595
+;; line 1703
 (define-acrobat-function (av-menu-add-menu-item "AVMenuAddMenuItem")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-add-menu-item-selproto
                          *g-acro-view-hft*
                          +av-menu-add-menu-item-sel+)
-;; line 598
+;; line 1703
 (define-acrobat-function (av-menu-item-new "AVMenuItemNew")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-new-selproto
                          *g-acro-view-hft*
                          +av-menu-item-new-sel+)
-;; line 601
+;; line 1703
 (define-acrobat-function (av-menu-item-acquire "AVMenuItemAcquire")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-acquire-selproto
                          *g-acro-view-hft*
                          +av-menu-item-acquire-sel+)
-;; line 604
+;; line 1703
 (define-acrobat-function (av-menu-item-release "AVMenuItemRelease")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-release-selproto
                          *g-acro-view-hft*
                          +av-menu-item-release-sel+)
-;; line 607
+;; line 1703
 (define-acrobat-function (av-menu-item-remove "AVMenuItemRemove")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-remove-selproto
                          *g-acro-view-hft*
                          +av-menu-item-remove-sel+)
-;; line 610
+;; line 1703
 (define-acrobat-function (av-menu-item-get-name "AVMenuItemGetName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-get-name-selproto
                          *g-acro-view-hft*
                          +av-menu-item-get-name-sel+)
-;; line 613
+;; line 1703
 (define-acrobat-function (av-menu-item-get-title "AVMenuItemGetTitle")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-get-title-selproto
                          *g-acro-view-hft*
                          +av-menu-item-get-title-sel+)
-;; line 616
+;; line 1703
 (define-acrobat-function (av-menu-item-set-title "AVMenuItemSetTitle")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-set-title-selproto
                          *g-acro-view-hft*
                          +av-menu-item-set-title-sel+)
-;; line 619
+;; line 1703
 (define-acrobat-function (av-menu-item-get-shortcut "AVMenuItemGetShortcut")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-get-shortcut-selproto
                          *g-acro-view-hft*
                          +av-menu-item-get-shortcut-sel+)
-;; line 622
+;; line 1703
 (define-acrobat-function (av-menu-item-get-long-only "AVMenuItemGetLongOnly")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-get-long-only-selproto
                          *g-acro-view-hft*
                          +av-menu-item-get-long-only-sel+)
-;; line 625
+;; line 1703
 (define-acrobat-function (av-menu-item-set-execute-proc "AVMenuItemSetExecuteProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-set-execute-proc-selproto
                          *g-acro-view-hft*
                          +av-menu-item-set-execute-proc-sel+)
-;; line 628
+;; line 1703
 (define-acrobat-function (av-menu-item-set-compute-enabled-proc "AVMenuItemSetComputeEnabledProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-set-compute-enabled-proc-selproto
                          *g-acro-view-hft*
                          +av-menu-item-set-compute-enabled-proc-sel+)
-;; line 631
+;; line 1703
 (define-acrobat-function (av-menu-item-set-compute-marked-proc "AVMenuItemSetComputeMarkedProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-set-compute-marked-proc-selproto
                          *g-acro-view-hft*
                          +av-menu-item-set-compute-marked-proc-sel+)
-;; line 634
+;; line 1703
 (define-acrobat-function (av-menu-item-acquire-submenu "AVMenuItemAcquireSubmenu")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-acquire-submenu-selproto
                          *g-acro-view-hft*
                          +av-menu-item-acquire-submenu-sel+)
-;; line 637
+;; line 1703
 (define-acrobat-function (av-menu-item-is-enabled "AVMenuItemIsEnabled")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-is-enabled-selproto
                          *g-acro-view-hft*
                          +av-menu-item-is-enabled-sel+)
-;; line 640
+;; line 1703
 (define-acrobat-function (av-menu-item-is-marked "AVMenuItemIsMarked")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-is-marked-selproto
                          *g-acro-view-hft*
                          +av-menu-item-is-marked-sel+)
-;; line 643
+;; line 1703
 (define-acrobat-function (av-menu-item-execute "AVMenuItemExecute")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-execute-selproto
                          *g-acro-view-hft*
                          +av-menu-item-execute-sel+)
-;; line 646
+;; line 1703
 (define-acrobat-function (av-menu-item-get-parent-menu "AVMenuItemGetParentMenu")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-menu-item-get-parent-menu-selproto
                          *g-acro-view-hft*
                          +av-menu-item-get-parent-menu-sel+)
-;; line 649
+;; line 1703
 (define-acrobat-function (av-page-view-get-avdoc "AVPageViewGetAVDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-avdoc-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-avdoc-sel+)
-;; line 655
+;; line 1703
 (define-acrobat-function (av-page-view-get-page "AVPageViewGetPage")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-page-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-page-sel+)
-;; line 658
+;; line 1703
 (define-acrobat-function (av-page-view-get-zoom "AVPageViewGetZoom")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-zoom-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-zoom-sel+)
-;; line 661
+;; line 1703
 (define-acrobat-function (av-page-view-get-zoom-type "AVPageViewGetZoomType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-zoom-type-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-zoom-type-sel+)
-;; line 664
+;; line 1703
 (define-acrobat-function (av-page-view-get-page-num "AVPageViewGetPageNum")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-page-num-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-page-num-sel+)
-;; line 667
+;; line 1703
 (define-acrobat-function (av-page-view-get-color "AVPageViewGetColor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-color-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-color-sel+)
-;; line 670
+;; line 1703
 (define-acrobat-function (av-page-view-set-color "AVPageViewSetColor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-set-color-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-color-sel+)
-;; line 673
+;; line 1703
 (define-acrobat-function (av-page-view-begin-operation "AVPageViewBeginOperation")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-begin-operation-selproto
                          *g-acro-view-hft*
                          +av-page-view-begin-operation-sel+)
-;; line 676
+;; line 1703
 (define-acrobat-function (av-page-view-end-operation "AVPageViewEndOperation")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-end-operation-selproto
                          *g-acro-view-hft*
                          +av-page-view-end-operation-sel+)
-;; line 679
+;; line 1703
 (define-acrobat-function (av-page-view-go-to "AVPageViewGoTo")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-go-to-selproto
                          *g-acro-view-hft*
                          +av-page-view-go-to-sel+)
-;; line 682
+;; line 1703
 (define-acrobat-function (av-page-view-zoom-to "AVPageViewZoomTo")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-zoom-to-selproto
                          *g-acro-view-hft*
                          +av-page-view-zoom-to-sel+)
-;; line 691
+;; line 1703
 (define-acrobat-function (av-page-view-read-page-up "AVPageViewReadPageUp")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-read-page-up-selproto
                          *g-acro-view-hft*
                          +av-page-view-read-page-up-sel+)
-;; line 694
+;; line 1703
 (define-acrobat-function (av-page-view-read-page-down "AVPageViewReadPageDown")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-read-page-down-selproto
                          *g-acro-view-hft*
                          +av-page-view-read-page-down-sel+)
-;; line 697
+;; line 1703
 (define-acrobat-function (av-page-view-go-back "AVPageViewGoBack")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-go-back-selproto
                          *g-acro-view-hft*
                          +av-page-view-go-back-sel+)
-;; line 700
+;; line 1703
 (define-acrobat-function (av-page-view-go-forward "AVPageViewGoForward")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-go-forward-selproto
                          *g-acro-view-hft*
                          +av-page-view-go-forward-sel+)
-;; line 703
+;; line 1703
 (define-acrobat-function (av-page-view-to-view-dest "AVPageViewToViewDest")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-to-view-dest-selproto
                          *g-acro-view-hft*
                          +av-page-view-to-view-dest-sel+)
-;; line 709
+;; line 1703
 (define-acrobat-function (av-page-view-draw-now "AVPageViewDrawNow")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-draw-now-selproto
                          *g-acro-view-hft*
                          +av-page-view-draw-now-sel+)
-;; line 715
+;; line 1703
 (define-acrobat-function (av-page-view-invert-rect-outline "AVPageViewInvertRectOutline")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-invert-rect-outline-selproto
                          *g-acro-view-hft*
                          +av-page-view-invert-rect-outline-sel+)
-;; line 740
+;; line 1703
 (define-acrobat-function (av-app-unregister-for-page-view-drawing-ex "AVAppUnregisterForPageViewDrawingEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-unregister-for-page-view-drawing-ex-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-for-page-view-drawing-ex-sel+)
-;; line 766
+;; line 1703
 (define-acrobat-function (av-page-view-start-reading-thread "AVPageViewStartReadingThread")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-start-reading-thread-selproto
                          *g-acro-view-hft*
                          +av-page-view-start-reading-thread-sel+)
-;; line 769
+;; line 1703
 (define-acrobat-function (av-page-view-get-thread-index "AVPageViewGetThreadIndex")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-thread-index-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-thread-index-sel+)
-;; line 772
+;; line 1703
 (define-acrobat-function (av-page-view-get-active-bead "AVPageViewGetActiveBead")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-active-bead-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-active-bead-sel+)
-;; line 788
+;; line 1703
 (define-acrobat-function (av-page-view-get-page-to-dev-matrix "AVPageViewGetPageToDevMatrix")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-page-to-dev-matrix-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-page-to-dev-matrix-sel+)
-;; line 791
+;; line 1703
 (define-acrobat-function (av-page-view-get-dev-to-page-matrix "AVPageViewGetDevToPageMatrix")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-page-view-get-dev-to-page-matrix-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-dev-to-page-matrix-sel+)
-;; line 806
+;; line 1703
 (define-acrobat-function (av-sys-get-modifiers "AVSysGetModifiers")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-sys-get-modifiers-selproto
                          *g-acro-view-hft*
                          +av-sys-get-modifiers-sel+)
-;; line 809
+;; line 1703
 (define-acrobat-function (av-sys-mouse-is-still-down "AVSysMouseIsStillDown")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-sys-mouse-is-still-down-selproto
                          *g-acro-view-hft*
                          +av-sys-mouse-is-still-down-sel+)
-;; line 812
+;; line 1703
 (define-acrobat-function (av-sys-beep "AVSysBeep")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-sys-beep-selproto
                          *g-acro-view-hft*
                          +av-sys-beep-sel+)
-;; line 815
+;; line 1703
 (define-acrobat-function (av-sys-get-standard-cursor "AVSysGetStandardCursor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-sys-get-standard-cursor-selproto
                          *g-acro-view-hft*
                          +av-sys-get-standard-cursor-sel+)
-;; line 818
+;; line 1703
 (define-acrobat-function (av-sys-set-cursor "AVSysSetCursor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-sys-set-cursor-selproto
                          *g-acro-view-hft*
                          +av-sys-set-cursor-sel+)
-;; line 821
+;; line 1703
 (define-acrobat-function (av-sys-get-cursor "AVSysGetCursor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-sys-get-cursor-selproto
                          *g-acro-view-hft*
                          +av-sys-get-cursor-sel+)
-;; line 826
+;; line 1703
 (define-acrobat-function (av-tool-get-type "AVToolGetType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-tool-get-type-selproto
                          *g-acro-view-hft*
                          +av-tool-get-type-sel+)
-;; line 829
+;; line 1703
 (define-acrobat-function (av-tool-is-persistent "AVToolIsPersistent")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-tool-is-persistent-selproto
                          *g-acro-view-hft*
                          +av-tool-is-persistent-sel+)
-;; line 838
+;; line 1703
 (define-acrobat-function (av-window-destroy "AVWindowDestroy")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-destroy-selproto
                          *g-acro-view-hft*
                          +av-window-destroy-sel+)
-;; line 841
+;; line 1703
 (define-acrobat-function (av-window-user-close "AVWindowUserClose")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-user-close-selproto
                          *g-acro-view-hft*
                          +av-window-user-close-sel+)
-;; line 844
+;; line 1703
 (define-acrobat-function (av-window-maximize "AVWindowMaximize")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-maximize-selproto
                          *g-acro-view-hft*
                          +av-window-maximize-sel+)
-;; line 847
+;; line 1703
 (define-acrobat-function (av-window-show "AVWindowShow")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-show-selproto
                          *g-acro-view-hft*
                          +av-window-show-sel+)
-;; line 850
+;; line 1703
 (define-acrobat-function (av-window-hide "AVWindowHide")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-hide-selproto
                          *g-acro-view-hft*
                          +av-window-hide-sel+)
-;; line 853
+;; line 1703
 (define-acrobat-function (av-window-is-visible "AVWindowIsVisible")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-is-visible-selproto
                          *g-acro-view-hft*
                          +av-window-is-visible-sel+)
-;; line 856
+;; line 1703
 (define-acrobat-function (av-window-get-platform-thing "AVWindowGetPlatformThing")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-get-platform-thing-selproto
                          *g-acro-view-hft*
                          +av-window-get-platform-thing-sel+)
-;; line 859
+;; line 1703
 (define-acrobat-function (av-window-get-owner-data "AVWindowGetOwnerData")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-get-owner-data-selproto
                          *g-acro-view-hft*
                          +av-window-get-owner-data-sel+)
-;; line 862
+;; line 1703
 (define-acrobat-function (av-window-set-owner-data "AVWindowSetOwnerData")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-set-owner-data-selproto
                          *g-acro-view-hft*
                          +av-window-set-owner-data-sel+)
-;; line 880
+;; line 1703
 (define-acrobat-function (av-window-bring-to-front "AVWindowBringToFront")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-bring-to-front-selproto
                          *g-acro-view-hft*
                          +av-window-bring-to-front-sel+)
-;; line 886
+;; line 1703
 (define-acrobat-function (av-window-draw-now "AVWindowDrawNow")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-draw-now-selproto
                          *g-acro-view-hft*
                          +av-window-draw-now-sel+)
-;; line 889
+;; line 1703
 (define-acrobat-function (av-window-set-wants-key "AVWindowSetWantsKey")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-set-wants-key-selproto
                          *g-acro-view-hft*
                          +av-window-set-wants-key-sel+)
-;; line 892
+;; line 1703
 (define-acrobat-function (av-window-is-key "AVWindowIsKey")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-is-key-selproto
                          *g-acro-view-hft*
                          +av-window-is-key-sel+)
-;; line 895
+;; line 1703
 (define-acrobat-function (av-window-become-key "AVWindowBecomeKey")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-become-key-selproto
                          *g-acro-view-hft*
                          +av-window-become-key-sel+)
-;; line 898
+;; line 1703
 (define-acrobat-function (av-window-resign-key "AVWindowResignKey")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-window-resign-key-selproto
                          *g-acro-view-hft*
                          +av-window-resign-key-sel+)
-;; line 901
+;; line 1703
 (define-acrobat-function (av-graf-select-create "AVGrafSelectCreate")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-graf-select-create-selproto
                          *g-acro-view-hft*
                          +av-graf-select-create-sel+)
-;; line 904
+;; line 1703
 (define-acrobat-function (av-graf-select-destroy "AVGrafSelectDestroy")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-graf-select-destroy-selproto
                          *g-acro-view-hft*
                          +av-graf-select-destroy-sel+)
-;; line 907
+;; line 1703
 (define-acrobat-function (av-graf-select-get-bounding-rect "AVGrafSelectGetBoundingRect")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-graf-select-get-bounding-rect-selproto
                          *g-acro-view-hft*
                          +av-graf-select-get-bounding-rect-sel+)
-;; line 910
+;; line 1703
 (define-acrobat-function (av-crypt-do-std-security "AVCryptDoStdSecurity")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-crypt-do-std-security-selproto
                          *g-acro-view-hft*
                          +av-crypt-do-std-security-sel+)
-;; line 913
+;; line 1703
 (define-acrobat-function (av-crypt-get-password "AVCryptGetPassword")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-crypt-get-password-selproto
                          *g-acro-view-hft*
                          +av-crypt-get-password-sel+)
-;; line 916
+;; line 1703
 (define-acrobat-function (av-doc-do-save "AVDocDoSave")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-doc-do-save-selproto
                          *g-acro-view-hft*
                          +av-doc-do-save-sel+)
-;; line 925
+;; line 1703
 (define-acrobat-function (av-doc-get-client-name "AVDocGetClientName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-1+
                          av-doc-get-client-name-selproto
                          *g-acro-view-hft*
                          +av-doc-get-client-name-sel+)
-;; line 928
+;; line 1703
 (define-acrobat-function (av-doc-set-client-name "AVDocSetClientName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-1+
                          av-doc-set-client-name-selproto
                          *g-acro-view-hft*
                          +av-doc-set-client-name-sel+)
-;; line 931
+;; line 1703
 (define-acrobat-function (av-doc-get-page-text "AVDocGetPageText")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-1+
                          av-doc-get-page-text-selproto
                          *g-acro-view-hft*
                          +av-doc-get-page-text-sel+)
-;; line 942
+;; line 1703
 (define-acrobat-function (av-app-get-tool-bar-by-name "AVAppGetToolBarByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-legacy-tool-bar-by-name-selproto
                          *g-acro-view-hft*
                          +av-app-get-legacy-tool-bar-by-name-sel+)
-;; line 943
+;; line 1703
 (define-acrobat-function (av-app-get-tool-bar "AVAppGetToolBar")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-app-get-legacy-tool-bar-selproto
                          *g-acro-view-hft*
                          +av-app-get-legacy-tool-bar-sel+)
-;; line 947
+;; line 1703
 (define-acrobat-function (av-tool-bar-get-frame "AVToolBarGetFrame")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          old-avlegacy-tool-bar-get-frame-selproto
                          *g-acro-view-hft*
                          +old-avlegacy-tool-bar-get-frame-sel+)
-;; line 950
+;; line 1703
 (define-acrobat-function (av-tool-bar-get-button-by-name "AVToolBarGetButtonByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-bar-get-button-by-name-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-get-button-by-name-sel+)
-;; line 953
+;; line 1703
 (define-acrobat-function (av-tool-bar-enum-buttons "AVToolBarEnumButtons")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-bar-enum-buttons-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-enum-buttons-sel+)
-;; line 956
+;; line 1703
 (define-acrobat-function (av-tool-bar-add-button "AVToolBarAddButton")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-bar-add-button-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-add-button-sel+)
-;; line 959
+;; line 1703
 (define-acrobat-function (av-tool-bar-get-num-buttons "AVToolBarGetNumButtons")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-bar-get-num-buttons-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-get-num-buttons-sel+)
-;; line 962
+;; line 1703
 (define-acrobat-function (av-tool-bar-is-room-for "AVToolBarIsRoomFor")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-bar-is-room-for-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-is-room-for-sel+)
-;; line 965
+;; line 1703
 (define-acrobat-function (av-tool-bar-update-button-states "AVToolBarUpdateButtonStates")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-bar-update-button-states-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-update-button-states-sel+)
-;; line 968
+;; line 1703
 (define-acrobat-function (av-tool-button-new "AVToolButtonNew")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-new-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-new-sel+)
-;; line 971
+;; line 1703
 (define-acrobat-function (av-tool-button-destroy "AVToolButtonDestroy")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-destroy-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-destroy-sel+)
-;; line 974
+;; line 1703
 (define-acrobat-function (av-tool-button-remove "AVToolButtonRemove")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-remove-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-remove-sel+)
-;; line 977
+;; line 1703
 (define-acrobat-function (av-tool-button-is-separator "AVToolButtonIsSeparator")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-is-separator-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-is-separator-sel+)
-;; line 980
+;; line 1703
 (define-acrobat-function (av-tool-button-get-name "AVToolButtonGetName")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-get-name-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-name-sel+)
-;; line 983
+;; line 1703
 (define-acrobat-function (av-tool-button-execute "AVToolButtonExecute")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-execute-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-execute-sel+)
-;; line 986
+;; line 1703
 (define-acrobat-function (av-tool-button-set-execute-proc "AVToolButtonSetExecuteProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-set-execute-proc-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-execute-proc-sel+)
-;; line 989
+;; line 1703
 (define-acrobat-function (av-tool-button-set-compute-enabled-proc "AVToolButtonSetComputeEnabledProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-set-compute-enabled-proc-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-compute-enabled-proc-sel+)
-;; line 992
+;; line 1703
 (define-acrobat-function (av-tool-button-set-compute-marked-proc "AVToolButtonSetComputeMarkedProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-set-compute-marked-proc-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-compute-marked-proc-sel+)
-;; line 995
+;; line 1703
 (define-acrobat-function (av-tool-button-is-enabled "AVToolButtonIsEnabled")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-is-enabled-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-is-enabled-sel+)
-;; line 998
+;; line 1703
 (define-acrobat-function (av-tool-button-is-marked "AVToolButtonIsMarked")
                          *g-acro-view-version*
                          +acro-view-hft-version-2+
                          av-legacy-tool-button-is-marked-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-is-marked-sel+)
-;; line 1000
+;; line 1703
 (define-acrobat-function (av-tool-button-set-help-text "AVToolButtonSetHelpText")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-legacy-tool-button-set-help-text-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-help-text-sel+)
-;; line 1001
+;; line 1703
 (define-acrobat-function (av-tool-button-set-help-text-with-as-text "AVToolButtonSetHelpTextWithASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-10+
                          av-legacy-tool-button-set-help-text-with-as-text-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-help-text-with-as-text-sel+)
-;; line 1003
+;; line 1703
 (define-acrobat-function (av-tool-button-set-external "AVToolButtonSetExternal")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-legacy-tool-button-set-external-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-external-sel+)
-;; line 1004
+;; line 1703
 (define-acrobat-function (av-tool-bar-new-flyout "AVToolBarNewFlyout")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-bar-new-flyout-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-new-flyout-sel+)
-;; line 1005
+;; line 1703
 (define-acrobat-function (av-tool-button-set-flyout "AVToolButtonSetFlyout")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-button-set-flyout-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-flyout-sel+)
-;; line 1006
+;; line 1703
 (define-acrobat-function (av-tool-button-get-flyout "AVToolButtonGetFlyout")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-button-get-flyout-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-flyout-sel+)
-;; line 1008
+;; line 1703
 (define-acrobat-function (av-tool-button-set-menu "AVToolButtonSetMenu")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-button-set-menu-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-menu-sel+)
-;; line 1009
+;; line 1703
 (define-acrobat-function (av-tool-button-get-menu "AVToolButtonGetMenu")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-button-get-menu-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-menu-sel+)
-;; line 1011
+;; line 1703
 (define-acrobat-function (av-tool-button-set-icon "AVToolButtonSetIcon")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-button-set-icon-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-icon-sel+)
-;; line 1012
+;; line 1703
 (define-acrobat-function (av-tool-button-get-icon "AVToolButtonGetIcon")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-legacy-tool-button-get-icon-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-icon-sel+)
-;; line 1015
+;; line 1703
 (define-acrobat-function (av-tool-button-add-animation-icon "AVToolButtonAddAnimationIcon")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-add-animation-icon-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-add-animation-icon-sel+)
-;; line 1016
+;; line 1703
 (define-acrobat-function (av-tool-button-get-animation-icon-count "AVToolButtonGetAnimationIconCount")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-get-animation-icon-count-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-animation-icon-count-sel+)
-;; line 1017
+;; line 1703
 (define-acrobat-function (av-tool-button-start-animation "AVToolButtonStartAnimation")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-start-animation-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-start-animation-sel+)
-;; line 1018
+;; line 1703
 (define-acrobat-function (av-tool-button-stop-animation "AVToolButtonStopAnimation")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-stop-animation-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-stop-animation-sel+)
-;; line 1019
+;; line 1703
 (define-acrobat-function (av-tool-button-is-animation-running "AVToolButtonIsAnimationRunning")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-is-animation-running-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-is-animation-running-sel+)
-;; line 1020
+;; line 1703
 (define-acrobat-function (av-tool-button-set-animation-period "AVToolButtonSetAnimationPeriod")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-set-animation-period-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-animation-period-sel+)
-;; line 1021
+;; line 1703
 (define-acrobat-function (av-tool-button-get-animation-period "AVToolButtonGetAnimationPeriod")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-get-animation-period-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-animation-period-sel+)
-;; line 1022
+;; line 1703
 (define-acrobat-function (av-tool-button-remove-animation-icons "AVToolButtonRemoveAnimationIcons")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-remove-animation-icons-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-remove-animation-icons-sel+)
-;; line 1025
+;; line 1703
 (define-acrobat-function (av-tool-button-set-compute-tooltip-proc "AVToolButtonSetComputeTooltipProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-set-compute-tooltip-proc-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-compute-tooltip-proc-sel+)
-;; line 1027
+;; line 1703
 (define-acrobat-function (av-tool-button-set-notify-tooltip-proc "AVToolButtonSetNotifyTooltipProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-set-notify-tooltip-proc-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-notify-tooltip-proc-sel+)
-;; line 1029
+;; line 1703
 (define-acrobat-function (av-tool-button-set-label-text "AVToolButtonSetLabelText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-set-label-text-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-label-text-sel+)
-;; line 1030
+;; line 1703
 (define-acrobat-function (av-tool-button-get-label-text "AVToolButtonGetLabelText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-get-label-text-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-get-label-text-sel+)
-;; line 1032
+;; line 1703
 (define-acrobat-function (av-tool-button-set-compute-visible-proc "AVToolButtonSetComputeVisibleProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-legacy-tool-button-set-compute-visible-proc-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-compute-visible-proc-sel+)
-;; line 1033
+;; line 1703
 (define-acrobat-function (av-tool-button-set-menu-icon "AVToolButtonSetMenuIcon")
                          *g-acro-view-version*
                          +acro-view-hft-version-8+
                          av-legacy-tool-button-set-menu-icon-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-button-set-menu-icon-sel+)
-;; line 1034
+;; line 1703
 (define-acrobat-function (av-tool-bar-add-button-ex "AVToolBarAddButtonEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-legacy-tool-bar-add-button-ex-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-add-button-ex-sel+)
-;; line 1035
+;; line 1703
 (define-acrobat-function (av-tool-bar-new "AVToolBarNew")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-legacy-tool-bar-new-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-new-sel+)
-;; line 1036
+;; line 1703
 (define-acrobat-function (av-tool-bar-new-with-as-text "AVToolBarNewWithASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-10+
                          av-legacy-tool-bar-new-with-as-text-selproto
                          *g-acro-view-hft*
                          +av-legacy-tool-bar-new-with-as-text-sel+)
-;; line 1042
+;; line 1703
 (define-acrobat-function (av-page-view-highlight-text "AVPageViewHighlightText")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-highlight-text-selproto
                          *g-acro-view-hft*
                          +av-page-view-highlight-text-sel+)
-;; line 1044
+;; line 1703
 (define-acrobat-function (av-page-view-invalidate-text "AVPageViewInvalidateText")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-invalidate-text-selproto
                          *g-acro-view-hft*
                          +av-page-view-invalidate-text-sel+)
-;; line 1049
+;; line 1703
 (define-acrobat-function (av-page-view-get-first-visible-page-num "AVPageViewGetFirstVisiblePageNum")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-get-first-visible-page-num-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-first-visible-page-num-sel+)
-;; line 1051
+;; line 1703
 (define-acrobat-function (av-page-view-get-last-visible-page-num "AVPageViewGetLastVisiblePageNum")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-get-last-visible-page-num-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-last-visible-page-num-sel+)
-;; line 1053
+;; line 1703
 (define-acrobat-function (av-page-view-page-num-is-visible "AVPageViewPageNumIsVisible")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-page-num-is-visible-selproto
                          *g-acro-view-hft*
                          +av-page-view-page-num-is-visible-sel+)
-;; line 1055
+;; line 1703
 (define-acrobat-function (av-page-view-set-page-num "AVPageViewSetPageNum")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-set-page-num-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-page-num-sel+)
-;; line 1057
+;; line 1703
 (define-acrobat-function (av-page-view-get-selected-annot-page-num "AVPageViewGetSelectedAnnotPageNum")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-get-selected-annot-page-num-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-selected-annot-page-num-sel+)
-;; line 1059
+;; line 1703
 (define-acrobat-function (av-doc-send-aux-data "AVDocSendAuxData")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-doc-send-aux-data-selproto
                          *g-acro-view-hft*
                          +av-doc-send-aux-data-sel+)
-;; line 1061
+;; line 1703
 (define-acrobat-function (av-has-aux-data-handler "AVHasAuxDataHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-has-aux-data-handler-selproto
                          *g-acro-view-hft*
                          +av-has-aux-data-handler-sel+)
-;; line 1064
+;; line 1703
 (define-acrobat-function (av-register-aux-data-handler "AVRegisterAuxDataHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-register-aux-data-handler-selproto
                          *g-acro-view-hft*
                          +av-register-aux-data-handler-sel+)
-;; line 1069
+;; line 1703
 (define-acrobat-function (av-unregister-aux-data-handler "AVUnregisterAuxDataHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-unregister-aux-data-handler-selproto
                          *g-acro-view-hft*
                          +av-unregister-aux-data-handler-sel+)
-;; line 1075
+;; line 1703
 (define-acrobat-function (av-doc-set-dead "AVDocSetDead")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-doc-set-dead-selproto
                          *g-acro-view-hft*
                          +av-doc-set-dead-sel+)
-;; line 1077
+;; line 1703
 (define-acrobat-function (av-app-is-idle "AVAppIsIdle")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-app-is-idle-selproto
                          *g-acro-view-hft*
                          +av-app-is-idle-sel+)
-;; line 1081
+;; line 1703
 (define-acrobat-function (av-page-view-get-next-view "AVPageViewGetNextView")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-get-next-view-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-next-view-sel+)
-;; line 1087
+;; line 1703
 (define-acrobat-function (av-window-handle-platform-event "AVWindowHandlePlatformEvent")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-window-handle-platform-event-selproto
                          *g-acro-view-hft*
                          +av-window-handle-platform-event-sel+)
-;; line 1089
+;; line 1703
 (define-acrobat-function (av-window-get-cursor-at-point "AVWindowGetCursorAtPoint")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-window-get-cursor-at-point-selproto
                          *g-acro-view-hft*
                          +av-window-get-cursor-at-point-sel+)
-;; line 1091
+;; line 1703
 (define-acrobat-function (av-doc-do-action-props-dialog "AVDocDoActionPropsDialog")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-doc-do-action-props-dialog-selproto
                          *g-acro-view-hft*
                          +av-doc-do-action-props-dialog-sel+)
-;; line 1093
+;; line 1703
 (define-acrobat-function (av-app-get-trans-handler-by-type "AVAppGetTransHandlerByType")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-app-get-trans-handler-by-type-selproto
                          *g-acro-view-hft*
                          +av-app-get-trans-handler-by-type-sel+)
-;; line 1095
+;; line 1703
 (define-acrobat-function (av-app-enum-trans-handlers "AVAppEnumTransHandlers")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-app-enum-trans-handlers-selproto
                          *g-acro-view-hft*
                          +av-app-enum-trans-handlers-sel+)
-;; line 1097
+;; line 1703
 (define-acrobat-function (av-app-register-trans-handler "AVAppRegisterTransHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-app-register-trans-handler-selproto
                          *g-acro-view-hft*
                          +av-app-register-trans-handler-sel+)
-;; line 1099
+;; line 1703
 (define-acrobat-function (av-doc-do-save-as "AVDocDoSaveAs")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-doc-do-save-as-selproto
                          *g-acro-view-hft*
                          +av-doc-do-save-as-sel+)
-;; line 1101
+;; line 1703
 (define-acrobat-function (av-page-view-set-layout-mode "AVPageViewSetLayoutMode")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-set-layout-mode-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-layout-mode-sel+)
-;; line 1103
+;; line 1703
 (define-acrobat-function (av-page-view-get-layout-mode "AVPageViewGetLayoutMode")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-get-layout-mode-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-layout-mode-sel+)
-;; line 1107
+;; line 1703
 (define-acrobat-function (av-doc-is-external "AVDocIsExternal")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-doc-is-external-selproto
                          *g-acro-view-hft*
                          +av-doc-is-external-sel+)
-;; line 1109
+;; line 1703
 (define-acrobat-function (av-page-view-use-this-destination "AVPageViewUseThisDestination")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-page-view-use-this-destination-selproto
                          *g-acro-view-hft*
                          +av-page-view-use-this-destination-sel+)
-;; line 1111
+;; line 1703
 (define-acrobat-function (av-auth-open "AVAuthOpen")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-2+
                          av-auth-open-selproto
                          *g-acro-view-hft*
                          +av-auth-open-sel+)
-;; line 1120
+;; line 1703
 (define-acrobat-function (av-doc-copy-annot "AVDocCopyAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-doc-copy-annot-selproto
                          *g-acro-view-hft*
                          +av-doc-copy-annot-sel+)
-;; line 1122
+;; line 1703
 (define-acrobat-function (av-doc-copy-annot-common "AVDocCopyAnnotCommon")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-doc-copy-annot-common-selproto
                          *g-acro-view-hft*
                          +av-doc-copy-annot-common-sel+)
-;; line 1124
+;; line 1703
 (define-acrobat-function (av-doc-copy-action "AVDocCopyAction")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-doc-copy-action-selproto
                          *g-acro-view-hft*
                          +av-doc-copy-action-sel+)
-;; line 1126
+;; line 1703
 (define-acrobat-function (av-doc-copy-action-common "AVDocCopyActionCommon")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-doc-copy-action-common-selproto
                          *g-acro-view-hft*
                          +av-doc-copy-action-common-sel+)
-;; line 1128
+;; line 1703
 (define-acrobat-function (av-doc-copy-additional-actions "AVDocCopyAdditionalActions")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-doc-copy-additional-actions-selproto
                          *g-acro-view-hft*
                          +av-doc-copy-additional-actions-sel+)
-;; line 1133
+;; line 1703
 (define-acrobat-function (av-page-view-to-dest-info "AVPageViewToDestInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-page-view-to-dest-info-selproto
                          *g-acro-view-hft*
                          +av-page-view-to-dest-info-sel+)
-;; line 1136
+;; line 1703
 (define-acrobat-function (av-page-view-use-dest-info "AVPageViewUseDestInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-page-view-use-dest-info-selproto
                          *g-acro-view-hft*
                          +av-page-view-use-dest-info-sel+)
-;; line 1139
+;; line 1703
 (define-acrobat-function (av-dest-info-destroy "AVDestInfoDestroy")
                          *g-acro-view-version*
                          +acro-view-hft-version-2-3+
                          av-dest-info-destroy-selproto
                          *g-acro-view-hft*
                          +av-dest-info-destroy-sel+)
-;; line 1153
+;; line 1703
 (define-acrobat-function (av-doc-do-print "AVDocDoPrint")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-do-print-selproto
                          *g-acro-view-hft*
                          +av-doc-do-print-sel+)
-;; line 1156
+;; line 1703
 (define-acrobat-function (av-doc-do-save-as-with-params "AVDocDoSaveAsWithParams")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-do-save-as-with-params-selproto
                          *g-acro-view-hft*
                          +av-doc-do-save-as-with-params-sel+)
-;; line 1158
+;; line 1703
 (define-acrobat-function (av-annot-handler-get-info "AVAnnotHandlerGetInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-annot-handler-get-info-selproto
                          *g-acro-view-hft*
                          +av-annot-handler-get-info-sel+)
-;; line 1159
+;; line 1703
 (define-acrobat-function (av-annot-handler-delete-info "AVAnnotHandlerDeleteInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-annot-handler-delete-info-selproto
                          *g-acro-view-hft*
                          +av-annot-handler-delete-info-sel+)
-;; line 1160
+;; line 1703
 (define-acrobat-function (av-annot-handler-get-annot-info "AVAnnotHandlerGetAnnotInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-annot-handler-get-annot-info-selproto
                          *g-acro-view-hft*
                          +av-annot-handler-get-annot-info-sel+)
-;; line 1161
+;; line 1703
 (define-acrobat-function (av-annot-handler-delete-annot-info "AVAnnotHandlerDeleteAnnotInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-annot-handler-delete-annot-info-selproto
                          *g-acro-view-hft*
                          +av-annot-handler-delete-annot-info-sel+)
-;; line 1165
+;; line 1703
 (define-acrobat-function (av-page-view-transform-rect-rz "AVPageViewTransformRectRZ")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-page-view-transform-rect-rz-selproto
                          *g-acro-view-hft*
                          +av-page-view-transform-rect-rz-sel+)
-;; line 1166
+;; line 1703
 (define-acrobat-function (av-page-view-appearance-get-avmatrix "AVPageViewAppearanceGetAVMatrix")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-page-view-appearance-get-avmatrix-selproto
                          *g-acro-view-hft*
                          +av-page-view-appearance-get-avmatrix-sel+)
-;; line 1169
+;; line 1703
 (define-acrobat-function (av-page-view-get-visible-annot-page "AVPageViewGetVisibleAnnotPage")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-page-view-get-visible-annot-page-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-visible-annot-page-sel+)
-;; line 1175
+;; line 1703
 (define-acrobat-function (av-sys-alloc-time-string-from-time-rec "AVSysAllocTimeStringFromTimeRec")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-sys-alloc-time-string-from-time-rec-selproto
                          *g-acro-view-hft*
                          +av-sys-alloc-time-string-from-time-rec-sel+)
-;; line 1179
+;; line 1703
 (define-acrobat-function (av-app-handle-platform-event "AVAppHandlePlatformEvent")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-app-handle-platform-event-selproto
                          *g-acro-view-hft*
                          +av-app-handle-platform-event-sel+)
-;; line 1182
+;; line 1703
 (define-acrobat-function (av-doc-set-read-only "AVDocSetReadOnly")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-set-read-only-selproto
                          *g-acro-view-hft*
                          +av-doc-set-read-only-sel+)
-;; line 1185
+;; line 1703
 (define-acrobat-function (av-doc-is-read-only "AVDocIsReadOnly")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-is-read-only-selproto
                          *g-acro-view-hft*
                          +av-doc-is-read-only-sel+)
-;; line 1188
+;; line 1703
 (define-acrobat-function (av-page-view-show-control "AVPageViewShowControl")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-page-view-show-control-selproto
                          *g-acro-view-hft*
                          +av-page-view-show-control-sel+)
-;; line 1193
+;; line 1703
 (define-acrobat-function (av-doc-alert "AVDocAlert")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-alert-selproto
                          *g-acro-view-hft*
                          +av-doc-alert-sel+)
-;; line 1194
+;; line 1703
 (define-acrobat-function (av-doc-alert-note "AVDocAlertNote")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-alert-note-selproto
                          *g-acro-view-hft*
                          +av-doc-alert-note-sel+)
-;; line 1195
+;; line 1703
 (define-acrobat-function (av-doc-alert-confirm "AVDocAlertConfirm")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-alert-confirm-selproto
                          *g-acro-view-hft*
                          +av-doc-alert-confirm-sel+)
-;; line 1196
+;; line 1703
 (define-acrobat-function (av-doc-alert-yes-no "AVDocAlertYesNo")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-alert-yes-no-selproto
                          *g-acro-view-hft*
                          +av-doc-alert-yes-no-sel+)
-;; line 1198
+;; line 1703
 (define-acrobat-function (av-menubar-add-hidden-menu "AVMenubarAddHiddenMenu")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-menubar-add-hidden-menu-selproto
                          *g-acro-view-hft*
                          +av-menubar-add-hidden-menu-sel+)
-;; line 1199
+;; line 1703
 (define-acrobat-function (av-menu-is-hidden-on-menubar "AVMenuIsHiddenOnMenubar")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-menu-is-hidden-on-menubar-selproto
                          *g-acro-view-hft*
                          +av-menu-is-hidden-on-menubar-sel+)
-;; line 1201
+;; line 1703
 (define-acrobat-function (av-app-open-help-file "AVAppOpenHelpFile")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-app-open-help-file-selproto
                          *g-acro-view-hft*
                          +av-app-open-help-file-sel+)
-;; line 1202
+;; line 1703
 (define-acrobat-function (av-app-open-help-file-with-params "AVAppOpenHelpFileWithParams")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-open-help-file-with-params-selproto
                          *g-acro-view-hft*
                          +av-app-open-help-file-with-params-sel+)
-;; line 1203
+;; line 1703
 (define-acrobat-function (av-app-help-show-contents "AVAppHelpShowContents")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-help-show-contents-selproto
                          *g-acro-view-hft*
                          +av-app-help-show-contents-sel+)
-;; line 1204
+;; line 1703
 (define-acrobat-function (av-app-help-search "AVAppHelpSearch")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-help-search-selproto
                          *g-acro-view-hft*
                          +av-app-help-search-sel+)
-;; line 1205
+;; line 1703
 (define-acrobat-function (av-app-help-show-index "AVAppHelpShowIndex")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-help-show-index-selproto
                          *g-acro-view-hft*
                          +av-app-help-show-index-sel+)
-;; line 1208
+;; line 1703
 (define-acrobat-function (av-doc-selection-enum-page-ranges "AVDocSelectionEnumPageRanges")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-selection-enum-page-ranges-selproto
                          *g-acro-view-hft*
                          +av-doc-selection-enum-page-ranges-sel+)
-;; line 1210
+;; line 1703
 (define-acrobat-function (av-doc-do-copy-as "AVDocDoCopyAs")
                          *g-acro-view-version*
                          +acro-view-hft-version-4+
                          av-doc-do-copy-as-selproto
                          *g-acro-view-hft*
                          +av-doc-do-copy-as-sel+)
-;; line 1227
+;; line 1703
 (define-acrobat-function (av-app-register-for-page-view-key-down "AVAppRegisterForPageViewKeyDown")
                          *g-acro-view-version*
                          +acro-view-hft-version-4-5+
                          av-app-register-for-page-view-key-down-selproto
                          *g-acro-view-hft*
                          +av-app-register-for-page-view-key-down-sel+)
-;; line 1230
+;; line 1703
 (define-acrobat-function (av-app-unregister-for-page-view-key-down "AVAppUnregisterForPageViewKeyDown")
                          *g-acro-view-version*
                          +acro-view-hft-version-4-5+
                          av-app-unregister-for-page-view-key-down-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-for-page-view-key-down-sel+)
-;; line 1239
+;; line 1703
 (define-acrobat-function (av-app-register-to-pdf-handler "AVAppRegisterToPDFHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-register-to-pdf-handler-selproto
                          *g-acro-view-hft*
                          +av-app-register-to-pdf-handler-sel+)
-;; line 1240
+;; line 1703
 (define-acrobat-function (av-app-register-from-pdf-handler "AVAppRegisterFromPDFHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-register-from-pdf-handler-selproto
                          *g-acro-view-hft*
                          +av-app-register-from-pdf-handler-sel+)
-;; line 1241
+;; line 1703
 (define-acrobat-function (av-conversion-enum-to-pdf-converters "AVConversionEnumToPDFConverters")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-conversion-enum-to-pdf-converters-selproto
                          *g-acro-view-hft*
                          +av-conversion-enum-to-pdf-converters-sel+)
-;; line 1242
+;; line 1703
 (define-acrobat-function (av-conversion-enum-from-pdf-converters "AVConversionEnumFromPDFConverters")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-conversion-enum-from-pdf-converters-selproto
                          *g-acro-view-hft*
                          +av-conversion-enum-from-pdf-converters-sel+)
-;; line 1243
+;; line 1703
 (define-acrobat-function (av-conversion-convert-to-pdf-with-handler "AVConversionConvertToPDFWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-conversion-convert-to-pdf-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-to-pdf-with-handler-sel+)
-;; line 1244
+;; line 1703
 (define-acrobat-function (av-conversion-convert-from-pdf-with-handler "AVConversionConvertFromPDFWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-conversion-convert-from-pdf-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-from-pdf-with-handler-sel+)
-;; line 1245
+;; line 1703
 (define-acrobat-function (av-conversion-convert-to-pdf "AVConversionConvertToPDF")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-conversion-convert-to-pdf-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-to-pdf-sel+)
-;; line 1247
+;; line 1703
 (define-acrobat-function (av-command-new "AVCommandNew")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-new-selproto
                          *g-acro-view-hft*
                          +av-command-new-sel+)
-;; line 1249
+;; line 1703
 (define-acrobat-function (av-command-destroy "AVCommandDestroy")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-destroy-selproto
                          *g-acro-view-hft*
                          +av-command-destroy-sel+)
-;; line 1251
+;; line 1703
 (define-acrobat-function (av-command-get-name "AVCommandGetName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-name-selproto
                          *g-acro-view-hft*
                          +av-command-get-name-sel+)
-;; line 1253
+;; line 1703
 (define-acrobat-function (av-command-get-status "AVCommandGetStatus")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-status-selproto
                          *g-acro-view-hft*
                          +av-command-get-status-sel+)
-;; line 1255
+;; line 1703
 (define-acrobat-function (av-command-get-cab "AVCommandGetCab")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-cab-selproto
                          *g-acro-view-hft*
                          +av-command-get-cab-sel+)
-;; line 1257
+;; line 1703
 (define-acrobat-function (av-command-put-cab "AVCommandPutCab")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-put-cab-selproto
                          *g-acro-view-hft*
                          +av-command-put-cab-sel+)
-;; line 1259
+;; line 1703
 (define-acrobat-function (av-command-set-params "AVCommandSetParams")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-set-params-selproto
                          *g-acro-view-hft*
                          +av-command-set-params-sel+)
-;; line 1261
+;; line 1703
 (define-acrobat-function (av-command-get-params "AVCommandGetParams")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-params-selproto
                          *g-acro-view-hft*
                          +av-command-get-params-sel+)
-;; line 1263
+;; line 1703
 (define-acrobat-function (av-command-set-config "AVCommandSetConfig")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-set-config-selproto
                          *g-acro-view-hft*
                          +av-command-set-config-sel+)
-;; line 1265
+;; line 1703
 (define-acrobat-function (av-command-get-config "AVCommandGetConfig")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-config-selproto
                          *g-acro-view-hft*
                          +av-command-get-config-sel+)
-;; line 1267
+;; line 1703
 (define-acrobat-function (av-command-get-props "AVCommandGetProps")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-props-selproto
                          *g-acro-view-hft*
                          +av-command-get-props-sel+)
-;; line 1269
+;; line 1703
 (define-acrobat-function (av-command-set-inputs "AVCommandSetInputs")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-set-inputs-selproto
                          *g-acro-view-hft*
                          +av-command-set-inputs-sel+)
-;; line 1271
+;; line 1703
 (define-acrobat-function (av-command-get-inputs "AVCommandGetInputs")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-inputs-selproto
                          *g-acro-view-hft*
                          +av-command-get-inputs-sel+)
-;; line 1273
+;; line 1703
 (define-acrobat-function (av-command-show-dialog "AVCommandShowDialog")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-show-dialog-selproto
                          *g-acro-view-hft*
                          +av-command-show-dialog-sel+)
-;; line 1275
+;; line 1703
 (define-acrobat-function (av-command-work "AVCommandWork")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-work-selproto
                          *g-acro-view-hft*
                          +av-command-work-sel+)
-;; line 1277
+;; line 1703
 (define-acrobat-function (av-command-cancel "AVCommandCancel")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-cancel-selproto
                          *g-acro-view-hft*
                          +av-command-cancel-sel+)
-;; line 1279
+;; line 1703
 (define-acrobat-function (av-command-reset "AVCommandReset")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-reset-selproto
                          *g-acro-view-hft*
                          +av-command-reset-sel+)
-;; line 1281
+;; line 1703
 (define-acrobat-function (av-command-get-uipolicy "AVCommandGetUIPolicy")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-uipolicy-selproto
                          *g-acro-view-hft*
                          +av-command-get-uipolicy-sel+)
-;; line 1283
+;; line 1703
 (define-acrobat-function (av-command-get-avdoc "AVCommandGetAVDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-avdoc-selproto
                          *g-acro-view-hft*
                          +av-command-get-avdoc-sel+)
-;; line 1285
+;; line 1703
 (define-acrobat-function (av-command-get-pddoc "AVCommandGetPDDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-pddoc-selproto
                          *g-acro-view-hft*
                          +av-command-get-pddoc-sel+)
-;; line 1287
+;; line 1703
 (define-acrobat-function (av-command-get-report-proc "AVCommandGetReportProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-report-proc-selproto
                          *g-acro-view-hft*
                          +av-command-get-report-proc-sel+)
-;; line 1289
+;; line 1703
 (define-acrobat-function (av-command-get-progress-monitor "AVCommandGetProgressMonitor")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-progress-monitor-selproto
                          *g-acro-view-hft*
                          +av-command-get-progress-monitor-sel+)
-;; line 1291
+;; line 1703
 (define-acrobat-function (av-command-get-cancel-proc "AVCommandGetCancelProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-get-cancel-proc-selproto
                          *g-acro-view-hft*
                          +av-command-get-cancel-proc-sel+)
-;; line 1293
+;; line 1703
 (define-acrobat-function (av-app-register-command-handler "AVAppRegisterCommandHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-register-command-handler-selproto
                          *g-acro-view-hft*
                          +av-app-register-command-handler-sel+)
-;; line 1295
+;; line 1703
 (define-acrobat-function (av-app-find-command-handler-by-name "AVAppFindCommandHandlerByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-find-command-handler-by-name-selproto
                          *g-acro-view-hft*
                          +av-app-find-command-handler-by-name-sel+)
-;; line 1297
+;; line 1703
 (define-acrobat-function (av-app-register-global-command "AVAppRegisterGlobalCommand")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-register-global-command-selproto
                          *g-acro-view-hft*
                          +av-app-register-global-command-sel+)
-;; line 1299
+;; line 1703
 (define-acrobat-function (av-app-find-global-command-by-name "AVAppFindGlobalCommandByName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-find-global-command-by-name-selproto
                          *g-acro-view-hft*
                          +av-app-find-global-command-by-name-sel+)
-;; line 1301
+;; line 1703
 (define-acrobat-function (av-app-unregister-global-command "AVAppUnregisterGlobalCommand")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-unregister-global-command-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-global-command-sel+)
-;; line 1303
+;; line 1703
 (define-acrobat-function (av-command-execute "AVCommandExecute")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-command-execute-selproto
                          *g-acro-view-hft*
                          +av-command-execute-sel+)
-;; line 1311
+;; line 1703
 (define-acrobat-function (av-acquire-special-folder-path-name "AVAcquireSpecialFolderPathName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-acquire-special-folder-path-name-selproto
                          *g-acro-view-hft*
                          +av-acquire-special-folder-path-name-sel+)
-;; line 1313
+;; line 1703
 (define-acrobat-function (av-acquire-special-file-path-name "AVAcquireSpecialFilePathName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-acquire-special-file-path-name-selproto
                          *g-acro-view-hft*
                          +av-acquire-special-file-path-name-sel+)
-;; line 1315
+;; line 1703
 (define-acrobat-function (av-page-view-get-focus-annot "AVPageViewGetFocusAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-get-focus-annot-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-focus-annot-sel+)
-;; line 1317
+;; line 1703
 (define-acrobat-function (av-page-view-set-focus-annot "AVPageViewSetFocusAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-set-focus-annot-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-focus-annot-sel+)
-;; line 1319
+;; line 1703
 (define-acrobat-function (av-page-view-clear-focus-annot "AVPageViewClearFocusAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-clear-focus-annot-selproto
                          *g-acro-view-hft*
                          +av-page-view-clear-focus-annot-sel+)
-;; line 1321
+;; line 1703
 (define-acrobat-function (av-page-view-is-focus-annot "AVPageViewIsFocusAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-is-focus-annot-selproto
                          *g-acro-view-hft*
                          +av-page-view-is-focus-annot-sel+)
-;; line 1323
+;; line 1703
 (define-acrobat-function (av-util-get-base-name-and-extension-by-path-name "AVUtilGetBaseNameAndExtensionByPathName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-util-get-base-name-and-extension-by-path-name-selproto
                          *g-acro-view-hft*
                          +av-util-get-base-name-and-extension-by-path-name-sel+)
-;; line 1325
+;; line 1703
 (define-acrobat-function (av-util-get-base-name-and-extension-by-string "AVUtilGetBaseNameAndExtensionByString")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-util-get-base-name-and-extension-by-string-selproto
                          *g-acro-view-hft*
                          +av-util-get-base-name-and-extension-by-string-sel+)
-;; line 1327
+;; line 1703
 (define-acrobat-function (av-identity-get-text "AVIdentityGetText")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-identity-get-text-selproto
                          *g-acro-view-hft*
                          +av-identity-get-text-sel+)
-;; line 1329
+;; line 1703
 (define-acrobat-function (av-identity-set-text "AVIdentitySetText")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-identity-set-text-selproto
                          *g-acro-view-hft*
                          +av-identity-set-text-sel+)
-;; line 1331
+;; line 1703
 (define-acrobat-function (av-page-view-focus-annot-perform-op "AVPageViewFocusAnnotPerformOp")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-focus-annot-perform-op-selproto
                          *g-acro-view-hft*
                          +av-page-view-focus-annot-perform-op-sel+)
-;; line 1333
+;; line 1703
 (define-acrobat-function (av-page-view-filter-key-down-for-focus-annot "AVPageViewFilterKeyDownForFocusAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-filter-key-down-for-focus-annot-selproto
                          *g-acro-view-hft*
                          +av-page-view-filter-key-down-for-focus-annot-sel+)
-;; line 1339
+;; line 1703
 (define-acrobat-function (av-page-view-snap-point-ex "AVPageViewSnapPointEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-snap-point-ex-selproto
                          *g-acro-view-hft*
                          +av-page-view-snap-point-ex-sel+)
-;; line 1347
+;; line 1703
 (define-acrobat-function (av-page-view-drag-rect-snapped-ex "AVPageViewDragRectSnappedEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-drag-rect-snapped-ex-selproto
                          *g-acro-view-hft*
                          +av-page-view-drag-rect-snapped-ex-sel+)
-;; line 1355
+;; line 1703
 (define-acrobat-function (av-window-center "AVWindowCenter")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-window-center-selproto
                          *g-acro-view-hft*
                          +av-window-center-sel+)
-;; line 1357
+;; line 1703
 (define-acrobat-function (av-doc-from-pddoc "AVDocFromPDDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-doc-from-pddoc-selproto
                          *g-acro-view-hft*
                          +av-doc-from-pddoc-sel+)
-;; line 1361
+;; line 1703
 (define-acrobat-function (av-app-get-report-proc "AVAppGetReportProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-report-proc-selproto
                          *g-acro-view-hft*
                          +av-app-get-report-proc-sel+)
-;; line 1363
+;; line 1703
 (define-acrobat-function (av-doc-is-dead "AVDocIsDead")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-doc-is-dead-selproto
                          *g-acro-view-hft*
                          +av-doc-is-dead-sel+)
-;; line 1365
+;; line 1703
 (define-acrobat-function (av-app-get-pref-bool "AVAppGetPrefBool")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-bool-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-bool-sel+)
-;; line 1367
+;; line 1703
 (define-acrobat-function (av-app-get-pref-int "AVAppGetPrefInt")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-int-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-int-sel+)
-;; line 1369
+;; line 1703
 (define-acrobat-function (av-app-get-pref-atom "AVAppGetPrefAtom")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-atom-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-atom-sel+)
-;; line 1371
+;; line 1703
 (define-acrobat-function (av-app-get-pref-double "AVAppGetPrefDouble")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-double-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-double-sel+)
-;; line 1373
+;; line 1703
 (define-acrobat-function (av-app-get-pref-string "AVAppGetPrefString")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-string-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-string-sel+)
-;; line 1375
+;; line 1703
 (define-acrobat-function (av-app-get-pref-text "AVAppGetPrefText")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-text-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-text-sel+)
-;; line 1377
+;; line 1703
 (define-acrobat-function (av-app-get-pref-cab "AVAppGetPrefCab")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-cab-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-cab-sel+)
-;; line 1379
+;; line 1703
 (define-acrobat-function (av-app-get-pref-path-name "AVAppGetPrefPathName")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-pref-path-name-selproto
                          *g-acro-view-hft*
                          +av-app-get-pref-path-name-sel+)
-;; line 1381
+;; line 1703
 (define-acrobat-function (av-alert-with-params "AVAlertWithParams")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-alert-with-params-selproto
                          *g-acro-view-hft*
                          +av-alert-with-params-sel+)
-;; line 1383
+;; line 1703
 (define-acrobat-function (av-doc-perform-action-ex "AVDocPerformActionEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-doc-perform-action-ex-selproto
                          *g-acro-view-hft*
                          +av-doc-perform-action-ex-sel+)
-;; line 1385
+;; line 1703
 (define-acrobat-function (av-extension-get-num-plug-ins "AVExtensionGetNumPlugIns")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-extension-get-num-plug-ins-selproto
                          *g-acro-view-hft*
                          +av-extension-get-num-plug-ins-sel+)
-;; line 1387
+;; line 1703
 (define-acrobat-function (av-extension-acquire-info "AVExtensionAcquireInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-extension-acquire-info-selproto
                          *g-acro-view-hft*
                          +av-extension-acquire-info-sel+)
-;; line 1389
+;; line 1703
 (define-acrobat-function (av-extension-release-info "AVExtensionReleaseInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-extension-release-info-selproto
                          *g-acro-view-hft*
                          +av-extension-release-info-sel+)
-;; line 1391
+;; line 1703
 (define-acrobat-function (av-page-view-device-to-info "AVPageViewDeviceToInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-device-to-info-selproto
                          *g-acro-view-hft*
                          +av-page-view-device-to-info-sel+)
-;; line 1393
+;; line 1703
 (define-acrobat-function (av-page-view-info-to-device "AVPageViewInfoToDevice")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-info-to-device-selproto
                          *g-acro-view-hft*
                          +av-page-view-info-to-device-sel+)
-;; line 1395
+;; line 1703
 (define-acrobat-function (av-page-view-point-to-info "AVPageViewPointToInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-point-to-info-selproto
                          *g-acro-view-hft*
                          +av-page-view-point-to-info-sel+)
-;; line 1397
+;; line 1703
 (define-acrobat-function (av-page-view-info-to-point "AVPageViewInfoToPoint")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-info-to-point-selproto
                          *g-acro-view-hft*
                          +av-page-view-info-to-point-sel+)
-;; line 1399
+;; line 1703
 (define-acrobat-function (av-page-view-update-info-panel "AVPageViewUpdateInfoPanel")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-update-info-panel-selproto
                          *g-acro-view-hft*
                          +av-page-view-update-info-panel-sel+)
-;; line 1401
+;; line 1703
 (define-acrobat-function (av-app-get-language-encoding "AVAppGetLanguageEncoding")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-get-language-encoding-selproto
                          *g-acro-view-hft*
                          +av-app-get-language-encoding-sel+)
-;; line 1403
+;; line 1703
 (define-acrobat-function (av-alert-reset-prefs "AVAlertResetPrefs")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-alert-reset-prefs-selproto
                          *g-acro-view-hft*
                          +av-alert-reset-prefs-sel+)
-;; line 1405
+;; line 1703
 (define-acrobat-function (av-alert-set-pref "AVAlertSetPref")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-alert-set-pref-selproto
                          *g-acro-view-hft*
                          +av-alert-set-pref-sel+)
-;; line 1407
+;; line 1703
 (define-acrobat-function (av-alert-get-pref "AVAlertGetPref")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-alert-get-pref-selproto
                          *g-acro-view-hft*
                          +av-alert-get-pref-sel+)
-;; line 1409
+;; line 1703
 (define-acrobat-function (av-page-view-scroll-to-annot "AVPageViewScrollToAnnot")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-scroll-to-annot-selproto
                          *g-acro-view-hft*
                          +av-page-view-scroll-to-annot-sel+)
-;; line 1411
+;; line 1703
 (define-acrobat-function (av-sys-set-wait-cursor "AVSysSetWaitCursor")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-sys-set-wait-cursor-selproto
                          *g-acro-view-hft*
                          +av-sys-set-wait-cursor-sel+)
-;; line 1413
+;; line 1703
 (define-acrobat-function (av-doc-perm-request "AVDocPermRequest")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-doc-perm-request-selproto
                          *g-acro-view-hft*
                          +av-doc-perm-request-sel+)
-;; line 1415
+;; line 1703
 (define-acrobat-function (av-page-view-suspend-offscreen-drawing "AVPageViewSuspendOffscreenDrawing")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-suspend-offscreen-drawing-selproto
                          *g-acro-view-hft*
                          +av-page-view-suspend-offscreen-drawing-sel+)
-;; line 1417
+;; line 1703
 (define-acrobat-function (av-page-view-resume-offscreen-drawing "AVPageViewResumeOffscreenDrawing")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-page-view-resume-offscreen-drawing-selproto
                          *g-acro-view-hft*
                          +av-page-view-resume-offscreen-drawing-sel+)
-;; line 1419
+;; line 1703
 (define-acrobat-function (av-app-did-or-will-switch-for-dialog "AVAppDidOrWillSwitchForDialog")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-did-or-will-switch-for-dialog-selproto
                          *g-acro-view-hft*
                          +av-app-did-or-will-switch-for-dialog-sel+)
-;; line 1421
+;; line 1703
 (define-acrobat-function (av-app-yield-to-other-apps "AVAppYieldToOtherApps")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-app-yield-to-other-apps-selproto
                          *g-acro-view-hft*
                          +av-app-yield-to-other-apps-sel+)
-;; line 1423
+;; line 1703
 (define-acrobat-function (av-window-ensure-in-bounds "AVWindowEnsureInBounds")
                          *g-acro-view-version*
                          +acro-view-hft-version-5+
                          av-window-ensure-in-bounds-selproto
                          *g-acro-view-hft*
                          +av-window-ensure-in-bounds-sel+)
-;; line 1434
+;; line 1703
 (define-acrobat-function (av-menu-clone "AVMenuClone")
                          *g-acro-view-version*
                          +acro-view-hft-version-5-1+
                          av-menu-clone-selproto
                          *g-acro-view-hft*
                          +av-menu-clone-sel+)
-;; line 1444
+;; line 1703
 (define-acrobat-function (av-app-get-uuid "AVAppGetUUID")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-get-uuid-selproto
                          *g-acro-view-hft*
                          +av-app-get-uuid-sel+)
-;; line 1446
+;; line 1703
 (define-acrobat-function (av-sys-get-icon-from-filename "AVSysGetIconFromFilename")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-sys-get-icon-from-filename-selproto
                          *g-acro-view-hft*
                          +av-sys-get-icon-from-filename-sel+)
-;; line 1447
+;; line 1703
 (define-acrobat-function (av-sys-get-icon-from-mime-type "AVSysGetIconFromMimeType")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-sys-get-icon-from-mime-type-selproto
                          *g-acro-view-hft*
                          +av-sys-get-icon-from-mime-type-sel+)
-;; line 1448
+;; line 1703
 (define-acrobat-function (av-sys-get-icon-from-type-and-creator "AVSysGetIconFromTypeAndCreator")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-sys-get-icon-from-type-and-creator-selproto
                          *g-acro-view-hft*
                          +av-sys-get-icon-from-type-and-creator-sel+)
-;; line 1450
+;; line 1703
 (define-acrobat-function (av-conversion-convert-stream-to-pdf-with-handler "AVConversionConvertStreamToPDFWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-conversion-convert-stream-to-pdf-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-stream-to-pdf-with-handler-sel+)
-;; line 1451
+;; line 1703
 (define-acrobat-function (av-conversion-convert-stream-from-pdf-with-handler "AVConversionConvertStreamFromPDFWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-conversion-convert-stream-from-pdf-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-stream-from-pdf-with-handler-sel+)
-;; line 1452
+;; line 1703
 (define-acrobat-function (av-conversion-convert-stream-from-struct-node-with-handler "AVConversionConvertStreamFromStructNodeWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-conversion-convert-stream-from-struct-node-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-stream-from-struct-node-with-handler-sel+)
-;; line 1453
+;; line 1703
 (define-acrobat-function (av-conversion-convert-stream-to-pdf "AVConversionConvertStreamToPDF")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-conversion-convert-stream-to-pdf-selproto
                          *g-acro-view-hft*
                          +av-conversion-convert-stream-to-pdf-sel+)
-;; line 1456
+;; line 1703
 (define-acrobat-function (av-menu-do-pop-up "AVMenuDoPopUp")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-do-pop-up-selproto
                          *g-acro-view-hft*
                          +av-menu-do-pop-up-sel+)
-;; line 1458
+;; line 1703
 (define-acrobat-function (av-doc-get-num-page-views "AVDocGetNumPageViews")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-get-num-page-views-selproto
                          *g-acro-view-hft*
                          +av-doc-get-num-page-views-sel+)
-;; line 1462
+;; line 1703
 (define-acrobat-function (av-menu-new-with-as-text "AVMenuNewWithASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-new-with-as-text-selproto
                          *g-acro-view-hft*
                          +av-menu-new-with-as-text-sel+)
-;; line 1463
+;; line 1703
 (define-acrobat-function (av-menu-get-title-as-as-text "AVMenuGetTitleAsASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-get-title-as-as-text-selproto
                          *g-acro-view-hft*
                          +av-menu-get-title-as-as-text-sel+)
-;; line 1464
+;; line 1703
 (define-acrobat-function (av-menu-item-new-with-as-text "AVMenuItemNewWithASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-item-new-with-as-text-selproto
                          *g-acro-view-hft*
                          +av-menu-item-new-with-as-text-sel+)
-;; line 1465
+;; line 1703
 (define-acrobat-function (av-menu-item-get-title-as-as-text "AVMenuItemGetTitleAsASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-item-get-title-as-as-text-selproto
                          *g-acro-view-hft*
                          +av-menu-item-get-title-as-as-text-sel+)
-;; line 1466
+;; line 1703
 (define-acrobat-function (av-menu-item-set-title-with-as-text "AVMenuItemSetTitleWithASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-item-set-title-with-as-text-selproto
                          *g-acro-view-hft*
                          +av-menu-item-set-title-with-as-text-sel+)
-;; line 1468
+;; line 1703
 (define-acrobat-function (av-util-get-base-name-and-extension-ex "AVUtilGetBaseNameAndExtensionEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-util-get-base-name-and-extension-ex-selproto
                          *g-acro-view-hft*
                          +av-util-get-base-name-and-extension-ex-sel+)
-;; line 1470
+;; line 1703
 (define-acrobat-function (av-acquire-special-file-path-name-with-as-text "AVAcquireSpecialFilePathNameWithASText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-acquire-special-file-path-name-with-as-text-selproto
                          *g-acro-view-hft*
                          +av-acquire-special-file-path-name-with-as-text-sel+)
-;; line 1472
+;; line 1703
 (define-acrobat-function (av-page-view-set-visible-inks "AVPageViewSetVisibleInks")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-set-visible-inks-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-visible-inks-sel+)
-;; line 1473
+;; line 1703
 (define-acrobat-function (av-page-view-set-ink-preview "AVPageViewSetInkPreview")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-set-ink-preview-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-ink-preview-sel+)
-;; line 1474
+;; line 1703
 (define-acrobat-function (av-page-view-get-num-visible-inks "AVPageViewGetNumVisibleInks")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-get-num-visible-inks-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-num-visible-inks-sel+)
-;; line 1475
+;; line 1703
 (define-acrobat-function (av-page-view-get-visible-inks "AVPageViewGetVisibleInks")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-get-visible-inks-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-visible-inks-sel+)
-;; line 1476
+;; line 1703
 (define-acrobat-function (av-page-view-get-pixel-information-at-point "AVPageViewGetPixelInformationAtPoint")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-get-pixel-information-at-point-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-pixel-information-at-point-sel+)
-;; line 1479
+;; line 1703
 (define-acrobat-function (av-undo-new "AVUndoNew")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-undo-new-selproto
                          *g-acro-view-hft*
                          +av-undo-new-sel+)
-;; line 1480
+;; line 1703
 (define-acrobat-function (av-undo-set-data "AVUndoSetData")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-undo-set-data-selproto
                          *g-acro-view-hft*
                          +av-undo-set-data-sel+)
-;; line 1481
+;; line 1703
 (define-acrobat-function (av-undo-get-data "AVUndoGetData")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-undo-get-data-selproto
                          *g-acro-view-hft*
                          +av-undo-get-data-sel+)
-;; line 1482
+;; line 1703
 (define-acrobat-function (av-undo-get-avdoc "AVUndoGetAVDoc")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-undo-get-avdoc-selproto
                          *g-acro-view-hft*
                          +av-undo-get-avdoc-sel+)
-;; line 1483
+;; line 1703
 (define-acrobat-function (av-undo-get-type "AVUndoGetType")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-undo-get-type-selproto
                          *g-acro-view-hft*
                          +av-undo-get-type-sel+)
-;; line 1484
+;; line 1703
 (define-acrobat-function (av-doc-clear-undos "AVDocClearUndos")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-clear-undos-selproto
                          *g-acro-view-hft*
                          +av-doc-clear-undos-sel+)
-;; line 1485
+;; line 1703
 (define-acrobat-function (av-doc-get-top-undo "AVDocGetTopUndo")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-get-top-undo-selproto
                          *g-acro-view-hft*
                          +av-doc-get-top-undo-sel+)
-;; line 1486
+;; line 1703
 (define-acrobat-function (av-doc-get-top-undo-and-redo "AVDocGetTopUndoAndRedo")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-get-top-undo-and-redo-selproto
                          *g-acro-view-hft*
                          +av-doc-get-top-undo-and-redo-sel+)
-;; line 1487
+;; line 1703
 (define-acrobat-function (av-doc-begin-undo-operation "AVDocBeginUndoOperation")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-begin-undo-operation-selproto
                          *g-acro-view-hft*
                          +av-doc-begin-undo-operation-sel+)
-;; line 1488
+;; line 1703
 (define-acrobat-function (av-doc-end-undo-operation "AVDocEndUndoOperation")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-end-undo-operation-selproto
                          *g-acro-view-hft*
                          +av-doc-end-undo-operation-sel+)
-;; line 1491
+;; line 1703
 (define-acrobat-function (av-page-view-draw-now-with-transition "AVPageViewDrawNowWithTransition")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-draw-now-with-transition-selproto
                          *g-acro-view-hft*
                          +av-page-view-draw-now-with-transition-sel+)
-;; line 1493
+;; line 1703
 (define-acrobat-function (av-doc-print-separations "AVDocPrintSeparations")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-print-separations-selproto
                          *g-acro-view-hft*
                          +av-doc-print-separations-sel+)
-;; line 1494
+;; line 1703
 (define-acrobat-function (av-window-do-modal "AVWindowDoModal")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-window-do-modal-selproto
                          *g-acro-view-hft*
                          +av-window-do-modal-sel+)
-;; line 1495
+;; line 1703
 (define-acrobat-function (av-window-end-modal "AVWindowEndModal")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-window-end-modal-selproto
                          *g-acro-view-hft*
                          +av-window-end-modal-sel+)
-;; line 1496
+;; line 1703
 (define-acrobat-function (av-sys-get-use-pen-for-input "AVSysGetUsePenForInput")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-sys-get-use-pen-for-input-selproto
                          *g-acro-view-hft*
                          +av-sys-get-use-pen-for-input-sel+)
-;; line 1499
+;; line 1703
 (define-acrobat-function (av-doc-get-view-def-ex "AVDocGetViewDefEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-get-view-def-ex-selproto
                          *g-acro-view-hft*
                          +av-doc-get-view-def-ex-sel+)
-;; line 1500
+;; line 1703
 (define-acrobat-function (av-doc-set-view-def-ex "AVDocSetViewDefEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-set-view-def-ex-selproto
                          *g-acro-view-hft*
                          +av-doc-set-view-def-ex-sel+)
-;; line 1501
+;; line 1703
 (define-acrobat-function (av-doc-use-view-def-ex "AVDocUseViewDefEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-use-view-def-ex-selproto
                          *g-acro-view-hft*
                          +av-doc-use-view-def-ex-sel+)
-;; line 1504
+;; line 1703
 (define-acrobat-function (av-menu-item-clone "AVMenuItemClone")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-item-clone-selproto
                          *g-acro-view-hft*
                          +av-menu-item-clone-sel+)
-;; line 1507
+;; line 1703
 (define-acrobat-function (av-app-get-language-with-params "AVAppGetLanguageWithParams")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-get-language-with-params-selproto
                          *g-acro-view-hft*
                          +av-app-get-language-with-params-sel+)
-;; line 1510
+;; line 1703
 (define-acrobat-function (av-app-create-icon-bundle6 "AVAppCreateIconBundle6")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-create-icon-bundle6-selproto
                          *g-acro-view-hft*
                          +av-app-create-icon-bundle6-sel+)
-;; line 1513
+;; line 1703
 (define-acrobat-function (av-window-get-border-widths "AVWindowGetBorderWidths")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-window-get-border-widths-selproto
                          *g-acro-view-hft*
                          +av-window-get-border-widths-sel+)
-;; line 1516
+;; line 1703
 (define-acrobat-function (av-page-view-draw-polygon "AVPageViewDrawPolygon")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-draw-polygon-selproto
                          *g-acro-view-hft*
                          +av-page-view-draw-polygon-sel+)
-;; line 1519
+;; line 1703
 (define-acrobat-function (av-page-view-draw-polygon-outline "AVPageViewDrawPolygonOutline")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-draw-polygon-outline-selproto
                          *g-acro-view-hft*
                          +av-page-view-draw-polygon-outline-sel+)
-;; line 1522
+;; line 1703
 (define-acrobat-function (av-app-register-how-to-panel "AVAppRegisterHowToPanel")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-register-how-to-panel-selproto
                          *g-acro-view-hft*
                          +av-app-register-how-to-panel-sel+)
-;; line 1525
+;; line 1703
 (define-acrobat-function (av-app-set-how-to-panel-auto-show-text "AVAppSetHowToPanelAutoShowText")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-set-how-to-panel-auto-show-text-selproto
                          *g-acro-view-hft*
                          +av-app-set-how-to-panel-auto-show-text-sel+)
-;; line 1528
+;; line 1703
 (define-acrobat-function (av-app-get-how-to-panel-auto-show "AVAppGetHowToPanelAutoShow")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-get-how-to-panel-auto-show-selproto
                          *g-acro-view-hft*
                          +av-app-get-how-to-panel-auto-show-sel+)
-;; line 1531
+;; line 1703
 (define-acrobat-function (av-app-set-how-to-panel-auto-show "AVAppSetHowToPanelAutoShow")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-set-how-to-panel-auto-show-selproto
                          *g-acro-view-hft*
                          +av-app-set-how-to-panel-auto-show-sel+)
-;; line 1534
+;; line 1703
 (define-acrobat-function (av-app-auto-show-how-to-panel "AVAppAutoShowHowToPanel")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-auto-show-how-to-panel-selproto
                          *g-acro-view-hft*
                          +av-app-auto-show-how-to-panel-sel+)
-;; line 1537
+;; line 1703
 (define-acrobat-function (av-menu-item-set-compute-visible-proc "AVMenuItemSetComputeVisibleProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-item-set-compute-visible-proc-selproto
                          *g-acro-view-hft*
                          +av-menu-item-set-compute-visible-proc-sel+)
-;; line 1540
+;; line 1703
 (define-acrobat-function (av-menu-item-is-visible "AVMenuItemIsVisible")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-menu-item-is-visible-selproto
                          *g-acro-view-hft*
                          +av-menu-item-is-visible-sel+)
-;; line 1543
+;; line 1703
 (define-acrobat-function (av-app-set-how-to-panel-compute-visible-proc "AVAppSetHowToPanelComputeVisibleProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-set-how-to-panel-compute-visible-proc-selproto
                          *g-acro-view-hft*
                          +av-app-set-how-to-panel-compute-visible-proc-sel+)
-;; line 1546
+;; line 1703
 (define-acrobat-function (av-app-register-for-context-menu-addition "AVAppRegisterForContextMenuAddition")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-register-for-context-menu-addition-selproto
                          *g-acro-view-hft*
                          +av-app-register-for-context-menu-addition-sel+)
-;; line 1549
+;; line 1703
 (define-acrobat-function (av-page-view-get-page-to-dev-scaling "AVPageViewGetPageToDevScaling")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-page-view-get-page-to-dev-scaling-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-page-to-dev-scaling-sel+)
-;; line 1552
+;; line 1703
 (define-acrobat-function (av-doc-get-active-tool "AVDocGetActiveTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-get-active-tool-selproto
                          *g-acro-view-hft*
                          +av-doc-get-active-tool-sel+)
-;; line 1555
+;; line 1703
 (define-acrobat-function (av-doc-set-active-tool "AVDocSetActiveTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-set-active-tool-selproto
                          *g-acro-view-hft*
                          +av-doc-set-active-tool-sel+)
-;; line 1558
+;; line 1703
 (define-acrobat-function (av-app-register-for-page-view-right-clicks "AVAppRegisterForPageViewRightClicks")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-register-for-page-view-right-clicks-selproto
                          *g-acro-view-hft*
                          +av-app-register-for-page-view-right-clicks-sel+)
-;; line 1562
+;; line 1703
 (define-acrobat-function (av-app-unregister-for-page-view-right-clicks "AVAppUnregisterForPageViewRightClicks")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-app-unregister-for-page-view-right-clicks-selproto
                          *g-acro-view-hft*
                          +av-app-unregister-for-page-view-right-clicks-sel+)
-;; line 1565
+;; line 1703
 (define-acrobat-function (av-doc-is-slow "AVDocIsSlow")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-is-slow-selproto
                          *g-acro-view-hft*
                          +av-doc-is-slow-sel+)
-;; line 1568
+;; line 1703
 (define-acrobat-function (av-window-get-desktop-bounds "AVWindowGetDesktopBounds")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-window-get-desktop-bounds-selproto
                          *g-acro-view-hft*
                          +av-window-get-desktop-bounds-sel+)
-;; line 1571
+;; line 1703
 (define-acrobat-function (av-doc-get-server-type "AVDocGetServerType")
                          *g-acro-view-version*
                          +acro-view-hft-version-6+
                          av-doc-get-server-type-selproto
                          *g-acro-view-hft*
                          +av-doc-get-server-type-sel+)
-;; line 1574
+;; line 1703
 (define-acrobat-function (av-page-view-set-wireframe-drawing "AVPageViewSetWireframeDrawing")
                          *g-acro-view-version*
                          +acro-view-hft-version-7+
                          av-page-view-set-wireframe-drawing-selproto
                          *g-acro-view-hft*
                          +av-page-view-set-wireframe-drawing-sel+)
-;; line 1577
+;; line 1703
 (define-acrobat-function (av-page-view-get-wireframe-drawing "AVPageViewGetWireframeDrawing")
                          *g-acro-view-version*
                          +acro-view-hft-version-7+
                          av-page-view-get-wireframe-drawing-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-wireframe-drawing-sel+)
-;; line 1580
+;; line 1703
 (define-acrobat-function (av-app-should-key-delete-object "AVAppShouldKeyDeleteObject")
                          *g-acro-view-version*
                          +acro-view-hft-version-7+
                          av-app-should-key-delete-object-selproto
                          *g-acro-view-hft*
                          +av-app-should-key-delete-object-sel+)
-;; line 1586
+;; line 1703
 (define-acrobat-function (av-app-register-late-init-proc "AVAppRegisterLateInitProc")
                          *g-acro-view-version*
                          +acro-view-hft-version-7+
                          av-app-register-late-init-proc-selproto
                          *g-acro-view-hft*
                          +av-app-register-late-init-proc-sel+)
-;; line 1590
+;; line 1703
 (define-acrobat-function (av-doc-get-bookmarks "AVDocGetBookmarks")
                          *g-acro-view-version*
                          +acro-view-hft-version-7+
                          av-doc-get-bookmarks-selproto
                          *g-acro-view-hft*
                          +av-doc-get-bookmarks-sel+)
-;; line 1592
+;; line 1703
 (define-acrobat-function (av-doc-get-last-active-tool "AVDocGetLastActiveTool")
                          *g-acro-view-version*
                          +acro-view-hft-version-7+
                          av-doc-get-last-active-tool-selproto
                          *g-acro-view-hft*
                          +av-doc-get-last-active-tool-sel+)
-;; line 1611
+;; line 1703
 (define-acrobat-function (av-menu-item-is-scriptable "AVMenuItemIsScriptable")
                          *g-acro-view-version*
                          +acro-view-hft-version-8+
                          av-menu-item-is-scriptable-selproto
                          *g-acro-view-hft*
                          +av-menu-item-is-scriptable-sel+)
-;; line 1613
+;; line 1703
 (define-acrobat-function (av-doc-apply-redactions "AVDocApplyRedactions")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-doc-apply-redactions-selproto
                          *g-acro-view-hft*
                          +av-doc-apply-redactions-sel+)
-;; line 1614
+;; line 1703
 (define-acrobat-function (av-listen-for-custom-notification "AVListenForCustomNotification")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-listen-for-custom-notification-selproto
                          *g-acro-view-hft*
                          +av-listen-for-custom-notification-sel+)
-;; line 1616
+;; line 1703
 (define-acrobat-function (av-unlisten-for-custom-notification "AVUnlistenForCustomNotification")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-unlisten-for-custom-notification-selproto
                          *g-acro-view-hft*
                          +av-unlisten-for-custom-notification-sel+)
-;; line 1618
+;; line 1703
 (define-acrobat-function (av-broadcast-custom-notification "AVBroadcastCustomNotification")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-broadcast-custom-notification-selproto
                          *g-acro-view-hft*
                          +av-broadcast-custom-notification-sel+)
-;; line 1631
+;; line 1703
 (define-acrobat-function (av-app-begin-save "AVAppBeginSave")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-app-begin-save-selproto
                          *g-acro-view-hft*
                          +av-app-begin-save-sel+)
-;; line 1632
+;; line 1703
 (define-acrobat-function (av-app-end-save "AVAppEndSave")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-app-end-save-selproto
                          *g-acro-view-hft*
                          +av-app-end-save-sel+)
-;; line 1633
+;; line 1703
 (define-acrobat-function (av-app-cancel-save "AVAppCancelSave")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-app-cancel-save-selproto
                          *g-acro-view-hft*
                          +av-app-cancel-save-sel+)
-;; line 1634
+;; line 1703
 (define-acrobat-function (av-page-view-get-ink-preview "AVPageViewGetInkPreview")
                          *g-acro-view-version*
                          +acro-view-hft-version-9+
                          av-page-view-get-ink-preview-selproto
                          *g-acro-view-hft*
                          +av-page-view-get-ink-preview-sel+)
-;; line 1637
+;; line 1703
 (define-acrobat-function (av-page-view-acquire-draw-context "AVPageViewAcquireDrawContext")
                          *g-acro-view-version*
                          +acro-view-hft-version-10+
                          av-page-view-acquire-draw-context-selproto
                          *g-acro-view-hft*
                          +av-page-view-acquire-draw-context-sel+)
-;; line 1638
+;; line 1703
 (define-acrobat-function (av-page-view-release-draw-context "AVPageViewReleaseDrawContext")
                          *g-acro-view-version*
                          +acro-view-hft-version-10+
                          av-page-view-release-draw-context-selproto
                          *g-acro-view-hft*
                          +av-page-view-release-draw-context-sel+)
-;; line 1640
+;; line 1703
 (define-acrobat-function (av-conversion-append-to-pdf-with-handler "AVConversionAppendToPDFWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-11+
                          av-conversion-append-to-pdf-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-append-to-pdf-with-handler-sel+)
-;; line 1641
+;; line 1703
 (define-acrobat-function (av-conversion-get-conversion-queue-status-with-handler "AVConversionGetConversionQueueStatusWithHandler")
                          *g-acro-view-version*
                          +acro-view-hft-version-11+
                          av-conversion-get-conversion-queue-status-with-handler-selproto
                          *g-acro-view-hft*
                          +av-conversion-get-conversion-queue-status-with-handler-sel+)
-;; line 1642
+;; line 1703
 (define-acrobat-function (av-conversion-to-pdf-set-settings "AVConversionToPDFSetSettings")
                          *g-acro-view-version*
                          +acro-view-hft-version-11+
                          av-conversion-to-pdf-set-settings-selproto
                          *g-acro-view-hft*
                          +av-conversion-to-pdf-set-settings-sel+)
-;; line 1644
+;; line 1703
 (define-acrobat-function (av-doc-is-in-protected-view "AVDocIsInProtectedView")
                          *g-acro-view-version*
                          +acro-view-hft-version-11+
                          av-doc-is-in-protected-view-selproto
                          *g-acro-view-hft*
                          +av-doc-is-in-protected-view-sel+)
-;; line 1647
+;; line 1703
 (define-acrobat-function (av-app-register-idle-proc-with-name "AVAppRegisterIdleProcWithName")
                          *g-acro-view-version*
                          +acro-view-hft-version-11-6+
                          av-app-register-idle-proc-with-name-selproto
                          *g-acro-view-hft*
                          +av-app-register-idle-proc-with-name-sel+)
-;; line 1649
+;; line 1703
 (define-acrobat-function (av-app-register-late-init-proc-with-name "AVAppRegisterLateInitProcWithName")
                          *g-acro-view-version*
                          +acro-view-hft-version-11-6+
                          av-app-register-late-init-proc-with-name-selproto
                          *g-acro-view-hft*
                          +av-app-register-late-init-proc-with-name-sel+)
-;; line 1653
+;; line 1703
 (define-acrobat-function (av-app-save-dialog-ex "AVAppSaveDialogEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-12+
                          av-app-save-dialog-ex-selproto
                          *g-acro-view-hft*
                          +av-app-save-dialog-ex-sel+)
-;; line 1655
+;; line 1703
 (define-acrobat-function (av-app-begin-save-ex "AVAppBeginSaveEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-12+
                          av-app-begin-save-ex-selproto
                          *g-acro-view-hft*
                          +av-app-begin-save-ex-sel+)
-;; line 1657
+;; line 1703
 (define-acrobat-function (av-app-register-idle-proc-ex-with-name "AVAppRegisterIdleProcExWithName")
                          *g-acro-view-version*
                          +acro-view-hft-version-12+
                          av-app-register-idle-proc-ex-with-name-selproto
                          *g-acro-view-hft*
                          +av-app-register-idle-proc-ex-with-name-sel+)
-;; line 1659
+;; line 1703
 (define-acrobat-function (av-app-get-version-ex "AVAppGetVersionEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-12+
                          av-app-get-version-ex-selproto
                          *g-acro-view-hft*
                          +av-app-get-version-ex-sel+)
-;; line 1661
+;; line 1703
 (define-acrobat-function (av-extension-acquire-info-ex "AVExtensionAcquireInfoEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-extension-acquire-info-ex-selproto
                          *g-acro-view-hft*
                          +av-extension-acquire-info-ex-sel+)
-;; line 1663
+;; line 1703
 (define-acrobat-function (av-extension-release-info-ex "AVExtensionReleaseInfoEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-extension-release-info-ex-selproto
                          *g-acro-view-hft*
                          +av-extension-release-info-ex-sel+)
-;; line 1665
+;; line 1703
 (define-acrobat-function (av-doc-bring-to-front "AVDocBringToFront")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-doc-bring-to-front-selproto
                          *g-acro-view-hft*
                          +av-doc-bring-to-front-sel+)
-;; line 1667
+;; line 1703
 (define-acrobat-function (av-doc-get-display-title "AVDocGetDisplayTitle")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-doc-get-display-title-selproto
                          *g-acro-view-hft*
                          +av-doc-get-display-title-sel+)
-;; line 1669
+;; line 1703
 (define-acrobat-function (av-icon-create-from-pdf "AVIconCreateFromPDF")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-icon-create-from-pdf-selproto
                          *g-acro-view-hft*
                          +av-icon-create-from-pdf-sel+)
-;; line 1671
+;; line 1703
 (define-acrobat-function (av-tool-bar-set-icon "AVToolBarSetIcon")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-tool-bar-set-icon-selproto
                          *g-acro-view-hft*
                          +av-tool-bar-set-icon-sel+)
-;; line 1673
+;; line 1703
 (define-acrobat-function (av-storage-register-new-storage "AVStorageRegisterNewStorage")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-storage-register-new-storage-selproto
                          *g-acro-view-hft*
                          +av-storage-register-new-storage-sel+)
-;; line 1675
+;; line 1703
 (define-acrobat-function (av-storage-register-account "AVStorageRegisterAccount")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-storage-register-account-selproto
                          *g-acro-view-hft*
                          +av-storage-register-account-sel+)
-;; line 1677
+;; line 1703
 (define-acrobat-function (av-storage-get-account-info "AVStorageGetAccountInfo")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-storage-get-account-info-selproto
                          *g-acro-view-hft*
                          +av-storage-get-account-info-sel+)
-;; line 1679
+;; line 1703
 (define-acrobat-function (av-storage-perform-oauth2authentication "AVStoragePerformOAuth2Authentication")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-storage-perform-oauth2authentication-selproto
                          *g-acro-view-hft*
                          +av-storage-perform-oauth2authentication-sel+)
-;; line 1681
+;; line 1703
 (define-acrobat-function (av-make-web-services-request "AVMakeWebServicesRequest")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-make-web-services-request-selproto
                          *g-acro-view-hft*
                          +av-make-web-services-request-sel+)
-;; line 1684
+;; line 1703
 (define-acrobat-function (av-page-view-draw-now-optimized "AVPageViewDrawNowOptimized")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-page-view-draw-now-optimized-selproto
                          *g-acro-view-hft*
                          +av-page-view-draw-now-optimized-sel+)
-;; line 1688
+;; line 1703
 (define-acrobat-function (av-make-acrobat-default "AVMakeAcrobatDefault")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-make-acrobat-default-selproto
                          *g-acro-view-hft*
                          +av-make-acrobat-default-sel+)
-;; line 1692
+;; line 1703
 (define-acrobat-function (av-window-get-platform-thing-ex "AVWindowGetPlatformThingEx")
                          *g-acro-view-version*
                          +acro-view-hft-version-12-3+
                          av-window-get-platform-thing-ex-selproto
                          *g-acro-view-hft*
                          +av-window-get-platform-thing-ex-sel+)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-bad-selector+ 0))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-num-selectorsplus-one+ 1))

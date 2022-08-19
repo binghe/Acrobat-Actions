@@ -136,15 +136,15 @@ expression."
   (create-scanner
    (concatenate 'string
                 "^\\s*#define (\\w+) "
-                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
-                "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$")))
+                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\),\\s*"
+                "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)")))
 
 ;; #define ASCallbackCreate(x) (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ..
 (defparameter *define-regex5*
   (create-scanner
    (concatenate 'string
                 "^\\s*#define (\\w+)\\(\\w+\\) "
-                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
+                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\),\\s*"
                 "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)")))
 
 ;; #define ASmalloc (ASSERT_AS_VER(0),*((ASmallocSELPROTO)(gAcroSupportHFT[ASmallocSEL])))
@@ -183,7 +183,11 @@ expression."
                    (t
                     (pprint `(fli:define-c-typedef ,(mangle-name name)
                                ,(mangle-name alias))))))))
-        ((scan *define-regex3* line)
+        (t
+         nil)))
+
+(defun handle-define-2 (line)
+  (cond ((scan *define-regex3* line)
          (register-groups-bind (name vername version proto hft sel) (*define-regex3* line)
            (format t "~%;; line ~D" *line-number*)
            (let* ((lisp-name (mangle-name name))
@@ -505,10 +509,17 @@ corresponding C code to *STANDARD-OUTPUT*."
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)
         (handle-enum enum-body type-name))
+      ;; special: opaque pointers
+      (handle-opaque-pointers file-string)
       ;; prototypes
       (handle-prototype file-string)
       ;; typedef struct (or union) ...
       (handle-struct file-string)
+      ;; define-acrobat-function
+      (with-input-from-string (in file-string)
+        (loop for line = (read-line in nil nil)
+              while line do
+          (handle-define-2 line)))
       ;; xPROC(...)
       (do-register-groups (nil name nil) (*xproc-regex2* file-string)
         (let ((full-name (concatenate 'string name "-SEL")))
@@ -521,8 +532,6 @@ corresponding C code to *STANDARD-OUTPUT*."
         (format t "~%;; sel = ~A" *hft-counter*)
         (handle-function type name args)
         (incf *hft-counter*))
-      ;; special: opaque pointers
-      (handle-opaque-pointers file-string)
       (terpri))))
 
 (defun prepare (&optional (group 0))

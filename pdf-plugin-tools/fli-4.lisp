@@ -2141,486 +2141,1156 @@
 ;; line 101
 (define-c-typedef pdf-edit-read-hft-version-10
                   pdf-edit-read-hft-latest-version)
-;; line 185
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pdf-edit-read-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pdf-edit-read-num-selectorsplus-one+ 1))
+;; line 397
+(define-acrobat-function (pde-content-create-from-cos-obj
+                          "PDEContentCreateFromCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-content-create-from-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-content-create-from-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-content-get-attrs "PDEContentGetAttrs")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-content-get-attrs-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-content-get-attrs-sel+)
+;; line 397
+(define-acrobat-function (pde-content-get-resources
+                          "PDEContentGetResources")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-content-get-resources-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-content-get-resources-sel+)
+;; line 397
+(define-acrobat-function (pde-content-get-num-elems
+                          "PDEContentGetNumElems")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-content-get-num-elems-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-content-get-num-elems-sel+)
+;; line 397
+(define-acrobat-function (pde-content-get-elem "PDEContentGetElem")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-content-get-elem-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-content-get-elem-sel+)
+;; line 397
+(define-acrobat-function (pde-element-get-bbox "PDEElementGetBBox")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-element-get-bbox-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-get-bbox-sel+)
+;; line 397
+(define-acrobat-function (pde-element-get-gstate "PDEElementGetGState")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-element-get-gstate-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-get-gstate-sel+)
+;; line 397
+(define-acrobat-function (pde-element-get-matrix "PDEElementGetMatrix")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-element-get-matrix-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-get-matrix-sel+)
+;; line 397
+(define-acrobat-function (pde-element-get-clip "PDEElementGetClip")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-element-get-clip-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-get-clip-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-num-chars "PDETextGetNumChars")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-num-chars-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-num-chars-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-num-runs "PDETextGetNumRuns")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-num-runs-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-num-runs-sel+)
+;; line 397
+(define-acrobat-function (pde-text-run-get-char-offset
+                          "PDETextRunGetCharOffset")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-run-get-char-offset-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-run-get-char-offset-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-run-for-char
+                          "PDETextGetRunForChar")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-run-for-char-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-run-for-char-sel+)
+;; line 397
 (define-acrobat-function (pde-text-run-get-num-chars "PDETextRunGetNumChars")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-run-get-num-chars-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-run-get-num-chars-sel+)
-;; line 247
+;; line 397
+(define-acrobat-function (pde-text-get-bbox "PDETextGetBBox")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-bbox-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-bbox-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-gstate "PDETextGetGState")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-gstate-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-gstate-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-text-state
+                          "PDETextGetTextState")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-text-state-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-text-state-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-font "PDETextGetFont")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-font-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-font-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-text-matrix
+                          "PDETextGetTextMatrix")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-text-matrix-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-text-matrix-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-stroke-matrix
+                          "PDETextGetStrokeMatrix")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-stroke-matrix-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-stroke-matrix-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-advance-width
+                          "PDETextGetAdvanceWidth")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-advance-width-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-advance-width-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-text "PDETextGetText")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-text-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-text-sel+)
+;; line 397
+(define-acrobat-function (pde-path-get-data "PDEPathGetData")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-path-get-data-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-path-get-data-sel+)
+;; line 397
+(define-acrobat-function (pde-path-get-paint-op "PDEPathGetPaintOp")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-path-get-paint-op-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-path-get-paint-op-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-attrs "PDEImageGetAttrs")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-attrs-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-attrs-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-color-space
+                          "PDEImageGetColorSpace")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-color-space-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-color-space-sel+)
+;; line 397
+(define-acrobat-function (pde-image-is-cos-obj "PDEImageIsCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-is-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-is-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-image-data-is-encoded
+                          "PDEImageDataIsEncoded")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-data-is-encoded-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-data-is-encoded-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-data "PDEImageGetData")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-data-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-data-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-data-stm "PDEImageGetDataStm")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-data-stm-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-data-stm-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-data-len "PDEImageGetDataLen")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-data-len-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-data-len-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-filter-array
+                          "PDEImageGetFilterArray")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-filter-array-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-filter-array-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-cos-obj "PDEImageGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-clip-get-num-elems "PDEClipGetNumElems")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-clip-get-num-elems-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-clip-get-num-elems-sel+)
+;; line 397
+(define-acrobat-function (pde-clip-get-elem "PDEClipGetElem")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-clip-get-elem-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-clip-get-elem-sel+)
+;; line 397
+(define-acrobat-function (pde-xobject-get-cos-obj
+                          "PDEXObjectGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-xobject-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-xobject-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-form-get-cos-obj "PDEFormGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-form-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-form-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-psget-attrs "PDEPSGetAttrs")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-psget-attrs-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-psget-attrs-sel+)
+;; line 397
+(define-acrobat-function (pde-psget-data "PDEPSGetData")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-psget-data-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-psget-data-sel+)
+;; line 397
+(define-acrobat-function (pde-psget-data-stm "PDEPSGetDataStm")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-psget-data-stm-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-psget-data-stm-sel+)
+;; line 397
+(define-acrobat-function (pde-font-get-attrs "PDEFontGetAttrs")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-get-attrs-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-get-attrs-sel+)
+;; line 397
+(define-acrobat-function (pde-font-get-widths "PDEFontGetWidths")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-get-widths-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-get-widths-sel+)
+;; line 397
+(define-acrobat-function (pde-font-get-cos-obj "PDEFontGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-color-space-get-name
+                          "PDEColorSpaceGetName")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-color-space-get-name-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-color-space-get-name-sel+)
+;; line 397
+(define-acrobat-function (pde-color-space-get-cos-obj
+                          "PDEColorSpaceGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-color-space-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-color-space-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-color-space-get-num-comps
+                          "PDEColorSpaceGetNumComps")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-color-space-get-num-comps-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-color-space-get-num-comps-sel+)
+;; line 397
+(define-acrobat-function (pde-color-space-get-base
+                          "PDEColorSpaceGetBase")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-color-space-get-base-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-color-space-get-base-sel+)
+;; line 397
+(define-acrobat-function (pde-color-space-get-hi-val
+                          "PDEColorSpaceGetHiVal")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-color-space-get-hi-val-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-color-space-get-hi-val-sel+)
+;; line 397
+(define-acrobat-function (pde-color-space-get-ctable
+                          "PDEColorSpaceGetCTable")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-color-space-get-ctable-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-color-space-get-ctable-sel+)
+;; line 397
+(define-acrobat-function (pde-object-get-type "PDEObjectGetType")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-object-get-type-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-object-get-type-sel+)
+;; line 397
+(define-acrobat-function (pde-object-dump "PDEObjectDump")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-object-dump-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-object-dump-sel+)
+;; line 397
+(define-acrobat-function (pde-acquire "PDEAcquire")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-acquire-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-acquire-sel+)
+;; line 397
+(define-acrobat-function (pde-release "PDERelease")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-release-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-release-sel+)
+;; line 397
+(define-acrobat-function (pde-log-dump "PDELogDump")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-log-dump-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-log-dump-sel+)
+;; line 397
+(define-acrobat-function (pde-attr-enum-table "PDEAttrEnumTable")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-attr-enum-table-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-attr-enum-table-sel+)
+;; line 397
+(define-acrobat-function (pde-ext-gstate-get-cos-obj
+                          "PDEExtGStateGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-ext-gstate-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-ext-gstate-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-quad "PDETextGetQuad")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-quad-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-quad-sel+)
+;; line 397
+(define-acrobat-function (pde-place-get-mctag "PDEPlaceGetMCTag")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-place-get-mctag-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-place-get-mctag-sel+)
+;; line 397
+(define-acrobat-function (pde-place-get-dict "PDEPlaceGetDict")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-place-get-dict-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-place-get-dict-sel+)
+;; line 397
+(define-acrobat-function (pde-container-get-mctag
+                          "PDEContainerGetMCTag")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-container-get-mctag-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-container-get-mctag-sel+)
+;; line 397
+(define-acrobat-function (pde-container-get-dict "PDEContainerGetDict")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-container-get-dict-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-container-get-dict-sel+)
+;; line 397
+(define-acrobat-function (pde-container-get-content
+                          "PDEContainerGetContent")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-container-get-content-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-container-get-content-sel+)
+;; line 397
 (define-acrobat-function (pde-color-space-get-base-num-comps "PDEColorSpaceGetBaseNumComps")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-base-num-comps-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-base-num-comps-sel+)
-;; line 281
+;; line 397
+(define-acrobat-function (pde-default-gstate "PDEDefaultGState")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-default-gstate-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-default-gstate-sel+)
+;; line 397
+(define-acrobat-function (pde-pattern-get-cos-obj
+                          "PDEPatternGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-pattern-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-pattern-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-enum-elements "PDEEnumElements")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-enum-elements-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-enum-elements-sel+)
+;; line 397
+(define-acrobat-function (pde-font-sum-widths "PDEFontSumWidths")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-sum-widths-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-sum-widths-sel+)
+;; line 397
+(define-acrobat-function (pde-font-get-num-code-bytes
+                          "PDEFontGetNumCodeBytes")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-get-num-code-bytes-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-get-num-code-bytes-sel+)
+;; line 397
+(define-acrobat-function (pde-device-ncolors-get-color-value
+                          "PDEDeviceNColorsGetColorValue")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-device-ncolors-get-color-value-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-device-ncolors-get-color-value-sel+)
+;; line 397
+(define-acrobat-function (pde-font-is-multi-byte "PDEFontIsMultiByte")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-is-multi-byte-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-is-multi-byte-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-num-bytes "PDETextGetNumBytes")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-get-num-bytes-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-num-bytes-sel+)
+;; line 397
+(define-acrobat-function (pde-group-get-content "PDEGroupGetContent")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-group-get-content-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-group-get-content-sel+)
+;; line 397
+(define-acrobat-function (pde-clip-flattened-enum-elems
+                          "PDEClipFlattenedEnumElems")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-clip-flattened-enum-elems-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-clip-flattened-enum-elems-sel+)
+;; line 397
+(define-acrobat-function (pde-element-is-at-point
+                          "PDEElementIsAtPoint")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-element-is-at-point-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-is-at-point-sel+)
+;; line 397
+(define-acrobat-function (pde-element-is-at-rect "PDEElementIsAtRect")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-element-is-at-rect-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-is-at-rect-sel+)
+;; line 397
+(define-acrobat-function (pde-text-is-at-point "PDETextIsAtPoint")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-is-at-point-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-is-at-point-sel+)
+;; line 397
+(define-acrobat-function (pde-text-is-at-rect "PDETextIsAtRect")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-text-is-at-rect-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-is-at-rect-sel+)
+;; line 397
+(define-acrobat-function (pde-font-get-one-byte-encoding
+                          "PDEFontGetOneByteEncoding")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-font-get-one-byte-encoding-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-font-get-one-byte-encoding-sel+)
+;; line 397
+(define-acrobat-function (pde-shading-get-cos-obj
+                          "PDEShadingGetCosObj")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-shading-get-cos-obj-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-shading-get-cos-obj-sel+)
+;; line 397
+(define-acrobat-function (pde-unknown-get-op-name
+                          "PDEUnknownGetOpName")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-unknown-get-op-name-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-unknown-get-op-name-sel+)
+;; line 397
+(define-acrobat-function (pde-content-get-default-color-space
+                          "PDEContentGetDefaultColorSpace")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-content-get-default-color-space-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-content-get-default-color-space-sel+)
+;; line 397
+(define-acrobat-function (pde-image-get-decode-array
+                          "PDEImageGetDecodeArray")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-4+
+                         pde-image-get-decode-array-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-image-get-decode-array-sel+)
+;; line 397
+(define-acrobat-function (pde-begin-container-get-mctag
+                          "PDEBeginContainerGetMCTag")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pde-begin-container-get-mctag-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-begin-container-get-mctag-sel+)
+;; line 397
+(define-acrobat-function (pde-begin-container-get-dict
+                          "PDEBeginContainerGetDict")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pde-begin-container-get-dict-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-begin-container-get-dict-sel+)
+;; line 397
 (define-acrobat-function (pde-soft-mask-get-cos-obj "PDESoftMaskGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-get-cos-obj-sel+)
-;; line 282
+;; line 397
 (define-acrobat-function (pde-soft-mask-acquire-form "PDESoftMaskAcquireForm")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-acquire-form-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-acquire-form-sel+)
-;; line 283
+;; line 397
 (define-acrobat-function (pde-soft-mask-get-backdrop-color "PDESoftMaskGetBackdropColor")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-backdrop-color-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-get-backdrop-color-sel+)
-;; line 284
+;; line 397
 (define-acrobat-function (pde-soft-mask-get-transfer-function "PDESoftMaskGetTransferFunction")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-transfer-function-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-get-transfer-function-sel+)
-;; line 286
+;; line 397
 (define-acrobat-function (pde-xgroup-get-cos-obj "PDEXGroupGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-get-cos-obj-sel+)
-;; line 287
+;; line 397
 (define-acrobat-function (pde-xgroup-get-knockout "PDEXGroupGetKnockout")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-get-knockout-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-get-knockout-sel+)
-;; line 288
+;; line 397
 (define-acrobat-function (pde-xgroup-get-isolated "PDEXGroupGetIsolated")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-get-isolated-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-get-isolated-sel+)
-;; line 289
+;; line 397
 (define-acrobat-function (pde-xgroup-acquire-color-space "PDEXGroupAcquireColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-xgroup-acquire-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-xgroup-acquire-color-space-sel+)
-;; line 291
+;; line 397
 (define-acrobat-function (pde-form-acquire-xgroup "PDEFormAcquireXGroup")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-form-acquire-xgroup-selproto
                          *g-pdf-edit-read-hft*
                          +pde-form-acquire-xgroup-sel+)
-;; line 292
+;; line 397
 (define-acrobat-function (pde-form-has-xgroup "PDEFormHasXGroup")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-form-has-xgroup-selproto
                          *g-pdf-edit-read-hft*
                          +pde-form-has-xgroup-sel+)
-;; line 296
+;; line 397
+(define-acrobat-function (pde-element-has-gstate "PDEElementHasGState")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pde-element-has-gstate-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-has-gstate-sel+)
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-opm "PDEExtGStateGetOPM")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opm-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opm-sel+)
-;; line 297
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-opfill "PDEExtGStateGetOPFill")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opfill-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opfill-sel+)
-;; line 298
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-opstroke "PDEExtGStateGetOPStroke")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opstroke-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opstroke-sel+)
-;; line 299
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-opacity-fill "PDEExtGStateGetOpacityFill")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opacity-fill-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opacity-fill-sel+)
-;; line 300
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-opacity-stroke "PDEExtGStateGetOpacityStroke")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-opacity-stroke-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-opacity-stroke-sel+)
-;; line 301
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-blend-mode "PDEExtGStateGetBlendMode")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-blend-mode-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-blend-mode-sel+)
-;; line 302
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-ais "PDEExtGStateGetAIS")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-ais-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-ais-sel+)
-;; line 303
+;; line 397
 (define-acrobat-function (pde-ext-gstate-has-soft-mask "PDEExtGStateHasSoftMask")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-has-soft-mask-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-has-soft-mask-sel+)
-;; line 304
+;; line 397
 (define-acrobat-function (pde-ext-gstate-acquire-soft-mask "PDEExtGStateAcquireSoftMask")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-acquire-soft-mask-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-acquire-soft-mask-sel+)
-;; line 306
+;; line 397
 (define-acrobat-function (pde-image-has-smask "PDEImageHasSMask")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-image-has-smask-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-has-smask-sel+)
-;; line 307
+;; line 397
 (define-acrobat-function (pde-image-get-smask "PDEImageGetSMask")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-image-get-smask-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-get-smask-sel+)
-;; line 308
+;; line 397
 (define-acrobat-function (pde-image-get-matte-array "PDEImageGetMatteArray")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-image-get-matte-array-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-get-matte-array-sel+)
-;; line 310
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-tk "PDEExtGStateGetTK")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-tk-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-tk-sel+)
-;; line 317
+;; line 397
+(define-acrobat-function (pde-text-get-state "PDETextGetState")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pde-text-get-state-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-state-sel+)
+;; line 397
+(define-acrobat-function (pd-sys-encoding-get-wmode
+                          "PDSysEncodingGetWMode")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pd-sys-encoding-get-wmode-selproto
+                         *g-pdf-edit-read-hft*
+                         +pd-sys-encoding-get-wmode-sel+)
+;; line 397
+(define-acrobat-function (pd-sys-encoding-is-identity
+                          "PDSysEncodingIsIdentity")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pd-sys-encoding-is-identity-selproto
+                         *g-pdf-edit-read-hft*
+                         +pd-sys-encoding-is-identity-sel+)
+;; line 397
+(define-acrobat-function (pd-sys-encoding-is-multi-byte
+                          "PDSysEncodingIsMultiByte")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-5+
+                         pd-sys-encoding-is-multi-byte-selproto
+                         *g-pdf-edit-read-hft*
+                         +pd-sys-encoding-is-multi-byte-sel+)
+;; line 397
 (define-acrobat-function (pde-ext-gstate-get-sa "PDEExtGStateGetSA")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-ext-gstate-get-sa-selproto
                          *g-pdf-edit-read-hft*
                          +pde-ext-gstate-get-sa-sel+)
-;; line 318
+;; line 397
 (define-acrobat-function (pde-soft-mask-get-name "PDESoftMaskGetName")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-soft-mask-get-name-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-get-name-sel+)
-;; line 320
+;; line 397
 (define-acrobat-function (pde-text-get-matrix "PDETextGetMatrix")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-text-get-matrix-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-matrix-sel+)
-;; line 329
+;; line 397
 (define-acrobat-function (pde-font-is-embedded "PDEFontIsEmbedded")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-font-is-embedded-selproto
                          *g-pdf-edit-read-hft*
                          +pde-font-is-embedded-sel+)
-;; line 330
+;; line 397
 (define-acrobat-function (pde-font-get-sys-font "PDEFontGetSysFont")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-font-get-sys-font-selproto
                          *g-pdf-edit-read-hft*
                          +pde-font-get-sys-font-sel+)
-;; line 331
+;; line 397
 (define-acrobat-function (pde-font-get-sys-encoding "PDEFontGetSysEncoding")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-font-get-sys-encoding-selproto
                          *g-pdf-edit-read-hft*
                          +pde-font-get-sys-encoding-sel+)
-;; line 332
+;; line 397
 (define-acrobat-function (pde-text-get-advance "PDETextGetAdvance")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-get-advance-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-advance-sel+)
-;; line 333
+;; line 397
 (define-acrobat-function (pde-text-item-get-font "PDETextItemGetFont")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-font-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-font-sel+)
-;; line 334
+;; line 397
 (define-acrobat-function (pde-text-item-get-text-matrix "PDETextItemGetTextMatrix")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-text-matrix-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-matrix-sel+)
-;; line 335
+;; line 397
 (define-acrobat-function (pde-text-item-get-text-state "PDETextItemGetTextState")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-text-state-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-state-sel+)
-;; line 336
+;; line 397
 (define-acrobat-function (pde-text-item-get-text-len "PDETextItemGetTextLen")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-text-len-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-len-sel+)
-;; line 337
+;; line 397
 (define-acrobat-function (pde-text-item-copy-text "PDETextItemCopyText")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-copy-text-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-copy-text-sel+)
-;; line 338
+;; line 397
 (define-acrobat-function (pde-text-item-get-gstate "PDETextItemGetGState")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-item-get-gstate-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-gstate-sel+)
-;; line 339
+;; line 397
 (define-acrobat-function (pde-text-get-item "PDETextGetItem")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-text-get-item-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-item-sel+)
-;; line 343
+;; line 397
 (define-acrobat-function (pde-image-get-type "PDEImageGetType")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-get-type-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-get-type-sel+)
-;; line 344
+;; line 397
 (define-acrobat-function (pde-image-acquire-image-flate "PDEImageAcquireImageFlate")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-acquire-image-flate-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-acquire-image-flate-sel+)
-;; line 345
+;; line 397
 (define-acrobat-function (pde-image-acquire-image-jpx "PDEImageAcquireImageJPX")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-acquire-image-jpx-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-acquire-image-jpx-sel+)
-;; line 347
+;; line 397
 (define-acrobat-function (pde-image-jpxget-cos-obj "PDEImageJPXGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-cos-obj-sel+)
-;; line 349
+;; line 397
 (define-acrobat-function (pde-image-flate-get-cos-obj "PDEImageFlateGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-get-cos-obj-sel+)
-;; line 350
+;; line 397
 (define-acrobat-function (pde-image-flate-get-attrs "PDEImageFlateGetAttrs")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-get-attrs-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-get-attrs-sel+)
-;; line 351
+;; line 397
 (define-acrobat-function (pde-image-flate-acquire-color-space "PDEImageFlateAcquireColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-acquire-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-acquire-color-space-sel+)
-;; line 352
+;; line 397
 (define-acrobat-function (pde-image-flate-get-data-stm "PDEImageFlateGetDataStm")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-flate-get-data-stm-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-flate-get-data-stm-sel+)
-;; line 354
+;; line 397
 (define-acrobat-function (pde-image-jpxget-attrs "PDEImageJPXGetAttrs")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-attrs-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-attrs-sel+)
-;; line 355
+;; line 397
 (define-acrobat-function (pde-image-jpxacquire-color-space "PDEImageJPXAcquireColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxacquire-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxacquire-color-space-sel+)
-;; line 356
+;; line 397
 (define-acrobat-function (pde-image-jpxget-data-stm "PDEImageJPXGetDataStm")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-data-stm-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-data-stm-sel+)
-;; line 357
+;; line 397
 (define-acrobat-function (pde-image-jpxget-num-color-spaces "PDEImageJPXGetNumColorSpaces")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxget-num-color-spaces-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxget-num-color-spaces-sel+)
-;; line 358
+;; line 397
 (define-acrobat-function (pde-image-jpxacquire-jpxcolor-space "PDEImageJPXAcquireJPXColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxacquire-jpxcolor-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxacquire-jpxcolor-space-sel+)
-;; line 359
+;; line 397
 (define-acrobat-function (pde-image-jpxhas-palette "PDEImageJPXHasPalette")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxhas-palette-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxhas-palette-sel+)
-;; line 360
+;; line 397
 (define-acrobat-function (pde-image-jpxacquire-palette "PDEImageJPXAcquirePalette")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          pde-image-jpxacquire-palette-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-jpxacquire-palette-sel+)
-;; line 362
+;; line 397
 (define-acrobat-function (jpxpalette-get-num-entries "JPXPaletteGetNumEntries")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-num-entries-selproto
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-num-entries-sel+)
-;; line 363
+;; line 397
 (define-acrobat-function (jpxpalette-get-bit-depths "JPXPaletteGetBitDepths")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-bit-depths-selproto
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-bit-depths-sel+)
-;; line 364
+;; line 397
 (define-acrobat-function (jpxpalette-get-num-components "JPXPaletteGetNumComponents")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-num-components-selproto
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-num-components-sel+)
-;; line 365
+;; line 397
 (define-acrobat-function (jpxpalette-get-table "JPXPaletteGetTable")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxpalette-get-table-selproto
                          *g-pdf-edit-read-hft*
                          +jpxpalette-get-table-sel+)
-;; line 367
+;; line 397
 (define-acrobat-function (jpxcolor-space-acquire-next "JPXColorSpaceAcquireNext")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-acquire-next-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-acquire-next-sel+)
-;; line 368
+;; line 397
 (define-acrobat-function (jpxcolor-space-get-type "JPXColorSpaceGetType")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-get-type-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-get-type-sel+)
-;; line 369
+;; line 397
 (define-acrobat-function (jpxcolor-space-get-enum-attrs "JPXColorSpaceGetEnumAttrs")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-get-enum-attrs-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-get-enum-attrs-sel+)
-;; line 370
+;; line 397
 (define-acrobat-function (jpxcolor-space-get-profile "JPXColorSpaceGetProfile")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-6+
                          jpxcolor-space-get-profile-selproto
                          *g-pdf-edit-read-hft*
                          +jpxcolor-space-get-profile-sel+)
-;; line 374
+;; line 397
 (define-acrobat-function (pde-image-get-color-space-ex "PDEImageGetColorSpaceEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-9+
                          pde-image-get-color-space-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-get-color-space-ex-sel+)
-;; line 375
+;; line 397
 (define-acrobat-function (pde-form-get-content-to-cos-obj-flags "PDEFormGetContentToCosObjFlags")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-9+
                          pde-form-get-content-to-cos-obj-flags-selproto
                          *g-pdf-edit-read-hft*
                          +pde-form-get-content-to-cos-obj-flags-sel+)
-;; line 379
+;; line 397
+(define-acrobat-function (pde-element-get-matrix-ex
+                          "PDEElementGetMatrixEx")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-10+
+                         pde-element-get-matrix-ex-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-element-get-matrix-ex-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-text-matrix-ex
+                          "PDETextGetTextMatrixEx")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-10+
+                         pde-text-get-text-matrix-ex-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-text-matrix-ex-sel+)
+;; line 397
+(define-acrobat-function (pde-text-get-stroke-matrix-ex
+                          "PDETextGetStrokeMatrixEx")
+                         *g-pdf-edit-read-version*
+                         +pdf-edit-read-hft-version-10+
+                         pde-text-get-stroke-matrix-ex-selproto
+                         *g-pdf-edit-read-hft*
+                         +pde-text-get-stroke-matrix-ex-sel+)
+;; line 397
 (define-acrobat-function (pde-soft-mask-acquire-form-ex "PDESoftMaskAcquireFormEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-soft-mask-acquire-form-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-soft-mask-acquire-form-ex-sel+)
-;; line 380
+;; line 397
 (define-acrobat-function (pde-text-item-get-text-matrix-ex "PDETextItemGetTextMatrixEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-text-item-get-text-matrix-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-item-get-text-matrix-ex-sel+)
-;; line 381
+;; line 397
 (define-acrobat-function (pde-text-get-matrix-ex "PDETextGetMatrixEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-text-get-matrix-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-matrix-ex-sel+)
-;; line 384
+;; line 397
 (define-acrobat-function (pde-path-get-data-ex "PDEPathGetDataEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-path-get-data-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-path-get-data-ex-sel+)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pdf-edit-read-bad-selector+ 0))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pdf-edit-read-num-selectorsplus-one+ 1))
 
 ;; #include <PEWProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)
@@ -4326,423 +4996,1298 @@
 ;; line 103
 (define-c-typedef pdf-edit-write-hft-version-10
                   pdf-edit-write-hft-latest-version)
-;; line 248
-(define-acrobat-function (pde-merge-resources-dict
-                          "PDEMergeResourcesDict")
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pdf-edit-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pdf-edit-num-selectorsplus-one+ 1))
+;; line 434
+(define-acrobat-function (pde-content-create "PDEContentCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-content-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-create-sel+)
+;; line 434
+(define-acrobat-function (pde-content-to-cos-obj "PDEContentToCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-content-to-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-to-cos-obj-sel+)
+;; line 434
+(define-acrobat-function (pde-content-remove-elem
+                          "PDEContentRemoveElem")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-content-remove-elem-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-remove-elem-sel+)
+;; line 434
+(define-acrobat-function (pde-content-add-elem "PDEContentAddElem")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-content-add-elem-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-add-elem-sel+)
+;; line 434
+(define-acrobat-function (pde-element-set-gstate "PDEElementSetGState")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-element-set-gstate-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-element-set-gstate-sel+)
+;; line 434
+(define-acrobat-function (pde-element-set-matrix "PDEElementSetMatrix")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-element-set-matrix-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-element-set-matrix-sel+)
+;; line 434
+(define-acrobat-function (pde-element-set-clip "PDEElementSetClip")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-element-set-clip-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-element-set-clip-sel+)
+;; line 434
+(define-acrobat-function (pde-element-copy "PDEElementCopy")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-element-copy-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-element-copy-sel+)
+;; line 434
+(define-acrobat-function (pde-text-create "PDETextCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-create-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-gstate "PDETextRunSetGState")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-run-set-gstate-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-gstate-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-text-state
+                          "PDETextRunSetTextState")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-run-set-text-state-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-text-state-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-font "PDETextRunSetFont")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-run-set-font-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-font-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-text-matrix
+                          "PDETextRunSetTextMatrix")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-run-set-text-matrix-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-text-matrix-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-stroke-matrix
+                          "PDETextRunSetStrokeMatrix")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-run-set-stroke-matrix-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-stroke-matrix-sel+)
+;; line 434
+(define-acrobat-function (pde-text-add "PDETextAdd")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-add-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-add-sel+)
+;; line 434
+(define-acrobat-function (pde-text-remove "PDETextRemove")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-remove-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-remove-sel+)
+;; line 434
+(define-acrobat-function (pde-path-create "PDEPathCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-path-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-path-create-sel+)
+;; line 434
+(define-acrobat-function (pde-path-set-data "PDEPathSetData")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-path-set-data-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-path-set-data-sel+)
+;; line 434
+(define-acrobat-function (pde-path-set-paint-op "PDEPathSetPaintOp")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-path-set-paint-op-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-path-set-paint-op-sel+)
+;; line 434
+(define-acrobat-function (pde-image-create-from-cos-obj
+                          "PDEImageCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-image-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-from-cos-obj-sel+)
+;; line 434
+(define-acrobat-function (pde-image-set-data "PDEImageSetData")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-image-set-data-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-set-data-sel+)
+;; line 434
+(define-acrobat-function (pde-image-set-data-stm "PDEImageSetDataStm")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-image-set-data-stm-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-set-data-stm-sel+)
+;; line 434
+(define-acrobat-function (pde-image-create "PDEImageCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-image-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-sel+)
+;; line 434
+(define-acrobat-function (pde-clip-create "PDEClipCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-clip-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-clip-create-sel+)
+;; line 434
+(define-acrobat-function (pde-clip-add-elem "PDEClipAddElem")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-clip-add-elem-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-clip-add-elem-sel+)
+;; line 434
+(define-acrobat-function (pde-clip-remove-elems "PDEClipRemoveElems")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-clip-remove-elems-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-clip-remove-elems-sel+)
+;; line 434
+(define-acrobat-function (pde-xobject-create "PDEXObjectCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-xobject-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-xobject-create-sel+)
+;; line 434
+(define-acrobat-function (pde-form-create-from-cos-obj
+                          "PDEFormCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-form-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-create-from-cos-obj-sel+)
+;; line 434
+(define-acrobat-function (pde-form-get-content "PDEFormGetContent")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-form-get-content-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-get-content-sel+)
+;; line 434
+(define-acrobat-function (pde-pscreate "PDEPSCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-pscreate-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-pscreate-sel+)
+;; line 434
+(define-acrobat-function (pde-pscreate-from-cos-obj
+                          "PDEPSCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-pscreate-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-pscreate-from-cos-obj-sel+)
+;; line 434
+(define-acrobat-function (pde-psset-data "PDEPSSetData")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-psset-data-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-psset-data-sel+)
+;; line 434
+(define-acrobat-function (pde-psset-data-stm "PDEPSSetDataStm")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-psset-data-stm-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-psset-data-stm-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create "PDEFontCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create-from-cos-obj
+                          "PDEFontCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-from-cos-obj-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create-from-sys-font
+                          "PDEFontCreateFromSysFont")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-create-from-sys-font-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-from-sys-font-sel+)
+;; line 434
+(define-acrobat-function (pde-color-space-create-from-name
+                          "PDEColorSpaceCreateFromName")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-color-space-create-from-name-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-color-space-create-from-name-sel+)
+;; line 434
+(define-acrobat-function (pde-color-space-create-from-cos-obj
+                          "PDEColorSpaceCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-color-space-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-color-space-create-from-cos-obj-sel+)
+;; line 434
+(define-acrobat-function (pde-add-tag "PDEAddTag")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-add-tag-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-add-tag-sel+)
+;; line 434
+(define-acrobat-function (pde-get-tag "PDEGetTag")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-get-tag-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-get-tag-sel+)
+;; line 434
+(define-acrobat-function (pde-remove-tag "PDERemoveTag")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-remove-tag-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-remove-tag-sel+)
+;; line 434
+(define-acrobat-function (pde-merge-resources-dict "PDEMergeResourcesDict")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-merge-resources-dict-selproto
                          *g-pdf-edit-write-hft*
                          +pde-merge-resources-dict-sel+)
-;; line 249
+;; line 434
 (define-acrobat-function (pde-ext-gstate-create "PDEExtGStateCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-ext-gstate-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-create-sel+)
-;; line 250
+;; line 434
 (define-acrobat-function (pde-place-create "PDEPlaceCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-place-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-place-create-sel+)
-;; line 251
+;; line 434
 (define-acrobat-function (pde-place-set-mctag "PDEPlaceSetMCTag")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-place-set-mctag-selproto
                          *g-pdf-edit-write-hft*
                          +pde-place-set-mctag-sel+)
-;; line 252
+;; line 434
 (define-acrobat-function (pde-place-set-dict "PDEPlaceSetDict")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-place-set-dict-selproto
                          *g-pdf-edit-write-hft*
                          +pde-place-set-dict-sel+)
-;; line 253
+;; line 434
 (define-acrobat-function (pde-container-create "PDEContainerCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-container-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-container-create-sel+)
-;; line 254
-(define-acrobat-function (pde-container-set-mctag
-                          "PDEContainerSetMCTag")
+;; line 434
+(define-acrobat-function (pde-container-set-mctag "PDEContainerSetMCTag")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-container-set-mctag-selproto
                          *g-pdf-edit-write-hft*
                          +pde-container-set-mctag-sel+)
-;; line 255
+;; line 434
 (define-acrobat-function (pde-container-set-dict "PDEContainerSetDict")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-container-set-dict-selproto
                          *g-pdf-edit-write-hft*
                          +pde-container-set-dict-sel+)
-;; line 256
-(define-acrobat-function (pde-container-set-content
-                          "PDEContainerSetContent")
+;; line 434
+(define-acrobat-function (pde-container-set-content "PDEContainerSetContent")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-container-set-content-selproto
                          *g-pdf-edit-write-hft*
                          +pde-container-set-content-sel+)
-;; line 257
+;; line 434
 (define-acrobat-function (pde-text-split-run-at "PDETextSplitRunAt")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-text-split-run-at-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-split-run-at-sel+)
-;; line 258
-(define-acrobat-function (pde-text-run-set-gstate
-                          "PDETextRunSetGState")
+;; line 434
+(define-acrobat-function (pde-text-run-set-gstate "PDETextRunSetGState")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-text-run-set-gstate-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-gstate-sel+)
-;; line 259
+;; line 434
 (define-acrobat-function (pde-pattern-create "PDEPatternCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-pattern-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-pattern-create-sel+)
-;; line 260
+;; line 434
 (define-acrobat-function (pde-text-replace-chars "PDETextReplaceChars")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-text-replace-chars-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-replace-chars-sel+)
-;; line 262
+;; line 434
+(define-acrobat-function (pde-purge-cache "PDEPurgeCache")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-purge-cache-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-purge-cache-sel+)
+;; line 434
 (define-acrobat-function (pde-font-subset-now "PDEFontSubsetNow")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-subset-now-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-subset-now-sel+)
-;; line 263
+;; line 434
 (define-acrobat-function (pde-path-add-segment "PDEPathAddSegment")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-path-add-segment-selproto
                          *g-pdf-edit-write-hft*
                          +pde-path-add-segment-sel+)
-;; line 266
-(define-acrobat-function (pde-device-ncolors-create
-                          "PDEDeviceNColorsCreate")
+;; line 434
+(define-acrobat-function (pde-font-create-with-params
+                          "PDEFontCreateWithParams")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-create-with-params-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-with-params-sel+)
+;; line 434
+(define-acrobat-function (pde-color-space-create "PDEColorSpaceCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-color-space-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-color-space-create-sel+)
+;; line 434
+(define-acrobat-function (pde-device-ncolors-create "PDEDeviceNColorsCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-device-ncolors-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-device-ncolors-create-sel+)
-;; line 269
+;; line 434
+(define-acrobat-function (pde-shading-create-from-cos-obj
+                          "PDEShadingCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-shading-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-shading-create-from-cos-obj-sel+)
+;; line 434
 (define-acrobat-function (pde-group-create "PDEGroupCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-group-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-group-create-sel+)
-;; line 270
+;; line 434
 (define-acrobat-function (pde-group-set-content "PDEGroupSetContent")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-group-set-content-selproto
                          *g-pdf-edit-write-hft*
                          +pde-group-set-content-sel+)
-;; line 276
-(define-acrobat-function (pde-image-set-decode-array
-                          "PDEImageSetDecodeArray")
+;; line 434
+(define-acrobat-function (pde-font-create-from-sys-font-ex
+                          "PDEFontCreateFromSysFontEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-create-from-sys-font-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-from-sys-font-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-clip-copy "PDEClipCopy")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-clip-copy-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-clip-copy-sel+)
+;; line 434
+(define-acrobat-function (pde-image-set-decode-array "PDEImageSetDecodeArray")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-image-set-decode-array-selproto
                          *g-pdf-edit-write-hft*
                          +pde-image-set-decode-array-sel+)
-;; line 278
-(define-acrobat-function (pde-font-embed-now-dont-subset
-                          "PDEFontEmbedNowDontSubset")
+;; line 434
+(define-acrobat-function (pde-content-add-page "PDEContentAddPage")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-content-add-page-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-add-page-sel+)
+;; line 434
+(define-acrobat-function (pde-font-embed-now-dont-subset "PDEFontEmbedNowDontSubset")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-embed-now-dont-subset-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-embed-now-dont-subset-sel+)
-;; line 279
-(define-acrobat-function (pde-font-get-widths-now
-                          "PDEFontGetWidthsNow")
+;; line 434
+(define-acrobat-function (pde-font-get-widths-now "PDEFontGetWidthsNow")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-get-widths-now-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-get-widths-now-sel+)
-;; line 284
-(define-acrobat-function (pde-begin-container-create
-                          "PDEBeginContainerCreate")
+;; line 434
+(define-acrobat-function (pde-begin-container-create "PDEBeginContainerCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-begin-container-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-begin-container-create-sel+)
-;; line 285
-(define-acrobat-function (pde-begin-container-set-mctag
-                          "PDEBeginContainerSetMCTag")
+;; line 434
+(define-acrobat-function (pde-begin-container-set-mctag "PDEBeginContainerSetMCTag")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-begin-container-set-mctag-selproto
                          *g-pdf-edit-write-hft*
                          +pde-begin-container-set-mctag-sel+)
-;; line 286
-(define-acrobat-function (pde-begin-container-set-dict
-                          "PDEBeginContainerSetDict")
+;; line 434
+(define-acrobat-function (pde-begin-container-set-dict "PDEBeginContainerSetDict")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-begin-container-set-dict-selproto
                          *g-pdf-edit-write-hft*
                          +pde-begin-container-set-dict-sel+)
-;; line 288
-(define-acrobat-function (pde-soft-mask-create-from-cos-obj
-                          "PDESoftMaskCreateFromCosObj")
+;; line 434
+(define-acrobat-function (pde-soft-mask-create-from-cos-obj "PDESoftMaskCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-soft-mask-create-from-cos-obj-selproto
                          *g-pdf-edit-write-hft*
                          +pde-soft-mask-create-from-cos-obj-sel+)
-;; line 289
+;; line 434
 (define-acrobat-function (pde-soft-mask-create "PDESoftMaskCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-soft-mask-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-soft-mask-create-sel+)
-;; line 290
-(define-acrobat-function (pde-soft-mask-set-xgroup
-                          "PDESoftMaskSetXGroup")
+;; line 434
+(define-acrobat-function (pde-soft-mask-set-xgroup "PDESoftMaskSetXGroup")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-soft-mask-set-xgroup-selproto
                          *g-pdf-edit-write-hft*
                          +pde-soft-mask-set-xgroup-sel+)
-;; line 291
-(define-acrobat-function (pde-soft-mask-set-backdrop-color
-                          "PDESoftMaskSetBackdropColor")
+;; line 434
+(define-acrobat-function (pde-soft-mask-set-backdrop-color "PDESoftMaskSetBackdropColor")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-soft-mask-set-backdrop-color-selproto
                          *g-pdf-edit-write-hft*
                          +pde-soft-mask-set-backdrop-color-sel+)
-;; line 292
-(define-acrobat-function (pde-soft-mask-set-transfer-function
-                          "PDESoftMaskSetTransferFunction")
+;; line 434
+(define-acrobat-function (pde-soft-mask-set-transfer-function "PDESoftMaskSetTransferFunction")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-soft-mask-set-transfer-function-selproto
                          *g-pdf-edit-write-hft*
                          +pde-soft-mask-set-transfer-function-sel+)
-;; line 294
-(define-acrobat-function (pde-xgroup-create-from-cos-obj
-                          "PDEXGroupCreateFromCosObj")
+;; line 434
+(define-acrobat-function (pde-xgroup-create-from-cos-obj "PDEXGroupCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-xgroup-create-from-cos-obj-selproto
                          *g-pdf-edit-write-hft*
                          +pde-xgroup-create-from-cos-obj-sel+)
-;; line 295
+;; line 434
 (define-acrobat-function (pde-xgroup-create "PDEXGroupCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-xgroup-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-xgroup-create-sel+)
-;; line 296
-(define-acrobat-function (pde-xgroup-set-knockout
-                          "PDEXGroupSetKnockout")
+;; line 434
+(define-acrobat-function (pde-xgroup-set-knockout "PDEXGroupSetKnockout")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-xgroup-set-knockout-selproto
                          *g-pdf-edit-write-hft*
                          +pde-xgroup-set-knockout-sel+)
-;; line 297
-(define-acrobat-function (pde-xgroup-set-isolated
-                          "PDEXGroupSetIsolated")
+;; line 434
+(define-acrobat-function (pde-xgroup-set-isolated "PDEXGroupSetIsolated")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-xgroup-set-isolated-selproto
                          *g-pdf-edit-write-hft*
                          +pde-xgroup-set-isolated-sel+)
-;; line 298
-(define-acrobat-function (pde-xgroup-set-color-space
-                          "PDEXGroupSetColorSpace")
+;; line 434
+(define-acrobat-function (pde-xgroup-set-color-space "PDEXGroupSetColorSpace")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-xgroup-set-color-space-selproto
                          *g-pdf-edit-write-hft*
                          +pde-xgroup-set-color-space-sel+)
-;; line 300
+;; line 434
 (define-acrobat-function (pde-form-set-xgroup "PDEFormSetXGroup")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-form-set-xgroup-selproto
                          *g-pdf-edit-write-hft*
                          +pde-form-set-xgroup-sel+)
-;; line 302
-(define-acrobat-function (pde-ext-gstate-create-new
-                          "PDEExtGStateCreateNew")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-create-new "PDEExtGStateCreateNew")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-create-new-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-create-new-sel+)
-;; line 303
+;; line 434
 (define-acrobat-function (pde-ext-gstate-set-opm "PDEExtGStateSetOPM")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-opm-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-opm-sel+)
-;; line 304
-(define-acrobat-function (pde-ext-gstate-set-opfill
-                          "PDEExtGStateSetOPFill")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-set-opfill "PDEExtGStateSetOPFill")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-opfill-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-opfill-sel+)
-;; line 305
-(define-acrobat-function (pde-ext-gstate-set-opstroke
-                          "PDEExtGStateSetOPStroke")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-set-opstroke "PDEExtGStateSetOPStroke")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-opstroke-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-opstroke-sel+)
-;; line 306
-(define-acrobat-function (pde-ext-gstate-set-opacity-fill
-                          "PDEExtGStateSetOpacityFill")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-set-opacity-fill "PDEExtGStateSetOpacityFill")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-opacity-fill-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-opacity-fill-sel+)
-;; line 307
-(define-acrobat-function (pde-ext-gstate-set-opacity-stroke
-                          "PDEExtGStateSetOpacityStroke")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-set-opacity-stroke "PDEExtGStateSetOpacityStroke")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-opacity-stroke-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-opacity-stroke-sel+)
-;; line 308
-(define-acrobat-function (pde-ext-gstate-set-blend-mode
-                          "PDEExtGStateSetBlendMode")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-set-blend-mode "PDEExtGStateSetBlendMode")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-blend-mode-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-blend-mode-sel+)
-;; line 309
+;; line 434
 (define-acrobat-function (pde-ext-gstate-set-ais "PDEExtGStateSetAIS")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-ais-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-ais-sel+)
-;; line 310
-(define-acrobat-function (pde-ext-gstate-set-soft-mask
-                          "PDEExtGStateSetSoftMask")
+;; line 434
+(define-acrobat-function (pde-ext-gstate-set-soft-mask "PDEExtGStateSetSoftMask")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-soft-mask-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-soft-mask-sel+)
-;; line 312
+;; line 434
 (define-acrobat-function (pde-image-set-smask "PDEImageSetSMask")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-image-set-smask-selproto
                          *g-pdf-edit-write-hft*
                          +pde-image-set-smask-sel+)
-;; line 313
-(define-acrobat-function (pde-image-set-matte-array
-                          "PDEImageSetMatteArray")
+;; line 434
+(define-acrobat-function (pde-image-set-matte-array "PDEImageSetMatteArray")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-image-set-matte-array-selproto
                          *g-pdf-edit-write-hft*
                          +pde-image-set-matte-array-sel+)
-;; line 315
-(define-acrobat-function (pde-end-container-create
-                          "PDEEndContainerCreate")
+;; line 434
+(define-acrobat-function (pde-end-container-create "PDEEndContainerCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-end-container-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-end-container-create-sel+)
-;; line 316
+;; line 434
 (define-acrobat-function (pde-begin-group-create "PDEBeginGroupCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-begin-group-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-begin-group-create-sel+)
-;; line 317
+;; line 434
 (define-acrobat-function (pde-end-group-create "PDEEndGroupCreate")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-end-group-create-selproto
                          *g-pdf-edit-write-hft*
                          +pde-end-group-create-sel+)
-;; line 322
+;; line 434
+(define-acrobat-function (pde-font-create-from-sys-font-with-params
+                          "PDEFontCreateFromSysFontWithParams")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-font-create-from-sys-font-with-params-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-from-sys-font-with-params-sel+)
+;; line 434
+(define-acrobat-function (pde-font-translate-glyph-ids-to-unicode
+                          "PDEFontTranslateGlyphIdsToUnicode")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-font-translate-glyph-ids-to-unicode-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-translate-glyph-ids-to-unicode-sel+)
+;; line 434
 (define-acrobat-function (pde-ext-gstate-set-tk "PDEExtGStateSetTK")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-ext-gstate-set-tk-selproto
                          *g-pdf-edit-write-hft*
                          +pde-ext-gstate-set-tk-sel+)
-;; line 370
+;; line 434
+(define-acrobat-function (pde-text-run-set-state "PDETextRunSetState")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-text-run-set-state-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-state-sel+)
+;; line 434
+(define-acrobat-function (pde-form-set-content "PDEFormSetContent")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-6+
+                         pde-form-set-content-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-set-content-sel+)
+;; line 434
+(define-acrobat-function (pde-form-create-clone "PDEFormCreateClone")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-6+
+                         pde-form-create-clone-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-create-clone-sel+)
+;; line 434
+(define-acrobat-function (pde-text-add-glyphs "PDETextAddGlyphs")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pde-text-add-glyphs-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-add-glyphs-sel+)
+;; line 434
+(define-acrobat-function (pde-font-add-glyphs "PDEFontAddGlyphs")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pde-font-add-glyphs-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-add-glyphs-sel+)
+;; line 434
 (define-acrobat-function (pde-release-span "PDEReleaseSpan")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-7+
                          pde-release-span-selproto
                          *g-pdf-edit-write-hft*
                          +pde-release-span-sel+)
-;; line 393
-(define-acrobat-function (pde-content-set-default-color-space
-                          "PDEContentSetDefaultColorSpace")
+;; line 434
+(define-acrobat-function (pde-content-set-page "PDEContentSetPage")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pde-content-set-page-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-set-page-sel+)
+;; line 434
+(define-acrobat-function (pde-content-set-containing-stream
+                          "PDEContentSetContainingStream")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pde-content-set-containing-stream-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-set-containing-stream-sel+)
+;; line 434
+(define-acrobat-function (pde-content-set-stream-owner
+                          "PDEContentSetStreamOwner")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pde-content-set-stream-owner-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-set-stream-owner-sel+)
+;; line 434
+(define-acrobat-function (pd-sys-font-verify-encoding
+                          "PDSysFontVerifyEncoding")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pd-sys-font-verify-encoding-selproto
+                         *g-pdf-edit-write-hft*
+                         +pd-sys-font-verify-encoding-sel+)
+;; line 434
+(define-acrobat-function (pde-form-get-matrix "PDEFormGetMatrix")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7-5+
+                         pde-form-get-matrix-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-get-matrix-sel+)
+;; line 434
+(define-acrobat-function (pde-form-get-bbox "PDEFormGetBBox")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7-5+
+                         pde-form-get-bbox-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-get-bbox-sel+)
+;; line 434
+(define-acrobat-function (pde-image-create-in-cos-doc
+                          "PDEImageCreateInCosDoc")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-image-create-in-cos-doc-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-in-cos-doc-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create-in-cos-doc
+                          "PDEFontCreateInCosDoc")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-font-create-in-cos-doc-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-in-cos-doc-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create-from-sys-font-in-cos-doc
+                          "PDEFontCreateFromSysFontInCosDoc")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-font-create-from-sys-font-in-cos-doc-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-from-sys-font-in-cos-doc-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create-from-sys-font-ex-in-cos-doc
+                          "PDEFontCreateFromSysFontExInCosDoc")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-font-create-from-sys-font-ex-in-cos-doc-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-from-sys-font-ex-in-cos-doc-sel+)
+;; line 434
+(define-acrobat-function (pde-font-create-with-params-in-cos-doc
+                          "PDEFontCreateWithParamsInCosDoc")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-font-create-with-params-in-cos-doc-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-create-with-params-in-cos-doc-sel+)
+;; line 434
+(define-acrobat-function (pde-color-space-create-in-cos-doc
+                          "PDEColorSpaceCreateInCosDoc")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-color-space-create-in-cos-doc-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-color-space-create-in-cos-doc-sel+)
+;; line 434
+(define-acrobat-function (pde-content-set-default-color-space "PDEContentSetDefaultColorSpace")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-content-set-default-color-space-pewcalls-selproto
                          *g-pdf-edit-write-hft*
                          +pde-content-set-default-color-space-pewcalls-sel+)
-;; line 402
-(define-acrobat-function (pde-form-set-content-to-cos-obj-flags
-                          "PDEFormSetContentToCosObjFlags")
+;; line 434
+(define-acrobat-function (pde-image-get-data-len64
+                          "PDEImageGetDataLen64")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-image-get-data-len64selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-get-data-len64sel+)
+;; line 434
+(define-acrobat-function (pde-image-create-in-cos-doc64
+                          "PDEImageCreateInCosDoc64")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-image-create-in-cos-doc64selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-in-cos-doc64sel+)
+;; line 434
+(define-acrobat-function (pde-scratch-doc-cleanup
+                          "PDEScratchDocCleanup")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-scratch-doc-cleanup-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-scratch-doc-cleanup-sel+)
+;; line 434
+(define-acrobat-function (pd-sys-encoding-create-from-cmap-stream
+                          "PDSysEncodingCreateFromCMapStream")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-9+
+                         pd-sys-encoding-create-from-cmap-stream-selproto
+                         *g-pdf-edit-write-hft*
+                         +pd-sys-encoding-create-from-cmap-stream-sel+)
+;; line 434
+(define-acrobat-function (pde-form-set-content-to-cos-obj-flags "PDEFormSetContentToCosObjFlags")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-9+
                          pde-form-set-content-to-cos-obj-flags-selproto
                          *g-pdf-edit-write-hft*
                          +pde-form-set-content-to-cos-obj-flags-sel+)
-;; line 419
-(define-acrobat-function (pde-text-run-set-matrix-ex
-                          "PDETextRunSetMatrixEx")
+;; line 434
+(define-acrobat-function (pde-form-get-matrix-ex "PDEFormGetMatrixEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-form-get-matrix-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-get-matrix-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-content-add-page-ex
+                          "PDEContentAddPageEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-content-add-page-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-add-page-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-shading-create-from-cos-obj-ex
+                          "PDEShadingCreateFromCosObjEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-shading-create-from-cos-obj-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-shading-create-from-cos-obj-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-image-create-in-cos-doc-ex
+                          "PDEImageCreateInCosDocEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-image-create-in-cos-doc-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-in-cos-doc-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-image-create-ex "PDEImageCreateEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-image-create-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-text-matrix-ex
+                          "PDETextRunSetTextMatrixEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-text-run-set-text-matrix-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-text-matrix-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-stroke-matrix-ex
+                          "PDETextRunSetStrokeMatrixEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-text-run-set-stroke-matrix-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-stroke-matrix-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-image-create-from-cos-obj-ex
+                          "PDEImageCreateFromCosObjEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-image-create-from-cos-obj-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-create-from-cos-obj-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-text-add-glyphs-ex "PDETextAddGlyphsEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-text-add-glyphs-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-add-glyphs-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-text-add-ex "PDETextAddEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-text-add-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-add-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-element-set-matrix-ex
+                          "PDEElementSetMatrixEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-element-set-matrix-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-element-set-matrix-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-form-create-from-cos-obj-ex
+                          "PDEFormCreateFromCosObjEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-form-create-from-cos-obj-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-create-from-cos-obj-ex-sel+)
+;; line 434
+(define-acrobat-function (pde-text-run-set-matrix-ex "PDETextRunSetMatrixEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-text-run-set-matrix-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-matrix-ex-sel+)
-;; line 421
+;; line 434
 (define-acrobat-function (pde-path-set-data-ex "PDEPathSetDataEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-path-set-data-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-path-set-data-ex-sel+)
+
+;; #include <PagePDECntCalls.h>
+;; line 98
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pdf-edit-bad-selector+ 0))
+  (defconstant +-page-pdecontent-hft-is-beta+ 0))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pdf-edit-num-selectorsplus-one+ 1))
+  (defconstant +page-content-server-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +page-content-server-num-selectorsplus-one+ 1))
+(define-c-typedef page-pdecontent-did-change-nproto
+                  (:pointer
+                   (:function
+                    (pd-page pde-content)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+(define-c-typedef page-pdecontent-not-cached-nproto
+                  (:pointer
+                   (:function
+                    (pd-page pde-content)
+                    :void
+                    :calling-convention
+                    :cdecl)))
+;; line 200
+(define-acrobat-function (pd-page-acquire-pdecontent
+                          "PDPageAcquirePDEContent")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-acquire-pdecontent-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-acquire-pdecontent-sel+)
+;; line 200
+(define-acrobat-function (pd-page-release-pdecontent
+                          "PDPageReleasePDEContent")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-release-pdecontent-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-release-pdecontent-sel+)
+;; line 200
+(define-acrobat-function (pd-page-set-pdecontent "PDPageSetPDEContent")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-set-pdecontent-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-set-pdecontent-sel+)
+;; line 200
+(define-acrobat-function (pd-page-pdecontent-was-changed
+                          "PDPagePDEContentWasChanged")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-pdecontent-was-changed-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-pdecontent-was-changed-sel+)
+;; line 200
+(define-acrobat-function (pd-page-register-for-pdecontent-changed
+                          "PDPageRegisterForPDEContentChanged")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-register-for-pdecontent-changed-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-register-for-pdecontent-changed-sel+)
+;; line 200
+(define-acrobat-function (pd-page-un-register-for-pdecontent-changed
+                          "PDPageUnRegisterForPDEContentChanged")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-un-register-for-pdecontent-changed-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-un-register-for-pdecontent-changed-sel+)
+;; line 200
+(define-acrobat-function (pd-page-register-for-pdecontent-not-cached
+                          "PDPageRegisterForPDEContentNotCached")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-register-for-pdecontent-not-cached-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-register-for-pdecontent-not-cached-sel+)
+;; line 200
+(define-acrobat-function (pd-page-un-register-for-pdecontent-not-cached
+                          "PDPageUnRegisterForPDEContentNotCached")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-un-register-for-pdecontent-not-cached-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-un-register-for-pdecontent-not-cached-sel+)
+;; line 200
+(define-acrobat-function (pd-page-get-pdecontent-flags
+                          "PDPageGetPDEContentFlags")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-get-pdecontent-flags-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-get-pdecontent-flags-sel+)
+;; line 200
+(define-acrobat-function (pd-page-set-pdecontent-flags
+                          "PDPageSetPDEContentFlags")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-set-pdecontent-flags-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-set-pdecontent-flags-sel+)
+;; line 200
+(define-acrobat-function (pd-page-get-pdecontent-filters
+                          "PDPageGetPDEContentFilters")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-get-pdecontent-filters-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-get-pdecontent-filters-sel+)
+;; line 200
+(define-acrobat-function (pd-page-set-pdecontent-filters
+                          "PDPageSetPDEContentFilters")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-4+
+                         pd-page-set-pdecontent-filters-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-set-pdecontent-filters-sel+)
+;; line 200
+(define-acrobat-function (pd-page-suspend-pdecontent-changed
+                          "PDPageSuspendPDEContentChanged")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-5+
+                         pd-page-suspend-pdecontent-changed-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-suspend-pdecontent-changed-sel+)
+;; line 200
+(define-acrobat-function (pd-page-resume-pdecontent-changed
+                          "PDPageResumePDEContentChanged")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-5+
+                         pd-page-resume-pdecontent-changed-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-resume-pdecontent-changed-sel+)
+;; line 200
+(define-acrobat-function (pd-page-set-pdecontent-can-raise
+                          "PDPageSetPDEContentCanRaise")
+                         *g-page-pdecontent-version*
+                         +page-pdecontent-hft-version-6+
+                         pd-page-set-pdecontent-can-raise-selproto
+                         *g-page-pdecontent-hft*
+                         +pd-page-set-pdecontent-can-raise-sel+)
+
+;; #include <PgCntProcs.h>
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-acquire-pdecontent-sel+ 1))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-release-pdecontent-sel+ 2))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-pdecontent-sel+ 3))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-pdecontent-was-changed-sel+ 4))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-register-for-pdecontent-changed-sel+ 5))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-un-register-for-pdecontent-changed-sel+ 6))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-register-for-pdecontent-not-cached-sel+ 7))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-un-register-for-pdecontent-not-cached-sel+ 8))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-pdecontent-flags-sel+ 9))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-pdecontent-flags-sel+ 10))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-pdecontent-filters-sel+ 11))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-pdecontent-filters-sel+ 12))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-suspend-pdecontent-changed-sel+ 13))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-resume-pdecontent-changed-sel+ 14))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-pdecontent-can-raise-sel+ 15))
+;; sel = 1
+(define-foreign-funcallable pd-page-acquire-pdecontent-selproto
+                            ((pd-page pd-page) (self as-extension))
+                            :result-type
+                            pde-content
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable pd-page-release-pdecontent-selproto
+                            ((pd-page pd-page) (self as-extension))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable pd-page-set-pdecontent-selproto
+                            ((pd-page pd-page) (self as-extension))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable pd-page-pdecontent-was-changed-selproto
+                            ((pd-page pd-page) (self as-extension))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable pd-page-register-for-pdecontent-changed-selproto
+                            ((proc page-pdecontent-did-change-nproto)
+                             (self as-extension))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable pd-page-un-register-for-pdecontent-changed-selproto
+                            ((proc page-pdecontent-did-change-nproto)
+                             (self as-extension))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable pd-page-register-for-pdecontent-not-cached-selproto
+                            ((proc page-pdecontent-not-cached-nproto)
+                             (self as-extension))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable pd-page-un-register-for-pdecontent-not-cached-selproto
+                            ((proc page-pdecontent-not-cached-nproto)
+                             (self as-extension))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable pd-page-get-pdecontent-flags-selproto
+                            ((pd-page pd-page)
+                             (flags (:pointer as-uns32)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable pd-page-set-pdecontent-flags-selproto
+                            ((pd-page pd-page) (flags as-uns32))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable pd-page-get-pdecontent-filters-selproto
+                            ((pd-page pd-page)
+                             (num-filters (:pointer as-int32))
+                             (filters (:pointer (:pointer as-atom))))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable pd-page-set-pdecontent-filters-selproto
+                            ((pd-page pd-page)
+                             (num-filters as-int32)
+                             (filters (:pointer as-atom)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable pd-page-suspend-pdecontent-changed-selproto
+                            ((pd-page pd-page))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable pd-page-resume-pdecontent-changed-selproto
+                            ((pd-page pd-page))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable pd-page-set-pdecontent-can-raise-selproto
+                            ((pd-page pd-page) (self as-extension))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)

@@ -1652,1053 +1652,1053 @@
 ;; #include <ASExtraCalls.h>
 ;; line 101
 (define-c-typedef as-extra-hft-version-9 as-extra-hft-latest-version)
-;; line 160
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-extra-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-extra-num-selectorsplus-one+ 1))
+;; line 401
 (define-acrobat-function (as-script-to-host-encoding "ASScriptToHostEncoding")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-script-to-host-encoding-selproto
                          *g-as-extra-hft*
                          +as-script-to-host-encoding-sel+)
-;; line 161
+;; line 401
 (define-acrobat-function (as-script-from-host-encoding "ASScriptFromHostEncoding")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-script-from-host-encoding-selproto
                          *g-as-extra-hft*
                          +as-script-from-host-encoding-sel+)
-;; line 162
+;; line 401
 (define-acrobat-function (as-text-new "ASTextNew")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-new-selproto
                          *g-as-extra-hft*
                          +as-text-new-sel+)
-;; line 163
+;; line 401
 (define-acrobat-function (as-text-from-unicode "ASTextFromUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-unicode-selproto
                          *g-as-extra-hft*
                          +as-text-from-unicode-sel+)
-;; line 164
+;; line 401
 (define-acrobat-function (as-text-from-sized-unicode "ASTextFromSizedUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-unicode-selproto
                          *g-as-extra-hft*
                          +as-text-from-sized-unicode-sel+)
-;; line 165
+;; line 401
 (define-acrobat-function (as-text-from-encoded "ASTextFromEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-from-encoded-sel+)
-;; line 166
+;; line 401
 (define-acrobat-function (as-text-from-sized-encoded "ASTextFromSizedEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-from-sized-encoded-sel+)
-;; line 167
+;; line 401
 (define-acrobat-function (as-text-from-script-text "ASTextFromScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-from-script-text-sel+)
-;; line 168
+;; line 401
 (define-acrobat-function (as-text-from-sized-script-text "ASTextFromSizedScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-from-sized-script-text-sel+)
-;; line 169
+;; line 401
 (define-acrobat-function (as-text-from-pdtext "ASTextFromPDText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-pdtext-selproto
                          *g-as-extra-hft*
                          +as-text-from-pdtext-sel+)
-;; line 170
+;; line 401
 (define-acrobat-function (as-text-from-sized-pdtext "ASTextFromSizedPDText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-sized-pdtext-selproto
                          *g-as-extra-hft*
                          +as-text-from-sized-pdtext-sel+)
-;; line 171
+;; line 401
 (define-acrobat-function (as-text-destroy "ASTextDestroy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-destroy-selproto
                          *g-as-extra-hft*
                          +as-text-destroy-sel+)
-;; line 172
+;; line 401
 (define-acrobat-function (as-text-set-unicode "ASTextSetUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-unicode-selproto
                          *g-as-extra-hft*
                          +as-text-set-unicode-sel+)
-;; line 173
+;; line 401
 (define-acrobat-function (as-text-set-sized-unicode "ASTextSetSizedUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-unicode-selproto
                          *g-as-extra-hft*
                          +as-text-set-sized-unicode-sel+)
-;; line 174
+;; line 401
 (define-acrobat-function (as-text-set-encoded "ASTextSetEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-set-encoded-sel+)
-;; line 175
+;; line 401
 (define-acrobat-function (as-text-set-sized-encoded "ASTextSetSizedEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-set-sized-encoded-sel+)
-;; line 176
+;; line 401
 (define-acrobat-function (as-text-set-script-text "ASTextSetScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-set-script-text-sel+)
-;; line 177
+;; line 401
 (define-acrobat-function (as-text-set-sized-script-text "ASTextSetSizedScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-set-sized-script-text-sel+)
-;; line 178
+;; line 401
 (define-acrobat-function (as-text-set-pdtext "ASTextSetPDText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-pdtext-selproto
                          *g-as-extra-hft*
                          +as-text-set-pdtext-sel+)
-;; line 179
+;; line 401
 (define-acrobat-function (as-text-set-sized-pdtext "ASTextSetSizedPDText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-sized-pdtext-selproto
                          *g-as-extra-hft*
                          +as-text-set-sized-pdtext-sel+)
-;; line 180
+;; line 401
 (define-acrobat-function (as-text-get-unicode "ASTextGetUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-unicode-selproto
                          *g-as-extra-hft*
                          +as-text-get-unicode-sel+)
-;; line 181
+;; line 401
 (define-acrobat-function (as-text-get-unicode-copy "ASTextGetUnicodeCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-unicode-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-unicode-copy-sel+)
-;; line 182
+;; line 401
 (define-acrobat-function (as-text-get-encoded "ASTextGetEncoded")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-encoded-selproto
                          *g-as-extra-hft*
                          +as-text-get-encoded-sel+)
-;; line 183
+;; line 401
 (define-acrobat-function (as-text-get-encoded-copy "ASTextGetEncodedCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-encoded-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-encoded-copy-sel+)
-;; line 184
+;; line 401
 (define-acrobat-function (as-text-get-script-text "ASTextGetScriptText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-script-text-selproto
                          *g-as-extra-hft*
                          +as-text-get-script-text-sel+)
-;; line 185
+;; line 401
 (define-acrobat-function (as-text-get-script-text-copy "ASTextGetScriptTextCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-script-text-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-script-text-copy-sel+)
-;; line 186
+;; line 401
 (define-acrobat-function (as-text-get-pdtext-copy "ASTextGetPDTextCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-pdtext-copy-selproto
                          *g-as-extra-hft*
                          +as-text-get-pdtext-copy-sel+)
-;; line 187
+;; line 401
 (define-acrobat-function (as-text-get-best-encoding "ASTextGetBestEncoding")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-best-encoding-selproto
                          *g-as-extra-hft*
                          +as-text-get-best-encoding-sel+)
-;; line 188
+;; line 401
 (define-acrobat-function (as-text-get-best-script "ASTextGetBestScript")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-best-script-selproto
                          *g-as-extra-hft*
                          +as-text-get-best-script-sel+)
-;; line 189
+;; line 401
 (define-acrobat-function (as-text-get-country "ASTextGetCountry")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-country-selproto
                          *g-as-extra-hft*
                          +as-text-get-country-sel+)
-;; line 190
+;; line 401
 (define-acrobat-function (as-text-set-country "ASTextSetCountry")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-country-selproto
                          *g-as-extra-hft*
                          +as-text-set-country-sel+)
-;; line 191
+;; line 401
 (define-acrobat-function (as-text-get-language "ASTextGetLanguage")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-get-language-selproto
                          *g-as-extra-hft*
                          +as-text-get-language-sel+)
-;; line 192
+;; line 401
 (define-acrobat-function (as-text-set-language "ASTextSetLanguage")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-set-language-selproto
                          *g-as-extra-hft*
                          +as-text-set-language-sel+)
-;; line 193
+;; line 401
 (define-acrobat-function (as-text-cat "ASTextCat")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-cat-selproto
                          *g-as-extra-hft*
                          +as-text-cat-sel+)
-;; line 194
+;; line 401
 (define-acrobat-function (as-text-cat-many "ASTextCatMany")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-cat-many-selproto
                          *g-as-extra-hft*
                          +as-text-cat-many-sel+)
-;; line 195
+;; line 401
 (define-acrobat-function (as-text-copy "ASTextCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-copy-selproto
                          *g-as-extra-hft*
                          +as-text-copy-sel+)
-;; line 196
+;; line 401
 (define-acrobat-function (as-text-dup "ASTextDup")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-dup-selproto
                          *g-as-extra-hft*
                          +as-text-dup-sel+)
-;; line 197
+;; line 401
 (define-acrobat-function (as-text-cmp "ASTextCmp")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-cmp-selproto
                          *g-as-extra-hft*
                          +as-text-cmp-sel+)
-;; line 198
+;; line 401
 (define-acrobat-function (as-text-replace "ASTextReplace")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-replace-selproto
                          *g-as-extra-hft*
                          +as-text-replace-sel+)
-;; line 199
+;; line 401
 (define-acrobat-function (as-text-replace-as-cii "ASTextReplaceASCII")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-replace-as-cii-selproto
                          *g-as-extra-hft*
                          +as-text-replace-as-cii-sel+)
-;; line 201
+;; line 401
 (define-acrobat-function (as-cab-new "ASCabNew")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-new-selproto
                          *g-as-extra-hft*
                          +as-cab-new-sel+)
-;; line 202
+;; line 401
 (define-acrobat-function (as-cab-from-entry-list "ASCabFromEntryList")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-from-entry-list-selproto
                          *g-as-extra-hft*
                          +as-cab-from-entry-list-sel+)
-;; line 203
+;; line 401
 (define-acrobat-function (as-cab-destroy "ASCabDestroy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-destroy-selproto
                          *g-as-extra-hft*
                          +as-cab-destroy-sel+)
-;; line 204
+;; line 401
 (define-acrobat-function (as-cab-num-entries "ASCabNumEntries")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-num-entries-selproto
                          *g-as-extra-hft*
                          +as-cab-num-entries-sel+)
-;; line 205
+;; line 401
 (define-acrobat-function (as-cab-known "ASCabKnown")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-known-selproto
                          *g-as-extra-hft*
                          +as-cab-known-sel+)
-;; line 206
+;; line 401
 (define-acrobat-function (as-cab-get-type "ASCabGetType")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-type-selproto
                          *g-as-extra-hft*
                          +as-cab-get-type-sel+)
-;; line 207
+;; line 401
 (define-acrobat-function (as-cab-enum "ASCabEnum")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-enum-selproto
                          *g-as-extra-hft*
                          +as-cab-enum-sel+)
-;; line 208
+;; line 401
 (define-acrobat-function (as-cab-remove "ASCabRemove")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-remove-selproto
                          *g-as-extra-hft*
                          +as-cab-remove-sel+)
-;; line 209
+;; line 401
 (define-acrobat-function (as-cab-get-bool "ASCabGetBool")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-bool-selproto
                          *g-as-extra-hft*
                          +as-cab-get-bool-sel+)
-;; line 210
+;; line 401
 (define-acrobat-function (as-cab-put-bool "ASCabPutBool")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-bool-selproto
                          *g-as-extra-hft*
                          +as-cab-put-bool-sel+)
-;; line 211
+;; line 401
 (define-acrobat-function (as-cab-get-int "ASCabGetInt")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-int-selproto
                          *g-as-extra-hft*
                          +as-cab-get-int-sel+)
-;; line 212
+;; line 401
 (define-acrobat-function (as-cab-put-int "ASCabPutInt")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-int-selproto
                          *g-as-extra-hft*
                          +as-cab-put-int-sel+)
-;; line 213
+;; line 401
 (define-acrobat-function (as-cab-get-atom "ASCabGetAtom")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-atom-selproto
                          *g-as-extra-hft*
                          +as-cab-get-atom-sel+)
-;; line 214
+;; line 401
 (define-acrobat-function (as-cab-put-atom "ASCabPutAtom")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-atom-selproto
                          *g-as-extra-hft*
                          +as-cab-put-atom-sel+)
-;; line 215
+;; line 401
 (define-acrobat-function (as-cab-get-double "ASCabGetDouble")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-double-selproto
                          *g-as-extra-hft*
                          +as-cab-get-double-sel+)
-;; line 216
+;; line 401
 (define-acrobat-function (as-cab-put-double "ASCabPutDouble")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-double-selproto
                          *g-as-extra-hft*
                          +as-cab-put-double-sel+)
-;; line 217
+;; line 401
 (define-acrobat-function (as-cab-get-pointer-raw "ASCabGetPointerRaw")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-pointer-raw-selproto
                          *g-as-extra-hft*
                          +as-cab-get-pointer-raw-sel+)
-;; line 218
+;; line 401
 (define-acrobat-function (as-cab-detach-pointer-raw "ASCabDetachPointerRaw")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-pointer-raw-selproto
                          *g-as-extra-hft*
                          +as-cab-detach-pointer-raw-sel+)
-;; line 219
+;; line 401
 (define-acrobat-function (as-cab-put-pointer-raw "ASCabPutPointerRaw")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-pointer-raw-selproto
                          *g-as-extra-hft*
                          +as-cab-put-pointer-raw-sel+)
-;; line 220
+;; line 401
 (define-acrobat-function (as-cab-get-pointer-destroy-proc "ASCabGetPointerDestroyProc")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-pointer-destroy-proc-selproto
                          *g-as-extra-hft*
                          +as-cab-get-pointer-destroy-proc-sel+)
-;; line 221
+;; line 401
 (define-acrobat-function (as-cab-get-pointer-type "ASCabGetPointerType")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-pointer-type-selproto
                          *g-as-extra-hft*
                          +as-cab-get-pointer-type-sel+)
-;; line 222
+;; line 401
 (define-acrobat-function (as-cab-put-cab "ASCabPutCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-cab-selproto
                          *g-as-extra-hft*
                          +as-cab-put-cab-sel+)
-;; line 223
+;; line 401
 (define-acrobat-function (as-cab-get-cab "ASCabGetCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-cab-selproto
                          *g-as-extra-hft*
                          +as-cab-get-cab-sel+)
-;; line 224
+;; line 401
 (define-acrobat-function (as-cab-detach-cab "ASCabDetachCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-cab-selproto
                          *g-as-extra-hft*
                          +as-cab-detach-cab-sel+)
-;; line 225
+;; line 401
 (define-acrobat-function (as-cab-get-string "ASCabGetString")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-string-selproto
                          *g-as-extra-hft*
                          +as-cab-get-string-sel+)
-;; line 226
+;; line 401
 (define-acrobat-function (as-cab-get-string-copy "ASCabGetStringCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-string-copy-selproto
                          *g-as-extra-hft*
                          +as-cab-get-string-copy-sel+)
-;; line 227
+;; line 401
 (define-acrobat-function (as-cab-detach-string "ASCabDetachString")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-string-selproto
                          *g-as-extra-hft*
                          +as-cab-detach-string-sel+)
-;; line 228
+;; line 401
 (define-acrobat-function (as-cab-put-string "ASCabPutString")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-string-selproto
                          *g-as-extra-hft*
                          +as-cab-put-string-sel+)
-;; line 229
+;; line 401
 (define-acrobat-function (as-cab-get-text "ASCabGetText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-text-selproto
                          *g-as-extra-hft*
                          +as-cab-get-text-sel+)
-;; line 230
+;; line 401
 (define-acrobat-function (as-cab-detach-text "ASCabDetachText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-text-selproto
                          *g-as-extra-hft*
                          +as-cab-detach-text-sel+)
-;; line 231
+;; line 401
 (define-acrobat-function (as-cab-put-text "ASCabPutText")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-text-selproto
                          *g-as-extra-hft*
                          +as-cab-put-text-sel+)
-;; line 232
+;; line 401
 (define-acrobat-function (as-cab-get-binary "ASCabGetBinary")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-binary-selproto
                          *g-as-extra-hft*
                          +as-cab-get-binary-sel+)
-;; line 233
+;; line 401
 (define-acrobat-function (as-cab-get-binary-copy "ASCabGetBinaryCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-binary-copy-selproto
                          *g-as-extra-hft*
                          +as-cab-get-binary-copy-sel+)
-;; line 234
+;; line 401
 (define-acrobat-function (as-cab-detach-binary "ASCabDetachBinary")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-binary-selproto
                          *g-as-extra-hft*
                          +as-cab-detach-binary-sel+)
-;; line 235
+;; line 401
 (define-acrobat-function (as-cab-put-binary "ASCabPutBinary")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-binary-selproto
                          *g-as-extra-hft*
                          +as-cab-put-binary-sel+)
-;; line 236
+;; line 401
 (define-acrobat-function (as-cab-put-null "ASCabPutNull")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-null-selproto
                          *g-as-extra-hft*
                          +as-cab-put-null-sel+)
-;; line 237
+;; line 401
 (define-acrobat-function (as-cab-make-empty "ASCabMakeEmpty")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-make-empty-selproto
                          *g-as-extra-hft*
                          +as-cab-make-empty-sel+)
-;; line 238
+;; line 401
 (define-acrobat-function (as-cab-destroy-empties "ASCabDestroyEmpties")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-destroy-empties-selproto
                          *g-as-extra-hft*
                          +as-cab-destroy-empties-sel+)
-;; line 239
+;; line 401
 (define-acrobat-function (as-cab-copy "ASCabCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-copy-selproto
                          *g-as-extra-hft*
                          +as-cab-copy-sel+)
-;; line 240
+;; line 401
 (define-acrobat-function (as-cab-dup "ASCabDup")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-dup-selproto
                          *g-as-extra-hft*
                          +as-cab-dup-sel+)
-;; line 241
+;; line 401
 (define-acrobat-function (as-cab-value-equal "ASCabValueEqual")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-value-equal-selproto
                          *g-as-extra-hft*
                          +as-cab-value-equal-sel+)
-;; line 242
+;; line 401
 (define-acrobat-function (as-cab-equal "ASCabEqual")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-equal-selproto
                          *g-as-extra-hft*
                          +as-cab-equal-sel+)
-;; line 243
+;; line 401
 (define-acrobat-function (as-cab-munge "ASCabMunge")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-munge-selproto
                          *g-as-extra-hft*
                          +as-cab-munge-sel+)
-;; line 244
+;; line 401
 (define-acrobat-function (as-cab-put-path-name "ASCabPutPathName")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-put-path-name-selproto
                          *g-as-extra-hft*
                          +as-cab-put-path-name-sel+)
-;; line 245
+;; line 401
 (define-acrobat-function (as-cab-get-path-name-copy "ASCabGetPathNameCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-get-path-name-copy-selproto
                          *g-as-extra-hft*
                          +as-cab-get-path-name-copy-sel+)
-;; line 246
+;; line 401
 (define-acrobat-function (as-cab-detach-path-name "ASCabDetachPathName")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-detach-path-name-selproto
                          *g-as-extra-hft*
                          +as-cab-detach-path-name-sel+)
-;; line 247
+;; line 401
 (define-acrobat-function (as-cab-write-to-stream "ASCabWriteToStream")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-write-to-stream-selproto
                          *g-as-extra-hft*
                          +as-cab-write-to-stream-sel+)
-;; line 248
+;; line 401
 (define-acrobat-function (as-cab-read-from-stream "ASCabReadFromStream")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-read-from-stream-selproto
                          *g-as-extra-hft*
                          +as-cab-read-from-stream-sel+)
-;; line 250
+;; line 401
 (define-acrobat-function (as-cab-rename "ASCabRename")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-cab-rename-selproto
                          *g-as-extra-hft*
                          +as-cab-rename-sel+)
-;; line 251
+;; line 401
 (define-acrobat-function (as-text-is-empty "ASTextIsEmpty")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-is-empty-selproto
                          *g-as-extra-hft*
                          +as-text-is-empty-sel+)
-;; line 252
+;; line 401
 (define-acrobat-function (as-text-normalize-end-of-line "ASTextNormalizeEndOfLine")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-normalize-end-of-line-selproto
                          *g-as-extra-hft*
                          +as-text-normalize-end-of-line-sel+)
-;; line 254
+;; line 401
 (define-acrobat-function (as-text-from-int32 "ASTextFromInt32")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-int32-selproto
                          *g-as-extra-hft*
                          +as-text-from-int32-sel+)
-;; line 255
+;; line 401
 (define-acrobat-function (as-text-from-uns32 "ASTextFromUns32")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-from-uns32-selproto
                          *g-as-extra-hft*
                          +as-text-from-uns32-sel+)
-;; line 257
+;; line 401
 (define-acrobat-function (as-text-make-empty "ASTextMakeEmpty")
                          *g-as-extra-version*
                          +as-extra-hft-version-5+
                          as-text-make-empty-selproto
                          *g-as-extra-hft*
                          +as-text-make-empty-sel+)
-;; line 261
+;; line 401
 (define-acrobat-function (as-text-replace-bad-chars "ASTextReplaceBadChars")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-text-replace-bad-chars-selproto
                          *g-as-extra-hft*
                          +as-text-replace-bad-chars-sel+)
-;; line 262
+;; line 401
 (define-acrobat-function (as-cab-get-uns "ASCabGetUns")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-cab-get-uns-selproto
                          *g-as-extra-hft*
                          +as-cab-get-uns-sel+)
-;; line 263
+;; line 401
 (define-acrobat-function (as-cab-put-uns "ASCabPutUns")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-cab-put-uns-selproto
                          *g-as-extra-hft*
                          +as-cab-put-uns-sel+)
-;; line 266
+;; line 401
 (define-acrobat-function (as-date-new "ASDateNew")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-new-selproto
                          *g-as-extra-hft*
                          +as-date-new-sel+)
-;; line 267
+;; line 401
 (define-acrobat-function (as-date-copy "ASDateCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-copy-selproto
                          *g-as-extra-hft*
                          +as-date-copy-sel+)
-;; line 268
+;; line 401
 (define-acrobat-function (as-date-dup "ASDateDup")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-dup-selproto
                          *g-as-extra-hft*
                          +as-date-dup-sel+)
-;; line 269
+;; line 401
 (define-acrobat-function (as-date-clear "ASDateClear")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-clear-selproto
                          *g-as-extra-hft*
                          +as-date-clear-sel+)
-;; line 270
+;; line 401
 (define-acrobat-function (as-date-destroy "ASDateDestroy")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-destroy-selproto
                          *g-as-extra-hft*
                          +as-date-destroy-sel+)
-;; line 271
+;; line 401
 (define-acrobat-function (as-time-span-new "ASTimeSpanNew")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-new-selproto
                          *g-as-extra-hft*
                          +as-time-span-new-sel+)
-;; line 272
+;; line 401
 (define-acrobat-function (as-time-span-copy "ASTimeSpanCopy")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-copy-selproto
                          *g-as-extra-hft*
                          +as-time-span-copy-sel+)
-;; line 273
+;; line 401
 (define-acrobat-function (as-time-span-dup "ASTimeSpanDup")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-dup-selproto
                          *g-as-extra-hft*
                          +as-time-span-dup-sel+)
-;; line 274
+;; line 401
 (define-acrobat-function (as-time-span-destroy "ASTimeSpanDestroy")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-destroy-selproto
                          *g-as-extra-hft*
                          +as-time-span-destroy-sel+)
-;; line 275
+;; line 401
 (define-acrobat-function (as-date-set-to-current-utctime "ASDateSetToCurrentUTCTime")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-to-current-utctime-selproto
                          *g-as-extra-hft*
                          +as-date-set-to-current-utctime-sel+)
-;; line 276
+;; line 401
 (define-acrobat-function (as-date-set-to-current-local-time "ASDateSetToCurrentLocalTime")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-to-current-local-time-selproto
                          *g-as-extra-hft*
                          +as-date-set-to-current-local-time-sel+)
-;; line 277
+;; line 401
 (define-acrobat-function (as-date-set-local-time-offset "ASDateSetLocalTimeOffset")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-local-time-offset-selproto
                          *g-as-extra-hft*
                          +as-date-set-local-time-offset-sel+)
-;; line 278
+;; line 401
 (define-acrobat-function (as-date-set-time-from-string "ASDateSetTimeFromString")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-time-from-string-selproto
                          *g-as-extra-hft*
                          +as-date-set-time-from-string-sel+)
-;; line 279
+;; line 401
 (define-acrobat-function (as-date-set-time-from-rec "ASDateSetTimeFromRec")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-set-time-from-rec-selproto
                          *g-as-extra-hft*
                          +as-date-set-time-from-rec-sel+)
-;; line 280
+;; line 401
 (define-acrobat-function (as-date-subtract-calendar-time-span "ASDateSubtractCalendarTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-subtract-calendar-time-span-selproto
                          *g-as-extra-hft*
                          +as-date-subtract-calendar-time-span-sel+)
-;; line 281
+;; line 401
 (define-acrobat-function (as-date-add-calendar-time-span "ASDateAddCalendarTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-add-calendar-time-span-selproto
                          *g-as-extra-hft*
                          +as-date-add-calendar-time-span-sel+)
-;; line 282
+;; line 401
 (define-acrobat-function (as-date-subtract-time-span "ASDateSubtractTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-subtract-time-span-selproto
                          *g-as-extra-hft*
                          +as-date-subtract-time-span-sel+)
-;; line 283
+;; line 401
 (define-acrobat-function (as-date-add-time-span "ASDateAddTimeSpan")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-add-time-span-selproto
                          *g-as-extra-hft*
                          +as-date-add-time-span-sel+)
-;; line 284
+;; line 401
 (define-acrobat-function (as-date-calendar-diff "ASDateCalendarDiff")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-calendar-diff-selproto
                          *g-as-extra-hft*
                          +as-date-calendar-diff-sel+)
-;; line 285
+;; line 401
 (define-acrobat-function (as-date-exact-diff "ASDateExactDiff")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-exact-diff-selproto
                          *g-as-extra-hft*
                          +as-date-exact-diff-sel+)
-;; line 286
+;; line 401
 (define-acrobat-function (as-date-get-time-string "ASDateGetTimeString")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-get-time-string-selproto
                          *g-as-extra-hft*
                          +as-date-get-time-string-sel+)
-;; line 287
+;; line 401
 (define-acrobat-function (as-date-get-utctime "ASDateGetUTCTime")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-get-utctime-selproto
                          *g-as-extra-hft*
                          +as-date-get-utctime-sel+)
-;; line 288
+;; line 401
 (define-acrobat-function (as-date-get-local-time-no-dst "ASDateGetLocalTimeNoDST")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-get-local-time-no-dst-selproto
                          *g-as-extra-hft*
                          +as-date-get-local-time-no-dst-sel+)
-;; line 289
+;; line 401
 (define-acrobat-function (as-date-get-local-time "ASDateGetLocalTime")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-get-local-time-selproto
                          *g-as-extra-hft*
                          +as-date-get-local-time-sel+)
-;; line 290
+;; line 401
 (define-acrobat-function (as-calendar-time-span-compare "ASCalendarTimeSpanCompare")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-calendar-time-span-compare-selproto
                          *g-as-extra-hft*
                          +as-calendar-time-span-compare-sel+)
-;; line 291
+;; line 401
 (define-acrobat-function (as-time-span-compare "ASTimeSpanCompare")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-compare-selproto
                          *g-as-extra-hft*
                          +as-time-span-compare-sel+)
-;; line 292
+;; line 401
 (define-acrobat-function (as-calendar-time-span-add-with-base "ASCalendarTimeSpanAddWithBase")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-calendar-time-span-add-with-base-selproto
                          *g-as-extra-hft*
                          +as-calendar-time-span-add-with-base-sel+)
-;; line 293
+;; line 401
 (define-acrobat-function (as-time-span-add "ASTimeSpanAdd")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-add-selproto
                          *g-as-extra-hft*
                          +as-time-span-add-sel+)
-;; line 294
+;; line 401
 (define-acrobat-function (as-calendar-time-span-diff "ASCalendarTimeSpanDiff")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-calendar-time-span-diff-selproto
                          *g-as-extra-hft*
                          +as-calendar-time-span-diff-sel+)
-;; line 295
+;; line 401
 (define-acrobat-function (as-time-span-diff "ASTimeSpanDiff")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-diff-selproto
                          *g-as-extra-hft*
                          +as-time-span-diff-sel+)
-;; line 296
+;; line 401
 (define-acrobat-function (as-date-compare "ASDateCompare")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-date-compare-selproto
                          *g-as-extra-hft*
                          +as-date-compare-sel+)
-;; line 297
+;; line 401
 (define-acrobat-function (as-time-span-set-from-as-int32 "ASTimeSpanSetFromASInt32")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-set-from-as-int32-selproto
                          *g-as-extra-hft*
                          +as-time-span-set-from-as-int32-sel+)
-;; line 298
+;; line 401
 (define-acrobat-function (as-time-span-set-from-string "ASTimeSpanSetFromString")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-set-from-string-selproto
                          *g-as-extra-hft*
                          +as-time-span-set-from-string-sel+)
-;; line 299
+;; line 401
 (define-acrobat-function (as-time-span-set "ASTimeSpanSet")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-set-selproto
                          *g-as-extra-hft*
                          +as-time-span-set-sel+)
-;; line 300
+;; line 401
 (define-acrobat-function (as-time-span-negate "ASTimeSpanNegate")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-negate-selproto
                          *g-as-extra-hft*
                          +as-time-span-negate-sel+)
-;; line 303
+;; line 401
 (define-acrobat-function (as-text-eval "ASTextEval")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-text-eval-selproto
                          *g-as-extra-hft*
                          +as-text-eval-sel+)
-;; line 304
+;; line 401
 (define-acrobat-function (as-file-sys-get-item-props-as-cab "ASFileSysGetItemPropsAsCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-get-item-props-as-cab-selproto
                          *g-as-extra-hft*
                          +as-file-sys-get-item-props-as-cab-sel+)
-;; line 305
+;; line 401
 (define-acrobat-function (as-file-sys-convert-cab-to-item-props "ASFileSysConvertCabToItemProps")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-convert-cab-to-item-props-selproto
                          *g-as-extra-hft*
                          +as-file-sys-convert-cab-to-item-props-sel+)
-;; line 306
+;; line 401
 (define-acrobat-function (as-file-sys-convert-item-props-to-cab "ASFileSysConvertItemPropsToCab")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-convert-item-props-to-cab-selproto
                          *g-as-extra-hft*
                          +as-file-sys-convert-item-props-to-cab-sel+)
-;; line 307
+;; line 401
 (define-acrobat-function (as-file-sys-can-perform-op-on-item "ASFileSysCanPerformOpOnItem")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-can-perform-op-on-item-selproto
                          *g-as-extra-hft*
                          +as-file-sys-can-perform-op-on-item-sel+)
-;; line 308
+;; line 401
 (define-acrobat-function (as-file-sys-perform-op-on-item "ASFileSysPerformOpOnItem")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-file-sys-perform-op-on-item-selproto
                          *g-as-extra-hft*
                          +as-file-sys-perform-op-on-item-sel+)
-;; line 310
+;; line 401
 (define-acrobat-function (as-is-valid-utf8 "ASIsValidUTF8")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-is-valid-utf8-selproto
                          *g-as-extra-hft*
                          +as-is-valid-utf8-sel+)
-;; line 311
+;; line 401
 (define-acrobat-function (as-text-case-sensitive-cmp "ASTextCaseSensitiveCmp")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-text-case-sensitive-cmp-selproto
                          *g-as-extra-hft*
                          +as-text-case-sensitive-cmp-sel+)
-;; line 313
+;; line 401
 (define-acrobat-function (as-const-cab-enum "ASConstCabEnum")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-const-cab-enum-selproto
                          *g-as-extra-hft*
                          +as-const-cab-enum-sel+)
-;; line 315
+;; line 401
 (define-acrobat-function (as-text-filter "ASTextFilter")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-text-filter-selproto
                          *g-as-extra-hft*
                          +as-text-filter-sel+)
-;; line 317
+;; line 401
 (define-acrobat-function (as-time-span-get-as-int32 "ASTimeSpanGetASInt32")
                          *g-as-extra-version*
                          +as-extra-hft-version-6+
                          as-time-span-get-as-int32-selproto
                          *g-as-extra-hft*
                          +as-time-span-get-as-int32-sel+)
-;; line 319
+;; line 401
 (define-acrobat-function (as-cab-get-int64 "ASCabGetInt64")
                          *g-as-extra-version*
                          +as-extra-hft-version-7+
                          as-cab-get-int64-selproto
                          *g-as-extra-hft*
                          +as-cab-get-int64-sel+)
-;; line 320
+;; line 401
 (define-acrobat-function (as-cab-put-int64 "ASCabPutInt64")
                          *g-as-extra-version*
                          +as-extra-hft-version-7+
                          as-cab-put-int64-selproto
                          *g-as-extra-hft*
                          +as-cab-put-int64-sel+)
-;; line 321
+;; line 401
 (define-acrobat-function (as-cab-get-uns64 "ASCabGetUns64")
                          *g-as-extra-version*
                          +as-extra-hft-version-7+
                          as-cab-get-uns64-selproto
                          *g-as-extra-hft*
                          +as-cab-get-uns64-sel+)
-;; line 322
+;; line 401
 (define-acrobat-function (as-cab-put-uns64 "ASCabPutUns64")
                          *g-as-extra-version*
                          +as-extra-hft-version-7+
                          as-cab-put-uns64-selproto
                          *g-as-extra-hft*
                          +as-cab-put-uns64-sel+)
-;; line 326
+;; line 401
 (define-acrobat-function (as-text-make-empty-clear "ASTextMakeEmptyClear")
                          *g-as-extra-version*
                          +as-extra-hft-version-9+
                          as-text-make-empty-clear-selproto
                          *g-as-extra-hft*
                          +as-text-make-empty-clear-sel+)
-;; line 327
+;; line 401
 (define-acrobat-function (as-ucs-get-password-from-unicode "ASUCS_GetPasswordFromUnicode")
                          *g-as-extra-version*
                          +as-extra-hft-version-9+
                          as-ucs-get-password-from-unicode-selproto
                          *g-as-extra-hft*
                          +as-ucs-get-password-from-unicode-sel+)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-extra-bad-selector+ 0))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-extra-num-selectorsplus-one+ 1))
 
 ;; #include <PDBasicExpT.h>
 ;; line 57
@@ -3496,6 +3496,10 @@
   (defconstant +k-collection-split-none+ 8195))
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +k-collection-split-preview+ 8196))
+(define-opaque-pointer pd-graphic -t-pdgraphic)
+(define-opaque-pointer pd-text -t-pdgraphic)
+(define-opaque-pointer pd-path -t-pdgraphic)
+(define-opaque-pointer pd-inline-image -t-pdgraphic)
 (define-c-typedef pd-action-handler-get-type-proc
                   (:pointer
                    (:function
@@ -4819,10 +4823,6 @@
                  (field-text as-text)
                  (visible as-bool)
                  (can-edit as-bool))
-(define-opaque-pointer pd-graphic -t-pdgraphic)
-(define-opaque-pointer pd-text -t-pdgraphic)
-(define-opaque-pointer pd-path -t-pdgraphic)
-(define-opaque-pointer pd-inline-image -t-pdgraphic)
 
 ;; #include <AVExpT.h>
 ;; line 92

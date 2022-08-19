@@ -74,6 +74,8 @@
     "PERCalls"
     "PEWProcs"      ; Catalog of functions exported by the PDFEditWrite HFT
     "PEWCalls"
+    "PagePDECntCalls" ; HFT and prototypes for Page PDEContent methods
+    "PgCntProcs"    ; Header for for PDF page content server methods
     ))
 
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is

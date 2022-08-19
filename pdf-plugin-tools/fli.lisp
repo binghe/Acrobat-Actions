@@ -1450,94 +1450,94 @@
 ;; line 331
 (define-c-typedef ac-get-exception-error-code
                   as-get-exception-error-code)
-;; line 420
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +core-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +core-num-selectorsplus-one+ 1))
+;; line 764
 (define-acrobat-function (as-raise-impl "ASRaiseImpl")
                          *g-core-version*
                          +core-hft-version-2+
                          as-raise-selproto
                          *g-core-hft*
                          +as-raise-sel+)
-;; line 438
+;; line 764
 (define-acrobat-function (as-push-exception-frame "ASPushExceptionFrame")
                          *g-core-version*
                          +core-hft-version-2+
                          as-push-exception-frame-selproto
                          *g-core-hft*
                          +as-push-exception-frame-sel+)
-;; line 445
+;; line 764
 (define-acrobat-function (as-pop-exception-frame "ASPopExceptionFrame")
                          *g-core-version*
                          +core-hft-version-2+
                          as-pop-exception-frame-selproto
                          *g-core-hft*
                          +as-pop-exception-frame-sel+)
-;; line 452
+;; line 764
 (define-acrobat-function (as-get-exception-error-code "ASGetExceptionErrorCode")
                          *g-core-version*
                          +core-hft-version-2+
                          as-get-exception-error-code-selproto
                          *g-core-hft*
                          +as-get-exception-error-code-sel+)
-;; line 461
+;; line 764
 (define-acrobat-function (as-atom-from-string "ASAtomFromString")
                          *g-core-version*
                          +core-hft-version-2+
                          as-atom-from-string-selproto
                          *g-core-hft*
                          +as-atom-from-string-sel+)
-;; line 468
+;; line 764
 (define-acrobat-function (as-atom-exists-for-string "ASAtomExistsForString")
                          *g-core-version*
                          +core-hft-version-2+
                          as-atom-exists-for-string-selproto
                          *g-core-hft*
                          +as-atom-exists-for-string-sel+)
-;; line 475
+;; line 764
 (define-acrobat-function (as-atom-get-string "ASAtomGetString")
                          *g-core-version*
                          +core-hft-version-2+
                          as-atom-get-string-selproto
                          *g-core-hft*
                          +as-atom-get-string-sel+)
-;; line 484
+;; line 764
 (define-acrobat-function (as-callback-create "ASCallbackCreate")
                          *g-core-version*
                          +core-hft-version-2+
                          as-callback-create-selproto
                          *g-core-hft*
                          +as-callback-create-sel+)
-;; line 510
+;; line 764
 (define-acrobat-function (as-callback-destroy "ASCallbackDestroy")
                          *g-core-version*
                          +core-hft-version-2+
                          as-callback-destroy-selproto
                          *g-core-hft*
                          +as-callback-destroy-sel+)
-;; line 515
+;; line 764
 (define-acrobat-function (as-extension-mgr-get-hft "ASExtensionMgrGetHFT")
                          *g-core-version*
                          +core-hft-version-2+
                          as-extension-mgr-get-hft-selproto
                          *g-core-hft*
                          +as-extension-mgr-get-hft-sel+)
-;; line 528
+;; line 764
 (define-acrobat-function (as-get-configuration "ASGetConfiguration")
                          *g-core-version*
                          +core-hft-version-2+
                          as-get-configuration-selproto
                          *g-core-hft*
                          +as-get-configuration-sel+)
-;; line 534
+;; line 764
 (define-acrobat-function (as-enum-extensions "ASEnumExtensions")
                          *g-core-version*
                          +core-hft-version-4+
                          as-enum-extensions-selproto
                          *g-core-hft*
                          +as-enum-extensions-sel+)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +core-bad-selector+ 0))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +core-num-selectorsplus-one+ 1))
 
 ;; #include <ASProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)
@@ -2859,703 +2859,703 @@
   (defconstant +-ascalls-hft-is-beta+ 0))
 ;; line 104
 (define-c-typedef as-calls-hft-version-10 as-calls-hft-latest-version)
-;; line 181
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-num-selectorsplus-one+ 1))
+;; line 533
 (define-acrobat-function (as-malloc "ASmalloc")
                          *g-acro-support-version*
                          0
                          as-malloc-selproto
                          *g-acro-support-hft*
                          +as-malloc-sel+)
-;; line 184
+;; line 533
 (define-acrobat-function (as-realloc "ASrealloc")
                          *g-acro-support-version*
                          0
                          as-realloc-selproto
                          *g-acro-support-hft*
                          +as-realloc-sel+)
-;; line 187
+;; line 533
 (define-acrobat-function (as-free "ASfree")
                          *g-acro-support-version*
                          0
                          as-free-selproto
                          *g-acro-support-hft*
                          +as-free-sel+)
-;; line 191
+;; line 533
 (define-acrobat-function (as-get-error-string "ASGetErrorString")
                          *g-acro-support-version*
                          0
                          as-get-error-string-selproto
                          *g-acro-support-hft*
                          +as-get-error-string-sel+)
-;; line 194
+;; line 533
 (define-acrobat-function (as-register-error-string "ASRegisterErrorString")
                          *g-acro-support-version*
                          0
                          as-register-error-string-selproto
                          *g-acro-support-hft*
                          +as-register-error-string-sel+)
-;; line 198
+;; line 533
 (define-acrobat-function (hft-server-new "HFTServerNew")
                          *g-acro-support-version*
                          0
                          hft-server-new-selproto
                          *g-acro-support-hft*
                          +hft-server-new-sel+)
-;; line 208
+;; line 533
 (define-acrobat-function (hft-destroy "HFTDestroy")
                          *g-acro-support-version*
                          0
                          hft-destroy-selproto
                          *g-acro-support-hft*
                          +hft-destroy-sel+)
-;; line 217
+;; line 533
 (define-acrobat-function (hft-replace-entry "HFTReplaceEntry")
                          *g-acro-support-version*
                          0
                          hft-replace-entry-selproto
                          *g-acro-support-hft*
                          +hft-replace-entry-sel+)
-;; line 227
+;; line 533
 (define-acrobat-function (as-fixed-mul "ASFixedMul")
                          *g-acro-support-version*
                          0
                          as-fixed-mul-selproto
                          *g-acro-support-hft*
                          +as-fixed-mul-sel+)
-;; line 230
+;; line 533
 (define-acrobat-function (as-fixed-div "ASFixedDiv")
                          *g-acro-support-version*
                          0
                          as-fixed-div-selproto
                          *g-acro-support-hft*
                          +as-fixed-div-sel+)
-;; line 233
+;; line 533
 (define-acrobat-function (as-fixed-to-cstring "ASFixedToCString")
                          *g-acro-support-version*
                          0
                          as-fixed-to-cstring-selproto
                          *g-acro-support-hft*
                          +as-fixed-to-cstring-sel+)
-;; line 236
+;; line 533
 (define-acrobat-function (as-cstring-to-fixed "ASCStringToFixed")
                          *g-acro-support-version*
                          0
                          as-cstring-to-fixed-selproto
                          *g-acro-support-hft*
                          +as-cstring-to-fixed-sel+)
-;; line 240
+;; line 533
 (define-acrobat-function (as-fixed-matrix-concat "ASFixedMatrixConcat")
                          *g-acro-support-version*
                          0
                          as-fixed-matrix-concat-selproto
                          *g-acro-support-hft*
                          +as-fixed-matrix-concat-sel+)
-;; line 243
+;; line 533
 (define-acrobat-function (as-fixed-matrix-invert "ASFixedMatrixInvert")
                          *g-acro-support-version*
                          0
                          as-fixed-matrix-invert-selproto
                          *g-acro-support-hft*
                          +as-fixed-matrix-invert-sel+)
-;; line 246
+;; line 533
 (define-acrobat-function (as-fixed-matrix-transform "ASFixedMatrixTransform")
                          *g-acro-support-version*
                          0
                          as-fixed-matrix-transform-selproto
                          *g-acro-support-hft*
                          +as-fixed-matrix-transform-sel+)
-;; line 249
+;; line 533
 (define-acrobat-function (as-fixed-matrix-transform-rect "ASFixedMatrixTransformRect")
                          *g-acro-support-version*
                          0
                          as-fixed-matrix-transform-rect-selproto
                          *g-acro-support-hft*
                          +as-fixed-matrix-transform-rect-sel+)
-;; line 253
+;; line 533
 (define-acrobat-function (as-path-from-platform-path "ASPathFromPlatformPath")
                          *g-acro-support-version*
                          0
                          as-path-from-platform-path-selproto
                          *g-acro-support-hft*
                          +as-path-from-platform-path-sel+)
-;; line 257
+;; line 533
 (define-acrobat-function (as-get-default-file-sys "ASGetDefaultFileSys")
                          *g-acro-support-version*
                          0
                          as-get-default-file-sys-selproto
                          *g-acro-support-hft*
                          +as-get-default-file-sys-sel+)
-;; line 269
+;; line 533
 (define-acrobat-function (as-ram-file-sys-set-limit-kb "ASRamFileSysSetLimitKB")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-ram-file-sys-set-limit-kb-selproto
                          *g-acro-support-hft*
                          +as-ram-file-sys-set-limit-kb-sel+)
-;; line 272
+;; line 533
 (define-acrobat-function (as-file-sys-dipath-from-path "ASFileSysDIPathFromPath")
                          *g-acro-support-version*
                          0
                          as-file-sys-dipath-from-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-dipath-from-path-sel+)
-;; line 275
+;; line 533
 (define-acrobat-function (as-file-sys-path-from-dipath "ASFileSysPathFromDIPath")
                          *g-acro-support-version*
                          0
                          as-file-sys-path-from-dipath-selproto
                          *g-acro-support-hft*
                          +as-file-sys-path-from-dipath-sel+)
-;; line 278
+;; line 533
 (define-acrobat-function (as-file-sys-copy-path "ASFileSysCopyPath")
                          *g-acro-support-version*
                          0
                          as-file-sys-copy-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-copy-path-sel+)
-;; line 281
+;; line 533
 (define-acrobat-function (as-file-sys-release-path "ASFileSysReleasePath")
                          *g-acro-support-version*
                          0
                          as-file-sys-release-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-release-path-sel+)
-;; line 284
+;; line 533
 (define-acrobat-function (as-file-sys-open-file "ASFileSysOpenFile")
                          *g-acro-support-version*
                          0
                          as-file-sys-open-file-selproto
                          *g-acro-support-hft*
                          +as-file-sys-open-file-sel+)
-;; line 287
+;; line 533
 (define-acrobat-function (as-file-sys-remove-file "ASFileSysRemoveFile")
                          *g-acro-support-version*
                          0
                          as-file-sys-remove-file-selproto
                          *g-acro-support-hft*
                          +as-file-sys-remove-file-sel+)
-;; line 290
+;; line 533
 (define-acrobat-function (as-file-reopen "ASFileReopen")
                          *g-acro-support-version*
                          0
                          as-file-reopen-selproto
                          *g-acro-support-hft*
                          +as-file-reopen-sel+)
-;; line 293
+;; line 533
 (define-acrobat-function (as-file-close "ASFileClose")
                          *g-acro-support-version*
                          0
                          as-file-close-selproto
                          *g-acro-support-hft*
                          +as-file-close-sel+)
-;; line 296
+;; line 533
 (define-acrobat-function (as-file-set-pos "ASFileSetPos")
                          *g-acro-support-version*
                          0
                          as-file-set-pos-selproto
                          *g-acro-support-hft*
                          +as-file-set-pos-sel+)
-;; line 299
+;; line 533
 (define-acrobat-function (as-file-get-pos "ASFileGetPos")
                          *g-acro-support-version*
                          0
                          as-file-get-pos-selproto
                          *g-acro-support-hft*
                          +as-file-get-pos-sel+)
-;; line 302
+;; line 533
 (define-acrobat-function (as-file-set-eof "ASFileSetEOF")
                          *g-acro-support-version*
                          0
                          as-file-set-eof-selproto
                          *g-acro-support-hft*
                          +as-file-set-eof-sel+)
-;; line 305
+;; line 533
 (define-acrobat-function (as-file-get-eof "ASFileGetEOF")
                          *g-acro-support-version*
                          0
                          as-file-get-eof-selproto
                          *g-acro-support-hft*
                          +as-file-get-eof-sel+)
-;; line 308
+;; line 533
 (define-acrobat-function (as-file-read "ASFileRead")
                          *g-acro-support-version*
                          0
                          as-file-read-selproto
                          *g-acro-support-hft*
                          +as-file-read-sel+)
-;; line 311
+;; line 533
 (define-acrobat-function (as-file-write "ASFileWrite")
                          *g-acro-support-version*
                          0
                          as-file-write-selproto
                          *g-acro-support-hft*
                          +as-file-write-sel+)
-;; line 314
+;; line 533
 (define-acrobat-function (as-file-flush "ASFileFlush")
                          *g-acro-support-version*
                          0
                          as-file-flush-selproto
                          *g-acro-support-hft*
                          +as-file-flush-sel+)
-;; line 317
+;; line 533
 (define-acrobat-function (as-file-acquire-path-name "ASFileAcquirePathName")
                          *g-acro-support-version*
                          0
                          as-file-acquire-path-name-selproto
                          *g-acro-support-hft*
                          +as-file-acquire-path-name-sel+)
-;; line 320
+;; line 533
 (define-acrobat-function (as-file-get-file-sys "ASFileGetFileSys")
                          *g-acro-support-version*
                          0
                          as-file-get-file-sys-selproto
                          *g-acro-support-hft*
                          +as-file-get-file-sys-sel+)
-;; line 323
+;; line 533
 (define-acrobat-function (as-file-stm-rd-open "ASFileStmRdOpen")
                          *g-acro-support-version*
                          0
                          as-file-stm-rd-open-selproto
                          *g-acro-support-hft*
                          +as-file-stm-rd-open-sel+)
-;; line 326
+;; line 533
 (define-acrobat-function (as-mem-stm-rd-open "ASMemStmRdOpen")
                          *g-acro-support-version*
                          0
                          as-mem-stm-rd-open-selproto
                          *g-acro-support-hft*
                          +as-mem-stm-rd-open-sel+)
-;; line 329
+;; line 533
 (define-acrobat-function (as-proc-stm-rd-open "ASProcStmRdOpen")
                          *g-acro-support-version*
                          0
                          as-proc-stm-rd-open-selproto
                          *g-acro-support-hft*
                          +as-proc-stm-rd-open-sel+)
-;; line 332
+;; line 533
 (define-acrobat-function (as-stm-read "ASStmRead")
                          *g-acro-support-version*
                          0
                          as-stm-read-selproto
                          *g-acro-support-hft*
                          +as-stm-read-sel+)
-;; line 335
+;; line 533
 (define-acrobat-function (as-stm-write "ASStmWrite")
                          *g-acro-support-version*
                          0
                          as-stm-write-selproto
                          *g-acro-support-hft*
                          +as-stm-write-sel+)
-;; line 343
+;; line 533
 (define-acrobat-function (as-file-unregister-file-sys "ASFileUnregisterFileSys")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-unregister-file-sys-selproto
                          *g-acro-support-hft*
                          +as-file-unregister-file-sys-sel+)
-;; line 346
+;; line 533
 (define-acrobat-function (as-file-push-data "ASFilePushData")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-push-data-selproto
                          *g-acro-support-hft*
                          +as-file-push-data-sel+)
-;; line 349
+;; line 533
 (define-acrobat-function (as-file-register-file-sys "ASFileRegisterFileSys")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-register-file-sys-selproto
                          *g-acro-support-hft*
                          +as-file-register-file-sys-sel+)
-;; line 352
+;; line 533
 (define-acrobat-function (as-file-get-file-sys-by-name "ASFileGetFileSysByName")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-get-file-sys-by-name-selproto
                          *g-acro-support-hft*
                          +as-file-get-file-sys-by-name-sel+)
-;; line 355
+;; line 533
 (define-acrobat-function (as-file-from-mdfile "ASFileFromMDFile")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-from-mdfile-selproto
                          *g-acro-support-hft*
                          +as-file-from-mdfile-sel+)
-;; line 358
+;; line 533
 (define-acrobat-function (as-file-get-mdfile "ASFileGetMDFile")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-get-mdfile-selproto
                          *g-acro-support-hft*
                          +as-file-get-mdfile-sel+)
-;; line 361
+;; line 533
 (define-acrobat-function (as-file-sys-create-path-name "ASFileSysCreatePathName")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-sys-create-path-name-selproto
                          *g-acro-support-hft*
                          +as-file-sys-create-path-name-sel+)
-;; line 364
+;; line 533
 (define-acrobat-function (as-file-sys-acquire-file-sys-path "ASFileSysAcquireFileSysPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-sys-acquire-file-sys-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-acquire-file-sys-path-sel+)
-;; line 367
+;; line 533
 (define-acrobat-function (as-file-set-mode "ASFileSetMode")
                          *g-acro-support-version*
                          +as-calls-hft-version-2-2+
                          as-file-set-mode-selproto
                          *g-acro-support-hft*
                          +as-file-set-mode-sel+)
-;; line 374
+;; line 533
 (define-acrobat-function (as-file-stm-wr-open "ASFileStmWrOpen")
                          *g-acro-support-version*
                          +as-calls-hft-version-4+
                          as-file-stm-wr-open-selproto
                          *g-acro-support-hft*
                          +as-file-stm-wr-open-sel+)
-;; line 377
+;; line 533
 (define-acrobat-function (as-proc-stm-wr-open "ASProcStmWrOpen")
                          *g-acro-support-version*
                          +as-calls-hft-version-4+
                          as-proc-stm-wr-open-selproto
                          *g-acro-support-hft*
                          +as-proc-stm-wr-open-sel+)
-;; line 380
+;; line 533
 (define-acrobat-function (hft-is-valid "HFTIsValid")
                          *g-acro-support-version*
                          +as-calls-hft-version-4+
                          hft-is-valid-selproto
                          *g-acro-support-hft*
                          +hft-is-valid-sel+)
-;; line 430
+;; line 533
 (define-acrobat-function (as-file-hard-flush "ASFileHardFlush")
                          *g-acro-support-version*
                          +as-calls-hft-version-5+
                          as-file-hard-flush-selproto
                          *g-acro-support-hft*
                          +as-file-hard-flush-sel+)
-;; line 432
+;; line 533
 (define-acrobat-function (hft-replace-entry-ex "HFTReplaceEntryEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-5+
                          hft-replace-entry-ex-selproto
                          *g-acro-support-hft*
                          +hft-replace-entry-ex-sel+)
-;; line 434
+;; line 533
 (define-acrobat-function (hft-unreplace-entry "HFTUnreplaceEntry")
                          *g-acro-support-version*
                          +as-calls-hft-version-5+
                          hft-unreplace-entry-selproto
                          *g-acro-support-hft*
                          +hft-unreplace-entry-sel+)
-;; line 440
+;; line 533
 (define-acrobat-function (as-proc-stm-rd-open-ex "ASProcStmRdOpenEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-proc-stm-rd-open-ex-selproto
                          *g-acro-support-hft*
                          +as-proc-stm-rd-open-ex-sel+)
-;; line 441
+;; line 533
 (define-acrobat-function (as-uuid-gen-unique "ASUUIDGenUnique")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-uuid-gen-unique-selproto
                          *g-acro-support-hft*
                          +as-uuid-gen-unique-sel+)
-;; line 442
+;; line 533
 (define-acrobat-function (as-uuid-gen-from-name "ASUUIDGenFromName")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-uuid-gen-from-name-selproto
                          *g-acro-support-hft*
                          +as-uuid-gen-from-name-sel+)
-;; line 443
+;; line 533
 (define-acrobat-function (as-uuid-gen-from-hash "ASUUIDGenFromHash")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-uuid-gen-from-hash-selproto
                          *g-acro-support-hft*
                          +as-uuid-gen-from-hash-sel+)
-;; line 444
+;; line 533
 (define-acrobat-function (as-uuid-from-cstring "ASUUIDFromCString")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-uuid-from-cstring-selproto
                          *g-acro-support-hft*
                          +as-uuid-from-cstring-sel+)
-;; line 445
+;; line 533
 (define-acrobat-function (as-uuid-to-cstring "ASUUIDToCString")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-uuid-to-cstring-selproto
                          *g-acro-support-hft*
                          +as-uuid-to-cstring-sel+)
-;; line 446
+;; line 533
 (define-acrobat-function (as-file-sys-get-platform-thing "ASFileSysGetPlatformThing")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-get-platform-thing-selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-platform-thing-sel+)
-;; line 447
+;; line 533
 (define-acrobat-function (as-file-sys-acquire-platform-path "ASFileSysAcquirePlatformPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-acquire-platform-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-acquire-platform-path-sel+)
-;; line 448
+;; line 533
 (define-acrobat-function (as-file-sys-release-platform-path "ASFileSysReleasePlatformPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-release-platform-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-release-platform-path-sel+)
-;; line 449
+;; line 533
 (define-acrobat-function (as-platform-path-get-cstring-ptr "ASPlatformPathGetCstringPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-cstring-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-cstring-ptr-sel+)
-;; line 453
+;; line 533
 (define-acrobat-function (as-platform-path-get-fsref-ptr "ASPlatformPathGetFSRefPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-fsref-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-fsref-ptr-sel+)
-;; line 454
+;; line 533
 (define-acrobat-function (as-platform-path-get-fsref-with-cfstring-ref-rec-ptr "ASPlatformPathGetFSRefWithCFStringRefRecPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-sel+)
-;; line 455
+;; line 533
 (define-acrobat-function (as-platform-path-get-cfurlref-rec-ptr "ASPlatformPathGetCFURLRefRecPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-cfurlref-rec-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-cfurlref-rec-ptr-sel+)
-;; line 456
+;; line 533
 (define-acrobat-function (as-platform-path-get-posixpath-ptr "ASPlatformPathGetPOSIXPathPtr")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-platform-path-get-posixpath-ptr-selproto
                          *g-acro-support-hft*
                          +as-platform-path-get-posixpath-ptr-sel+)
-;; line 457
+;; line 533
 (define-acrobat-function (as-file-sys-get-name-from-path-as-as-text "ASFileSysGetNameFromPathAsASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-get-name-from-path-as-as-text-selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-name-from-path-as-as-text-sel+)
-;; line 458
+;; line 533
 (define-acrobat-function (as-file-sys-display-as-text-from-path "ASFileSysDisplayASTextFromPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-display-as-text-from-path-selproto
                          *g-acro-support-hft*
                          +as-file-sys-display-as-text-from-path-sel+)
-;; line 460
+;; line 533
 (define-acrobat-function (as-stm-flush "ASStmFlush")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-stm-flush-selproto
                          *g-acro-support-hft*
                          +as-stm-flush-sel+)
-;; line 461
+;; line 533
 (define-acrobat-function (as-file-has-outstanding-mreads "ASFileHasOutstandingMReads")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-has-outstanding-mreads-selproto
                          *g-acro-support-hft*
                          +as-file-has-outstanding-mreads-sel+)
-;; line 462
+;; line 533
 (define-acrobat-function (as-file-can-set-eof "ASFileCanSetEOF")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-can-set-eof-selproto
                          *g-acro-support-hft*
                          +as-file-can-set-eof-sel+)
-;; line 463
+;; line 533
 (define-acrobat-function (hft-get-version "HFTGetVersion")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          hft-get-version-selproto
                          *g-acro-support-hft*
                          +hft-get-version-sel+)
-;; line 464
+;; line 533
 (define-acrobat-function (hft-new-ex "HFTNewEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          hft-new-ex-selproto
                          *g-acro-support-hft*
                          +hft-new-ex-sel+)
-;; line 465
+;; line 533
 (define-acrobat-function (as-file-sys-dipath-from-path-ex "ASFileSysDIPathFromPathEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-dipath-from-path-ex-selproto
                          *g-acro-support-hft*
                          +as-file-sys-dipath-from-path-ex-sel+)
-;; line 466
+;; line 533
 (define-acrobat-function (as-file-sys-path-from-dipath-ex "ASFileSysPathFromDIPathEx")
                          *g-acro-support-version*
                          +as-calls-hft-version-6+
                          as-file-sys-path-from-dipath-ex-selproto
                          *g-acro-support-hft*
                          +as-file-sys-path-from-dipath-ex-sel+)
-;; line 471
+;; line 533
 (define-acrobat-function (as-fixed-to-float "ASFixedToFloat")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-fixed-to-float-selproto
                          *g-acro-support-hft*
                          +as-fixed-to-float-sel+)
-;; line 472
+;; line 533
 (define-acrobat-function (float-to-as-fixed "FloatToASFixed")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          float-to-as-fixed-selproto
                          *g-acro-support-hft*
                          +float-to-as-fixed-sel+)
-;; line 479
+;; line 533
 (define-acrobat-function (as-file-sys-open-file64 "ASFileSysOpenFile64")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-sys-open-file64selproto
                          *g-acro-support-hft*
                          +as-file-sys-open-file64sel+)
-;; line 480
+;; line 533
 (define-acrobat-function (as-file-sys-get-file-pos-limit "ASFileSysGetFilePosLimit")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-sys-get-file-pos-limit-selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-file-pos-limit-sel+)
-;; line 481
+;; line 533
 (define-acrobat-function (as-file-set-pos64 "ASFileSetPos64")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-set-pos64selproto
                          *g-acro-support-hft*
                          +as-file-set-pos64sel+)
-;; line 482
+;; line 533
 (define-acrobat-function (as-file-get-pos64 "ASFileGetPos64")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-get-pos64selproto
                          *g-acro-support-hft*
                          +as-file-get-pos64sel+)
-;; line 483
+;; line 533
 (define-acrobat-function (as-file-set-eof64 "ASFileSetEOF64")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-set-eof64selproto
                          *g-acro-support-hft*
                          +as-file-set-eof64sel+)
-;; line 484
+;; line 533
 (define-acrobat-function (as-file-get-eof64 "ASFileGetEOF64")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-get-eof64selproto
                          *g-acro-support-hft*
                          +as-file-get-eof64sel+)
-;; line 486
+;; line 533
 (define-acrobat-function (as-file-sys-get-name-from-path-for-display "ASFileSysGetNameFromPathForDisplay")
                          *g-acro-support-version*
                          +as-calls-hft-version-7+
                          as-file-sys-get-name-from-path-for-display-selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-name-from-path-for-display-sel+)
-;; line 491
+;; line 533
 (define-acrobat-function (as-get-default-unicode-file-sys "ASGetDefaultUnicodeFileSys")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-get-default-unicode-file-sys-selproto
                          *g-acro-support-hft*
                          +as-get-default-unicode-file-sys-sel+)
-;; line 492
+;; line 533
 (define-acrobat-function (as-get-error-string-as-text "ASGetErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-get-error-string-as-text-selproto
                          *g-acro-support-hft*
                          +as-get-error-string-as-text-sel+)
-;; line 493
+;; line 533
 (define-acrobat-function (as-register-error-string-as-text "ASRegisterErrorStringASText")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-register-error-string-as-text-selproto
                          *g-acro-support-hft*
                          +as-register-error-string-as-text-sel+)
-;; line 494
+;; line 533
 (define-acrobat-function (as-get-default-file-sys-for-path "ASGetDefaultFileSysForPath")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-get-default-file-sys-for-path-selproto
                          *g-acro-support-hft*
                          +as-get-default-file-sys-for-path-sel+)
-;; line 495
+;; line 533
 (define-acrobat-function (as-file-sys-is-local "ASFileSysIsLocal")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-file-sys-is-local-selproto
                          *g-acro-support-hft*
                          +as-file-sys-is-local-sel+)
-;; line 496
+;; line 533
 (define-acrobat-function (as-file-sys-get-storage-free-space64 "ASFileSysGetStorageFreeSpace64")
                          *g-acro-support-version*
                          +as-calls-hft-version-8+
                          as-file-sys-get-storage-free-space64selproto
                          *g-acro-support-hft*
                          +as-file-sys-get-storage-free-space64sel+)
-;; line 500
+;; line 533
 (define-acrobat-function (as-double-matrix-concat "ASDoubleMatrixConcat")
                          *g-acro-support-version*
                          +as-calls-hft-version-10+
                          as-double-matrix-concat-selproto
                          *g-acro-support-hft*
                          +as-double-matrix-concat-sel+)
-;; line 501
+;; line 533
 (define-acrobat-function (as-double-matrix-invert "ASDoubleMatrixInvert")
                          *g-acro-support-version*
                          +as-calls-hft-version-10+
                          as-double-matrix-invert-selproto
                          *g-acro-support-hft*
                          +as-double-matrix-invert-sel+)
-;; line 502
+;; line 533
 (define-acrobat-function (as-double-matrix-transform "ASDoubleMatrixTransform")
                          *g-acro-support-version*
                          +as-calls-hft-version-10+
                          as-double-matrix-transform-selproto
                          *g-acro-support-hft*
                          +as-double-matrix-transform-sel+)
-;; line 503
+;; line 533
 (define-acrobat-function (as-double-matrix-transform-rect "ASDoubleMatrixTransformRect")
                          *g-acro-support-version*
                          +as-calls-hft-version-10+
                          as-double-matrix-transform-rect-selproto
                          *g-acro-support-hft*
                          +as-double-matrix-transform-rect-sel+)
-;; line 504
+;; line 533
 (define-acrobat-function (as-file-open-with-virtual-eof "ASFileOpenWithVirtualEOF")
                          *g-acro-support-version*
                          +as-calls-hft-version-10+
                          as-file-open-with-virtual-eof-selproto
                          *g-acro-support-hft*
                          +as-file-open-with-virtual-eof-sel+)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-bad-selector+ 0))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-num-selectorsplus-one+ 1))
 
 ;; #include <PIVersn.h>
 (define-c-typedef pi-setup-sdk-proc-type

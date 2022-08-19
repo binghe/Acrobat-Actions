@@ -6569,3787 +6569,3787 @@
 ;; line 92
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +-pdmodel-hft-is-beta+ 0))
-;; line 262
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-model-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-model-num-selectorsplus-one+ 1))
+;; line 1808
 (define-acrobat-function (pd-action-new "PDActionNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-new-selproto
                          *g-pdmodel-hft*
                          +pd-action-new-sel+)
-;; line 265
+;; line 1808
 (define-acrobat-function (pd-action-new-from-dest "PDActionNewFromDest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-new-from-dest-selproto
                          *g-pdmodel-hft*
                          +pd-action-new-from-dest-sel+)
-;; line 268
+;; line 1808
 (define-acrobat-function (pd-action-new-from-file-spec "PDActionNewFromFileSpec")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-new-from-file-spec-selproto
                          *g-pdmodel-hft*
                          +pd-action-new-from-file-spec-sel+)
-;; line 271
+;; line 1808
 (define-acrobat-function (pd-action-destroy "PDActionDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-action-destroy-sel+)
-;; line 274
+;; line 1808
 (define-acrobat-function (pd-action-is-valid "PDActionIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-action-is-valid-sel+)
-;; line 277
+;; line 1808
 (define-acrobat-function (pd-action-get-subtype "PDActionGetSubtype")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-get-subtype-selproto
                          *g-pdmodel-hft*
                          +pd-action-get-subtype-sel+)
-;; line 280
+;; line 1808
 (define-acrobat-function (pd-action-equal "PDActionEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-equal-selproto
                          *g-pdmodel-hft*
                          +pd-action-equal-sel+)
-;; line 283
+;; line 1808
 (define-acrobat-function (pd-action-get-dest "PDActionGetDest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-get-dest-selproto
                          *g-pdmodel-hft*
                          +pd-action-get-dest-sel+)
-;; line 286
+;; line 1808
 (define-acrobat-function (pd-action-get-cos-obj "PDActionGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-action-get-cos-obj-sel+)
-;; line 289
+;; line 1808
 (define-acrobat-function (pd-action-from-cos-obj "PDActionFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-action-from-cos-obj-sel+)
-;; line 292
+;; line 1808
 (define-acrobat-function (pd-action-get-file-spec "PDActionGetFileSpec")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-action-get-file-spec-selproto
                          *g-pdmodel-hft*
                          +pd-action-get-file-spec-sel+)
-;; line 295
+;; line 1808
 (define-acrobat-function (pd-annot-notify-will-change "PDAnnotNotifyWillChange")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-notify-will-change-selproto
                          *g-pdmodel-hft*
                          +pd-annot-notify-will-change-sel+)
-;; line 298
+;; line 1808
 (define-acrobat-function (pd-annot-notify-did-change "PDAnnotNotifyDidChange")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-notify-did-change-selproto
                          *g-pdmodel-hft*
                          +pd-annot-notify-did-change-sel+)
-;; line 301
+;; line 1808
 (define-acrobat-function (pd-page-create-annot "PDPageCreateAnnot")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-create-annot-selproto
                          *g-pdmodel-hft*
                          +pd-page-create-annot-sel+)
-;; line 304
+;; line 1808
 (define-acrobat-function (pd-annot-is-valid "PDAnnotIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-annot-is-valid-sel+)
-;; line 307
+;; line 1808
 (define-acrobat-function (pd-annot-get-subtype "PDAnnotGetSubtype")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-subtype-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-subtype-sel+)
-;; line 310
+;; line 1808
 (define-acrobat-function (pd-annot-get-rect "PDAnnotGetRect")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-rect-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-rect-sel+)
-;; line 313
+;; line 1808
 (define-acrobat-function (pd-annot-set-rect "PDAnnotSetRect")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-set-rect-selproto
                          *g-pdmodel-hft*
                          +pd-annot-set-rect-sel+)
-;; line 316
+;; line 1808
 (define-acrobat-function (pd-annot-equal "PDAnnotEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-equal-selproto
                          *g-pdmodel-hft*
                          +pd-annot-equal-sel+)
-;; line 319
+;; line 1808
 (define-acrobat-function (pd-annot-get-color "PDAnnotGetColor")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-color-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-color-sel+)
-;; line 322
+;; line 1808
 (define-acrobat-function (pd-annot-set-color "PDAnnotSetColor")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-set-color-selproto
                          *g-pdmodel-hft*
                          +pd-annot-set-color-sel+)
-;; line 325
+;; line 1808
 (define-acrobat-function (pd-annot-get-title "PDAnnotGetTitle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-title-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-title-sel+)
-;; line 328
+;; line 1808
 (define-acrobat-function (pd-annot-set-title "PDAnnotSetTitle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-set-title-selproto
                          *g-pdmodel-hft*
                          +pd-annot-set-title-sel+)
-;; line 331
+;; line 1808
 (define-acrobat-function (pd-annot-get-date "PDAnnotGetDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-date-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-date-sel+)
-;; line 334
+;; line 1808
 (define-acrobat-function (pd-annot-set-date "PDAnnotSetDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-set-date-selproto
                          *g-pdmodel-hft*
                          +pd-annot-set-date-sel+)
-;; line 337
+;; line 1808
 (define-acrobat-function (pd-annot-get-cos-obj "PDAnnotGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-cos-obj-sel+)
-;; line 340
+;; line 1808
 (define-acrobat-function (pd-annot-from-cos-obj "PDAnnotFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-annot-from-cos-obj-sel+)
-;; line 343
+;; line 1808
 (define-acrobat-function (pd-text-annot-get-contents "PDTextAnnotGetContents")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-annot-get-contents-selproto
                          *g-pdmodel-hft*
                          +pd-text-annot-get-contents-sel+)
-;; line 346
+;; line 1808
 (define-acrobat-function (pd-text-annot-set-contents "PDTextAnnotSetContents")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-annot-set-contents-selproto
                          *g-pdmodel-hft*
                          +pd-text-annot-set-contents-sel+)
-;; line 349
+;; line 1808
 (define-acrobat-function (pd-text-annot-is-open "PDTextAnnotIsOpen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-annot-is-open-selproto
                          *g-pdmodel-hft*
                          +pd-text-annot-is-open-sel+)
-;; line 352
+;; line 1808
 (define-acrobat-function (pd-text-annot-set-open "PDTextAnnotSetOpen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-annot-set-open-selproto
                          *g-pdmodel-hft*
                          +pd-text-annot-set-open-sel+)
-;; line 355
+;; line 1808
 (define-acrobat-function (pd-link-annot-get-border "PDLinkAnnotGetBorder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-link-annot-get-border-selproto
                          *g-pdmodel-hft*
                          +pd-link-annot-get-border-sel+)
-;; line 358
+;; line 1808
 (define-acrobat-function (pd-link-annot-set-border "PDLinkAnnotSetBorder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-link-annot-set-border-selproto
                          *g-pdmodel-hft*
                          +pd-link-annot-set-border-sel+)
-;; line 361
+;; line 1808
 (define-acrobat-function (pd-link-annot-set-action "PDLinkAnnotSetAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-link-annot-set-action-selproto
                          *g-pdmodel-hft*
                          +pd-link-annot-set-action-sel+)
-;; line 364
+;; line 1808
 (define-acrobat-function (pd-link-annot-get-action "PDLinkAnnotGetAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-link-annot-get-action-selproto
                          *g-pdmodel-hft*
                          +pd-link-annot-get-action-sel+)
-;; line 367
+;; line 1808
 (define-acrobat-function (pd-annot-get-flags "PDAnnotGetFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-get-flags-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-flags-sel+)
-;; line 370
+;; line 1808
 (define-acrobat-function (pd-annot-set-flags "PDAnnotSetFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-annot-set-flags-selproto
                          *g-pdmodel-hft*
                          +pd-annot-set-flags-sel+)
-;; line 373
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-new-sibling "PDBookmarkAddNewSibling")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-add-new-sibling-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-new-sibling-sel+)
-;; line 376
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-new-child "PDBookmarkAddNewChild")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-add-new-child-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-new-child-sel+)
-;; line 379
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-subtree "PDBookmarkAddSubtree")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-add-subtree-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-subtree-sel+)
-;; line 382
+;; line 1808
 (define-acrobat-function (pd-bookmark-destroy "PDBookmarkDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-destroy-sel+)
-;; line 385
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-by-title "PDBookmarkGetByTitle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-by-title-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-by-title-sel+)
-;; line 388
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-count "PDBookmarkGetCount")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-count-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-count-sel+)
-;; line 391
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-prev "PDBookmarkAddPrev")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-add-prev-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-prev-sel+)
-;; line 394
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-next "PDBookmarkAddNext")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-add-next-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-next-sel+)
-;; line 397
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-child "PDBookmarkAddChild")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-add-child-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-child-sel+)
-;; line 400
+;; line 1808
 (define-acrobat-function (pd-bookmark-unlink "PDBookmarkUnlink")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-unlink-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-unlink-sel+)
-;; line 403
+;; line 1808
 (define-acrobat-function (pd-bookmark-is-valid "PDBookmarkIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-is-valid-sel+)
-;; line 406
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-parent "PDBookmarkGetParent")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-parent-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-parent-sel+)
-;; line 409
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-first-child "PDBookmarkGetFirstChild")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-first-child-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-first-child-sel+)
-;; line 412
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-last-child "PDBookmarkGetLastChild")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-last-child-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-last-child-sel+)
-;; line 415
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-next "PDBookmarkGetNext")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-next-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-next-sel+)
-;; line 418
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-prev "PDBookmarkGetPrev")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-prev-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-prev-sel+)
-;; line 421
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-indent "PDBookmarkGetIndent")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-indent-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-indent-sel+)
-;; line 424
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-title "PDBookmarkGetTitle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-title-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-title-sel+)
-;; line 427
+;; line 1808
 (define-acrobat-function (pd-bookmark-set-title "PDBookmarkSetTitle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-set-title-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-set-title-sel+)
-;; line 430
+;; line 1808
 (define-acrobat-function (pd-bookmark-has-children "PDBookmarkHasChildren")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-has-children-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-has-children-sel+)
-;; line 433
+;; line 1808
 (define-acrobat-function (pd-bookmark-is-open "PDBookmarkIsOpen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-is-open-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-is-open-sel+)
-;; line 436
+;; line 1808
 (define-acrobat-function (pd-bookmark-set-open "PDBookmarkSetOpen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-set-open-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-set-open-sel+)
-;; line 439
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-action "PDBookmarkGetAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-action-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-action-sel+)
-;; line 442
+;; line 1808
 (define-acrobat-function (pd-bookmark-set-action "PDBookmarkSetAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-set-action-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-set-action-sel+)
-;; line 445
+;; line 1808
 (define-acrobat-function (pd-bookmark-equal "PDBookmarkEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-equal-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-equal-sel+)
-;; line 448
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-cos-obj "PDBookmarkGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-cos-obj-sel+)
-;; line 451
+;; line 1808
 (define-acrobat-function (pd-bookmark-from-cos-obj "PDBookmarkFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bookmark-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-from-cos-obj-sel+)
-;; line 454
+;; line 1808
 (define-acrobat-function (pd-enum-docs "PDEnumDocs")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-enum-docs-selproto
                          *g-pdmodel-hft*
                          +pd-enum-docs-sel+)
-;; line 457
+;; line 1808
 (define-acrobat-function (pd-doc-open "PDDocOpen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-open-selproto
                          *g-pdmodel-hft*
                          +pd-doc-open-sel+)
-;; line 460
+;; line 1808
 (define-acrobat-function (pd-doc-get-open-action "PDDocGetOpenAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-open-action-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-open-action-sel+)
-;; line 463
+;; line 1808
 (define-acrobat-function (pd-doc-set-open-action "PDDocSetOpenAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-set-open-action-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-open-action-sel+)
-;; line 466
+;; line 1808
 (define-acrobat-function (pd-doc-create "PDDocCreate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-create-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-sel+)
-;; line 469
+;; line 1808
 (define-acrobat-function (pd-doc-save "PDDocSave")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-save-selproto
                          *g-pdmodel-hft*
                          +pd-doc-save-sel+)
-;; line 472
+;; line 1808
 (define-acrobat-function (pd-doc-close "PDDocClose")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-close-selproto
                          *g-pdmodel-hft*
                          +pd-doc-close-sel+)
-;; line 480
+;; line 1808
 (define-acrobat-function (pd-doc-acquire "PDDocAcquire")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-acquire-selproto
                          *g-pdmodel-hft*
                          +pd-doc-acquire-sel+)
-;; line 489
+;; line 1808
 (define-acrobat-function (pd-doc-release "PDDocRelease")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-release-selproto
                          *g-pdmodel-hft*
                          +pd-doc-release-sel+)
-;; line 492
+;; line 1808
 (define-acrobat-function (pd-doc-get-flags "PDDocGetFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-flags-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-flags-sel+)
-;; line 495
+;; line 1808
 (define-acrobat-function (pd-doc-set-flags "PDDocSetFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-set-flags-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-flags-sel+)
-;; line 498
+;; line 1808
 (define-acrobat-function (pd-doc-get-page-mode "PDDocGetPageMode")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-page-mode-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-page-mode-sel+)
-;; line 501
+;; line 1808
 (define-acrobat-function (pd-doc-set-page-mode "PDDocSetPageMode")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-set-page-mode-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-page-mode-sel+)
-;; line 504
+;; line 1808
 (define-acrobat-function (pd-doc-get-cos-doc "PDDocGetCosDoc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-cos-doc-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-cos-doc-sel+)
-;; line 507
+;; line 1808
 (define-acrobat-function (pd-doc-get-file "PDDocGetFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-file-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-file-sel+)
-;; line 510
+;; line 1808
 (define-acrobat-function (pd-doc-get-id "PDDocGetID")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-id-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-id-sel+)
-;; line 513
+;; line 1808
 (define-acrobat-function (pd-doc-get-version "PDDocGetVersion")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-version-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-version-sel+)
-;; line 516
+;; line 1808
 (define-acrobat-function (pd-doc-get-bookmark-root "PDDocGetBookmarkRoot")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-bookmark-root-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-bookmark-root-sel+)
-;; line 519
+;; line 1808
 (define-acrobat-function (pd-doc-get-num-pages "PDDocGetNumPages")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-num-pages-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-num-pages-sel+)
-;; line 522
+;; line 1808
 (define-acrobat-function (pd-doc-acquire-page "PDDocAcquirePage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-acquire-page-selproto
                          *g-pdmodel-hft*
                          +pd-doc-acquire-page-sel+)
-;; line 525
+;; line 1808
 (define-acrobat-function (pd-doc-create-page "PDDocCreatePage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-create-page-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-page-sel+)
-;; line 528
+;; line 1808
 (define-acrobat-function (pd-doc-delete-pages "PDDocDeletePages")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-delete-pages-selproto
                          *g-pdmodel-hft*
                          +pd-doc-delete-pages-sel+)
-;; line 531
+;; line 1808
 (define-acrobat-function (pd-doc-move-page "PDDocMovePage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-move-page-selproto
                          *g-pdmodel-hft*
                          +pd-doc-move-page-sel+)
-;; line 534
+;; line 1808
 (define-acrobat-function (pd-doc-insert-pages "PDDocInsertPages")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-insert-pages-selproto
                          *g-pdmodel-hft*
                          +pd-doc-insert-pages-sel+)
-;; line 537
+;; line 1808
 (define-acrobat-function (pd-doc-replace-pages "PDDocReplacePages")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-replace-pages-selproto
                          *g-pdmodel-hft*
                          +pd-doc-replace-pages-sel+)
-;; line 540
+;; line 1808
 (define-acrobat-function (pd-doc-get-num-threads "PDDocGetNumThreads")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-num-threads-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-num-threads-sel+)
-;; line 543
+;; line 1808
 (define-acrobat-function (pd-doc-get-thread "PDDocGetThread")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-thread-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-thread-sel+)
-;; line 546
+;; line 1808
 (define-acrobat-function (pd-doc-get-thread-index "PDDocGetThreadIndex")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-thread-index-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-thread-index-sel+)
-;; line 549
+;; line 1808
 (define-acrobat-function (pd-doc-add-thread "PDDocAddThread")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-add-thread-selproto
                          *g-pdmodel-hft*
                          +pd-doc-add-thread-sel+)
-;; line 552
+;; line 1808
 (define-acrobat-function (pd-doc-remove-thread "PDDocRemoveThread")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-remove-thread-selproto
                          *g-pdmodel-hft*
                          +pd-doc-remove-thread-sel+)
-;; line 555
+;; line 1808
 (define-acrobat-function (pd-doc-enum-fonts "PDDocEnumFonts")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-enum-fonts-selproto
                          *g-pdmodel-hft*
                          +pd-doc-enum-fonts-sel+)
-;; line 558
+;; line 1808
 (define-acrobat-function (pd-doc-enum-loaded-fonts "PDDocEnumLoadedFonts")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-enum-loaded-fonts-selproto
                          *g-pdmodel-hft*
                          +pd-doc-enum-loaded-fonts-sel+)
-;; line 561
+;; line 1808
 (define-acrobat-function (pd-doc-create-thumbs "PDDocCreateThumbs")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-create-thumbs-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-thumbs-sel+)
-;; line 564
+;; line 1808
 (define-acrobat-function (pd-doc-delete-thumbs "PDDocDeleteThumbs")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-delete-thumbs-selproto
                          *g-pdmodel-hft*
                          +pd-doc-delete-thumbs-sel+)
-;; line 567
+;; line 1808
 (define-acrobat-function (pd-doc-get-word-finder "PDDocGetWordFinder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-word-finder-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-word-finder-sel+)
-;; line 572
+;; line 1808
 (define-acrobat-function (pd-doc-create-word-finder "PDDocCreateWordFinder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-create-word-finder-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-word-finder-sel+)
-;; line 575
+;; line 1808
 (define-acrobat-function (pd-word-finder-get-nth-word "PDWordFinderGetNthWord")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-finder-get-nth-word-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-get-nth-word-sel+)
-;; line 580
+;; line 1808
 (define-acrobat-function (pd-word-split-string "PDWordSplitString")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-split-string-selproto
                          *g-pdmodel-hft*
                          +pd-word-split-string-sel+)
-;; line 586
+;; line 1808
 (define-acrobat-function (pd-doc-get-info "PDDocGetInfo")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-info-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-info-sel+)
-;; line 589
+;; line 1808
 (define-acrobat-function (pd-doc-set-info "PDDocSetInfo")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-set-info-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-info-sel+)
-;; line 593
+;; line 1808
 (define-acrobat-function (pd-doc-get-security-data "PDDocGetSecurityData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-security-data-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-security-data-sel+)
-;; line 596
+;; line 1808
 (define-acrobat-function (pd-doc-get-new-security-data "PDDocGetNewSecurityData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-new-security-data-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-new-security-data-sel+)
-;; line 599
+;; line 1808
 (define-acrobat-function (pd-doc-authorize "PDDocAuthorize")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-authorize-selproto
                          *g-pdmodel-hft*
                          +pd-doc-authorize-sel+)
-;; line 602
+;; line 1808
 (define-acrobat-function (pd-doc-new-security-data "PDDocNewSecurityData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-new-security-data-selproto
                          *g-pdmodel-hft*
                          +pd-doc-new-security-data-sel+)
-;; line 605
+;; line 1808
 (define-acrobat-function (pd-doc-set-new-security-data "PDDocSetNewSecurityData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-set-new-security-data-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-new-security-data-sel+)
-;; line 608
+;; line 1808
 (define-acrobat-function (pd-doc-set-new-crypt-handler "PDDocSetNewCryptHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-set-new-crypt-handler-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-new-crypt-handler-sel+)
-;; line 611
+;; line 1808
 (define-acrobat-function (pd-doc-set-new-crypt-handler-ex "PDDocSetNewCryptHandlerEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-set-new-crypt-handler-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-new-crypt-handler-ex-sel+)
-;; line 614
+;; line 1808
 (define-acrobat-function (pd-doc-get-new-crypt-handler "PDDocGetNewCryptHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-new-crypt-handler-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-new-crypt-handler-sel+)
-;; line 617
+;; line 1808
 (define-acrobat-function (pd-doc-get-new-security-info "PDDocGetNewSecurityInfo")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-new-security-info-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-new-security-info-sel+)
-;; line 621
+;; line 1808
 (define-acrobat-function (pd-doc-get-permissions "PDDocGetPermissions")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-doc-get-permissions-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-permissions-sel+)
-;; line 624
+;; line 1808
 (define-acrobat-function (pd-register-crypt-handler "PDRegisterCryptHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-register-crypt-handler-selproto
                          *g-pdmodel-hft*
                          +pd-register-crypt-handler-sel+)
-;; line 627
+;; line 1808
 (define-acrobat-function (pd-xlate-to-pdf-doc-enc "PDXlateToPDFDocEnc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xlate-to-pdf-doc-enc-selproto
                          *g-pdmodel-hft*
                          +pd-xlate-to-pdf-doc-enc-sel+)
-;; line 630
+;; line 1808
 (define-acrobat-function (pd-xlate-to-host "PDXlateToHost")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xlate-to-host-selproto
                          *g-pdmodel-hft*
                          +pd-xlate-to-host-sel+)
-;; line 634
+;; line 1808
 (define-acrobat-function (pd-font-get-name "PDFontGetName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-name-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-name-sel+)
-;; line 639
+;; line 1808
 (define-acrobat-function (pd-font-get-subtype "PDFontGetSubtype")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-subtype-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-subtype-sel+)
-;; line 642
+;; line 1808
 (define-acrobat-function (pd-font-get-char-set "PDFontGetCharSet")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-char-set-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-char-set-sel+)
-;; line 645
+;; line 1808
 (define-acrobat-function (pd-font-get-encoding-index "PDFontGetEncodingIndex")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-encoding-index-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-encoding-index-sel+)
-;; line 648
+;; line 1808
 (define-acrobat-function (pd-font-acquire-encoding-array "PDFontAcquireEncodingArray")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-acquire-encoding-array-selproto
                          *g-pdmodel-hft*
                          +pd-font-acquire-encoding-array-sel+)
-;; line 651
+;; line 1808
 (define-acrobat-function (pd-font-encoding-array-release "PDFontEncodingArrayRelease")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-encoding-array-release-selproto
                          *g-pdmodel-hft*
                          +pd-font-encoding-array-release-sel+)
-;; line 654
+;; line 1808
 (define-acrobat-function (pd-font-get-metrics "PDFontGetMetrics")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-metrics-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-metrics-sel+)
-;; line 657
+;; line 1808
 (define-acrobat-function (pd-font-get-bbox "PDFontGetBBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-bbox-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-bbox-sel+)
-;; line 660
+;; line 1808
 (define-acrobat-function (pd-font-get-widths "PDFontGetWidths")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-widths-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-widths-sel+)
-;; line 663
+;; line 1808
 (define-acrobat-function (pd-get-pdf-doc-encoding "PDGetPDFDocEncoding")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-get-pdf-doc-encoding-selproto
                          *g-pdmodel-hft*
                          +pd-get-pdf-doc-encoding-sel+)
-;; line 666
+;; line 1808
 (define-acrobat-function (pd-font-is-embedded "PDFontIsEmbedded")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-is-embedded-selproto
                          *g-pdmodel-hft*
                          +pd-font-is-embedded-sel+)
-;; line 669
+;; line 1808
 (define-acrobat-function (pd-font-xlate-widths "PDFontXlateWidths")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-xlate-widths-selproto
                          *g-pdmodel-hft*
                          +pd-font-xlate-widths-sel+)
-;; line 672
+;; line 1808
 (define-acrobat-function (pd-font-xlate-string "PDFontXlateString")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-xlate-string-selproto
                          *g-pdmodel-hft*
                          +pd-font-xlate-string-sel+)
-;; line 675
+;; line 1808
 (define-acrobat-function (pd-font-acquire-xlate-table "PDFontAcquireXlateTable")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-acquire-xlate-table-selproto
                          *g-pdmodel-hft*
                          +pd-font-acquire-xlate-table-sel+)
-;; line 678
+;; line 1808
 (define-acrobat-function (pd-font-xlate-table-release "PDFontXlateTableRelease")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-xlate-table-release-selproto
                          *g-pdmodel-hft*
                          +pd-font-xlate-table-release-sel+)
-;; line 681
+;; line 1808
 (define-acrobat-function (pd-font-get-font-matrix "PDFontGetFontMatrix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-font-matrix-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-font-matrix-sel+)
-;; line 684
+;; line 1808
 (define-acrobat-function (pd-font-set-metrics "PDFontSetMetrics")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-set-metrics-selproto
                          *g-pdmodel-hft*
                          +pd-font-set-metrics-sel+)
-;; line 687
+;; line 1808
 (define-acrobat-function (pd-font-get-cos-obj "PDFontGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-cos-obj-sel+)
-;; line 690
+;; line 1808
 (define-acrobat-function (pd-page-notify-contents-did-change "PDPageNotifyContentsDidChange")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-notify-contents-did-change-selproto
                          *g-pdmodel-hft*
                          +pd-page-notify-contents-did-change-sel+)
-;; line 693
+;; line 1808
 (define-acrobat-function (pd-page-get-number "PDPageGetNumber")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-number-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-number-sel+)
-;; line 696
+;; line 1808
 (define-acrobat-function (pd-page-release "PDPageRelease")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-release-selproto
                          *g-pdmodel-hft*
                          +pd-page-release-sel+)
-;; line 699
+;; line 1808
 (define-acrobat-function (pd-page-get-doc "PDPageGetDoc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-doc-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-doc-sel+)
-;; line 702
+;; line 1808
 (define-acrobat-function (pd-page-get-cos-obj "PDPageGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-cos-obj-sel+)
-;; line 705
+;; line 1808
 (define-acrobat-function (pd-page-num-from-cos-obj "PDPageNumFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-num-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-page-num-from-cos-obj-sel+)
-;; line 708
+;; line 1808
 (define-acrobat-function (pd-page-get-rotate "PDPageGetRotate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-rotate-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-rotate-sel+)
-;; line 711
+;; line 1808
 (define-acrobat-function (pd-page-set-rotate "PDPageSetRotate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-set-rotate-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-rotate-sel+)
-;; line 714
+;; line 1808
 (define-acrobat-function (pd-page-get-media-box "PDPageGetMediaBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-media-box-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-media-box-sel+)
-;; line 717
+;; line 1808
 (define-acrobat-function (pd-page-set-media-box "PDPageSetMediaBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-set-media-box-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-media-box-sel+)
-;; line 720
+;; line 1808
 (define-acrobat-function (pd-page-get-crop-box "PDPageGetCropBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-crop-box-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-crop-box-sel+)
-;; line 723
+;; line 1808
 (define-acrobat-function (pd-page-set-crop-box "PDPageSetCropBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-set-crop-box-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-crop-box-sel+)
-;; line 726
+;; line 1808
 (define-acrobat-function (pd-page-get-bbox "PDPageGetBBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-bbox-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-bbox-sel+)
-;; line 729
+;; line 1808
 (define-acrobat-function (pd-page-get-default-matrix "PDPageGetDefaultMatrix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-default-matrix-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-default-matrix-sel+)
-;; line 732
+;; line 1808
 (define-acrobat-function (pd-page-get-flipped-matrix "PDPageGetFlippedMatrix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-flipped-matrix-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-flipped-matrix-sel+)
-;; line 740
+;; line 1808
 (define-acrobat-function (pd-page-get-annot "PDPageGetAnnot")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-annot-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-annot-sel+)
-;; line 743
+;; line 1808
 (define-acrobat-function (pd-page-add-new-annot "PDPageAddNewAnnot")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-add-new-annot-selproto
                          *g-pdmodel-hft*
                          +pd-page-add-new-annot-sel+)
-;; line 746
+;; line 1808
 (define-acrobat-function (pd-page-add-annot "PDPageAddAnnot")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-add-annot-selproto
                          *g-pdmodel-hft*
                          +pd-page-add-annot-sel+)
-;; line 749
+;; line 1808
 (define-acrobat-function (pd-page-remove-annot "PDPageRemoveAnnot")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-remove-annot-selproto
                          *g-pdmodel-hft*
                          +pd-page-remove-annot-sel+)
-;; line 752
+;; line 1808
 (define-acrobat-function (pd-page-get-annot-index "PDPageGetAnnotIndex")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-annot-index-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-annot-index-sel+)
-;; line 755
+;; line 1808
 (define-acrobat-function (pd-page-get-num-annots "PDPageGetNumAnnots")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-num-annots-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-num-annots-sel+)
-;; line 758
+;; line 1808
 (define-acrobat-function (pd-page-get-cos-resources "PDPageGetCosResources")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-get-cos-resources-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-cos-resources-sel+)
-;; line 761
+;; line 1808
 (define-acrobat-function (pd-page-add-cos-resource "PDPageAddCosResource")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-add-cos-resource-selproto
                          *g-pdmodel-hft*
                          +pd-page-add-cos-resource-sel+)
-;; line 764
+;; line 1808
 (define-acrobat-function (pd-page-add-cos-contents "PDPageAddCosContents")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-add-cos-contents-selproto
                          *g-pdmodel-hft*
                          +pd-page-add-cos-contents-sel+)
-;; line 767
+;; line 1808
 (define-acrobat-function (pd-page-remove-cos-resource "PDPageRemoveCosResource")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-remove-cos-resource-selproto
                          *g-pdmodel-hft*
                          +pd-page-remove-cos-resource-sel+)
-;; line 770
+;; line 1808
 (define-acrobat-function (pd-page-remove-cos-contents "PDPageRemoveCosContents")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-page-remove-cos-contents-selproto
                          *g-pdmodel-hft*
                          +pd-page-remove-cos-contents-sel+)
-;; line 773
+;; line 1808
 (define-acrobat-function (pd-graphic-get-bbox "PDGraphicGetBBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-graphic-get-bbox-selproto
                          *g-pdmodel-hft*
                          +pd-graphic-get-bbox-sel+)
-;; line 776
+;; line 1808
 (define-acrobat-function (pd-graphic-get-current-matrix "PDGraphicGetCurrentMatrix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-graphic-get-current-matrix-selproto
                          *g-pdmodel-hft*
                          +pd-graphic-get-current-matrix-sel+)
-;; line 779
+;; line 1808
 (define-acrobat-function (pd-graphic-get-state "PDGraphicGetState")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-graphic-get-state-selproto
                          *g-pdmodel-hft*
                          +pd-graphic-get-state-sel+)
-;; line 784
+;; line 1808
 (define-acrobat-function (pd-text-enum "PDTextEnum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-enum-selproto
                          *g-pdmodel-hft*
                          +pd-text-enum-sel+)
-;; line 787
+;; line 1808
 (define-acrobat-function (pd-text-get-state "PDTextGetState")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-get-state-selproto
                          *g-pdmodel-hft*
                          +pd-text-get-state-sel+)
-;; line 790
+;; line 1808
 (define-acrobat-function (pd-path-enum "PDPathEnum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-path-enum-selproto
                          *g-pdmodel-hft*
                          +pd-path-enum-sel+)
-;; line 793
+;; line 1808
 (define-acrobat-function (pd-path-get-paint-op "PDPathGetPaintOp")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-path-get-paint-op-selproto
                          *g-pdmodel-hft*
                          +pd-path-get-paint-op-sel+)
-;; line 796
+;; line 1808
 (define-acrobat-function (pd-inline-image-get-attrs "PDInlineImageGetAttrs")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-inline-image-get-attrs-selproto
                          *g-pdmodel-hft*
                          +pd-inline-image-get-attrs-sel+)
-;; line 799
+;; line 1808
 (define-acrobat-function (pd-inline-image-get-data "PDInlineImageGetData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-inline-image-get-data-selproto
                          *g-pdmodel-hft*
                          +pd-inline-image-get-data-sel+)
-;; line 802
+;; line 1808
 (define-acrobat-function (pd-inline-image-color-space-get-index-lookup "PDInlineImageColorSpaceGetIndexLookup")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-inline-image-color-space-get-index-lookup-selproto
                          *g-pdmodel-hft*
                          +pd-inline-image-color-space-get-index-lookup-sel+)
-;; line 805
+;; line 1808
 (define-acrobat-function (pd-xobject-get-subtype "PDXObjectGetSubtype")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xobject-get-subtype-selproto
                          *g-pdmodel-hft*
                          +pd-xobject-get-subtype-sel+)
-;; line 808
+;; line 1808
 (define-acrobat-function (pd-xobject-get-cos-obj "PDXObjectGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xobject-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-xobject-get-cos-obj-sel+)
-;; line 811
+;; line 1808
 (define-acrobat-function (pd-xobject-get-data-length "PDXObjectGetDataLength")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xobject-get-data-length-selproto
                          *g-pdmodel-hft*
                          +pd-xobject-get-data-length-sel+)
-;; line 816
+;; line 1808
 (define-acrobat-function (pd-xobject-get-data "PDXObjectGetData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xobject-get-data-selproto
                          *g-pdmodel-hft*
                          +pd-xobject-get-data-sel+)
-;; line 821
+;; line 1808
 (define-acrobat-function (pd-xobject-enum-filters "PDXObjectEnumFilters")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-xobject-enum-filters-selproto
                          *g-pdmodel-hft*
                          +pd-xobject-enum-filters-sel+)
-;; line 824
+;; line 1808
 (define-acrobat-function (pd-image-get-attrs "PDImageGetAttrs")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-image-get-attrs-selproto
                          *g-pdmodel-hft*
                          +pd-image-get-attrs-sel+)
-;; line 827
+;; line 1808
 (define-acrobat-function (pd-image-color-space-get-index-lookup "PDImageColorSpaceGetIndexLookup")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-image-color-space-get-index-lookup-selproto
                          *g-pdmodel-hft*
                          +pd-image-color-space-get-index-lookup-sel+)
-;; line 830
+;; line 1808
 (define-acrobat-function (pd-form-get-form-type "PDFormGetFormType")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-form-get-form-type-selproto
                          *g-pdmodel-hft*
                          +pd-form-get-form-type-sel+)
-;; line 833
+;; line 1808
 (define-acrobat-function (pd-form-get-bbox "PDFormGetBBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-form-get-bbox-selproto
                          *g-pdmodel-hft*
                          +pd-form-get-bbox-sel+)
-;; line 839
+;; line 1808
 (define-acrobat-function (pd-form-get-xuidcos-obj "PDFormGetXUIDCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-form-get-xuidcos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-form-get-xuidcos-obj-sel+)
-;; line 842
+;; line 1808
 (define-acrobat-function (pd-form-enum-resources "PDFormEnumResources")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-form-enum-resources-selproto
                          *g-pdmodel-hft*
                          +pd-form-enum-resources-sel+)
-;; line 845
+;; line 1808
 (define-acrobat-function (pd-form-enum-paint-proc "PDFormEnumPaintProc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-form-enum-paint-proc-selproto
                          *g-pdmodel-hft*
                          +pd-form-enum-paint-proc-sel+)
-;; line 848
+;; line 1808
 (define-acrobat-function (pd-font-enum-char-procs "PDFontEnumCharProcs")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-font-enum-char-procs-selproto
                          *g-pdmodel-hft*
                          +pd-font-enum-char-procs-sel+)
-;; line 851
+;; line 1808
 (define-acrobat-function (pd-char-proc-enum "PDCharProcEnum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-char-proc-enum-selproto
                          *g-pdmodel-hft*
                          +pd-char-proc-enum-sel+)
-;; line 854
+;; line 1808
 (define-acrobat-function (pd-char-proc-get-cos-obj "PDCharProcGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-char-proc-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-char-proc-get-cos-obj-sel+)
-;; line 857
+;; line 1808
 (define-acrobat-function (pd-thread-new "PDThreadNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-new-selproto
                          *g-pdmodel-hft*
                          +pd-thread-new-sel+)
-;; line 860
+;; line 1808
 (define-acrobat-function (pd-thread-destroy "PDThreadDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-thread-destroy-sel+)
-;; line 863
+;; line 1808
 (define-acrobat-function (pd-thread-get-first-bead "PDThreadGetFirstBead")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-get-first-bead-selproto
                          *g-pdmodel-hft*
                          +pd-thread-get-first-bead-sel+)
-;; line 866
+;; line 1808
 (define-acrobat-function (pd-thread-set-first-bead "PDThreadSetFirstBead")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-set-first-bead-selproto
                          *g-pdmodel-hft*
                          +pd-thread-set-first-bead-sel+)
-;; line 869
+;; line 1808
 (define-acrobat-function (pd-thread-get-info "PDThreadGetInfo")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-get-info-selproto
                          *g-pdmodel-hft*
                          +pd-thread-get-info-sel+)
-;; line 872
+;; line 1808
 (define-acrobat-function (pd-thread-set-info "PDThreadSetInfo")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-set-info-selproto
                          *g-pdmodel-hft*
                          +pd-thread-set-info-sel+)
-;; line 875
+;; line 1808
 (define-acrobat-function (pd-thread-is-valid "PDThreadIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-thread-is-valid-sel+)
-;; line 878
+;; line 1808
 (define-acrobat-function (pd-thread-get-cos-obj "PDThreadGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-thread-get-cos-obj-sel+)
-;; line 881
+;; line 1808
 (define-acrobat-function (pd-thread-from-cos-obj "PDThreadFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-thread-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-thread-from-cos-obj-sel+)
-;; line 884
+;; line 1808
 (define-acrobat-function (pd-bead-new "PDBeadNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-new-selproto
                          *g-pdmodel-hft*
                          +pd-bead-new-sel+)
-;; line 887
+;; line 1808
 (define-acrobat-function (pd-bead-destroy "PDBeadDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-bead-destroy-sel+)
-;; line 890
+;; line 1808
 (define-acrobat-function (pd-bead-get-next "PDBeadGetNext")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-get-next-selproto
                          *g-pdmodel-hft*
                          +pd-bead-get-next-sel+)
-;; line 893
+;; line 1808
 (define-acrobat-function (pd-bead-get-prev "PDBeadGetPrev")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-get-prev-selproto
                          *g-pdmodel-hft*
                          +pd-bead-get-prev-sel+)
-;; line 896
+;; line 1808
 (define-acrobat-function (pd-bead-insert "PDBeadInsert")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-insert-selproto
                          *g-pdmodel-hft*
                          +pd-bead-insert-sel+)
-;; line 899
+;; line 1808
 (define-acrobat-function (pd-bead-acquire-page "PDBeadAcquirePage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-acquire-page-selproto
                          *g-pdmodel-hft*
                          +pd-bead-acquire-page-sel+)
-;; line 902
+;; line 1808
 (define-acrobat-function (pd-bead-set-page "PDBeadSetPage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-set-page-selproto
                          *g-pdmodel-hft*
                          +pd-bead-set-page-sel+)
-;; line 905
+;; line 1808
 (define-acrobat-function (pd-bead-get-rect "PDBeadGetRect")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-get-rect-selproto
                          *g-pdmodel-hft*
                          +pd-bead-get-rect-sel+)
-;; line 911
+;; line 1808
 (define-acrobat-function (pd-bead-is-valid "PDBeadIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-bead-is-valid-sel+)
-;; line 914
+;; line 1808
 (define-acrobat-function (pd-bead-get-thread "PDBeadGetThread")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-get-thread-selproto
                          *g-pdmodel-hft*
                          +pd-bead-get-thread-sel+)
-;; line 917
+;; line 1808
 (define-acrobat-function (pd-bead-get-index "PDBeadGetIndex")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-get-index-selproto
                          *g-pdmodel-hft*
                          +pd-bead-get-index-sel+)
-;; line 920
+;; line 1808
 (define-acrobat-function (pd-bead-equal "PDBeadEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-equal-selproto
                          *g-pdmodel-hft*
                          +pd-bead-equal-sel+)
-;; line 923
+;; line 1808
 (define-acrobat-function (pd-bead-get-cos-obj "PDBeadGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-bead-get-cos-obj-sel+)
-;; line 926
+;; line 1808
 (define-acrobat-function (pd-bead-from-cos-obj "PDBeadFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-bead-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-bead-from-cos-obj-sel+)
-;; line 929
+;; line 1808
 (define-acrobat-function (pd-view-dest-create "PDViewDestCreate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-view-dest-create-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-create-sel+)
-;; line 932
+;; line 1808
 (define-acrobat-function (pd-view-dest-destroy "PDViewDestDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-view-dest-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-destroy-sel+)
-;; line 935
+;; line 1808
 (define-acrobat-function (pd-view-dest-is-valid "PDViewDestIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-view-dest-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-is-valid-sel+)
-;; line 938
+;; line 1808
 (define-acrobat-function (pd-view-dest-get-attr "PDViewDestGetAttr")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-view-dest-get-attr-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-get-attr-sel+)
-;; line 941
+;; line 1808
 (define-acrobat-function (pd-view-dest-get-cos-obj "PDViewDestGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-view-dest-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-get-cos-obj-sel+)
-;; line 944
+;; line 1808
 (define-acrobat-function (pd-view-dest-from-cos-obj "PDViewDestFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-view-dest-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-from-cos-obj-sel+)
-;; line 947
+;; line 1808
 (define-acrobat-function (pd-text-select-destroy "PDTextSelectDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-destroy-sel+)
-;; line 957
+;; line 1808
 (define-acrobat-function (pd-text-select-enum-text "PDTextSelectEnumText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-enum-text-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-enum-text-sel+)
-;; line 960
+;; line 1808
 (define-acrobat-function (pd-text-select-get-page "PDTextSelectGetPage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-get-page-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-get-page-sel+)
-;; line 963
+;; line 1808
 (define-acrobat-function (pd-text-select-get-bounding-rect "PDTextSelectGetBoundingRect")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-get-bounding-rect-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-get-bounding-rect-sel+)
-;; line 966
+;; line 1808
 (define-acrobat-function (pd-text-select-create-page-hilite "PDTextSelectCreatePageHilite")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-create-page-hilite-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-create-page-hilite-sel+)
-;; line 969
+;; line 1808
 (define-acrobat-function (pd-text-select-create-word-hilite "PDTextSelectCreateWordHilite")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-create-word-hilite-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-create-word-hilite-sel+)
-;; line 972
+;; line 1808
 (define-acrobat-function (pd-text-select-get-range "PDTextSelectGetRange")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-get-range-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-get-range-sel+)
-;; line 975
+;; line 1808
 (define-acrobat-function (pd-text-select-get-range-count "PDTextSelectGetRangeCount")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-get-range-count-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-get-range-count-sel+)
-;; line 978
+;; line 1808
 (define-acrobat-function (pd-text-select-create-ranges "PDTextSelectCreateRanges")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-text-select-create-ranges-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-create-ranges-sel+)
-;; line 981
+;; line 1808
 (define-acrobat-function (pd-word-finder-acquire-word-list "PDWordFinderAcquireWordList")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-finder-acquire-word-list-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-acquire-word-list-sel+)
-;; line 984
+;; line 1808
 (define-acrobat-function (pd-word-finder-get-latest-alg-version "PDWordFinderGetLatestAlgVersion")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-finder-get-latest-alg-version-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-get-latest-alg-version-sel+)
-;; line 987
+;; line 1808
 (define-acrobat-function (pd-word-finder-release-word-list "PDWordFinderReleaseWordList")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-finder-release-word-list-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-release-word-list-sel+)
-;; line 990
+;; line 1808
 (define-acrobat-function (pd-word-finder-destroy "PDWordFinderDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-finder-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-destroy-sel+)
-;; line 993
+;; line 1808
 (define-acrobat-function (pd-word-finder-enum-words "PDWordFinderEnumWords")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-finder-enum-words-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-enum-words-sel+)
-;; line 996
+;; line 1808
 (define-acrobat-function (pd-word-get-length "PDWordGetLength")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-length-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-length-sel+)
-;; line 999
+;; line 1808
 (define-acrobat-function (pd-word-get-string "PDWordGetString")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-string-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-string-sel+)
-;; line 1002
+;; line 1808
 (define-acrobat-function (pd-word-get-attr "PDWordGetAttr")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-attr-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-attr-sel+)
-;; line 1005
+;; line 1808
 (define-acrobat-function (pd-word-get-character-types "PDWordGetCharacterTypes")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-character-types-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-character-types-sel+)
-;; line 1011
+;; line 1808
 (define-acrobat-function (pd-word-get-char-delta "PDWordGetCharDelta")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-char-delta-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-char-delta-sel+)
-;; line 1014
+;; line 1808
 (define-acrobat-function (pd-word-get-style-transition "PDWordGetStyleTransition")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-style-transition-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-style-transition-sel+)
-;; line 1017
+;; line 1808
 (define-acrobat-function (pd-word-get-nth-char-style "PDWordGetNthCharStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-nth-char-style-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-nth-char-style-sel+)
-;; line 1020
+;; line 1808
 (define-acrobat-function (pd-word-get-num-quads "PDWordGetNumQuads")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-num-quads-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-num-quads-sel+)
-;; line 1023
+;; line 1808
 (define-acrobat-function (pd-word-get-nth-quad "PDWordGetNthQuad")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-get-nth-quad-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-nth-quad-sel+)
-;; line 1026
+;; line 1808
 (define-acrobat-function (pd-word-is-rotated "PDWordIsRotated")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-is-rotated-selproto
                          *g-pdmodel-hft*
                          +pd-word-is-rotated-sel+)
-;; line 1029
+;; line 1808
 (define-acrobat-function (pd-word-filter-string "PDWordFilterString")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-filter-string-selproto
                          *g-pdmodel-hft*
                          +pd-word-filter-string-sel+)
-;; line 1032
+;; line 1808
 (define-acrobat-function (pd-word-filter-word "PDWordFilterWord")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-word-filter-word-selproto
                          *g-pdmodel-hft*
                          +pd-word-filter-word-sel+)
-;; line 1035
+;; line 1808
 (define-acrobat-function (pd-style-get-font "PDStyleGetFont")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-style-get-font-selproto
                          *g-pdmodel-hft*
                          +pd-style-get-font-sel+)
-;; line 1038
+;; line 1808
 (define-acrobat-function (pd-style-get-font-size "PDStyleGetFontSize")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-style-get-font-size-selproto
                          *g-pdmodel-hft*
                          +pd-style-get-font-size-sel+)
-;; line 1041
+;; line 1808
 (define-acrobat-function (pd-style-get-color "PDStyleGetColor")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-style-get-color-selproto
                          *g-pdmodel-hft*
                          +pd-style-get-color-sel+)
-;; line 1044
+;; line 1808
 (define-acrobat-function (pd-file-spec-new-from-as-path "PDFileSpecNewFromASPath")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-file-spec-new-from-as-path-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-new-from-as-path-sel+)
-;; line 1047
+;; line 1808
 (define-acrobat-function (pd-file-spec-from-cos-obj "PDFileSpecFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-file-spec-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-from-cos-obj-sel+)
-;; line 1053
+;; line 1808
 (define-acrobat-function (pd-file-spec-acquire-as-path "PDFileSpecAcquireASPath")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-file-spec-acquire-as-path-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-acquire-as-path-sel+)
-;; line 1056
+;; line 1808
 (define-acrobat-function (pd-file-spec-get-cos-obj "PDFileSpecGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-file-spec-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-get-cos-obj-sel+)
-;; line 1059
+;; line 1808
 (define-acrobat-function (pd-file-spec-is-valid "PDFileSpecIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-file-spec-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-is-valid-sel+)
-;; line 1062
+;; line 1808
 (define-acrobat-function (pd-register-file-spec-handler "PDRegisterFileSpecHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-register-file-spec-handler-selproto
                          *g-pdmodel-hft*
                          +pd-register-file-spec-handler-sel+)
-;; line 1065
+;; line 1808
 (define-acrobat-function (pd-file-spec-get-dipath "PDFileSpecGetDIPath")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-file-spec-get-dipath-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-get-dipath-sel+)
-;; line 1068
+;; line 1808
 (define-acrobat-function (pd-pref-set-color-cal "PDPrefSetColorCal")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-pref-set-color-cal-selproto
                          *g-pdmodel-hft*
                          +pd-pref-set-color-cal-sel+)
-;; line 1071
+;; line 1808
 (define-acrobat-function (pd-pref-get-color-cal "PDPrefGetColorCal")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2+
                          pd-pref-get-color-cal-selproto
                          *g-pdmodel-hft*
                          +pd-pref-get-color-cal-sel+)
-;; line 1079
+;; line 1808
 (define-acrobat-function (pd-page-notify-contents-did-change-ex "PDPageNotifyContentsDidChangeEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-1+
                          pd-page-notify-contents-did-change-ex-selproto
                          *g-pdmodel-hft*
                          +pd-page-notify-contents-did-change-ex-sel+)
-;; line 1095
+;; line 1808
 (define-acrobat-function (pd-doc-open-from-as-file "PDDocOpenFromASFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-open-from-as-file-selproto
                          *g-pdmodel-hft*
                          +pd-doc-open-from-as-file-sel+)
-;; line 1098
+;; line 1808
 (define-acrobat-function (pd-file-spec-get-doc "PDFileSpecGetDoc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-file-spec-get-doc-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-get-doc-sel+)
-;; line 1101
+;; line 1808
 (define-acrobat-function (pd-file-spec-get-file-sys-name "PDFileSpecGetFileSysName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-file-spec-get-file-sys-name-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-get-file-sys-name-sel+)
-;; line 1104
+;; line 1808
 (define-acrobat-function (pd-register-file-spec-handler-by-name "PDRegisterFileSpecHandlerByName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-register-file-spec-handler-by-name-selproto
                          *g-pdmodel-hft*
                          +pd-register-file-spec-handler-by-name-sel+)
-;; line 1107
+;; line 1808
 (define-acrobat-function (pd-page-stm-get-token "PDPageStmGetToken")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-stm-get-token-selproto
                          *g-pdmodel-hft*
                          +pd-page-stm-get-token-sel+)
-;; line 1110
+;; line 1808
 (define-acrobat-function (pd-page-stm-get-inline-image "PDPageStmGetInlineImage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-stm-get-inline-image-selproto
                          *g-pdmodel-hft*
                          +pd-page-stm-get-inline-image-sel+)
-;; line 1113
+;; line 1808
 (define-acrobat-function (pd-view-dest-resolve "PDViewDestResolve")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-view-dest-resolve-selproto
                          *g-pdmodel-hft*
                          +pd-view-dest-resolve-sel+)
-;; line 1117
+;; line 1808
 (define-acrobat-function (pd-trans-is-valid "PDTransIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-trans-is-valid-sel+)
-;; line 1119
+;; line 1808
 (define-acrobat-function (pd-trans-null "PDTransNull")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-null-selproto
                          *g-pdmodel-hft*
                          +pd-trans-null-sel+)
-;; line 1121
+;; line 1808
 (define-acrobat-function (pd-trans-from-cos-obj "PDTransFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-trans-from-cos-obj-sel+)
-;; line 1123
+;; line 1808
 (define-acrobat-function (pd-trans-get-cos-obj "PDTransGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-trans-get-cos-obj-sel+)
-;; line 1125
+;; line 1808
 (define-acrobat-function (pd-trans-equal "PDTransEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-equal-selproto
                          *g-pdmodel-hft*
                          +pd-trans-equal-sel+)
-;; line 1129
+;; line 1808
 (define-acrobat-function (pd-page-has-transition "PDPageHasTransition")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-has-transition-selproto
                          *g-pdmodel-hft*
                          +pd-page-has-transition-sel+)
-;; line 1131
+;; line 1808
 (define-acrobat-function (pd-page-get-transition "PDPageGetTransition")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-get-transition-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-transition-sel+)
-;; line 1133
+;; line 1808
 (define-acrobat-function (pd-page-set-transition "PDPageSetTransition")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-set-transition-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-transition-sel+)
-;; line 1135
+;; line 1808
 (define-acrobat-function (pd-page-get-duration "PDPageGetDuration")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-get-duration-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-duration-sel+)
-;; line 1137
+;; line 1808
 (define-acrobat-function (pd-page-set-duration "PDPageSetDuration")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-page-set-duration-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-duration-sel+)
-;; line 1140
+;; line 1808
 (define-acrobat-function (pd-trans-new-from-cos-doc "PDTransNewFromCosDoc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-new-from-cos-doc-selproto
                          *g-pdmodel-hft*
                          +pd-trans-new-from-cos-doc-sel+)
-;; line 1142
+;; line 1808
 (define-acrobat-function (pd-trans-new "PDTransNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-new-selproto
                          *g-pdmodel-hft*
                          +pd-trans-new-sel+)
-;; line 1144
+;; line 1808
 (define-acrobat-function (pd-trans-get-subtype "PDTransGetSubtype")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-get-subtype-selproto
                          *g-pdmodel-hft*
                          +pd-trans-get-subtype-sel+)
-;; line 1146
+;; line 1808
 (define-acrobat-function (pd-trans-get-duration "PDTransGetDuration")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-trans-get-duration-selproto
                          *g-pdmodel-hft*
                          +pd-trans-get-duration-sel+)
-;; line 1150
+;; line 1808
 (define-acrobat-function (pd-doc-read-ahead "PDDocReadAhead")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-read-ahead-selproto
                          *g-pdmodel-hft*
                          +pd-doc-read-ahead-sel+)
-;; line 1152
+;; line 1808
 (define-acrobat-function (pd-doc-open-ex "PDDocOpenEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-open-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-open-ex-sel+)
-;; line 1154
+;; line 1808
 (define-acrobat-function (pd-doc-open-from-as-file-ex "PDDocOpenFromASFileEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-open-from-as-file-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-open-from-as-file-ex-sel+)
-;; line 1158
+;; line 1808
 (define-acrobat-function (pd-register-crypt-handler-ex "PDRegisterCryptHandlerEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-register-crypt-handler-ex-selproto
                          *g-pdmodel-hft*
                          +pd-register-crypt-handler-ex-sel+)
-;; line 1161
+;; line 1808
 (define-acrobat-function (pd-doc-get-crypt-handler-client-data "PDDocGetCryptHandlerClientData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-get-crypt-handler-client-data-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-crypt-handler-client-data-sel+)
-;; line 1165
+;; line 1808
 (define-acrobat-function (pd-doc-get-full-screen "PDDocGetFullScreen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-get-full-screen-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-full-screen-sel+)
-;; line 1169
+;; line 1808
 (define-acrobat-function (pd-doc-set-full-screen "PDDocSetFullScreen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-set-full-screen-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-full-screen-sel+)
-;; line 1172
+;; line 1808
 (define-acrobat-function (pd-doc-save-with-params "PDDocSaveWithParams")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-doc-save-with-params-selproto
                          *g-pdmodel-hft*
                          +pd-doc-save-with-params-sel+)
-;; line 1175
+;; line 1808
 (define-acrobat-function (pd-name-tree-lookup "PDNameTreeLookup")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-2+
                          pd-name-tree-lookup-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-lookup-sel+)
-;; line 1179
+;; line 1808
 (define-acrobat-function (pd-font-get-descendant "PDFontGetDescendant")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-font-get-descendant-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-descendant-sel+)
-;; line 1182
+;; line 1808
 (define-acrobat-function (pd-font-get-encoding-name "PDFontGetEncodingName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-font-get-encoding-name-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-encoding-name-sel+)
-;; line 1185
+;; line 1808
 (define-acrobat-function (pd-font-get-cidsystem-info "PDFontGetCIDSystemInfo")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-font-get-cidsystem-info-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-cidsystem-info-sel+)
-;; line 1188
+;; line 1808
 (define-acrobat-function (pd-font-get-cidsystem-supplement "PDFontGetCIDSystemSupplement")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-font-get-cidsystem-supplement-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-cidsystem-supplement-sel+)
-;; line 1191
+;; line 1808
 (define-acrobat-function (pd-xlate-to-host-ex "PDXlateToHostEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-xlate-to-host-ex-selproto
                          *g-pdmodel-hft*
                          +pd-xlate-to-host-ex-sel+)
-;; line 1194
+;; line 1808
 (define-acrobat-function (pd-xlate-to-pdf-doc-enc-ex "PDXlateToPDFDocEncEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-xlate-to-pdf-doc-enc-ex-selproto
                          *g-pdmodel-hft*
                          +pd-xlate-to-pdf-doc-enc-ex-sel+)
-;; line 1197
+;; line 1808
 (define-acrobat-function (pd-host-mblen "PDHostMBLen")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-host-mblen-selproto
                          *g-pdmodel-hft*
                          +pd-host-mblen-sel+)
-;; line 1200
+;; line 1808
 (define-acrobat-function (pd-get-host-encoding "PDGetHostEncoding")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-get-host-encoding-selproto
                          *g-pdmodel-hft*
                          +pd-get-host-encoding-sel+)
-;; line 1205
+;; line 1808
 (define-acrobat-function (pd-doc-create-word-finder-ucs "PDDocCreateWordFinderUCS")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-doc-create-word-finder-ucs-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-word-finder-ucs-sel+)
-;; line 1208
+;; line 1808
 (define-acrobat-function (pd-font-xlate-to-host "PDFontXlateToHost")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-font-xlate-to-host-selproto
                          *g-pdmodel-hft*
                          +pd-font-xlate-to-host-sel+)
-;; line 1211
+;; line 1808
 (define-acrobat-function (pd-font-xlate-to-ucs "PDFontXlateToUCS")
                          *g-pdmodel-version*
                          +pd-model-hft-version-2-3+
                          pd-font-xlate-to-ucs-selproto
                          *g-pdmodel-hft*
                          +pd-font-xlate-to-ucs-sel+)
-;; line 1218
+;; line 1808
 (define-acrobat-function (pd-doc-from-cos-doc "PDDocFromCosDoc")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-from-cos-doc-selproto
                          *g-pdmodel-hft*
                          +pd-doc-from-cos-doc-sel+)
-;; line 1221
+;; line 1808
 (define-acrobat-function (pd-doc-enum-resources "PDDocEnumResources")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-enum-resources-selproto
                          *g-pdmodel-hft*
                          +pd-doc-enum-resources-sel+)
-;; line 1223
+;; line 1808
 (define-acrobat-function (pd-doc-import-cos-doc-notes "PDDocImportCosDocNotes")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-import-cos-doc-notes-selproto
                          *g-pdmodel-hft*
                          +pd-doc-import-cos-doc-notes-sel+)
-;; line 1225
+;; line 1808
 (define-acrobat-function (pd-doc-export-notes "PDDocExportNotes")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-export-notes-selproto
                          *g-pdmodel-hft*
                          +pd-doc-export-notes-sel+)
-;; line 1227
+;; line 1808
 (define-acrobat-function (pd-page-get-annot-sequence "PDPageGetAnnotSequence")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-get-annot-sequence-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-annot-sequence-sel+)
-;; line 1229
+;; line 1808
 (define-acrobat-function (pd-register-annot-handler "PDRegisterAnnotHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-register-annot-handler-selproto
                          *g-pdmodel-hft*
                          +pd-register-annot-handler-sel+)
-;; line 1231
+;; line 1808
 (define-acrobat-function (pd-get-annot-handler-by-name "PDGetAnnotHandlerByName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-get-annot-handler-by-name-selproto
                          *g-pdmodel-hft*
                          +pd-get-annot-handler-by-name-sel+)
-;; line 1234
+;; line 1808
 (define-acrobat-function (pd-name-tree-new "PDNameTreeNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-new-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-new-sel+)
-;; line 1236
+;; line 1808
 (define-acrobat-function (pd-name-tree-from-cos-obj "PDNameTreeFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-from-cos-obj-sel+)
-;; line 1238
+;; line 1808
 (define-acrobat-function (pd-name-tree-get-cos-obj "PDNameTreeGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-get-cos-obj-sel+)
-;; line 1240
+;; line 1808
 (define-acrobat-function (pd-name-tree-is-valid "PDNameTreeIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-is-valid-sel+)
-;; line 1242
+;; line 1808
 (define-acrobat-function (pd-name-tree-equal "PDNameTreeEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-equal-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-equal-sel+)
-;; line 1244
+;; line 1808
 (define-acrobat-function (pd-name-tree-put "PDNameTreePut")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-put-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-put-sel+)
-;; line 1246
+;; line 1808
 (define-acrobat-function (pd-name-tree-get "PDNameTreeGet")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-get-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-get-sel+)
-;; line 1248
+;; line 1808
 (define-acrobat-function (pd-name-tree-remove "PDNameTreeRemove")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-remove-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-remove-sel+)
-;; line 1250
+;; line 1808
 (define-acrobat-function (pd-name-tree-enum "PDNameTreeEnum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-name-tree-enum-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-enum-sel+)
-;; line 1252
+;; line 1808
 (define-acrobat-function (pd-doc-get-name-tree "PDDocGetNameTree")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-get-name-tree-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-name-tree-sel+)
-;; line 1254
+;; line 1808
 (define-acrobat-function (pd-doc-create-name-tree "PDDocCreateNameTree")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-create-name-tree-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-name-tree-sel+)
-;; line 1256
+;; line 1808
 (define-acrobat-function (pd-doc-remove-name-tree "PDDocRemoveNameTree")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-remove-name-tree-selproto
                          *g-pdmodel-hft*
                          +pd-doc-remove-name-tree-sel+)
-;; line 1260
+;; line 1808
 (define-acrobat-function (pd-page-label-is-valid "PDPageLabelIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-is-valid-sel+)
-;; line 1262
+;; line 1808
 (define-acrobat-function (pd-page-label-equal "PDPageLabelEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-equal-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-equal-sel+)
-;; line 1264
+;; line 1808
 (define-acrobat-function (pd-page-label-get-cos-obj "PDPageLabelGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-get-cos-obj-sel+)
-;; line 1266
+;; line 1808
 (define-acrobat-function (pd-page-label-from-cos-obj "PDPageLabelFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-from-cos-obj-sel+)
-;; line 1268
+;; line 1808
 (define-acrobat-function (pd-page-label-get-style "PDPageLabelGetStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-get-style-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-get-style-sel+)
-;; line 1270
+;; line 1808
 (define-acrobat-function (pd-page-label-get-prefix "PDPageLabelGetPrefix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-get-prefix-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-get-prefix-sel+)
-;; line 1272
+;; line 1808
 (define-acrobat-function (pd-page-label-get-start "PDPageLabelGetStart")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-get-start-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-get-start-sel+)
-;; line 1274
+;; line 1808
 (define-acrobat-function (pd-doc-get-page-label "PDDocGetPageLabel")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-get-page-label-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-page-label-sel+)
-;; line 1276
+;; line 1808
 (define-acrobat-function (pd-page-label-new "PDPageLabelNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-page-label-new-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-new-sel+)
-;; line 1278
+;; line 1808
 (define-acrobat-function (pd-doc-set-page-label "PDDocSetPageLabel")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-set-page-label-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-page-label-sel+)
-;; line 1280
+;; line 1808
 (define-acrobat-function (pd-doc-remove-page-label "PDDocRemovePageLabel")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-remove-page-label-selproto
                          *g-pdmodel-hft*
                          +pd-doc-remove-page-label-sel+)
-;; line 1282
+;; line 1808
 (define-acrobat-function (pd-doc-open-with-params "PDDocOpenWithParams")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-open-with-params-selproto
                          *g-pdmodel-hft*
                          +pd-doc-open-with-params-sel+)
-;; line 1284
+;; line 1808
 (define-acrobat-function (pd-doc-read-ahead-pages "PDDocReadAheadPages")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-read-ahead-pages-selproto
                          *g-pdmodel-hft*
                          +pd-doc-read-ahead-pages-sel+)
-;; line 1286
+;; line 1808
 (define-acrobat-function (pd-doc-get-label-for-page-num "PDDocGetLabelForPageNum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-get-label-for-page-num-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-label-for-page-num-sel+)
-;; line 1287
+;; line 1808
 (define-acrobat-function (pd-doc-find-page-num-for-label "PDDocFindPageNumForLabel")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-find-page-num-for-label-selproto
                          *g-pdmodel-hft*
                          +pd-doc-find-page-num-for-label-sel+)
-;; line 1289
+;; line 1808
 (define-acrobat-function (pd-doc-import-notes "PDDocImportNotes")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-doc-import-notes-selproto
                          *g-pdmodel-hft*
                          +pd-doc-import-notes-sel+)
-;; line 1291
+;; line 1808
 (define-acrobat-function (pd-image-select-alternate "PDImageSelectAlternate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-image-select-alternate-selproto
                          *g-pdmodel-hft*
                          +pd-image-select-alternate-sel+)
-;; line 1292
+;; line 1808
 (define-acrobat-function (pd-image-sel-get-geo-attr "PDImageSelGetGeoAttr")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-image-sel-get-geo-attr-selproto
                          *g-pdmodel-hft*
                          +pd-image-sel-get-geo-attr-sel+)
-;; line 1293
+;; line 1808
 (define-acrobat-function (pd-image-sel-get-device-attr "PDImageSelGetDeviceAttr")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-image-sel-get-device-attr-selproto
                          *g-pdmodel-hft*
                          +pd-image-sel-get-device-attr-sel+)
-;; line 1294
+;; line 1808
 (define-acrobat-function (pd-image-sel-adjust-matrix "PDImageSelAdjustMatrix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-image-sel-adjust-matrix-selproto
                          *g-pdmodel-hft*
                          +pd-image-sel-adjust-matrix-sel+)
-;; line 1295
+;; line 1808
 (define-acrobat-function (pd-apply-function "PDApplyFunction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-apply-function-selproto
                          *g-pdmodel-hft*
                          +pd-apply-function-sel+)
-;; line 1297
+;; line 1808
 (define-acrobat-function (pd-num-tree-new "PDNumTreeNew")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-new-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-new-sel+)
-;; line 1298
+;; line 1808
 (define-acrobat-function (pd-num-tree-from-cos-obj "PDNumTreeFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-from-cos-obj-sel+)
-;; line 1299
+;; line 1808
 (define-acrobat-function (pd-num-tree-get-cos-obj "PDNumTreeGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-get-cos-obj-sel+)
-;; line 1300
+;; line 1808
 (define-acrobat-function (pd-num-tree-is-valid "PDNumTreeIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-is-valid-sel+)
-;; line 1301
+;; line 1808
 (define-acrobat-function (pd-num-tree-equal "PDNumTreeEqual")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-equal-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-equal-sel+)
-;; line 1302
+;; line 1808
 (define-acrobat-function (pd-num-tree-put "PDNumTreePut")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-put-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-put-sel+)
-;; line 1303
+;; line 1808
 (define-acrobat-function (pd-num-tree-get "PDNumTreeGet")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-get-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-get-sel+)
-;; line 1304
+;; line 1808
 (define-acrobat-function (pd-num-tree-remove "PDNumTreeRemove")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-remove-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-remove-sel+)
-;; line 1305
+;; line 1808
 (define-acrobat-function (pd-num-tree-enum "PDNumTreeEnum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-num-tree-enum-selproto
                          *g-pdmodel-hft*
                          +pd-num-tree-enum-sel+)
-;; line 1307
+;; line 1808
 (define-acrobat-function (pd-font-from-cos-obj "PDFontFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4+
                          pd-font-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-font-from-cos-obj-sel+)
-;; line 1310
+;; line 1808
 (define-acrobat-function (pd-doc-copy-to-file "PDDocCopyToFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-4-5+
                          pd-doc-copy-to-file-selproto
                          *g-pdmodel-hft*
                          +pd-doc-copy-to-file-sel+)
-;; line 1313
+;; line 1808
 (define-acrobat-function (pd-doc-perm-request "PDDocPermRequest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-doc-perm-request-selproto
                          *g-pdmodel-hft*
                          +pd-doc-perm-request-sel+)
-;; line 1316
+;; line 1808
 (define-acrobat-function (pd-page-set-box "PDPageSetBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-page-set-box-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-box-sel+)
-;; line 1317
+;; line 1808
 (define-acrobat-function (pd-page-get-box "PDPageGetBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-page-get-box-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-box-sel+)
-;; line 1319
+;; line 1808
 (define-acrobat-function (pd-link-annot-remove-action "PDLinkAnnotRemoveAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-link-annot-remove-action-selproto
                          *g-pdmodel-hft*
                          +pd-link-annot-remove-action-sel+)
-;; line 1320
+;; line 1808
 (define-acrobat-function (pd-bookmark-remove-action "PDBookmarkRemoveAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-bookmark-remove-action-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-remove-action-sel+)
-;; line 1321
+;; line 1808
 (define-acrobat-function (pd-doc-remove-open-action "PDDocRemoveOpenAction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-doc-remove-open-action-selproto
                          *g-pdmodel-hft*
                          +pd-doc-remove-open-action-sel+)
-;; line 1322
+;; line 1808
 (define-acrobat-function (pd-name-tree-notify-name-added "PDNameTreeNotifyNameAdded")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-name-tree-notify-name-added-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-notify-name-added-sel+)
-;; line 1323
+;; line 1808
 (define-acrobat-function (pd-name-tree-notify-name-removed "PDNameTreeNotifyNameRemoved")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-name-tree-notify-name-removed-selproto
                          *g-pdmodel-hft*
                          +pd-name-tree-notify-name-removed-sel+)
-;; line 1326
+;; line 1808
 (define-acrobat-function (pd-doc-get-page-obj-by-num "PDDocGetPageObjByNum")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-doc-get-page-obj-by-num-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-page-obj-by-num-sel+)
-;; line 1328
+;; line 1808
 (define-acrobat-function (pd-text-select-enum-text-ucs "PDTextSelectEnumTextUCS")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-text-select-enum-text-ucs-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-enum-text-ucs-sel+)
-;; line 1335
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-color "PDBookmarkGetColor")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-bookmark-get-color-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-color-sel+)
-;; line 1336
+;; line 1808
 (define-acrobat-function (pd-bookmark-set-color "PDBookmarkSetColor")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-bookmark-set-color-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-set-color-sel+)
-;; line 1337
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-flags "PDBookmarkGetFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-bookmark-get-flags-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-flags-sel+)
-;; line 1338
+;; line 1808
 (define-acrobat-function (pd-bookmark-set-flags "PDBookmarkSetFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-bookmark-set-flags-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-set-flags-sel+)
-;; line 1340
+;; line 1808
 (define-acrobat-function (pd-doc-export-some-notes "PDDocExportSomeNotes")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-doc-export-some-notes-selproto
                          *g-pdmodel-hft*
                          +pd-doc-export-some-notes-sel+)
-;; line 1342
+;; line 1808
 (define-acrobat-function (pd-page-has-transparency "PDPageHasTransparency")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-page-has-transparency-selproto
                          *g-pdmodel-hft*
                          +pd-page-has-transparency-sel+)
-;; line 1344
+;; line 1808
 (define-acrobat-function (pd-text-select-create-page-hilite-ex "PDTextSelectCreatePageHiliteEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-text-select-create-page-hilite-ex-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-create-page-hilite-ex-sel+)
-;; line 1345
+;; line 1808
 (define-acrobat-function (pd-text-select-create-word-hilite-ex "PDTextSelectCreateWordHiliteEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-text-select-create-word-hilite-ex-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-create-word-hilite-ex-sel+)
-;; line 1346
+;; line 1808
 (define-acrobat-function (pd-text-select-create-ranges-ex "PDTextSelectCreateRangesEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-5+
                          pd-text-select-create-ranges-ex-selproto
                          *g-pdmodel-hft*
                          +pd-text-select-create-ranges-ex-sel+)
-;; line 1352
+;; line 1808
 (define-acrobat-function (pd-doc-create-word-finder-ex "PDDocCreateWordFinderEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-create-word-finder-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-word-finder-ex-sel+)
-;; line 1353
+;; line 1808
 (define-acrobat-function (pd-word-get-char-offset-ex "PDWordGetCharOffsetEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-char-offset-ex-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-char-offset-ex-sel+)
-;; line 1354
+;; line 1808
 (define-acrobat-function (pd-word-get-char-quad "PDWordGetCharQuad")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-char-quad-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-char-quad-sel+)
-;; line 1355
+;; line 1808
 (define-acrobat-function (pd-word-get-num-hilite-char "PDWordGetNumHiliteChar")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-num-hilite-char-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-num-hilite-char-sel+)
-;; line 1356
+;; line 1808
 (define-acrobat-function (pd-word-get-byte-idx-from-hilite-char "PDWordGetByteIdxFromHiliteChar")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-byte-idx-from-hilite-char-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-byte-idx-from-hilite-char-sel+)
-;; line 1357
+;; line 1808
 (define-acrobat-function (pd-word-get-as-text "PDWordGetASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-as-text-sel+)
-;; line 1358
+;; line 1808
 (define-acrobat-function (pd-word-get-char-enc-flags "PDWordGetCharEncFlags")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-char-enc-flags-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-char-enc-flags-sel+)
-;; line 1359
+;; line 1808
 (define-acrobat-function (pd-word-get-attr-ex "PDWordGetAttrEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-get-attr-ex-selproto
                          *g-pdmodel-hft*
                          +pd-word-get-attr-ex-sel+)
-;; line 1360
+;; line 1808
 (define-acrobat-function (pd-word-create-text-select "PDWordCreateTextSelect")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-create-text-select-selproto
                          *g-pdmodel-hft*
                          +pd-word-create-text-select-sel+)
-;; line 1362
+;; line 1808
 (define-acrobat-function (pd-word-finder-enum-words-str "PDWordFinderEnumWordsStr")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-finder-enum-words-str-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-enum-words-str-sel+)
-;; line 1365
+;; line 1808
 (define-acrobat-function (pd-page-enum-inks "PDPageEnumInks")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-page-enum-inks-selproto
                          *g-pdmodel-hft*
                          +pd-page-enum-inks-sel+)
-;; line 1366
+;; line 1808
 (define-acrobat-function (pd-page-make-separations "PDPageMakeSeparations")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-page-make-separations-selproto
                          *g-pdmodel-hft*
                          +pd-page-make-separations-sel+)
-;; line 1369
+;; line 1808
 (define-acrobat-function (pd-register-action-handler "PDRegisterActionHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-register-action-handler-selproto
                          *g-pdmodel-hft*
                          +pd-register-action-handler-sel+)
-;; line 1370
+;; line 1808
 (define-acrobat-function (pd-action-can-copy "PDActionCanCopy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-action-can-copy-selproto
                          *g-pdmodel-hft*
                          +pd-action-can-copy-sel+)
-;; line 1371
+;; line 1808
 (define-acrobat-function (pd-action-copy "PDActionCopy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-action-copy-selproto
                          *g-pdmodel-hft*
                          +pd-action-copy-sel+)
-;; line 1372
+;; line 1808
 (define-acrobat-function (pd-action-can-paste "PDActionCanPaste")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-action-can-paste-selproto
                          *g-pdmodel-hft*
                          +pd-action-can-paste-sel+)
-;; line 1373
+;; line 1808
 (define-acrobat-function (pd-action-paste "PDActionPaste")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-action-paste-selproto
                          *g-pdmodel-hft*
                          +pd-action-paste-sel+)
-;; line 1374
+;; line 1808
 (define-acrobat-function (pd-action-destroy-clipboard-data "PDActionDestroyClipboardData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-action-destroy-clipboard-data-selproto
                          *g-pdmodel-hft*
                          +pd-action-destroy-clipboard-data-sel+)
-;; line 1377
+;; line 1808
 (define-acrobat-function (pd-annot-can-copy "PDAnnotCanCopy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-annot-can-copy-selproto
                          *g-pdmodel-hft*
                          +pd-annot-can-copy-sel+)
-;; line 1378
+;; line 1808
 (define-acrobat-function (pd-annot-copy "PDAnnotCopy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-annot-copy-selproto
                          *g-pdmodel-hft*
                          +pd-annot-copy-sel+)
-;; line 1379
+;; line 1808
 (define-acrobat-function (pd-annot-can-paste "PDAnnotCanPaste")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-annot-can-paste-selproto
                          *g-pdmodel-hft*
                          +pd-annot-can-paste-sel+)
-;; line 1380
+;; line 1808
 (define-acrobat-function (pd-annot-paste "PDAnnotPaste")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-annot-paste-selproto
                          *g-pdmodel-hft*
                          +pd-annot-paste-sel+)
-;; line 1381
+;; line 1808
 (define-acrobat-function (pd-annot-destroy-clipboard-data "PDAnnotDestroyClipboardData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-annot-destroy-clipboard-data-selproto
                          *g-pdmodel-hft*
                          +pd-annot-destroy-clipboard-data-sel+)
-;; line 1484
+;; line 1808
 (define-acrobat-function (pd-word-finder-acquire-visible-word-list "PDWordFinderAcquireVisibleWordList")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-finder-acquire-visible-word-list-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-acquire-visible-word-list-sel+)
-;; line 1485
+;; line 1808
 (define-acrobat-function (pd-word-is-currently-visible "PDWordIsCurrentlyVisible")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-is-currently-visible-selproto
                          *g-pdmodel-hft*
                          +pd-word-is-currently-visible-sel+)
-;; line 1486
+;; line 1808
 (define-acrobat-function (pd-word-make-visible "PDWordMakeVisible")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-make-visible-selproto
                          *g-pdmodel-hft*
                          +pd-word-make-visible-sel+)
-;; line 1487
+;; line 1808
 (define-acrobat-function (pd-word-finder-enum-visible-words "PDWordFinderEnumVisibleWords")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-word-finder-enum-visible-words-selproto
                          *g-pdmodel-hft*
                          +pd-word-finder-enum-visible-words-sel+)
-;; line 1490
+;; line 1808
 (define-acrobat-function (pd-page-get-visible-bbox "PDPageGetVisibleBBox")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-page-get-visible-bbox-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-visible-bbox-sel+)
-;; line 1493
+;; line 1808
 (define-acrobat-function (pd-doc-set-new-crypt-filter-method "PDDocSetNewCryptFilterMethod")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-set-new-crypt-filter-method-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-new-crypt-filter-method-sel+)
-;; line 1494
+;; line 1808
 (define-acrobat-function (pd-doc-set-new-crypt-filter-data "PDDocSetNewCryptFilterData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-set-new-crypt-filter-data-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-new-crypt-filter-data-sel+)
-;; line 1495
+;; line 1808
 (define-acrobat-function (pd-doc-set-new-default-filters "PDDocSetNewDefaultFilters")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-set-new-default-filters-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-new-default-filters-sel+)
-;; line 1496
+;; line 1808
 (define-acrobat-function (pd-crypt-authorize-filter-access "PDCryptAuthorizeFilterAccess")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-crypt-authorize-filter-access-selproto
                          *g-pdmodel-hft*
                          +pd-crypt-authorize-filter-access-sel+)
-;; line 1499
+;; line 1808
 (define-acrobat-function (pd-doc-request-pages "PDDocRequestPages")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-request-pages-selproto
                          *g-pdmodel-hft*
                          +pd-doc-request-pages-sel+)
-;; line 1500
+;; line 1808
 (define-acrobat-function (pd-doc-request-entire-file "PDDocRequestEntireFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-request-entire-file-selproto
                          *g-pdmodel-hft*
                          +pd-doc-request-entire-file-sel+)
-;; line 1512
+;; line 1808
 (define-acrobat-function (pd-doc-get-label-for-page-num-ex "PDDocGetLabelForPageNumEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-get-label-for-page-num-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-label-for-page-num-ex-sel+)
-;; line 1513
+;; line 1808
 (define-acrobat-function (pd-doc-find-page-num-for-label-ex "PDDocFindPageNumForLabelEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-doc-find-page-num-for-label-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-find-page-num-for-label-ex-sel+)
-;; line 1516
+;; line 1808
 (define-acrobat-function (pd-font-get-as-text-name "PDFontGetASTextName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-6+
                          pd-font-get-as-text-name-selproto
                          *g-pdmodel-hft*
                          +pd-font-get-as-text-name-sel+)
-;; line 1519
+;; line 1808
 (define-acrobat-function (pd-page-acquire-page "PDPageAcquirePage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-page-acquire-page-selproto
                          *g-pdmodel-hft*
                          +pd-page-acquire-page-sel+)
-;; line 1533
+;; line 1808
 (define-acrobat-function (pd-page-get-user-unit-size "PDPageGetUserUnitSize")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-page-get-user-unit-size-selproto
                          *g-pdmodel-hft*
                          +pd-page-get-user-unit-size-sel+)
-;; line 1536
+;; line 1808
 (define-acrobat-function (pd-page-set-user-unit-size "PDPageSetUserUnitSize")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-page-set-user-unit-size-selproto
                          *g-pdmodel-hft*
                          +pd-page-set-user-unit-size-sel+)
-;; line 1538
+;; line 1808
 (define-acrobat-function (pd-doc-perm-request-no-ub "PDDocPermRequestNoUB")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-doc-perm-request-no-ub-selproto
                          *g-pdmodel-hft*
                          +pd-doc-perm-request-no-ub-sel+)
-;; line 1541
+;; line 1808
 (define-acrobat-function (pd-page-enum-inks-ex "PDPageEnumInksEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-page-enum-inks-ex-selproto
                          *g-pdmodel-hft*
                          +pd-page-enum-inks-ex-sel+)
-;; line 1550
+;; line 1808
 (define-acrobat-function (pd-doc-get-layout-mode "PDDocGetLayoutMode")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-doc-get-layout-mode-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-layout-mode-sel+)
-;; line 1553
+;; line 1808
 (define-acrobat-function (pd-doc-set-layout-mode "PDDocSetLayoutMode")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-doc-set-layout-mode-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-layout-mode-sel+)
-;; line 1556
+;; line 1808
 (define-acrobat-function (pd-doc-get-crypt-handler "PDDocGetCryptHandler")
                          *g-pdmodel-version*
                          +pd-model-hft-version-7+
                          pd-doc-get-crypt-handler-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-crypt-handler-sel+)
-;; line 1560
+;; line 1808
 (define-acrobat-function (pd-file-spec-new-from-as-path-ex "PDFileSpecNewFromASPathEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-file-spec-new-from-as-path-ex-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-new-from-as-path-ex-sel+)
-;; line 1563
+;; line 1808
 (define-acrobat-function (pd-file-spec-acquire-as-path-ex "PDFileSpecAcquireASPathEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-file-spec-acquire-as-path-ex-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-acquire-as-path-ex-sel+)
-;; line 1566
+;; line 1808
 (define-acrobat-function (pd-file-spec-get-dipath-ex "PDFileSpecGetDIPathEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-file-spec-get-dipath-ex-selproto
                          *g-pdmodel-hft*
                          +pd-file-spec-get-dipath-ex-sel+)
-;; line 1582
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-new-child-as-text "PDBookmarkAddNewChildASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-bookmark-add-new-child-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-new-child-as-text-sel+)
-;; line 1584
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-new-sibling-as-text "PDBookmarkAddNewSiblingASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-bookmark-add-new-sibling-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-new-sibling-as-text-sel+)
-;; line 1586
+;; line 1808
 (define-acrobat-function (pd-bookmark-add-subtree-as-text "PDBookmarkAddSubtreeASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-bookmark-add-subtree-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-add-subtree-as-text-sel+)
-;; line 1588
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-title-as-text "PDBookmarkGetTitleASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-bookmark-get-title-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-title-as-text-sel+)
-;; line 1590
+;; line 1808
 (define-acrobat-function (pd-bookmark-set-title-as-text "PDBookmarkSetTitleASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-bookmark-set-title-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-set-title-as-text-sel+)
-;; line 1592
+;; line 1808
 (define-acrobat-function (pd-bookmark-get-by-title-as-text "PDBookmarkGetByTitleASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-bookmark-get-by-title-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-bookmark-get-by-title-as-text-sel+)
-;; line 1596
+;; line 1808
 (define-acrobat-function (pd-annot-get-title-as-text "PDAnnotGetTitleASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-annot-get-title-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-annot-get-title-as-text-sel+)
-;; line 1598
+;; line 1808
 (define-acrobat-function (pd-annot-set-title-as-text "PDAnnotSetTitleASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-annot-set-title-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-annot-set-title-as-text-sel+)
-;; line 1600
+;; line 1808
 (define-acrobat-function (pd-text-annot-get-contents-as-text "PDTextAnnotGetContentsASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-text-annot-get-contents-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-text-annot-get-contents-as-text-sel+)
-;; line 1602
+;; line 1808
 (define-acrobat-function (pd-text-annot-set-contents-as-text "PDTextAnnotSetContentsASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-text-annot-set-contents-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-text-annot-set-contents-as-text-sel+)
-;; line 1606
+;; line 1808
 (define-acrobat-function (pd-doc-get-info-as-text "PDDocGetInfoASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-doc-get-info-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-info-as-text-sel+)
-;; line 1608
+;; line 1808
 (define-acrobat-function (pd-doc-set-info-as-as-text "PDDocSetInfoAsASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-doc-set-info-as-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-doc-set-info-as-as-text-sel+)
-;; line 1612
+;; line 1808
 (define-acrobat-function (pd-page-label-get-prefix-as-text "PDPageLabelGetPrefixASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-page-label-get-prefix-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-get-prefix-as-text-sel+)
-;; line 1613
+;; line 1808
 (define-acrobat-function (pd-page-label-new-as-text "PDPageLabelNewASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-page-label-new-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-page-label-new-as-text-sel+)
-;; line 1617
+;; line 1808
 (define-acrobat-function (pd-thread-get-info-as-text "PDThreadGetInfoASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-thread-get-info-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-thread-get-info-as-text-sel+)
-;; line 1619
+;; line 1808
 (define-acrobat-function (pd-thread-set-info-as-text "PDThreadSetInfoASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-thread-set-info-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-thread-set-info-as-text-sel+)
-;; line 1622
+;; line 1808
 (define-acrobat-function (pd-xlate-to-host-as-text "PDXlateToHostASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-xlate-to-host-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-xlate-to-host-as-text-sel+)
-;; line 1624
+;; line 1808
 (define-acrobat-function (pd-xlate-to-as-text "PDXlateToASText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-xlate-to-as-text-selproto
                          *g-pdmodel-hft*
                          +pd-xlate-to-as-text-sel+)
-;; line 1627
+;; line 1808
 (define-acrobat-function (pd-page-has-overprint-ext "PDPageHasOverprintExt")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-page-has-overprint-ext-selproto
                          *g-pdmodel-hft*
                          +pd-page-has-overprint-ext-sel+)
-;; line 1640
+;; line 1808
 (define-acrobat-function (pd-pref-set-working-rgb "PDPrefSetWorkingRGB")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-pref-set-working-rgb-selproto
                          *g-pdmodel-hft*
                          +pd-pref-set-working-rgb-sel+)
-;; line 1643
+;; line 1808
 (define-acrobat-function (pd-pref-set-working-cmyk "PDPrefSetWorkingCMYK")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-pref-set-working-cmyk-selproto
                          *g-pdmodel-hft*
                          +pd-pref-set-working-cmyk-sel+)
-;; line 1646
+;; line 1808
 (define-acrobat-function (pd-pref-set-working-gray "PDPrefSetWorkingGray")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-pref-set-working-gray-selproto
                          *g-pdmodel-hft*
                          +pd-pref-set-working-gray-sel+)
-;; line 1649
+;; line 1808
 (define-acrobat-function (pd-pref-set-black-point-compensation "PDPrefSetBlackPointCompensation")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-pref-set-black-point-compensation-selproto
                          *g-pdmodel-hft*
                          +pd-pref-set-black-point-compensation-sel+)
-;; line 1652
+;; line 1808
 (define-acrobat-function (pd-pref-get-black-point-compensation "PDPrefGetBlackPointCompensation")
                          *g-pdmodel-version*
                          +pd-model-hft-version-8+
                          pd-pref-get-black-point-compensation-selproto
                          *g-pdmodel-hft*
                          +pd-pref-get-black-point-compensation-sel+)
-;; line 1659
+;; line 1808
 (define-acrobat-function (pd-doc-apply-redactions "PDDocApplyRedactions")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-apply-redactions-selproto
                          *g-pdmodel-hft*
                          +pd-doc-apply-redactions-sel+)
-;; line 1661
+;; line 1808
 (define-acrobat-function (pd-doc-create-redaction "PDDocCreateRedaction")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-create-redaction-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-redaction-sel+)
-;; line 1663
+;; line 1808
 (define-acrobat-function (pd-redaction-get-props "PDRedactionGetProps")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-redaction-get-props-selproto
                          *g-pdmodel-hft*
                          +pd-redaction-get-props-sel+)
-;; line 1665
+;; line 1808
 (define-acrobat-function (pd-redaction-set-props "PDRedactionSetProps")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-redaction-set-props-selproto
                          *g-pdmodel-hft*
                          +pd-redaction-set-props-sel+)
-;; line 1668
+;; line 1808
 (define-acrobat-function (pd-doc-reset-ink-usage "PDDocResetInkUsage")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-reset-ink-usage-selproto
                          *g-pdmodel-hft*
                          +pd-doc-reset-ink-usage-sel+)
-;; line 1671
+;; line 1808
 (define-acrobat-function (pd-doc-get-num-errors "PDDocGetNumErrors")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-get-num-errors-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-num-errors-sel+)
-;; line 1673
+;; line 1808
 (define-acrobat-function (pd-doc-get-nth-error "PDDocGetNthError")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-get-nth-error-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-nth-error-sel+)
-;; line 1675
+;; line 1808
 (define-acrobat-function (pd-doc-get-version-ex "PDDocGetVersionEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-get-version-ex-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-version-ex-sel+)
-;; line 1677
+;; line 1808
 (define-acrobat-function (pd-file-attachment-new-from-file "PDFileAttachmentNewFromFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-new-from-file-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-new-from-file-sel+)
-;; line 1678
+;; line 1808
 (define-acrobat-function (pd-file-attachment-update-from-file "PDFileAttachmentUpdateFromFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-update-from-file-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-update-from-file-sel+)
-;; line 1679
+;; line 1808
 (define-acrobat-function (pd-file-attachment-save-to-file "PDFileAttachmentSaveToFile")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-save-to-file-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-save-to-file-sel+)
-;; line 1680
+;; line 1808
 (define-acrobat-function (pd-file-attachment-from-cos-obj "PDFileAttachmentFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-from-cos-obj-sel+)
-;; line 1681
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-cos-obj "PDFileAttachmentGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-cos-obj-sel+)
-;; line 1682
+;; line 1808
 (define-acrobat-function (pd-file-attachment-open-stream "PDFileAttachmentOpenStream")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-open-stream-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-open-stream-sel+)
-;; line 1683
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-file-size "PDFileAttachmentGetFileSize")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-file-size-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-file-size-sel+)
-;; line 1684
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-creation-date "PDFileAttachmentGetCreationDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-creation-date-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-creation-date-sel+)
-;; line 1685
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-mod-date "PDFileAttachmentGetModDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-mod-date-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-mod-date-sel+)
-;; line 1686
+;; line 1808
 (define-acrobat-function (pd-file-attachment-is-valid "PDFileAttachmentIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-is-valid-sel+)
-;; line 1687
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-file-name "PDFileAttachmentGetFileName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-file-name-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-file-name-sel+)
-;; line 1688
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-field-text "PDFileAttachmentSetFieldText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-set-field-text-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-field-text-sel+)
-;; line 1689
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-field-text "PDFileAttachmentGetFieldText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-field-text-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-field-text-sel+)
-;; line 1690
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-field-number "PDFileAttachmentSetFieldNumber")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-set-field-number-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-field-number-sel+)
-;; line 1691
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-field-number "PDFileAttachmentGetFieldNumber")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-field-number-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-field-number-sel+)
-;; line 1692
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-field-date "PDFileAttachmentSetFieldDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-set-field-date-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-field-date-sel+)
-;; line 1693
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-field-date "PDFileAttachmentGetFieldDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-field-date-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-field-date-sel+)
-;; line 1694
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-field-prefix "PDFileAttachmentSetFieldPrefix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-set-field-prefix-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-field-prefix-sel+)
-;; line 1695
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-field-prefix "PDFileAttachmentGetFieldPrefix")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-file-attachment-get-field-prefix-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-field-prefix-sel+)
-;; line 1697
+;; line 1808
 (define-acrobat-function (pd-collection-is-valid "PDCollectionIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-collection-is-valid-sel+)
-;; line 1698
+;; line 1808
 (define-acrobat-function (pd-doc-get-pdcollection "PDDocGetPDCollection")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-get-pdcollection-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-pdcollection-sel+)
-;; line 1699
+;; line 1808
 (define-acrobat-function (pd-doc-create-pdcollection "PDDocCreatePDCollection")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-create-pdcollection-selproto
                          *g-pdmodel-hft*
                          +pd-doc-create-pdcollection-sel+)
-;; line 1700
+;; line 1808
 (define-acrobat-function (pd-doc-delete-collection "PDDocDeleteCollection")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-delete-collection-selproto
                          *g-pdmodel-hft*
                          +pd-doc-delete-collection-sel+)
-;; line 1701
+;; line 1808
 (define-acrobat-function (pd-collection-get-sort-order "PDCollectionGetSortOrder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-get-sort-order-selproto
                          *g-pdmodel-hft*
                          +pd-collection-get-sort-order-sel+)
-;; line 1702
+;; line 1808
 (define-acrobat-function (pd-collection-set-sort-order "PDCollectionSetSortOrder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-set-sort-order-selproto
                          *g-pdmodel-hft*
                          +pd-collection-set-sort-order-sel+)
-;; line 1703
+;; line 1808
 (define-acrobat-function (pd-collection-get-view-data "PDCollectionGetViewData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-get-view-data-selproto
                          *g-pdmodel-hft*
                          +pd-collection-get-view-data-sel+)
-;; line 1704
+;; line 1808
 (define-acrobat-function (pd-collection-set-view-data "PDCollectionSetViewData")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-set-view-data-selproto
                          *g-pdmodel-hft*
                          +pd-collection-set-view-data-sel+)
-;; line 1706
+;; line 1808
 (define-acrobat-function (pd-collection-schema-acquire "PDCollectionSchemaAcquire")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-schema-acquire-selproto
                          *g-pdmodel-hft*
                          +pd-collection-schema-acquire-sel+)
-;; line 1707
+;; line 1808
 (define-acrobat-function (pd-collection-schema-destroy "PDCollectionSchemaDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-schema-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-collection-schema-destroy-sel+)
-;; line 1708
+;; line 1808
 (define-acrobat-function (pd-collection-schema-get-length "PDCollectionSchemaGetLength")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-schema-get-length-selproto
                          *g-pdmodel-hft*
                          +pd-collection-schema-get-length-sel+)
-;; line 1709
+;; line 1808
 (define-acrobat-function (pd-collection-schema-get-field "PDCollectionSchemaGetField")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-schema-get-field-selproto
                          *g-pdmodel-hft*
                          +pd-collection-schema-get-field-sel+)
-;; line 1710
+;; line 1808
 (define-acrobat-function (pd-collection-schema-set-field "PDCollectionSchemaSetField")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-schema-set-field-selproto
                          *g-pdmodel-hft*
                          +pd-collection-schema-set-field-sel+)
-;; line 1711
+;; line 1808
 (define-acrobat-function (pd-collection-schema-remove-field "PDCollectionSchemaRemoveField")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-schema-remove-field-selproto
                          *g-pdmodel-hft*
                          +pd-collection-schema-remove-field-sel+)
-;; line 1713
+;; line 1808
 (define-acrobat-function (pd-folder-is-valid "PDFolderIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-folder-is-valid-sel+)
-;; line 1714
+;; line 1808
 (define-acrobat-function (pd-collection-create-folder "PDCollectionCreateFolder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-create-folder-selproto
                          *g-pdmodel-hft*
                          +pd-collection-create-folder-sel+)
-;; line 1715
+;; line 1808
 (define-acrobat-function (pd-collection-remove-folder "PDCollectionRemoveFolder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-remove-folder-selproto
                          *g-pdmodel-hft*
                          +pd-collection-remove-folder-sel+)
-;; line 1716
+;; line 1808
 (define-acrobat-function (pd-collection-get-folder "PDCollectionGetFolder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-collection-get-folder-selproto
                          *g-pdmodel-hft*
                          +pd-collection-get-folder-sel+)
-;; line 1717
+;; line 1808
 (define-acrobat-function (pd-folder-get-parent "PDFolderGetParent")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-parent-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-parent-sel+)
-;; line 1718
+;; line 1808
 (define-acrobat-function (pd-folder-set-parent "PDFolderSetParent")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-parent-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-parent-sel+)
-;; line 1719
+;; line 1808
 (define-acrobat-function (pd-folder-get-first-child "PDFolderGetFirstChild")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-first-child-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-first-child-sel+)
-;; line 1720
+;; line 1808
 (define-acrobat-function (pd-folder-get-next-sibling "PDFolderGetNextSibling")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-next-sibling-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-next-sibling-sel+)
-;; line 1721
+;; line 1808
 (define-acrobat-function (pd-folder-set-name "PDFolderSetName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-name-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-name-sel+)
-;; line 1722
+;; line 1808
 (define-acrobat-function (pd-folder-get-name "PDFolderGetName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-name-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-name-sel+)
-;; line 1723
+;; line 1808
 (define-acrobat-function (pd-folder-get-id "PDFolderGetID")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-id-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-id-sel+)
-;; line 1724
+;; line 1808
 (define-acrobat-function (pd-folder-get-path-text "PDFolderGetPathText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-path-text-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-path-text-sel+)
-;; line 1725
+;; line 1808
 (define-acrobat-function (pd-folder-get-mod-date "PDFolderGetModDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-mod-date-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-mod-date-sel+)
-;; line 1726
+;; line 1808
 (define-acrobat-function (pd-folder-set-mod-date "PDFolderSetModDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-mod-date-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-mod-date-sel+)
-;; line 1727
+;; line 1808
 (define-acrobat-function (pd-folder-get-creation-date "PDFolderGetCreationDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-creation-date-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-creation-date-sel+)
-;; line 1728
+;; line 1808
 (define-acrobat-function (pd-folder-set-creation-date "PDFolderSetCreationDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-creation-date-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-creation-date-sel+)
-;; line 1729
+;; line 1808
 (define-acrobat-function (pd-folder-get-description "PDFolderGetDescription")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-description-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-description-sel+)
-;; line 1730
+;; line 1808
 (define-acrobat-function (pd-folder-set-description "PDFolderSetDescription")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-description-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-description-sel+)
-;; line 1731
+;; line 1808
 (define-acrobat-function (pd-folder-set-field-text "PDFolderSetFieldText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-field-text-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-field-text-sel+)
-;; line 1732
+;; line 1808
 (define-acrobat-function (pd-folder-get-field-text "PDFolderGetFieldText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-field-text-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-field-text-sel+)
-;; line 1733
+;; line 1808
 (define-acrobat-function (pd-folder-set-field-number "PDFolderSetFieldNumber")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-field-number-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-field-number-sel+)
-;; line 1734
+;; line 1808
 (define-acrobat-function (pd-folder-get-field-number "PDFolderGetFieldNumber")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-field-number-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-field-number-sel+)
-;; line 1735
+;; line 1808
 (define-acrobat-function (pd-folder-set-field-date "PDFolderSetFieldDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-set-field-date-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-field-date-sel+)
-;; line 1736
+;; line 1808
 (define-acrobat-function (pd-folder-get-field-date "PDFolderGetFieldDate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-folder-get-field-date-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-field-date-sel+)
-;; line 1738
+;; line 1808
 (define-acrobat-function (as-file-attachment-create-path-name "ASFileAttachmentCreatePathName")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          as-file-attachment-create-path-name-selproto
                          *g-pdmodel-hft*
                          +as-file-attachment-create-path-name-sel+)
-;; line 1739
+;; line 1808
 (define-acrobat-function (as-file-attachment-get-pdf-ile-attachment "ASFileAttachmentGetPDFileAttachment")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          as-file-attachment-get-pdf-ile-attachment-selproto
                          *g-pdmodel-hft*
                          +as-file-attachment-get-pdf-ile-attachment-sel+)
-;; line 1740
+;; line 1808
 (define-acrobat-function (as-file-attachment-get-pdf-older "ASFileAttachmentGetPDFolder")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          as-file-attachment-get-pdf-older-selproto
                          *g-pdmodel-hft*
                          +as-file-attachment-get-pdf-older-sel+)
-;; line 1743
+;; line 1808
 (define-acrobat-function (pd-doc-has-isoextensions "PDDocHasISOExtensions")
                          *g-pdmodel-version*
                          +pd-model-hft-version-9+
                          pd-doc-has-isoextensions-selproto
                          *g-pdmodel-hft*
                          +pd-doc-has-isoextensions-sel+)
-;; line 1745
+;; line 1808
 (define-acrobat-function (pd-apply-function-ex "PDApplyFunctionEx")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-apply-function-ex-selproto
                          *g-pdmodel-hft*
                          +pd-apply-function-ex-sel+)
-;; line 1747
+;; line 1808
 (define-acrobat-function (pd-doc-get-crypt-version "PDDocGetCryptVersion")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-doc-get-crypt-version-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-crypt-version-sel+)
-;; line 1748
+;; line 1808
 (define-acrobat-function (pd-doc-get-crypt-revision "PDDocGetCryptRevision")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-doc-get-crypt-revision-selproto
                          *g-pdmodel-hft*
                          +pd-doc-get-crypt-revision-sel+)
-;; line 1751
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-field-styled-text "PDFileAttachmentSetFieldStyledText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-file-attachment-set-field-styled-text-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-field-styled-text-sel+)
-;; line 1752
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-field-styled-text "PDFileAttachmentGetFieldStyledText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-file-attachment-get-field-styled-text-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-field-styled-text-sel+)
-;; line 1753
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-field-style "PDFileAttachmentSetFieldStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-file-attachment-set-field-style-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-field-style-sel+)
-;; line 1754
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-field-style "PDFileAttachmentGetFieldStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-file-attachment-get-field-style-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-field-style-sel+)
-;; line 1756
+;; line 1808
 (define-acrobat-function (pd-folder-set-field-styled-text "PDFolderSetFieldStyledText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-folder-set-field-styled-text-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-field-styled-text-sel+)
-;; line 1757
+;; line 1808
 (define-acrobat-function (pd-folder-get-field-styled-text "PDFolderGetFieldStyledText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-folder-get-field-styled-text-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-field-styled-text-sel+)
-;; line 1758
+;; line 1808
 (define-acrobat-function (pd-folder-set-field-style "PDFolderSetFieldStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-folder-set-field-style-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-field-style-sel+)
-;; line 1759
+;; line 1808
 (define-acrobat-function (pd-folder-get-field-style "PDFolderGetFieldStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-folder-get-field-style-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-field-style-sel+)
-;; line 1760
+;; line 1808
 (define-acrobat-function (pd-folder-get-description-styled "PDFolderGetDescriptionStyled")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-folder-get-description-styled-selproto
                          *g-pdmodel-hft*
                          +pd-folder-get-description-styled-sel+)
-;; line 1761
+;; line 1808
 (define-acrobat-function (pd-folder-set-description-styled "PDFolderSetDescriptionStyled")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-folder-set-description-styled-selproto
                          *g-pdmodel-hft*
                          +pd-folder-set-description-styled-sel+)
-;; line 1763
+;; line 1808
 (define-acrobat-function (pd-collection-set-initial-style "PDCollectionSetInitialStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-collection-set-initial-style-selproto
                          *g-pdmodel-hft*
                          +pd-collection-set-initial-style-sel+)
-;; line 1764
+;; line 1808
 (define-acrobat-function (pd-collection-get-initial-style "PDCollectionGetInitialStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-collection-get-initial-style-selproto
                          *g-pdmodel-hft*
                          +pd-collection-get-initial-style-sel+)
-;; line 1765
+;; line 1808
 (define-acrobat-function (pd-collection-remove-initial-style "PDCollectionRemoveInitialStyle")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-collection-remove-initial-style-selproto
                          *g-pdmodel-hft*
                          +pd-collection-remove-initial-style-sel+)
-;; line 1768
+;; line 1808
 (define-acrobat-function (pd-doc-clear-errors "PDDocClearErrors")
                          *g-pdmodel-version*
                          +pd-model-hft-version-10+
                          pd-doc-clear-errors-selproto
                          *g-pdmodel-hft*
                          +pd-doc-clear-errors-sel+)
-;; line 1772
+;; line 1808
 (define-acrobat-function (pd-draw-page-or-cos-object-to-buffer "PDDrawPageOrCosObjectToBuffer")
                          *g-pdmodel-version*
                          +pd-model-hft-version-12+
                          pd-draw-page-or-cos-object-to-buffer-selproto
                          *g-pdmodel-hft*
                          +pd-draw-page-or-cos-object-to-buffer-sel+)
-;; line 1779
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-relationship-text "PDFileAttachmentGetRelationshipText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-file-attachment-get-relationship-text-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-relationship-text-sel+)
-;; line 1780
+;; line 1808
 (define-acrobat-function (pd-file-attachment-set-relationship-text "PDFileAttachmentSetRelationshipText")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-file-attachment-set-relationship-text-selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-set-relationship-text-sel+)
-;; line 1781
+;; line 1808
 (define-acrobat-function (pd-action-new-from-structure-dest "PDActionNewFromStructureDest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-action-new-from-structure-dest-selproto
                          *g-pdmodel-hft*
                          +pd-action-new-from-structure-dest-sel+)
-;; line 1782
+;; line 1808
 (define-acrobat-function (pd-action-set-view-dest "PDActionSetViewDest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-action-set-view-dest-selproto
                          *g-pdmodel-hft*
                          +pd-action-set-view-dest-sel+)
-;; line 1783
+;; line 1808
 (define-acrobat-function (pd-action-set-structure-dest "PDActionSetStructureDest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-action-set-structure-dest-selproto
                          *g-pdmodel-hft*
                          +pd-action-set-structure-dest-sel+)
-;; line 1784
+;; line 1808
 (define-acrobat-function (pd-action-get-structure-dest "PDActionGetStructureDest")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-action-get-structure-dest-selproto
                          *g-pdmodel-hft*
                          +pd-action-get-structure-dest-sel+)
-;; line 1785
+;; line 1808
 (define-acrobat-function (pd-structure-dest-create "PDStructureDestCreate")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-create-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-create-sel+)
-;; line 1786
+;; line 1808
 (define-acrobat-function (pd-structure-dest-destroy "PDStructureDestDestroy")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-destroy-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-destroy-sel+)
-;; line 1787
+;; line 1808
 (define-acrobat-function (pd-structure-dest-is-valid "PDStructureDestIsValid")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-is-valid-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-is-valid-sel+)
-;; line 1788
+;; line 1808
 (define-acrobat-function (pd-structure-dest-get-structure-element "PDStructureDestGetStructureElement")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-get-structure-element-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-get-structure-element-sel+)
-;; line 1789
+;; line 1808
 (define-acrobat-function (pd-structure-dest-get-attr "PDStructureDestGetAttr")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-get-attr-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-get-attr-sel+)
-;; line 1790
+;; line 1808
 (define-acrobat-function (pd-structure-dest-get-cos-obj "PDStructureDestGetCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-get-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-get-cos-obj-sel+)
-;; line 1791
+;; line 1808
 (define-acrobat-function (pd-structure-dest-from-cos-obj "PDStructureDestFromCosObj")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-structure-dest-from-cos-obj-selproto
                          *g-pdmodel-hft*
                          +pd-structure-dest-from-cos-obj-sel+)
-;; line 1793
+;; line 1808
 (define-acrobat-function (pd-pref-set-default-blending-color-space "PDPrefSetDefaultBlendingColorSpace")
                          *g-pdmodel-version*
                          +pd-model-hft-version-11+
                          pd-pref-set-default-blending-color-space-selproto
                          *g-pdmodel-hft*
                          +pd-pref-set-default-blending-color-space-sel+)
-;; line 1794
+;; line 1808
 (define-acrobat-function (pd-pref-get-default-blending-color-space "PDPrefGetDefaultBlendingColorSpace")
                          *g-pdmodel-version*
                          +pd-model-hft-version-11+
                          pd-pref-get-default-blending-color-space-selproto
                          *g-pdmodel-hft*
                          +pd-pref-get-default-blending-color-space-sel+)
-;; line 1796
+;; line 1808
 (define-acrobat-function (pd-file-attachment-get-file-size64 "PDFileAttachmentGetFileSize64")
                          *g-pdmodel-version*
                          +pd-model-hft-version-13+
                          pd-file-attachment-get-file-size64selproto
                          *g-pdmodel-hft*
                          +pd-file-attachment-get-file-size64sel+)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-model-bad-selector+ 0))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-model-num-selectorsplus-one+ 1))
