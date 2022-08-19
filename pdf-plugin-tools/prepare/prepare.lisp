@@ -581,4 +581,20 @@ the C header files of Acrobat Pro."
           (terpri)
           ;; let this function do all the work
           (parse-header-files *header-file-names-3*)))))
+  ;; another group
+  (when (<= group 4)
+    (with-open-file (*standard-output* *fli-file-4*
+                                       :direction :output
+                                       :if-exists :supersede)
+      ;; use correct package for output and refrain from writing
+      ;; everything in uppercase
+      (with-standard-io-syntax 
+        (let ((*package* (find-package :pdf-plugin-tools))
+              (*print-case* :downcase))
+          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (terpri)
+          (print '(in-package :pdf-plugin-tools))
+          (terpri)
+          ;; let this function do all the work
+          (parse-header-files *header-file-names-4*)))))
   :done)
