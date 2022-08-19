@@ -279,10 +279,10 @@ EXPORT statement."
   (create-scanner
    (concatenate 'string
                 "(?sm)\\s*"
-                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments (multiple blocks)
-                "(?://[^\\r\\n]*)?" ; C++ comments (optional)
+                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments
+                "(?://[^\\r\\n]*)?"     ; C++ comments (optional)
                 "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
-                "\\s*(?://[^\\r\\n]*)?" ; C++ comments (one block)
+                "\\s*(?://[^\\r\\n]*)?" ; C++ comments (optional)
                 )))
 
 (defun handle-struct-body (class body typedef-name &optional
