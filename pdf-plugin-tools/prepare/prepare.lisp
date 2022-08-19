@@ -136,15 +136,15 @@ expression."
   (create-scanner
    (concatenate 'string
                 "^\\s*#define (\\w+) "
-                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
-                "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)$")))
+                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\),\\s*"
+                "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)")))
 
 ;; #define ASCallbackCreate(x) (ACROASSERT(gCoreVersion >=CoreHFT_VERSION_2), ..
 (defparameter *define-regex5*
   (create-scanner
    (concatenate 'string
                 "^\\s*#define (\\w+)\\(\\w+\\) "
-                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\), "
+                "\\(ACROASSERT\\((\\w+) >=([\\w_]+)\\),\\s*"
                 "\\*\\(\\((\\w+)\\)\\((\\w+)\\[(\\w+)\\]\\)\\)\\)")))
 
 ;; #define ASmalloc (ASSERT_AS_VER(0),*((ASmallocSELPROTO)(gAcroSupportHFT[ASmallocSEL])))
@@ -183,7 +183,11 @@ expression."
                    (t
                     (pprint `(fli:define-c-typedef ,(mangle-name name)
                                ,(mangle-name alias))))))))
-        ((scan *define-regex3* line)
+        (t
+         nil)))
+
+(defun handle-define-2 (line)
+  (cond ((scan *define-regex3* line)
          (register-groups-bind (name vername version proto hft sel) (*define-regex3* line)
            (format t "~%;; line ~D" *line-number*)
            (let* ((lisp-name (mangle-name name))
@@ -276,11 +280,12 @@ EXPORT statement."
    (concatenate 'string
                 "(?sm)\\s*"
                 "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments (multiple blocks)
+                "(?://[^\\r\\n]*)?" ; C++ comments (optional)
                 "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
                 "\\s*(?://[^\\r\\n]*)?" ; C++ comments (one block)
                 )))
 
-(defun handle-struct-body (class body typedef-name
+(defun handle-struct-body (class body typedef-name &optional
                            pointer-name? second-name? second-pointer-name?)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
@@ -290,11 +295,14 @@ corresponding FLI:DEFINE-C-STRUCT definition."
       (let* ((parsed-names (split "\\s*,\\s*" names))
              (type-and-first-name
               (concatenate 'string type " " pointerp " " (first parsed-names))))
-        (destructuring-bind (type lisp-name c-name) (type-and-name type-and-first-name)
+        (destructuring-bind (type l-name c-name) (type-and-name type-and-first-name)
           (declare (ignore c-name))
-          (push (list type lisp-name) slots)
+          (push (list type l-name) slots)
           (loop for name in (rest parsed-names)
                 do (push (list type (mangle-name name)) slots)))))
+    (when (scan "\\*" typedef-name) ; typedef-name is pointer name
+      (setq pointer-name? (regex-replace-all "\\*(\\w+)" typedef-name "\\1"))
+      (setq typedef-name (concatenate 'string "t-" pointer-name?)))
     (let ((lisp-name (mangle-name typedef-name)))
       (cond ((string= class "struct")
              (pprint `(fli:define-c-struct ,lisp-name
@@ -318,7 +326,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
    (concatenate 'string
                 "(?sm)^\\s*typedef\\s+(struct|union)\\s*([\\w_]+)?\\s*\\{("
                 ".*?"
-                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?"
+                ")\\}\\s*([\\w\\*_]+)(?:,\\s*\\*([\\w_]+))?"
                 "(?:,\\s*([\\w_]+))?(?:,\\s*\\*([\\w_]+))?;")))
 
 (defun handle-struct (file-string)
@@ -365,7 +373,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; NPROC(void, ASUCS_GetPasswordFromUnicode, (ASUTF16Val* inPassword, void** outPassword, ASBool useUTF))
 (defparameter *xproc-regex2*
   (create-scanner
-   "(?m)^\\s*\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\s*\\)"))
+   "(?m)^\\s*\\w*PROC\\s*\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\s*\\)"))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner
@@ -505,10 +513,17 @@ corresponding C code to *STANDARD-OUTPUT*."
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)
         (handle-enum enum-body type-name))
+      ;; special: opaque pointers
+      (handle-opaque-pointers file-string)
       ;; prototypes
       (handle-prototype file-string)
       ;; typedef struct (or union) ...
       (handle-struct file-string)
+      ;; define-acrobat-function
+      (with-input-from-string (in file-string)
+        (loop for line = (read-line in nil nil)
+              while line do
+          (handle-define-2 line)))
       ;; xPROC(...)
       (do-register-groups (nil name nil) (*xproc-regex2* file-string)
         (let ((full-name (concatenate 'string name "-SEL")))
@@ -521,8 +536,6 @@ corresponding C code to *STANDARD-OUTPUT*."
         (format t "~%;; sel = ~A" *hft-counter*)
         (handle-function type name args)
         (incf *hft-counter*))
-      ;; special: opaque pointers
-      (handle-opaque-pointers file-string)
       (terpri))))
 
 (defun prepare (&optional (group 0))
