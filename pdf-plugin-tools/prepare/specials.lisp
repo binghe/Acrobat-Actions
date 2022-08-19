@@ -76,6 +76,10 @@
     "PEWCalls"
     "PagePDECntCalls" ; HFT and prototypes for Page PDEContent methods
     "PgCntProcs"    ; Header for for PDF page content server methods
+    "PDSReadProcs"  ; Catalog of functions exported by PDSEdit
+    "PDSReadCalls"
+    "PDSWriteProcs" ; Catalog of functions exported by the PDSWrite HFT
+    "PDSWriteCalls"
     ))
 
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is
@@ -159,6 +163,7 @@
           (and :mswindows (not :lispworks-64bit))) "_WIN64"
     "OS2_PLATFORM"
     "OS2_ENV"
+    "PDSEDIT_IN_CORE || ACROBAT_LIBRARY"
     #-lispworks-64bit "AS_ARCH_64BIT")
   "C macros that are considered being defined as 0 in the SDK")
 

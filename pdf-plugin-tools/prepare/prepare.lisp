@@ -280,11 +280,12 @@ EXPORT statement."
    (concatenate 'string
                 "(?sm)\\s*"
                 "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments (multiple blocks)
+                "(?://[^\\r\\n]*)?" ; C++ comments (optional)
                 "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
                 "\\s*(?://[^\\r\\n]*)?" ; C++ comments (one block)
                 )))
 
-(defun handle-struct-body (class body typedef-name
+(defun handle-struct-body (class body typedef-name &optional
                            pointer-name? second-name? second-pointer-name?)
   "Handles the part between `struct {' and `}' - writes a
 corresponding FLI:DEFINE-C-STRUCT definition."
@@ -294,11 +295,14 @@ corresponding FLI:DEFINE-C-STRUCT definition."
       (let* ((parsed-names (split "\\s*,\\s*" names))
              (type-and-first-name
               (concatenate 'string type " " pointerp " " (first parsed-names))))
-        (destructuring-bind (type lisp-name c-name) (type-and-name type-and-first-name)
+        (destructuring-bind (type l-name c-name) (type-and-name type-and-first-name)
           (declare (ignore c-name))
-          (push (list type lisp-name) slots)
+          (push (list type l-name) slots)
           (loop for name in (rest parsed-names)
                 do (push (list type (mangle-name name)) slots)))))
+    (when (scan "\\*" typedef-name) ; typedef-name is pointer name
+      (setq pointer-name? (regex-replace-all "\\*(\\w+)" typedef-name "\\1"))
+      (setq typedef-name (concatenate 'string "t-" pointer-name?)))
     (let ((lisp-name (mangle-name typedef-name)))
       (cond ((string= class "struct")
              (pprint `(fli:define-c-struct ,lisp-name
@@ -322,7 +326,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
    (concatenate 'string
                 "(?sm)^\\s*typedef\\s+(struct|union)\\s*([\\w_]+)?\\s*\\{("
                 ".*?"
-                ")\\}\\s*([\\w_]+)(?:,\\s*\\*([\\w_]+))?"
+                ")\\}\\s*([\\w\\*_]+)(?:,\\s*\\*([\\w_]+))?"
                 "(?:,\\s*([\\w_]+))?(?:,\\s*\\*([\\w_]+))?;")))
 
 (defun handle-struct (file-string)
@@ -369,7 +373,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; NPROC(void, ASUCS_GetPasswordFromUnicode, (ASUTF16Val* inPassword, void** outPassword, ASBool useUTF))
 (defparameter *xproc-regex2*
   (create-scanner
-   "(?m)^\\s*\\w*PROC\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\s*\\)"))
+   "(?m)^\\s*\\w*PROC\\s*\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\s*\\)"))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner

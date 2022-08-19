@@ -853,179 +853,183 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +pde-pattern-get-cos-obj-sel+ 56))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-font-sum-widths-sel+ 57))
+  (defconstant +pde-enum-elements-sel+ 57))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-font-get-num-code-bytes-sel+ 58))
+  (defconstant +pde-font-sum-widths-sel+ 58))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-device-ncolors-get-color-value-sel+ 59))
+  (defconstant +pde-font-get-num-code-bytes-sel+ 59))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-group-get-content-sel+ 60))
+  (defconstant +pde-device-ncolors-get-color-value-sel+ 60))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-clip-flattened-enum-elems-sel+ 61))
+  (defconstant +pde-font-is-multi-byte-sel+ 61))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-is-at-point-sel+ 62))
+  (defconstant +pde-group-get-content-sel+ 62))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-is-at-rect-sel+ 63))
+  (defconstant +pde-clip-flattened-enum-elems-sel+ 63))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-font-get-one-byte-encoding-sel+ 64))
+  (defconstant +pde-element-is-at-point-sel+ 64))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-shading-get-cos-obj-sel+ 65))
+  (defconstant +pde-element-is-at-rect-sel+ 65))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-unknown-get-op-name-sel+ 66))
+  (defconstant +pde-font-get-one-byte-encoding-sel+ 66))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-content-get-default-color-space-sel+ 67))
+  (defconstant +pde-shading-get-cos-obj-sel+ 67))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-get-decode-array-sel+ 68))
+  (defconstant +pde-unknown-get-op-name-sel+ 68))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-begin-container-get-mctag-sel+ 69))
+  (defconstant +pde-content-get-default-color-space-sel+ 69))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-begin-container-get-dict-sel+ 70))
+  (defconstant +pde-image-get-decode-array-sel+ 70))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-soft-mask-get-cos-obj-sel+ 71))
+  (defconstant +pde-begin-container-get-mctag-sel+ 71))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-soft-mask-acquire-form-sel+ 72))
+  (defconstant +pde-begin-container-get-dict-sel+ 72))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-soft-mask-get-backdrop-color-sel+ 73))
+  (defconstant +pde-soft-mask-get-cos-obj-sel+ 73))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-soft-mask-get-transfer-function-sel+ 74))
+  (defconstant +pde-soft-mask-acquire-form-sel+ 74))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-xgroup-get-cos-obj-sel+ 75))
+  (defconstant +pde-soft-mask-get-backdrop-color-sel+ 75))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-xgroup-get-knockout-sel+ 76))
+  (defconstant +pde-soft-mask-get-transfer-function-sel+ 76))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-xgroup-get-isolated-sel+ 77))
+  (defconstant +pde-xgroup-get-cos-obj-sel+ 77))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-xgroup-acquire-color-space-sel+ 78))
+  (defconstant +pde-xgroup-get-knockout-sel+ 78))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-form-acquire-xgroup-sel+ 79))
+  (defconstant +pde-xgroup-get-isolated-sel+ 79))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-form-has-xgroup-sel+ 80))
+  (defconstant +pde-xgroup-acquire-color-space-sel+ 80))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-has-gstate-sel+ 81))
+  (defconstant +pde-form-acquire-xgroup-sel+ 81))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-opm-sel+ 82))
+  (defconstant +pde-form-has-xgroup-sel+ 82))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-opfill-sel+ 83))
+  (defconstant +pde-element-has-gstate-sel+ 83))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-opstroke-sel+ 84))
+  (defconstant +pde-ext-gstate-get-opm-sel+ 84))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-opacity-fill-sel+ 85))
+  (defconstant +pde-ext-gstate-get-opfill-sel+ 85))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-opacity-stroke-sel+ 86))
+  (defconstant +pde-ext-gstate-get-opstroke-sel+ 86))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-blend-mode-sel+ 87))
+  (defconstant +pde-ext-gstate-get-opacity-fill-sel+ 87))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-ais-sel+ 88))
+  (defconstant +pde-ext-gstate-get-opacity-stroke-sel+ 88))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-has-soft-mask-sel+ 89))
+  (defconstant +pde-ext-gstate-get-blend-mode-sel+ 89))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-acquire-soft-mask-sel+ 90))
+  (defconstant +pde-ext-gstate-get-ais-sel+ 90))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-has-smask-sel+ 91))
+  (defconstant +pde-ext-gstate-has-soft-mask-sel+ 91))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-get-smask-sel+ 92))
+  (defconstant +pde-ext-gstate-acquire-soft-mask-sel+ 92))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-get-matte-array-sel+ 93))
+  (defconstant +pde-image-has-smask-sel+ 93))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-tk-sel+ 94))
+  (defconstant +pde-image-get-smask-sel+ 94))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-sys-encoding-get-wmode-sel+ 95))
+  (defconstant +pde-image-get-matte-array-sel+ 95))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-sys-encoding-is-identity-sel+ 96))
+  (defconstant +pde-ext-gstate-get-tk-sel+ 96))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-sys-encoding-is-multi-byte-sel+ 97))
+  (defconstant +pd-sys-encoding-get-wmode-sel+ 97))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-ext-gstate-get-sa-sel+ 98))
+  (defconstant +pd-sys-encoding-is-identity-sel+ 98))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-soft-mask-get-name-sel+ 99))
+  (defconstant +pd-sys-encoding-is-multi-byte-sel+ 99))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-get-ocmd-sel+ 100))
+  (defconstant +pde-ext-gstate-get-sa-sel+ 100))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-is-currently-visible-sel+ 101))
+  (defconstant +pde-soft-mask-get-name-sel+ 101))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-get-all-visibilities-sel+ 102))
+  (defconstant +pde-element-get-ocmd-sel+ 102))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-make-visible-sel+ 103))
+  (defconstant +pde-element-is-currently-visible-sel+ 103))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-font-is-embedded-sel+ 104))
+  (defconstant +pde-element-get-all-visibilities-sel+ 104))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-font-get-sys-font-sel+ 105))
+  (defconstant +pde-element-make-visible-sel+ 105))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-font-get-sys-encoding-sel+ 106))
+  (defconstant +pde-font-is-embedded-sel+ 106))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-get-font-sel+ 107))
+  (defconstant +pde-font-get-sys-font-sel+ 107))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-get-text-matrix-sel+ 108))
+  (defconstant +pde-font-get-sys-encoding-sel+ 108))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-get-text-state-sel+ 109))
+  (defconstant +pde-text-item-get-font-sel+ 109))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-get-text-len-sel+ 110))
+  (defconstant +pde-text-item-get-text-matrix-sel+ 110))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-copy-text-sel+ 111))
+  (defconstant +pde-text-item-get-text-state-sel+ 111))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-get-gstate-sel+ 112))
+  (defconstant +pde-text-item-get-text-len-sel+ 112))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-get-item-sel+ 113))
+  (defconstant +pde-text-item-copy-text-sel+ 113))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-get-type-sel+ 114))
+  (defconstant +pde-text-item-get-gstate-sel+ 114))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-acquire-image-flate-sel+ 115))
+  (defconstant +pde-text-get-item-sel+ 115))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-acquire-image-jpx-sel+ 116))
+  (defconstant +pde-image-get-type-sel+ 116))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxget-cos-obj-sel+ 117))
+  (defconstant +pde-image-acquire-image-flate-sel+ 117))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-flate-get-cos-obj-sel+ 118))
+  (defconstant +pde-image-acquire-image-jpx-sel+ 118))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-flate-get-attrs-sel+ 119))
+  (defconstant +pde-image-jpxget-cos-obj-sel+ 119))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-flate-acquire-color-space-sel+ 120))
+  (defconstant +pde-image-flate-get-cos-obj-sel+ 120))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-flate-get-data-stm-sel+ 121))
+  (defconstant +pde-image-flate-get-attrs-sel+ 121))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxget-attrs-sel+ 122))
+  (defconstant +pde-image-flate-acquire-color-space-sel+ 122))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxacquire-color-space-sel+ 123))
+  (defconstant +pde-image-flate-get-data-stm-sel+ 123))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxget-data-stm-sel+ 124))
+  (defconstant +pde-image-jpxget-attrs-sel+ 124))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxget-num-color-spaces-sel+ 125))
+  (defconstant +pde-image-jpxacquire-color-space-sel+ 125))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxacquire-jpxcolor-space-sel+ 126))
+  (defconstant +pde-image-jpxget-data-stm-sel+ 126))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxhas-palette-sel+ 127))
+  (defconstant +pde-image-jpxget-num-color-spaces-sel+ 127))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-jpxacquire-palette-sel+ 128))
+  (defconstant +pde-image-jpxacquire-jpxcolor-space-sel+ 128))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxpalette-get-num-entries-sel+ 129))
+  (defconstant +pde-image-jpxhas-palette-sel+ 129))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxpalette-get-bit-depths-sel+ 130))
+  (defconstant +pde-image-jpxacquire-palette-sel+ 130))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxpalette-get-num-components-sel+ 131))
+  (defconstant +jpxpalette-get-num-entries-sel+ 131))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxpalette-get-table-sel+ 132))
+  (defconstant +jpxpalette-get-bit-depths-sel+ 132))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxcolor-space-acquire-next-sel+ 133))
+  (defconstant +jpxpalette-get-num-components-sel+ 133))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxcolor-space-get-type-sel+ 134))
+  (defconstant +jpxpalette-get-table-sel+ 134))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxcolor-space-get-enum-attrs-sel+ 135))
+  (defconstant +jpxcolor-space-acquire-next-sel+ 135))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +jpxcolor-space-get-profile-sel+ 136))
+  (defconstant +jpxcolor-space-get-type-sel+ 136))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-color-space-get-struct-sel+ 137))
+  (defconstant +jpxcolor-space-get-enum-attrs-sel+ 137))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-image-get-color-space-ex-sel+ 138))
+  (defconstant +jpxcolor-space-get-profile-sel+ 138))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-form-get-content-to-cos-obj-flags-sel+ 139))
+  (defconstant +pde-color-space-get-struct-sel+ 139))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-element-get-matrix-ex-sel+ 140))
+  (defconstant +pde-image-get-color-space-ex-sel+ 140))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-soft-mask-acquire-form-ex-sel+ 141))
+  (defconstant +pde-form-get-content-to-cos-obj-flags-sel+ 141))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-text-item-get-text-matrix-ex-sel+ 142))
+  (defconstant +pde-element-get-matrix-ex-sel+ 142))
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pde-path-get-data-ex-sel+ 143))
+  (defconstant +pde-soft-mask-acquire-form-ex-sel+ 143))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-get-text-matrix-ex-sel+ 144))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-path-get-data-ex-sel+ 145))
 ;; sel = 1
 (define-foreign-funcallable pde-content-create-from-cos-obj-selproto
                             ((contents (:pointer cos-obj))
@@ -1463,6 +1467,17 @@
                             :calling-convention
                             :cdecl)
 ;; sel = 57
+(define-foreign-funcallable pde-enum-elements-selproto
+                            ((contents (:pointer cos-obj))
+                             (resources (:pointer cos-obj))
+                             (flags as-uns32)
+                             (enum-proc pde-element-enum-proc)
+                             (enum-proc-client-data (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 58
 (define-foreign-funcallable pde-font-sum-widths-selproto
                             ((font pde-font)
                              (text (:pointer as-uns8))
@@ -1471,7 +1486,7 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 58
+;; sel = 59
 (define-foreign-funcallable pde-font-get-num-code-bytes-selproto
                             ((font pde-font)
                              (text (:pointer as-uns8))
@@ -1480,7 +1495,7 @@
                             as-int16
                             :calling-convention
                             :cdecl)
-;; sel = 59
+;; sel = 60
 (define-foreign-funcallable pde-device-ncolors-get-color-value-selproto
                             ((colors pde-device-ncolors)
                              (index as-int32))
@@ -1488,14 +1503,21 @@
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 60
+;; sel = 61
+(define-foreign-funcallable pde-font-is-multi-byte-selproto
+                            ((font pde-font))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 62
 (define-foreign-funcallable pde-group-get-content-selproto
                             ((pde-group pde-group))
                             :result-type
                             pde-content
                             :calling-convention
                             :cdecl)
-;; sel = 61
+;; sel = 63
 (define-foreign-funcallable pde-clip-flattened-enum-elems-selproto
                             ((clip pde-clip)
                              (enum-proc pde-clip-enum-proc)
@@ -1504,21 +1526,21 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 62
+;; sel = 64
 (define-foreign-funcallable pde-element-is-at-point-selproto
                             ((elem pde-element) (point as-fixed-point))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 63
+;; sel = 65
 (define-foreign-funcallable pde-element-is-at-rect-selproto
                             ((elem pde-element) (rect as-fixed-rect))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 64
+;; sel = 66
 (define-foreign-funcallable pde-font-get-one-byte-encoding-selproto
                             ((font pde-font)
                              (encoding-delta (:pointer as-atom)))
@@ -1526,7 +1548,7 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 65
+;; sel = 67
 (define-foreign-funcallable pde-shading-get-cos-obj-selproto
                             ((shading pde-shading)
                              (cos-obj-p (:pointer cos-obj)))
@@ -1534,14 +1556,14 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 66
+;; sel = 68
 (define-foreign-funcallable pde-unknown-get-op-name-selproto
                             ((pde-unknown pde-unknown))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 67
+;; sel = 69
 (define-foreign-funcallable pde-content-get-default-color-space-selproto
                             ((pde-content pde-content)
                              (color-space-name as-atom))
@@ -1549,7 +1571,7 @@
                             pde-color-space
                             :calling-convention
                             :cdecl)
-;; sel = 68
+;; sel = 70
 (define-foreign-funcallable pde-image-get-decode-array-selproto
                             ((image pde-image)
                              (decode (:pointer as-fixed))
@@ -1558,14 +1580,14 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 69
+;; sel = 71
 (define-foreign-funcallable pde-begin-container-get-mctag-selproto
                             ((pde-begin-container pde-begin-container))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 70
+;; sel = 72
 (define-foreign-funcallable pde-begin-container-get-dict-selproto
                             ((pde-begin-container pde-begin-container)
                              (dict-p (:pointer cos-obj))
@@ -1574,7 +1596,7 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 71
+;; sel = 73
 (define-foreign-funcallable pde-soft-mask-get-cos-obj-selproto
                             ((pde-soft-mask pde-soft-mask)
                              (cos-obj-p (:pointer cos-obj)))
@@ -1582,7 +1604,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 72
+;; sel = 74
 (define-foreign-funcallable pde-soft-mask-acquire-form-selproto
                             ((pde-soft-mask pde-soft-mask)
                              (matrix-p as-fixed-matrix-p))
@@ -1590,7 +1612,7 @@
                             pde-form
                             :calling-convention
                             :cdecl)
-;; sel = 73
+;; sel = 75
 (define-foreign-funcallable pde-soft-mask-get-backdrop-color-selproto
                             ((pde-soft-mask pde-soft-mask)
                              (p-color-values (:pointer as-fixed))
@@ -1599,14 +1621,14 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 74
+;; sel = 76
 (define-foreign-funcallable pde-soft-mask-get-transfer-function-selproto
                             ((pde-soft-mask pde-soft-mask))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 75
+;; sel = 77
 (define-foreign-funcallable pde-xgroup-get-cos-obj-selproto
                             ((pde-xgroup pde-xgroup)
                              (cos-obj-p (:pointer cos-obj)))
@@ -1614,42 +1636,42 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 76
+;; sel = 78
 (define-foreign-funcallable pde-xgroup-get-knockout-selproto
                             ((pde-xgroup pde-xgroup))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 77
+;; sel = 79
 (define-foreign-funcallable pde-xgroup-get-isolated-selproto
                             ((pde-xgroup pde-xgroup))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 78
+;; sel = 80
 (define-foreign-funcallable pde-xgroup-acquire-color-space-selproto
                             ((pde-xgroup pde-xgroup))
                             :result-type
                             pde-color-space
                             :calling-convention
                             :cdecl)
-;; sel = 79
+;; sel = 81
 (define-foreign-funcallable pde-form-acquire-xgroup-selproto
                             ((pde-form pde-form))
                             :result-type
                             pde-xgroup
                             :calling-convention
                             :cdecl)
-;; sel = 80
+;; sel = 82
 (define-foreign-funcallable pde-form-has-xgroup-selproto
                             ((pde-form pde-form))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 81
+;; sel = 83
 (define-foreign-funcallable pde-element-has-gstate-selproto
                             ((pde-element pde-element)
                              (state-p pde-graphic-state-p)
@@ -1658,84 +1680,84 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 82
+;; sel = 84
 (define-foreign-funcallable pde-ext-gstate-get-opm-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 83
+;; sel = 85
 (define-foreign-funcallable pde-ext-gstate-get-opfill-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 84
+;; sel = 86
 (define-foreign-funcallable pde-ext-gstate-get-opstroke-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 85
+;; sel = 87
 (define-foreign-funcallable pde-ext-gstate-get-opacity-fill-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 86
+;; sel = 88
 (define-foreign-funcallable pde-ext-gstate-get-opacity-stroke-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 87
+;; sel = 89
 (define-foreign-funcallable pde-ext-gstate-get-blend-mode-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 88
+;; sel = 90
 (define-foreign-funcallable pde-ext-gstate-get-ais-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 89
+;; sel = 91
 (define-foreign-funcallable pde-ext-gstate-has-soft-mask-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 90
+;; sel = 92
 (define-foreign-funcallable pde-ext-gstate-acquire-soft-mask-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             pde-soft-mask
                             :calling-convention
                             :cdecl)
-;; sel = 91
+;; sel = 93
 (define-foreign-funcallable pde-image-has-smask-selproto
                             ((image pde-image))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 92
+;; sel = 94
 (define-foreign-funcallable pde-image-get-smask-selproto
                             ((image pde-image))
                             :result-type
                             pde-image
                             :calling-convention
                             :cdecl)
-;; sel = 93
+;; sel = 95
 (define-foreign-funcallable pde-image-get-matte-array-selproto
                             ((image pde-image)
                              (matte (:pointer as-fixed))
@@ -1744,56 +1766,56 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 94
+;; sel = 96
 (define-foreign-funcallable pde-ext-gstate-get-tk-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 95
+;; sel = 97
 (define-foreign-funcallable pd-sys-encoding-get-wmode-selproto
                             ((sys-enc pd-sys-encoding))
                             :result-type
                             as-int16
                             :calling-convention
                             :cdecl)
-;; sel = 96
+;; sel = 98
 (define-foreign-funcallable pd-sys-encoding-is-identity-selproto
                             ((sys-enc pd-sys-encoding))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 97
+;; sel = 99
 (define-foreign-funcallable pd-sys-encoding-is-multi-byte-selproto
                             ((sys-enc pd-sys-encoding))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 98
+;; sel = 100
 (define-foreign-funcallable pde-ext-gstate-get-sa-selproto
                             ((pde-ext-gstate pde-ext-gstate))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 99
+;; sel = 101
 (define-foreign-funcallable pde-soft-mask-get-name-selproto
                             ((pde-soft-mask pde-soft-mask))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 100
+;; sel = 102
 (define-foreign-funcallable pde-element-get-ocmd-selproto
                             ((elem pde-element))
                             :result-type
                             pd-ocmd
                             :calling-convention
                             :cdecl)
-;; sel = 101
+;; sel = 103
 (define-foreign-funcallable pde-element-is-currently-visible-selproto
                             ((elem pde-element)
                              (content pde-content)
@@ -1802,7 +1824,7 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 102
+;; sel = 104
 (define-foreign-funcallable pde-element-get-all-visibilities-selproto
                             ((elem pde-element)
                              (content pde-content)
@@ -1813,7 +1835,7 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 103
+;; sel = 105
 (define-foreign-funcallable pde-element-make-visible-selproto
                             ((elem pde-element)
                              (content pde-content)
@@ -1822,35 +1844,35 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 104
+;; sel = 106
 (define-foreign-funcallable pde-font-is-embedded-selproto
                             ((pde-font pde-font))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 105
+;; sel = 107
 (define-foreign-funcallable pde-font-get-sys-font-selproto
                             ((pde-font pde-font))
                             :result-type
                             pd-sys-font
                             :calling-convention
                             :cdecl)
-;; sel = 106
+;; sel = 108
 (define-foreign-funcallable pde-font-get-sys-encoding-selproto
                             ((pde-font pde-font))
                             :result-type
                             pd-sys-encoding
                             :calling-convention
                             :cdecl)
-;; sel = 107
+;; sel = 109
 (define-foreign-funcallable pde-text-item-get-font-selproto
                             ((text-item pde-text-item))
                             :result-type
                             pde-font
                             :calling-convention
                             :cdecl)
-;; sel = 108
+;; sel = 110
 (define-foreign-funcallable pde-text-item-get-text-matrix-selproto
                             ((text-item pde-text-item)
                              (char-offset as-uns32)
@@ -1860,7 +1882,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 109
+;; sel = 111
 (define-foreign-funcallable pde-text-item-get-text-state-selproto
                             ((text-item pde-text-item)
                              (text-state-p pde-text-state-p)
@@ -1869,14 +1891,14 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 110
+;; sel = 112
 (define-foreign-funcallable pde-text-item-get-text-len-selproto
                             ((text-item pde-text-item))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 111
+;; sel = 113
 (define-foreign-funcallable pde-text-item-copy-text-selproto
                             ((text-item pde-text-item)
                              (buffer (:pointer as-uns8))
@@ -1885,7 +1907,7 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 112
+;; sel = 114
 (define-foreign-funcallable pde-text-item-get-gstate-selproto
                             ((text-item pde-text-item)
                              (state-p pde-graphic-state-p)
@@ -1894,35 +1916,35 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 113
+;; sel = 115
 (define-foreign-funcallable pde-text-get-item-selproto
                             ((text pde-text) (index as-uns32))
                             :result-type
                             pde-text-item
                             :calling-convention
                             :cdecl)
-;; sel = 114
+;; sel = 116
 (define-foreign-funcallable pde-image-get-type-selproto
                             ((image pde-image))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 115
+;; sel = 117
 (define-foreign-funcallable pde-image-acquire-image-flate-selproto
                             ((image pde-image))
                             :result-type
                             pde-image-flate
                             :calling-convention
                             :cdecl)
-;; sel = 116
+;; sel = 118
 (define-foreign-funcallable pde-image-acquire-image-jpx-selproto
                             ((image pde-image))
                             :result-type
                             pde-image-jpx
                             :calling-convention
                             :cdecl)
-;; sel = 117
+;; sel = 119
 (define-foreign-funcallable pde-image-jpxget-cos-obj-selproto
                             ((pde-image-jpx pde-image-jpx)
                              (cos-obj-p (:pointer cos-obj)))
@@ -1930,7 +1952,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 118
+;; sel = 120
 (define-foreign-funcallable pde-image-flate-get-cos-obj-selproto
                             ((pde-image-flate pde-image-flate)
                              (cos-obj-p (:pointer cos-obj)))
@@ -1938,7 +1960,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 119
+;; sel = 121
 (define-foreign-funcallable pde-image-flate-get-attrs-selproto
                             ((img-flate pde-image-flate)
                              (attrs-p pde-image-flate-attrs-p)
@@ -1947,14 +1969,14 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 120
+;; sel = 122
 (define-foreign-funcallable pde-image-flate-acquire-color-space-selproto
                             ((img-flate pde-image-flate))
                             :result-type
                             pde-color-space
                             :calling-convention
                             :cdecl)
-;; sel = 121
+;; sel = 123
 (define-foreign-funcallable pde-image-flate-get-data-stm-selproto
                             ((img-flate pde-image-flate)
                              (flags as-uns32))
@@ -1962,7 +1984,7 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 122
+;; sel = 124
 (define-foreign-funcallable pde-image-jpxget-attrs-selproto
                             ((pde-image-jpx pde-image-jpx)
                              (attrs-p pde-image-jpxattrs-p)
@@ -1971,14 +1993,14 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 123
+;; sel = 125
 (define-foreign-funcallable pde-image-jpxacquire-color-space-selproto
                             ((pde-image-jpx pde-image-jpx))
                             :result-type
                             pde-color-space
                             :calling-convention
                             :cdecl)
-;; sel = 124
+;; sel = 126
 (define-foreign-funcallable pde-image-jpxget-data-stm-selproto
                             ((pde-image-jpx pde-image-jpx)
                              (flags as-uns32))
@@ -1986,42 +2008,42 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 125
+;; sel = 127
 (define-foreign-funcallable pde-image-jpxget-num-color-spaces-selproto
                             ((pde-image-jpx pde-image-jpx))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 126
+;; sel = 128
 (define-foreign-funcallable pde-image-jpxacquire-jpxcolor-space-selproto
                             ((pde-image-jpx pde-image-jpx))
                             :result-type
                             jpxcolor-space
                             :calling-convention
                             :cdecl)
-;; sel = 127
+;; sel = 129
 (define-foreign-funcallable pde-image-jpxhas-palette-selproto
                             ((pde-image-jpx pde-image-jpx))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 128
+;; sel = 130
 (define-foreign-funcallable pde-image-jpxacquire-palette-selproto
                             ((pde-image-jpx pde-image-jpx))
                             :result-type
                             jpxpalette
                             :calling-convention
                             :cdecl)
-;; sel = 129
+;; sel = 131
 (define-foreign-funcallable jpxpalette-get-num-entries-selproto
                             ((jpx-palette jpxpalette))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 130
+;; sel = 132
 (define-foreign-funcallable jpxpalette-get-bit-depths-selproto
                             ((jpx-palette jpxpalette)
                              (bit-depths (:pointer as-int32)))
@@ -2029,14 +2051,14 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 131
+;; sel = 133
 (define-foreign-funcallable jpxpalette-get-num-components-selproto
                             ((jpx-palette jpxpalette))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 132
+;; sel = 134
 (define-foreign-funcallable jpxpalette-get-table-selproto
                             ((jpx-palette jpxpalette)
                              (palette-length (:pointer as-int32)))
@@ -2044,21 +2066,21 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 133
+;; sel = 135
 (define-foreign-funcallable jpxcolor-space-acquire-next-selproto
                             ((jpx-color-space jpxcolor-space))
                             :result-type
                             jpxcolor-space
                             :calling-convention
                             :cdecl)
-;; sel = 134
+;; sel = 136
 (define-foreign-funcallable jpxcolor-space-get-type-selproto
                             ((jpx-color-space jpxcolor-space))
                             :result-type
                             jpxcolor-space-type
                             :calling-convention
                             :cdecl)
-;; sel = 135
+;; sel = 137
 (define-foreign-funcallable jpxcolor-space-get-enum-attrs-selproto
                             ((jpx-color-space jpxcolor-space)
                              (jpx-csenum-attrs-p jpxcsenum-attrs-p))
@@ -2066,7 +2088,7 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 136
+;; sel = 138
 (define-foreign-funcallable jpxcolor-space-get-profile-selproto
                             ((jpx-color-space jpxcolor-space)
                              (profile (:pointer as-uns8))
@@ -2075,7 +2097,7 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 137
+;; sel = 139
 (define-foreign-funcallable pde-color-space-get-struct-selproto
                             ((cs pde-color-space)
                              (pde-color-space-struct
@@ -2084,21 +2106,21 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 138
+;; sel = 140
 (define-foreign-funcallable pde-image-get-color-space-ex-selproto
                             ((image pde-image) (flags as-uns32))
                             :result-type
                             pde-color-space
                             :calling-convention
                             :cdecl)
-;; sel = 139
+;; sel = 141
 (define-foreign-funcallable pde-form-get-content-to-cos-obj-flags-selproto
                             ((form pde-form))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 140
+;; sel = 142
 (define-foreign-funcallable pde-element-get-matrix-ex-selproto
                             ((pde-element pde-element)
                              (matrix-p as-double-matrix-p))
@@ -2106,7 +2128,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 141
+;; sel = 143
 (define-foreign-funcallable pde-soft-mask-acquire-form-ex-selproto
                             ((pde-soft-mask pde-soft-mask)
                              (matrix-p as-double-matrix-p))
@@ -2114,7 +2136,7 @@
                             pde-form
                             :calling-convention
                             :cdecl)
-;; sel = 142
+;; sel = 144
 (define-foreign-funcallable pde-text-item-get-text-matrix-ex-selproto
                             ((text-item pde-text-item)
                              (char-offset as-uns32)
@@ -2124,7 +2146,7 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 143
+;; sel = 145
 (define-foreign-funcallable pde-path-get-data-ex-selproto
                             ((path pde-path)
                              (data (:pointer as-real))
@@ -2146,8 +2168,7 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +pdf-edit-read-num-selectorsplus-one+ 1))
 ;; line 397
-(define-acrobat-function (pde-content-create-from-cos-obj
-                          "PDEContentCreateFromCosObj")
+(define-acrobat-function (pde-content-create-from-cos-obj "PDEContentCreateFromCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-content-create-from-cos-obj-selproto
@@ -2161,16 +2182,14 @@
                          *g-pdf-edit-read-hft*
                          +pde-content-get-attrs-sel+)
 ;; line 397
-(define-acrobat-function (pde-content-get-resources
-                          "PDEContentGetResources")
+(define-acrobat-function (pde-content-get-resources "PDEContentGetResources")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-content-get-resources-selproto
                          *g-pdf-edit-read-hft*
                          +pde-content-get-resources-sel+)
 ;; line 397
-(define-acrobat-function (pde-content-get-num-elems
-                          "PDEContentGetNumElems")
+(define-acrobat-function (pde-content-get-num-elems "PDEContentGetNumElems")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-content-get-num-elems-selproto
@@ -2226,16 +2245,14 @@
                          *g-pdf-edit-read-hft*
                          +pde-text-get-num-runs-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-run-get-char-offset
-                          "PDETextRunGetCharOffset")
+(define-acrobat-function (pde-text-run-get-char-offset "PDETextRunGetCharOffset")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-run-get-char-offset-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-run-get-char-offset-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-run-for-char
-                          "PDETextGetRunForChar")
+(define-acrobat-function (pde-text-get-run-for-char "PDETextGetRunForChar")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-get-run-for-char-selproto
@@ -2263,8 +2280,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-text-get-gstate-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-text-state
-                          "PDETextGetTextState")
+(define-acrobat-function (pde-text-get-text-state "PDETextGetTextState")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-get-text-state-selproto
@@ -2278,24 +2294,21 @@
                          *g-pdf-edit-read-hft*
                          +pde-text-get-font-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-text-matrix
-                          "PDETextGetTextMatrix")
+(define-acrobat-function (pde-text-get-text-matrix "PDETextGetTextMatrix")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-get-text-matrix-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-text-matrix-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-stroke-matrix
-                          "PDETextGetStrokeMatrix")
+(define-acrobat-function (pde-text-get-stroke-matrix "PDETextGetStrokeMatrix")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-get-stroke-matrix-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-stroke-matrix-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-advance-width
-                          "PDETextGetAdvanceWidth")
+(define-acrobat-function (pde-text-get-advance-width "PDETextGetAdvanceWidth")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-text-get-advance-width-selproto
@@ -2330,8 +2343,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-image-get-attrs-sel+)
 ;; line 397
-(define-acrobat-function (pde-image-get-color-space
-                          "PDEImageGetColorSpace")
+(define-acrobat-function (pde-image-get-color-space "PDEImageGetColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-image-get-color-space-selproto
@@ -2345,8 +2357,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-image-is-cos-obj-sel+)
 ;; line 397
-(define-acrobat-function (pde-image-data-is-encoded
-                          "PDEImageDataIsEncoded")
+(define-acrobat-function (pde-image-data-is-encoded "PDEImageDataIsEncoded")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-image-data-is-encoded-selproto
@@ -2374,8 +2385,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-image-get-data-len-sel+)
 ;; line 397
-(define-acrobat-function (pde-image-get-filter-array
-                          "PDEImageGetFilterArray")
+(define-acrobat-function (pde-image-get-filter-array "PDEImageGetFilterArray")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-image-get-filter-array-selproto
@@ -2403,8 +2413,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-clip-get-elem-sel+)
 ;; line 397
-(define-acrobat-function (pde-xobject-get-cos-obj
-                          "PDEXObjectGetCosObj")
+(define-acrobat-function (pde-xobject-get-cos-obj "PDEXObjectGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-xobject-get-cos-obj-selproto
@@ -2460,48 +2469,42 @@
                          *g-pdf-edit-read-hft*
                          +pde-font-get-cos-obj-sel+)
 ;; line 397
-(define-acrobat-function (pde-color-space-get-name
-                          "PDEColorSpaceGetName")
+(define-acrobat-function (pde-color-space-get-name "PDEColorSpaceGetName")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-name-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-name-sel+)
 ;; line 397
-(define-acrobat-function (pde-color-space-get-cos-obj
-                          "PDEColorSpaceGetCosObj")
+(define-acrobat-function (pde-color-space-get-cos-obj "PDEColorSpaceGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-cos-obj-sel+)
 ;; line 397
-(define-acrobat-function (pde-color-space-get-num-comps
-                          "PDEColorSpaceGetNumComps")
+(define-acrobat-function (pde-color-space-get-num-comps "PDEColorSpaceGetNumComps")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-num-comps-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-num-comps-sel+)
 ;; line 397
-(define-acrobat-function (pde-color-space-get-base
-                          "PDEColorSpaceGetBase")
+(define-acrobat-function (pde-color-space-get-base "PDEColorSpaceGetBase")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-base-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-base-sel+)
 ;; line 397
-(define-acrobat-function (pde-color-space-get-hi-val
-                          "PDEColorSpaceGetHiVal")
+(define-acrobat-function (pde-color-space-get-hi-val "PDEColorSpaceGetHiVal")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-hi-val-selproto
                          *g-pdf-edit-read-hft*
                          +pde-color-space-get-hi-val-sel+)
 ;; line 397
-(define-acrobat-function (pde-color-space-get-ctable
-                          "PDEColorSpaceGetCTable")
+(define-acrobat-function (pde-color-space-get-ctable "PDEColorSpaceGetCTable")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-color-space-get-ctable-selproto
@@ -2550,8 +2553,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-attr-enum-table-sel+)
 ;; line 397
-(define-acrobat-function (pde-ext-gstate-get-cos-obj
-                          "PDEExtGStateGetCosObj")
+(define-acrobat-function (pde-ext-gstate-get-cos-obj "PDEExtGStateGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-ext-gstate-get-cos-obj-selproto
@@ -2579,8 +2581,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-place-get-dict-sel+)
 ;; line 397
-(define-acrobat-function (pde-container-get-mctag
-                          "PDEContainerGetMCTag")
+(define-acrobat-function (pde-container-get-mctag "PDEContainerGetMCTag")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-container-get-mctag-selproto
@@ -2594,8 +2595,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-container-get-dict-sel+)
 ;; line 397
-(define-acrobat-function (pde-container-get-content
-                          "PDEContainerGetContent")
+(define-acrobat-function (pde-container-get-content "PDEContainerGetContent")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-container-get-content-selproto
@@ -2616,8 +2616,7 @@
                          *g-pdf-edit-read-hft*
                          +pde-default-gstate-sel+)
 ;; line 397
-(define-acrobat-function (pde-pattern-get-cos-obj
-                          "PDEPatternGetCosObj")
+(define-acrobat-function (pde-pattern-get-cos-obj "PDEPatternGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-pattern-get-cos-obj-selproto
@@ -2638,16 +2637,14 @@
                          *g-pdf-edit-read-hft*
                          +pde-font-sum-widths-sel+)
 ;; line 397
-(define-acrobat-function (pde-font-get-num-code-bytes
-                          "PDEFontGetNumCodeBytes")
+(define-acrobat-function (pde-font-get-num-code-bytes "PDEFontGetNumCodeBytes")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-font-get-num-code-bytes-selproto
                          *g-pdf-edit-read-hft*
                          +pde-font-get-num-code-bytes-sel+)
 ;; line 397
-(define-acrobat-function (pde-device-ncolors-get-color-value
-                          "PDEDeviceNColorsGetColorValue")
+(define-acrobat-function (pde-device-ncolors-get-color-value "PDEDeviceNColorsGetColorValue")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-device-ncolors-get-color-value-selproto
@@ -2675,16 +2672,14 @@
                          *g-pdf-edit-read-hft*
                          +pde-group-get-content-sel+)
 ;; line 397
-(define-acrobat-function (pde-clip-flattened-enum-elems
-                          "PDEClipFlattenedEnumElems")
+(define-acrobat-function (pde-clip-flattened-enum-elems "PDEClipFlattenedEnumElems")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-clip-flattened-enum-elems-selproto
                          *g-pdf-edit-read-hft*
                          +pde-clip-flattened-enum-elems-sel+)
 ;; line 397
-(define-acrobat-function (pde-element-is-at-point
-                          "PDEElementIsAtPoint")
+(define-acrobat-function (pde-element-is-at-point "PDEElementIsAtPoint")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-element-is-at-point-selproto
@@ -2712,56 +2707,49 @@
                          *g-pdf-edit-read-hft*
                          +pde-text-is-at-rect-sel+)
 ;; line 397
-(define-acrobat-function (pde-font-get-one-byte-encoding
-                          "PDEFontGetOneByteEncoding")
+(define-acrobat-function (pde-font-get-one-byte-encoding "PDEFontGetOneByteEncoding")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-font-get-one-byte-encoding-selproto
                          *g-pdf-edit-read-hft*
                          +pde-font-get-one-byte-encoding-sel+)
 ;; line 397
-(define-acrobat-function (pde-shading-get-cos-obj
-                          "PDEShadingGetCosObj")
+(define-acrobat-function (pde-shading-get-cos-obj "PDEShadingGetCosObj")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-shading-get-cos-obj-selproto
                          *g-pdf-edit-read-hft*
                          +pde-shading-get-cos-obj-sel+)
 ;; line 397
-(define-acrobat-function (pde-unknown-get-op-name
-                          "PDEUnknownGetOpName")
+(define-acrobat-function (pde-unknown-get-op-name "PDEUnknownGetOpName")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-unknown-get-op-name-selproto
                          *g-pdf-edit-read-hft*
                          +pde-unknown-get-op-name-sel+)
 ;; line 397
-(define-acrobat-function (pde-content-get-default-color-space
-                          "PDEContentGetDefaultColorSpace")
+(define-acrobat-function (pde-content-get-default-color-space "PDEContentGetDefaultColorSpace")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-content-get-default-color-space-selproto
                          *g-pdf-edit-read-hft*
                          +pde-content-get-default-color-space-sel+)
 ;; line 397
-(define-acrobat-function (pde-image-get-decode-array
-                          "PDEImageGetDecodeArray")
+(define-acrobat-function (pde-image-get-decode-array "PDEImageGetDecodeArray")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-4+
                          pde-image-get-decode-array-selproto
                          *g-pdf-edit-read-hft*
                          +pde-image-get-decode-array-sel+)
 ;; line 397
-(define-acrobat-function (pde-begin-container-get-mctag
-                          "PDEBeginContainerGetMCTag")
+(define-acrobat-function (pde-begin-container-get-mctag "PDEBeginContainerGetMCTag")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-begin-container-get-mctag-selproto
                          *g-pdf-edit-read-hft*
                          +pde-begin-container-get-mctag-sel+)
 ;; line 397
-(define-acrobat-function (pde-begin-container-get-dict
-                          "PDEBeginContainerGetDict")
+(define-acrobat-function (pde-begin-container-get-dict "PDEBeginContainerGetDict")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pde-begin-container-get-dict-selproto
@@ -2943,24 +2931,21 @@
                          *g-pdf-edit-read-hft*
                          +pde-text-get-state-sel+)
 ;; line 397
-(define-acrobat-function (pd-sys-encoding-get-wmode
-                          "PDSysEncodingGetWMode")
+(define-acrobat-function (pd-sys-encoding-get-wmode "PDSysEncodingGetWMode")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pd-sys-encoding-get-wmode-selproto
                          *g-pdf-edit-read-hft*
                          +pd-sys-encoding-get-wmode-sel+)
 ;; line 397
-(define-acrobat-function (pd-sys-encoding-is-identity
-                          "PDSysEncodingIsIdentity")
+(define-acrobat-function (pd-sys-encoding-is-identity "PDSysEncodingIsIdentity")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pd-sys-encoding-is-identity-selproto
                          *g-pdf-edit-read-hft*
                          +pd-sys-encoding-is-identity-sel+)
 ;; line 397
-(define-acrobat-function (pd-sys-encoding-is-multi-byte
-                          "PDSysEncodingIsMultiByte")
+(define-acrobat-function (pd-sys-encoding-is-multi-byte "PDSysEncodingIsMultiByte")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-5+
                          pd-sys-encoding-is-multi-byte-selproto
@@ -3240,24 +3225,21 @@
                          *g-pdf-edit-read-hft*
                          +pde-form-get-content-to-cos-obj-flags-sel+)
 ;; line 397
-(define-acrobat-function (pde-element-get-matrix-ex
-                          "PDEElementGetMatrixEx")
+(define-acrobat-function (pde-element-get-matrix-ex "PDEElementGetMatrixEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-element-get-matrix-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-element-get-matrix-ex-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-text-matrix-ex
-                          "PDETextGetTextMatrixEx")
+(define-acrobat-function (pde-text-get-text-matrix-ex "PDETextGetTextMatrixEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-text-get-text-matrix-ex-selproto
                          *g-pdf-edit-read-hft*
                          +pde-text-get-text-matrix-ex-sel+)
 ;; line 397
-(define-acrobat-function (pde-text-get-stroke-matrix-ex
-                          "PDETextGetStrokeMatrixEx")
+(define-acrobat-function (pde-text-get-stroke-matrix-ex "PDETextGetStrokeMatrixEx")
                          *g-pdf-edit-read-version*
                          +pdf-edit-read-hft-version-10+
                          pde-text-get-stroke-matrix-ex-selproto
@@ -5015,8 +4997,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-content-to-cos-obj-sel+)
 ;; line 434
-(define-acrobat-function (pde-content-remove-elem
-                          "PDEContentRemoveElem")
+(define-acrobat-function (pde-content-remove-elem "PDEContentRemoveElem")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-content-remove-elem-selproto
@@ -5072,8 +5053,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-gstate-sel+)
 ;; line 434
-(define-acrobat-function (pde-text-run-set-text-state
-                          "PDETextRunSetTextState")
+(define-acrobat-function (pde-text-run-set-text-state "PDETextRunSetTextState")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-text-run-set-text-state-selproto
@@ -5087,16 +5067,14 @@
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-font-sel+)
 ;; line 434
-(define-acrobat-function (pde-text-run-set-text-matrix
-                          "PDETextRunSetTextMatrix")
+(define-acrobat-function (pde-text-run-set-text-matrix "PDETextRunSetTextMatrix")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-text-run-set-text-matrix-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-text-matrix-sel+)
 ;; line 434
-(define-acrobat-function (pde-text-run-set-stroke-matrix
-                          "PDETextRunSetStrokeMatrix")
+(define-acrobat-function (pde-text-run-set-stroke-matrix "PDETextRunSetStrokeMatrix")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-text-run-set-stroke-matrix-selproto
@@ -5138,8 +5116,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-path-set-paint-op-sel+)
 ;; line 434
-(define-acrobat-function (pde-image-create-from-cos-obj
-                          "PDEImageCreateFromCosObj")
+(define-acrobat-function (pde-image-create-from-cos-obj "PDEImageCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-image-create-from-cos-obj-selproto
@@ -5195,8 +5172,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-xobject-create-sel+)
 ;; line 434
-(define-acrobat-function (pde-form-create-from-cos-obj
-                          "PDEFormCreateFromCosObj")
+(define-acrobat-function (pde-form-create-from-cos-obj "PDEFormCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-form-create-from-cos-obj-selproto
@@ -5217,8 +5193,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-pscreate-sel+)
 ;; line 434
-(define-acrobat-function (pde-pscreate-from-cos-obj
-                          "PDEPSCreateFromCosObj")
+(define-acrobat-function (pde-pscreate-from-cos-obj "PDEPSCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-pscreate-from-cos-obj-selproto
@@ -5246,32 +5221,28 @@
                          *g-pdf-edit-write-hft*
                          +pde-font-create-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-from-cos-obj
-                          "PDEFontCreateFromCosObj")
+(define-acrobat-function (pde-font-create-from-cos-obj "PDEFontCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-create-from-cos-obj-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-from-cos-obj-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-from-sys-font
-                          "PDEFontCreateFromSysFont")
+(define-acrobat-function (pde-font-create-from-sys-font "PDEFontCreateFromSysFont")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-create-from-sys-font-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-from-sys-font-sel+)
 ;; line 434
-(define-acrobat-function (pde-color-space-create-from-name
-                          "PDEColorSpaceCreateFromName")
+(define-acrobat-function (pde-color-space-create-from-name "PDEColorSpaceCreateFromName")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-color-space-create-from-name-selproto
                          *g-pdf-edit-write-hft*
                          +pde-color-space-create-from-name-sel+)
 ;; line 434
-(define-acrobat-function (pde-color-space-create-from-cos-obj
-                          "PDEColorSpaceCreateFromCosObj")
+(define-acrobat-function (pde-color-space-create-from-cos-obj "PDEColorSpaceCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-color-space-create-from-cos-obj-selproto
@@ -5411,8 +5382,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-path-add-segment-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-with-params
-                          "PDEFontCreateWithParams")
+(define-acrobat-function (pde-font-create-with-params "PDEFontCreateWithParams")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-create-with-params-selproto
@@ -5433,8 +5403,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-device-ncolors-create-sel+)
 ;; line 434
-(define-acrobat-function (pde-shading-create-from-cos-obj
-                          "PDEShadingCreateFromCosObj")
+(define-acrobat-function (pde-shading-create-from-cos-obj "PDEShadingCreateFromCosObj")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-shading-create-from-cos-obj-selproto
@@ -5455,8 +5424,7 @@
                          *g-pdf-edit-write-hft*
                          +pde-group-set-content-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-from-sys-font-ex
-                          "PDEFontCreateFromSysFontEx")
+(define-acrobat-function (pde-font-create-from-sys-font-ex "PDEFontCreateFromSysFontEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-4+
                          pde-font-create-from-sys-font-ex-selproto
@@ -5694,16 +5662,14 @@
                          *g-pdf-edit-write-hft*
                          +pde-end-group-create-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-from-sys-font-with-params
-                          "PDEFontCreateFromSysFontWithParams")
+(define-acrobat-function (pde-font-create-from-sys-font-with-params "PDEFontCreateFromSysFontWithParams")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-font-create-from-sys-font-with-params-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-from-sys-font-with-params-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-translate-glyph-ids-to-unicode
-                          "PDEFontTranslateGlyphIdsToUnicode")
+(define-acrobat-function (pde-font-translate-glyph-ids-to-unicode "PDEFontTranslateGlyphIdsToUnicode")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-5+
                          pde-font-translate-glyph-ids-to-unicode-selproto
@@ -5766,24 +5732,21 @@
                          *g-pdf-edit-write-hft*
                          +pde-content-set-page-sel+)
 ;; line 434
-(define-acrobat-function (pde-content-set-containing-stream
-                          "PDEContentSetContainingStream")
+(define-acrobat-function (pde-content-set-containing-stream "PDEContentSetContainingStream")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-7+
                          pde-content-set-containing-stream-selproto
                          *g-pdf-edit-write-hft*
                          +pde-content-set-containing-stream-sel+)
 ;; line 434
-(define-acrobat-function (pde-content-set-stream-owner
-                          "PDEContentSetStreamOwner")
+(define-acrobat-function (pde-content-set-stream-owner "PDEContentSetStreamOwner")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-7+
                          pde-content-set-stream-owner-selproto
                          *g-pdf-edit-write-hft*
                          +pde-content-set-stream-owner-sel+)
 ;; line 434
-(define-acrobat-function (pd-sys-font-verify-encoding
-                          "PDSysFontVerifyEncoding")
+(define-acrobat-function (pd-sys-font-verify-encoding "PDSysFontVerifyEncoding")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-7+
                          pd-sys-font-verify-encoding-selproto
@@ -5804,48 +5767,42 @@
                          *g-pdf-edit-write-hft*
                          +pde-form-get-bbox-sel+)
 ;; line 434
-(define-acrobat-function (pde-image-create-in-cos-doc
-                          "PDEImageCreateInCosDoc")
+(define-acrobat-function (pde-image-create-in-cos-doc "PDEImageCreateInCosDoc")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-image-create-in-cos-doc-selproto
                          *g-pdf-edit-write-hft*
                          +pde-image-create-in-cos-doc-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-in-cos-doc
-                          "PDEFontCreateInCosDoc")
+(define-acrobat-function (pde-font-create-in-cos-doc "PDEFontCreateInCosDoc")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-font-create-in-cos-doc-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-in-cos-doc-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-from-sys-font-in-cos-doc
-                          "PDEFontCreateFromSysFontInCosDoc")
+(define-acrobat-function (pde-font-create-from-sys-font-in-cos-doc "PDEFontCreateFromSysFontInCosDoc")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-font-create-from-sys-font-in-cos-doc-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-from-sys-font-in-cos-doc-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-from-sys-font-ex-in-cos-doc
-                          "PDEFontCreateFromSysFontExInCosDoc")
+(define-acrobat-function (pde-font-create-from-sys-font-ex-in-cos-doc "PDEFontCreateFromSysFontExInCosDoc")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-font-create-from-sys-font-ex-in-cos-doc-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-from-sys-font-ex-in-cos-doc-sel+)
 ;; line 434
-(define-acrobat-function (pde-font-create-with-params-in-cos-doc
-                          "PDEFontCreateWithParamsInCosDoc")
+(define-acrobat-function (pde-font-create-with-params-in-cos-doc "PDEFontCreateWithParamsInCosDoc")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-font-create-with-params-in-cos-doc-selproto
                          *g-pdf-edit-write-hft*
                          +pde-font-create-with-params-in-cos-doc-sel+)
 ;; line 434
-(define-acrobat-function (pde-color-space-create-in-cos-doc
-                          "PDEColorSpaceCreateInCosDoc")
+(define-acrobat-function (pde-color-space-create-in-cos-doc "PDEColorSpaceCreateInCosDoc")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-color-space-create-in-cos-doc-selproto
@@ -5859,32 +5816,28 @@
                          *g-pdf-edit-write-hft*
                          +pde-content-set-default-color-space-pewcalls-sel+)
 ;; line 434
-(define-acrobat-function (pde-image-get-data-len64
-                          "PDEImageGetDataLen64")
+(define-acrobat-function (pde-image-get-data-len64 "PDEImageGetDataLen64")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-image-get-data-len64selproto
                          *g-pdf-edit-write-hft*
                          +pde-image-get-data-len64sel+)
 ;; line 434
-(define-acrobat-function (pde-image-create-in-cos-doc64
-                          "PDEImageCreateInCosDoc64")
+(define-acrobat-function (pde-image-create-in-cos-doc64 "PDEImageCreateInCosDoc64")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-image-create-in-cos-doc64selproto
                          *g-pdf-edit-write-hft*
                          +pde-image-create-in-cos-doc64sel+)
 ;; line 434
-(define-acrobat-function (pde-scratch-doc-cleanup
-                          "PDEScratchDocCleanup")
+(define-acrobat-function (pde-scratch-doc-cleanup "PDEScratchDocCleanup")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-8+
                          pde-scratch-doc-cleanup-selproto
                          *g-pdf-edit-write-hft*
                          +pde-scratch-doc-cleanup-sel+)
 ;; line 434
-(define-acrobat-function (pd-sys-encoding-create-from-cmap-stream
-                          "PDSysEncodingCreateFromCMapStream")
+(define-acrobat-function (pd-sys-encoding-create-from-cmap-stream "PDSysEncodingCreateFromCMapStream")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-9+
                          pd-sys-encoding-create-from-cmap-stream-selproto
@@ -5905,24 +5858,21 @@
                          *g-pdf-edit-write-hft*
                          +pde-form-get-matrix-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-content-add-page-ex
-                          "PDEContentAddPageEx")
+(define-acrobat-function (pde-content-add-page-ex "PDEContentAddPageEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-content-add-page-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-content-add-page-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-shading-create-from-cos-obj-ex
-                          "PDEShadingCreateFromCosObjEx")
+(define-acrobat-function (pde-shading-create-from-cos-obj-ex "PDEShadingCreateFromCosObjEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-shading-create-from-cos-obj-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-shading-create-from-cos-obj-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-image-create-in-cos-doc-ex
-                          "PDEImageCreateInCosDocEx")
+(define-acrobat-function (pde-image-create-in-cos-doc-ex "PDEImageCreateInCosDocEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-image-create-in-cos-doc-ex-selproto
@@ -5936,24 +5886,21 @@
                          *g-pdf-edit-write-hft*
                          +pde-image-create-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-text-run-set-text-matrix-ex
-                          "PDETextRunSetTextMatrixEx")
+(define-acrobat-function (pde-text-run-set-text-matrix-ex "PDETextRunSetTextMatrixEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-text-run-set-text-matrix-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-text-matrix-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-text-run-set-stroke-matrix-ex
-                          "PDETextRunSetStrokeMatrixEx")
+(define-acrobat-function (pde-text-run-set-stroke-matrix-ex "PDETextRunSetStrokeMatrixEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-text-run-set-stroke-matrix-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-text-run-set-stroke-matrix-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-image-create-from-cos-obj-ex
-                          "PDEImageCreateFromCosObjEx")
+(define-acrobat-function (pde-image-create-from-cos-obj-ex "PDEImageCreateFromCosObjEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-image-create-from-cos-obj-ex-selproto
@@ -5974,16 +5921,14 @@
                          *g-pdf-edit-write-hft*
                          +pde-text-add-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-element-set-matrix-ex
-                          "PDEElementSetMatrixEx")
+(define-acrobat-function (pde-element-set-matrix-ex "PDEElementSetMatrixEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-element-set-matrix-ex-selproto
                          *g-pdf-edit-write-hft*
                          +pde-element-set-matrix-ex-sel+)
 ;; line 434
-(define-acrobat-function (pde-form-create-from-cos-obj-ex
-                          "PDEFormCreateFromCosObjEx")
+(define-acrobat-function (pde-form-create-from-cos-obj-ex "PDEFormCreateFromCosObjEx")
                          *g-pdf-edit-write-version*
                          +pdf-edit-write-hft-version-10+
                          pde-form-create-from-cos-obj-ex-selproto
@@ -6027,16 +5972,14 @@
                     :calling-convention
                     :cdecl)))
 ;; line 200
-(define-acrobat-function (pd-page-acquire-pdecontent
-                          "PDPageAcquirePDEContent")
+(define-acrobat-function (pd-page-acquire-pdecontent "PDPageAcquirePDEContent")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-acquire-pdecontent-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-acquire-pdecontent-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-release-pdecontent
-                          "PDPageReleasePDEContent")
+(define-acrobat-function (pd-page-release-pdecontent "PDPageReleasePDEContent")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-release-pdecontent-selproto
@@ -6050,96 +5993,84 @@
                          *g-page-pdecontent-hft*
                          +pd-page-set-pdecontent-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-pdecontent-was-changed
-                          "PDPagePDEContentWasChanged")
+(define-acrobat-function (pd-page-pdecontent-was-changed "PDPagePDEContentWasChanged")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-pdecontent-was-changed-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-pdecontent-was-changed-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-register-for-pdecontent-changed
-                          "PDPageRegisterForPDEContentChanged")
+(define-acrobat-function (pd-page-register-for-pdecontent-changed "PDPageRegisterForPDEContentChanged")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-register-for-pdecontent-changed-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-register-for-pdecontent-changed-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-un-register-for-pdecontent-changed
-                          "PDPageUnRegisterForPDEContentChanged")
+(define-acrobat-function (pd-page-un-register-for-pdecontent-changed "PDPageUnRegisterForPDEContentChanged")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-un-register-for-pdecontent-changed-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-un-register-for-pdecontent-changed-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-register-for-pdecontent-not-cached
-                          "PDPageRegisterForPDEContentNotCached")
+(define-acrobat-function (pd-page-register-for-pdecontent-not-cached "PDPageRegisterForPDEContentNotCached")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-register-for-pdecontent-not-cached-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-register-for-pdecontent-not-cached-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-un-register-for-pdecontent-not-cached
-                          "PDPageUnRegisterForPDEContentNotCached")
+(define-acrobat-function (pd-page-un-register-for-pdecontent-not-cached "PDPageUnRegisterForPDEContentNotCached")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-un-register-for-pdecontent-not-cached-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-un-register-for-pdecontent-not-cached-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-get-pdecontent-flags
-                          "PDPageGetPDEContentFlags")
+(define-acrobat-function (pd-page-get-pdecontent-flags "PDPageGetPDEContentFlags")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-get-pdecontent-flags-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-get-pdecontent-flags-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-set-pdecontent-flags
-                          "PDPageSetPDEContentFlags")
+(define-acrobat-function (pd-page-set-pdecontent-flags "PDPageSetPDEContentFlags")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-set-pdecontent-flags-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-set-pdecontent-flags-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-get-pdecontent-filters
-                          "PDPageGetPDEContentFilters")
+(define-acrobat-function (pd-page-get-pdecontent-filters "PDPageGetPDEContentFilters")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-get-pdecontent-filters-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-get-pdecontent-filters-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-set-pdecontent-filters
-                          "PDPageSetPDEContentFilters")
+(define-acrobat-function (pd-page-set-pdecontent-filters "PDPageSetPDEContentFilters")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-4+
                          pd-page-set-pdecontent-filters-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-set-pdecontent-filters-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-suspend-pdecontent-changed
-                          "PDPageSuspendPDEContentChanged")
+(define-acrobat-function (pd-page-suspend-pdecontent-changed "PDPageSuspendPDEContentChanged")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-5+
                          pd-page-suspend-pdecontent-changed-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-suspend-pdecontent-changed-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-resume-pdecontent-changed
-                          "PDPageResumePDEContentChanged")
+(define-acrobat-function (pd-page-resume-pdecontent-changed "PDPageResumePDEContentChanged")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-5+
                          pd-page-resume-pdecontent-changed-selproto
                          *g-page-pdecontent-hft*
                          +pd-page-resume-pdecontent-changed-sel+)
 ;; line 200
-(define-acrobat-function (pd-page-set-pdecontent-can-raise
-                          "PDPageSetPDEContentCanRaise")
+(define-acrobat-function (pd-page-set-pdecontent-can-raise "PDPageSetPDEContentCanRaise")
                          *g-page-pdecontent-version*
                          +page-pdecontent-hft-version-6+
                          pd-page-set-pdecontent-can-raise-selproto
@@ -6291,3 +6222,1835 @@
                             :void
                             :calling-convention
                             :cdecl)
+
+;; #include <PDSReadProcs.h>
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-struct-tree-root-sel+ 1))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-get-num-kids-sel+ 2))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-get-kid-sel+ 3))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-get-role-map-sel+ 4))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-get-class-map-sel+ 5))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-get-element-from-id-sel+ 6))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-type-sel+ 7))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-parent-sel+ 8))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-title-sel+ 9))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-revision-sel+ 10))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-num-attr-objs-sel+ 11))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-attr-obj-sel+ 12))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-num-classes-sel+ 13))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-class-sel+ 14))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-alt-sel+ 15))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-num-kids-sel+ 16))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-kid-sel+ 17))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-first-page-sel+ 18))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-id-sel+ 19))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-struct-tree-root-sel+ 20))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-attr-obj-get-owner-sel+ 21))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-mcget-parent-sel+ 22))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-objget-parent-sel+ 23))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-role-map-get-direct-map-sel+ 24))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-role-map-does-map-sel+ 25))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-class-map-get-num-attr-objs-sel+ 26))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-class-map-get-attr-obj-sel+ 27))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-kid-ex-sel+ 28))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-actual-text-sel+ 29))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-language-sel+ 30))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-has-alt-sel+ 31))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-has-actual-text-sel+ 32))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-has-language-sel+ 33))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-kid-with-mcinfo-sel+ 34))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-mcget-info-sel+ 35))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-mcidget-parent-sel+ 36))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-mcget-pdecontainer-sel+ 37))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-cos-obj-sel+ 38))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-attr-obj-get-cos-obj-sel+ 39))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-has-user-properties-sel+ 40))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-enum-pdselements-with-user-properties-sel+ 41))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-has-user-properties-sel+ 42))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-enum-user-properties-as-as-text-sel+ 43))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-enum-user-properties-as-cos-obj-sel+ 44))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-find-ancestor-with-user-properties-sel+ 45))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-enum-kids-with-user-properties-sel+ 46))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-title-as-text-sel+ 47))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-actual-text-as-text-sel+ 48))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-alt-as-text-sel+ 49))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-export-user-properties-sel+ 50))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-num-associated-files-sel+ 51))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-get-associated-file-sel+ 52))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-has-associated-file-sel+ 53))
+;; sel = 1
+(define-foreign-funcallable pd-doc-get-struct-tree-root-selproto
+                            ((pd-doc pd-doc)
+                             (tree-root (:pointer pds-tree-root)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable pds-tree-root-get-num-kids-selproto
+                            ((tree-root pds-tree-root))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable pds-tree-root-get-kid-selproto
+                            ((tree-root pds-tree-root)
+                             (index as-int32)
+                             (kid (:pointer pds-element)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable pds-tree-root-get-role-map-selproto
+                            ((tree-root pds-tree-root)
+                             (role-map (:pointer pds-role-map)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable pds-tree-root-get-class-map-selproto
+                            ((tree-root pds-tree-root)
+                             (class-map (:pointer pds-class-map)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable pds-tree-root-get-element-from-id-selproto
+                            ((tree-root pds-tree-root)
+                             (id (:reference-pass :ef-mb-string))
+                             (num-chars as-int32)
+                             (element (:pointer pds-element)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable pds-element-get-type-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable pds-element-get-parent-selproto
+                            ((element pds-element)
+                             (parent (:pointer pds-element))
+                             (parent-is-tree-root (:pointer as-bool)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable pds-element-get-title-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable pds-element-get-revision-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable pds-element-get-num-attr-objs-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable pds-element-get-attr-obj-selproto
+                            ((element pds-element)
+                             (index as-int32)
+                             (attr-obj (:pointer pds-attr-obj)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable pds-element-get-num-classes-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable pds-element-get-class-selproto
+                            ((element pds-element)
+                             (index as-int32)
+                             (class-atom (:pointer as-atom)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable pds-element-get-alt-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 16
+(define-foreign-funcallable pds-element-get-num-kids-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 17
+(define-foreign-funcallable pds-element-get-kid-selproto
+                            ((element pds-element)
+                             (index as-int32)
+                             (cos-obj-kid (:pointer cos-obj))
+                             (pointer-kid (:pointer (:pointer :void)))
+                             (cos-page (:pointer cos-obj)))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 18
+(define-foreign-funcallable pds-element-get-first-page-selproto
+                            ((pds-element pds-element)
+                             (first-kid-type (:pointer as-atom))
+                             (first-cos-obj-kid-on-apage
+                              (:pointer cos-obj))
+                             (first-mckid-on-apage
+                              (:pointer pde-container)))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 19
+(define-foreign-funcallable pds-element-get-id-selproto
+                            ((pds-element pds-element)
+                             (id-buf (:pointer as-uns8)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 20
+(define-foreign-funcallable pds-element-get-struct-tree-root-selproto
+                            ((element pds-element)
+                             (tree-root (:pointer pds-tree-root)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 21
+(define-foreign-funcallable pds-attr-obj-get-owner-selproto
+                            ((element pds-attr-obj))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 22
+(define-foreign-funcallable pds-mcget-parent-selproto
+                            ((containing-obj cos-obj)
+                             (mc pds-mc)
+                             (parent (:pointer pds-element)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 23
+(define-foreign-funcallable pds-objget-parent-selproto
+                            ((obj cos-obj)
+                             (parent (:pointer pds-element)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 24
+(define-foreign-funcallable pds-role-map-get-direct-map-selproto
+                            ((role-map pds-role-map) (type as-atom))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 25
+(define-foreign-funcallable pds-role-map-does-map-selproto
+                            ((role-map pds-role-map)
+                             (src as-atom)
+                             (dst as-atom))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 26
+(define-foreign-funcallable pds-class-map-get-num-attr-objs-selproto
+                            ((class-map pds-class-map)
+                             (class-atom as-atom))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 27
+(define-foreign-funcallable pds-class-map-get-attr-obj-selproto
+                            ((class-map pds-class-map)
+                             (class-atom as-atom)
+                             (index as-int32)
+                             (attr-obj (:pointer pds-attr-obj)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 28
+(define-foreign-funcallable pds-element-get-kid-ex-selproto
+                            ((element pds-element)
+                             (index as-int32)
+                             (cos-obj-kid (:pointer cos-obj))
+                             (mcid (:pointer as-int32))
+                             (pointer-kid (:pointer (:pointer :void)))
+                             (cos-page (:pointer cos-obj)))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 29
+(define-foreign-funcallable pds-element-get-actual-text-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 30
+(define-foreign-funcallable pds-element-get-language-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 31
+(define-foreign-funcallable pds-element-has-alt-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 32
+(define-foreign-funcallable pds-element-has-actual-text-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 33
+(define-foreign-funcallable pds-element-has-language-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 34
+(define-foreign-funcallable pds-element-get-kid-with-mcinfo-selproto
+                            ((element pds-element)
+                             (index as-int32)
+                             (cos-obj-kid (:pointer cos-obj))
+                             (mcid-info pds-mcinfo-p)
+                             (pointer-kid (:pointer (:pointer :void)))
+                             (cos-page (:pointer cos-obj)))
+                            :result-type
+                            as-atom
+                            :calling-convention
+                            :cdecl)
+;; sel = 35
+(define-foreign-funcallable pds-mcget-info-selproto
+                            ((containing-obj cos-obj)
+                             (mc pds-mc)
+                             (info pds-mcinfo-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 36
+(define-foreign-funcallable pds-mcidget-parent-selproto
+                            ((mcid as-int32)
+                             (containing-obj cos-obj)
+                             (parent (:pointer pds-element)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 37
+(define-foreign-funcallable pds-mcget-pdecontainer-selproto
+                            ((mc pds-mc))
+                            :result-type
+                            pde-container
+                            :calling-convention
+                            :cdecl)
+;; sel = 38
+(define-foreign-funcallable pds-element-get-cos-obj-selproto
+                            ((element pds-element))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 39
+(define-foreign-funcallable pds-attr-obj-get-cos-obj-selproto
+                            ((attr-obj pds-attr-obj))
+                            :result-type
+                            cos-obj
+                            :calling-convention
+                            :cdecl)
+;; sel = 40
+(define-foreign-funcallable pd-doc-has-user-properties-selproto
+                            ((doc pd-doc))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 41
+(define-foreign-funcallable pd-doc-enum-pdselements-with-user-properties-selproto
+                            ((doc pd-doc)
+                             (proc
+                              enum-elements-with-user-properties-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 42
+(define-foreign-funcallable pds-element-has-user-properties-selproto
+                            ((elem pds-element))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 43
+(define-foreign-funcallable pds-element-enum-user-properties-as-as-text-selproto
+                            ((elem pds-element)
+                             (proc
+                              pds-element-enum-user-properties-as-as-text-proc)
+                             (client-data (:pointer :void))
+                             (include-hidden as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 44
+(define-foreign-funcallable pds-element-enum-user-properties-as-cos-obj-selproto
+                            ((elem pds-element)
+                             (proc
+                              pds-element-enum-user-properties-as-cos-obj-proc)
+                             (client-data (:pointer :void))
+                             (include-hidden as-bool))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 45
+(define-foreign-funcallable pds-element-find-ancestor-with-user-properties-selproto
+                            ((elem pds-element))
+                            :result-type
+                            pds-element
+                            :calling-convention
+                            :cdecl)
+;; sel = 46
+(define-foreign-funcallable pds-element-enum-kids-with-user-properties-selproto
+                            ((elem pds-element)
+                             (proc
+                              enum-elements-with-user-properties-proc)
+                             (client-data (:pointer :void)))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 47
+(define-foreign-funcallable pds-element-get-title-as-text-selproto
+                            ((element pds-element) (title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 48
+(define-foreign-funcallable pds-element-get-actual-text-as-text-selproto
+                            ((element pds-element) (text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 49
+(define-foreign-funcallable pds-element-get-alt-as-text-selproto
+                            ((element pds-element) (text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 50
+(define-foreign-funcallable pds-element-export-user-properties-selproto
+                            ((user-props-element pds-element)
+                             (whole-subtree as-bool)
+                             (include-hidden as-bool)
+                             (flatten-classes as-bool)
+                             (xml-labels pd-user-properties-xml-labels)
+                             (output as-stm))
+                            :result-type
+                            as-error-code
+                            :calling-convention
+                            :cdecl)
+;; sel = 51
+(define-foreign-funcallable pds-element-get-num-associated-files-selproto
+                            ((element pds-element))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 52
+(define-foreign-funcallable pds-element-get-associated-file-selproto
+                            ((element pds-element) (index as-int32))
+                            :result-type
+                            pd-file-spec
+                            :calling-convention
+                            :cdecl)
+;; sel = 53
+(define-foreign-funcallable pds-element-has-associated-file-selproto
+                            ((element pds-element)
+                             (fs-obj pd-file-spec))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+
+;; #include <PDSReadCalls.h>
+;; line 87
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +-pdsread-is-beta+ 0))
+;; line 97
+(define-c-typedef pds-read-version-13 pds-read-hft-latest-version)
+;; line 109
+(define-c-typedef pex1 ac-cb1)
+;; line 110
+(define-c-typedef pex2 ac-cb2)
+;; line 114
+(define-c-typedef pex1 ac-ex1)
+;; line 115
+(define-c-typedef pex2 ac-ex2)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-read-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-read-num-selectorsplus-one+ 1))
+;; line 263
+(define-acrobat-function (pd-doc-get-struct-tree-root "PDDocGetStructTreeRoot")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pd-doc-get-struct-tree-root-selproto
+                         *g-pdsread-hft*
+                         +pd-doc-get-struct-tree-root-sel+)
+;; line 263
+(define-acrobat-function (pds-tree-root-get-num-kids "PDSTreeRootGetNumKids")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-tree-root-get-num-kids-selproto
+                         *g-pdsread-hft*
+                         +pds-tree-root-get-num-kids-sel+)
+;; line 263
+(define-acrobat-function (pds-tree-root-get-kid "PDSTreeRootGetKid")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-tree-root-get-kid-selproto
+                         *g-pdsread-hft*
+                         +pds-tree-root-get-kid-sel+)
+;; line 263
+(define-acrobat-function (pds-tree-root-get-role-map "PDSTreeRootGetRoleMap")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-tree-root-get-role-map-selproto
+                         *g-pdsread-hft*
+                         +pds-tree-root-get-role-map-sel+)
+;; line 263
+(define-acrobat-function (pds-tree-root-get-class-map "PDSTreeRootGetClassMap")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-tree-root-get-class-map-selproto
+                         *g-pdsread-hft*
+                         +pds-tree-root-get-class-map-sel+)
+;; line 263
+(define-acrobat-function (pds-tree-root-get-element-from-id "PDSTreeRootGetElementFromID")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-tree-root-get-element-from-id-selproto
+                         *g-pdsread-hft*
+                         +pds-tree-root-get-element-from-id-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-type "PDSElementGetType")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-type-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-type-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-parent "PDSElementGetParent")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-parent-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-parent-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-title "PDSElementGetTitle")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-title-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-title-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-revision "PDSElementGetRevision")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-revision-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-revision-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-num-attr-objs "PDSElementGetNumAttrObjs")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-num-attr-objs-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-num-attr-objs-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-attr-obj "PDSElementGetAttrObj")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-attr-obj-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-attr-obj-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-num-classes "PDSElementGetNumClasses")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-num-classes-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-num-classes-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-class "PDSElementGetClass")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-class-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-class-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-alt "PDSElementGetAlt")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-alt-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-alt-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-num-kids "PDSElementGetNumKids")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-num-kids-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-num-kids-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-kid "PDSElementGetKid")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-kid-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-kid-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-first-page "PDSElementGetFirstPage")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-first-page-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-first-page-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-id "PDSElementGetID")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-id-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-id-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-struct-tree-root "PDSElementGetStructTreeRoot")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-element-get-struct-tree-root-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-struct-tree-root-sel+)
+;; line 263
+(define-acrobat-function (pds-attr-obj-get-owner "PDSAttrObjGetOwner")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-attr-obj-get-owner-selproto
+                         *g-pdsread-hft*
+                         +pds-attr-obj-get-owner-sel+)
+;; line 263
+(define-acrobat-function (pds-mcget-parent "PDSMCGetParent")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-mcget-parent-selproto
+                         *g-pdsread-hft*
+                         +pds-mcget-parent-sel+)
+;; line 263
+(define-acrobat-function (pds-objget-parent "PDSOBJGetParent")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-objget-parent-selproto
+                         *g-pdsread-hft*
+                         +pds-objget-parent-sel+)
+;; line 263
+(define-acrobat-function (pds-role-map-get-direct-map "PDSRoleMapGetDirectMap")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-role-map-get-direct-map-selproto
+                         *g-pdsread-hft*
+                         +pds-role-map-get-direct-map-sel+)
+;; line 263
+(define-acrobat-function (pds-role-map-does-map "PDSRoleMapDoesMap")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-role-map-does-map-selproto
+                         *g-pdsread-hft*
+                         +pds-role-map-does-map-sel+)
+;; line 263
+(define-acrobat-function (pds-class-map-get-num-attr-objs "PDSClassMapGetNumAttrObjs")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-class-map-get-num-attr-objs-selproto
+                         *g-pdsread-hft*
+                         +pds-class-map-get-num-attr-objs-sel+)
+;; line 263
+(define-acrobat-function (pds-class-map-get-attr-obj "PDSClassMapGetAttrObj")
+                         *g-pdsread-version*
+                         +pds-read-version-2+
+                         pds-class-map-get-attr-obj-selproto
+                         *g-pdsread-hft*
+                         +pds-class-map-get-attr-obj-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-kid-with-mcinfo "PDSElementGetKidWithMCInfo")
+                         *g-pdsread-version*
+                         +pds-read-version-6+
+                         pds-element-get-kid-with-mcinfo-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-kid-with-mcinfo-sel+)
+;; line 263
+(define-acrobat-function (pds-mcget-info "PDSMCGetInfo")
+                         *g-pdsread-version*
+                         +pds-read-version-6+
+                         pds-mcget-info-selproto
+                         *g-pdsread-hft*
+                         +pds-mcget-info-sel+)
+;; line 263
+(define-acrobat-function (pds-mcidget-parent "PDSMCIDGetParent")
+                         *g-pdsread-version*
+                         +pds-read-version-6+
+                         pds-mcidget-parent-selproto
+                         *g-pdsread-hft*
+                         +pds-mcidget-parent-sel+)
+;; line 263
+(define-acrobat-function (pds-mcget-pdecontainer "PDSMCGetPDEContainer")
+                         *g-pdsread-version*
+                         +pds-read-version-6+
+                         pds-mcget-pdecontainer-selproto
+                         *g-pdsread-hft*
+                         +pds-mcget-pdecontainer-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-cos-obj "PDSElementGetCosObj")
+                         *g-pdsread-version*
+                         +pds-read-version-6+
+                         pds-element-get-cos-obj-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-cos-obj-sel+)
+;; line 263
+(define-acrobat-function (pds-attr-obj-get-cos-obj "PDSAttrObjGetCosObj")
+                         *g-pdsread-version*
+                         +pds-read-version-6+
+                         pds-attr-obj-get-cos-obj-selproto
+                         *g-pdsread-hft*
+                         +pds-attr-obj-get-cos-obj-sel+)
+;; line 263
+(define-acrobat-function (pd-doc-has-user-properties "PDDocHasUserProperties")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pd-doc-has-user-properties-selproto
+                         *g-pdsread-hft*
+                         +pd-doc-has-user-properties-sel+)
+;; line 263
+(define-acrobat-function (pd-doc-enum-pdselements-with-user-properties "PDDocEnumPDSElementsWithUserProperties")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pd-doc-enum-pdselements-with-user-properties-selproto
+                         *g-pdsread-hft*
+                         +pd-doc-enum-pdselements-with-user-properties-sel+)
+;; line 263
+(define-acrobat-function (pds-element-has-user-properties "PDSElementHasUserProperties")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pds-element-has-user-properties-selproto
+                         *g-pdsread-hft*
+                         +pds-element-has-user-properties-sel+)
+;; line 263
+(define-acrobat-function (pds-element-enum-user-properties-as-as-text "PDSElementEnumUserPropertiesAsASText")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pds-element-enum-user-properties-as-as-text-selproto
+                         *g-pdsread-hft*
+                         +pds-element-enum-user-properties-as-as-text-sel+)
+;; line 263
+(define-acrobat-function (pds-element-enum-user-properties-as-cos-obj "PDSElementEnumUserPropertiesAsCosObj")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pds-element-enum-user-properties-as-cos-obj-selproto
+                         *g-pdsread-hft*
+                         +pds-element-enum-user-properties-as-cos-obj-sel+)
+;; line 263
+(define-acrobat-function (pds-element-find-ancestor-with-user-properties "PDSElementFindAncestorWithUserProperties")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pds-element-find-ancestor-with-user-properties-selproto
+                         *g-pdsread-hft*
+                         +pds-element-find-ancestor-with-user-properties-sel+)
+;; line 263
+(define-acrobat-function (pds-element-enum-kids-with-user-properties "PDSElementEnumKidsWithUserProperties")
+                         *g-pdsread-version*
+                         +pds-read-version-7+
+                         pds-element-enum-kids-with-user-properties-selproto
+                         *g-pdsread-hft*
+                         +pds-element-enum-kids-with-user-properties-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-title-as-text "PDSElementGetTitleASText")
+                         *g-pdsread-version*
+                         +pds-read-version-8+
+                         pds-element-get-title-as-text-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-title-as-text-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-alt-as-text "PDSElementGetAltASText")
+                         *g-pdsread-version*
+                         +pds-read-version-8+
+                         pds-element-get-alt-as-text-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-alt-as-text-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-num-associated-files "PDSElementGetNumAssociatedFiles")
+                         *g-pdsread-version*
+                         +pds-read-version-13+
+                         pds-element-get-num-associated-files-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-num-associated-files-sel+)
+;; line 263
+(define-acrobat-function (pds-element-get-associated-file "PDSElementGetAssociatedFile")
+                         *g-pdsread-version*
+                         +pds-read-version-13+
+                         pds-element-get-associated-file-selproto
+                         *g-pdsread-hft*
+                         +pds-element-get-associated-file-sel+)
+;; line 263
+(define-acrobat-function (pds-element-has-associated-file "PDSElementHasAssociatedFile")
+                         *g-pdsread-version*
+                         +pds-read-version-13+
+                         pds-element-has-associated-file-selproto
+                         *g-pdsread-hft*
+                         +pds-element-has-associated-file-sel+)
+
+;; #include <PDSWriteProcs.h>
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-struct-tree-root-sel+ 1))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-remove-struct-tree-root-sel+ 2))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-insert-kid-sel+ 3))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-remove-kid-sel+ 4))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-replace-kid-sel+ 5))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-create-role-map-sel+ 6))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-remove-role-map-sel+ 7))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-create-class-map-sel+ 8))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-remove-class-map-sel+ 9))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-create-sel+ 10))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-type-sel+ 11))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-title-sel+ 12))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-increment-revision-sel+ 13))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-add-attr-obj-sel+ 14))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-attr-obj-sel+ 15))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-all-attr-objs-sel+ 16))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-add-class-sel+ 17))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-class-sel+ 18))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-all-classes-sel+ 19))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-alt-sel+ 20))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-insert-kid-sel+ 21))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-insert-mcas-kid-sel+ 22))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-insert-objas-kid-sel+ 23))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-kid-sel+ 24))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-kid-mc-sel+ 25))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-replace-kid-sel+ 26))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-replace-kid-mc-sel+ 27))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-replace-kid-obj-sel+ 28))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-id-sel+ 29))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-clear-id-sel+ 30))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-attr-obj-create-sel+ 31))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-attr-obj-create-from-stream-sel+ 32))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-role-map-map-sel+ 33))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-role-map-un-map-src-sel+ 34))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-role-map-un-map-dst-sel+ 35))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-role-map-copy-sel+ 36))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-class-map-add-attr-obj-sel+ 37))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-class-map-remove-class-sel+ 38))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-class-map-remove-attr-obj-sel+ 39))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-actual-text-sel+ 40))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-language-sel+ 41))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-kid-obj-sel+ 42))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-insert-mcas-kid-ex-sel+ 43))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-insert-stm-mcas-kid-sel+ 44))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-tree-root-replace-stream-ref-sel+ 45))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-mcref-create-sel+ 46))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-mcref-destroy-sel+ 47))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-insert-mcref-as-kid-sel+ 48))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-title-as-text-sel+ 49))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-actual-text-as-text-sel+ 50))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-set-alt-as-text-sel+ 51))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-add-associated-file-sel+ 52))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-associated-file-sel+ 53))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-element-remove-all-associated-files-sel+ 54))
+;; sel = 1
+(define-foreign-funcallable pd-doc-create-struct-tree-root-selproto
+                            ((pd-doc pd-doc)
+                             (tree-root (:pointer pds-tree-root)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable pd-doc-remove-struct-tree-root-selproto
+                            ((pd-doc pd-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable pds-tree-root-insert-kid-selproto
+                            ((tree-root pds-tree-root)
+                             (kid pds-element)
+                             (insert-after as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable pds-tree-root-remove-kid-selproto
+                            ((tree-root pds-tree-root)
+                             (kid pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable pds-tree-root-replace-kid-selproto
+                            ((tree-root pds-tree-root)
+                             (old-kid pds-element)
+                             (new-kid pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable pds-tree-root-create-role-map-selproto
+                            ((tree-root pds-tree-root)
+                             (role-map (:pointer pds-role-map)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable pds-tree-root-remove-role-map-selproto
+                            ((tree-root pds-tree-root))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable pds-tree-root-create-class-map-selproto
+                            ((tree-root pds-tree-root)
+                             (class-map (:pointer pds-class-map)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable pds-tree-root-remove-class-map-selproto
+                            ((tree-root pds-tree-root))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable pds-element-create-selproto
+                            ((pd-doc pd-doc)
+                             (element (:pointer pds-element)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable pds-element-set-type-selproto
+                            ((element pds-element) (type as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable pds-element-set-title-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8))
+                             (n-bytes as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable pds-element-increment-revision-selproto
+                            ((element pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable pds-element-add-attr-obj-selproto
+                            ((element pds-element)
+                             (attr-obj pds-attr-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable pds-element-remove-attr-obj-selproto
+                            ((element pds-element)
+                             (attr-obj pds-attr-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 16
+(define-foreign-funcallable pds-element-remove-all-attr-objs-selproto
+                            ((element pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 17
+(define-foreign-funcallable pds-element-add-class-selproto
+                            ((element pds-element)
+                             (class-atom as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 18
+(define-foreign-funcallable pds-element-remove-class-selproto
+                            ((element pds-element)
+                             (class-atom as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 19
+(define-foreign-funcallable pds-element-remove-all-classes-selproto
+                            ((element pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 20
+(define-foreign-funcallable pds-element-set-alt-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8))
+                             (n-bytes as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 21
+(define-foreign-funcallable pds-element-insert-kid-selproto
+                            ((element pds-element)
+                             (kid pds-element)
+                             (insert-after as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 22
+(define-foreign-funcallable pds-element-insert-mcas-kid-selproto
+                            ((element pds-element)
+                             (cos-page cos-obj)
+                             (mc pds-mc)
+                             (insert-after as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 23
+(define-foreign-funcallable pds-element-insert-objas-kid-selproto
+                            ((element pds-element)
+                             (cos-page cos-obj)
+                             (obj cos-obj)
+                             (insert-after as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 24
+(define-foreign-funcallable pds-element-remove-kid-selproto
+                            ((element pds-element) (kid cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 25
+(define-foreign-funcallable pds-element-remove-kid-mc-selproto
+                            ((element pds-element)
+                             (cos-page cos-obj)
+                             (mc pds-mc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 26
+(define-foreign-funcallable pds-element-replace-kid-selproto
+                            ((element pds-element)
+                             (old-kid cos-obj)
+                             (new-kid cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 27
+(define-foreign-funcallable pds-element-replace-kid-mc-selproto
+                            ((element pds-element)
+                             (old-cos-page cos-obj)
+                             (old-mc pds-mc)
+                             (new-cos-page cos-obj)
+                             (new-mc pds-mc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 28
+(define-foreign-funcallable pds-element-replace-kid-obj-selproto
+                            ((element pds-element)
+                             (old-obj cos-obj)
+                             (new-obj cos-obj)
+                             (new-page cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 29
+(define-foreign-funcallable pds-element-set-id-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8))
+                             (n-bytes as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 30
+(define-foreign-funcallable pds-element-clear-id-selproto
+                            ((element pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 31
+(define-foreign-funcallable pds-attr-obj-create-selproto
+                            ((pd-doc pd-doc)
+                             (owner as-atom)
+                             (indirect as-bool)
+                             (attr-obj (:pointer pds-attr-obj)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 32
+(define-foreign-funcallable pds-attr-obj-create-from-stream-selproto
+                            ((owner as-atom)
+                             (cos-stream-obj cos-obj)
+                             (attr-obj (:pointer pds-attr-obj)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 33
+(define-foreign-funcallable pds-role-map-map-selproto
+                            ((role-map pds-role-map)
+                             (src as-atom)
+                             (dst as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 34
+(define-foreign-funcallable pds-role-map-un-map-src-selproto
+                            ((role-map pds-role-map)
+                             (src as-atom)
+                             (fixup-others as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 35
+(define-foreign-funcallable pds-role-map-un-map-dst-selproto
+                            ((role-map pds-role-map) (dst as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 36
+(define-foreign-funcallable pds-role-map-copy-selproto
+                            ((src-role-map pds-role-map)
+                             (dst-tree-root pds-tree-root)
+                             (dst-role-map (:pointer pds-role-map)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 37
+(define-foreign-funcallable pds-class-map-add-attr-obj-selproto
+                            ((class-map pds-class-map)
+                             (class-atom as-atom)
+                             (attr-obj pds-attr-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 38
+(define-foreign-funcallable pds-class-map-remove-class-selproto
+                            ((class-map pds-class-map)
+                             (class-atom as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 39
+(define-foreign-funcallable pds-class-map-remove-attr-obj-selproto
+                            ((class-map pds-class-map)
+                             (class-atom as-atom)
+                             (attr-obj pds-attr-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 40
+(define-foreign-funcallable pds-element-set-actual-text-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8))
+                             (n-bytes as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 41
+(define-foreign-funcallable pds-element-set-language-selproto
+                            ((element pds-element)
+                             (buffer (:pointer as-uns8))
+                             (n-bytes as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 42
+(define-foreign-funcallable pds-element-remove-kid-obj-selproto
+                            ((element pds-element) (kid cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 43
+(define-foreign-funcallable pds-element-insert-mcas-kid-ex-selproto
+                            ((element pds-element)
+                             (cos-page cos-obj)
+                             (mc pds-mc)
+                             (insert-after as-int32)
+                             (cos-stream cos-obj)
+                             (stream-owner cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 44
+(define-foreign-funcallable pds-element-insert-stm-mcas-kid-selproto
+                            ((element pds-element)
+                             (cos-page cos-obj)
+                             (containing-stm cos-obj)
+                             (stm-owner cos-obj)
+                             (mc pds-mc)
+                             (insert-after as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 45
+(define-foreign-funcallable pds-tree-root-replace-stream-ref-selproto
+                            ((tree-root pds-tree-root)
+                             (old-stream cos-obj)
+                             (new-stream cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 46
+(define-foreign-funcallable pds-mcref-create-selproto
+                            ((container pde-element)
+                             (cos-doc cos-doc)
+                             (mcid as-int32))
+                            :result-type
+                            pds-mcref
+                            :calling-convention
+                            :cdecl)
+;; sel = 47
+(define-foreign-funcallable pds-mcref-destroy-selproto
+                            ((ref pds-mcref))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 48
+(define-foreign-funcallable pds-element-insert-mcref-as-kid-selproto
+                            ((element pds-element)
+                             (ref pds-mcref)
+                             (insert-after as-int32))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 49
+(define-foreign-funcallable pds-element-set-title-as-text-selproto
+                            ((element pds-element) (title as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 50
+(define-foreign-funcallable pds-element-set-actual-text-as-text-selproto
+                            ((element pds-element) (text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 51
+(define-foreign-funcallable pds-element-set-alt-as-text-selproto
+                            ((element pds-element) (text as-text))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 52
+(define-foreign-funcallable pds-element-add-associated-file-selproto
+                            ((element pds-element)
+                             (fs-obj pd-file-spec))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 53
+(define-foreign-funcallable pds-element-remove-associated-file-selproto
+                            ((element pds-element)
+                             (fs-obj pd-file-spec))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 54
+(define-foreign-funcallable pds-element-remove-all-associated-files-selproto
+                            ((element pds-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+
+;; #include <PDSWriteCalls.h>
+;; line 88
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +-pdswrite-is-beta+ 0))
+;; line 98
+(define-c-typedef pds-write-version-13 pds-write-hft-latest-version)
+;; line 109
+(define-c-typedef pex1 ac-cb1)
+;; line 110
+(define-c-typedef pex2 ac-cb2)
+;; line 114
+(define-c-typedef pex1 ac-ex1)
+;; line 115
+(define-c-typedef pex2 ac-ex2)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-write-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pds-write-num-selectorsplus-one+ 1))
+;; line 294
+(define-acrobat-function (pd-doc-create-struct-tree-root "PDDocCreateStructTreeRoot")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pd-doc-create-struct-tree-root-selproto
+                         *g-pdswrite-hft*
+                         +pd-doc-create-struct-tree-root-sel+)
+;; line 294
+(define-acrobat-function (pd-doc-remove-struct-tree-root "PDDocRemoveStructTreeRoot")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pd-doc-remove-struct-tree-root-selproto
+                         *g-pdswrite-hft*
+                         +pd-doc-remove-struct-tree-root-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-insert-kid "PDSTreeRootInsertKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-insert-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-insert-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-remove-kid "PDSTreeRootRemoveKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-remove-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-remove-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-replace-kid "PDSTreeRootReplaceKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-replace-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-replace-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-create-role-map "PDSTreeRootCreateRoleMap")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-create-role-map-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-create-role-map-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-remove-role-map "PDSTreeRootRemoveRoleMap")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-remove-role-map-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-remove-role-map-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-create-class-map "PDSTreeRootCreateClassMap")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-create-class-map-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-create-class-map-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-remove-class-map "PDSTreeRootRemoveClassMap")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-tree-root-remove-class-map-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-remove-class-map-sel+)
+;; line 294
+(define-acrobat-function (pds-element-create "PDSElementCreate")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-create-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-create-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-type "PDSElementSetType")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-set-type-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-type-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-title "PDSElementSetTitle")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-set-title-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-title-sel+)
+;; line 294
+(define-acrobat-function (pds-element-increment-revision "PDSElementIncrementRevision")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-increment-revision-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-increment-revision-sel+)
+;; line 294
+(define-acrobat-function (pds-element-add-attr-obj "PDSElementAddAttrObj")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-add-attr-obj-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-add-attr-obj-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-attr-obj "PDSElementRemoveAttrObj")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-remove-attr-obj-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-attr-obj-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-all-attr-objs "PDSElementRemoveAllAttrObjs")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-remove-all-attr-objs-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-all-attr-objs-sel+)
+;; line 294
+(define-acrobat-function (pds-element-add-class "PDSElementAddClass")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-add-class-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-add-class-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-class "PDSElementRemoveClass")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-remove-class-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-class-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-all-classes "PDSElementRemoveAllClasses")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-remove-all-classes-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-all-classes-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-alt "PDSElementSetAlt")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-set-alt-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-alt-sel+)
+;; line 294
+(define-acrobat-function (pds-element-insert-kid "PDSElementInsertKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-insert-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-insert-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-element-insert-mcas-kid "PDSElementInsertMCAsKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-insert-mcas-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-insert-mcas-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-element-insert-objas-kid "PDSElementInsertOBJAsKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-insert-objas-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-insert-objas-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-kid "PDSElementRemoveKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-remove-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-kid-mc "PDSElementRemoveKidMC")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-remove-kid-mc-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-kid-mc-sel+)
+;; line 294
+(define-acrobat-function (pds-element-replace-kid "PDSElementReplaceKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-replace-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-replace-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-element-replace-kid-mc "PDSElementReplaceKidMC")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-replace-kid-mc-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-replace-kid-mc-sel+)
+;; line 294
+(define-acrobat-function (pds-element-replace-kid-obj "PDSElementReplaceKidOBJ")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-replace-kid-obj-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-replace-kid-obj-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-id "PDSElementSetID")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-set-id-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-id-sel+)
+;; line 294
+(define-acrobat-function (pds-element-clear-id "PDSElementClearID")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-element-clear-id-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-clear-id-sel+)
+;; line 294
+(define-acrobat-function (pds-attr-obj-create "PDSAttrObjCreate")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-attr-obj-create-selproto
+                         *g-pdswrite-hft*
+                         +pds-attr-obj-create-sel+)
+;; line 294
+(define-acrobat-function (pds-attr-obj-create-from-stream "PDSAttrObjCreateFromStream")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-attr-obj-create-from-stream-selproto
+                         *g-pdswrite-hft*
+                         +pds-attr-obj-create-from-stream-sel+)
+;; line 294
+(define-acrobat-function (pds-role-map-map "PDSRoleMapMap")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-role-map-map-selproto
+                         *g-pdswrite-hft*
+                         +pds-role-map-map-sel+)
+;; line 294
+(define-acrobat-function (pds-role-map-un-map-src "PDSRoleMapUnMapSrc")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-role-map-un-map-src-selproto
+                         *g-pdswrite-hft*
+                         +pds-role-map-un-map-src-sel+)
+;; line 294
+(define-acrobat-function (pds-role-map-un-map-dst "PDSRoleMapUnMapDst")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-role-map-un-map-dst-selproto
+                         *g-pdswrite-hft*
+                         +pds-role-map-un-map-dst-sel+)
+;; line 294
+(define-acrobat-function (pds-role-map-copy "PDSRoleMapCopy")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-role-map-copy-selproto
+                         *g-pdswrite-hft*
+                         +pds-role-map-copy-sel+)
+;; line 294
+(define-acrobat-function (pds-class-map-add-attr-obj "PDSClassMapAddAttrObj")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-class-map-add-attr-obj-selproto
+                         *g-pdswrite-hft*
+                         +pds-class-map-add-attr-obj-sel+)
+;; line 294
+(define-acrobat-function (pds-class-map-remove-class "PDSClassMapRemoveClass")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-class-map-remove-class-selproto
+                         *g-pdswrite-hft*
+                         +pds-class-map-remove-class-sel+)
+;; line 294
+(define-acrobat-function (pds-class-map-remove-attr-obj "PDSClassMapRemoveAttrObj")
+                         *g-pdswrite-version*
+                         +pds-write-version-b+
+                         pds-class-map-remove-attr-obj-selproto
+                         *g-pdswrite-hft*
+                         +pds-class-map-remove-attr-obj-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-actual-text "PDSElementSetActualText")
+                         *g-pdswrite-version*
+                         +pds-write-version-5+
+                         pds-element-set-actual-text-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-actual-text-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-language "PDSElementSetLanguage")
+                         *g-pdswrite-version*
+                         +pds-write-version-5+
+                         pds-element-set-language-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-language-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-kid-obj "PDSElementRemoveKidOBJ")
+                         *g-pdswrite-version*
+                         +pds-write-version-5+
+                         pds-element-remove-kid-obj-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-kid-obj-sel+)
+;; line 294
+(define-acrobat-function (pds-element-insert-mcas-kid-ex "PDSElementInsertMCAsKidEx")
+                         *g-pdswrite-version*
+                         +pds-write-version-6+
+                         pds-element-insert-mcas-kid-ex-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-insert-mcas-kid-ex-sel+)
+;; line 294
+(define-acrobat-function (pds-element-insert-stm-mcas-kid "PDSElementInsertStmMCAsKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-6+
+                         pds-element-insert-stm-mcas-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-insert-stm-mcas-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-tree-root-replace-stream-ref "PDSTreeRootReplaceStreamRef")
+                         *g-pdswrite-version*
+                         +pds-write-version-6+
+                         pds-tree-root-replace-stream-ref-selproto
+                         *g-pdswrite-hft*
+                         +pds-tree-root-replace-stream-ref-sel+)
+;; line 294
+(define-acrobat-function (pds-element-insert-mcref-as-kid "PDSElementInsertMCRefAsKid")
+                         *g-pdswrite-version*
+                         +pds-write-version-7+
+                         pds-element-insert-mcref-as-kid-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-insert-mcref-as-kid-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-alt-as-text "PDSElementSetAltASText")
+                         *g-pdswrite-version*
+                         +pds-write-version-8+
+                         pds-element-set-alt-as-text-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-alt-as-text-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-actual-text-as-text "PDSElementSetActualTextASText")
+                         *g-pdswrite-version*
+                         +pds-write-version-8+
+                         pds-element-set-actual-text-as-text-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-actual-text-as-text-sel+)
+;; line 294
+(define-acrobat-function (pds-element-set-title-as-text "PDSElementSetTitleASText")
+                         *g-pdswrite-version*
+                         +pds-write-version-8+
+                         pds-element-set-title-as-text-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-set-title-as-text-sel+)
+;; line 294
+(define-acrobat-function (pds-element-add-associated-file "PDSElementAddAssociatedFile")
+                         *g-pdswrite-version*
+                         +pds-write-version-13+
+                         pds-element-add-associated-file-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-add-associated-file-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-associated-file "PDSElementRemoveAssociatedFile")
+                         *g-pdswrite-version*
+                         +pds-write-version-13+
+                         pds-element-remove-associated-file-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-associated-file-sel+)
+;; line 294
+(define-acrobat-function (pds-element-remove-all-associated-files "PDSElementRemoveAllAssociatedFiles")
+                         *g-pdswrite-version*
+                         +pds-write-version-13+
+                         pds-element-remove-all-associated-files-selproto
+                         *g-pdswrite-hft*
+                         +pds-element-remove-all-associated-files-sel+)
