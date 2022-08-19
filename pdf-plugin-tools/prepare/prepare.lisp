@@ -186,6 +186,7 @@ expression."
         (t
          nil)))
 
+;; This is called after other multi-line processors
 (defun handle-define-2 (line)
   (cond ((scan *define-regex3* line)
          (register-groups-bind (name vername version proto hft sel) (*define-regex3* line)
@@ -300,9 +301,9 @@ corresponding FLI:DEFINE-C-STRUCT definition."
           (push (list type l-name) slots)
           (loop for name in (rest parsed-names)
                 do (push (list type (mangle-name name)) slots)))))
-    (when (scan "\\*" typedef-name) ; typedef-name is pointer name
+    (when (scan "\\*" typedef-name) ; sometimes typedef-name is pointer name
       (setq pointer-name? (regex-replace-all "\\*(\\w+)" typedef-name "\\1"))
-      (setq typedef-name (concatenate 'string "t-" pointer-name?)))
+      (setq typedef-name (concatenate 'string "-t-" pointer-name?)))
     (let ((lisp-name (mangle-name typedef-name)))
       (cond ((string= class "struct")
              (pprint `(fli:define-c-struct ,lisp-name

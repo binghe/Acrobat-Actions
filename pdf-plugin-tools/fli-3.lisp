@@ -65,7 +65,7 @@
                  (stm-owner cos-obj)
                  (page cos-obj))
 (define-c-typedef pds-mcinfo-p (:pointer pds-mcinfo))
-(define-c-struct t-pduser-properties-xml-labels
+(define-c-struct -t-pduser-properties-xml-labels
                  (size as-size-t)
                  (root-tag as-text)
                  (node-tag as-text)
@@ -81,7 +81,7 @@
                  (class-name-tag as-text)
                  (class-def-name-tag as-text))
 (define-c-typedef pd-user-properties-xml-labels
-                  (:pointer t-pduser-properties-xml-labels))
+                  (:pointer -t-pduser-properties-xml-labels))
 
 ;; #include <PDProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)
