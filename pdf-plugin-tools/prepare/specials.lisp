@@ -72,6 +72,8 @@
     "PDSysFontExpT" ; PDSysFont Types header file.
     "PERProcs"      ; Catalog of functions exported by the PDFEditRead HFT
     "PERCalls"
+    "PEWProcs"      ; Catalog of functions exported by the PDFEditWrite HFT
+    "PEWCalls"
     ))
 
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is

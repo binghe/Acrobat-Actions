@@ -2621,3 +2621,2128 @@
   (defconstant +pdf-edit-read-bad-selector+ 0))
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +pdf-edit-read-num-selectorsplus-one+ 1))
+
+;; #include <PEWProcs.h>
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-create-sel+ 1))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-remove-elem-sel+ 2))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-add-elem-sel+ 3))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-set-gstate-sel+ 4))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-set-matrix-sel+ 5))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-set-clip-sel+ 6))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-copy-sel+ 7))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-gstate-sel+ 8))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-text-state-sel+ 9))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-font-sel+ 10))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-text-matrix-sel+ 11))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-stroke-matrix-sel+ 12))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-create-sel+ 13))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-path-set-data-sel+ 14))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-path-set-paint-op-sel+ 15))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-path-create-sel+ 16))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-set-data-sel+ 17))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-set-data-stm-sel+ 18))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-sel+ 19))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-from-cos-obj-sel+ 20))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-clip-remove-elems-sel+ 21))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-clip-create-sel+ 22))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-xobject-create-sel+ 23))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-create-from-cos-obj-sel+ 24))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-get-content-sel+ 25))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-psset-data-sel+ 26))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-psset-data-stm-sel+ 27))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-pscreate-sel+ 28))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-pscreate-from-cos-obj-sel+ 29))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-sel+ 30))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-cos-obj-sel+ 31))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-sel+ 32))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-color-space-create-from-name-sel+ 33))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-color-space-create-from-cos-obj-sel+ 34))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-add-tag-sel+ 35))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-get-tag-sel+ 36))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-remove-tag-sel+ 37))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-merge-resources-dict-sel+ 38))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-create-sel+ 39))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-place-create-sel+ 40))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-place-set-mctag-sel+ 41))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-place-set-dict-sel+ 42))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-container-create-sel+ 43))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-container-set-mctag-sel+ 44))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-container-set-dict-sel+ 45))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-container-set-content-sel+ 46))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-split-run-at-sel+ 47))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-pattern-create-sel+ 48))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-purge-cache-sel+ 49))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-subset-now-sel+ 50))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-path-add-segment-sel+ 51))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-with-params-sel+ 52))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-color-space-create-sel+ 53))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-device-ncolors-create-sel+ 54))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-shading-create-from-cos-obj-sel+ 55))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-group-create-sel+ 56))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-group-set-content-sel+ 57))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-ex-sel+ 58))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-clip-copy-sel+ 59))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-set-decode-array-sel+ 60))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-add-page-sel+ 61))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-embed-now-dont-subset-sel+ 62))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-get-widths-now-sel+ 63))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-begin-container-create-sel+ 64))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-begin-container-set-mctag-sel+ 65))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-begin-container-set-dict-sel+ 66))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-soft-mask-create-from-cos-obj-sel+ 67))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-soft-mask-create-sel+ 68))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-soft-mask-set-xgroup-sel+ 69))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-soft-mask-set-backdrop-color-sel+ 70))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-soft-mask-set-transfer-function-sel+ 71))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-xgroup-create-from-cos-obj-sel+ 72))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-xgroup-create-sel+ 73))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-xgroup-set-knockout-sel+ 74))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-xgroup-set-isolated-sel+ 75))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-xgroup-set-color-space-sel+ 76))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-set-xgroup-sel+ 77))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-create-new-sel+ 78))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-opm-sel+ 79))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-opfill-sel+ 80))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-opstroke-sel+ 81))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-opacity-fill-sel+ 82))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-opacity-stroke-sel+ 83))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-blend-mode-sel+ 84))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-ais-sel+ 85))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-soft-mask-sel+ 86))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-set-smask-sel+ 87))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-set-matte-array-sel+ 88))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-with-params-sel+ 89))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-translate-glyph-ids-to-unicode-sel+ 90))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-tk-sel+ 91))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-state-sel+ 92))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-sys-encoding-create-from-base-name-sel+ 93))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-sys-encoding-create-from-cmap-name-sel+ 94))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-sys-font-get-create-flags-sel+ 95))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-sys-font-verify-encoding-sel+ 96))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-and-encoding-sel+ 97))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-get-create-need-flags-sel+ 98))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-embed-now-sel+ 99))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-widths-now-sel+ 100))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-to-unicode-now-sel+ 101))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-set-color-space-sel+ 102))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-ext-gstate-set-sa-sel+ 103))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-soft-mask-create-from-name-sel+ 104))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-matrix-sel+ 105))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-set-ocmd-sel+ 106))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-remove-ocmd-sel+ 107))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-flatten-oc-sel+ 108))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-sys-encoding-create-from-code-page-sel+ 109))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-set-sys-font-sel+ 110))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-set-sys-encoding-sel+ 111))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-create-sel+ 112))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-set-font-sel+ 113))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-set-text-matrix-sel+ 114))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-set-text-state-sel+ 115))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-set-gstate-sel+ 116))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-replace-text-sel+ 117))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-replace-chars-sel+ 118))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-remove-chars-sel+ 119))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-add-item-sel+ 120))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-remove-items-sel+ 121))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-set-content-sel+ 122))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-create-clone-sel+ 123))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-add-glyphs-sel+ 124))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-release-span-sel+ 125))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-set-page-sel+ 126))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-set-containing-stream-sel+ 127))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-set-stream-owner-sel+ 128))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-get-matrix-sel+ 129))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-get-bbox-sel+ 130))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-in-cos-doc-sel+ 131))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-in-cos-doc-sel+ 132))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-in-cos-doc-sel+ 133))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-ex-in-cos-doc-sel+ 134))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-with-params-in-cos-doc-sel+ 135))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-font-create-from-sys-font-and-encoding-in-cos-doc-sel+ 136))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-color-space-create-in-cos-doc-sel+ 137))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-scratch-doc-cleanup-sel+ 138))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-set-default-color-space-pewcalls--sel+ 139))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-get-data-len64-sel+ 140))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-in-cos-doc64-sel+ 141))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-sys-encoding-create-from-cmap-stream-sel+ 142))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-set-content-to-cos-obj-flags-sel+ 143))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-get-matrix-ex-sel+ 144))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-content-add-page-ex-sel+ 145))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-shading-create-from-cos-obj-ex-sel+ 146))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-in-cos-doc-ex-sel+ 147))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-ex-sel+ 148))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-text-matrix-ex-sel+ 149))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-stroke-matrix-ex-sel+ 150))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-image-create-from-cos-obj-ex-sel+ 151))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-create-ex-sel+ 152))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-item-set-text-matrix-ex-sel+ 153))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-element-set-matrix-ex-sel+ 154))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-form-create-from-cos-obj-ex-sel+ 155))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-text-run-set-matrix-ex-sel+ 156))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pde-path-set-data-ex-sel+ 157))
+;; sel = 1
+(define-foreign-funcallable pde-content-create-selproto
+                            nil
+                            :result-type
+                            pde-content
+                            :calling-convention
+                            :cdecl)
+;; sel = 2
+(define-foreign-funcallable pde-content-remove-elem-selproto
+                            ((pde-content pde-content)
+                             (index as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 3
+(define-foreign-funcallable pde-content-add-elem-selproto
+                            ((pde-content pde-content)
+                             (add-after-index as-int32)
+                             (pde-element pde-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 4
+(define-foreign-funcallable pde-element-set-gstate-selproto
+                            ((pde-element pde-element)
+                             (state-p pde-graphic-state-p)
+                             (state-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 5
+(define-foreign-funcallable pde-element-set-matrix-selproto
+                            ((pde-element pde-element)
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 6
+(define-foreign-funcallable pde-element-set-clip-selproto
+                            ((pde-element pde-element)
+                             (pde-clip pde-clip))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 7
+(define-foreign-funcallable pde-element-copy-selproto
+                            ((pde-element pde-element)
+                             (flags as-uns32))
+                            :result-type
+                            pde-element
+                            :calling-convention
+                            :cdecl)
+;; sel = 8
+(define-foreign-funcallable pde-text-run-set-gstate-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (state-p pde-graphic-state-p)
+                             (state-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 9
+(define-foreign-funcallable pde-text-run-set-text-state-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (state-p pde-text-state-p)
+                             (state-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 10
+(define-foreign-funcallable pde-text-run-set-font-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (font pde-font))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 11
+(define-foreign-funcallable pde-text-run-set-text-matrix-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 12
+(define-foreign-funcallable pde-text-run-set-stroke-matrix-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 13
+(define-foreign-funcallable pde-text-create-selproto
+                            nil
+                            :result-type
+                            pde-text
+                            :calling-convention
+                            :cdecl)
+;; sel = 14
+(define-foreign-funcallable pde-path-set-data-selproto
+                            ((path pde-path)
+                             (data (:pointer as-int32))
+                             (data-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 15
+(define-foreign-funcallable pde-path-set-paint-op-selproto
+                            ((path pde-path) (op as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 16
+(define-foreign-funcallable pde-path-create-selproto
+                            nil
+                            :result-type
+                            pde-path
+                            :calling-convention
+                            :cdecl)
+;; sel = 17
+(define-foreign-funcallable pde-image-set-data-selproto
+                            ((image pde-image)
+                             (flags as-uns32)
+                             (buffer (:pointer as-uns8))
+                             (encoded-len as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 18
+(define-foreign-funcallable pde-image-set-data-stm-selproto
+                            ((image pde-image)
+                             (flags as-uns32)
+                             (filters-p pde-filter-array-p)
+                             (stm as-stm))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 19
+(define-foreign-funcallable pde-image-create-selproto
+                            ((attrs-p pde-image-attrs-p)
+                             (attrs-size as-uns32)
+                             (matrix-p as-fixed-matrix-p)
+                             (flags as-uns32)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p)
+                             (filters-p pde-filter-array-p)
+                             (data-stm as-stm)
+                             (data (:pointer as-uns8))
+                             (encoded-len as-uns32))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 20
+(define-foreign-funcallable pde-image-create-from-cos-obj-selproto
+                            ((image-obj-p (:pointer cos-obj))
+                             (matrix-p as-fixed-matrix-p)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 21
+(define-foreign-funcallable pde-clip-remove-elems-selproto
+                            ((clip pde-clip)
+                             (index as-int32)
+                             (count as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 22
+(define-foreign-funcallable pde-clip-create-selproto
+                            nil
+                            :result-type
+                            pde-clip
+                            :calling-convention
+                            :cdecl)
+;; sel = 23
+(define-foreign-funcallable pde-xobject-create-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-xobject
+                            :calling-convention
+                            :cdecl)
+;; sel = 24
+(define-foreign-funcallable pde-form-create-from-cos-obj-selproto
+                            ((x-object-p (:pointer cos-obj))
+                             (resources-p (:pointer cos-obj))
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            pde-form
+                            :calling-convention
+                            :cdecl)
+;; sel = 25
+(define-foreign-funcallable pde-form-get-content-selproto
+                            ((form pde-form))
+                            :result-type
+                            pde-content
+                            :calling-convention
+                            :cdecl)
+;; sel = 26
+(define-foreign-funcallable pde-psset-data-selproto
+                            ((ps pde-ps)
+                             (buffer (:pointer as-uns8))
+                             (buffer-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 27
+(define-foreign-funcallable pde-psset-data-stm-selproto
+                            ((ps pde-ps) (stm as-stm))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 28
+(define-foreign-funcallable pde-pscreate-selproto
+                            ((attrs-p pde-psattrs-p)
+                             (attrs-size as-uns32)
+                             (data-stm as-stm)
+                             (data (:pointer as-uns8))
+                             (data-size as-uns32))
+                            :result-type
+                            pde-ps
+                            :calling-convention
+                            :cdecl)
+;; sel = 29
+(define-foreign-funcallable pde-pscreate-from-cos-obj-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-ps
+                            :calling-convention
+                            :cdecl)
+;; sel = 30
+(define-foreign-funcallable pde-font-create-selproto
+                            ((attrs-p pde-font-attrs-p)
+                             (attrs-size as-uns32)
+                             (first-char as-int32)
+                             (last-char as-int32)
+                             (widths-p (:pointer as-int16))
+                             (encoding (:pointer (:pointer :char)))
+                             (encoding-base-name as-atom)
+                             (font-stm as-stm)
+                             (len1 as-int32)
+                             (len2 as-int32)
+                             (len3 as-int32))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 31
+(define-foreign-funcallable pde-font-create-from-cos-obj-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 32
+(define-foreign-funcallable pde-font-create-from-sys-font-selproto
+                            ((sys-font pd-sys-font) (flags as-uns32))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 33
+(define-foreign-funcallable pde-color-space-create-from-name-selproto
+                            ((name as-atom))
+                            :result-type
+                            pde-color-space
+                            :calling-convention
+                            :cdecl)
+;; sel = 34
+(define-foreign-funcallable pde-color-space-create-from-cos-obj-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-color-space
+                            :calling-convention
+                            :cdecl)
+;; sel = 35
+(define-foreign-funcallable pde-add-tag-selproto
+                            ((object pde-object)
+                             (client-id extension-id)
+                             (tag as-uns32)
+                             (value (:pointer :void)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 36
+(define-foreign-funcallable pde-get-tag-selproto
+                            ((object pde-object)
+                             (client-id extension-id)
+                             (tag as-uns32))
+                            :result-type
+                            (:pointer :void)
+                            :calling-convention
+                            :cdecl)
+;; sel = 37
+(define-foreign-funcallable pde-remove-tag-selproto
+                            ((object pde-object)
+                             (client-id extension-id)
+                             (tag as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 38
+(define-foreign-funcallable pde-merge-resources-dict-selproto
+                            ((res-dict-p (:pointer cos-obj))
+                             (cos-doc cos-doc)
+                             (new-res-p (:pointer cos-obj)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 39
+(define-foreign-funcallable pde-ext-gstate-create-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-ext-gstate
+                            :calling-convention
+                            :cdecl)
+;; sel = 40
+(define-foreign-funcallable pde-place-create-selproto
+                            ((mc-tag as-atom)
+                             (cos-obj-p (:pointer cos-obj))
+                             (is-inline as-bool))
+                            :result-type
+                            pde-place
+                            :calling-convention
+                            :cdecl)
+;; sel = 41
+(define-foreign-funcallable pde-place-set-mctag-selproto
+                            ((pde-place pde-place) (mc-tag as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 42
+(define-foreign-funcallable pde-place-set-dict-selproto
+                            ((pde-place pde-place)
+                             (place-dict-p (:pointer cos-obj))
+                             (is-inline as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 43
+(define-foreign-funcallable pde-container-create-selproto
+                            ((mc-tag as-atom)
+                             (cos-obj-p (:pointer cos-obj))
+                             (is-inline as-bool))
+                            :result-type
+                            pde-container
+                            :calling-convention
+                            :cdecl)
+;; sel = 44
+(define-foreign-funcallable pde-container-set-mctag-selproto
+                            ((pde-container pde-container)
+                             (mc-tag as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 45
+(define-foreign-funcallable pde-container-set-dict-selproto
+                            ((pde-container pde-container)
+                             (place-dict-p (:pointer cos-obj))
+                             (is-inline as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 46
+(define-foreign-funcallable pde-container-set-content-selproto
+                            ((pde-container pde-container)
+                             (pde-content pde-content))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 47
+(define-foreign-funcallable pde-text-split-run-at-selproto
+                            ((pde-text pde-text) (split-loc as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 48
+(define-foreign-funcallable pde-pattern-create-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-pattern
+                            :calling-convention
+                            :cdecl)
+;; sel = 49
+(define-foreign-funcallable pde-purge-cache-selproto
+                            ((doc pd-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 50
+(define-foreign-funcallable pde-font-subset-now-selproto
+                            ((font pde-font) (cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 51
+(define-foreign-funcallable pde-path-add-segment-selproto
+                            ((path pde-path)
+                             (seg-type as-uns32)
+                             (x1 as-fixed)
+                             (y1 as-fixed)
+                             (x2 as-fixed)
+                             (y2 as-fixed)
+                             (x3 as-fixed)
+                             (y3 as-fixed))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 52
+(define-foreign-funcallable pde-font-create-with-params-selproto
+                            ((params pde-font-create-params))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 53
+(define-foreign-funcallable pde-color-space-create-selproto
+                            ((family as-atom)
+                             (cs-struct
+                              (:pointer pde-color-space-struct)))
+                            :result-type
+                            pde-color-space
+                            :calling-convention
+                            :cdecl)
+;; sel = 54
+(define-foreign-funcallable pde-device-ncolors-create-selproto
+                            ((p-color-values (:pointer as-fixed))
+                             (num-values as-int32))
+                            :result-type
+                            pde-device-ncolors
+                            :calling-convention
+                            :cdecl)
+;; sel = 55
+(define-foreign-funcallable pde-shading-create-from-cos-obj-selproto
+                            ((shading-p (:pointer cos-obj))
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            pde-shading
+                            :calling-convention
+                            :cdecl)
+;; sel = 56
+(define-foreign-funcallable pde-group-create-selproto
+                            nil
+                            :result-type
+                            pde-group
+                            :calling-convention
+                            :cdecl)
+;; sel = 57
+(define-foreign-funcallable pde-group-set-content-selproto
+                            ((pde-group pde-group)
+                             (pde-content pde-content))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 58
+(define-foreign-funcallable pde-font-create-from-sys-font-ex-selproto
+                            ((sys-font pd-sys-font)
+                             (flags as-uns32)
+                             (snapshot-name as-atom)
+                             (mm-design-vec (:pointer as-fixed)))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 59
+(define-foreign-funcallable pde-clip-copy-selproto
+                            ((src-clip pde-clip))
+                            :result-type
+                            pde-clip
+                            :calling-convention
+                            :cdecl)
+;; sel = 60
+(define-foreign-funcallable pde-image-set-decode-array-selproto
+                            ((image pde-image)
+                             (decode (:pointer as-fixed))
+                             (decode-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 61
+(define-foreign-funcallable pde-content-add-page-selproto
+                            ((the-content pde-content)
+                             (insert-after-index as-int32)
+                             (container-doc cos-doc)
+                             (src-page pd-page)
+                             (dst-matrix (:pointer as-fixed-matrix))
+                             (annot-types (:pointer as-atom))
+                             (flags as-int32)
+                             (bbox (:pointer as-fixed-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 62
+(define-foreign-funcallable pde-font-embed-now-dont-subset-selproto
+                            ((font pde-font) (cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 63
+(define-foreign-funcallable pde-font-get-widths-now-selproto
+                            ((font pde-font) (cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 64
+(define-foreign-funcallable pde-begin-container-create-selproto
+                            ((mc-tag as-atom)
+                             (cos-obj-p (:pointer cos-obj))
+                             (is-inline as-bool))
+                            :result-type
+                            pde-begin-container
+                            :calling-convention
+                            :cdecl)
+;; sel = 65
+(define-foreign-funcallable pde-begin-container-set-mctag-selproto
+                            ((pde-begin-container pde-begin-container)
+                             (mc-tag as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 66
+(define-foreign-funcallable pde-begin-container-set-dict-selproto
+                            ((pde-begin-container pde-begin-container)
+                             (pde-begin-container-dict-p
+                              (:pointer cos-obj))
+                             (is-inline as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 67
+(define-foreign-funcallable pde-soft-mask-create-from-cos-obj-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-soft-mask
+                            :calling-convention
+                            :cdecl)
+;; sel = 68
+(define-foreign-funcallable pde-soft-mask-create-selproto
+                            ((cos-doc cos-doc)
+                             (type pde-soft-mask-create-flags)
+                             (pde-form pde-form))
+                            :result-type
+                            pde-soft-mask
+                            :calling-convention
+                            :cdecl)
+;; sel = 69
+(define-foreign-funcallable pde-soft-mask-set-xgroup-selproto
+                            ((pde-soft-mask pde-soft-mask)
+                             (pde-form pde-form))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 70
+(define-foreign-funcallable pde-soft-mask-set-backdrop-color-selproto
+                            ((pde-soft-mask pde-soft-mask)
+                             (p-color-values (:pointer as-fixed))
+                             (num-values as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 71
+(define-foreign-funcallable pde-soft-mask-set-transfer-function-selproto
+                            ((pde-soft-mask pde-soft-mask)
+                             (cos-transfer-function cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 72
+(define-foreign-funcallable pde-xgroup-create-from-cos-obj-selproto
+                            ((cos-obj-p (:pointer cos-obj)))
+                            :result-type
+                            pde-xgroup
+                            :calling-convention
+                            :cdecl)
+;; sel = 73
+(define-foreign-funcallable pde-xgroup-create-selproto
+                            ((cos-doc cos-doc)
+                             (type pde-xgroup-create-flags))
+                            :result-type
+                            pde-xgroup
+                            :calling-convention
+                            :cdecl)
+;; sel = 74
+(define-foreign-funcallable pde-xgroup-set-knockout-selproto
+                            ((pde-xgroup pde-xgroup)
+                             (knockout as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 75
+(define-foreign-funcallable pde-xgroup-set-isolated-selproto
+                            ((pde-xgroup pde-xgroup)
+                             (isolated as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 76
+(define-foreign-funcallable pde-xgroup-set-color-space-selproto
+                            ((pde-xgroup pde-xgroup)
+                             (pde-color-space pde-color-space))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 77
+(define-foreign-funcallable pde-form-set-xgroup-selproto
+                            ((pde-form pde-form)
+                             (pde-xgroup pde-xgroup))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 78
+(define-foreign-funcallable pde-ext-gstate-create-new-selproto
+                            ((cos-doc cos-doc))
+                            :result-type
+                            pde-ext-gstate
+                            :calling-convention
+                            :cdecl)
+;; sel = 79
+(define-foreign-funcallable pde-ext-gstate-set-opm-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (opm as-int32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 80
+(define-foreign-funcallable pde-ext-gstate-set-opfill-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (overprint as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 81
+(define-foreign-funcallable pde-ext-gstate-set-opstroke-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (overprint as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 82
+(define-foreign-funcallable pde-ext-gstate-set-opacity-fill-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (opacity as-fixed))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 83
+(define-foreign-funcallable pde-ext-gstate-set-opacity-stroke-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (opacity as-fixed))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 84
+(define-foreign-funcallable pde-ext-gstate-set-blend-mode-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (blend-mode as-atom))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 85
+(define-foreign-funcallable pde-ext-gstate-set-ais-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (alpha-is-shape as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 86
+(define-foreign-funcallable pde-ext-gstate-set-soft-mask-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (pde-soft-mask pde-soft-mask))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 87
+(define-foreign-funcallable pde-image-set-smask-selproto
+                            ((image pde-image) (s-mask pde-image))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 88
+(define-foreign-funcallable pde-image-set-matte-array-selproto
+                            ((image pde-image)
+                             (matte (:pointer as-fixed))
+                             (num-comp as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 89
+(define-foreign-funcallable pde-font-create-from-sys-font-with-params-selproto
+                            ((sys-font pd-sys-font)
+                             (params
+                              pde-font-create-from-sys-font-params))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 90
+(define-foreign-funcallable pde-font-translate-glyph-ids-to-unicode-selproto
+                            ((font pde-font)
+                             (text (:pointer as-uns8))
+                             (text-len as-uns32)
+                             (unicode-str (:pointer as-uns8))
+                             (size as-uns32))
+                            :result-type
+                            as-uns32
+                            :calling-convention
+                            :cdecl)
+;; sel = 91
+(define-foreign-funcallable pde-ext-gstate-set-tk-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (bk as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 92
+(define-foreign-funcallable pde-text-run-set-state-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (state-p pde-text-state-p)
+                             (state-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 93
+(define-foreign-funcallable pd-sys-encoding-create-from-base-name-selproto
+                            ((base-enc-name as-atom)
+                             (diff-enc (:pointer (:pointer :char))))
+                            :result-type
+                            pd-sys-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 94
+(define-foreign-funcallable pd-sys-encoding-create-from-cmap-name-selproto
+                            ((cmap-name as-atom))
+                            :result-type
+                            pd-sys-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 95
+(define-foreign-funcallable pd-sys-font-get-create-flags-selproto
+                            ((sys-font pd-sys-font)
+                             (sys-enc pd-sys-encoding))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 96
+(define-foreign-funcallable pd-sys-font-verify-encoding-selproto
+                            ((sys-font pd-sys-font)
+                             (sys-enc pd-sys-encoding))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+;; sel = 97
+(define-foreign-funcallable pde-font-create-from-sys-font-and-encoding-selproto
+                            ((sys-font pd-sys-font)
+                             (sys-enc pd-sys-encoding)
+                             (use-this-base-font as-atom)
+                             (create-flags as-uns32))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 98
+(define-foreign-funcallable pde-font-get-create-need-flags-selproto
+                            ((font pde-font))
+                            :result-type
+                            as-uns32
+                            :calling-convention
+                            :cdecl)
+;; sel = 99
+(define-foreign-funcallable pde-font-embed-now-selproto
+                            ((font pde-font) (cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 100
+(define-foreign-funcallable pde-font-create-widths-now-selproto
+                            ((font pde-font) (cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 101
+(define-foreign-funcallable pde-font-create-to-unicode-now-selproto
+                            ((font pde-font) (cos-doc cos-doc))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 102
+(define-foreign-funcallable pde-image-set-color-space-selproto
+                            ((image pde-image) (space pde-color-space))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 103
+(define-foreign-funcallable pde-ext-gstate-set-sa-selproto
+                            ((pde-ext-gstate pde-ext-gstate)
+                             (stroke-adjust as-bool))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 104
+(define-foreign-funcallable pde-soft-mask-create-from-name-selproto
+                            ((name as-atom))
+                            :result-type
+                            pde-soft-mask
+                            :calling-convention
+                            :cdecl)
+;; sel = 105
+(define-foreign-funcallable pde-text-run-set-matrix-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 106
+(define-foreign-funcallable pde-element-set-ocmd-selproto
+                            ((elem pde-element) (pd-ocmd pd-ocmd))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 107
+(define-foreign-funcallable pde-element-remove-ocmd-selproto
+                            ((elem pde-element))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 108
+(define-foreign-funcallable pde-content-flatten-oc-selproto
+                            ((content pde-content)
+                             (context pd-occontext))
+                            :result-type
+                            as-bool
+                            :calling-convention
+                            :cdecl)
+;; sel = 109
+(define-foreign-funcallable pd-sys-encoding-create-from-code-page-selproto
+                            ((code-page as-int32) (w-mode as-int16))
+                            :result-type
+                            pd-sys-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 110
+(define-foreign-funcallable pde-font-set-sys-font-selproto
+                            ((pde-font pde-font)
+                             (sys-font pd-sys-font))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 111
+(define-foreign-funcallable pde-font-set-sys-encoding-selproto
+                            ((pde-font pde-font)
+                             (sys-enc pd-sys-encoding))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 112
+(define-foreign-funcallable pde-text-item-create-selproto
+                            ((text (:pointer as-uns8))
+                             (text-len as-uns32)
+                             (font pde-font)
+                             (g-state-p pde-graphic-state-p)
+                             (g-state-len as-uns32)
+                             (text-state-p pde-text-state-p)
+                             (text-state-len as-uns32)
+                             (text-matrix-p
+                              (:pointer as-fixed-matrix)))
+                            :result-type
+                            pde-text-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 113
+(define-foreign-funcallable pde-text-item-set-font-selproto
+                            ((text-item pde-text-item) (font pde-font))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 114
+(define-foreign-funcallable pde-text-item-set-text-matrix-selproto
+                            ((text-item pde-text-item)
+                             (text-matrix-p
+                              (:pointer as-fixed-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 115
+(define-foreign-funcallable pde-text-item-set-text-state-selproto
+                            ((text-item pde-text-item)
+                             (text-state-p pde-text-state-p)
+                             (text-state-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 116
+(define-foreign-funcallable pde-text-item-set-gstate-selproto
+                            ((text-item pde-text-item)
+                             (state-p pde-graphic-state-p)
+                             (state-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 117
+(define-foreign-funcallable pde-text-item-replace-text-selproto
+                            ((text-item pde-text-item)
+                             (new-text (:pointer as-uns8))
+                             (new-text-len as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 118
+(define-foreign-funcallable pde-text-item-replace-chars-selproto
+                            ((text-item pde-text-item)
+                             (char-index as-uns32)
+                             (new-char (:pointer as-uns8))
+                             (new-char-len as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 119
+(define-foreign-funcallable pde-text-item-remove-chars-selproto
+                            ((text-item pde-text-item)
+                             (char-offset as-uns32)
+                             (count as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 120
+(define-foreign-funcallable pde-text-add-item-selproto
+                            ((text pde-text)
+                             (add-index as-int32)
+                             (text-item pde-text-item))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 121
+(define-foreign-funcallable pde-text-remove-items-selproto
+                            ((text pde-text)
+                             (index as-uns32)
+                             (count as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 122
+(define-foreign-funcallable pde-form-set-content-selproto
+                            ((form pde-form) (content pde-content))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 123
+(define-foreign-funcallable pde-form-create-clone-selproto
+                            ((form pde-form))
+                            :result-type
+                            pde-form
+                            :calling-convention
+                            :cdecl)
+;; sel = 124
+(define-foreign-funcallable pde-font-add-glyphs-selproto
+                            ((pde-font pde-font)
+                             (glyph-run pde-glyph-run-p)
+                             (flags as-uns32))
+                            :result-type
+                            pde-span-set-p
+                            :calling-convention
+                            :cdecl)
+;; sel = 125
+(define-foreign-funcallable pde-release-span-selproto
+                            ((pde-span pde-span-set-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 126
+(define-foreign-funcallable pde-content-set-page-selproto
+                            ((pde-content pde-content)
+                             (page-obj cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 127
+(define-foreign-funcallable pde-content-set-containing-stream-selproto
+                            ((pde-content pde-content)
+                             (containing-stm cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 128
+(define-foreign-funcallable pde-content-set-stream-owner-selproto
+                            ((pde-content pde-content)
+                             (stream-owner cos-obj))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 129
+(define-foreign-funcallable pde-form-get-matrix-selproto
+                            ((form pde-form)
+                             (matrix-p as-fixed-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 130
+(define-foreign-funcallable pde-form-get-bbox-selproto
+                            ((form pde-form) (bbox-p as-fixed-rect-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 131
+(define-foreign-funcallable pde-image-create-in-cos-doc-selproto
+                            ((attrs-p pde-image-attrs-p)
+                             (attrs-size as-uns32)
+                             (matrix-p as-fixed-matrix-p)
+                             (flags as-uns32)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p)
+                             (filters-p pde-filter-array-p)
+                             (data-stm as-stm)
+                             (data (:pointer as-uns8))
+                             (encoded-len as-uns32)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 132
+(define-foreign-funcallable pde-font-create-in-cos-doc-selproto
+                            ((attrs-p pde-font-attrs-p)
+                             (attrs-size as-uns32)
+                             (first-char as-int32)
+                             (last-char as-int32)
+                             (widths-p (:pointer as-int16))
+                             (encoding (:pointer (:pointer :char)))
+                             (encoding-base-name as-atom)
+                             (font-stm as-stm)
+                             (len1 as-int32)
+                             (len2 as-int32)
+                             (len3 as-int32)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 133
+(define-foreign-funcallable pde-font-create-from-sys-font-in-cos-doc-selproto
+                            ((sys-font pd-sys-font)
+                             (flags as-uns32)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 134
+(define-foreign-funcallable pde-font-create-from-sys-font-ex-in-cos-doc-selproto
+                            ((sys-font pd-sys-font)
+                             (flags as-uns32)
+                             (snapshot-name as-atom)
+                             (mm-design-vec (:pointer as-fixed))
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 135
+(define-foreign-funcallable pde-font-create-with-params-in-cos-doc-selproto
+                            ((params pde-font-create-params)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 136
+(define-foreign-funcallable pde-font-create-from-sys-font-and-encoding-in-cos-doc-selproto
+                            ((sys-font pd-sys-font)
+                             (sys-enc pd-sys-encoding)
+                             (use-this-base-font as-atom)
+                             (create-flags as-uns32)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-font
+                            :calling-convention
+                            :cdecl)
+;; sel = 137
+(define-foreign-funcallable pde-color-space-create-in-cos-doc-selproto
+                            ((family as-atom)
+                             (cs-struct
+                              (:pointer pde-color-space-struct))
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-color-space
+                            :calling-convention
+                            :cdecl)
+;; sel = 138
+(define-foreign-funcallable pde-scratch-doc-cleanup-selproto
+                            nil
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 139
+(define-foreign-funcallable pde-content-set-default-color-space-pewcalls--selproto
+                            ((pde-content pde-content)
+                             (color-space-name as-atom)
+                             (color-space pde-color-space))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 140
+(define-foreign-funcallable pde-image-get-data-len64-selproto
+                            ((image pde-image))
+                            :result-type
+                            as-int64
+                            :calling-convention
+                            :cdecl)
+;; sel = 141
+(define-foreign-funcallable pde-image-create-in-cos-doc64-selproto
+                            ((attrs-p pde-image-attrs-p)
+                             (attrs-size as-uns32)
+                             (matrix-p as-fixed-matrix-p)
+                             (flags as-uns32)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p)
+                             (filters-p pde-filter-array-p)
+                             (data-stm as-stm)
+                             (data (:pointer as-uns8))
+                             (encoded-len as-uns64)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 142
+(define-foreign-funcallable pd-sys-encoding-create-from-cmap-stream-selproto
+                            ((cmap-stream cos-obj))
+                            :result-type
+                            pd-sys-encoding
+                            :calling-convention
+                            :cdecl)
+;; sel = 143
+(define-foreign-funcallable pde-form-set-content-to-cos-obj-flags-selproto
+                            ((form pde-form) (flags as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 144
+(define-foreign-funcallable pde-form-get-matrix-ex-selproto
+                            ((form pde-form)
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 145
+(define-foreign-funcallable pde-content-add-page-ex-selproto
+                            ((the-content pde-content)
+                             (insert-after-index as-int32)
+                             (container-doc cos-doc)
+                             (src-page pd-page)
+                             (dst-matrix (:pointer as-double-matrix))
+                             (annot-types (:pointer as-atom))
+                             (flags as-int32)
+                             (bbox (:pointer as-double-rect)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 146
+(define-foreign-funcallable pde-shading-create-from-cos-obj-ex-selproto
+                            ((shading-p (:pointer cos-obj))
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            pde-shading
+                            :calling-convention
+                            :cdecl)
+;; sel = 147
+(define-foreign-funcallable pde-image-create-in-cos-doc-ex-selproto
+                            ((attrs-p pde-image-attrs-p)
+                             (attrs-size as-uns32)
+                             (matrix-p as-double-matrix-p)
+                             (flags as-uns32)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p)
+                             (filters-p pde-filter-array-p)
+                             (data-stm as-stm)
+                             (data (:pointer as-uns8))
+                             (encoded-len as-uns64)
+                             (cos-doc cos-doc))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 148
+(define-foreign-funcallable pde-image-create-ex-selproto
+                            ((attrs-p pde-image-attrs-p)
+                             (attrs-size as-uns32)
+                             (matrix-p as-double-matrix-p)
+                             (flags as-uns32)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p)
+                             (filters-p pde-filter-array-p)
+                             (data-stm as-stm)
+                             (data (:pointer as-uns8))
+                             (encoded-len as-uns64))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 149
+(define-foreign-funcallable pde-text-run-set-text-matrix-ex-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 150
+(define-foreign-funcallable pde-text-run-set-stroke-matrix-ex-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 151
+(define-foreign-funcallable pde-image-create-from-cos-obj-ex-selproto
+                            ((image-obj-p (:pointer cos-obj))
+                             (matrix-p as-double-matrix-p)
+                             (color-space pde-color-space)
+                             (color-value-p pde-color-value-p))
+                            :result-type
+                            pde-image
+                            :calling-convention
+                            :cdecl)
+;; sel = 152
+(define-foreign-funcallable pde-text-item-create-ex-selproto
+                            ((text (:pointer as-uns8))
+                             (text-len as-uns32)
+                             (font pde-font)
+                             (g-state-p pde-graphic-state-p)
+                             (g-state-len as-uns32)
+                             (text-state-p pde-text-state-p)
+                             (text-state-len as-uns32)
+                             (text-matrix-p
+                              (:pointer as-double-matrix)))
+                            :result-type
+                            pde-text-item
+                            :calling-convention
+                            :cdecl)
+;; sel = 153
+(define-foreign-funcallable pde-text-item-set-text-matrix-ex-selproto
+                            ((text-item pde-text-item)
+                             (text-matrix-p
+                              (:pointer as-double-matrix)))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 154
+(define-foreign-funcallable pde-element-set-matrix-ex-selproto
+                            ((pde-element pde-element)
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 155
+(define-foreign-funcallable pde-form-create-from-cos-obj-ex-selproto
+                            ((x-object-p (:pointer cos-obj))
+                             (resources-p (:pointer cos-obj))
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            pde-form
+                            :calling-convention
+                            :cdecl)
+;; sel = 156
+(define-foreign-funcallable pde-text-run-set-matrix-ex-selproto
+                            ((pde-text pde-text)
+                             (run-index as-int32)
+                             (matrix-p as-double-matrix-p))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+;; sel = 157
+(define-foreign-funcallable pde-path-set-data-ex-selproto
+                            ((path pde-path)
+                             (data (:pointer as-real))
+                             (data-size as-uns32))
+                            :result-type
+                            :void
+                            :calling-convention
+                            :cdecl)
+
+;; #include <PEWCalls.h>
+;; line 91
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +-pdf-edit-write-hft-is-beta+ 0))
+;; line 103
+(define-c-typedef pdf-edit-write-hft-version-10
+                  pdf-edit-write-hft-latest-version)
+;; line 248
+(define-acrobat-function (pde-merge-resources-dict
+                          "PDEMergeResourcesDict")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-merge-resources-dict-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-merge-resources-dict-sel+)
+;; line 249
+(define-acrobat-function (pde-ext-gstate-create "PDEExtGStateCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-ext-gstate-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-create-sel+)
+;; line 250
+(define-acrobat-function (pde-place-create "PDEPlaceCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-place-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-place-create-sel+)
+;; line 251
+(define-acrobat-function (pde-place-set-mctag "PDEPlaceSetMCTag")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-place-set-mctag-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-place-set-mctag-sel+)
+;; line 252
+(define-acrobat-function (pde-place-set-dict "PDEPlaceSetDict")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-place-set-dict-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-place-set-dict-sel+)
+;; line 253
+(define-acrobat-function (pde-container-create "PDEContainerCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-container-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-container-create-sel+)
+;; line 254
+(define-acrobat-function (pde-container-set-mctag
+                          "PDEContainerSetMCTag")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-container-set-mctag-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-container-set-mctag-sel+)
+;; line 255
+(define-acrobat-function (pde-container-set-dict "PDEContainerSetDict")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-container-set-dict-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-container-set-dict-sel+)
+;; line 256
+(define-acrobat-function (pde-container-set-content
+                          "PDEContainerSetContent")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-container-set-content-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-container-set-content-sel+)
+;; line 257
+(define-acrobat-function (pde-text-split-run-at "PDETextSplitRunAt")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-split-run-at-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-split-run-at-sel+)
+;; line 258
+(define-acrobat-function (pde-text-run-set-gstate
+                          "PDETextRunSetGState")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-run-set-gstate-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-gstate-sel+)
+;; line 259
+(define-acrobat-function (pde-pattern-create "PDEPatternCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-pattern-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-pattern-create-sel+)
+;; line 260
+(define-acrobat-function (pde-text-replace-chars "PDETextReplaceChars")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-text-replace-chars-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-replace-chars-sel+)
+;; line 262
+(define-acrobat-function (pde-font-subset-now "PDEFontSubsetNow")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-subset-now-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-subset-now-sel+)
+;; line 263
+(define-acrobat-function (pde-path-add-segment "PDEPathAddSegment")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-path-add-segment-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-path-add-segment-sel+)
+;; line 266
+(define-acrobat-function (pde-device-ncolors-create
+                          "PDEDeviceNColorsCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-device-ncolors-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-device-ncolors-create-sel+)
+;; line 269
+(define-acrobat-function (pde-group-create "PDEGroupCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-group-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-group-create-sel+)
+;; line 270
+(define-acrobat-function (pde-group-set-content "PDEGroupSetContent")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-group-set-content-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-group-set-content-sel+)
+;; line 276
+(define-acrobat-function (pde-image-set-decode-array
+                          "PDEImageSetDecodeArray")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-image-set-decode-array-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-set-decode-array-sel+)
+;; line 278
+(define-acrobat-function (pde-font-embed-now-dont-subset
+                          "PDEFontEmbedNowDontSubset")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-embed-now-dont-subset-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-embed-now-dont-subset-sel+)
+;; line 279
+(define-acrobat-function (pde-font-get-widths-now
+                          "PDEFontGetWidthsNow")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-4+
+                         pde-font-get-widths-now-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-font-get-widths-now-sel+)
+;; line 284
+(define-acrobat-function (pde-begin-container-create
+                          "PDEBeginContainerCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-begin-container-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-begin-container-create-sel+)
+;; line 285
+(define-acrobat-function (pde-begin-container-set-mctag
+                          "PDEBeginContainerSetMCTag")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-begin-container-set-mctag-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-begin-container-set-mctag-sel+)
+;; line 286
+(define-acrobat-function (pde-begin-container-set-dict
+                          "PDEBeginContainerSetDict")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-begin-container-set-dict-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-begin-container-set-dict-sel+)
+;; line 288
+(define-acrobat-function (pde-soft-mask-create-from-cos-obj
+                          "PDESoftMaskCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-soft-mask-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-soft-mask-create-from-cos-obj-sel+)
+;; line 289
+(define-acrobat-function (pde-soft-mask-create "PDESoftMaskCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-soft-mask-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-soft-mask-create-sel+)
+;; line 290
+(define-acrobat-function (pde-soft-mask-set-xgroup
+                          "PDESoftMaskSetXGroup")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-soft-mask-set-xgroup-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-soft-mask-set-xgroup-sel+)
+;; line 291
+(define-acrobat-function (pde-soft-mask-set-backdrop-color
+                          "PDESoftMaskSetBackdropColor")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-soft-mask-set-backdrop-color-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-soft-mask-set-backdrop-color-sel+)
+;; line 292
+(define-acrobat-function (pde-soft-mask-set-transfer-function
+                          "PDESoftMaskSetTransferFunction")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-soft-mask-set-transfer-function-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-soft-mask-set-transfer-function-sel+)
+;; line 294
+(define-acrobat-function (pde-xgroup-create-from-cos-obj
+                          "PDEXGroupCreateFromCosObj")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-xgroup-create-from-cos-obj-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-xgroup-create-from-cos-obj-sel+)
+;; line 295
+(define-acrobat-function (pde-xgroup-create "PDEXGroupCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-xgroup-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-xgroup-create-sel+)
+;; line 296
+(define-acrobat-function (pde-xgroup-set-knockout
+                          "PDEXGroupSetKnockout")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-xgroup-set-knockout-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-xgroup-set-knockout-sel+)
+;; line 297
+(define-acrobat-function (pde-xgroup-set-isolated
+                          "PDEXGroupSetIsolated")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-xgroup-set-isolated-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-xgroup-set-isolated-sel+)
+;; line 298
+(define-acrobat-function (pde-xgroup-set-color-space
+                          "PDEXGroupSetColorSpace")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-xgroup-set-color-space-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-xgroup-set-color-space-sel+)
+;; line 300
+(define-acrobat-function (pde-form-set-xgroup "PDEFormSetXGroup")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-form-set-xgroup-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-set-xgroup-sel+)
+;; line 302
+(define-acrobat-function (pde-ext-gstate-create-new
+                          "PDEExtGStateCreateNew")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-create-new-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-create-new-sel+)
+;; line 303
+(define-acrobat-function (pde-ext-gstate-set-opm "PDEExtGStateSetOPM")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-opm-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-opm-sel+)
+;; line 304
+(define-acrobat-function (pde-ext-gstate-set-opfill
+                          "PDEExtGStateSetOPFill")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-opfill-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-opfill-sel+)
+;; line 305
+(define-acrobat-function (pde-ext-gstate-set-opstroke
+                          "PDEExtGStateSetOPStroke")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-opstroke-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-opstroke-sel+)
+;; line 306
+(define-acrobat-function (pde-ext-gstate-set-opacity-fill
+                          "PDEExtGStateSetOpacityFill")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-opacity-fill-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-opacity-fill-sel+)
+;; line 307
+(define-acrobat-function (pde-ext-gstate-set-opacity-stroke
+                          "PDEExtGStateSetOpacityStroke")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-opacity-stroke-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-opacity-stroke-sel+)
+;; line 308
+(define-acrobat-function (pde-ext-gstate-set-blend-mode
+                          "PDEExtGStateSetBlendMode")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-blend-mode-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-blend-mode-sel+)
+;; line 309
+(define-acrobat-function (pde-ext-gstate-set-ais "PDEExtGStateSetAIS")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-ais-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-ais-sel+)
+;; line 310
+(define-acrobat-function (pde-ext-gstate-set-soft-mask
+                          "PDEExtGStateSetSoftMask")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-soft-mask-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-soft-mask-sel+)
+;; line 312
+(define-acrobat-function (pde-image-set-smask "PDEImageSetSMask")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-image-set-smask-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-set-smask-sel+)
+;; line 313
+(define-acrobat-function (pde-image-set-matte-array
+                          "PDEImageSetMatteArray")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-image-set-matte-array-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-image-set-matte-array-sel+)
+;; line 315
+(define-acrobat-function (pde-end-container-create
+                          "PDEEndContainerCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-end-container-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-end-container-create-sel+)
+;; line 316
+(define-acrobat-function (pde-begin-group-create "PDEBeginGroupCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-begin-group-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-begin-group-create-sel+)
+;; line 317
+(define-acrobat-function (pde-end-group-create "PDEEndGroupCreate")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-end-group-create-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-end-group-create-sel+)
+;; line 322
+(define-acrobat-function (pde-ext-gstate-set-tk "PDEExtGStateSetTK")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-5+
+                         pde-ext-gstate-set-tk-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-ext-gstate-set-tk-sel+)
+;; line 370
+(define-acrobat-function (pde-release-span "PDEReleaseSpan")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-7+
+                         pde-release-span-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-release-span-sel+)
+;; line 393
+(define-acrobat-function (pde-content-set-default-color-space
+                          "PDEContentSetDefaultColorSpace")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-8+
+                         pde-content-set-default-color-space-pewcalls-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-content-set-default-color-space-pewcalls-sel+)
+;; line 402
+(define-acrobat-function (pde-form-set-content-to-cos-obj-flags
+                          "PDEFormSetContentToCosObjFlags")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-9+
+                         pde-form-set-content-to-cos-obj-flags-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-form-set-content-to-cos-obj-flags-sel+)
+;; line 419
+(define-acrobat-function (pde-text-run-set-matrix-ex
+                          "PDETextRunSetMatrixEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-text-run-set-matrix-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-text-run-set-matrix-ex-sel+)
+;; line 421
+(define-acrobat-function (pde-path-set-data-ex "PDEPathSetDataEx")
+                         *g-pdf-edit-write-version*
+                         +pdf-edit-write-hft-version-10+
+                         pde-path-set-data-ex-selproto
+                         *g-pdf-edit-write-hft*
+                         +pde-path-set-data-ex-sel+)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pdf-edit-bad-selector+ 0))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pdf-edit-num-selectorsplus-one+ 1))
