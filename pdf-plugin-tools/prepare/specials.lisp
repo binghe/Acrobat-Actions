@@ -65,8 +65,7 @@
 (defparameter *header-file-names-3*
   '("PDSExpT"      ; Types, macros, structures, etc. required to use the PDSEdit HFT
     "PDProcs"      ; Catalog of functions exported by the PDModel HFT
-    "PDCalls"
-    ))
+    "PDCalls"))
 
 ;; PDF contents (reading and writing)
 (defparameter *header-file-names-4*
@@ -81,8 +80,7 @@
     "PDSReadProcs"  ; Catalog of functions exported by PDSEdit
     "PDSReadCalls"
     "PDSWriteProcs" ; Catalog of functions exported by the PDSWrite HFT
-    "PDSWriteCalls"
-    ))
+    "PDSWriteCalls"))
 
 ;; For each element in this list, when CDR is NIL, the corresponding FLI type is
 ;; given by (intern (string-upcase part) :keyword)
@@ -96,21 +94,19 @@
     ("long")
     ("float")
     ("double")
-    ("bool"      :boolean)          ; see AVProc.h, line 10546
+    ("bool"      :boolean)           ; see AVProc.h, line 10546
     ("size_t"    :size-t)
     ("intptr_t"  :intptr)
     ("uintptr_t" :uintptr)
+    ("struct")                       ; to be handled by *typedefs*
     ("__CFString"        :cf-string) ; see ASExpT.h, line 2214 (macOS)
     ("__CFStringPlacebo" :cf-string) ; see ASExpT.h, line 2239 (Windows)
     ("__CFURL"           :cf-url)    ; see ASExpT.h, line 2227 (macOS)
-    ("__CFURLPlacebo"    :cf-url)    ; see ASExpT.h, line 2243 (Windows)
-    ("struct") ; this last one is to be handled by *typedefs*
-    ))
+    ("__CFURLPlacebo"    :cf-url)))  ; see ASExpT.h, line 2243 (Windows)
 
 (defparameter *typedefs-init*
   '(((:pointer (:struct :cf-string)) . (:pointer :void))
-    ((:pointer (:struct :cf-url))    . (:pointer :void))
-    )
+    ((:pointer (:struct :cf-url))    . (:pointer :void)))
   "An alist which maps C typedefs to the `real' types (initial version).")
 
 (defvar *typedefs* nil
@@ -121,10 +117,7 @@
 
 ;; NOTE: platform features should only appear in positive keywords.
 (defparameter *positive-macros*
-  '("HAS_MENUBAR"
-    "HAS_FULL_SCREEN"
-    "HAS_MENUS"
-    "CAN_SELECT_GRAPHICS"
+  '(#+:macosx "MAC_ENV"
     #+:macosx "MAC_PLATFORM"
     #+:mswindows "WIN_PLATFORM"
     #+:mswindows "_WIN32"
@@ -141,6 +134,10 @@
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 0x00060000)" ; only appears negatively
     "defined(ACRO_SDK_LEVEL) || (ACRO_SDK_LEVEL < 2)"          ; only appears negatively
     "(ACRO_SDK_LEVEL >= 0x00060000)"
+    "HAS_MENUBAR"
+    "HAS_FULL_SCREEN"
+    "HAS_MENUS"
+    "CAN_SELECT_GRAPHICS"
     "PLUGIN")
   "C macros that are considered being defined as 1 in the SDK")
 
@@ -157,7 +154,9 @@
     "UNIX_PLATFORM"
     #+:macosx "WIN_PLATFORM"
     #+:mswindows "MAC_PLATFORM"
-    #+:mswindows "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
+    #+(or :mswindows
+          (and :macosx (not :lispworks-64bit)))
+    "MAC_PLATFORM || (MAC_PLATFORM && !AS_ARCH_64BIT)"
     "__cplusplus"
     "STATIC_HFT"
     #+(or :macosx :mswindows) "_WIN32"
