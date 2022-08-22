@@ -96,12 +96,10 @@ defintion and writes it to the output stream."
 (defparameter *remove-c-comment-regex*
   (create-scanner
    "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
-  
+
 (defun collect-type-and-names (args)
-  (let ((real-args
-         (regex-replace-all *remove-c-comment-regex* args "")))
-    (loop for arg in (split "\\s*,\\s*" real-args)
-          collect (type-and-name arg t))))
+  (loop for arg in (split "\\s*,\\s*" args)
+        collect (type-and-name arg t)))
 
 (defun handle-function (result-type c-name args)
   "Accepts one line of C code and checks if it's a function prototype.
