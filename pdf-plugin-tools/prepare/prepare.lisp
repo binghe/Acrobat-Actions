@@ -80,7 +80,8 @@
         (t
          nil)))
 
-(defun write-function-definition (lisp-name result-type args)
+(defun write-function-definition (lisp-name result-type args
+                                            &optional variadic-num-of-fixed)
   "Accepts values which suffice to create a foreign function
 defintion and writes it to the output stream."
   ;; we use DEFINE-FMXCPT-FUNCTION as defined in FM-PLUGIN-TOOLS
@@ -88,6 +89,8 @@ defintion and writes it to the output stream."
                ,(loop for (type name nil) in args
                       collect `(,name ,type))
              :result-type ,result-type
+             ,@(when variadic-num-of-fixed
+                 `(:variadic-num-of-fixed ,variadic-num-of-fixed))
              :calling-convention :cdecl)))
 
 (defun handle-function (result-type c-name args)
@@ -95,14 +98,23 @@ defintion and writes it to the output stream."
 If it is one, we write a corresponding function definition to the
 output stream."
   (let ((lisp-name (mangle-name
-                    (concatenate 'string c-name "-SELPROTO"))))
+                    (concatenate 'string c-name "-SELPROTO")))
+        variadic-num-of-fixed)
     (write-function-definition lisp-name (make-fli-type result-type)
       ;; args are separated by commas
       (cond ((string= args "void") ; no args
              nil)
+            ((scan "\\.\\.\\.$" args) ; variadic
+             (register-groups-bind (real-args) ("^(.*),\\s*\\.\\.\\.$" args)
+               (let ((type-and-names
+                      (loop for arg in (split "\\s*,\\s*" real-args)
+                            collect (type-and-name arg t))))
+                 (setq variadic-num-of-fixed (list-length type-and-names))
+                 type-and-names)))
             (t
              (loop for arg in (split "\\s*,\\s*" args)
-                   collect (type-and-name arg t)))))))
+                   collect (type-and-name arg t))))
+      variadic-num-of-fixed)))
 
 (defun read-enum-value (string)
   "Reads the optional value part of a C enum and returns a

@@ -465,9 +465,11 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +as-text-cat-many-sel+ 35))
 (define-foreign-funcallable as-text-cat-many-selproto
-                            ((to as-text) (nil nil))
+                            ((to as-text))
                             :result-type
                             :void
+                            :variadic-num-of-fixed
+                            1
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
