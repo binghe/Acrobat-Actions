@@ -80,7 +80,8 @@
         (t
          nil)))
 
-(defun write-function-definition (lisp-name result-type args)
+(defun write-function-definition (lisp-name result-type args
+                                            &optional variadic-num-of-fixed)
   "Accepts values which suffice to create a foreign function
 defintion and writes it to the output stream."
   ;; we use DEFINE-FMXCPT-FUNCTION as defined in FM-PLUGIN-TOOLS
@@ -88,21 +89,39 @@ defintion and writes it to the output stream."
                ,(loop for (type name nil) in args
                       collect `(,name ,type))
              :result-type ,result-type
+             ,@(when variadic-num-of-fixed
+                 `(:variadic-num-of-fixed ,variadic-num-of-fixed))
              :calling-convention :cdecl)))
+
+(defparameter *remove-c-comment-regex*
+  (create-scanner
+   "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
+  
+(defun collect-type-and-names (args)
+  (let ((real-args
+         (regex-replace-all *remove-c-comment-regex* args "")))
+    (loop for arg in (split "\\s*,\\s*" real-args)
+          collect (type-and-name arg t))))
 
 (defun handle-function (result-type c-name args)
   "Accepts one line of C code and checks if it's a function prototype.
 If it is one, we write a corresponding function definition to the
 output stream."
   (let ((lisp-name (mangle-name
-                    (concatenate 'string c-name "-SELPROTO"))))
+                    (concatenate 'string c-name "-SELPROTO")))
+        variadic-num-of-fixed)
     (write-function-definition lisp-name (make-fli-type result-type)
-                               ;; args are separated by commas
-                               (cond ((string= args "void") ; no args
-                                      nil)
-                                     (t
-                                      (loop for arg in (split "\\s*,\\s*" args)
-                                            collect (type-and-name arg t)))))))
+      ;; args are separated by commas
+      (cond ((string= args "void") ; no args
+             nil)
+            ((scan "\\.\\.\\.$" args) ; variadic
+             (register-groups-bind (real-args) ("^(.*),\\s*\\.\\.\\.$" args)
+               (let ((type-and-names (collect-type-and-names real-args)))
+                 (setq variadic-num-of-fixed (list-length type-and-names))
+                 type-and-names)))
+            (t
+             (collect-type-and-names args)))
+      variadic-num-of-fixed)))
 
 (defun read-enum-value (string)
   "Reads the optional value part of a C enum and returns a
@@ -367,14 +386,16 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 (defparameter *if-regex2*
   (create-scanner "^#\\s*(el)?if\\s+(!)?([\\w\\s\\|\\(\\)<!=_&]+)(?<!\\s)\\s*$"))
 
-;; This pattern only retrieves the function type, name and arguments (ignoring stubs)
-;;
+;; This pattern should match all possible xPROC macro calls
+(defparameter *xproc-regex1*
+  (create-scanner
+   "(?m)^\\s*\\w*PROC\\s*\\(([^()]+)\\(([^()]+)\\)([^()]*)\\)"))
+
 ;; NPROC(ASBool, ASUUIDGenFromHash, (ASUUID *dst, ASUns8 hash[16]))
 ;; NPROC(ASBool,	ASFileHasOutstandingMReads,(ASFile fN))
 ;; NPROC(void, ASUCS_GetPasswordFromUnicode, (ASUTF16Val* inPassword, void** outPassword, ASBool useUTF))
 (defparameter *xproc-regex2*
-  (create-scanner
-   "(?m)^\\s*\\w*PROC\\s*\\(([\\w\\s\\*]+),\\s+(\\w+),\\s*\\(([\\w\\s\\*,\\[\\]]+)\\)(,\\s*\\w+)?\\s*\\)"))
+  (create-scanner "([\\w\\s\\*]+),\\s+(\\w+),\\s*"))
 
 (defparameter *typedef-opaque-pointers*
   (create-scanner
@@ -526,17 +547,14 @@ corresponding C code to *STANDARD-OUTPUT*."
               while line do
           (handle-define-2 line)))
       ;; xPROC(...)
-      (do-register-groups (nil name nil) (*xproc-regex2* file-string)
-        (let ((full-name (concatenate 'string name "-SEL")))
-          (pprint `(eval-when (:compile-toplevel :load-toplevel :execute)
-                     (defconstant ,(mangle-name full-name :constant t) ,*hft-counter*))))
-        (incf *hft-counter*))
-      ;; xPROC(...)
-      (setq *hft-counter* 1)
-      (do-register-groups (type name args) (*xproc-regex2* file-string)
-        (format t "~%;; sel = ~A" *hft-counter*)
-        (handle-function type name args)
-        (incf *hft-counter*))
+      (do-register-groups (type-and-name args stubs) (*xproc-regex1* file-string)
+        (declare (ignore stubs))
+        (register-groups-bind (type name) (*xproc-regex2* type-and-name)
+          (let ((full-name (concatenate 'string name "-SEL")))
+            (pprint `(eval-when (:compile-toplevel :load-toplevel :execute)
+                       (defconstant ,(mangle-name full-name :constant t) ,*hft-counter*))))
+          (incf *hft-counter*)
+          (handle-function type name args)))
       (terpri))))
 
 (defun prepare (&optional (group 0))
