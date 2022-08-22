@@ -96,12 +96,10 @@ defintion and writes it to the output stream."
 (defparameter *remove-c-comment-regex*
   (create-scanner
    "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
-  
+
 (defun collect-type-and-names (args)
-  (let ((real-args
-         (regex-replace-all *remove-c-comment-regex* args "")))
-    (loop for arg in (split "\\s*,\\s*" real-args)
-          collect (type-and-name arg t))))
+  (loop for arg in (split "\\s*,\\s*" args)
+        collect (type-and-name arg t)))
 
 (defun handle-function (result-type c-name args)
   "Accepts one line of C code and checks if it's a function prototype.
@@ -389,7 +387,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; This pattern should match all possible xPROC macro calls
 (defparameter *xproc-regex1*
   (create-scanner
-   "(?m)^\\s*\\w*PROC\\s*\\(([^()]+)\\(([^()]+)\\)([^()]*)\\)"))
+   "(?m)^\\s*[A-Z]*PROC\\s*\\(([^()]+)\\(([^()]+)\\)([^()]*)\\)"))
 
 ;; NPROC(ASBool, ASUUIDGenFromHash, (ASUUID *dst, ASUns8 hash[16]))
 ;; NPROC(ASBool,	ASFileHasOutstandingMReads,(ASFile fN))
@@ -531,6 +529,9 @@ corresponding C code to *STANDARD-OUTPUT*."
                 (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
                         *line-number* contexts pos-contexts neg-contexts)
                 )))
+      ;; remove all C comments
+      (setq file-string
+            (regex-replace-all *remove-c-comment-regex* file-string ""))
       ;; enum + typedef
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)

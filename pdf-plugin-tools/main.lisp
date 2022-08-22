@@ -141,16 +141,14 @@
  false to cause plug-in loading to stop."
   (plugin-log "[PluginInit] begin.~%")
   (block plugin-init
-    (let ((params (allocate-foreign-object :pointer-type 'av-app-language-params
-                                           :allocation :static)))
-      (with-foreign-slots (size k-lang-format sz-avapp-language k-lang-selector lang-id) params
-        (setf size (size-of 'av-app-language-params-rec))
-        (when nil ;; (av-app-get-language-with-params params)
-          (let ((av-app-language (convert-from-foreign-string sz-avapp-language)))
-            (plugin-log "[PluginInit] k-lang-format = ~A~%" k-lang-format)
-            (plugin-log "[PluginInit] av-app-language = ~A~%" av-app-language)
-            (plugin-log "[PluginInit] k-lang-selector = ~A~%" k-lang-selector)
-            (plugin-log "[PluginInit] lang-id = ~A~%" lang-id))))
+    (let ((params (allocate-foreign-object :type 'av-app-language-params-rec)))
+      (setf (foreign-slot-value params 'size) (size-of 'av-app-language-params-rec))
+      (setf (foreign-slot-value params 'k-lang-format) +k-avapp-language-iso4char+)
+      (when (av-app-get-language-with-params params)
+        (let ((av-app-language (convert-from-foreign-string
+                                (foreign-slot-pointer params 'sz-avapp-language))))
+          (setq *av-app-language* (intern (string-upcase av-app-language) :keyword))
+          (plugin-log "[PluginInit] *av-app-language* = ~A~%" *av-app-language*)))
       (free-foreign-object params))
     (unless (plugin-set-menu)
       (plugin-log "[PluginInit] end badly.~%")
