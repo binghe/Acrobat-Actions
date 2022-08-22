@@ -3011,7 +3011,19 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-focus-annot-sel+ 334))
+  (defconstant +av-acquire-special-file-path-name-sel+ 334))
+(define-foreign-funcallable av-acquire-special-file-path-name-selproto
+                            ((cat av-special-category)
+                             (fld av-special-folder)
+                             (c-file (:reference-pass :ef-mb-string))
+                             (asfs (:pointer as-file-sys))
+                             (asp (:pointer as-path-name)))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-page-view-get-focus-annot-sel+ 335))
 (define-foreign-funcallable av-page-view-get-focus-annot-selproto
                             ((page-view av-page-view)
                              (annot (:pointer pd-annot)))
@@ -3020,7 +3032,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-set-focus-annot-sel+ 335))
+  (defconstant +av-page-view-set-focus-annot-sel+ 336))
 (define-foreign-funcallable av-page-view-set-focus-annot-selproto
                             ((page-view av-page-view)
                              (focus-annot pd-annot)
@@ -3030,7 +3042,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-clear-focus-annot-sel+ 336))
+  (defconstant +av-page-view-clear-focus-annot-sel+ 337))
 (define-foreign-funcallable av-page-view-clear-focus-annot-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -3038,7 +3050,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-is-focus-annot-sel+ 337))
+  (defconstant +av-page-view-is-focus-annot-sel+ 338))
 (define-foreign-funcallable av-page-view-is-focus-annot-selproto
                             ((page-view av-page-view) (annot pd-annot))
                             :result-type
@@ -3046,7 +3058,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-util-get-base-name-and-extension-by-path-name-sel+ 338))
+  (defconstant +av-util-get-base-name-and-extension-by-path-name-sel+ 339))
 (define-foreign-funcallable av-util-get-base-name-and-extension-by-path-name-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -3059,7 +3071,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-util-get-base-name-and-extension-by-string-sel+ 339))
+  (defconstant +av-util-get-base-name-and-extension-by-string-sel+ 340))
 (define-foreign-funcallable av-util-get-base-name-and-extension-by-string-selproto
                             ((file-name
                               (:reference-pass :ef-mb-string))
@@ -3072,7 +3084,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-identity-get-text-sel+ 340))
+  (defconstant +av-identity-get-text-sel+ 341))
 (define-foreign-funcallable av-identity-get-text-selproto
                             ((it av-identity) (ast as-text))
                             :result-type
@@ -3080,7 +3092,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-identity-set-text-sel+ 341))
+  (defconstant +av-identity-set-text-sel+ 342))
 (define-foreign-funcallable av-identity-set-text-selproto
                             ((it av-identity) (ast as-text))
                             :result-type
@@ -3088,7 +3100,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-focus-annot-perform-op-sel+ 342))
+  (defconstant +av-page-view-focus-annot-perform-op-sel+ 343))
 (define-foreign-funcallable av-page-view-focus-annot-perform-op-selproto
                             ((page-view av-page-view)
                              (annot-op av-annot-op))
@@ -3097,7 +3109,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-filter-key-down-for-focus-annot-sel+ 343))
+  (defconstant +av-page-view-filter-key-down-for-focus-annot-sel+ 344))
 (define-foreign-funcallable av-page-view-filter-key-down-for-focus-annot-selproto
                             ((page-view av-page-view)
                              (key av-key-code)
@@ -3109,7 +3121,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-ghost-rect-outline-sel+ 344))
+  (defconstant +old-avpage-view-ghost-rect-outline-sel+ 345))
 (define-foreign-funcallable old-avpage-view-ghost-rect-outline-selproto
                             ((page-view av-page-view)
                              (rect (:pointer old-avrect)))
@@ -3118,7 +3130,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-bar-new-sel+ 345))
+  (defconstant +av-legacy-tool-bar-new-sel+ 346))
 (define-foreign-funcallable av-legacy-tool-bar-new-selproto
                             ((name (:reference-pass :ef-mb-string))
                              (title (:reference-pass :ef-mb-string)))
@@ -3127,7 +3139,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avapp-register-legacy-tool-bar-position-sel+ 346))
+  (defconstant +old-avapp-register-legacy-tool-bar-position-sel+ 347))
 (define-foreign-funcallable old-avapp-register-legacy-tool-bar-position-selproto
                             ((tool-bar-name
                               (:reference-pass :ef-mb-string))
@@ -3138,7 +3150,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-snap-point-sel+ 347))
+  (defconstant +old-avpage-view-snap-point-sel+ 348))
 (define-foreign-funcallable old-avpage-view-snap-point-selproto
                             ((page-view av-page-view)
                              (x (:pointer as-int16))
@@ -3149,7 +3161,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-get-mouse-position-snapped-sel+ 348))
+  (defconstant +old-avpage-view-get-mouse-position-snapped-sel+ 349))
 (define-foreign-funcallable old-avpage-view-get-mouse-position-snapped-selproto
                             ((page-view av-page-view)
                              (x (:pointer as-int16))
@@ -3160,7 +3172,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-drag-out-new-rect-snapped-sel+ 349))
+  (defconstant +old-avpage-view-drag-out-new-rect-snapped-sel+ 350))
 (define-foreign-funcallable old-avpage-view-drag-out-new-rect-snapped-selproto
                             ((page-view av-page-view)
                              (x-start as-int16)
@@ -3173,7 +3185,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-drag-rect-snapped-sel+ 350))
+  (defconstant +old-avpage-view-drag-rect-snapped-sel+ 351))
 (define-foreign-funcallable old-avpage-view-drag-rect-snapped-selproto
                             ((page-view av-page-view)
                              (x-start as-int16)
@@ -3189,7 +3201,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avrect-handle-hit-test-sel+ 351))
+  (defconstant +old-avrect-handle-hit-test-sel+ 352))
 (define-foreign-funcallable old-avrect-handle-hit-test-selproto
                             ((rect (:pointer old-avrect))
                              (b-midpoints as-bool)
@@ -3200,7 +3212,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-draw-rect-outline-with-handles-sel+ 352))
+  (defconstant +old-avpage-view-draw-rect-outline-with-handles-sel+ 353))
 (define-foreign-funcallable old-avpage-view-draw-rect-outline-with-handles-selproto
                             ((page-view av-page-view)
                              (rect (:pointer old-avrect))
@@ -3213,7 +3225,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-is-annot-of-type-at-point-sel+ 353))
+  (defconstant +old-avpage-view-is-annot-of-type-at-point-sel+ 354))
 (define-foreign-funcallable old-avpage-view-is-annot-of-type-at-point-selproto
                             ((page-view av-page-view)
                              (x-hit as-int16)
@@ -3226,7 +3238,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-center-sel+ 354))
+  (defconstant +av-window-center-sel+ 355))
 (define-foreign-funcallable av-window-center-selproto
                             ((win av-window))
                             :result-type
@@ -3234,7 +3246,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-from-pddoc-sel+ 355))
+  (defconstant +av-doc-from-pddoc-sel+ 356))
 (define-foreign-funcallable av-doc-from-pddoc-selproto
                             ((pd-doc pd-doc))
                             :result-type
@@ -3242,7 +3254,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +old-avpage-view-snap-rect-sel+ 356))
+  (defconstant +old-avpage-view-snap-rect-sel+ 357))
 (define-foreign-funcallable old-avpage-view-snap-rect-selproto
                             ((page-view av-page-view)
                              (x-start as-int16)
@@ -3259,7 +3271,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-report-proc-sel+ 357))
+  (defconstant +av-app-get-report-proc-sel+ 358))
 (define-foreign-funcallable av-app-get-report-proc-selproto
                             ((as-report-proc-client-data-p
                               (:pointer (:pointer :void))))
@@ -3268,7 +3280,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-is-dead-sel+ 358))
+  (defconstant +av-doc-is-dead-sel+ 359))
 (define-foreign-funcallable av-doc-is-dead-selproto
                             ((av-doc av-doc))
                             :result-type
@@ -3276,7 +3288,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-bool-sel+ 359))
+  (defconstant +av-app-get-pref-bool-sel+ 360))
 (define-foreign-funcallable av-app-get-pref-bool-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string))
@@ -3286,7 +3298,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-int-sel+ 360))
+  (defconstant +av-app-get-pref-int-sel+ 361))
 (define-foreign-funcallable av-app-get-pref-int-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string))
@@ -3296,7 +3308,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-atom-sel+ 361))
+  (defconstant +av-app-get-pref-atom-sel+ 362))
 (define-foreign-funcallable av-app-get-pref-atom-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string))
@@ -3306,7 +3318,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-double-sel+ 362))
+  (defconstant +av-app-get-pref-double-sel+ 363))
 (define-foreign-funcallable av-app-get-pref-double-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string))
@@ -3316,7 +3328,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-string-sel+ 363))
+  (defconstant +av-app-get-pref-string-sel+ 364))
 (define-foreign-funcallable av-app-get-pref-string-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string)))
@@ -3325,7 +3337,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-text-sel+ 364))
+  (defconstant +av-app-get-pref-text-sel+ 365))
 (define-foreign-funcallable av-app-get-pref-text-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string)))
@@ -3334,7 +3346,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-cab-sel+ 365))
+  (defconstant +av-app-get-pref-cab-sel+ 366))
 (define-foreign-funcallable av-app-get-pref-cab-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string)))
@@ -3343,7 +3355,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-pref-path-name-sel+ 366))
+  (defconstant +av-app-get-pref-path-name-sel+ 367))
 (define-foreign-funcallable av-app-get-pref-path-name-selproto
                             ((section (:reference-pass :ef-mb-string))
                              (key (:reference-pass :ef-mb-string))
@@ -3354,7 +3366,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-alert-with-params-sel+ 367))
+  (defconstant +av-alert-with-params-sel+ 368))
 (define-foreign-funcallable av-alert-with-params-selproto
                             ((params av-alert-params))
                             :result-type
@@ -3362,7 +3374,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-alert-set-pref-sel+ 368))
+  (defconstant +av-alert-set-pref-sel+ 369))
 (define-foreign-funcallable av-alert-set-pref-selproto
                             ((name (:reference-pass :ef-mb-string))
                              (n-answer as-int32))
@@ -3371,7 +3383,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-alert-get-pref-sel+ 369))
+  (defconstant +av-alert-get-pref-sel+ 370))
 (define-foreign-funcallable av-alert-get-pref-selproto
                             ((name (:reference-pass :ef-mb-string)))
                             :result-type
@@ -3379,7 +3391,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-alert-reset-prefs-sel+ 370))
+  (defconstant +av-alert-reset-prefs-sel+ 371))
 (define-foreign-funcallable av-alert-reset-prefs-selproto
                             nil
                             :result-type
@@ -3387,7 +3399,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-perform-action-ex-sel+ 371))
+  (defconstant +av-doc-perform-action-ex-sel+ 372))
 (define-foreign-funcallable av-doc-perform-action-ex-selproto
                             ((doc av-doc)
                              (action pd-action)
@@ -3397,7 +3409,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-extension-get-num-plug-ins-sel+ 372))
+  (defconstant +av-extension-get-num-plug-ins-sel+ 373))
 (define-foreign-funcallable av-extension-get-num-plug-ins-selproto
                             nil
                             :result-type
@@ -3405,7 +3417,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-extension-acquire-info-sel+ 373))
+  (defconstant +av-extension-acquire-info-sel+ 374))
 (define-foreign-funcallable av-extension-acquire-info-selproto
                             ((n-index av-array-size))
                             :result-type
@@ -3413,7 +3425,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-extension-release-info-sel+ 374))
+  (defconstant +av-extension-release-info-sel+ 375))
 (define-foreign-funcallable av-extension-release-info-selproto
                             ((info av-extension-info))
                             :result-type
@@ -3421,7 +3433,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-device-to-info-sel+ 375))
+  (defconstant +av-page-view-device-to-info-sel+ 376))
 (define-foreign-funcallable av-page-view-device-to-info-selproto
                             ((page-view av-page-view)
                              (x av-l-coord)
@@ -3432,7 +3444,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-info-to-device-sel+ 376))
+  (defconstant +av-page-view-info-to-device-sel+ 377))
 (define-foreign-funcallable av-page-view-info-to-device-selproto
                             ((page-view av-page-view)
                              (info (:pointer as-fixed-point))
@@ -3443,7 +3455,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-point-to-info-sel+ 377))
+  (defconstant +av-page-view-point-to-info-sel+ 378))
 (define-foreign-funcallable av-page-view-point-to-info-selproto
                             ((page-view av-page-view)
                              (pt (:pointer as-fixed-point))
@@ -3453,7 +3465,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-info-to-point-sel+ 378))
+  (defconstant +av-page-view-info-to-point-sel+ 379))
 (define-foreign-funcallable av-page-view-info-to-point-selproto
                             ((page-view av-page-view)
                              (info (:pointer as-fixed-point))
@@ -3463,7 +3475,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-update-info-panel-sel+ 379))
+  (defconstant +av-page-view-update-info-panel-sel+ 380))
 (define-foreign-funcallable av-page-view-update-info-panel-selproto
                             ((page-view av-page-view)
                              (update-type av-info-panel-update-type)
@@ -3473,7 +3485,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-legacy-tool-bar-by-name-sel+ 380))
+  (defconstant +av-app-get-legacy-tool-bar-by-name-sel+ 381))
 (define-foreign-funcallable av-app-get-legacy-tool-bar-by-name-selproto
                             ((name (:reference-pass :ef-mb-string)))
                             :result-type
@@ -3481,7 +3493,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-language-encoding-sel+ 381))
+  (defconstant +av-app-get-language-encoding-sel+ 382))
 (define-foreign-funcallable av-app-get-language-encoding-selproto
                             nil
                             :result-type
@@ -3489,7 +3501,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-scroll-to-annot-sel+ 382))
+  (defconstant +av-page-view-scroll-to-annot-sel+ 383))
 (define-foreign-funcallable av-page-view-scroll-to-annot-selproto
                             ((page-view av-page-view) (annot pd-annot))
                             :result-type
@@ -3497,7 +3509,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-set-wait-cursor-sel+ 383))
+  (defconstant +av-sys-set-wait-cursor-sel+ 384))
 (define-foreign-funcallable av-sys-set-wait-cursor-selproto
                             ((turn-on as-bool) (time-limit as-uns32))
                             :result-type
@@ -3505,7 +3517,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-perm-request-sel+ 384))
+  (defconstant +av-doc-perm-request-sel+ 385))
 (define-foreign-funcallable av-doc-perm-request-selproto
                             ((doc av-doc)
                              (obj pd-perm-req-obj)
@@ -3515,7 +3527,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-suspend-offscreen-drawing-sel+ 385))
+  (defconstant +av-page-view-suspend-offscreen-drawing-sel+ 386))
 (define-foreign-funcallable av-page-view-suspend-offscreen-drawing-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -3523,7 +3535,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-resume-offscreen-drawing-sel+ 386))
+  (defconstant +av-page-view-resume-offscreen-drawing-sel+ 387))
 (define-foreign-funcallable av-page-view-resume-offscreen-drawing-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -3531,7 +3543,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-did-or-will-switch-for-dialog-sel+ 387))
+  (defconstant +av-app-did-or-will-switch-for-dialog-sel+ 388))
 (define-foreign-funcallable av-app-did-or-will-switch-for-dialog-selproto
                             nil
                             :result-type
@@ -3539,7 +3551,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-yield-to-other-apps-sel+ 388))
+  (defconstant +av-app-yield-to-other-apps-sel+ 389))
 (define-foreign-funcallable av-app-yield-to-other-apps-selproto
                             ((yield-timeout :double))
                             :result-type
@@ -3547,7 +3559,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-ensure-in-bounds-sel+ 389))
+  (defconstant +av-window-ensure-in-bounds-sel+ 390))
 (define-foreign-funcallable av-window-ensure-in-bounds-selproto
                             ((win av-window))
                             :result-type
@@ -3555,7 +3567,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-clone-sel+ 390))
+  (defconstant +av-menu-clone-sel+ 391))
 (define-foreign-funcallable av-menu-clone-selproto
                             ((menu av-menu))
                             :result-type
@@ -3563,7 +3575,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-scroll-to-sel+ 391))
+  (defconstant +av-page-view-scroll-to-sel+ 392))
 (define-foreign-funcallable av-page-view-scroll-to-selproto
                             ((page-view av-page-view)
                              (x-origin av-dev-coord)
@@ -3573,7 +3585,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-for-page-view-adjust-cursor-sel+ 392))
+  (defconstant +av-app-register-for-page-view-adjust-cursor-sel+ 393))
 (define-foreign-funcallable av-app-register-for-page-view-adjust-cursor-selproto
                             ((cursor-proc av-page-view-cursor-proc)
                              (data (:pointer :void)))
@@ -3582,7 +3594,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-for-page-view-clicks-sel+ 393))
+  (defconstant +av-app-register-for-page-view-clicks-sel+ 394))
 (define-foreign-funcallable av-app-register-for-page-view-clicks-selproto
                             ((click-proc av-page-view-click-proc)
                              (data (:pointer :void)))
@@ -3591,7 +3603,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-for-page-view-drawing-sel+ 394))
+  (defconstant +av-app-register-for-page-view-drawing-sel+ 395))
 (define-foreign-funcallable av-app-register-for-page-view-drawing-selproto
                             ((proc av-page-view-draw-proc)
                              (data (:pointer :void)))
@@ -3600,7 +3612,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-file-with-params-sel+ 395))
+  (defconstant +av-doc-open-from-file-with-params-sel+ 396))
 (define-foreign-funcallable av-doc-open-from-file-with-params-selproto
                             ((path-name as-path-name)
                              (file-sys as-file-sys)
@@ -3611,7 +3623,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-pddoc-with-params-sel+ 396))
+  (defconstant +av-doc-open-from-pddoc-with-params-sel+ 397))
 (define-foreign-funcallable av-doc-open-from-pddoc-with-params-selproto
                             ((pd-doc pd-doc)
                              (temp-title as-text)
@@ -3621,7 +3633,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-as-file-with-params-sel+ 397))
+  (defconstant +av-doc-open-from-as-file-with-params-sel+ 398))
 (define-foreign-funcallable av-doc-open-from-as-file-with-params-selproto
                             ((file as-file)
                              (temp-title as-text)
@@ -3631,7 +3643,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-print-pages-with-params-sel+ 398))
+  (defconstant +av-doc-print-pages-with-params-sel+ 399))
 (define-foreign-funcallable av-doc-print-pages-with-params-selproto
                             ((doc av-doc) (params av-doc-print-params))
                             :result-type
@@ -3639,7 +3651,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-view-def-sel+ 399))
+  (defconstant +av-doc-get-view-def-sel+ 400))
 (define-foreign-funcallable av-doc-get-view-def-selproto
                             ((doc av-doc) (view-def av-doc-view-def))
                             :result-type
@@ -3647,7 +3659,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-set-view-def-sel+ 400))
+  (defconstant +av-doc-set-view-def-sel+ 401))
 (define-foreign-funcallable av-doc-set-view-def-selproto
                             ((doc av-doc) (view-def av-doc-view-def))
                             :result-type
@@ -3655,7 +3667,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-selection-server-by-type-sel+ 401))
+  (defconstant +av-doc-get-selection-server-by-type-sel+ 402))
 (define-foreign-funcallable av-doc-get-selection-server-by-type-selproto
                             ((type as-atom))
                             :result-type
@@ -3663,7 +3675,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-register-selection-server-sel+ 402))
+  (defconstant +av-doc-register-selection-server-sel+ 403))
 (define-foreign-funcallable av-doc-register-selection-server-selproto
                             ((server av-doc-selection-server))
                             :result-type
@@ -3671,7 +3683,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-aperture-sel+ 403))
+  (defconstant +av-page-view-get-aperture-sel+ 404))
 (define-foreign-funcallable av-page-view-get-aperture-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect)))
@@ -3680,7 +3692,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-scroll-to-rect-sel+ 404))
+  (defconstant +av-page-view-scroll-to-rect-sel+ 405))
 (define-foreign-funcallable av-page-view-scroll-to-rect-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect))
@@ -3692,7 +3704,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-invalidate-rect-sel+ 405))
+  (defconstant +av-page-view-invalidate-rect-sel+ 406))
 (define-foreign-funcallable av-page-view-invalidate-rect-selproto
                             ((page-view av-page-view)
                              (area (:pointer av-dev-rect)))
@@ -3701,7 +3713,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-invert-rect-sel+ 406))
+  (defconstant +av-page-view-invert-rect-sel+ 407))
 (define-foreign-funcallable av-page-view-invert-rect-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect))
@@ -3711,7 +3723,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-rect-outline-sel+ 407))
+  (defconstant +av-page-view-draw-rect-outline-sel+ 408))
 (define-foreign-funcallable av-page-view-draw-rect-outline-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect))
@@ -3723,7 +3735,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-rect-sel+ 408))
+  (defconstant +av-page-view-draw-rect-sel+ 409))
 (define-foreign-funcallable av-page-view-draw-rect-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect)))
@@ -3732,7 +3744,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-annot-rect-sel+ 409))
+  (defconstant +av-page-view-get-annot-rect-sel+ 410))
 (define-foreign-funcallable av-page-view-get-annot-rect-selproto
                             ((page-view av-page-view)
                              (an-annot pd-annot)
@@ -3742,7 +3754,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-rect-to-device-sel+ 410))
+  (defconstant +av-page-view-rect-to-device-sel+ 411))
 (define-foreign-funcallable av-page-view-rect-to-device-selproto
                             ((page-view av-page-view)
                              (p as-fixed-rect-p)
@@ -3752,7 +3764,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-device-rect-to-page-sel+ 411))
+  (defconstant +av-page-view-device-rect-to-page-sel+ 412))
 (define-foreign-funcallable av-page-view-device-rect-to-page-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect))
@@ -3762,7 +3774,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-cos-obj-sel+ 412))
+  (defconstant +av-page-view-draw-cos-obj-sel+ 413))
 (define-foreign-funcallable av-page-view-draw-cos-obj-selproto
                             ((page-view av-page-view)
                              (cos-obj cos-obj)
@@ -3772,7 +3784,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-inset-rect-sel+ 413))
+  (defconstant +av-page-view-inset-rect-sel+ 414))
 (define-foreign-funcallable av-page-view-inset-rect-selproto
                             ((page-view av-page-view)
                              (rr (:pointer av-dev-rect))
@@ -3782,7 +3794,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-cos-obj-ex-sel+ 414))
+  (defconstant +av-page-view-draw-cos-obj-ex-sel+ 415))
 (define-foreign-funcallable av-page-view-draw-cos-obj-ex-selproto
                             ((page-view av-page-view)
                              (cos-obj cos-obj)
@@ -3793,7 +3805,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-annot-sequence-sel+ 415))
+  (defconstant +av-page-view-draw-annot-sequence-sel+ 416))
 (define-foreign-funcallable av-page-view-draw-annot-sequence-selproto
                             ((pv av-page-view)
                              (an pd-annot)
@@ -3803,7 +3815,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-gray-rect-sel+ 416))
+  (defconstant +av-page-view-get-gray-rect-sel+ 417))
 (define-foreign-funcallable av-page-view-get-gray-rect-selproto
                             ((page-view av-page-view)
                              (grey-rect (:pointer av-dev-rect)))
@@ -3812,7 +3824,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-ghost-rect-outline-sel+ 417))
+  (defconstant +av-page-view-ghost-rect-outline-sel+ 418))
 (define-foreign-funcallable av-page-view-ghost-rect-outline-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect)))
@@ -3821,7 +3833,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-rect-handle-hit-test-sel+ 418))
+  (defconstant +av-rect-handle-hit-test-sel+ 419))
 (define-foreign-funcallable av-rect-handle-hit-test-selproto
                             ((rect (:pointer av-dev-rect))
                              (b-midpoints as-bool)
@@ -3832,7 +3844,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-rect-outline-with-handles-sel+ 419))
+  (defconstant +av-page-view-draw-rect-outline-with-handles-sel+ 420))
 (define-foreign-funcallable av-page-view-draw-rect-outline-with-handles-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect))
@@ -3845,7 +3857,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-mouse-position-sel+ 420))
+  (defconstant +av-page-view-get-mouse-position-sel+ 421))
 (define-foreign-funcallable av-page-view-get-mouse-position-selproto
                             ((page-view av-page-view)
                              (x (:pointer av-dev-coord))
@@ -3855,7 +3867,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-drag-out-new-rect-sel+ 421))
+  (defconstant +av-page-view-drag-out-new-rect-sel+ 422))
 (define-foreign-funcallable av-page-view-drag-out-new-rect-selproto
                             ((page-view av-page-view)
                              (x-start av-dev-coord)
@@ -3866,7 +3878,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-drag-rect-sel+ 422))
+  (defconstant +av-page-view-drag-rect-sel+ 423))
 (define-foreign-funcallable av-page-view-drag-rect-selproto
                             ((page-view av-page-view)
                              (x-start av-dev-coord)
@@ -3880,7 +3892,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-is-annot-at-point-sel+ 423))
+  (defconstant +av-page-view-is-annot-at-point-sel+ 424))
 (define-foreign-funcallable av-page-view-is-annot-at-point-selproto
                             ((page-view av-page-view)
                              (x-hit av-dev-coord)
@@ -3891,7 +3903,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-is-bead-at-point-sel+ 424))
+  (defconstant +av-page-view-is-bead-at-point-sel+ 425))
 (define-foreign-funcallable av-page-view-is-bead-at-point-selproto
                             ((page-view av-page-view)
                              (x-hit av-dev-coord)
@@ -3902,7 +3914,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-device-point-to-page-sel+ 425))
+  (defconstant +av-page-view-device-point-to-page-sel+ 426))
 (define-foreign-funcallable av-page-view-device-point-to-page-selproto
                             ((page-view av-page-view)
                              (x av-dev-coord)
@@ -3913,7 +3925,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-track-text-sel+ 426))
+  (defconstant +av-page-view-track-text-sel+ 427))
 (define-foreign-funcallable av-page-view-track-text-selproto
                             ((page-view av-page-view)
                              (x-hit av-dev-coord)
@@ -3924,7 +3936,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-point-in-text-sel+ 427))
+  (defconstant +av-page-view-point-in-text-sel+ 428))
 (define-foreign-funcallable av-page-view-point-in-text-selproto
                             ((page-view av-page-view)
                              (x-hit av-dev-coord)
@@ -3935,7 +3947,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-do-popup-menu-sel+ 428))
+  (defconstant +av-page-view-do-popup-menu-sel+ 429))
 (define-foreign-funcallable av-page-view-do-popup-menu-selproto
                             ((page-view av-page-view)
                              (menu av-menu)
@@ -3948,7 +3960,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-device-rect-to-page-rz-sel+ 429))
+  (defconstant +av-page-view-device-rect-to-page-rz-sel+ 430))
 (define-foreign-funcallable av-page-view-device-rect-to-page-rz-selproto
                             ((page-view av-page-view)
                              (flags av-tflag-bits)
@@ -3961,7 +3973,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-snap-point-sel+ 430))
+  (defconstant +av-page-view-snap-point-sel+ 431))
 (define-foreign-funcallable av-page-view-snap-point-selproto
                             ((page-view av-page-view)
                              (x (:pointer av-dev-coord))
@@ -3972,7 +3984,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-mouse-position-snapped-sel+ 431))
+  (defconstant +av-page-view-get-mouse-position-snapped-sel+ 432))
 (define-foreign-funcallable av-page-view-get-mouse-position-snapped-selproto
                             ((page-view av-page-view)
                              (x (:pointer av-dev-coord))
@@ -3983,7 +3995,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-drag-out-new-rect-snapped-sel+ 432))
+  (defconstant +av-page-view-drag-out-new-rect-snapped-sel+ 433))
 (define-foreign-funcallable av-page-view-drag-out-new-rect-snapped-selproto
                             ((page-view av-page-view)
                              (x-start av-dev-coord)
@@ -3996,7 +4008,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-drag-rect-snapped-sel+ 433))
+  (defconstant +av-page-view-drag-rect-snapped-sel+ 434))
 (define-foreign-funcallable av-page-view-drag-rect-snapped-selproto
                             ((page-view av-page-view)
                              (x-start av-dev-coord)
@@ -4012,7 +4024,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-snap-rect-sel+ 434))
+  (defconstant +av-page-view-snap-rect-sel+ 435))
 (define-foreign-funcallable av-page-view-snap-rect-selproto
                             ((page-view av-page-view)
                              (x-start av-dev-coord)
@@ -4029,7 +4041,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-invert-rect-outline-sel+ 435))
+  (defconstant +av-page-view-invert-rect-outline-sel+ 436))
 (define-foreign-funcallable av-page-view-invert-rect-outline-selproto
                             ((page-view av-page-view)
                              (rect (:pointer av-dev-rect)))
@@ -4038,7 +4050,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-point-to-device-sel+ 436))
+  (defconstant +av-page-view-point-to-device-sel+ 437))
 (define-foreign-funcallable av-page-view-point-to-device-selproto
                             ((page-view av-page-view)
                              (p as-fixed-point-p)
@@ -4049,7 +4061,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-is-annot-of-type-at-point-sel+ 437))
+  (defconstant +av-page-view-is-annot-of-type-at-point-sel+ 438))
 (define-foreign-funcallable av-page-view-is-annot-of-type-at-point-selproto
                             ((page-view av-page-view)
                              (x-hit av-dev-coord)
@@ -4062,7 +4074,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-set-annot-location-sel+ 438))
+  (defconstant +av-page-view-set-annot-location-sel+ 439))
 (define-foreign-funcallable av-page-view-set-annot-location-selproto
                             ((an-annot pd-annot)
                              (page-view av-page-view)
@@ -4073,7 +4085,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-annot-handler-sel+ 439))
+  (defconstant +av-app-register-annot-handler-sel+ 440))
 (define-foreign-funcallable av-app-register-annot-handler-selproto
                             ((handler av-annot-handler))
                             :result-type
@@ -4081,7 +4093,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-tool-sel+ 440))
+  (defconstant +av-app-register-tool-sel+ 441))
 (define-foreign-funcallable av-app-register-tool-selproto
                             ((tool av-tool))
                             :result-type
@@ -4089,7 +4101,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-new-sel+ 441))
+  (defconstant +av-window-new-sel+ 442))
 (define-foreign-funcallable av-window-new-selproto
                             ((layer av-window-layer)
                              (flags av-flag-bits32)
@@ -4100,7 +4112,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-new-from-platform-thing-sel+ 442))
+  (defconstant +av-window-new-from-platform-thing-sel+ 443))
 (define-foreign-funcallable av-window-new-from-platform-thing-selproto
                             ((layer av-window-layer)
                              (flags av-flag-bits32)
@@ -4112,7 +4124,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-frame-sel+ 443))
+  (defconstant +av-window-get-frame-sel+ 444))
 (define-foreign-funcallable av-window-get-frame-selproto
                             ((win av-window)
                              (rect (:pointer av-screen-rect)))
@@ -4121,7 +4133,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-set-frame-sel+ 444))
+  (defconstant +av-window-set-frame-sel+ 445))
 (define-foreign-funcallable av-window-set-frame-selproto
                             ((win av-window)
                              (rect (:pointer av-screen-rect)))
@@ -4130,7 +4142,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-interior-sel+ 445))
+  (defconstant +av-window-get-interior-sel+ 446))
 (define-foreign-funcallable av-window-get-interior-selproto
                             ((win av-window)
                              (rect (:pointer av-window-rect)))
@@ -4139,7 +4151,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-invalidate-rect-sel+ 446))
+  (defconstant +av-window-invalidate-rect-sel+ 447))
 (define-foreign-funcallable av-window-invalidate-rect-selproto
                             ((win av-window)
                              (rect (:pointer av-window-rect)))
@@ -4148,7 +4160,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-min-max-size-sel+ 447))
+  (defconstant +av-window-get-min-max-size-sel+ 448))
 (define-foreign-funcallable av-window-get-min-max-size-selproto
                             ((win av-window) (rect (:pointer av-rect)))
                             :result-type
@@ -4156,7 +4168,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-set-min-max-size-sel+ 448))
+  (defconstant +av-window-set-min-max-size-sel+ 449))
 (define-foreign-funcallable av-window-set-min-max-size-selproto
                             ((win av-window) (rect (:pointer av-rect)))
                             :result-type
@@ -4164,7 +4176,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-uuid-sel+ 449))
+  (defconstant +av-app-get-uuid-sel+ 450))
 (define-foreign-funcallable av-app-get-uuid-selproto
                             ((type av-app-uuid-type)
                              (dst (:pointer as-uuid)))
@@ -4173,7 +4185,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-get-icon-from-filename-sel+ 450))
+  (defconstant +av-sys-get-icon-from-filename-sel+ 451))
 (define-foreign-funcallable av-sys-get-icon-from-filename-selproto
                             ((fname as-text) (itype av-sys-icon-type))
                             :result-type
@@ -4181,7 +4193,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-get-icon-from-mime-type-sel+ 451))
+  (defconstant +av-sys-get-icon-from-mime-type-sel+ 452))
 (define-foreign-funcallable av-sys-get-icon-from-mime-type-selproto
                             ((mime-type
                               (:reference-pass :ef-mb-string))
@@ -4191,7 +4203,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-get-icon-from-type-and-creator-sel+ 452))
+  (defconstant +av-sys-get-icon-from-type-and-creator-sel+ 453))
 (define-foreign-funcallable av-sys-get-icon-from-type-and-creator-selproto
                             ((type as-uns32)
                              (creator as-uns32)
@@ -4201,7 +4213,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-convert-stream-to-pdf-with-handler-sel+ 453))
+  (defconstant +av-conversion-convert-stream-to-pdf-with-handler-sel+ 454))
 (define-foreign-funcallable av-conversion-convert-stream-to-pdf-with-handler-selproto
                             ((in-handler av-conversion-to-pdf-handler)
                              (in-settings as-cab)
@@ -4215,7 +4227,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-convert-stream-from-pdf-with-handler-sel+ 454))
+  (defconstant +av-conversion-convert-stream-from-pdf-with-handler-sel+ 455))
 (define-foreign-funcallable av-conversion-convert-stream-from-pdf-with-handler-selproto
                             ((in-handler
                               av-conversion-from-pdf-handler)
@@ -4230,7 +4242,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-convert-stream-from-struct-node-with-handler-sel+ 455))
+  (defconstant +av-conversion-convert-stream-from-struct-node-with-handler-sel+ 456))
 (define-foreign-funcallable av-conversion-convert-stream-from-struct-node-with-handler-selproto
                             ((in-handler
                               av-conversion-from-pdf-handler)
@@ -4245,7 +4257,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-convert-stream-to-pdf-sel+ 456))
+  (defconstant +av-conversion-convert-stream-to-pdf-sel+ 457))
 (define-foreign-funcallable av-conversion-convert-stream-to-pdf-selproto
                             ((flags av-conversion-flags)
                              (mime-type
@@ -4259,7 +4271,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-do-pop-up-sel+ 457))
+  (defconstant +av-menu-do-pop-up-sel+ 458))
 (define-foreign-funcallable av-menu-do-pop-up-selproto
                             ((menu av-menu)
                              (x as-int16)
@@ -4271,7 +4283,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-num-page-views-sel+ 458))
+  (defconstant +av-doc-get-num-page-views-sel+ 459))
 (define-foreign-funcallable av-doc-get-num-page-views-selproto
                             ((av-doc av-doc))
                             :result-type
@@ -4279,7 +4291,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-nth-page-view-sel+ 459))
+  (defconstant +av-doc-get-nth-page-view-sel+ 460))
 (define-foreign-funcallable av-doc-get-nth-page-view-selproto
                             ((av-doc av-doc) (n as-count))
                             :result-type
@@ -4287,7 +4299,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-file-with-param-string-sel+ 460))
+  (defconstant +av-doc-open-from-file-with-param-string-sel+ 461))
 (define-foreign-funcallable av-doc-open-from-file-with-param-string-selproto
                             ((path-name as-path-name)
                              (file-sys as-file-sys)
@@ -4299,7 +4311,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-pddoc-with-param-string-sel+ 461))
+  (defconstant +av-doc-open-from-pddoc-with-param-string-sel+ 462))
 (define-foreign-funcallable av-doc-open-from-pddoc-with-param-string-selproto
                             ((pd-doc pd-doc)
                              (temp-title as-text)
@@ -4310,7 +4322,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-as-file-with-param-string-sel+ 462))
+  (defconstant +av-doc-open-from-as-file-with-param-string-sel+ 463))
 (define-foreign-funcallable av-doc-open-from-as-file-with-param-string-selproto
                             ((file as-file)
                              (temp-title as-text)
@@ -4321,7 +4333,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-help-show-contents-sel+ 463))
+  (defconstant +av-app-help-show-contents-sel+ 464))
 (define-foreign-funcallable av-app-help-show-contents-selproto
                             ((file-name
                               (:reference-pass :ef-mb-string))
@@ -4332,7 +4344,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-help-search-sel+ 464))
+  (defconstant +av-app-help-search-sel+ 465))
 (define-foreign-funcallable av-app-help-search-selproto
                             ((file-name
                               (:reference-pass :ef-mb-string))
@@ -4343,7 +4355,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-help-show-index-sel+ 465))
+  (defconstant +av-app-help-show-index-sel+ 466))
 (define-foreign-funcallable av-app-help-show-index-selproto
                             ((file-name
                               (:reference-pass :ef-mb-string)))
@@ -4352,7 +4364,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-open-help-file-with-params-sel+ 466))
+  (defconstant +av-app-open-help-file-with-params-sel+ 467))
 (define-foreign-funcallable av-app-open-help-file-with-params-selproto
                             ((file-name
                               (:reference-pass :ef-mb-string))
@@ -4363,7 +4375,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-add-animation-icon-sel+ 467))
+  (defconstant +av-legacy-tool-button-add-animation-icon-sel+ 468))
 (define-foreign-funcallable av-legacy-tool-button-add-animation-icon-selproto
                             ((button av-tool-button)
                              (new-icon av-icon))
@@ -4372,7 +4384,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-get-animation-icon-count-sel+ 468))
+  (defconstant +av-legacy-tool-button-get-animation-icon-count-sel+ 469))
 (define-foreign-funcallable av-legacy-tool-button-get-animation-icon-count-selproto
                             ((button av-tool-button))
                             :result-type
@@ -4380,7 +4392,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-start-animation-sel+ 469))
+  (defconstant +av-legacy-tool-button-start-animation-sel+ 470))
 (define-foreign-funcallable av-legacy-tool-button-start-animation-selproto
                             ((button av-tool-button))
                             :result-type
@@ -4388,7 +4400,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-stop-animation-sel+ 470))
+  (defconstant +av-legacy-tool-button-stop-animation-sel+ 471))
 (define-foreign-funcallable av-legacy-tool-button-stop-animation-selproto
                             ((button av-tool-button))
                             :result-type
@@ -4396,7 +4408,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-is-animation-running-sel+ 471))
+  (defconstant +av-legacy-tool-button-is-animation-running-sel+ 472))
 (define-foreign-funcallable av-legacy-tool-button-is-animation-running-selproto
                             ((button av-tool-button))
                             :result-type
@@ -4404,7 +4416,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-animation-period-sel+ 472))
+  (defconstant +av-legacy-tool-button-set-animation-period-sel+ 473))
 (define-foreign-funcallable av-legacy-tool-button-set-animation-period-selproto
                             ((button av-tool-button)
                              (new-period as-int32))
@@ -4413,7 +4425,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-get-animation-period-sel+ 473))
+  (defconstant +av-legacy-tool-button-get-animation-period-sel+ 474))
 (define-foreign-funcallable av-legacy-tool-button-get-animation-period-selproto
                             ((button av-tool-button))
                             :result-type
@@ -4421,7 +4433,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-remove-animation-icons-sel+ 474))
+  (defconstant +av-legacy-tool-button-remove-animation-icons-sel+ 475))
 (define-foreign-funcallable av-legacy-tool-button-remove-animation-icons-selproto
                             ((button av-tool-button))
                             :result-type
@@ -4429,7 +4441,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-new-with-as-text-sel+ 475))
+  (defconstant +av-menu-new-with-as-text-sel+ 476))
 (define-foreign-funcallable av-menu-new-with-as-text-selproto
                             ((title as-const-text)
                              (name (:reference-pass :ef-mb-string))
@@ -4439,7 +4451,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-get-title-as-as-text-sel+ 476))
+  (defconstant +av-menu-get-title-as-as-text-sel+ 477))
 (define-foreign-funcallable av-menu-get-title-as-as-text-selproto
                             ((menu av-menu) (title as-text))
                             :result-type
@@ -4447,7 +4459,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-new-with-as-text-sel+ 477))
+  (defconstant +av-menu-item-new-with-as-text-sel+ 478))
 (define-foreign-funcallable av-menu-item-new-with-as-text-selproto
                             ((title as-const-text)
                              (name (:reference-pass :ef-mb-string))
@@ -4462,7 +4474,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-get-title-as-as-text-sel+ 478))
+  (defconstant +av-menu-item-get-title-as-as-text-sel+ 479))
 (define-foreign-funcallable av-menu-item-get-title-as-as-text-selproto
                             ((menu-item av-menu-item) (title as-text))
                             :result-type
@@ -4470,7 +4482,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-set-title-with-as-text-sel+ 479))
+  (defconstant +av-menu-item-set-title-with-as-text-sel+ 480))
 (define-foreign-funcallable av-menu-item-set-title-with-as-text-selproto
                             ((menu-item av-menu-item)
                              (title as-const-text))
@@ -4479,7 +4491,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-title-sel+ 480))
+  (defconstant +av-window-get-title-sel+ 481))
 (define-foreign-funcallable av-window-get-title-selproto
                             ((win av-window) (title as-text))
                             :result-type
@@ -4487,7 +4499,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-set-title-sel+ 481))
+  (defconstant +av-window-set-title-sel+ 482))
 (define-foreign-funcallable av-window-set-title-selproto
                             ((win av-window) (new-title as-text))
                             :result-type
@@ -4495,7 +4507,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-file-sel+ 482))
+  (defconstant +av-doc-open-from-file-sel+ 483))
 (define-foreign-funcallable av-doc-open-from-file-selproto
                             ((path-name as-path-name)
                              (file-sys as-file-sys)
@@ -4505,7 +4517,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-open-from-pddoc-sel+ 483))
+  (defconstant +av-doc-open-from-pddoc-sel+ 484))
 (define-foreign-funcallable av-doc-open-from-pddoc-selproto
                             ((doc pd-doc) (temp-title as-text))
                             :result-type
@@ -4513,7 +4525,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-util-get-base-name-and-extension-ex-sel+ 484))
+  (defconstant +av-util-get-base-name-and-extension-ex-sel+ 485))
 (define-foreign-funcallable av-util-get-base-name-and-extension-ex-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -4527,7 +4539,19 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-open-dialog-sel+ 485))
+  (defconstant +av-acquire-special-file-path-name-with-as-text-sel+ 486))
+(define-foreign-funcallable av-acquire-special-file-path-name-with-as-text-selproto
+                            ((cat av-special-category)
+                             (fld av-special-folder)
+                             (file-name as-text)
+                             (asfs (:pointer as-file-sys))
+                             (asp (:pointer as-path-name)))
+                            :result-type
+                            as-error-code
+                            :calling-convention
+                            :cdecl)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +av-app-open-dialog-sel+ 487))
 (define-foreign-funcallable av-app-open-dialog-selproto
                             ((dialog-params av-open-save-dialog-params)
                              (out-file-sys (:pointer as-file-sys))
@@ -4542,7 +4566,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-save-dialog-sel+ 486))
+  (defconstant +av-app-save-dialog-sel+ 488))
 (define-foreign-funcallable av-app-save-dialog-selproto
                             ((dialog-params av-open-save-dialog-params)
                              (out-file-sys (:pointer as-file-sys))
@@ -4554,7 +4578,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-choose-folder-dialog-sel+ 487))
+  (defconstant +av-app-choose-folder-dialog-sel+ 489))
 (define-foreign-funcallable av-app-choose-folder-dialog-selproto
                             ((dialog-params av-open-save-dialog-params)
                              (out-file-sys (:pointer as-file-sys))
@@ -4565,7 +4589,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-set-visible-inks-sel+ 488))
+  (defconstant +av-page-view-set-visible-inks-sel+ 490))
 (define-foreign-funcallable av-page-view-set-visible-inks-selproto
                             ((page-view av-page-view)
                              (n-inks as-int32)
@@ -4575,7 +4599,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-set-ink-preview-sel+ 489))
+  (defconstant +av-page-view-set-ink-preview-sel+ 491))
 (define-foreign-funcallable av-page-view-set-ink-preview-selproto
                             ((page-view av-page-view)
                              (ink-preview as-bool))
@@ -4584,7 +4608,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-num-visible-inks-sel+ 490))
+  (defconstant +av-page-view-get-num-visible-inks-sel+ 492))
 (define-foreign-funcallable av-page-view-get-num-visible-inks-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -4592,7 +4616,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-visible-inks-sel+ 491))
+  (defconstant +av-page-view-get-visible-inks-sel+ 493))
 (define-foreign-funcallable av-page-view-get-visible-inks-selproto
                             ((page-view av-page-view)
                              (inks (:pointer pd-page-ink-rec)))
@@ -4601,7 +4625,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-pixel-information-at-point-sel+ 492))
+  (defconstant +av-page-view-get-pixel-information-at-point-sel+ 494))
 (define-foreign-funcallable av-page-view-get-pixel-information-at-point-selproto
                             ((page-view av-page-view)
                              (x av-dev-coord)
@@ -4613,7 +4637,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-undo-new-sel+ 493))
+  (defconstant +av-undo-new-sel+ 495))
 (define-foreign-funcallable av-undo-new-selproto
                             ((doc av-doc)
                              (handler av-undo-handler)
@@ -4623,7 +4647,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-undo-set-data-sel+ 494))
+  (defconstant +av-undo-set-data-sel+ 496))
 (define-foreign-funcallable av-undo-set-data-selproto
                             ((undo av-undo)
                              (handler-data av-undo-handler-data))
@@ -4632,7 +4656,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-undo-get-data-sel+ 495))
+  (defconstant +av-undo-get-data-sel+ 497))
 (define-foreign-funcallable av-undo-get-data-selproto
                             ((undo av-undo))
                             :result-type
@@ -4640,7 +4664,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-undo-get-avdoc-sel+ 496))
+  (defconstant +av-undo-get-avdoc-sel+ 498))
 (define-foreign-funcallable av-undo-get-avdoc-selproto
                             ((undo av-undo))
                             :result-type
@@ -4648,7 +4672,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-undo-get-type-sel+ 497))
+  (defconstant +av-undo-get-type-sel+ 499))
 (define-foreign-funcallable av-undo-get-type-selproto
                             ((undo av-undo))
                             :result-type
@@ -4656,7 +4680,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-clear-undos-sel+ 498))
+  (defconstant +av-doc-clear-undos-sel+ 500))
 (define-foreign-funcallable av-doc-clear-undos-selproto
                             ((doc av-doc))
                             :result-type
@@ -4664,7 +4688,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-top-undo-sel+ 499))
+  (defconstant +av-doc-get-top-undo-sel+ 501))
 (define-foreign-funcallable av-doc-get-top-undo-selproto
                             ((doc av-doc)
                              (desired-type
@@ -4674,7 +4698,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-begin-undo-operation-sel+ 500))
+  (defconstant +av-doc-begin-undo-operation-sel+ 502))
 (define-foreign-funcallable av-doc-begin-undo-operation-selproto
                             ((doc av-doc))
                             :result-type
@@ -4682,7 +4706,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-end-undo-operation-sel+ 501))
+  (defconstant +av-doc-end-undo-operation-sel+ 503))
 (define-foreign-funcallable av-doc-end-undo-operation-selproto
                             ((doc av-doc)
                              (undo-title as-text)
@@ -4692,7 +4716,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-now-with-transition-sel+ 502))
+  (defconstant +av-page-view-draw-now-with-transition-sel+ 504))
 (define-foreign-funcallable av-page-view-draw-now-with-transition-selproto
                             ((page-view av-page-view) (trans pd-trans))
                             :result-type
@@ -4700,7 +4724,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-print-separations-sel+ 503))
+  (defconstant +av-doc-print-separations-sel+ 505))
 (define-foreign-funcallable av-doc-print-separations-selproto
                             ((params av-doc-print-seps-params))
                             :result-type
@@ -4708,7 +4732,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-view-def-ex-sel+ 504))
+  (defconstant +av-doc-get-view-def-ex-sel+ 506))
 (define-foreign-funcallable av-doc-get-view-def-ex-selproto
                             ((doc av-doc) (view-def as-cab))
                             :result-type
@@ -4716,7 +4740,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-set-view-def-ex-sel+ 505))
+  (defconstant +av-doc-set-view-def-ex-sel+ 507))
 (define-foreign-funcallable av-doc-set-view-def-ex-selproto
                             ((doc av-doc) (view-def as-cab))
                             :result-type
@@ -4724,7 +4748,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-do-modal-sel+ 506))
+  (defconstant +av-window-do-modal-sel+ 508))
 (define-foreign-funcallable av-window-do-modal-selproto
                             ((window av-window))
                             :result-type
@@ -4732,7 +4756,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-end-modal-sel+ 507))
+  (defconstant +av-window-end-modal-sel+ 509))
 (define-foreign-funcallable av-window-end-modal-selproto
                             ((window av-window))
                             :result-type
@@ -4740,7 +4764,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-get-use-pen-for-input-sel+ 508))
+  (defconstant +av-sys-get-use-pen-for-input-sel+ 510))
 (define-foreign-funcallable av-sys-get-use-pen-for-input-selproto
                             nil
                             :result-type
@@ -4748,7 +4772,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-snap-point-ex-sel+ 509))
+  (defconstant +av-page-view-snap-point-ex-sel+ 511))
 (define-foreign-funcallable av-page-view-snap-point-ex-selproto
                             ((page-view av-page-view)
                              (pt (:pointer as-fixed-point))
@@ -4758,7 +4782,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-drag-rect-snapped-ex-sel+ 510))
+  (defconstant +av-page-view-drag-rect-snapped-ex-sel+ 512))
 (define-foreign-funcallable av-page-view-drag-rect-snapped-ex-selproto
                             ((params
                               (:pointer av-drag-rect-params-rec)))
@@ -4767,7 +4791,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-compute-tooltip-proc-sel+ 511))
+  (defconstant +av-legacy-tool-button-set-compute-tooltip-proc-sel+ 513))
 (define-foreign-funcallable av-legacy-tool-button-set-compute-tooltip-proc-selproto
                             ((button av-tool-button)
                              (proc av-compute-tooltip-proc)
@@ -4777,7 +4801,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-label-text-sel+ 512))
+  (defconstant +av-legacy-tool-button-set-label-text-sel+ 514))
 (define-foreign-funcallable av-legacy-tool-button-set-label-text-selproto
                             ((button av-tool-button)
                              (label-text as-const-text)
@@ -4787,7 +4811,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-get-label-text-sel+ 513))
+  (defconstant +av-legacy-tool-button-get-label-text-sel+ 515))
 (define-foreign-funcallable av-legacy-tool-button-get-label-text-selproto
                             ((button av-tool-button)
                              (result-text as-text)
@@ -4799,7 +4823,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-clone-sel+ 514))
+  (defconstant +av-menu-item-clone-sel+ 516))
 (define-foreign-funcallable av-menu-item-clone-selproto
                             ((menu-item av-menu-item))
                             :result-type
@@ -4807,7 +4831,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-language-with-params-sel+ 515))
+  (defconstant +av-app-get-language-with-params-sel+ 517))
 (define-foreign-funcallable av-app-get-language-with-params-selproto
                             ((params av-app-language-params))
                             :result-type
@@ -4815,7 +4839,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-create-icon-bundle6-sel+ 516))
+  (defconstant +av-app-create-icon-bundle6-sel+ 518))
 (define-foreign-funcallable av-app-create-icon-bundle6-selproto
                             ((e-data-format av-icon-data-format)
                              (data-recs (:pointer av-icon-data-rec))
@@ -4825,7 +4849,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-notify-tooltip-proc-sel+ 517))
+  (defconstant +av-legacy-tool-button-set-notify-tooltip-proc-sel+ 519))
 (define-foreign-funcallable av-legacy-tool-button-set-notify-tooltip-proc-selproto
                             ((button av-tool-button)
                              (proc av-notify-tooltip-proc)
@@ -4835,7 +4859,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-border-widths-sel+ 518))
+  (defconstant +av-window-get-border-widths-sel+ 520))
 (define-foreign-funcallable av-window-get-border-widths-selproto
                             ((win av-window) (rect (:pointer av-rect)))
                             :result-type
@@ -4843,7 +4867,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-polygon-sel+ 519))
+  (defconstant +av-page-view-draw-polygon-sel+ 521))
 (define-foreign-funcallable av-page-view-draw-polygon-selproto
                             ((page-view av-page-view)
                              (x (:pointer av-dev-coord))
@@ -4855,7 +4879,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-polygon-outline-sel+ 520))
+  (defconstant +av-page-view-draw-polygon-outline-sel+ 522))
 (define-foreign-funcallable av-page-view-draw-polygon-outline-selproto
                             ((page-view av-page-view)
                              (x (:pointer av-dev-coord))
@@ -4867,7 +4891,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-how-to-panel-sel+ 521))
+  (defconstant +av-app-register-how-to-panel-sel+ 523))
 (define-foreign-funcallable av-app-register-how-to-panel-selproto
                             ((panel-name as-atom)
                              (panel-url
@@ -4882,7 +4906,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-set-how-to-panel-auto-show-text-sel+ 522))
+  (defconstant +av-app-set-how-to-panel-auto-show-text-sel+ 524))
 (define-foreign-funcallable av-app-set-how-to-panel-auto-show-text-selproto
                             ((panel-name as-atom)
                              (check-box-text as-const-text))
@@ -4891,7 +4915,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-how-to-panel-auto-show-sel+ 523))
+  (defconstant +av-app-get-how-to-panel-auto-show-sel+ 525))
 (define-foreign-funcallable av-app-get-how-to-panel-auto-show-selproto
                             ((panel-name as-atom))
                             :result-type
@@ -4899,7 +4923,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-set-how-to-panel-auto-show-sel+ 524))
+  (defconstant +av-app-set-how-to-panel-auto-show-sel+ 526))
 (define-foreign-funcallable av-app-set-how-to-panel-auto-show-selproto
                             ((panel-name as-atom) (auto-show as-bool))
                             :result-type
@@ -4907,7 +4931,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-auto-show-how-to-panel-sel+ 525))
+  (defconstant +av-app-auto-show-how-to-panel-sel+ 527))
 (define-foreign-funcallable av-app-auto-show-how-to-panel-selproto
                             ((avdoc av-doc) (panel-name as-atom))
                             :result-type
@@ -4915,7 +4939,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-set-compute-visible-proc-sel+ 526))
+  (defconstant +av-menu-item-set-compute-visible-proc-sel+ 528))
 (define-foreign-funcallable av-menu-item-set-compute-visible-proc-selproto
                             ((menu-item av-menu-item)
                              (proc av-compute-visible-proc)
@@ -4925,7 +4949,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-is-visible-sel+ 527))
+  (defconstant +av-menu-item-is-visible-sel+ 529))
 (define-foreign-funcallable av-menu-item-is-visible-selproto
                             ((menu-item av-menu-item))
                             :result-type
@@ -4933,7 +4957,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-compute-visible-proc-sel+ 528))
+  (defconstant +av-legacy-tool-button-set-compute-visible-proc-sel+ 530))
 (define-foreign-funcallable av-legacy-tool-button-set-compute-visible-proc-selproto
                             ((button av-tool-button)
                              (p av-compute-visible-proc)
@@ -4943,7 +4967,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-set-how-to-panel-compute-visible-proc-sel+ 529))
+  (defconstant +av-app-set-how-to-panel-compute-visible-proc-sel+ 531))
 (define-foreign-funcallable av-app-set-how-to-panel-compute-visible-proc-selproto
                             ((panel-name as-atom)
                              (p av-compute-visible-proc)
@@ -4953,7 +4977,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-legacy-tool-bar-position-sel+ 530))
+  (defconstant +av-app-register-legacy-tool-bar-position-sel+ 532))
 (define-foreign-funcallable av-app-register-legacy-tool-bar-position-selproto
                             ((tool-bar-name
                               (:reference-pass :ef-mb-string))
@@ -4964,7 +4988,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-top-undo-and-redo-sel+ 531))
+  (defconstant +av-doc-get-top-undo-and-redo-sel+ 533))
 (define-foreign-funcallable av-doc-get-top-undo-and-redo-selproto
                             ((doc av-doc)
                              (undo (:pointer av-undo))
@@ -4976,7 +5000,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-for-context-menu-addition-sel+ 532))
+  (defconstant +av-app-register-for-context-menu-addition-sel+ 534))
 (define-foreign-funcallable av-app-register-for-context-menu-addition-selproto
                             ((menu-name as-atom)
                              (proc av-context-menu-addition-proc)
@@ -4986,7 +5010,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-page-to-dev-scaling-sel+ 533))
+  (defconstant +av-page-view-get-page-to-dev-scaling-sel+ 535))
 (define-foreign-funcallable av-page-view-get-page-to-dev-scaling-selproto
                             ((page-view av-page-view)
                              (x-scale (:pointer :float))
@@ -4996,7 +5020,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-active-tool-sel+ 534))
+  (defconstant +av-doc-get-active-tool-sel+ 536))
 (define-foreign-funcallable av-doc-get-active-tool-selproto
                             ((doc av-doc))
                             :result-type
@@ -5004,7 +5028,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-set-active-tool-sel+ 535))
+  (defconstant +av-doc-set-active-tool-sel+ 537))
 (define-foreign-funcallable av-doc-set-active-tool-selproto
                             ((doc av-doc)
                              (tool av-tool)
@@ -5014,7 +5038,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-for-page-view-right-clicks-sel+ 536))
+  (defconstant +av-app-register-for-page-view-right-clicks-sel+ 538))
 (define-foreign-funcallable av-app-register-for-page-view-right-clicks-selproto
                             ((click-proc av-page-view-click-proc)
                              (data (:pointer :void)))
@@ -5023,7 +5047,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-unregister-for-page-view-right-clicks-sel+ 537))
+  (defconstant +av-app-unregister-for-page-view-right-clicks-sel+ 539))
 (define-foreign-funcallable av-app-unregister-for-page-view-right-clicks-selproto
                             ((click-proc av-page-view-click-proc))
                             :result-type
@@ -5031,7 +5055,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-is-slow-sel+ 538))
+  (defconstant +av-doc-is-slow-sel+ 540))
 (define-foreign-funcallable av-doc-is-slow-selproto
                             ((doc av-doc))
                             :result-type
@@ -5039,7 +5063,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-desktop-bounds-sel+ 539))
+  (defconstant +av-window-get-desktop-bounds-sel+ 541))
 (define-foreign-funcallable av-window-get-desktop-bounds-selproto
                             ((win av-window)
                              (frame (:pointer av-rect))
@@ -5049,7 +5073,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-server-type-sel+ 540))
+  (defconstant +av-doc-get-server-type-sel+ 542))
 (define-foreign-funcallable av-doc-get-server-type-selproto
                             ((doc av-doc))
                             :result-type
@@ -5057,7 +5081,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-unregister-for-page-view-drawing-ex-sel+ 541))
+  (defconstant +av-app-unregister-for-page-view-drawing-ex-sel+ 543))
 (define-foreign-funcallable av-app-unregister-for-page-view-drawing-ex-selproto
                             ((proc av-page-view-draw-proc)
                              (client-data (:pointer :void)))
@@ -5066,7 +5090,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-set-wireframe-drawing-sel+ 542))
+  (defconstant +av-page-view-set-wireframe-drawing-sel+ 544))
 (define-foreign-funcallable av-page-view-set-wireframe-drawing-selproto
                             ((page-view av-page-view)
                              (draw-wireframe as-bool))
@@ -5075,7 +5099,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-wireframe-drawing-sel+ 543))
+  (defconstant +av-page-view-get-wireframe-drawing-sel+ 545))
 (define-foreign-funcallable av-page-view-get-wireframe-drawing-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -5083,7 +5107,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-should-key-delete-object-sel+ 544))
+  (defconstant +av-app-should-key-delete-object-sel+ 546))
 (define-foreign-funcallable av-app-should-key-delete-object-selproto
                             ((key av-key-code) (flags av-flag-bits16))
                             :result-type
@@ -5091,7 +5115,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-late-init-proc-sel+ 545))
+  (defconstant +av-app-register-late-init-proc-sel+ 547))
 (define-foreign-funcallable av-app-register-late-init-proc-selproto
                             ((late-init-proc av-idle-proc)
                              (client-data (:pointer :void))
@@ -5101,7 +5125,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-bookmarks-sel+ 546))
+  (defconstant +av-doc-get-bookmarks-sel+ 548))
 (define-foreign-funcallable av-doc-get-bookmarks-selproto
                             ((av-doc av-doc)
                              (av-bookmark-filter av-bookmark-filter)
@@ -5112,7 +5136,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-last-active-tool-sel+ 547))
+  (defconstant +av-doc-get-last-active-tool-sel+ 549))
 (define-foreign-funcallable av-doc-get-last-active-tool-selproto
                             ((av-doc av-doc))
                             :result-type
@@ -5120,7 +5144,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-num-windows-sel+ 548))
+  (defconstant +av-doc-get-num-windows-sel+ 550))
 (define-foreign-funcallable av-doc-get-num-windows-selproto
                             ((av-doc av-doc))
                             :result-type
@@ -5128,7 +5152,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-nth-window-sel+ 549))
+  (defconstant +av-doc-get-nth-window-sel+ 551))
 (define-foreign-funcallable av-doc-get-nth-window-selproto
                             ((av-doc av-doc) (n as-count))
                             :result-type
@@ -5136,7 +5160,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-avwindow-sel+ 550))
+  (defconstant +av-page-view-get-avwindow-sel+ 552))
 (define-foreign-funcallable av-page-view-get-avwindow-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -5144,7 +5168,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-do-annot-properties-sel+ 551))
+  (defconstant +av-doc-do-annot-properties-sel+ 553))
 (define-foreign-funcallable av-doc-do-annot-properties-selproto
                             ((doc av-doc)
                              (page-num as-int32)
@@ -5154,7 +5178,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-track-mouse-sel+ 552))
+  (defconstant +av-sys-track-mouse-sel+ 554))
 (define-foreign-funcallable av-sys-track-mouse-selproto
                             ((canceled (:pointer as-bool))
                              (committed (:pointer as-bool))
@@ -5164,7 +5188,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-save-optimized-sel+ 553))
+  (defconstant +av-doc-save-optimized-sel+ 555))
 (define-foreign-funcallable av-doc-save-optimized-selproto
                             ((av-doc av-doc)
                              (pdf-opt-params
@@ -5174,7 +5198,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-get-optimizer-presets-sel+ 554))
+  (defconstant +av-get-optimizer-presets-sel+ 556))
 (define-foreign-funcallable av-get-optimizer-presets-selproto
                             ((p-preset-names
                               (:pointer (:pointer as-text))))
@@ -5183,7 +5207,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-get-optimizer-params-for-preset-sel+ 555))
+  (defconstant +av-get-optimizer-params-for-preset-sel+ 557))
 (define-foreign-funcallable av-get-optimizer-params-for-preset-selproto
                             ((preset-name as-text)
                              (av-doc av-doc)
@@ -5193,7 +5217,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-annot-appearance-padding-sel+ 556))
+  (defconstant +av-app-get-annot-appearance-padding-sel+ 558))
 (define-foreign-funcallable av-app-get-annot-appearance-padding-selproto
                             ((flags as-uns32))
                             :result-type
@@ -5201,7 +5225,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-menu-item-is-scriptable-sel+ 557))
+  (defconstant +av-menu-item-is-scriptable-sel+ 559))
 (define-foreign-funcallable av-menu-item-is-scriptable-selproto
                             ((menu-item av-menu-item))
                             :result-type
@@ -5209,7 +5233,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-sys-time-as-text-from-time-rec-sel+ 558))
+  (defconstant +av-sys-time-as-text-from-time-rec-sel+ 560))
 (define-foreign-funcallable av-sys-time-as-text-from-time-rec-selproto
                             ((time-rec as-time-rec-p) (text as-text))
                             :result-type
@@ -5217,7 +5241,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-menu-icon-sel+ 559))
+  (defconstant +av-legacy-tool-button-set-menu-icon-sel+ 561))
 (define-foreign-funcallable av-legacy-tool-button-set-menu-icon-selproto
                             ((button av-tool-button) (icon av-icon))
                             :result-type
@@ -5225,7 +5249,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-listen-for-custom-notification-sel+ 560))
+  (defconstant +av-listen-for-custom-notification-sel+ 562))
 (define-foreign-funcallable av-listen-for-custom-notification-selproto
                             ((notification
                               (:reference-pass :ef-mb-string))
@@ -5236,7 +5260,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-unlisten-for-custom-notification-sel+ 561))
+  (defconstant +av-unlisten-for-custom-notification-sel+ 563))
 (define-foreign-funcallable av-unlisten-for-custom-notification-selproto
                             ((notification
                               (:reference-pass :ef-mb-string))
@@ -5247,7 +5271,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-broadcast-custom-notification-sel+ 562))
+  (defconstant +av-broadcast-custom-notification-sel+ 564))
 (define-foreign-funcallable av-broadcast-custom-notification-selproto
                             ((notification
                               (:reference-pass :ef-mb-string))
@@ -5257,7 +5281,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-register-aux-data-handler-sel+ 563))
+  (defconstant +av-register-aux-data-handler-sel+ 565))
 (define-foreign-funcallable av-register-aux-data-handler-selproto
                             ((aux-data-type as-atom)
                              (handler av-aux-data-handler)
@@ -5267,7 +5291,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-apply-redactions-sel+ 564))
+  (defconstant +av-doc-apply-redactions-sel+ 566))
 (define-foreign-funcallable av-doc-apply-redactions-selproto
                             ((av-doc av-doc)
                              (apply-params pd-apply-redaction-params)
@@ -5279,7 +5303,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-bar-add-button-ex-sel+ 565))
+  (defconstant +av-legacy-tool-bar-add-button-ex-sel+ 567))
 (define-foreign-funcallable av-legacy-tool-bar-add-button-ex-selproto
                             ((tool-bar av-tool-bar)
                              (button av-tool-button)
@@ -5289,7 +5313,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-begin-save-sel+ 566))
+  (defconstant +av-app-begin-save-sel+ 568))
 (define-foreign-funcallable av-app-begin-save-selproto
                             ((dialog-params av-open-save-dialog-params)
                              (out-file-sys (:pointer as-file-sys))
@@ -5306,7 +5330,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-end-save-sel+ 567))
+  (defconstant +av-app-end-save-sel+ 569))
 (define-foreign-funcallable av-app-end-save-selproto
                             ((in-file-save-handle
                               av-app-file-save-handle)
@@ -5316,7 +5340,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-cancel-save-sel+ 568))
+  (defconstant +av-app-cancel-save-sel+ 570))
 (define-foreign-funcallable av-app-cancel-save-selproto
                             ((in-file-save-handle
                               av-app-file-save-handle))
@@ -5325,7 +5349,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-get-ink-preview-sel+ 569))
+  (defconstant +av-page-view-get-ink-preview-sel+ 571))
 (define-foreign-funcallable av-page-view-get-ink-preview-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -5333,7 +5357,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-acquire-draw-context-sel+ 570))
+  (defconstant +av-page-view-acquire-draw-context-sel+ 572))
 (define-foreign-funcallable av-page-view-acquire-draw-context-selproto
                             ((page-view av-page-view)
                              (context-type draw-context-type))
@@ -5342,7 +5366,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-release-draw-context-sel+ 571))
+  (defconstant +av-page-view-release-draw-context-sel+ 573))
 (define-foreign-funcallable av-page-view-release-draw-context-selproto
                             ((page-view av-page-view)
                              (context-type draw-context-type)
@@ -5352,7 +5376,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-button-set-help-text-with-as-text-sel+ 572))
+  (defconstant +av-legacy-tool-button-set-help-text-with-as-text-sel+ 574))
 (define-foreign-funcallable av-legacy-tool-button-set-help-text-with-as-text-selproto
                             ((button av-tool-button)
                              (text as-const-text))
@@ -5361,7 +5385,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-legacy-tool-bar-new-with-as-text-sel+ 573))
+  (defconstant +av-legacy-tool-bar-new-with-as-text-sel+ 575))
 (define-foreign-funcallable av-legacy-tool-bar-new-with-as-text-selproto
                             ((name (:reference-pass :ef-mb-string))
                              (title as-const-text))
@@ -5370,7 +5394,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-unregister-annot-handler-sel+ 574))
+  (defconstant +av-app-unregister-annot-handler-sel+ 576))
 (define-foreign-funcallable av-app-unregister-annot-handler-selproto
                             ((handler av-annot-handler))
                             :result-type
@@ -5378,7 +5402,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-append-to-pdf-with-handler-sel+ 575))
+  (defconstant +av-conversion-append-to-pdf-with-handler-sel+ 577))
 (define-foreign-funcallable av-conversion-append-to-pdf-with-handler-selproto
                             ((in-handler av-conversion-to-pdf-handler)
                              (in-settings as-cab)
@@ -5392,7 +5416,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-get-conversion-queue-status-with-handler-sel+ 576))
+  (defconstant +av-conversion-get-conversion-queue-status-with-handler-sel+ 578))
 (define-foreign-funcallable av-conversion-get-conversion-queue-status-with-handler-selproto
                             ((in-handler av-conversion-to-pdf-handler))
                             :result-type
@@ -5400,7 +5424,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-conversion-to-pdf-set-settings-sel+ 577))
+  (defconstant +av-conversion-to-pdf-set-settings-sel+ 579))
 (define-foreign-funcallable av-conversion-to-pdf-set-settings-selproto
                             ((in-handler av-conversion-to-pdf-handler)
                              (in-settings as-cab))
@@ -5409,7 +5433,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-is-in-protected-view-sel+ 578))
+  (defconstant +av-doc-is-in-protected-view-sel+ 580))
 (define-foreign-funcallable av-doc-is-in-protected-view-selproto
                             ((av-doc av-doc))
                             :result-type
@@ -5417,7 +5441,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-idle-proc-with-name-sel+ 579))
+  (defconstant +av-app-register-idle-proc-with-name-sel+ 581))
 (define-foreign-funcallable av-app-register-idle-proc-with-name-selproto
                             ((idle-proc av-idle-proc)
                              (client-data (:pointer :void))
@@ -5431,7 +5455,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-late-init-proc-with-name-sel+ 580))
+  (defconstant +av-app-register-late-init-proc-with-name-sel+ 582))
 (define-foreign-funcallable av-app-register-late-init-proc-with-name-selproto
                             ((idle-proc av-idle-proc)
                              (client-data (:pointer :void))
@@ -5445,7 +5469,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-unregister-for-context-menu-addition-sel+ 581))
+  (defconstant +av-app-unregister-for-context-menu-addition-sel+ 583))
 (define-foreign-funcallable av-app-unregister-for-context-menu-addition-selproto
                             ((menu-name as-atom)
                              (proc av-context-menu-addition-proc)
@@ -5455,7 +5479,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-save-dialog-ex-sel+ 582))
+  (defconstant +av-app-save-dialog-ex-sel+ 584))
 (define-foreign-funcallable av-app-save-dialog-ex-selproto
                             ((dialog-params av-open-save-dialog-params)
                              (out-dialog-params
@@ -5465,7 +5489,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-begin-save-ex-sel+ 583))
+  (defconstant +av-app-begin-save-ex-sel+ 585))
 (define-foreign-funcallable av-app-begin-save-ex-selproto
                             ((dialog-params av-open-save-dialog-params)
                              (out-dialog-params
@@ -5479,7 +5503,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-register-idle-proc-ex-with-name-sel+ 584))
+  (defconstant +av-app-register-idle-proc-ex-with-name-sel+ 586))
 (define-foreign-funcallable av-app-register-idle-proc-ex-with-name-selproto
                             ((idle-proc av-idle-proc)
                              (client-data (:pointer :void))
@@ -5497,7 +5521,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-app-get-version-ex-sel+ 585))
+  (defconstant +av-app-get-version-ex-sel+ 587))
 (define-foreign-funcallable av-app-get-version-ex-selproto
                             ((av-version-params av-version-params))
                             :result-type
@@ -5505,7 +5529,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-extension-acquire-info-ex-sel+ 586))
+  (defconstant +av-extension-acquire-info-ex-sel+ 588))
 (define-foreign-funcallable av-extension-acquire-info-ex-selproto
                             ((n-index av-array-size))
                             :result-type
@@ -5513,7 +5537,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-extension-release-info-ex-sel+ 587))
+  (defconstant +av-extension-release-info-ex-sel+ 589))
 (define-foreign-funcallable av-extension-release-info-ex-selproto
                             ((info av-extension-info-ex))
                             :result-type
@@ -5521,7 +5545,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-bring-to-front-sel+ 588))
+  (defconstant +av-doc-bring-to-front-sel+ 590))
 (define-foreign-funcallable av-doc-bring-to-front-selproto
                             ((doc av-doc))
                             :result-type
@@ -5529,7 +5553,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-doc-get-display-title-sel+ 589))
+  (defconstant +av-doc-get-display-title-sel+ 591))
 (define-foreign-funcallable av-doc-get-display-title-selproto
                             ((doc av-doc) (title as-text))
                             :result-type
@@ -5537,7 +5561,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-icon-create-from-pdf-sel+ 590))
+  (defconstant +av-icon-create-from-pdf-sel+ 592))
 (define-foreign-funcallable av-icon-create-from-pdf-selproto
                             ((pd-doc pd-doc)
                              (page-num as-int32)
@@ -5548,7 +5572,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-tool-bar-set-icon-sel+ 591))
+  (defconstant +av-tool-bar-set-icon-sel+ 593))
 (define-foreign-funcallable av-tool-bar-set-icon-selproto
                             ((toolbar av-tool-bar)
                              (normal-icon av-icon)
@@ -5558,7 +5582,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-storage-register-new-storage-sel+ 592))
+  (defconstant +av-storage-register-new-storage-sel+ 594))
 (define-foreign-funcallable av-storage-register-new-storage-selproto
                             ((fs-name as-atom)
                              (info av-storage-entry)
@@ -5568,7 +5592,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-storage-register-account-sel+ 593))
+  (defconstant +av-storage-register-account-sel+ 595))
 (define-foreign-funcallable av-storage-register-account-selproto
                             ((storage-key as-const-text)
                              (account-label as-const-text)
@@ -5578,7 +5602,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-storage-get-account-info-sel+ 594))
+  (defconstant +av-storage-get-account-info-sel+ 596))
 (define-foreign-funcallable av-storage-get-account-info-selproto
                             ((storage-key as-const-text)
                              (account-id as-const-text))
@@ -5587,7 +5611,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-storage-perform-oauth2authentication-sel+ 595))
+  (defconstant +av-storage-perform-oauth2authentication-sel+ 597))
 (define-foreign-funcallable av-storage-perform-oauth2authentication-selproto
                             ((standard-oauth-params-cab as-cab)
                              (auth-step-additional-data as-cab)
@@ -5599,7 +5623,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-make-web-services-request-sel+ 596))
+  (defconstant +av-make-web-services-request-sel+ 598))
 (define-foreign-funcallable av-make-web-services-request-selproto
                             ((request av-web-service-request))
                             :result-type
@@ -5607,7 +5631,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-page-view-draw-now-optimized-sel+ 597))
+  (defconstant +av-page-view-draw-now-optimized-sel+ 599))
 (define-foreign-funcallable av-page-view-draw-now-optimized-selproto
                             ((page-view av-page-view))
                             :result-type
@@ -5615,7 +5639,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-make-acrobat-default-sel+ 598))
+  (defconstant +av-make-acrobat-default-sel+ 600))
 (define-foreign-funcallable av-make-acrobat-default-selproto
                             ((show-successwindow :boolean))
                             :result-type
@@ -5623,7 +5647,7 @@
                             :calling-convention
                             :cdecl)
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +av-window-get-platform-thing-ex-sel+ 599))
+  (defconstant +av-window-get-platform-thing-ex-sel+ 601))
 (define-foreign-funcallable av-window-get-platform-thing-ex-selproto
                             ((win av-window))
                             :result-type

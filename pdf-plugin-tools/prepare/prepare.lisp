@@ -389,7 +389,7 @@ corresponding FLI:DEFINE-C-STRUCT definition."
 ;; This pattern should match all possible xPROC macro calls
 (defparameter *xproc-regex1*
   (create-scanner
-   "(?m)^\\s*\\w*PROC\\s*\\(([^()]+)\\(([^()]+)\\)([^()]*)\\)"))
+   "(?m)^\\s*[A-Z]*PROC\\s*\\(([^()]+)\\(([^()]+)\\)([^()]*)\\)"))
 
 ;; NPROC(ASBool, ASUUIDGenFromHash, (ASUUID *dst, ASUns8 hash[16]))
 ;; NPROC(ASBool,	ASFileHasOutstandingMReads,(ASFile fN))
@@ -531,6 +531,9 @@ corresponding C code to *STANDARD-OUTPUT*."
                 (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
                         *line-number* contexts pos-contexts neg-contexts)
                 )))
+      ;; remove all C comments
+      (setq file-string
+            (regex-replace-all *remove-c-comment-regex* file-string ""))
       ;; enum + typedef
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)
