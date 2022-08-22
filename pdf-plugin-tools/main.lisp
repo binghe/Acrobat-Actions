@@ -145,7 +145,7 @@
                                            :allocation :static)))
       (with-foreign-slots (size k-lang-format sz-avapp-language k-lang-selector lang-id) params
         (setf size (size-of 'av-app-language-params-rec))
-        (when (av-app-get-language-with-params params)
+        (when nil ;; (av-app-get-language-with-params params)
           (let ((av-app-language (convert-from-foreign-string sz-avapp-language)))
             (plugin-log "[PluginInit] k-lang-format = ~A~%" k-lang-format)
             (plugin-log "[PluginInit] av-app-language = ~A~%" av-app-language)

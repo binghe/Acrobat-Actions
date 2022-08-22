@@ -867,7 +867,6 @@
 (define-foreign-funcallable pde-text-get-bbox-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (bbox-p as-fixed-rect-p))
                             :result-type
@@ -879,7 +878,6 @@
 (define-foreign-funcallable pde-text-get-gstate-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (state-p pde-graphic-state-p)
                              (state-size as-uns32))
@@ -892,7 +890,6 @@
 (define-foreign-funcallable pde-text-get-text-state-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (state-p pde-text-state-p)
                              (state-size as-uns32))
@@ -905,7 +902,6 @@
 (define-foreign-funcallable pde-text-get-font-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32))
                             :result-type
                             pde-font
@@ -916,7 +912,6 @@
 (define-foreign-funcallable pde-text-get-text-matrix-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (matrix-p as-fixed-matrix-p))
                             :result-type
@@ -928,7 +923,6 @@
 (define-foreign-funcallable pde-text-get-stroke-matrix-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (matrix-p as-fixed-matrix-p))
                             :result-type
@@ -940,8 +934,6 @@
 (define-foreign-funcallable pde-text-get-advance-width-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
-                             (nil nil)
                              (index as-int32)
                              (advance-p as-fixed-point-p))
                             :result-type
@@ -953,7 +945,6 @@
 (define-foreign-funcallable pde-text-get-text-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (text-buffer (:pointer as-uns8)))
                             :result-type
@@ -1265,8 +1256,6 @@
 (define-foreign-funcallable pde-text-get-quad-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
-                             (nil nil)
                              (index as-int32)
                              (quad-p as-fixed-quad-p))
                             :result-type
@@ -1441,7 +1430,6 @@
 (define-foreign-funcallable pde-text-is-at-point-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (point as-fixed-point))
                             :result-type
@@ -1453,7 +1441,6 @@
 (define-foreign-funcallable pde-text-is-at-rect-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (rect as-fixed-rect))
                             :result-type
@@ -1721,7 +1708,6 @@
 (define-foreign-funcallable pde-text-get-state-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (state-p pde-text-state-p)
                              (state-size as-uns32))
@@ -1782,7 +1768,6 @@
 (define-foreign-funcallable pde-text-get-matrix-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (matrix-p as-fixed-matrix-p))
                             :result-type
@@ -1858,8 +1843,6 @@
 (define-foreign-funcallable pde-text-get-advance-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
-                             (nil nil)
                              (index as-int32)
                              (advance-p as-fixed-point-p))
                             :result-type
@@ -2168,7 +2151,6 @@
 (define-foreign-funcallable pde-text-get-text-matrix-ex-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (matrix-p as-double-matrix-p))
                             :result-type
@@ -2180,7 +2162,6 @@
 (define-foreign-funcallable pde-text-get-stroke-matrix-ex-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (matrix-p as-double-matrix-p))
                             :result-type
@@ -2212,7 +2193,6 @@
 (define-foreign-funcallable pde-text-get-matrix-ex-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (matrix-p as-double-matrix-p))
                             :result-type
@@ -3362,8 +3342,6 @@
 (define-foreign-funcallable pde-content-to-cos-obj-selproto
                             ((pde-content pde-content)
                              (flags as-uns32)
-                             (k-pdecontent-to-page (:pointer /))
-                             (nil nil)
                              (attrs pde-content-attrs-p)
                              (attrs-size as-uns32)
                              (cos-doc cos-doc)
@@ -3487,7 +3465,6 @@
 (define-foreign-funcallable pde-text-add-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (text (:pointer as-uns8))
                              (text-len as-int32)
@@ -3507,7 +3484,6 @@
 (define-foreign-funcallable pde-text-remove-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (count as-int32))
                             :result-type
@@ -3876,7 +3852,6 @@
 (define-foreign-funcallable pde-text-replace-chars-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (text-buffer (:pointer as-uns8))
                              (num-chars as-int32))
@@ -4587,7 +4562,6 @@
 (define-foreign-funcallable pde-text-add-glyphs-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (glyph-run pde-glyph-run-p)
                              (font pde-font)
@@ -4944,7 +4918,6 @@
 (define-foreign-funcallable pde-text-add-glyphs-ex-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (glyph-run pde-glyph-run-p)
                              (font pde-font)
@@ -4963,7 +4936,6 @@
 (define-foreign-funcallable pde-text-add-ex-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (k-pdetext-run (:pointer /))
                              (index as-int32)
                              (text (:pointer as-uns8))
                              (text-len as-int32)

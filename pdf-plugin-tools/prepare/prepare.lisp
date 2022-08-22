@@ -93,6 +93,16 @@ defintion and writes it to the output stream."
                  `(:variadic-num-of-fixed ,variadic-num-of-fixed))
              :calling-convention :cdecl)))
 
+(defparameter *remove-c-comment-regex*
+  (create-scanner
+   "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
+  
+(defun collect-type-and-names (args)
+  (let ((real-args
+         (regex-replace-all *remove-c-comment-regex* args "")))
+    (loop for arg in (split "\\s*,\\s*" real-args)
+          collect (type-and-name arg t))))
+
 (defun handle-function (result-type c-name args)
   "Accepts one line of C code and checks if it's a function prototype.
 If it is one, we write a corresponding function definition to the
@@ -106,14 +116,11 @@ output stream."
              nil)
             ((scan "\\.\\.\\.$" args) ; variadic
              (register-groups-bind (real-args) ("^(.*),\\s*\\.\\.\\.$" args)
-               (let ((type-and-names
-                      (loop for arg in (split "\\s*,\\s*" real-args)
-                            collect (type-and-name arg t))))
+               (let ((type-and-names (collect-type-and-names real-args)))
                  (setq variadic-num-of-fixed (list-length type-and-names))
                  type-and-names)))
             (t
-             (loop for arg in (split "\\s*,\\s*" args)
-                   collect (type-and-name arg t))))
+             (collect-type-and-names args)))
       variadic-num-of-fixed)))
 
 (defun read-enum-value (string)
