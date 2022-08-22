@@ -97,12 +97,12 @@ output stream."
   (let ((lisp-name (mangle-name
                     (concatenate 'string c-name "-SELPROTO"))))
     (write-function-definition lisp-name (make-fli-type result-type)
-                               ;; args are separated by commas
-                               (cond ((string= args "void") ; no args
-                                      nil)
-                                     (t
-                                      (loop for arg in (split "\\s*,\\s*" args)
-                                            collect (type-and-name arg t)))))))
+      ;; args are separated by commas
+      (cond ((string= args "void") ; no args
+             nil)
+            (t
+             (loop for arg in (split "\\s*,\\s*" args)
+                   collect (type-and-name arg t)))))))
 
 (defun read-enum-value (string)
   "Reads the optional value part of a C enum and returns a
