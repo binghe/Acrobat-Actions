@@ -28,11 +28,10 @@
 
 (in-package :pdf-plugin-tools)
 
-(defvar *extension-name* nil)
+;; ExtensionName, used in plugin handshaking, must use the following syntax: Prefix_PluginName
 (defun get-extension-name ()
-  (unless *extension-name*
-    (setq *extension-name* (concatenate 'string *plugin-id* ":" *plugin-name*)))
-  (as-atom-from-string *extension-name*))
+  (let ((extension-name (format nil "~A_~A" *plugin-id* *plugin-name*)))
+    (as-atom-from-string extension-name)))
 
 (defun as-callback-create-proto (function)
   (as-callback-create *extension-id* function))

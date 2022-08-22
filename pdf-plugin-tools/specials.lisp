@@ -41,6 +41,7 @@
 #+:macosx
 (defvar *app-bundle*)
 (defvar *extension-id*)
+(defvar *av-app-language*)
 
 #+:mswindows
 (defvar *g-hwnd*)
@@ -79,6 +80,8 @@ version info."
 object (after called by CFRetain)"
       (documentation '*extension-id* 'variable)
       "A identifying cookie sometimes needed by the application"
+      (documentation '*av-app-language* 'variable)
+      "The country-language keyword of the host application, e.g. :zh-cn"
       )
 
 (defvar *product-name* nil
