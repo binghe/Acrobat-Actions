@@ -2962,10 +2962,13 @@
 (define-foreign-funcallable old-avapp-open-dialog-selproto
                             ((dialog-params
                               old-avopen-save-dialog-params)
-                             (nil nil)
-                             (nil nil)
-                             (nil nil)
-                             (nil nil))
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-names
+                              (:pointer (:pointer as-path-name)))
+                             (out-num-as-path-names
+                              (:pointer av-array-size))
+                             (io-chosen-filter-index
+                              (:pointer av-filter-index)))
                             :result-type
                             as-bool
                             :calling-convention
@@ -2975,9 +2978,10 @@
 (define-foreign-funcallable old-avapp-save-dialog-selproto
                             ((dialog-params
                               old-avopen-save-dialog-params)
-                             (nil nil)
-                             (nil nil)
-                             (nil nil))
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-name (:pointer as-path-name))
+                             (io-chosen-filter-index
+                              (:pointer av-filter-index)))
                             :result-type
                             as-bool
                             :calling-convention
@@ -2987,8 +2991,9 @@
 (define-foreign-funcallable old-avapp-choose-folder-dialog-selproto
                             ((dialog-params
                               old-avopen-save-dialog-params)
-                             (nil nil)
-                             (nil nil))
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-name
+                              (:pointer as-path-name)))
                             :result-type
                             as-bool
                             :calling-convention
@@ -4525,10 +4530,13 @@
   (defconstant +av-app-open-dialog-sel+ 485))
 (define-foreign-funcallable av-app-open-dialog-selproto
                             ((dialog-params av-open-save-dialog-params)
-                             (nil nil)
-                             (nil nil)
-                             (nil nil)
-                             (nil nil))
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-names
+                              (:pointer (:pointer as-path-name)))
+                             (out-num-as-path-names
+                              (:pointer av-array-size))
+                             (io-chosen-filter-index
+                              (:pointer av-filter-index)))
                             :result-type
                             as-bool
                             :calling-convention
@@ -4537,9 +4545,10 @@
   (defconstant +av-app-save-dialog-sel+ 486))
 (define-foreign-funcallable av-app-save-dialog-selproto
                             ((dialog-params av-open-save-dialog-params)
-                             (nil nil)
-                             (nil nil)
-                             (nil nil))
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-name (:pointer as-path-name))
+                             (io-chosen-filter-index
+                              (:pointer av-filter-index)))
                             :result-type
                             as-bool
                             :calling-convention
@@ -4548,8 +4557,9 @@
   (defconstant +av-app-choose-folder-dialog-sel+ 487))
 (define-foreign-funcallable av-app-choose-folder-dialog-selproto
                             ((dialog-params av-open-save-dialog-params)
-                             (nil nil)
-                             (nil nil))
+                             (out-file-sys (:pointer as-file-sys))
+                             (out-as-path-name
+                              (:pointer as-path-name)))
                             :result-type
                             as-bool
                             :calling-convention

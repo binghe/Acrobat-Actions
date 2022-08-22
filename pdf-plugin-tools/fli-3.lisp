@@ -2868,7 +2868,7 @@
                              (note-title-len as-int32)
                              (color pd-color-value)
                              (prog-mon (:pointer :void))
-                             (nil nil)
+                             (mon-client-data (:pointer :void))
                              (import-filter
                               pd-doc-will-import-annot-callback))
                             :result-type
@@ -2882,7 +2882,7 @@
                              (unused1 as-file-sys)
                              (unused2 as-path-name)
                              (unused3 (:pointer :void))
-                             (nil nil)
+                             (unused4 (:pointer :void))
                              (export-filter
                               pd-doc-will-export-annot-callback)
                              (num-notes-p (:pointer as-int32)))
@@ -3164,7 +3164,7 @@
                             ((doc pd-doc)
                              (source-doc pd-doc)
                              (prog-mon (:pointer :void))
-                             (nil nil)
+                             (mon-client-data (:pointer :void))
                              (import-filter
                               pd-doc-will-import-annot-callback))
                             :result-type
@@ -3453,7 +3453,7 @@
                              (unused1 as-file-sys)
                              (unused2 as-path-name)
                              (unused3 (:pointer :void))
-                             (nil nil)
+                             (unused4 (:pointer :void))
                              (export-filter
                               pd-doc-will-export-annot-callback)
                              (pdan-array pd-annot-array)

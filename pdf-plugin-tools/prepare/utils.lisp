@@ -121,7 +121,9 @@ the Lisp symbol to denote a Lisp constant."
 (defparameter *type-and-name-regex*
   (create-scanner
    (concatenate 'string
-                "^\\s*([^*]+)(?<!\\s)"
+                "(?sm)^\\s*"
+                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)?" ; C comments                
+                "([^*]+)(?<!\\s)"
                 "(?:(\\s*\\*(?:\\s*\\*)?\\s+|\\s+\\*(?:(?:\\s*const)?\\s*\\*)?\\s*)|\\s+)"
                 "(\\w+)(\\[(\\w+)?\\])?\\s*$")))
 

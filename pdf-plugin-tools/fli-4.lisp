@@ -868,7 +868,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (bbox-p as-fixed-rect-p))
                             :result-type
                             :void
@@ -880,7 +880,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (state-p pde-graphic-state-p)
                              (state-size as-uns32))
                             :result-type
@@ -893,7 +893,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (state-p pde-text-state-p)
                              (state-size as-uns32))
                             :result-type
@@ -906,7 +906,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil))
+                             (index as-int32))
                             :result-type
                             pde-font
                             :calling-convention
@@ -917,7 +917,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (matrix-p as-fixed-matrix-p))
                             :result-type
                             :void
@@ -929,7 +929,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (matrix-p as-fixed-matrix-p))
                             :result-type
                             :void
@@ -942,7 +942,7 @@
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
                              (nil nil)
-                             (nil nil)
+                             (index as-int32)
                              (advance-p as-fixed-point-p))
                             :result-type
                             :void
@@ -954,7 +954,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (text-buffer (:pointer as-uns8)))
                             :result-type
                             as-int32
@@ -1267,7 +1267,7 @@
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
                              (nil nil)
-                             (nil nil)
+                             (index as-int32)
                              (quad-p as-fixed-quad-p))
                             :result-type
                             :void
@@ -1397,7 +1397,7 @@
 (define-foreign-funcallable pde-text-get-num-bytes-selproto
                             ((pde-text pde-text)
                              (flags as-uns32)
-                             (nil nil))
+                             (index as-int32))
                             :result-type
                             as-int32
                             :calling-convention
@@ -1442,7 +1442,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (point as-fixed-point))
                             :result-type
                             as-bool
@@ -1454,7 +1454,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (rect as-fixed-rect))
                             :result-type
                             as-bool
@@ -1722,7 +1722,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (state-p pde-text-state-p)
                              (state-size as-uns32))
                             :result-type
@@ -1783,7 +1783,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (matrix-p as-fixed-matrix-p))
                             :result-type
                             :void
@@ -1860,7 +1860,7 @@
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
                              (nil nil)
-                             (nil nil)
+                             (index as-int32)
                              (advance-p as-fixed-point-p))
                             :result-type
                             :void
@@ -2169,7 +2169,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (matrix-p as-double-matrix-p))
                             :result-type
                             :void
@@ -2181,7 +2181,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (matrix-p as-double-matrix-p))
                             :result-type
                             :void
@@ -2213,7 +2213,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (matrix-p as-double-matrix-p))
                             :result-type
                             :void
@@ -3364,7 +3364,7 @@
                              (flags as-uns32)
                              (k-pdecontent-to-page (:pointer /))
                              (nil nil)
-                             (nil nil)
+                             (attrs pde-content-attrs-p)
                              (attrs-size as-uns32)
                              (cos-doc cos-doc)
                              (filters-p pde-filter-array-p)
@@ -3488,7 +3488,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (text (:pointer as-uns8))
                              (text-len as-int32)
                              (font pde-font)
@@ -3508,7 +3508,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (count as-int32))
                             :result-type
                             :void
@@ -3603,7 +3603,7 @@
 (define-foreign-funcallable pde-clip-add-elem-selproto
                             ((clip pde-clip)
                              (add-after-index as-int32)
-                             (nil nil))
+                             (pde-element pde-element))
                             :result-type
                             :void
                             :calling-convention
@@ -3877,7 +3877,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (text-buffer (:pointer as-uns8))
                              (num-chars as-int32))
                             :result-type
@@ -4588,7 +4588,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (glyph-run pde-glyph-run-p)
                              (font pde-font)
                              (gstate-p pde-graphic-state-p)
@@ -4945,7 +4945,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (glyph-run pde-glyph-run-p)
                              (font pde-font)
                              (gstate-p pde-graphic-state-p)
@@ -4964,7 +4964,7 @@
                             ((pde-text pde-text)
                              (flags as-uns32)
                              (k-pdetext-run (:pointer /))
-                             (nil nil)
+                             (index as-int32)
                              (text (:pointer as-uns8))
                              (text-len as-int32)
                              (font pde-font)
