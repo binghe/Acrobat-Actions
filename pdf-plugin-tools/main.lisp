@@ -141,6 +141,17 @@
  false to cause plug-in loading to stop."
   (plugin-log "[PluginInit] begin.~%")
   (block plugin-init
+    (let ((params (allocate-foreign-object :pointer-type 'av-app-language-params
+                                           :allocation :static)))
+      (with-foreign-slots (size k-lang-format sz-avapp-language k-lang-selector lang-id) params
+        (setf size (size-of 'av-app-language-params-rec))
+        (when (av-app-get-language-with-params params)
+          (let ((av-app-language (convert-from-foreign-string sz-avapp-language)))
+            (plugin-log "[PluginInit] k-lang-format = ~A~%" k-lang-format)
+            (plugin-log "[PluginInit] av-app-language = ~A~%" av-app-language)
+            (plugin-log "[PluginInit] k-lang-selector = ~A~%" k-lang-selector)
+            (plugin-log "[PluginInit] lang-id = ~A~%" lang-id))))
+      (free-foreign-object params))
     (unless (plugin-set-menu)
       (plugin-log "[PluginInit] end badly.~%")
       (return-from plugin-init nil))

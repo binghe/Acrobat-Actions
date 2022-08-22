@@ -86,1292 +86,14 @@
 ;; #include <PDProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +pd-action-new-sel+ 1))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-new-from-dest-sel+ 2))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-new-from-file-spec-sel+ 3))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-destroy-sel+ 4))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-is-valid-sel+ 5))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-get-subtype-sel+ 6))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-equal-sel+ 7))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-get-dest-sel+ 8))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-get-cos-obj-sel+ 9))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-from-cos-obj-sel+ 10))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-get-file-spec-sel+ 11))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-notify-will-change-sel+ 12))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-notify-did-change-sel+ 13))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-create-annot-sel+ 14))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-is-valid-sel+ 15))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-subtype-sel+ 16))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-rect-sel+ 17))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-rect-sel+ 18))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-equal-sel+ 19))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-color-sel+ 20))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-color-sel+ 21))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-title-sel+ 22))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-title-sel+ 23))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-date-sel+ 24))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-date-sel+ 25))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-cos-obj-sel+ 26))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-from-cos-obj-sel+ 27))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-annot-get-contents-sel+ 28))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-annot-set-contents-sel+ 29))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-annot-is-open-sel+ 30))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-annot-set-open-sel+ 31))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-link-annot-get-border-sel+ 32))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-link-annot-set-border-sel+ 33))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-link-annot-set-action-sel+ 34))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-link-annot-get-action-sel+ 35))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-flags-sel+ 36))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-flags-sel+ 37))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-add-new-sibling-sel+ 38))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-add-new-child-sel+ 39))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-add-subtree-sel+ 40))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-destroy-sel+ 41))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-by-title-sel+ 42))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-count-sel+ 43))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-add-prev-sel+ 44))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-add-next-sel+ 45))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-add-child-sel+ 46))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-unlink-sel+ 47))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-is-valid-sel+ 48))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-parent-sel+ 49))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-first-child-sel+ 50))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-last-child-sel+ 51))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-next-sel+ 52))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-prev-sel+ 53))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-indent-sel+ 54))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-title-sel+ 55))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-set-title-sel+ 56))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-has-children-sel+ 57))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-is-open-sel+ 58))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-set-open-sel+ 59))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-action-sel+ 60))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-set-action-sel+ 61))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-equal-sel+ 62))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-cos-obj-sel+ 63))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-from-cos-obj-sel+ 64))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-enum-docs-sel+ 65))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-open-sel+ 66))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-open-action-sel+ 67))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-open-action-sel+ 68))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-sel+ 69))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-save-sel+ 70))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-close-sel+ 71))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-acquire-sel+ 72))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-release-sel+ 73))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-flags-sel+ 74))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-flags-sel+ 75))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-page-mode-sel+ 76))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-page-mode-sel+ 77))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-cos-doc-sel+ 78))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-file-sel+ 79))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-id-sel+ 80))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-version-sel+ 81))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-bookmark-root-sel+ 82))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-num-pages-sel+ 83))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-acquire-page-sel+ 84))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-page-sel+ 85))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-delete-pages-sel+ 86))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-move-page-sel+ 87))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-insert-pages-sel+ 88))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-replace-pages-sel+ 89))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-num-threads-sel+ 90))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-thread-sel+ 91))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-thread-index-sel+ 92))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-add-thread-sel+ 93))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-remove-thread-sel+ 94))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-enum-fonts-sel+ 95))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-enum-loaded-fonts-sel+ 96))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-thumbs-sel+ 97))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-delete-thumbs-sel+ 98))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-word-finder-sel+ 99))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-word-finder-sel+ 100))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-get-nth-word-sel+ 101))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-split-string-sel+ 102))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-text-select-sel+ 103))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-info-sel+ 104))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-info-sel+ 105))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-security-data-sel+ 106))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-new-security-data-sel+ 107))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-authorize-sel+ 108))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-new-security-data-sel+ 109))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-new-security-data-sel+ 110))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-new-crypt-handler-sel+ 111))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-new-crypt-handler-sel+ 112))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-new-security-info-sel+ 113))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-permissions-sel+ 114))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-register-crypt-handler-sel+ 115))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xlate-to-pdf-doc-enc-sel+ 116))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xlate-to-host-sel+ 117))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-name-sel+ 118))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-subtype-sel+ 119))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-char-set-sel+ 120))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-encoding-index-sel+ 121))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-acquire-encoding-array-sel+ 122))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-encoding-array-release-sel+ 123))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-metrics-sel+ 124))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-bbox-sel+ 125))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-widths-sel+ 126))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-get-pdf-doc-encoding-sel+ 127))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-is-embedded-sel+ 128))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-xlate-widths-sel+ 129))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-xlate-string-sel+ 130))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-acquire-xlate-table-sel+ 131))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-xlate-table-release-sel+ 132))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-font-matrix-sel+ 133))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-set-metrics-sel+ 134))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-cos-obj-sel+ 135))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-notify-contents-did-change-sel+ 136))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-number-sel+ 137))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-release-sel+ 138))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-doc-sel+ 139))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-cos-obj-sel+ 140))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-num-from-cos-obj-sel+ 141))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-rotate-sel+ 142))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-rotate-sel+ 143))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-media-box-sel+ 144))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-media-box-sel+ 145))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-crop-box-sel+ 146))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-crop-box-sel+ 147))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-bbox-sel+ 148))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-default-matrix-sel+ 149))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-flipped-matrix-sel+ 150))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-annot-sel+ 151))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-add-new-annot-sel+ 152))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-add-annot-sel+ 153))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-remove-annot-sel+ 154))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-annot-index-sel+ 155))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-num-annots-sel+ 156))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-cos-resources-sel+ 157))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-add-cos-resource-sel+ 158))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-add-cos-contents-sel+ 159))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-remove-cos-resource-sel+ 160))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-remove-cos-contents-sel+ 161))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-enum-resources-sel+ 162))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-enum-contents-sel+ 163))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-graphic-get-bbox-sel+ 164))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-graphic-get-current-matrix-sel+ 165))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-graphic-get-state-sel+ 166))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-enum-sel+ 167))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-get-state-sel+ 168))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-path-enum-sel+ 169))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-path-get-paint-op-sel+ 170))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-inline-image-get-attrs-sel+ 171))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-inline-image-get-data-sel+ 172))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-inline-image-color-space-get-index-lookup-sel+ 173))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xobject-get-subtype-sel+ 174))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xobject-get-cos-obj-sel+ 175))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xobject-get-data-length-sel+ 176))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xobject-get-data-sel+ 177))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xobject-enum-filters-sel+ 178))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-image-get-attrs-sel+ 179))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-image-color-space-get-index-lookup-sel+ 180))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-get-form-type-sel+ 181))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-get-bbox-sel+ 182))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-get-matrix-sel+ 183))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-get-xuidcos-obj-sel+ 184))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-enum-resources-sel+ 185))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-enum-paint-proc-sel+ 186))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-enum-char-procs-sel+ 187))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-char-proc-enum-sel+ 188))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-char-proc-get-cos-obj-sel+ 189))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-new-sel+ 190))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-destroy-sel+ 191))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-get-first-bead-sel+ 192))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-set-first-bead-sel+ 193))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-get-info-sel+ 194))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-set-info-sel+ 195))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-is-valid-sel+ 196))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-get-cos-obj-sel+ 197))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thread-from-cos-obj-sel+ 198))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-new-sel+ 199))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-destroy-sel+ 200))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-get-next-sel+ 201))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-get-prev-sel+ 202))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-insert-sel+ 203))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-acquire-page-sel+ 204))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-set-page-sel+ 205))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-get-rect-sel+ 206))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-set-rect-sel+ 207))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-is-valid-sel+ 208))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-get-thread-sel+ 209))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-get-index-sel+ 210))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-equal-sel+ 211))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-get-cos-obj-sel+ 212))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bead-from-cos-obj-sel+ 213))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-create-sel+ 214))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-destroy-sel+ 215))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-is-valid-sel+ 216))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-get-attr-sel+ 217))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-get-cos-obj-sel+ 218))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-from-cos-obj-sel+ 219))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-destroy-sel+ 220))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-enum-quads-sel+ 221))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-enum-text-sel+ 222))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-get-page-sel+ 223))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-get-bounding-rect-sel+ 224))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-create-page-hilite-sel+ 225))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-create-word-hilite-sel+ 226))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-get-range-sel+ 227))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-get-range-count-sel+ 228))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-create-ranges-sel+ 229))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-acquire-word-list-sel+ 230))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-get-latest-alg-version-sel+ 231))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-release-word-list-sel+ 232))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-destroy-sel+ 233))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-enum-words-sel+ 234))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-length-sel+ 235))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-string-sel+ 236))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-attr-sel+ 237))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-character-types-sel+ 238))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-char-offset-sel+ 239))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-char-delta-sel+ 240))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-style-transition-sel+ 241))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-nth-char-style-sel+ 242))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-num-quads-sel+ 243))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-nth-quad-sel+ 244))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-is-rotated-sel+ 245))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-filter-string-sel+ 246))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-filter-word-sel+ 247))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-style-get-font-sel+ 248))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-style-get-font-size-sel+ 249))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-style-get-color-sel+ 250))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-new-from-as-path-sel+ 251))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-from-cos-obj-sel+ 252))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-get-file-sys-sel+ 253))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-acquire-as-path-sel+ 254))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-get-cos-obj-sel+ 255))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-is-valid-sel+ 256))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-register-file-spec-handler-sel+ 257))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-get-dipath-sel+ 258))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-set-color-cal-sel+ 259))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-get-color-cal-sel+ 260))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-notify-contents-did-change-ex-sel+ 261))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-clear-flags-sel+ 262))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-open-from-as-file-sel+ 263))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-get-doc-sel+ 264))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-get-file-sys-name-sel+ 265))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-register-file-spec-handler-by-name-sel+ 266))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-stm-get-inline-image-sel+ 267))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-view-dest-resolve-sel+ 268))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-is-valid-sel+ 269))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-null-sel+ 270))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-from-cos-obj-sel+ 271))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-get-cos-obj-sel+ 272))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-equal-sel+ 273))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-has-transition-sel+ 274))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-transition-sel+ 275))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-transition-sel+ 276))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-duration-sel+ 277))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-duration-sel+ 278))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-new-from-cos-doc-sel+ 279))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-new-sel+ 280))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-get-subtype-sel+ 281))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-trans-get-duration-sel+ 282))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-read-ahead-sel+ 283))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-open-ex-sel+ 284))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-open-from-as-file-ex-sel+ 285))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-register-crypt-handler-ex-sel+ 286))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-crypt-handler-client-data-sel+ 287))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-full-screen-sel+ 288))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-full-screen-sel+ 289))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-save-with-params-sel+ 290))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-lookup-sel+ 291))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-descendant-sel+ 292))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-encoding-name-sel+ 293))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-cidsystem-info-sel+ 294))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-cidsystem-supplement-sel+ 295))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xlate-to-host-ex-sel+ 296))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xlate-to-pdf-doc-enc-ex-sel+ 297))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-host-mblen-sel+ 298))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-get-host-encoding-sel+ 299))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-word-finder-ucs-sel+ 300))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-xlate-to-host-sel+ 301))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-xlate-to-ucs-sel+ 302))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-from-cos-doc-sel+ 303))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-enum-resources-sel+ 304))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-annot-sequence-sel+ 305))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-register-annot-handler-sel+ 306))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-get-annot-handler-by-name-sel+ 307))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-new-sel+ 308))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-from-cos-obj-sel+ 309))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-get-cos-obj-sel+ 310))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-is-valid-sel+ 311))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-equal-sel+ 312))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-put-sel+ 313))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-get-sel+ 314))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-remove-sel+ 315))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-enum-sel+ 316))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-name-tree-sel+ 317))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-name-tree-sel+ 318))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-remove-name-tree-sel+ 319))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-is-valid-sel+ 320))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-equal-sel+ 321))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-get-cos-obj-sel+ 322))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-from-cos-obj-sel+ 323))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-get-style-sel+ 324))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-get-prefix-sel+ 325))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-get-start-sel+ 326))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-page-label-sel+ 327))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-new-sel+ 328))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-page-label-sel+ 329))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-remove-page-label-sel+ 330))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-open-with-params-sel+ 331))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-read-ahead-pages-sel+ 332))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-label-for-page-num-sel+ 333))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-find-page-num-for-label-sel+ 334))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-image-select-alternate-sel+ 335))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-image-sel-get-geo-attr-sel+ 336))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-image-sel-get-device-attr-sel+ 337))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-image-sel-adjust-matrix-sel+ 338))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-apply-function-sel+ 339))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-new-sel+ 340))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-from-cos-obj-sel+ 341))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-get-cos-obj-sel+ 342))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-is-valid-sel+ 343))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-equal-sel+ 344))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-put-sel+ 345))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-get-sel+ 346))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-remove-sel+ 347))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-num-tree-enum-sel+ 348))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-from-cos-obj-sel+ 349))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-copy-to-file-sel+ 350))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-perm-request-sel+ 351))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-box-sel+ 352))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-box-sel+ 353))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-link-annot-remove-action-sel+ 354))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-remove-action-sel+ 355))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-remove-open-action-sel+ 356))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-notify-name-added-sel+ 357))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-name-tree-notify-name-removed-sel+ 358))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-page-obj-by-num-sel+ 359))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-enum-text-ucs-sel+ 360))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-color-sel+ 361))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-set-color-sel+ 362))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-get-flags-sel+ 363))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-bookmark-set-flags-sel+ 364))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-has-transparency-sel+ 365))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-create-page-hilite-ex-sel+ 366))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-create-word-hilite-ex-sel+ 367))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-select-create-ranges-ex-sel+ 368))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-enum-inks-sel+ 369))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-make-separations-sel+ 370))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-word-finder-ex-sel+ 371))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-char-offset-ex-sel+ 372))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-char-quad-sel+ 373))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-num-hilite-char-sel+ 374))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-byte-idx-from-hilite-char-sel+ 375))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-as-text-sel+ 376))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-char-enc-flags-sel+ 377))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-get-attr-ex-sel+ 378))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-create-text-select-sel+ 379))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-enum-words-str-sel+ 380))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-register-action-handler-sel+ 381))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-can-copy-sel+ 382))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-copy-sel+ 383))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-can-paste-sel+ 384))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-paste-sel+ 385))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-destroy-clipboard-data-sel+ 386))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgcreate-sel+ 387))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgcreate-from-cos-obj-sel+ 388))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgdestroy-sel+ 389))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-cos-obj-sel+ 390))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-from-cos-obj-sel+ 391))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-pddoc-sel+ 392))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-name-sel+ 393))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-name-sel+ 394))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-initial-state-sel+ 395))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-initial-state-sel+ 396))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgremove-initial-state-sel+ 397))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-usage-dict-entry-sel+ 398))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocghas-usage-info-sel+ 399))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-usage-entry-sel+ 400))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-intent-sel+ 401))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-intent-sel+ 402))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-current-state-sel+ 403))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-current-state-sel+ 404))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgused-in-occontext-sel+ 405))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgused-in-occonfig-sel+ 406))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-enum-ocgs-sel+ 407))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-enum-ocgs-sel+ 408))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-ocgs-sel+ 409))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdcreate-sel+ 410))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdfind-or-create-sel+ 411))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdget-cos-obj-sel+ 412))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdget-pddoc-sel+ 413))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdget-from-cos-obj-sel+ 414))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdget-ocgs-sel+ 415))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdget-vis-policy-sel+ 416))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-ocmd-sel+ 417))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-ocmd-sel+ 418))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-remove-ocmd-sel+ 419))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdis-currently-visible-sel+ 420))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmds-are-currently-visible-sel+ 421))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-is-currently-visible-sel+ 422))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmds-make-content-visible-sel+ 423))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-new-sel+ 424))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-free-sel+ 425))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-occontext-sel+ 426))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-get-pddoc-sel+ 427))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-init-sel+ 428))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-make-copy-sel+ 429))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-new-with-ocdisabled-sel+ 430))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-new-with-initial-state-sel+ 431))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-get-ocgstates-sel+ 432))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-set-ocgstates-sel+ 433))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-make-copy-with-auto-state-changes-sel+ 434))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-find-auto-state-changes-sel+ 435))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-apply-auto-state-changes-sel+ 436))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-set-ocdraw-enum-type-sel+ 437))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-get-ocdraw-enum-type-sel+ 438))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-set-intent-sel+ 439))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-get-intent-sel+ 440))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-set-non-ocdrawing-sel+ 441))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-get-non-ocdrawing-sel+ 442))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-reset-ocmdstack-sel+ 443))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-push-ocmd-sel+ 444))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-pop-ocmd-sel+ 445))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-content-is-visible-sel+ 446))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-xobject-is-visible-sel+ 447))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-create-sel+ 448))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-destroy-sel+ 449))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-occonfig-sel+ 450))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-pddoc-sel+ 451))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-cos-obj-sel+ 452))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-set-ocgorder-sel+ 453))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-ocgorder-sel+ 454))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-make-radio-button-group-sel+ 455))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-radio-button-group-for-ocg-sel+ 456))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-all-radio-button-groups-sel+ 457))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-set-init-state-sel+ 458))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-init-state-sel+ 459))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-set-name-sel+ 460))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-name-sel+ 461))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-set-creator-sel+ 462))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-creator-sel+ 463))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-set-intent-sel+ 464))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-intent-sel+ 465))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-enum-occonfigs-sel+ 466))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-has-oc-sel+ 467))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-num-ocgs-sel+ 468))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-ocgs-sel+ 469))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-replace-ocg-sel+ 470))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-user-override-sel+ 471))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-user-override-sel+ 472))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occontext-clear-all-user-overrides-sel+ 473))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-flatten-oc-sel+ 474))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-flatten-oc-sel+ 475))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-form-enum-paint-proc-with-params-sel+ 476))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-char-proc-enum-with-params-sel+ 477))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-acquire-visible-word-list-sel+ 478))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-is-currently-visible-sel+ 479))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-make-visible-sel+ 480))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-word-finder-enum-visible-words-sel+ 481))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-visible-bbox-sel+ 482))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-new-crypt-filter-method-sel+ 483))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-new-crypt-filter-data-sel+ 484))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-new-default-filters-sel+ 485))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-crypt-authorize-filter-access-sel+ 486))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-request-pages-sel+ 487))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-request-entire-file-sel+ 488))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-set-host-encoding-sel+ 489))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-can-copy-sel+ 490))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-copy-sel+ 491))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-can-paste-sel+ 492))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-paste-sel+ 493))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-destroy-clipboard-data-sel+ 494))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-read-ahead-embedded-file-sel+ 495))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-new-crypt-handler-ex-sel+ 496))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-trapped-sel+ 497))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-trapped-sel+ 498))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-label-for-page-num-ex-sel+ 499))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-find-page-num-for-label-ex-sel+ 500))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-font-get-as-text-name-sel+ 501))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-acquire-page-sel+ 502))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgget-locked-sel+ 503))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocgset-locked-sel+ 504))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-get-locked-array-sel+ 505))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-occonfig-set-locked-array-sel+ 506))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdfind-or-create-ex-sel+ 507))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-ocmdget-visibility-expression-sel+ 508))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-get-user-unit-size-sel+ 509))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-set-user-unit-size-sel+ 510))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-perm-request-no-ub-sel+ 511))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-enum-inks-ex-sel+ 512))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-add-watermark-from-pdpage-sel+ 513))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-add-watermark-from-text-sel+ 514))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-layout-mode-sel+ 515))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-layout-mode-sel+ 516))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-crypt-handler-sel+ 517))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-new-from-as-path-ex-sel+ 518))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-acquire-as-path-ex-sel+ 519))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-spec-get-dipath-ex-sel+ 520))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-get-title-as-text-sel+ 521))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-annot-set-title-as-text-sel+ 522))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-annot-get-contents-as-text-sel+ 523))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-text-annot-set-contents-as-text-sel+ 524))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-xlate-to-as-text-sel+ 525))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-new-as-text-sel+ 526))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-label-get-prefix-as-text-sel+ 527))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thumb-get-image-data-sel+ 528))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-thumb-get-indexed-color-space-sel+ 529))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-page-has-overprint-ext-sel+ 530))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-set-minor-version-sel+ 531))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-get-use-output-intents-sel+ 532))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-set-black-point-compensation-sel+ 533))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-get-black-point-compensation-sel+ 534))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-set-working-rgb-sel+ 535))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-set-working-cmyk-sel+ 536))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-set-working-gray-sel+ 537))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-apply-redactions-sel+ 538))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-redaction-sel+ 539))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-redaction-get-props-sel+ 540))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-redaction-set-props-sel+ 541))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-reset-ink-usage-sel+ 542))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-num-errors-sel+ 543))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-nth-error-sel+ 544))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-version-ex-sel+ 545))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-has-isoextensions-sel+ 546))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-is-valid-sel+ 547))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-new-from-file-sel+ 548))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-update-from-file-sel+ 549))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-save-to-file-sel+ 550))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-from-cos-obj-sel+ 551))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-cos-obj-sel+ 552))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-open-stream-sel+ 553))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-file-size-sel+ 554))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-creation-date-sel+ 555))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-mod-date-sel+ 556))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-file-name-sel+ 557))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-field-text-sel+ 558))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-field-styled-text-sel+ 559))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-field-text-sel+ 560))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-field-styled-text-sel+ 561))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-field-style-sel+ 562))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-field-style-sel+ 563))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-field-number-sel+ 564))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-field-number-sel+ 565))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-field-date-sel+ 566))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-field-date-sel+ 567))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-field-prefix-sel+ 568))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-field-prefix-sel+ 569))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-is-valid-sel+ 570))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-pdcollection-sel+ 571))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-create-pdcollection-sel+ 572))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-delete-collection-sel+ 573))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-get-sort-order-sel+ 574))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-set-sort-order-sel+ 575))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-get-view-data-sel+ 576))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-set-view-data-sel+ 577))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-schema-acquire-sel+ 578))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-schema-destroy-sel+ 579))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-schema-get-length-sel+ 580))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-schema-get-field-sel+ 581))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-schema-set-field-sel+ 582))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-schema-remove-field-sel+ 583))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-is-valid-sel+ 584))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-create-folder-sel+ 585))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-remove-folder-sel+ 586))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-get-folder-sel+ 587))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-set-initial-style-sel+ 588))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-get-initial-style-sel+ 589))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-collection-remove-initial-style-sel+ 590))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-parent-sel+ 591))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-parent-sel+ 592))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-first-child-sel+ 593))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-next-sibling-sel+ 594))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-name-sel+ 595))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-name-sel+ 596))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-id-sel+ 597))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-path-text-sel+ 598))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-mod-date-sel+ 599))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-mod-date-sel+ 600))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-creation-date-sel+ 601))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-creation-date-sel+ 602))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-description-sel+ 603))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-description-styled-sel+ 604))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-description-sel+ 605))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-description-styled-sel+ 606))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-field-text-sel+ 607))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-field-text-sel+ 608))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-field-styled-text-sel+ 609))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-field-styled-text-sel+ 610))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-field-style-sel+ 611))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-field-style-sel+ 612))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-field-number-sel+ 613))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-field-number-sel+ 614))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-get-field-date-sel+ 615))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-folder-set-field-date-sel+ 616))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-attachment-create-path-name-sel+ 617))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-attachment-get-pdf-ile-attachment-sel+ 618))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-attachment-get-pdf-older-sel+ 619))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-apply-function-ex-sel+ 620))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-crypt-version-sel+ 621))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-get-crypt-revision-sel+ 622))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-doc-clear-errors-sel+ 623))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-draw-page-or-cos-object-to-buffer-sel+ 624))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-relationship-text-sel+ 625))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-set-relationship-text-sel+ 626))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-new-from-structure-dest-sel+ 627))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-set-view-dest-sel+ 628))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-set-structure-dest-sel+ 629))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-action-get-structure-dest-sel+ 630))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-create-sel+ 631))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-destroy-sel+ 632))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-is-valid-sel+ 633))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-get-structure-element-sel+ 634))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-get-attr-sel+ 635))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-get-cos-obj-sel+ 636))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-structure-dest-from-cos-obj-sel+ 637))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-set-default-blending-color-space-sel+ 638))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-pref-get-default-blending-color-space-sel+ 639))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +pd-file-attachment-get-file-size64-sel+ 640))
-;; sel = 1
 (define-foreign-funcallable pd-action-new-selproto
                             ((doc pd-doc) (type as-atom))
                             :result-type
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 2
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-new-from-dest-sel+ 2))
 (define-foreign-funcallable pd-action-new-from-dest-selproto
                             ((doc pd-doc)
                              (dest pd-view-destination)
@@ -1380,7 +102,8 @@
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 3
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-new-from-file-spec-sel+ 3))
 (define-foreign-funcallable pd-action-new-from-file-spec-selproto
                             ((containing-doc pd-doc)
                              (type as-atom)
@@ -1389,70 +112,80 @@
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 4
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-destroy-sel+ 4))
 (define-foreign-funcallable pd-action-destroy-selproto
                             ((action pd-action))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 5
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-is-valid-sel+ 5))
 (define-foreign-funcallable pd-action-is-valid-selproto
                             ((action pd-action))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 6
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-get-subtype-sel+ 6))
 (define-foreign-funcallable pd-action-get-subtype-selproto
                             ((action pd-action))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 7
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-equal-sel+ 7))
 (define-foreign-funcallable pd-action-equal-selproto
                             ((action pd-action) (action2 pd-action))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 8
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-get-dest-sel+ 8))
 (define-foreign-funcallable pd-action-get-dest-selproto
                             ((action pd-action))
                             :result-type
                             pd-view-destination
                             :calling-convention
                             :cdecl)
-;; sel = 9
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-get-cos-obj-sel+ 9))
 (define-foreign-funcallable pd-action-get-cos-obj-selproto
                             ((action pd-action))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 10
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-from-cos-obj-sel+ 10))
 (define-foreign-funcallable pd-action-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 11
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-get-file-spec-sel+ 11))
 (define-foreign-funcallable pd-action-get-file-spec-selproto
                             ((action pd-action))
                             :result-type
                             pd-file-spec
                             :calling-convention
                             :cdecl)
-;; sel = 12
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-notify-will-change-sel+ 12))
 (define-foreign-funcallable pd-annot-notify-will-change-selproto
                             ((annot pd-annot) (key as-atom))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 13
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-notify-did-change-sel+ 13))
 (define-foreign-funcallable pd-annot-notify-did-change-selproto
                             ((annot pd-annot)
                              (key as-atom)
@@ -1461,7 +194,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 14
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-create-annot-sel+ 14))
 (define-foreign-funcallable pd-page-create-annot-selproto
                             ((a-page pd-page)
                              (sub-type as-atom)
@@ -1471,21 +205,24 @@
                             pd-annot
                             :calling-convention
                             :cdecl)
-;; sel = 15
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-is-valid-sel+ 15))
 (define-foreign-funcallable pd-annot-is-valid-selproto
                             ((an-annot pd-annot))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 16
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-subtype-sel+ 16))
 (define-foreign-funcallable pd-annot-get-subtype-selproto
                             ((an-annot pd-annot))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 17
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-rect-sel+ 17))
 (define-foreign-funcallable pd-annot-get-rect-selproto
                             ((an-annot pd-annot)
                              (box-p (:pointer as-fixed-rect)))
@@ -1493,7 +230,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 18
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-rect-sel+ 18))
 (define-foreign-funcallable pd-annot-set-rect-selproto
                             ((an-annot pd-annot)
                              (new-box (:pointer as-fixed-rect)))
@@ -1501,14 +239,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 19
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-equal-sel+ 19))
 (define-foreign-funcallable pd-annot-equal-selproto
                             ((an-annot pd-annot) (annot2 pd-annot))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 20
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-color-sel+ 20))
 (define-foreign-funcallable pd-annot-get-color-selproto
                             ((an-annot pd-annot)
                              (color pd-color-value))
@@ -1516,7 +256,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 21
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-color-sel+ 21))
 (define-foreign-funcallable pd-annot-set-color-selproto
                             ((an-annot pd-annot)
                              (color pd-color-value))
@@ -1524,7 +265,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 22
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-title-sel+ 22))
 (define-foreign-funcallable pd-annot-get-title-selproto
                             ((an-annot pd-annot)
                              (buffer (:reference-pass :ef-mb-string))
@@ -1533,7 +275,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 23
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-title-sel+ 23))
 (define-foreign-funcallable pd-annot-set-title-selproto
                             ((an-annot pd-annot)
                              (str (:reference-pass :ef-mb-string))
@@ -1542,35 +285,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 24
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-date-sel+ 24))
 (define-foreign-funcallable pd-annot-get-date-selproto
                             ((an-annot pd-annot) (date as-time-rec-p))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 25
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-date-sel+ 25))
 (define-foreign-funcallable pd-annot-set-date-selproto
                             ((an-annot pd-annot) (date as-time-rec-p))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 26
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-cos-obj-sel+ 26))
 (define-foreign-funcallable pd-annot-get-cos-obj-selproto
                             ((annot pd-annot))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 27
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-from-cos-obj-sel+ 27))
 (define-foreign-funcallable pd-annot-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-annot
                             :calling-convention
                             :cdecl)
-;; sel = 28
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-annot-get-contents-sel+ 28))
 (define-foreign-funcallable pd-text-annot-get-contents-selproto
                             ((a-text-annot pd-text-annot)
                              (buffer (:reference-pass :ef-mb-string))
@@ -1579,7 +327,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 29
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-annot-set-contents-sel+ 29))
 (define-foreign-funcallable pd-text-annot-set-contents-selproto
                             ((a-text-annot pd-text-annot)
                              (str (:reference-pass :ef-mb-string))
@@ -1588,14 +337,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 30
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-annot-is-open-sel+ 30))
 (define-foreign-funcallable pd-text-annot-is-open-selproto
                             ((a-text-annot pd-text-annot))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 31
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-annot-set-open-sel+ 31))
 (define-foreign-funcallable pd-text-annot-set-open-selproto
                             ((a-text-annot pd-text-annot)
                              (is-open as-bool))
@@ -1603,7 +354,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 32
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-link-annot-get-border-sel+ 32))
 (define-foreign-funcallable pd-link-annot-get-border-selproto
                             ((a-link-annot pd-link-annot)
                              (border (:pointer pd-link-annot-border)))
@@ -1611,7 +363,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 33
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-link-annot-set-border-sel+ 33))
 (define-foreign-funcallable pd-link-annot-set-border-selproto
                             ((a-link-annot pd-link-annot)
                              (border (:pointer pd-link-annot-border)))
@@ -1619,7 +372,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 34
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-link-annot-set-action-sel+ 34))
 (define-foreign-funcallable pd-link-annot-set-action-selproto
                             ((a-link-annot pd-link-annot)
                              (action pd-action))
@@ -1627,28 +381,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 35
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-link-annot-get-action-sel+ 35))
 (define-foreign-funcallable pd-link-annot-get-action-selproto
                             ((a-link-annot pd-link-annot))
                             :result-type
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 36
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-flags-sel+ 36))
 (define-foreign-funcallable pd-annot-get-flags-selproto
                             ((an-annot pd-annot))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 37
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-flags-sel+ 37))
 (define-foreign-funcallable pd-annot-set-flags-selproto
                             ((an-annot pd-annot) (flags as-uns32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 38
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-add-new-sibling-sel+ 38))
 (define-foreign-funcallable pd-bookmark-add-new-sibling-selproto
                             ((a-bookmark pd-bookmark)
                              (initial-text
@@ -1657,7 +415,8 @@
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 39
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-add-new-child-sel+ 39))
 (define-foreign-funcallable pd-bookmark-add-new-child-selproto
                             ((a-bookmark pd-bookmark)
                              (initial-text
@@ -1666,7 +425,8 @@
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 40
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-add-subtree-sel+ 40))
 (define-foreign-funcallable pd-bookmark-add-subtree-selproto
                             ((a-bookmark pd-bookmark)
                              (source pd-bookmark)
@@ -1676,14 +436,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 41
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-destroy-sel+ 41))
 (define-foreign-funcallable pd-bookmark-destroy-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 42
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-by-title-sel+ 42))
 (define-foreign-funcallable pd-bookmark-get-by-title-selproto
                             ((a-bookmark pd-bookmark)
                              (aname (:reference-pass :ef-mb-string))
@@ -1693,14 +455,16 @@
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 43
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-count-sel+ 43))
 (define-foreign-funcallable pd-bookmark-get-count-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 44
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-add-prev-sel+ 44))
 (define-foreign-funcallable pd-bookmark-add-prev-selproto
                             ((a-bookmark pd-bookmark)
                              (new-prev pd-bookmark))
@@ -1708,7 +472,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 45
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-add-next-sel+ 45))
 (define-foreign-funcallable pd-bookmark-add-next-selproto
                             ((a-bookmark pd-bookmark)
                              (new-next pd-bookmark))
@@ -1716,7 +481,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 46
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-add-child-sel+ 46))
 (define-foreign-funcallable pd-bookmark-add-child-selproto
                             ((parent pd-bookmark)
                              (a-bookmark pd-bookmark))
@@ -1724,63 +490,72 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 47
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-unlink-sel+ 47))
 (define-foreign-funcallable pd-bookmark-unlink-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 48
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-is-valid-sel+ 48))
 (define-foreign-funcallable pd-bookmark-is-valid-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 49
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-parent-sel+ 49))
 (define-foreign-funcallable pd-bookmark-get-parent-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 50
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-first-child-sel+ 50))
 (define-foreign-funcallable pd-bookmark-get-first-child-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 51
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-last-child-sel+ 51))
 (define-foreign-funcallable pd-bookmark-get-last-child-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 52
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-next-sel+ 52))
 (define-foreign-funcallable pd-bookmark-get-next-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 53
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-prev-sel+ 53))
 (define-foreign-funcallable pd-bookmark-get-prev-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 54
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-indent-sel+ 54))
 (define-foreign-funcallable pd-bookmark-get-indent-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 55
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-title-sel+ 55))
 (define-foreign-funcallable pd-bookmark-get-title-selproto
                             ((a-bookmark pd-bookmark)
                              (buffer (:reference-pass :ef-mb-string))
@@ -1789,7 +564,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 56
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-set-title-sel+ 56))
 (define-foreign-funcallable pd-bookmark-set-title-selproto
                             ((a-bookmark pd-bookmark)
                              (str (:reference-pass :ef-mb-string))
@@ -1798,21 +574,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 57
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-has-children-sel+ 57))
 (define-foreign-funcallable pd-bookmark-has-children-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 58
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-is-open-sel+ 58))
 (define-foreign-funcallable pd-bookmark-is-open-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 59
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-set-open-sel+ 59))
 (define-foreign-funcallable pd-bookmark-set-open-selproto
                             ((a-bookmark pd-bookmark)
                              (is-open as-bool))
@@ -1820,14 +599,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 60
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-action-sel+ 60))
 (define-foreign-funcallable pd-bookmark-get-action-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 61
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-set-action-sel+ 61))
 (define-foreign-funcallable pd-bookmark-set-action-selproto
                             ((a-bookmark pd-bookmark)
                              (action pd-action))
@@ -1835,7 +616,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 62
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-equal-sel+ 62))
 (define-foreign-funcallable pd-bookmark-equal-selproto
                             ((a-bookmark pd-bookmark)
                              (bookmark2 pd-bookmark))
@@ -1843,21 +625,24 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 63
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-cos-obj-sel+ 63))
 (define-foreign-funcallable pd-bookmark-get-cos-obj-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 64
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-from-cos-obj-sel+ 64))
 (define-foreign-funcallable pd-bookmark-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 65
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-enum-docs-sel+ 65))
 (define-foreign-funcallable pd-enum-docs-selproto
                             ((proc pd-doc-enum-proc)
                              (client-data (:pointer :void)))
@@ -1865,7 +650,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 66
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-open-sel+ 66))
 (define-foreign-funcallable pd-doc-open-selproto
                             ((file-name as-path-name)
                              (file-sys as-file-sys)
@@ -1875,28 +661,32 @@
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 67
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-open-action-sel+ 67))
 (define-foreign-funcallable pd-doc-get-open-action-selproto
                             ((doc pd-doc))
                             :result-type
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 68
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-open-action-sel+ 68))
 (define-foreign-funcallable pd-doc-set-open-action-selproto
                             ((doc pd-doc) (action pd-action))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 69
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-sel+ 69))
 (define-foreign-funcallable pd-doc-create-selproto
                             nil
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 70
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-save-sel+ 70))
 (define-foreign-funcallable pd-doc-save-selproto
                             ((doc pd-doc)
                              (save-flags pd-save-flags)
@@ -1908,70 +698,80 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 71
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-close-sel+ 71))
 (define-foreign-funcallable pd-doc-close-selproto
                             ((doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 72
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-acquire-sel+ 72))
 (define-foreign-funcallable pd-doc-acquire-selproto
                             ((doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 73
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-release-sel+ 73))
 (define-foreign-funcallable pd-doc-release-selproto
                             ((doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 74
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-flags-sel+ 74))
 (define-foreign-funcallable pd-doc-get-flags-selproto
                             ((doc pd-doc))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 75
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-flags-sel+ 75))
 (define-foreign-funcallable pd-doc-set-flags-selproto
                             ((doc pd-doc) (flags as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 76
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-page-mode-sel+ 76))
 (define-foreign-funcallable pd-doc-get-page-mode-selproto
                             ((doc pd-doc))
                             :result-type
                             pd-page-mode
                             :calling-convention
                             :cdecl)
-;; sel = 77
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-page-mode-sel+ 77))
 (define-foreign-funcallable pd-doc-set-page-mode-selproto
                             ((doc pd-doc) (mode pd-page-mode))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 78
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-cos-doc-sel+ 78))
 (define-foreign-funcallable pd-doc-get-cos-doc-selproto
                             ((doc pd-doc))
                             :result-type
                             cos-doc
                             :calling-convention
                             :cdecl)
-;; sel = 79
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-file-sel+ 79))
 (define-foreign-funcallable pd-doc-get-file-selproto
                             ((doc pd-doc))
                             :result-type
                             as-file
                             :calling-convention
                             :cdecl)
-;; sel = 80
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-id-sel+ 80))
 (define-foreign-funcallable pd-doc-get-id-selproto
                             ((doc pd-doc)
                              (n-elem-num as-int32)
@@ -1981,7 +781,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 81
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-version-sel+ 81))
 (define-foreign-funcallable pd-doc-get-version-selproto
                             ((doc pd-doc)
                              (major-p (:pointer as-int16))
@@ -1990,28 +791,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 82
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-bookmark-root-sel+ 82))
 (define-foreign-funcallable pd-doc-get-bookmark-root-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-bookmark
                             :calling-convention
                             :cdecl)
-;; sel = 83
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-num-pages-sel+ 83))
 (define-foreign-funcallable pd-doc-get-num-pages-selproto
                             ((doc pd-doc))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 84
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-acquire-page-sel+ 84))
 (define-foreign-funcallable pd-doc-acquire-page-selproto
                             ((doc pd-doc) (page-num as-int32))
                             :result-type
                             pd-page
                             :calling-convention
                             :cdecl)
-;; sel = 85
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-page-sel+ 85))
 (define-foreign-funcallable pd-doc-create-page-selproto
                             ((doc pd-doc)
                              (after-page-num as-int32)
@@ -2020,7 +825,8 @@
                             pd-page
                             :calling-convention
                             :cdecl)
-;; sel = 86
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-delete-pages-sel+ 86))
 (define-foreign-funcallable pd-doc-delete-pages-selproto
                             ((doc pd-doc)
                              (first-page as-int32)
@@ -2031,7 +837,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 87
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-move-page-sel+ 87))
 (define-foreign-funcallable pd-doc-move-page-selproto
                             ((doc pd-doc)
                              (move-to-after-this-page as-int32)
@@ -2040,7 +847,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 88
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-insert-pages-sel+ 88))
 (define-foreign-funcallable pd-doc-insert-pages-selproto
                             ((doc pd-doc)
                              (merge-after-this-page as-int32)
@@ -2057,7 +865,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 89
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-replace-pages-sel+ 89))
 (define-foreign-funcallable pd-doc-replace-pages-selproto
                             ((doc pd-doc)
                              (start-page as-int32)
@@ -2074,28 +883,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 90
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-num-threads-sel+ 90))
 (define-foreign-funcallable pd-doc-get-num-threads-selproto
                             ((doc pd-doc))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 91
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-thread-sel+ 91))
 (define-foreign-funcallable pd-doc-get-thread-selproto
                             ((doc pd-doc) (index as-int32))
                             :result-type
                             pd-thread
                             :calling-convention
                             :cdecl)
-;; sel = 92
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-thread-index-sel+ 92))
 (define-foreign-funcallable pd-doc-get-thread-index-selproto
                             ((doc pd-doc) (thread pd-thread))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 93
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-add-thread-sel+ 93))
 (define-foreign-funcallable pd-doc-add-thread-selproto
                             ((doc pd-doc)
                              (add-after-index as-int32)
@@ -2104,14 +917,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 94
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-remove-thread-sel+ 94))
 (define-foreign-funcallable pd-doc-remove-thread-selproto
                             ((doc pd-doc) (index as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 95
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-enum-fonts-sel+ 95))
 (define-foreign-funcallable pd-doc-enum-fonts-selproto
                             ((doc pd-doc)
                              (first-page as-int32)
@@ -2124,7 +939,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 96
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-enum-loaded-fonts-sel+ 96))
 (define-foreign-funcallable pd-doc-enum-loaded-fonts-selproto
                             ((doc pd-doc)
                              (proc pd-font-enum-proc)
@@ -2133,7 +949,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 97
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-thumbs-sel+ 97))
 (define-foreign-funcallable pd-doc-create-thumbs-selproto
                             ((doc pd-doc)
                              (first-page as-int32)
@@ -2154,7 +971,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 98
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-delete-thumbs-sel+ 98))
 (define-foreign-funcallable pd-doc-delete-thumbs-selproto
                             ((doc pd-doc)
                              (first-page as-int32)
@@ -2165,14 +983,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 99
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-word-finder-sel+ 99))
 (define-foreign-funcallable pd-doc-get-word-finder-selproto
                             ((doc-p pd-doc) (wxeversion as-int16))
                             :result-type
                             pd-word-finder
                             :calling-convention
                             :cdecl)
-;; sel = 100
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-word-finder-sel+ 100))
 (define-foreign-funcallable pd-doc-create-word-finder-selproto
                             ((doc pd-doc)
                              (out-enc-info (:pointer as-uns16))
@@ -2185,14 +1005,16 @@
                             pd-word-finder
                             :calling-convention
                             :cdecl)
-;; sel = 101
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-get-nth-word-sel+ 101))
 (define-foreign-funcallable pd-word-finder-get-nth-word-selproto
                             ((w-obj pd-word-finder) (n-th as-int32))
                             :result-type
                             pd-word
                             :calling-convention
                             :cdecl)
-;; sel = 102
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-split-string-sel+ 102))
 (define-foreign-funcallable pd-word-split-string-selproto
                             ((info-array (:pointer as-uns16))
                              (c-new-word
@@ -2204,7 +1026,8 @@
                             as-uns16
                             :calling-convention
                             :cdecl)
-;; sel = 103
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-text-select-sel+ 103))
 (define-foreign-funcallable pd-doc-create-text-select-selproto
                             ((doc pd-doc)
                              (page-num as-int32)
@@ -2213,7 +1036,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 104
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-info-sel+ 104))
 (define-foreign-funcallable pd-doc-get-info-selproto
                             ((doc pd-doc)
                              (info-key (:reference-pass :ef-mb-string))
@@ -2223,7 +1047,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 105
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-info-sel+ 105))
 (define-foreign-funcallable pd-doc-set-info-selproto
                             ((doc pd-doc)
                              (info-key (:reference-pass :ef-mb-string))
@@ -2233,21 +1058,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 106
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-security-data-sel+ 106))
 (define-foreign-funcallable pd-doc-get-security-data-selproto
                             ((doc pd-doc))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 107
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-new-security-data-sel+ 107))
 (define-foreign-funcallable pd-doc-get-new-security-data-selproto
                             ((doc pd-doc))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 108
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-authorize-sel+ 108))
 (define-foreign-funcallable pd-doc-authorize-selproto
                             ((pd-doc pd-doc)
                              (perms-wanted pd-perms)
@@ -2256,14 +1084,16 @@
                             pd-perms
                             :calling-convention
                             :cdecl)
-;; sel = 109
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-new-security-data-sel+ 109))
 (define-foreign-funcallable pd-doc-new-security-data-selproto
                             ((doc pd-doc))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 110
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-new-security-data-sel+ 110))
 (define-foreign-funcallable pd-doc-set-new-security-data-selproto
                             ((pd-doc pd-doc)
                              (sec-data (:pointer :void)))
@@ -2271,7 +1101,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 111
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-new-crypt-handler-sel+ 111))
 (define-foreign-funcallable pd-doc-set-new-crypt-handler-selproto
                             ((pd-doc pd-doc)
                              (new-crypt-handler as-atom))
@@ -2279,14 +1110,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 112
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-new-crypt-handler-sel+ 112))
 (define-foreign-funcallable pd-doc-get-new-crypt-handler-selproto
                             ((doc pd-doc))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 113
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-new-security-info-sel+ 113))
 (define-foreign-funcallable pd-doc-get-new-security-info-selproto
                             ((pd-doc pd-doc)
                              (sec-info (:pointer as-uns32)))
@@ -2294,14 +1127,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 114
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-permissions-sel+ 114))
 (define-foreign-funcallable pd-doc-get-permissions-selproto
                             ((doc pd-doc))
                             :result-type
                             pd-perms
                             :calling-convention
                             :cdecl)
-;; sel = 115
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-register-crypt-handler-sel+ 115))
 (define-foreign-funcallable pd-register-crypt-handler-selproto
                             ((handler pd-crypt-handler)
                              (pdf-name (:reference-pass :ef-mb-string))
@@ -2311,7 +1146,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 116
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xlate-to-pdf-doc-enc-sel+ 116))
 (define-foreign-funcallable pd-xlate-to-pdf-doc-enc-selproto
                             ((in (:reference-pass :ef-mb-string))
                              (out (:reference-pass :ef-mb-string))
@@ -2320,7 +1156,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 117
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xlate-to-host-sel+ 117))
 (define-foreign-funcallable pd-xlate-to-host-selproto
                             ((in (:reference-pass :ef-mb-string))
                              (out (:reference-pass :ef-mb-string))
@@ -2329,7 +1166,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 118
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-name-sel+ 118))
 (define-foreign-funcallable pd-font-get-name-selproto
                             ((font pd-font)
                              (buffer (:reference-pass :ef-mb-string))
@@ -2338,42 +1176,48 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 119
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-subtype-sel+ 119))
 (define-foreign-funcallable pd-font-get-subtype-selproto
                             ((font pd-font))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 120
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-char-set-sel+ 120))
 (define-foreign-funcallable pd-font-get-char-set-selproto
                             ((font pd-font))
                             :result-type
                             pd-char-set
                             :calling-convention
                             :cdecl)
-;; sel = 121
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-encoding-index-sel+ 121))
 (define-foreign-funcallable pd-font-get-encoding-index-selproto
                             ((font pd-font))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 122
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-acquire-encoding-array-sel+ 122))
 (define-foreign-funcallable pd-font-acquire-encoding-array-selproto
                             ((font pd-font))
                             :result-type
                             nil
                             :calling-convention
                             :cdecl)
-;; sel = 123
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-encoding-array-release-sel+ 123))
 (define-foreign-funcallable pd-font-encoding-array-release-selproto
                             ((array (:pointer (:pointer as-uns8))))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 124
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-metrics-sel+ 124))
 (define-foreign-funcallable pd-font-get-metrics-selproto
                             ((font pd-font)
                              (metrics-p pd-font-metrics-p)
@@ -2382,7 +1226,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 125
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-bbox-sel+ 125))
 (define-foreign-funcallable pd-font-get-bbox-selproto
                             ((font pd-font)
                              (bbox-p (:pointer as-fixed-rect)))
@@ -2390,7 +1235,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 126
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-widths-sel+ 126))
 (define-foreign-funcallable pd-font-get-widths-selproto
                             ((font pd-font)
                              (widths (:pointer as-int16)))
@@ -2398,21 +1244,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 127
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-get-pdf-doc-encoding-sel+ 127))
 (define-foreign-funcallable pd-get-pdf-doc-encoding-selproto
                             nil
                             :result-type
                             nil
                             :calling-convention
                             :cdecl)
-;; sel = 128
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-is-embedded-sel+ 128))
 (define-foreign-funcallable pd-font-is-embedded-selproto
                             ((font pd-font))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 129
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-xlate-widths-sel+ 129))
 (define-foreign-funcallable pd-font-xlate-widths-selproto
                             ((font pd-font)
                              (in-p (:pointer as-int16))
@@ -2421,7 +1270,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 130
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-xlate-string-sel+ 130))
 (define-foreign-funcallable pd-font-xlate-string-selproto
                             ((font pd-font)
                              (in-p (:pointer as-uns8))
@@ -2431,21 +1281,24 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 131
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-acquire-xlate-table-sel+ 131))
 (define-foreign-funcallable pd-font-acquire-xlate-table-selproto
                             ((font pd-font))
                             :result-type
                             (:pointer as-int16)
                             :calling-convention
                             :cdecl)
-;; sel = 132
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-xlate-table-release-sel+ 132))
 (define-foreign-funcallable pd-font-xlate-table-release-selproto
                             ((table (:pointer as-int16)))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 133
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-font-matrix-sel+ 133))
 (define-foreign-funcallable pd-font-get-font-matrix-selproto
                             ((font-p pd-font)
                              (matrix-p (:pointer as-fixed-matrix)))
@@ -2453,7 +1306,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 134
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-set-metrics-sel+ 134))
 (define-foreign-funcallable pd-font-set-metrics-selproto
                             ((font pd-font)
                              (metrics-p pd-font-metrics-p)
@@ -2462,70 +1316,80 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 135
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-cos-obj-sel+ 135))
 (define-foreign-funcallable pd-font-get-cos-obj-selproto
                             ((font pd-font))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 136
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-notify-contents-did-change-sel+ 136))
 (define-foreign-funcallable pd-page-notify-contents-did-change-selproto
                             ((page pd-page))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 137
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-number-sel+ 137))
 (define-foreign-funcallable pd-page-get-number-selproto
                             ((page pd-page))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 138
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-release-sel+ 138))
 (define-foreign-funcallable pd-page-release-selproto
                             ((page pd-page))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 139
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-doc-sel+ 139))
 (define-foreign-funcallable pd-page-get-doc-selproto
                             ((page pd-page))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 140
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-cos-obj-sel+ 140))
 (define-foreign-funcallable pd-page-get-cos-obj-selproto
                             ((page pd-page))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 141
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-num-from-cos-obj-sel+ 141))
 (define-foreign-funcallable pd-page-num-from-cos-obj-selproto
                             ((page-obj cos-obj))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 142
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-rotate-sel+ 142))
 (define-foreign-funcallable pd-page-get-rotate-selproto
                             ((page pd-page))
                             :result-type
                             pd-rotate
                             :calling-convention
                             :cdecl)
-;; sel = 143
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-rotate-sel+ 143))
 (define-foreign-funcallable pd-page-set-rotate-selproto
                             ((page pd-page) (angle pd-rotate))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 144
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-media-box-sel+ 144))
 (define-foreign-funcallable pd-page-get-media-box-selproto
                             ((page pd-page)
                              (media-box-p (:pointer as-fixed-rect)))
@@ -2533,14 +1397,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 145
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-media-box-sel+ 145))
 (define-foreign-funcallable pd-page-set-media-box-selproto
                             ((page pd-page) (media-box as-fixed-rect))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 146
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-crop-box-sel+ 146))
 (define-foreign-funcallable pd-page-get-crop-box-selproto
                             ((page pd-page)
                              (crop-box-p (:pointer as-fixed-rect)))
@@ -2548,14 +1414,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 147
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-crop-box-sel+ 147))
 (define-foreign-funcallable pd-page-set-crop-box-selproto
                             ((page pd-page) (crop-box as-fixed-rect))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 148
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-bbox-sel+ 148))
 (define-foreign-funcallable pd-page-get-bbox-selproto
                             ((page pd-page)
                              (bbox-p (:pointer as-fixed-rect)))
@@ -2563,7 +1431,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 149
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-default-matrix-sel+ 149))
 (define-foreign-funcallable pd-page-get-default-matrix-selproto
                             ((pd-page pd-page)
                              (default-matrix
@@ -2572,7 +1441,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 150
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-flipped-matrix-sel+ 150))
 (define-foreign-funcallable pd-page-get-flipped-matrix-selproto
                             ((pd-page pd-page)
                              (flipped (:pointer as-fixed-matrix)))
@@ -2580,14 +1450,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 151
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-annot-sel+ 151))
 (define-foreign-funcallable pd-page-get-annot-selproto
                             ((a-page pd-page) (annot-index as-int32))
                             :result-type
                             pd-annot
                             :calling-convention
                             :cdecl)
-;; sel = 152
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-add-new-annot-sel+ 152))
 (define-foreign-funcallable pd-page-add-new-annot-selproto
                             ((a-page pd-page)
                              (add-after as-int32)
@@ -2597,7 +1469,8 @@
                             pd-annot
                             :calling-convention
                             :cdecl)
-;; sel = 153
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-add-annot-sel+ 153))
 (define-foreign-funcallable pd-page-add-annot-selproto
                             ((a-page pd-page)
                              (add-after as-int32)
@@ -2606,35 +1479,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 154
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-remove-annot-sel+ 154))
 (define-foreign-funcallable pd-page-remove-annot-selproto
                             ((a-page pd-page) (annot-index as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 155
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-annot-index-sel+ 155))
 (define-foreign-funcallable pd-page-get-annot-index-selproto
                             ((a-page pd-page) (an-annot pd-annot))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 156
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-num-annots-sel+ 156))
 (define-foreign-funcallable pd-page-get-num-annots-selproto
                             ((a-page pd-page))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 157
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-cos-resources-sel+ 157))
 (define-foreign-funcallable pd-page-get-cos-resources-selproto
                             ((page pd-page))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 158
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-add-cos-resource-sel+ 158))
 (define-foreign-funcallable pd-page-add-cos-resource-selproto
                             ((page pd-page)
                              (res-type (:reference-pass :ef-mb-string))
@@ -2644,14 +1522,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 159
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-add-cos-contents-sel+ 159))
 (define-foreign-funcallable pd-page-add-cos-contents-selproto
                             ((page pd-page) (new-contents cos-obj))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 160
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-remove-cos-resource-sel+ 160))
 (define-foreign-funcallable pd-page-remove-cos-resource-selproto
                             ((page pd-page)
                              (res-type (:reference-pass :ef-mb-string))
@@ -2661,14 +1541,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 161
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-remove-cos-contents-sel+ 161))
 (define-foreign-funcallable pd-page-remove-cos-contents-selproto
                             ((page pd-page))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 162
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-enum-resources-sel+ 162))
 (define-foreign-funcallable pd-page-enum-resources-selproto
                             ((page pd-page)
                              (mon pd-resource-enum-monitor)
@@ -2677,7 +1559,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 163
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-enum-contents-sel+ 163))
 (define-foreign-funcallable pd-page-enum-contents-selproto
                             ((page pd-page)
                              (mon pd-graphic-enum-monitor)
@@ -2686,7 +1569,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 164
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-graphic-get-bbox-sel+ 164))
 (define-foreign-funcallable pd-graphic-get-bbox-selproto
                             ((obj pd-graphic)
                              (bbox-p (:pointer as-fixed-rect)))
@@ -2694,7 +1578,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 165
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-graphic-get-current-matrix-sel+ 165))
 (define-foreign-funcallable pd-graphic-get-current-matrix-selproto
                             ((obj pd-graphic)
                              (matrix (:pointer as-fixed-matrix)))
@@ -2702,7 +1587,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 166
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-graphic-get-state-sel+ 166))
 (define-foreign-funcallable pd-graphic-get-state-selproto
                             ((obj pd-graphic)
                              (state-p pd-graphic-state-p)
@@ -2711,7 +1597,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 167
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-enum-sel+ 167))
 (define-foreign-funcallable pd-text-enum-selproto
                             ((text pd-text)
                              (enum-proc pd-string-enum-proc)
@@ -2720,7 +1607,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 168
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-get-state-sel+ 168))
 (define-foreign-funcallable pd-text-get-state-selproto
                             ((obj pd-text)
                              (state-p pd-text-state-p)
@@ -2729,7 +1617,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 169
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-path-enum-sel+ 169))
 (define-foreign-funcallable pd-path-enum-selproto
                             ((obj pd-path)
                              (mon pd-path-enum-monitor)
@@ -2738,14 +1627,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 170
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-path-get-paint-op-sel+ 170))
 (define-foreign-funcallable pd-path-get-paint-op-selproto
                             ((obj pd-path))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 171
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-inline-image-get-attrs-sel+ 171))
 (define-foreign-funcallable pd-inline-image-get-attrs-selproto
                             ((obj pd-inline-image)
                              (attrs-p pd-image-attrs-p)
@@ -2754,7 +1645,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 172
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-inline-image-get-data-sel+ 172))
 (define-foreign-funcallable pd-inline-image-get-data-selproto
                             ((obj pd-inline-image)
                              (data (:pointer as-uns8))
@@ -2763,7 +1655,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 173
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-inline-image-color-space-get-index-lookup-sel+ 173))
 (define-foreign-funcallable pd-inline-image-color-space-get-index-lookup-selproto
                             ((image pd-inline-image)
                              (data (:pointer as-uns8))
@@ -2772,28 +1665,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 174
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xobject-get-subtype-sel+ 174))
 (define-foreign-funcallable pd-xobject-get-subtype-selproto
                             ((x-obj pd-xobject))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 175
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xobject-get-cos-obj-sel+ 175))
 (define-foreign-funcallable pd-xobject-get-cos-obj-selproto
                             ((x-obj pd-xobject))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 176
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xobject-get-data-length-sel+ 176))
 (define-foreign-funcallable pd-xobject-get-data-length-selproto
                             ((x-obj pd-xobject))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 177
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xobject-get-data-sel+ 177))
 (define-foreign-funcallable pd-xobject-get-data-selproto
                             ((obj pd-xobject)
                              (get-data-proc pd-get-data-proc)
@@ -2802,7 +1699,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 178
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xobject-enum-filters-sel+ 178))
 (define-foreign-funcallable pd-xobject-enum-filters-selproto
                             ((obj pd-xobject)
                              (proc pd-xobject-filter-enum-proc)
@@ -2811,7 +1709,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 179
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-image-get-attrs-sel+ 179))
 (define-foreign-funcallable pd-image-get-attrs-selproto
                             ((obj pd-xobject)
                              (attrs-p pd-image-attrs-p)
@@ -2820,7 +1719,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 180
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-image-color-space-get-index-lookup-sel+ 180))
 (define-foreign-funcallable pd-image-color-space-get-index-lookup-selproto
                             ((xobj pd-xobject)
                              (data (:pointer as-uns8))
@@ -2829,14 +1729,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 181
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-get-form-type-sel+ 181))
 (define-foreign-funcallable pd-form-get-form-type-selproto
                             ((obj pd-xobject))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 182
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-get-bbox-sel+ 182))
 (define-foreign-funcallable pd-form-get-bbox-selproto
                             ((obj pd-xobject)
                              (bbox-p (:pointer as-fixed-rect)))
@@ -2844,7 +1746,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 183
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-get-matrix-sel+ 183))
 (define-foreign-funcallable pd-form-get-matrix-selproto
                             ((obj pd-xobject)
                              (matrix-p (:pointer as-fixed-matrix)))
@@ -2852,14 +1755,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 184
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-get-xuidcos-obj-sel+ 184))
 (define-foreign-funcallable pd-form-get-xuidcos-obj-selproto
                             ((obj pd-xobject))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 185
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-enum-resources-sel+ 185))
 (define-foreign-funcallable pd-form-enum-resources-selproto
                             ((obj pd-xobject)
                              (mon pd-resource-enum-monitor)
@@ -2868,7 +1773,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 186
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-enum-paint-proc-sel+ 186))
 (define-foreign-funcallable pd-form-enum-paint-proc-selproto
                             ((obj pd-xobject)
                              (mon pd-graphic-enum-monitor)
@@ -2877,7 +1783,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 187
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-enum-char-procs-sel+ 187))
 (define-foreign-funcallable pd-font-enum-char-procs-selproto
                             ((font pd-font)
                              (proc pd-char-proc-enum-proc)
@@ -2886,7 +1793,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 188
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-char-proc-enum-sel+ 188))
 (define-foreign-funcallable pd-char-proc-enum-selproto
                             ((obj pd-char-proc)
                              (mon pd-graphic-enum-monitor)
@@ -2895,35 +1803,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 189
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-char-proc-get-cos-obj-sel+ 189))
 (define-foreign-funcallable pd-char-proc-get-cos-obj-selproto
                             ((obj pd-char-proc))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 190
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-new-sel+ 190))
 (define-foreign-funcallable pd-thread-new-selproto
                             ((a-doc-p pd-doc))
                             :result-type
                             pd-thread
                             :calling-convention
                             :cdecl)
-;; sel = 191
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-destroy-sel+ 191))
 (define-foreign-funcallable pd-thread-destroy-selproto
                             ((thread pd-thread))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 192
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-get-first-bead-sel+ 192))
 (define-foreign-funcallable pd-thread-get-first-bead-selproto
                             ((thread pd-thread))
                             :result-type
                             pd-bead
                             :calling-convention
                             :cdecl)
-;; sel = 193
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-set-first-bead-sel+ 193))
 (define-foreign-funcallable pd-thread-set-first-bead-selproto
                             ((thread pd-thread)
                              (new-first-bead pd-bead))
@@ -2931,7 +1844,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 194
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-get-info-sel+ 194))
 (define-foreign-funcallable pd-thread-get-info-selproto
                             ((thread pd-thread)
                              (info-key (:reference-pass :ef-mb-string))
@@ -2941,7 +1855,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 195
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-set-info-sel+ 195))
 (define-foreign-funcallable pd-thread-set-info-selproto
                             ((thread pd-thread)
                              (info-key (:reference-pass :ef-mb-string))
@@ -2951,28 +1866,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 196
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-is-valid-sel+ 196))
 (define-foreign-funcallable pd-thread-is-valid-selproto
                             ((thread pd-thread))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 197
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-get-cos-obj-sel+ 197))
 (define-foreign-funcallable pd-thread-get-cos-obj-selproto
                             ((thread pd-thread))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 198
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thread-from-cos-obj-sel+ 198))
 (define-foreign-funcallable pd-thread-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-thread
                             :calling-convention
                             :cdecl)
-;; sel = 199
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-new-sel+ 199))
 (define-foreign-funcallable pd-bead-new-selproto
                             ((page pd-page)
                              (dest-rect as-fixed-rect-p))
@@ -2980,56 +1899,64 @@
                             pd-bead
                             :calling-convention
                             :cdecl)
-;; sel = 200
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-destroy-sel+ 200))
 (define-foreign-funcallable pd-bead-destroy-selproto
                             ((bead pd-bead))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 201
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-get-next-sel+ 201))
 (define-foreign-funcallable pd-bead-get-next-selproto
                             ((bead pd-bead))
                             :result-type
                             pd-bead
                             :calling-convention
                             :cdecl)
-;; sel = 202
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-get-prev-sel+ 202))
 (define-foreign-funcallable pd-bead-get-prev-selproto
                             ((bead pd-bead))
                             :result-type
                             pd-bead
                             :calling-convention
                             :cdecl)
-;; sel = 203
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-insert-sel+ 203))
 (define-foreign-funcallable pd-bead-insert-selproto
                             ((bead pd-bead) (new-next pd-bead))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 204
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-acquire-page-sel+ 204))
 (define-foreign-funcallable pd-bead-acquire-page-selproto
                             ((bead pd-bead) (pd-doc pd-doc))
                             :result-type
                             pd-page
                             :calling-convention
                             :cdecl)
-;; sel = 205
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-set-page-sel+ 205))
 (define-foreign-funcallable pd-bead-set-page-selproto
                             ((bead pd-bead) (new-page pd-page))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 206
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-get-rect-sel+ 206))
 (define-foreign-funcallable pd-bead-get-rect-selproto
                             ((bead pd-bead) (rect-p as-fixed-rect-p))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 207
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-set-rect-sel+ 207))
 (define-foreign-funcallable pd-bead-set-rect-selproto
                             ((bead pd-bead)
                              (new-dest-rect as-fixed-rect-p))
@@ -3037,49 +1964,56 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 208
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-is-valid-sel+ 208))
 (define-foreign-funcallable pd-bead-is-valid-selproto
                             ((bead pd-bead))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 209
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-get-thread-sel+ 209))
 (define-foreign-funcallable pd-bead-get-thread-selproto
                             ((bead pd-bead))
                             :result-type
                             pd-thread
                             :calling-convention
                             :cdecl)
-;; sel = 210
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-get-index-sel+ 210))
 (define-foreign-funcallable pd-bead-get-index-selproto
                             ((bead pd-bead))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 211
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-equal-sel+ 211))
 (define-foreign-funcallable pd-bead-equal-selproto
                             ((bead pd-bead) (bead2 pd-bead))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 212
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-get-cos-obj-sel+ 212))
 (define-foreign-funcallable pd-bead-get-cos-obj-selproto
                             ((bead pd-bead))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 213
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bead-from-cos-obj-sel+ 213))
 (define-foreign-funcallable pd-bead-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-bead
                             :calling-convention
                             :cdecl)
-;; sel = 214
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-create-sel+ 214))
 (define-foreign-funcallable pd-view-dest-create-selproto
                             ((doc pd-doc)
                              (initial-page pd-page)
@@ -3091,21 +2025,24 @@
                             pd-view-destination
                             :calling-convention
                             :cdecl)
-;; sel = 215
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-destroy-sel+ 215))
 (define-foreign-funcallable pd-view-dest-destroy-selproto
                             ((dest pd-view-destination))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 216
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-is-valid-sel+ 216))
 (define-foreign-funcallable pd-view-dest-is-valid-selproto
                             ((dest pd-view-destination))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 217
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-get-attr-sel+ 217))
 (define-foreign-funcallable pd-view-dest-get-attr-selproto
                             ((dest pd-view-destination)
                              (page-num (:pointer as-int32))
@@ -3116,28 +2053,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 218
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-get-cos-obj-sel+ 218))
 (define-foreign-funcallable pd-view-dest-get-cos-obj-selproto
                             ((dest pd-view-destination))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 219
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-from-cos-obj-sel+ 219))
 (define-foreign-funcallable pd-view-dest-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-view-destination
                             :calling-convention
                             :cdecl)
-;; sel = 220
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-destroy-sel+ 220))
 (define-foreign-funcallable pd-text-select-destroy-selproto
                             ((text pd-text-select))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 221
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-enum-quads-sel+ 221))
 (define-foreign-funcallable pd-text-select-enum-quads-selproto
                             ((text pd-text-select)
                              (proc pd-text-select-enum-quad-proc)
@@ -3146,7 +2087,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 222
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-enum-text-sel+ 222))
 (define-foreign-funcallable pd-text-select-enum-text-selproto
                             ((text pd-text-select)
                              (proc pd-text-select-enum-text-proc)
@@ -3155,14 +2097,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 223
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-get-page-sel+ 223))
 (define-foreign-funcallable pd-text-select-get-page-selproto
                             ((text pd-text-select))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 224
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-get-bounding-rect-sel+ 224))
 (define-foreign-funcallable pd-text-select-get-bounding-rect-selproto
                             ((text pd-text-select)
                              (bound-rect-p (:pointer as-fixed-rect)))
@@ -3170,7 +2114,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 225
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-create-page-hilite-sel+ 225))
 (define-foreign-funcallable pd-text-select-create-page-hilite-selproto
                             ((page pd-page)
                              (h-list (:pointer hilite-entry))
@@ -3179,7 +2124,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 226
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-create-word-hilite-sel+ 226))
 (define-foreign-funcallable pd-text-select-create-word-hilite-selproto
                             ((page pd-page)
                              (h-list (:pointer hilite-entry))
@@ -3188,7 +2134,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 227
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-get-range-sel+ 227))
 (define-foreign-funcallable pd-text-select-get-range-selproto
                             ((text-p pd-text-select)
                              (index as-int32)
@@ -3197,14 +2144,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 228
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-get-range-count-sel+ 228))
 (define-foreign-funcallable pd-text-select-get-range-count-selproto
                             ((text-p pd-text-select))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 229
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-create-ranges-sel+ 229))
 (define-foreign-funcallable pd-text-select-create-ranges-selproto
                             ((page pd-page)
                              (range pd-text-select-range)
@@ -3213,7 +2162,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 230
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-acquire-word-list-sel+ 230))
 (define-foreign-funcallable pd-word-finder-acquire-word-list-selproto
                             ((w-obj pd-word-finder)
                              (pg-num as-int32)
@@ -3227,28 +2177,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 231
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-get-latest-alg-version-sel+ 231))
 (define-foreign-funcallable pd-word-finder-get-latest-alg-version-selproto
                             ((w-obj pd-word-finder))
                             :result-type
                             as-int16
                             :calling-convention
                             :cdecl)
-;; sel = 232
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-release-word-list-sel+ 232))
 (define-foreign-funcallable pd-word-finder-release-word-list-selproto
                             ((w-obj pd-word-finder) (pg-num as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 233
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-destroy-sel+ 233))
 (define-foreign-funcallable pd-word-finder-destroy-selproto
                             ((w-obj pd-word-finder))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 234
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-enum-words-sel+ 234))
 (define-foreign-funcallable pd-word-finder-enum-words-selproto
                             ((w-obj pd-word-finder)
                              (page-num as-int32)
@@ -3258,14 +2212,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 235
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-length-sel+ 235))
 (define-foreign-funcallable pd-word-get-length-selproto
                             ((word pd-word))
                             :result-type
                             as-uns8
                             :calling-convention
                             :cdecl)
-;; sel = 236
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-string-sel+ 236))
 (define-foreign-funcallable pd-word-get-string-selproto
                             ((word pd-word)
                              (str (:reference-pass :ef-mb-string))
@@ -3274,14 +2230,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 237
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-attr-sel+ 237))
 (define-foreign-funcallable pd-word-get-attr-selproto
                             ((word pd-word))
                             :result-type
                             as-uns16
                             :calling-convention
                             :cdecl)
-;; sel = 238
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-character-types-sel+ 238))
 (define-foreign-funcallable pd-word-get-character-types-selproto
                             ((word pd-word)
                              (c-arr (:pointer as-uns16))
@@ -3290,21 +2248,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 239
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-char-offset-sel+ 239))
 (define-foreign-funcallable pd-word-get-char-offset-selproto
                             ((word pd-word))
                             :result-type
                             as-uns16
                             :calling-convention
                             :cdecl)
-;; sel = 240
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-char-delta-sel+ 240))
 (define-foreign-funcallable pd-word-get-char-delta-selproto
                             ((word pd-word))
                             :result-type
                             as-int8
                             :calling-convention
                             :cdecl)
-;; sel = 241
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-style-transition-sel+ 241))
 (define-foreign-funcallable pd-word-get-style-transition-selproto
                             ((word pd-word)
                              (trans-tbl (:pointer as-int16))
@@ -3313,7 +2274,8 @@
                             as-int16
                             :calling-convention
                             :cdecl)
-;; sel = 242
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-nth-char-style-sel+ 242))
 (define-foreign-funcallable pd-word-get-nth-char-style-selproto
                             ((w-obj pd-word-finder)
                              (word pd-word)
@@ -3322,14 +2284,16 @@
                             pd-style
                             :calling-convention
                             :cdecl)
-;; sel = 243
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-num-quads-sel+ 243))
 (define-foreign-funcallable pd-word-get-num-quads-selproto
                             ((word pd-word))
                             :result-type
                             as-int16
                             :calling-convention
                             :cdecl)
-;; sel = 244
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-nth-quad-sel+ 244))
 (define-foreign-funcallable pd-word-get-nth-quad-selproto
                             ((word pd-word)
                              (n-th as-int16)
@@ -3338,14 +2302,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 245
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-is-rotated-sel+ 245))
 (define-foreign-funcallable pd-word-is-rotated-selproto
                             ((word pd-word))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 246
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-filter-string-sel+ 246))
 (define-foreign-funcallable pd-word-filter-string-selproto
                             ((info-array (:pointer as-uns16))
                              (c-new-word
@@ -3356,7 +2322,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 247
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-filter-word-sel+ 247))
 (define-foreign-funcallable pd-word-filter-word-selproto
                             ((word pd-word)
                              (buffer (:reference-pass :ef-mb-string))
@@ -3366,28 +2333,32 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 248
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-style-get-font-sel+ 248))
 (define-foreign-funcallable pd-style-get-font-selproto
                             ((obj pd-style))
                             :result-type
                             pd-font
                             :calling-convention
                             :cdecl)
-;; sel = 249
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-style-get-font-size-sel+ 249))
 (define-foreign-funcallable pd-style-get-font-size-selproto
                             ((obj pd-style))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 250
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-style-get-color-sel+ 250))
 (define-foreign-funcallable pd-style-get-color-selproto
                             ((obj pd-style) (color pd-color-value))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 251
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-new-from-as-path-sel+ 251))
 (define-foreign-funcallable pd-file-spec-new-from-as-path-selproto
                             ((pd-doc pd-doc)
                              (file-sys as-file-sys)
@@ -3397,21 +2368,24 @@
                             pd-file-spec
                             :calling-convention
                             :cdecl)
-;; sel = 252
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-from-cos-obj-sel+ 252))
 (define-foreign-funcallable pd-file-spec-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-file-spec
                             :calling-convention
                             :cdecl)
-;; sel = 253
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-get-file-sys-sel+ 253))
 (define-foreign-funcallable pd-file-spec-get-file-sys-selproto
                             ((file-spec pd-file-spec))
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 254
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-acquire-as-path-sel+ 254))
 (define-foreign-funcallable pd-file-spec-acquire-as-path-selproto
                             ((file-spec pd-file-spec)
                              (relative-to-this-path as-path-name))
@@ -3419,21 +2393,24 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 255
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-get-cos-obj-sel+ 255))
 (define-foreign-funcallable pd-file-spec-get-cos-obj-selproto
                             ((file-spec pd-file-spec))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 256
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-is-valid-sel+ 256))
 (define-foreign-funcallable pd-file-spec-is-valid-selproto
                             ((file-spec pd-file-spec))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 257
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-register-file-spec-handler-sel+ 257))
 (define-foreign-funcallable pd-register-file-spec-handler-selproto
                             ((context-file-sys as-file-sys)
                              (file-spec-handler pd-file-spec-handler)
@@ -3442,7 +2419,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 258
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-get-dipath-sel+ 258))
 (define-foreign-funcallable pd-file-spec-get-dipath-selproto
                             ((file-spec pd-file-spec)
                              (buffer (:reference-pass :ef-mb-string))
@@ -3451,35 +2429,40 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 259
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-set-color-cal-sel+ 259))
 (define-foreign-funcallable pd-pref-set-color-cal-selproto
                             ((color-cal pd-color-cal-p))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 260
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-get-color-cal-sel+ 260))
 (define-foreign-funcallable pd-pref-get-color-cal-selproto
                             ((color-cal pd-color-cal-p))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 261
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-notify-contents-did-change-ex-sel+ 261))
 (define-foreign-funcallable pd-page-notify-contents-did-change-ex-selproto
                             ((page pd-page) (invalidate-views as-bool))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 262
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-clear-flags-sel+ 262))
 (define-foreign-funcallable pd-doc-clear-flags-selproto
                             ((doc pd-doc) (flags as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 263
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-open-from-as-file-sel+ 263))
 (define-foreign-funcallable pd-doc-open-from-as-file-selproto
                             ((a-file as-file)
                              (auth-proc pd-auth-proc)
@@ -3488,21 +2471,24 @@
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 264
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-get-doc-sel+ 264))
 (define-foreign-funcallable pd-file-spec-get-doc-selproto
                             ((file-spec pd-file-spec))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 265
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-get-file-sys-name-sel+ 265))
 (define-foreign-funcallable pd-file-spec-get-file-sys-name-selproto
                             ((file-spec pd-file-spec))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 266
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-register-file-spec-handler-by-name-sel+ 266))
 (define-foreign-funcallable pd-register-file-spec-handler-by-name-selproto
                             ((spec-sys-name as-atom)
                              (context-file-sys as-file-sys)
@@ -3512,7 +2498,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 267
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-stm-get-inline-image-sel+ 267))
 (define-foreign-funcallable pd-page-stm-get-inline-image-selproto
                             ((stm as-stm)
                              (flags as-uns32)
@@ -3528,84 +2515,96 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 268
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-view-dest-resolve-sel+ 268))
 (define-foreign-funcallable pd-view-dest-resolve-selproto
                             ((dest pd-view-destination) (doc pd-doc))
                             :result-type
                             pd-view-destination
                             :calling-convention
                             :cdecl)
-;; sel = 269
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-is-valid-sel+ 269))
 (define-foreign-funcallable pd-trans-is-valid-selproto
                             ((pdt pd-trans))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 270
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-null-sel+ 270))
 (define-foreign-funcallable pd-trans-null-selproto
                             nil
                             :result-type
                             pd-trans
                             :calling-convention
                             :cdecl)
-;; sel = 271
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-from-cos-obj-sel+ 271))
 (define-foreign-funcallable pd-trans-from-cos-obj-selproto
                             ((co-layer cos-obj))
                             :result-type
                             pd-trans
                             :calling-convention
                             :cdecl)
-;; sel = 272
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-get-cos-obj-sel+ 272))
 (define-foreign-funcallable pd-trans-get-cos-obj-selproto
                             ((pdl pd-trans))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 273
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-equal-sel+ 273))
 (define-foreign-funcallable pd-trans-equal-selproto
                             ((pdt-one pd-trans) (pdt-two pd-trans))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 274
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-has-transition-sel+ 274))
 (define-foreign-funcallable pd-page-has-transition-selproto
                             ((pdp pd-page))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 275
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-transition-sel+ 275))
 (define-foreign-funcallable pd-page-get-transition-selproto
                             ((pdp pd-page))
                             :result-type
                             pd-trans
                             :calling-convention
                             :cdecl)
-;; sel = 276
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-transition-sel+ 276))
 (define-foreign-funcallable pd-page-set-transition-selproto
                             ((pdp pd-page) (pdt pd-trans))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 277
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-duration-sel+ 277))
 (define-foreign-funcallable pd-page-get-duration-selproto
                             ((pdp pd-page))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 278
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-duration-sel+ 278))
 (define-foreign-funcallable pd-page-set-duration-selproto
                             ((pdp pd-page) (fx-duration as-fixed))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 279
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-new-from-cos-doc-sel+ 279))
 (define-foreign-funcallable pd-trans-new-from-cos-doc-selproto
                             ((cd cos-doc)
                              (asa-subtype as-atom)
@@ -3614,7 +2613,8 @@
                             pd-trans
                             :calling-convention
                             :cdecl)
-;; sel = 280
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-new-sel+ 280))
 (define-foreign-funcallable pd-trans-new-selproto
                             ((pdd pd-doc)
                              (asa-subtype as-atom)
@@ -3623,21 +2623,24 @@
                             pd-trans
                             :calling-convention
                             :cdecl)
-;; sel = 281
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-get-subtype-sel+ 281))
 (define-foreign-funcallable pd-trans-get-subtype-selproto
                             ((pdt pd-trans))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 282
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-trans-get-duration-sel+ 282))
 (define-foreign-funcallable pd-trans-get-duration-selproto
                             ((pdt pd-trans))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 283
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-read-ahead-sel+ 283))
 (define-foreign-funcallable pd-doc-read-ahead-selproto
                             ((doc pd-doc)
                              (flags as-uns32)
@@ -3646,7 +2649,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 284
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-open-ex-sel+ 284))
 (define-foreign-funcallable pd-doc-open-ex-selproto
                             ((file-name as-path-name)
                              (file-sys as-file-sys)
@@ -3657,7 +2661,8 @@
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 285
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-open-from-as-file-ex-sel+ 285))
 (define-foreign-funcallable pd-doc-open-from-as-file-ex-selproto
                             ((a-file as-file)
                              (auth-proc-ex pd-auth-proc-ex)
@@ -3667,7 +2672,8 @@
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 286
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-register-crypt-handler-ex-sel+ 286))
 (define-foreign-funcallable pd-register-crypt-handler-ex-selproto
                             ((handler pd-crypt-handler)
                              (pdf-name (:reference-pass :ef-mb-string))
@@ -3678,28 +2684,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 287
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-crypt-handler-client-data-sel+ 287))
 (define-foreign-funcallable pd-doc-get-crypt-handler-client-data-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 288
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-full-screen-sel+ 288))
 (define-foreign-funcallable pd-doc-get-full-screen-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 289
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-full-screen-sel+ 289))
 (define-foreign-funcallable pd-doc-set-full-screen-selproto
                             ((pd-doc pd-doc) (fs as-bool))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 290
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-save-with-params-sel+ 290))
 (define-foreign-funcallable pd-doc-save-with-params-selproto
                             ((doc pd-doc)
                              (in-params pd-doc-save-params))
@@ -3707,7 +2717,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 291
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-lookup-sel+ 291))
 (define-foreign-funcallable pd-name-tree-lookup-selproto
                             ((name-tree cos-obj)
                              (string (:reference-pass :ef-mb-string))
@@ -3716,35 +2727,40 @@
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 292
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-descendant-sel+ 292))
 (define-foreign-funcallable pd-font-get-descendant-selproto
                             ((font pd-font))
                             :result-type
                             pd-font
                             :calling-convention
                             :cdecl)
-;; sel = 293
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-encoding-name-sel+ 293))
 (define-foreign-funcallable pd-font-get-encoding-name-selproto
                             ((font pd-font))
                             :result-type
                             (:pointer as-uns8)
                             :calling-convention
                             :cdecl)
-;; sel = 294
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-cidsystem-info-sel+ 294))
 (define-foreign-funcallable pd-font-get-cidsystem-info-selproto
                             ((font pd-font))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 295
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-cidsystem-supplement-sel+ 295))
 (define-foreign-funcallable pd-font-get-cidsystem-supplement-selproto
                             ((font pd-font))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 296
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xlate-to-host-ex-sel+ 296))
 (define-foreign-funcallable pd-xlate-to-host-ex-selproto
                             ((in-pdf-str
                               (:reference-pass :ef-mb-string))
@@ -3756,7 +2772,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 297
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xlate-to-pdf-doc-enc-ex-sel+ 297))
 (define-foreign-funcallable pd-xlate-to-pdf-doc-enc-ex-selproto
                             ((b-use-unicode as-bool)
                              (in-host-str
@@ -3769,21 +2786,24 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 298
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-host-mblen-sel+ 298))
 (define-foreign-funcallable pd-host-mblen-selproto
                             ((cp (:reference-pass :ef-mb-string)))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 299
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-get-host-encoding-sel+ 299))
 (define-foreign-funcallable pd-get-host-encoding-selproto
                             nil
                             :result-type
                             as-host-encoding
                             :calling-convention
                             :cdecl)
-;; sel = 300
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-word-finder-ucs-sel+ 300))
 (define-foreign-funcallable pd-doc-create-word-finder-ucs-selproto
                             ((doc pd-doc)
                              (alg-version as-int16)
@@ -3793,7 +2813,8 @@
                             pd-word-finder
                             :calling-convention
                             :cdecl)
-;; sel = 301
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-xlate-to-host-sel+ 301))
 (define-foreign-funcallable pd-font-xlate-to-host-selproto
                             ((font-p pd-font)
                              (in-p (:pointer as-uns8))
@@ -3804,7 +2825,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 302
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-xlate-to-ucs-sel+ 302))
 (define-foreign-funcallable pd-font-xlate-to-ucs-selproto
                             ((font-p pd-font)
                              (in-p (:pointer as-uns8))
@@ -3815,14 +2837,16 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 303
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-from-cos-doc-sel+ 303))
 (define-foreign-funcallable pd-doc-from-cos-doc-selproto
                             ((cos-doc cos-doc))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 304
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-enum-resources-sel+ 304))
 (define-foreign-funcallable pd-doc-enum-resources-selproto
                             ((pd-doc pd-doc)
                              (start-page as-int32)
@@ -3834,63 +2858,104 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 305
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-import-cos-doc-notes-sel+ 305))
+(define-foreign-funcallable pd-doc-import-cos-doc-notes-selproto
+                            ((doc pd-doc)
+                             (src cos-doc)
+                             (note-title
+                              (:reference-pass :ef-mb-string))
+                             (note-title-len as-int32)
+                             (color pd-color-value)
+                             (prog-mon (:pointer :void))
+                             (nil nil)
+                             (import-filter
+                              pd-doc-will-import-annot-callback))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-export-notes-sel+ 306))
+(define-foreign-funcallable pd-doc-export-notes-selproto
+                            ((doc pd-doc)
+                             (unused1 as-file-sys)
+                             (unused2 as-path-name)
+                             (unused3 (:pointer :void))
+                             (nil nil)
+                             (export-filter
+                              pd-doc-will-export-annot-callback)
+                             (num-notes-p (:pointer as-int32)))
+                            :result-type
+                            cos-doc
+                            :calling-convention
+                            :cdecl)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-annot-sequence-sel+ 307))
 (define-foreign-funcallable pd-page-get-annot-sequence-selproto
                             ((page pd-page) (annot pd-annot))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 306
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-register-annot-handler-sel+ 308))
 (define-foreign-funcallable pd-register-annot-handler-selproto
                             ((handler pd-annot-handler))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 307
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-get-annot-handler-by-name-sel+ 309))
 (define-foreign-funcallable pd-get-annot-handler-by-name-selproto
                             ((name as-atom))
                             :result-type
                             pd-annot-handler
                             :calling-convention
                             :cdecl)
-;; sel = 308
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-new-sel+ 310))
 (define-foreign-funcallable pd-name-tree-new-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-name-tree
                             :calling-convention
                             :cdecl)
-;; sel = 309
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-from-cos-obj-sel+ 311))
 (define-foreign-funcallable pd-name-tree-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-name-tree
                             :calling-convention
                             :cdecl)
-;; sel = 310
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-get-cos-obj-sel+ 312))
 (define-foreign-funcallable pd-name-tree-get-cos-obj-selproto
                             ((the-tree pd-name-tree))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 311
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-is-valid-sel+ 313))
 (define-foreign-funcallable pd-name-tree-is-valid-selproto
                             ((the-tree pd-name-tree))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 312
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-equal-sel+ 314))
 (define-foreign-funcallable pd-name-tree-equal-selproto
                             ((tree1 pd-name-tree) (tree2 pd-name-tree))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 313
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-put-sel+ 315))
 (define-foreign-funcallable pd-name-tree-put-selproto
                             ((the-tree pd-name-tree)
                              (key cos-obj)
@@ -3899,7 +2964,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 314
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-get-sel+ 316))
 (define-foreign-funcallable pd-name-tree-get-selproto
                             ((the-tree pd-name-tree)
                              (name (:reference-pass :ef-mb-string))
@@ -3909,7 +2975,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 315
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-remove-sel+ 317))
 (define-foreign-funcallable pd-name-tree-remove-selproto
                             ((the-tree pd-name-tree)
                              (key (:reference-pass :ef-mb-string))
@@ -3918,7 +2985,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 316
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-enum-sel+ 318))
 (define-foreign-funcallable pd-name-tree-enum-selproto
                             ((the-tree pd-name-tree)
                              (proc cos-obj-enum-proc)
@@ -3927,35 +2995,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 317
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-name-tree-sel+ 319))
 (define-foreign-funcallable pd-doc-get-name-tree-selproto
                             ((the-pddoc pd-doc) (the-tree as-atom))
                             :result-type
                             pd-name-tree
                             :calling-convention
                             :cdecl)
-;; sel = 318
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-name-tree-sel+ 320))
 (define-foreign-funcallable pd-doc-create-name-tree-selproto
                             ((the-pddoc pd-doc) (the-tree as-atom))
                             :result-type
                             pd-name-tree
                             :calling-convention
                             :cdecl)
-;; sel = 319
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-remove-name-tree-sel+ 321))
 (define-foreign-funcallable pd-doc-remove-name-tree-selproto
                             ((the-pddoc pd-doc) (the-tree as-atom))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 320
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-is-valid-sel+ 322))
 (define-foreign-funcallable pd-page-label-is-valid-selproto
                             ((pg-label pd-page-label))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 321
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-equal-sel+ 323))
 (define-foreign-funcallable pd-page-label-equal-selproto
                             ((pdl-one pd-page-label)
                              (pdl-two pd-page-label))
@@ -3963,28 +3036,32 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 322
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-get-cos-obj-sel+ 324))
 (define-foreign-funcallable pd-page-label-get-cos-obj-selproto
                             ((pdl pd-page-label))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 323
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-from-cos-obj-sel+ 325))
 (define-foreign-funcallable pd-page-label-from-cos-obj-selproto
                             ((cos-label cos-obj))
                             :result-type
                             pd-page-label
                             :calling-convention
                             :cdecl)
-;; sel = 324
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-get-style-sel+ 326))
 (define-foreign-funcallable pd-page-label-get-style-selproto
                             ((pg-label pd-page-label))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 325
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-get-prefix-sel+ 327))
 (define-foreign-funcallable pd-page-label-get-prefix-selproto
                             ((pg-label pd-page-label)
                              (prefix-len (:pointer as-int32)))
@@ -3992,14 +3069,16 @@
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 326
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-get-start-sel+ 328))
 (define-foreign-funcallable pd-page-label-get-start-selproto
                             ((pg-label pd-page-label))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 327
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-page-label-sel+ 329))
 (define-foreign-funcallable pd-doc-get-page-label-selproto
                             ((pd-doc pd-doc)
                              (page-num as-int32)
@@ -4009,7 +3088,8 @@
                             pd-page-label
                             :calling-convention
                             :cdecl)
-;; sel = 328
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-new-sel+ 330))
 (define-foreign-funcallable pd-page-label-new-selproto
                             ((pd-doc pd-doc)
                              (style as-atom)
@@ -4020,7 +3100,8 @@
                             pd-page-label
                             :calling-convention
                             :cdecl)
-;; sel = 329
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-page-label-sel+ 331))
 (define-foreign-funcallable pd-doc-set-page-label-selproto
                             ((pd-doc pd-doc)
                              (page-num as-int32)
@@ -4029,21 +3110,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 330
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-remove-page-label-sel+ 332))
 (define-foreign-funcallable pd-doc-remove-page-label-selproto
                             ((pd-doc pd-doc) (page-num as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 331
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-open-with-params-sel+ 333))
 (define-foreign-funcallable pd-doc-open-with-params-selproto
                             ((open-params pd-doc-open-params))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 332
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-read-ahead-pages-sel+ 334))
 (define-foreign-funcallable pd-doc-read-ahead-pages-selproto
                             ((doc pd-doc)
                              (start-page as-int32)
@@ -4052,7 +3136,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 333
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-label-for-page-num-sel+ 335))
 (define-foreign-funcallable pd-doc-get-label-for-page-num-selproto
                             ((pd-doc pd-doc)
                              (page-num as-int32)
@@ -4062,7 +3147,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 334
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-find-page-num-for-label-sel+ 336))
 (define-foreign-funcallable pd-doc-find-page-num-for-label-selproto
                             ((pd-doc pd-doc)
                              (label-str
@@ -4072,7 +3158,21 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 335
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-import-notes-sel+ 337))
+(define-foreign-funcallable pd-doc-import-notes-selproto
+                            ((doc pd-doc)
+                             (source-doc pd-doc)
+                             (prog-mon (:pointer :void))
+                             (nil nil)
+                             (import-filter
+                              pd-doc-will-import-annot-callback))
+                            :result-type
+                            as-int32
+                            :calling-convention
+                            :cdecl)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-image-select-alternate-sel+ 338))
 (define-foreign-funcallable pd-image-select-alternate-selproto
                             ((image cos-obj)
                              (print as-bool)
@@ -4083,7 +3183,8 @@
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 336
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-image-sel-get-geo-attr-sel+ 339))
 (define-foreign-funcallable pd-image-sel-get-geo-attr-selproto
                             ((call-data (:pointer :void))
                              (update-bbox-p (:pointer as-fixed-rect))
@@ -4095,7 +3196,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 337
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-image-sel-get-device-attr-sel+ 340))
 (define-foreign-funcallable pd-image-sel-get-device-attr-selproto
                             ((call-data (:pointer :void))
                              (color-space-p (:pointer pd-color-space))
@@ -4105,7 +3207,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 338
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-image-sel-adjust-matrix-sel+ 341))
 (define-foreign-funcallable pd-image-sel-adjust-matrix-selproto
                             ((call-data (:pointer :void))
                              (new-user-matrix as-fixed-matrix))
@@ -4113,7 +3216,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 339
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-apply-function-sel+ 342))
 (define-foreign-funcallable pd-apply-function-selproto
                             ((func-dict cos-obj)
                              (in-vals (:pointer :float))
@@ -4122,42 +3226,48 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 340
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-new-sel+ 343))
 (define-foreign-funcallable pd-num-tree-new-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-num-tree
                             :calling-convention
                             :cdecl)
-;; sel = 341
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-from-cos-obj-sel+ 344))
 (define-foreign-funcallable pd-num-tree-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-num-tree
                             :calling-convention
                             :cdecl)
-;; sel = 342
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-get-cos-obj-sel+ 345))
 (define-foreign-funcallable pd-num-tree-get-cos-obj-selproto
                             ((the-tree pd-num-tree))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 343
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-is-valid-sel+ 346))
 (define-foreign-funcallable pd-num-tree-is-valid-selproto
                             ((the-tree pd-num-tree))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 344
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-equal-sel+ 347))
 (define-foreign-funcallable pd-num-tree-equal-selproto
                             ((tree1 pd-num-tree) (tree2 pd-num-tree))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 345
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-put-sel+ 348))
 (define-foreign-funcallable pd-num-tree-put-selproto
                             ((the-tree pd-num-tree)
                              (key as-int32)
@@ -4166,7 +3276,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 346
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-get-sel+ 349))
 (define-foreign-funcallable pd-num-tree-get-selproto
                             ((the-tree pd-num-tree)
                              (key as-int32)
@@ -4175,14 +3286,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 347
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-remove-sel+ 350))
 (define-foreign-funcallable pd-num-tree-remove-selproto
                             ((the-tree pd-num-tree) (key as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 348
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-num-tree-enum-sel+ 351))
 (define-foreign-funcallable pd-num-tree-enum-selproto
                             ((the-tree pd-num-tree)
                              (proc cos-obj-enum-proc)
@@ -4191,14 +3304,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 349
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-from-cos-obj-sel+ 352))
 (define-foreign-funcallable pd-font-from-cos-obj-selproto
                             ((font-obj cos-obj))
                             :result-type
                             pd-font
                             :calling-convention
                             :cdecl)
-;; sel = 350
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-copy-to-file-sel+ 353))
 (define-foreign-funcallable pd-doc-copy-to-file-selproto
                             ((pd-doc pd-doc)
                              (params pd-doc-copy-params))
@@ -4206,7 +3321,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 351
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-perm-request-sel+ 354))
 (define-foreign-funcallable pd-doc-perm-request-selproto
                             ((pd-doc pd-doc)
                              (req-obj pd-perm-req-obj)
@@ -4216,7 +3332,8 @@
                             pd-perm-req-status
                             :calling-convention
                             :cdecl)
-;; sel = 352
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-box-sel+ 355))
 (define-foreign-funcallable pd-page-get-box-selproto
                             ((page pd-page)
                              (box-name as-atom)
@@ -4225,7 +3342,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 353
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-box-sel+ 356))
 (define-foreign-funcallable pd-page-set-box-selproto
                             ((page pd-page)
                              (box-name as-atom)
@@ -4234,28 +3352,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 354
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-link-annot-remove-action-sel+ 357))
 (define-foreign-funcallable pd-link-annot-remove-action-selproto
                             ((a-link-annot pd-link-annot))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 355
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-remove-action-sel+ 358))
 (define-foreign-funcallable pd-bookmark-remove-action-selproto
                             ((a-bookmark pd-bookmark))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 356
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-remove-open-action-sel+ 359))
 (define-foreign-funcallable pd-doc-remove-open-action-selproto
                             ((doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 357
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-notify-name-added-sel+ 360))
 (define-foreign-funcallable pd-name-tree-notify-name-added-selproto
                             ((the-tree pd-name-tree)
                              (key cos-obj)
@@ -4264,7 +3386,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 358
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-name-tree-notify-name-removed-sel+ 361))
 (define-foreign-funcallable pd-name-tree-notify-name-removed-selproto
                             ((the-tree pd-name-tree)
                              (removed-name cos-obj))
@@ -4272,14 +3395,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 359
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-page-obj-by-num-sel+ 362))
 (define-foreign-funcallable pd-doc-get-page-obj-by-num-selproto
                             ((pdd pd-doc) (n-page as-int32))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 360
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-enum-text-ucs-sel+ 363))
 (define-foreign-funcallable pd-text-select-enum-text-ucs-selproto
                             ((text-p pd-text-select)
                              (proc pd-text-select-enum-text-proc)
@@ -4288,7 +3413,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 361
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-color-sel+ 364))
 (define-foreign-funcallable pd-bookmark-get-color-selproto
                             ((bm pd-bookmark)
                              (pdcv-out pd-color-value))
@@ -4296,28 +3422,48 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 362
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-set-color-sel+ 365))
 (define-foreign-funcallable pd-bookmark-set-color-selproto
                             ((bm pd-bookmark) (pdcv-in pd-color-value))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 363
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-get-flags-sel+ 366))
 (define-foreign-funcallable pd-bookmark-get-flags-selproto
                             ((bm pd-bookmark))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 364
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-bookmark-set-flags-sel+ 367))
 (define-foreign-funcallable pd-bookmark-set-flags-selproto
                             ((bm pd-bookmark) (n-flags as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 365
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-export-some-notes-sel+ 368))
+(define-foreign-funcallable pd-doc-export-some-notes-selproto
+                            ((doc pd-doc)
+                             (unused1 as-file-sys)
+                             (unused2 as-path-name)
+                             (unused3 (:pointer :void))
+                             (nil nil)
+                             (export-filter
+                              pd-doc-will-export-annot-callback)
+                             (pdan-array pd-annot-array)
+                             (num-notes-p (:pointer as-int32)))
+                            :result-type
+                            cos-doc
+                            :calling-convention
+                            :cdecl)
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-has-transparency-sel+ 369))
 (define-foreign-funcallable pd-page-has-transparency-selproto
                             ((pd-page pd-page)
                              (include-annot-appearances as-bool))
@@ -4325,7 +3471,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 366
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-create-page-hilite-ex-sel+ 370))
 (define-foreign-funcallable pd-text-select-create-page-hilite-ex-selproto
                             ((page pd-page)
                              (h-list (:pointer hilite-entry))
@@ -4335,7 +3482,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 367
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-create-word-hilite-ex-sel+ 371))
 (define-foreign-funcallable pd-text-select-create-word-hilite-ex-selproto
                             ((page pd-page)
                              (h-list (:pointer hilite-entry))
@@ -4345,7 +3493,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 368
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-select-create-ranges-ex-sel+ 372))
 (define-foreign-funcallable pd-text-select-create-ranges-ex-selproto
                             ((page pd-page)
                              (range pd-text-select-range)
@@ -4355,7 +3504,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 369
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-enum-inks-sel+ 373))
 (define-foreign-funcallable pd-page-enum-inks-selproto
                             ((pd-page pd-page)
                              (proc pd-page-enum-inks-callback)
@@ -4365,7 +3515,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 370
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-make-separations-sel+ 374))
 (define-foreign-funcallable pd-page-make-separations-selproto
                             ((pd-page pd-page)
                              (spec pd-host-seps-spec))
@@ -4373,7 +3524,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 371
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-word-finder-ex-sel+ 375))
 (define-foreign-funcallable pd-doc-create-word-finder-ex-selproto
                             ((doc pd-doc)
                              (alg-version as-int16)
@@ -4383,7 +3535,8 @@
                             pd-word-finder
                             :calling-convention
                             :cdecl)
-;; sel = 372
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-char-offset-ex-sel+ 376))
 (define-foreign-funcallable pd-word-get-char-offset-ex-selproto
                             ((word pd-word)
                              (byte-idx as-uns32)
@@ -4393,7 +3546,8 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 373
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-char-quad-sel+ 377))
 (define-foreign-funcallable pd-word-get-char-quad-selproto
                             ((word pd-word)
                              (byte-idx as-uns32)
@@ -4402,21 +3556,24 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 374
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-num-hilite-char-sel+ 378))
 (define-foreign-funcallable pd-word-get-num-hilite-char-selproto
                             ((word pd-word))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 375
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-byte-idx-from-hilite-char-sel+ 379))
 (define-foreign-funcallable pd-word-get-byte-idx-from-hilite-char-selproto
                             ((word pd-word) (char-idx as-uns32))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 376
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-as-text-sel+ 380))
 (define-foreign-funcallable pd-word-get-as-text-selproto
                             ((word pd-word)
                              (filter as-uns32)
@@ -4425,7 +3582,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 377
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-char-enc-flags-sel+ 381))
 (define-foreign-funcallable pd-word-get-char-enc-flags-selproto
                             ((word pd-word)
                              (f-list (:pointer as-uns32))
@@ -4434,14 +3592,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 378
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-get-attr-ex-sel+ 382))
 (define-foreign-funcallable pd-word-get-attr-ex-selproto
                             ((word pd-word) (group-id as-uns32))
                             :result-type
                             as-uns16
                             :calling-convention
                             :cdecl)
-;; sel = 379
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-create-text-select-sel+ 383))
 (define-foreign-funcallable pd-word-create-text-select-selproto
                             ((page pd-page)
                              (w-list (:pointer pd-word))
@@ -4450,7 +3610,8 @@
                             pd-text-select
                             :calling-convention
                             :cdecl)
-;; sel = 380
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-enum-words-str-sel+ 384))
 (define-foreign-funcallable pd-word-finder-enum-words-str-selproto
                             ((w-obj pd-word-finder)
                              (ucs-str (:pointer as-utf16val))
@@ -4462,28 +3623,32 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 381
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-register-action-handler-sel+ 385))
 (define-foreign-funcallable pd-register-action-handler-selproto
                             ((handler pd-action-handler))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 382
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-can-copy-sel+ 386))
 (define-foreign-funcallable pd-action-can-copy-selproto
                             ((action pd-action))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 383
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-copy-sel+ 387))
 (define-foreign-funcallable pd-action-copy-selproto
                             ((action pd-action))
                             :result-type
                             pd-action-clipboard-data
                             :calling-convention
                             :cdecl)
-;; sel = 384
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-can-paste-sel+ 388))
 (define-foreign-funcallable pd-action-can-paste-selproto
                             ((dest pd-doc)
                              (data pd-action-clipboard-data))
@@ -4491,7 +3656,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 385
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-paste-sel+ 389))
 (define-foreign-funcallable pd-action-paste-selproto
                             ((dest pd-doc)
                              (data pd-action-clipboard-data))
@@ -4499,70 +3665,80 @@
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 386
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-destroy-clipboard-data-sel+ 390))
 (define-foreign-funcallable pd-action-destroy-clipboard-data-selproto
                             ((data pd-action-clipboard-data))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 387
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgcreate-sel+ 391))
 (define-foreign-funcallable pd-ocgcreate-selproto
                             ((pd-doc pd-doc) (name as-const-text))
                             :result-type
                             pd-ocg
                             :calling-convention
                             :cdecl)
-;; sel = 388
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgcreate-from-cos-obj-sel+ 392))
 (define-foreign-funcallable pd-ocgcreate-from-cos-obj-selproto
                             ((ocg-obj cos-obj))
                             :result-type
                             pd-ocg
                             :calling-convention
                             :cdecl)
-;; sel = 389
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgdestroy-sel+ 393))
 (define-foreign-funcallable pd-ocgdestroy-selproto
                             ((pdocg pd-ocg))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 390
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-cos-obj-sel+ 394))
 (define-foreign-funcallable pd-ocgget-cos-obj-selproto
                             ((pdocg pd-ocg))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 391
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-from-cos-obj-sel+ 395))
 (define-foreign-funcallable pd-ocgget-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-ocg
                             :calling-convention
                             :cdecl)
-;; sel = 392
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-pddoc-sel+ 396))
 (define-foreign-funcallable pd-ocgget-pddoc-selproto
                             ((pdocg pd-ocg))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 393
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-name-sel+ 397))
 (define-foreign-funcallable pd-ocgset-name-selproto
                             ((pdocg pd-ocg) (name as-const-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 394
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-name-sel+ 398))
 (define-foreign-funcallable pd-ocgget-name-selproto
                             ((pdocg pd-ocg))
                             :result-type
                             as-text
                             :calling-convention
                             :cdecl)
-;; sel = 395
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-initial-state-sel+ 399))
 (define-foreign-funcallable pd-ocgset-initial-state-selproto
                             ((pdocg pd-ocg)
                              (pd-occfg pd-occonfig)
@@ -4571,7 +3747,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 396
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-initial-state-sel+ 400))
 (define-foreign-funcallable pd-ocgget-initial-state-selproto
                             ((pdocg pd-ocg)
                              (pd-occfg pd-occonfig)
@@ -4580,14 +3757,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 397
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgremove-initial-state-sel+ 401))
 (define-foreign-funcallable pd-ocgremove-initial-state-selproto
                             ((pdocg pd-ocg) (pd-occfg pd-occonfig))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 398
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-usage-dict-entry-sel+ 402))
 (define-foreign-funcallable pd-ocgset-usage-dict-entry-selproto
                             ((pdocg pd-ocg)
                              (usagekey as-atom)
@@ -4596,21 +3775,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 399
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocghas-usage-info-sel+ 403))
 (define-foreign-funcallable pd-ocghas-usage-info-selproto
                             ((pdocg pd-ocg))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 400
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-usage-entry-sel+ 404))
 (define-foreign-funcallable pd-ocgget-usage-entry-selproto
                             ((pdocg pd-ocg) (entry as-atom))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 401
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-intent-sel+ 405))
 (define-foreign-funcallable pd-ocgset-intent-selproto
                             ((pdocg pd-ocg)
                              (intent (:pointer as-atom)))
@@ -4618,21 +3800,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 402
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-intent-sel+ 406))
 (define-foreign-funcallable pd-ocgget-intent-selproto
                             ((pdocg pd-ocg))
                             :result-type
                             (:pointer as-atom)
                             :calling-convention
                             :cdecl)
-;; sel = 403
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-current-state-sel+ 407))
 (define-foreign-funcallable pd-ocgget-current-state-selproto
                             ((pdocg pd-ocg) (oc-context pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 404
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-current-state-sel+ 408))
 (define-foreign-funcallable pd-ocgset-current-state-selproto
                             ((pdocg pd-ocg)
                              (oc-context pd-occontext)
@@ -4641,21 +3826,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 405
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgused-in-occontext-sel+ 409))
 (define-foreign-funcallable pd-ocgused-in-occontext-selproto
                             ((pdocg pd-ocg) (pdocctx pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 406
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgused-in-occonfig-sel+ 410))
 (define-foreign-funcallable pd-ocgused-in-occonfig-selproto
                             ((pdocg pd-ocg) (pdoccfg pd-occonfig))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 407
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-enum-ocgs-sel+ 411))
 (define-foreign-funcallable pd-page-enum-ocgs-selproto
                             ((pd-page pd-page)
                              (enum-proc pd-ocgenum-proc)
@@ -4664,7 +3852,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 408
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-enum-ocgs-sel+ 412))
 (define-foreign-funcallable pd-doc-enum-ocgs-selproto
                             ((pd-doc pd-doc)
                              (enum-proc pd-ocgenum-proc)
@@ -4673,14 +3862,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 409
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-ocgs-sel+ 413))
 (define-foreign-funcallable pd-page-get-ocgs-selproto
                             ((pd-page pd-page))
                             :result-type
                             (:pointer pd-ocg)
                             :calling-convention
                             :cdecl)
-;; sel = 410
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdcreate-sel+ 414))
 (define-foreign-funcallable pd-ocmdcreate-selproto
                             ((pd-doc pd-doc)
                              (ocgs (:pointer pd-ocg))
@@ -4689,7 +3880,8 @@
                             pd-ocmd
                             :calling-convention
                             :cdecl)
-;; sel = 411
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdfind-or-create-sel+ 415))
 (define-foreign-funcallable pd-ocmdfind-or-create-selproto
                             ((pd-doc pd-doc)
                              (ocgs (:pointer pd-ocg))
@@ -4698,63 +3890,72 @@
                             pd-ocmd
                             :calling-convention
                             :cdecl)
-;; sel = 412
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdget-cos-obj-sel+ 416))
 (define-foreign-funcallable pd-ocmdget-cos-obj-selproto
                             ((pdocmd pd-ocmd))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 413
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdget-pddoc-sel+ 417))
 (define-foreign-funcallable pd-ocmdget-pddoc-selproto
                             ((pdocmd pd-ocmd))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 414
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdget-from-cos-obj-sel+ 418))
 (define-foreign-funcallable pd-ocmdget-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-ocmd
                             :calling-convention
                             :cdecl)
-;; sel = 415
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdget-ocgs-sel+ 419))
 (define-foreign-funcallable pd-ocmdget-ocgs-selproto
                             ((pdocmd pd-ocmd))
                             :result-type
                             (:pointer pd-ocg)
                             :calling-convention
                             :cdecl)
-;; sel = 416
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdget-vis-policy-sel+ 420))
 (define-foreign-funcallable pd-ocmdget-vis-policy-selproto
                             ((pdocmd pd-ocmd))
                             :result-type
                             pd-ocmdvis-policy
                             :calling-convention
                             :cdecl)
-;; sel = 417
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-ocmd-sel+ 421))
 (define-foreign-funcallable pd-annot-set-ocmd-selproto
                             ((annot pd-annot) (pdocmd pd-ocmd))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 418
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-ocmd-sel+ 422))
 (define-foreign-funcallable pd-annot-get-ocmd-selproto
                             ((annot pd-annot))
                             :result-type
                             pd-ocmd
                             :calling-convention
                             :cdecl)
-;; sel = 419
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-remove-ocmd-sel+ 423))
 (define-foreign-funcallable pd-annot-remove-ocmd-selproto
                             ((annot pd-annot))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 420
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdis-currently-visible-sel+ 424))
 (define-foreign-funcallable pd-ocmdis-currently-visible-selproto
                             ((pdocmd pd-ocmd)
                              (oc-context pd-occontext))
@@ -4762,7 +3963,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 421
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmds-are-currently-visible-sel+ 425))
 (define-foreign-funcallable pd-ocmds-are-currently-visible-selproto
                             ((pdocmds (:pointer pd-ocmd))
                              (oc-context pd-occontext))
@@ -4770,7 +3972,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 422
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-is-currently-visible-sel+ 426))
 (define-foreign-funcallable pd-annot-is-currently-visible-selproto
                             ((annot pd-annot)
                              (oc-context pd-occontext))
@@ -4778,7 +3981,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 423
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmds-make-content-visible-sel+ 427))
 (define-foreign-funcallable pd-ocmds-make-content-visible-selproto
                             ((ocmds (:pointer pd-ocmd))
                              (oc-context pd-occontext))
@@ -4786,7 +3990,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 424
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-new-sel+ 428))
 (define-foreign-funcallable pd-occontext-new-selproto
                             ((policy pd-occontext-init-policy)
                              (other-ctx pd-occontext)
@@ -4796,28 +4001,32 @@
                             pd-occontext
                             :calling-convention
                             :cdecl)
-;; sel = 425
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-free-sel+ 429))
 (define-foreign-funcallable pd-occontext-free-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 426
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-occontext-sel+ 430))
 (define-foreign-funcallable pd-doc-get-occontext-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-occontext
                             :calling-convention
                             :cdecl)
-;; sel = 427
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-get-pddoc-sel+ 431))
 (define-foreign-funcallable pd-occontext-get-pddoc-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 428
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-init-sel+ 432))
 (define-foreign-funcallable pd-occontext-init-selproto
                             ((oc-context pd-occontext)
                              (policy pd-occontext-init-policy)
@@ -4827,28 +4036,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 429
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-make-copy-sel+ 433))
 (define-foreign-funcallable pd-occontext-make-copy-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             pd-occontext
                             :calling-convention
                             :cdecl)
-;; sel = 430
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-new-with-ocdisabled-sel+ 434))
 (define-foreign-funcallable pd-occontext-new-with-ocdisabled-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-occontext
                             :calling-convention
                             :cdecl)
-;; sel = 431
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-new-with-initial-state-sel+ 435))
 (define-foreign-funcallable pd-occontext-new-with-initial-state-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-occontext
                             :calling-convention
                             :cdecl)
-;; sel = 432
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-get-ocgstates-sel+ 436))
 (define-foreign-funcallable pd-occontext-get-ocgstates-selproto
                             ((oc-context pd-occontext)
                              (pdocgs (:pointer pd-ocg))
@@ -4857,7 +4070,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 433
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-set-ocgstates-sel+ 437))
 (define-foreign-funcallable pd-occontext-set-ocgstates-selproto
                             ((oc-context pd-occontext)
                              (pdocgs (:pointer pd-ocg))
@@ -4866,7 +4080,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 434
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-make-copy-with-auto-state-changes-sel+ 438))
 (define-foreign-funcallable pd-occontext-make-copy-with-auto-state-changes-selproto
                             ((in-ctx pd-occontext)
                              (cfg pd-occonfig)
@@ -4875,7 +4090,8 @@
                             pd-occontext
                             :calling-convention
                             :cdecl)
-;; sel = 435
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-find-auto-state-changes-sel+ 439))
 (define-foreign-funcallable pd-occontext-find-auto-state-changes-selproto
                             ((ctx pd-occontext)
                              (cfg pd-occonfig)
@@ -4884,7 +4100,8 @@
                             (:pointer pd-ocg)
                             :calling-convention
                             :cdecl)
-;; sel = 436
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-apply-auto-state-changes-sel+ 440))
 (define-foreign-funcallable pd-occontext-apply-auto-state-changes-selproto
                             ((ctx pd-occontext)
                              (cfg pd-occonfig)
@@ -4893,7 +4110,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 437
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-set-ocdraw-enum-type-sel+ 441))
 (define-foreign-funcallable pd-occontext-set-ocdraw-enum-type-selproto
                             ((oc-context pd-occontext)
                              (dt pd-ocdraw-enum-type))
@@ -4901,14 +4119,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 438
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-get-ocdraw-enum-type-sel+ 442))
 (define-foreign-funcallable pd-occontext-get-ocdraw-enum-type-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             pd-ocdraw-enum-type
                             :calling-convention
                             :cdecl)
-;; sel = 439
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-set-intent-sel+ 443))
 (define-foreign-funcallable pd-occontext-set-intent-selproto
                             ((oc-context pd-occontext)
                              (intent (:pointer as-atom)))
@@ -4916,14 +4136,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 440
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-get-intent-sel+ 444))
 (define-foreign-funcallable pd-occontext-get-intent-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             (:pointer as-atom)
                             :calling-convention
                             :cdecl)
-;; sel = 441
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-set-non-ocdrawing-sel+ 445))
 (define-foreign-funcallable pd-occontext-set-non-ocdrawing-selproto
                             ((oc-context pd-occontext)
                              (draw-non-oc as-bool))
@@ -4931,21 +4153,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 442
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-get-non-ocdrawing-sel+ 446))
 (define-foreign-funcallable pd-occontext-get-non-ocdrawing-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 443
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-reset-ocmdstack-sel+ 447))
 (define-foreign-funcallable pd-occontext-reset-ocmdstack-selproto
                             ((pd-occontext pd-occontext))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 444
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-push-ocmd-sel+ 448))
 (define-foreign-funcallable pd-occontext-push-ocmd-selproto
                             ((pd-occontext pd-occontext)
                              (pd-ocmd pd-ocmd))
@@ -4953,63 +4178,72 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 445
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-pop-ocmd-sel+ 449))
 (define-foreign-funcallable pd-occontext-pop-ocmd-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 446
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-content-is-visible-sel+ 450))
 (define-foreign-funcallable pd-occontext-content-is-visible-selproto
                             ((oc-context pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 447
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-xobject-is-visible-sel+ 451))
 (define-foreign-funcallable pd-occontext-xobject-is-visible-selproto
                             ((pd-occontext pd-occontext) (obj cos-obj))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 448
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-create-sel+ 452))
 (define-foreign-funcallable pd-occonfig-create-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-occonfig
                             :calling-convention
                             :cdecl)
-;; sel = 449
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-destroy-sel+ 453))
 (define-foreign-funcallable pd-occonfig-destroy-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 450
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-occonfig-sel+ 454))
 (define-foreign-funcallable pd-doc-get-occonfig-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-occonfig
                             :calling-convention
                             :cdecl)
-;; sel = 451
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-pddoc-sel+ 455))
 (define-foreign-funcallable pd-occonfig-get-pddoc-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             pd-doc
                             :calling-convention
                             :cdecl)
-;; sel = 452
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-cos-obj-sel+ 456))
 (define-foreign-funcallable pd-occonfig-get-cos-obj-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 453
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-set-ocgorder-sel+ 457))
 (define-foreign-funcallable pd-occonfig-set-ocgorder-selproto
                             ((pd-occfg pd-occonfig)
                              (order-array cos-obj))
@@ -5017,7 +4251,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 454
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-ocgorder-sel+ 458))
 (define-foreign-funcallable pd-occonfig-get-ocgorder-selproto
                             ((pd-occfg pd-occonfig)
                              (order-obj (:pointer cos-obj)))
@@ -5025,7 +4260,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 455
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-make-radio-button-group-sel+ 459))
 (define-foreign-funcallable pd-occonfig-make-radio-button-group-selproto
                             ((pd-occfg pd-occonfig)
                              (ocgs (:pointer pd-ocg)))
@@ -5033,21 +4269,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 456
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-radio-button-group-for-ocg-sel+ 460))
 (define-foreign-funcallable pd-occonfig-get-radio-button-group-for-ocg-selproto
                             ((pd-occfg pd-occonfig) (ocg pd-ocg))
                             :result-type
                             (:pointer pd-ocg)
                             :calling-convention
                             :cdecl)
-;; sel = 457
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-all-radio-button-groups-sel+ 461))
 (define-foreign-funcallable pd-occonfig-get-all-radio-button-groups-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             nil
                             :calling-convention
                             :cdecl)
-;; sel = 458
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-set-init-state-sel+ 462))
 (define-foreign-funcallable pd-occonfig-set-init-state-selproto
                             ((pd-occfg pd-occonfig)
                              (bs pd-occonfig-base-state)
@@ -5057,7 +4296,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 459
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-init-state-sel+ 463))
 (define-foreign-funcallable pd-occonfig-get-init-state-selproto
                             ((pd-occfg pd-occonfig)
                              (bs (:pointer pd-occonfig-base-state))
@@ -5067,7 +4307,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 460
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-set-name-sel+ 464))
 (define-foreign-funcallable pd-occonfig-set-name-selproto
                             ((pd-occfg pd-occonfig)
                              (name as-const-text))
@@ -5075,14 +4316,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 461
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-name-sel+ 465))
 (define-foreign-funcallable pd-occonfig-get-name-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             as-text
                             :calling-convention
                             :cdecl)
-;; sel = 462
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-set-creator-sel+ 466))
 (define-foreign-funcallable pd-occonfig-set-creator-selproto
                             ((pd-occfg pd-occonfig)
                              (creator as-const-text))
@@ -5090,14 +4333,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 463
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-creator-sel+ 467))
 (define-foreign-funcallable pd-occonfig-get-creator-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             as-text
                             :calling-convention
                             :cdecl)
-;; sel = 464
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-set-intent-sel+ 468))
 (define-foreign-funcallable pd-occonfig-set-intent-selproto
                             ((pd-occfg pd-occonfig)
                              (intent (:pointer as-atom)))
@@ -5105,14 +4350,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 465
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-intent-sel+ 469))
 (define-foreign-funcallable pd-occonfig-get-intent-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             (:pointer as-atom)
                             :calling-convention
                             :cdecl)
-;; sel = 466
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-enum-occonfigs-sel+ 470))
 (define-foreign-funcallable pd-doc-enum-occonfigs-selproto
                             ((pd-doc pd-doc)
                              (enum-proc pd-occonfig-enum-proc)
@@ -5121,35 +4368,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 467
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-has-oc-sel+ 471))
 (define-foreign-funcallable pd-doc-has-oc-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 468
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-num-ocgs-sel+ 472))
 (define-foreign-funcallable pd-doc-get-num-ocgs-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 469
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-ocgs-sel+ 473))
 (define-foreign-funcallable pd-doc-get-ocgs-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             (:pointer pd-ocg)
                             :calling-convention
                             :cdecl)
-;; sel = 470
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-replace-ocg-sel+ 474))
 (define-foreign-funcallable pd-doc-replace-ocg-selproto
                             ((replace-ocg pd-ocg) (keep-ocg pd-ocg))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 471
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-user-override-sel+ 475))
 (define-foreign-funcallable pd-ocgset-user-override-selproto
                             ((ocg pd-ocg)
                              (ctx pd-occontext)
@@ -5158,35 +4410,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 472
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-user-override-sel+ 476))
 (define-foreign-funcallable pd-ocgget-user-override-selproto
                             ((ocg pd-ocg) (ctx pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 473
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occontext-clear-all-user-overrides-sel+ 477))
 (define-foreign-funcallable pd-occontext-clear-all-user-overrides-selproto
                             ((ctx pd-occontext))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 474
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-flatten-oc-sel+ 478))
 (define-foreign-funcallable pd-page-flatten-oc-selproto
                             ((pd-page pd-page) (context pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 475
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-flatten-oc-sel+ 479))
 (define-foreign-funcallable pd-doc-flatten-oc-selproto
                             ((pd-doc pd-doc) (context pd-occontext))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 476
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-form-enum-paint-proc-with-params-sel+ 480))
 (define-foreign-funcallable pd-form-enum-paint-proc-with-params-selproto
                             ((obj pd-xobject)
                              (params pd-graphic-enum-params))
@@ -5194,7 +4451,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 477
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-char-proc-enum-with-params-sel+ 481))
 (define-foreign-funcallable pd-char-proc-enum-with-params-selproto
                             ((obj pd-char-proc)
                              (params pd-graphic-enum-params))
@@ -5202,7 +4460,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 478
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-acquire-visible-word-list-sel+ 482))
 (define-foreign-funcallable pd-word-finder-acquire-visible-word-list-selproto
                             ((w-obj pd-word-finder)
                              (pg-num as-int32)
@@ -5217,7 +4476,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 479
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-is-currently-visible-sel+ 483))
 (define-foreign-funcallable pd-word-is-currently-visible-selproto
                             ((word pd-word)
                              (page-num as-int32)
@@ -5226,7 +4486,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 480
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-make-visible-sel+ 484))
 (define-foreign-funcallable pd-word-make-visible-selproto
                             ((word pd-word)
                              (page-num as-int32)
@@ -5235,7 +4496,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 481
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-word-finder-enum-visible-words-sel+ 485))
 (define-foreign-funcallable pd-word-finder-enum-visible-words-selproto
                             ((w-obj pd-word-finder)
                              (page-num as-int32)
@@ -5246,7 +4508,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 482
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-visible-bbox-sel+ 486))
 (define-foreign-funcallable pd-page-get-visible-bbox-selproto
                             ((page pd-page)
                              (oc-context pd-occontext)
@@ -5256,7 +4519,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 483
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-new-crypt-filter-method-sel+ 487))
 (define-foreign-funcallable pd-doc-set-new-crypt-filter-method-selproto
                             ((doc pd-doc)
                              (filter-name as-atom)
@@ -5265,7 +4529,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 484
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-new-crypt-filter-data-sel+ 488))
 (define-foreign-funcallable pd-doc-set-new-crypt-filter-data-selproto
                             ((doc pd-doc)
                              (filter-name as-atom)
@@ -5276,7 +4541,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 485
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-new-default-filters-sel+ 489))
 (define-foreign-funcallable pd-doc-set-new-default-filters-selproto
                             ((doc pd-doc)
                              (default-stm-filter-name as-atom)
@@ -5285,7 +4551,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 486
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-crypt-authorize-filter-access-sel+ 490))
 (define-foreign-funcallable pd-crypt-authorize-filter-access-selproto
                             ((doc pd-doc)
                              (handler-name as-atom)
@@ -5295,7 +4562,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 487
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-request-pages-sel+ 491))
 (define-foreign-funcallable pd-doc-request-pages-selproto
                             ((doc pd-doc)
                              (start-page as-int32)
@@ -5306,7 +4574,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 488
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-request-entire-file-sel+ 492))
 (define-foreign-funcallable pd-doc-request-entire-file-selproto
                             ((doc pd-doc)
                              (request-proc
@@ -5316,7 +4585,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 489
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-set-host-encoding-sel+ 493))
 (define-foreign-funcallable pd-set-host-encoding-selproto
                             ((encoding as-host-encoding)
                              (parse-table
@@ -5325,21 +4595,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 490
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-can-copy-sel+ 494))
 (define-foreign-funcallable pd-annot-can-copy-selproto
                             ((source-page pd-page) (annot pd-annot))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 491
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-copy-sel+ 495))
 (define-foreign-funcallable pd-annot-copy-selproto
                             ((source-page pd-page) (annot pd-annot))
                             :result-type
                             pd-annot-clipboard-data
                             :calling-convention
                             :cdecl)
-;; sel = 492
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-can-paste-sel+ 496))
 (define-foreign-funcallable pd-annot-can-paste-selproto
                             ((dest-page pd-page)
                              (center (:pointer as-fixed-point))
@@ -5348,7 +4621,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 493
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-paste-sel+ 497))
 (define-foreign-funcallable pd-annot-paste-selproto
                             ((dest-page pd-page)
                              (center (:pointer as-fixed-point))
@@ -5357,21 +4631,24 @@
                             pd-annot
                             :calling-convention
                             :cdecl)
-;; sel = 494
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-destroy-clipboard-data-sel+ 498))
 (define-foreign-funcallable pd-annot-destroy-clipboard-data-selproto
                             ((data pd-annot-clipboard-data))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 495
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-read-ahead-embedded-file-sel+ 499))
 (define-foreign-funcallable pd-doc-read-ahead-embedded-file-selproto
                             ((doc pd-doc) (embedded-file-obj cos-obj))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 496
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-new-crypt-handler-ex-sel+ 500))
 (define-foreign-funcallable pd-doc-set-new-crypt-handler-ex-selproto
                             ((pd-doc pd-doc)
                              (new-crypt-handler as-atom)
@@ -5380,21 +4657,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 497
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-trapped-sel+ 501))
 (define-foreign-funcallable pd-doc-get-trapped-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 498
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-trapped-sel+ 502))
 (define-foreign-funcallable pd-doc-set-trapped-selproto
                             ((pd-doc pd-doc) (new-value as-atom))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 499
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-label-for-page-num-ex-sel+ 503))
 (define-foreign-funcallable pd-doc-get-label-for-page-num-ex-selproto
                             ((pd-doc pd-doc)
                              (page-num as-int32)
@@ -5403,7 +4683,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 500
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-find-page-num-for-label-ex-sel+ 504))
 (define-foreign-funcallable pd-doc-find-page-num-for-label-ex-selproto
                             ((pd-doc pd-doc)
                              (label-text as-const-text))
@@ -5411,7 +4692,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 501
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-font-get-as-text-name-sel+ 505))
 (define-foreign-funcallable pd-font-get-as-text-name-selproto
                             ((font pd-font)
                              (remove-prefix as-bool)
@@ -5420,21 +4702,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 502
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-acquire-page-sel+ 506))
 (define-foreign-funcallable pd-page-acquire-page-selproto
                             ((pd-page pd-page))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 503
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgget-locked-sel+ 507))
 (define-foreign-funcallable pd-ocgget-locked-selproto
                             ((ocg pd-ocg) (pd-occfg pd-occonfig))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 504
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocgset-locked-sel+ 508))
 (define-foreign-funcallable pd-ocgset-locked-selproto
                             ((ocg pd-ocg)
                              (pd-occfg pd-occonfig)
@@ -5443,14 +4728,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 505
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-get-locked-array-sel+ 509))
 (define-foreign-funcallable pd-occonfig-get-locked-array-selproto
                             ((pd-occfg pd-occonfig))
                             :result-type
                             (:pointer pd-ocg)
                             :calling-convention
                             :cdecl)
-;; sel = 506
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-occonfig-set-locked-array-sel+ 510))
 (define-foreign-funcallable pd-occonfig-set-locked-array-selproto
                             ((pd-occfg pd-occonfig)
                              (locked-ocgs (:pointer pd-ocg)))
@@ -5458,7 +4745,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 507
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdfind-or-create-ex-sel+ 511))
 (define-foreign-funcallable pd-ocmdfind-or-create-ex-selproto
                             ((pd-doc pd-doc)
                              (ocgs (:pointer pd-ocg))
@@ -5468,7 +4756,8 @@
                             pd-ocmd
                             :calling-convention
                             :cdecl)
-;; sel = 508
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-ocmdget-visibility-expression-sel+ 512))
 (define-foreign-funcallable pd-ocmdget-visibility-expression-selproto
                             ((ocmd pd-ocmd)
                              (ve-obj (:pointer cos-obj)))
@@ -5476,21 +4765,24 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 509
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-get-user-unit-size-sel+ 513))
 (define-foreign-funcallable pd-page-get-user-unit-size-selproto
                             ((page pd-page))
                             :result-type
                             :float
                             :calling-convention
                             :cdecl)
-;; sel = 510
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-set-user-unit-size-sel+ 514))
 (define-foreign-funcallable pd-page-set-user-unit-size-selproto
                             ((page pd-page) (unit-size :float))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 511
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-perm-request-no-ub-sel+ 515))
 (define-foreign-funcallable pd-doc-perm-request-no-ub-selproto
                             ((pd-doc pd-doc)
                              (req-obj pd-perm-req-obj)
@@ -5500,7 +4792,8 @@
                             pd-perm-req-status
                             :calling-convention
                             :cdecl)
-;; sel = 512
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-enum-inks-ex-sel+ 516))
 (define-foreign-funcallable pd-page-enum-inks-ex-selproto
                             ((pd-page pd-page)
                              (proc pd-page-enum-inks-callback)
@@ -5511,7 +4804,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 513
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-add-watermark-from-pdpage-sel+ 517))
 (define-foreign-funcallable pd-doc-add-watermark-from-pdpage-selproto
                             ((pd-doc pd-doc)
                              (pd-page pd-page)
@@ -5522,7 +4816,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 514
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-add-watermark-from-text-sel+ 518))
 (define-foreign-funcallable pd-doc-add-watermark-from-text-selproto
                             ((pd-doc pd-doc)
                              (p-text-params
@@ -5535,28 +4830,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 515
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-layout-mode-sel+ 519))
 (define-foreign-funcallable pd-doc-set-layout-mode-selproto
                             ((doc pd-doc) (mode pd-layout-mode))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 516
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-layout-mode-sel+ 520))
 (define-foreign-funcallable pd-doc-get-layout-mode-selproto
                             ((doc pd-doc))
                             :result-type
                             pd-layout-mode
                             :calling-convention
                             :cdecl)
-;; sel = 517
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-crypt-handler-sel+ 521))
 (define-foreign-funcallable pd-doc-get-crypt-handler-selproto
                             ((doc pd-doc))
                             :result-type
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 518
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-new-from-as-path-ex-sel+ 522))
 (define-foreign-funcallable pd-file-spec-new-from-as-path-ex-selproto
                             ((pd-doc pd-doc)
                              (file-sys as-file-sys)
@@ -5567,7 +4866,8 @@
                             pd-file-spec
                             :calling-convention
                             :cdecl)
-;; sel = 519
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-acquire-as-path-ex-sel+ 523))
 (define-foreign-funcallable pd-file-spec-acquire-as-path-ex-selproto
                             ((file-spec pd-file-spec)
                              (rel-path-file-sys as-file-sys)
@@ -5578,7 +4878,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 520
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-spec-get-dipath-ex-sel+ 524))
 (define-foreign-funcallable pd-file-spec-get-dipath-ex-selproto
                             ((file-spec pd-file-spec)
                              (di-path as-text))
@@ -5586,21 +4887,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 521
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-get-title-as-text-sel+ 525))
 (define-foreign-funcallable pd-annot-get-title-as-text-selproto
                             ((an-annot pd-annot) (title as-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 522
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-annot-set-title-as-text-sel+ 526))
 (define-foreign-funcallable pd-annot-set-title-as-text-selproto
                             ((an-annot pd-annot) (title as-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 523
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-annot-get-contents-as-text-sel+ 527))
 (define-foreign-funcallable pd-text-annot-get-contents-as-text-selproto
                             ((a-text-annot pd-text-annot)
                              (contents as-text))
@@ -5608,7 +4912,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 524
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-text-annot-set-contents-as-text-sel+ 528))
 (define-foreign-funcallable pd-text-annot-set-contents-as-text-selproto
                             ((a-text-annot pd-text-annot)
                              (contents as-text))
@@ -5616,7 +4921,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 525
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-xlate-to-as-text-sel+ 529))
 (define-foreign-funcallable pd-xlate-to-as-text-selproto
                             ((in-host-string
                               (:reference-pass :ef-mb-string))
@@ -5626,7 +4932,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 526
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-new-as-text-sel+ 530))
 (define-foreign-funcallable pd-page-label-new-as-text-selproto
                             ((pd-doc pd-doc)
                              (style as-atom)
@@ -5636,14 +4943,16 @@
                             pd-page-label
                             :calling-convention
                             :cdecl)
-;; sel = 527
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-label-get-prefix-as-text-sel+ 531))
 (define-foreign-funcallable pd-page-label-get-prefix-as-text-selproto
                             ((pg-label pd-page-label) (prefix as-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 528
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thumb-get-image-data-sel+ 532))
 (define-foreign-funcallable pd-thumb-get-image-data-selproto
                             ((thumb pd-thumb)
                              (height (:pointer as-int32))
@@ -5654,7 +4963,8 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 529
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-thumb-get-indexed-color-space-sel+ 533))
 (define-foreign-funcallable pd-thumb-get-indexed-color-space-selproto
                             ((thumb pd-thumb)
                              (hival (:pointer as-int32))
@@ -5664,42 +4974,48 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 530
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-page-has-overprint-ext-sel+ 534))
 (define-foreign-funcallable pd-page-has-overprint-ext-selproto
                             ((pd-page pd-page))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 531
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-set-minor-version-sel+ 535))
 (define-foreign-funcallable pd-doc-set-minor-version-selproto
                             ((pd-doc pd-doc) (minor as-int16))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 532
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-get-use-output-intents-sel+ 536))
 (define-foreign-funcallable pd-pref-get-use-output-intents-selproto
                             nil
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 533
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-set-black-point-compensation-sel+ 537))
 (define-foreign-funcallable pd-pref-set-black-point-compensation-selproto
                             ((kbpc as-bool))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 534
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-get-black-point-compensation-sel+ 538))
 (define-foreign-funcallable pd-pref-get-black-point-compensation-selproto
                             nil
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 535
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-set-working-rgb-sel+ 539))
 (define-foreign-funcallable pd-pref-set-working-rgb-selproto
                             ((profile (:pointer :void))
                              (profile-length as-uns32))
@@ -5707,7 +5023,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 536
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-set-working-cmyk-sel+ 540))
 (define-foreign-funcallable pd-pref-set-working-cmyk-selproto
                             ((profile (:pointer :void))
                              (profile-length as-uns32))
@@ -5715,7 +5032,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 537
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-set-working-gray-sel+ 541))
 (define-foreign-funcallable pd-pref-set-working-gray-selproto
                             ((profile (:pointer :void))
                              (profile-length as-uns32))
@@ -5723,7 +5041,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 538
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-apply-redactions-sel+ 542))
 (define-foreign-funcallable pd-doc-apply-redactions-selproto
                             ((pd-doc pd-doc)
                              (apply-params pd-apply-redaction-params))
@@ -5731,7 +5050,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 539
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-redaction-sel+ 543))
 (define-foreign-funcallable pd-doc-create-redaction-selproto
                             ((pd-doc pd-doc)
                              (redaction-props pd-redact-params))
@@ -5739,7 +5059,8 @@
                             pd-annot
                             :calling-convention
                             :cdecl)
-;; sel = 540
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-redaction-get-props-sel+ 544))
 (define-foreign-funcallable pd-redaction-get-props-selproto
                             ((redaction-annot pd-annot)
                              (redaction-props pd-redact-params))
@@ -5747,7 +5068,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 541
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-redaction-set-props-sel+ 545))
 (define-foreign-funcallable pd-redaction-set-props-selproto
                             ((redaction-annot pd-annot)
                              (redaction-props pd-redact-params))
@@ -5755,21 +5077,24 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 542
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-reset-ink-usage-sel+ 546))
 (define-foreign-funcallable pd-doc-reset-ink-usage-selproto
                             ((doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 543
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-num-errors-sel+ 547))
 (define-foreign-funcallable pd-doc-get-num-errors-selproto
                             ((doc pd-doc))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 544
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-nth-error-sel+ 548))
 (define-foreign-funcallable pd-doc-get-nth-error-selproto
                             ((doc pd-doc)
                              (err-number as-int32)
@@ -5780,7 +5105,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 545
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-version-ex-sel+ 549))
 (define-foreign-funcallable pd-doc-get-version-ex-selproto
                             ((doc pd-doc)
                              (major-p (:pointer as-uns32))
@@ -5792,21 +5118,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 546
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-has-isoextensions-sel+ 550))
 (define-foreign-funcallable pd-doc-has-isoextensions-selproto
                             ((doc pd-doc))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 547
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-is-valid-sel+ 551))
 (define-foreign-funcallable pd-file-attachment-is-valid-selproto
                             ((attachment pd-file-attachment))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 548
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-new-from-file-sel+ 552))
 (define-foreign-funcallable pd-file-attachment-new-from-file-selproto
                             ((parent-doc cos-doc)
                              (source-file as-file)
@@ -5820,7 +5149,8 @@
                             pd-file-attachment
                             :calling-convention
                             :cdecl)
-;; sel = 549
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-update-from-file-sel+ 553))
 (define-foreign-funcallable pd-file-attachment-update-from-file-selproto
                             ((attachment pd-file-attachment)
                              (source-file as-file)
@@ -5831,7 +5161,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 550
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-save-to-file-sel+ 554))
 (define-foreign-funcallable pd-file-attachment-save-to-file-selproto
                             ((attachment pd-file-attachment)
                              (dest-file as-file))
@@ -5839,35 +5170,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 551
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-from-cos-obj-sel+ 555))
 (define-foreign-funcallable pd-file-attachment-from-cos-obj-selproto
                             ((cos-attachment cos-obj))
                             :result-type
                             pd-file-attachment
                             :calling-convention
                             :cdecl)
-;; sel = 552
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-cos-obj-sel+ 556))
 (define-foreign-funcallable pd-file-attachment-get-cos-obj-selproto
                             ((attachment pd-file-attachment))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 553
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-open-stream-sel+ 557))
 (define-foreign-funcallable pd-file-attachment-open-stream-selproto
                             ((attachment pd-file-attachment))
                             :result-type
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 554
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-file-size-sel+ 558))
 (define-foreign-funcallable pd-file-attachment-get-file-size-selproto
                             ((attachment pd-file-attachment))
                             :result-type
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 555
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-creation-date-sel+ 559))
 (define-foreign-funcallable pd-file-attachment-get-creation-date-selproto
                             ((attachment pd-file-attachment)
                              (date (:pointer as-time-rec)))
@@ -5875,7 +5211,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 556
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-mod-date-sel+ 560))
 (define-foreign-funcallable pd-file-attachment-get-mod-date-selproto
                             ((attachment pd-file-attachment)
                              (date (:pointer as-time-rec)))
@@ -5883,14 +5220,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 557
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-file-name-sel+ 561))
 (define-foreign-funcallable pd-file-attachment-get-file-name-selproto
                             ((attachment pd-file-attachment))
                             :result-type
                             as-text
                             :calling-convention
                             :cdecl)
-;; sel = 558
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-field-text-sel+ 562))
 (define-foreign-funcallable pd-file-attachment-set-field-text-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5899,7 +5238,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 559
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-field-styled-text-sel+ 563))
 (define-foreign-funcallable pd-file-attachment-set-field-styled-text-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5908,7 +5248,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 560
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-field-text-sel+ 564))
 (define-foreign-funcallable pd-file-attachment-get-field-text-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5917,7 +5258,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 561
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-field-styled-text-sel+ 565))
 (define-foreign-funcallable pd-file-attachment-get-field-styled-text-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5926,7 +5268,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 562
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-field-style-sel+ 566))
 (define-foreign-funcallable pd-file-attachment-set-field-style-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5935,7 +5278,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 563
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-field-style-sel+ 567))
 (define-foreign-funcallable pd-file-attachment-get-field-style-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5944,7 +5288,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 564
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-field-number-sel+ 568))
 (define-foreign-funcallable pd-file-attachment-set-field-number-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5953,7 +5298,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 565
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-field-number-sel+ 569))
 (define-foreign-funcallable pd-file-attachment-get-field-number-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5962,7 +5308,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 566
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-field-date-sel+ 570))
 (define-foreign-funcallable pd-file-attachment-set-field-date-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5971,7 +5318,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 567
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-field-date-sel+ 571))
 (define-foreign-funcallable pd-file-attachment-get-field-date-selproto
                             ((attachment pd-file-attachment)
                              (field-id as-atom)
@@ -5980,7 +5328,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 568
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-field-prefix-sel+ 572))
 (define-foreign-funcallable pd-file-attachment-set-field-prefix-selproto
                             ((attachment pd-file-attachment)
                              (field-name as-atom)
@@ -5989,7 +5338,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 569
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-field-prefix-sel+ 573))
 (define-foreign-funcallable pd-file-attachment-get-field-prefix-selproto
                             ((attachment pd-file-attachment)
                              (field-name as-atom)
@@ -5998,35 +5348,40 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 570
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-is-valid-sel+ 574))
 (define-foreign-funcallable pd-collection-is-valid-selproto
                             ((collection pd-collection))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 571
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-pdcollection-sel+ 575))
 (define-foreign-funcallable pd-doc-get-pdcollection-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-collection
                             :calling-convention
                             :cdecl)
-;; sel = 572
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-create-pdcollection-sel+ 576))
 (define-foreign-funcallable pd-doc-create-pdcollection-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             pd-collection
                             :calling-convention
                             :cdecl)
-;; sel = 573
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-delete-collection-sel+ 577))
 (define-foreign-funcallable pd-doc-delete-collection-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 574
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-get-sort-order-sel+ 578))
 (define-foreign-funcallable pd-collection-get-sort-order-selproto
                             ((collection pd-collection)
                              (pairs
@@ -6037,7 +5392,8 @@
                             as-array-size
                             :calling-convention
                             :cdecl)
-;; sel = 575
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-set-sort-order-sel+ 579))
 (define-foreign-funcallable pd-collection-set-sort-order-selproto
                             ((collection pd-collection)
                              (pairs
@@ -6048,7 +5404,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 576
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-get-view-data-sel+ 580))
 (define-foreign-funcallable pd-collection-get-view-data-selproto
                             ((collection pd-collection)
                              (data
@@ -6057,7 +5414,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 577
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-set-view-data-sel+ 581))
 (define-foreign-funcallable pd-collection-set-view-data-selproto
                             ((collection pd-collection)
                              (data
@@ -6066,28 +5424,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 578
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-schema-acquire-sel+ 582))
 (define-foreign-funcallable pd-collection-schema-acquire-selproto
                             ((collection pd-collection))
                             :result-type
                             pd-collection-schema
                             :calling-convention
                             :cdecl)
-;; sel = 579
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-schema-destroy-sel+ 583))
 (define-foreign-funcallable pd-collection-schema-destroy-selproto
                             ((schema pd-collection-schema))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 580
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-schema-get-length-sel+ 584))
 (define-foreign-funcallable pd-collection-schema-get-length-selproto
                             ((schema pd-collection-schema))
                             :result-type
                             as-array-size
                             :calling-convention
                             :cdecl)
-;; sel = 581
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-schema-get-field-sel+ 585))
 (define-foreign-funcallable pd-collection-schema-get-field-selproto
                             ((schema pd-collection-schema)
                              (field
@@ -6096,7 +5458,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 582
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-schema-set-field-sel+ 586))
 (define-foreign-funcallable pd-collection-schema-set-field-selproto
                             ((schema pd-collection-schema)
                              (field
@@ -6105,7 +5468,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 583
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-schema-remove-field-sel+ 587))
 (define-foreign-funcallable pd-collection-schema-remove-field-selproto
                             ((schema pd-collection-schema)
                              (field-name as-atom))
@@ -6113,14 +5477,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 584
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-is-valid-sel+ 588))
 (define-foreign-funcallable pd-folder-is-valid-selproto
                             ((folder pd-folder))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 585
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-create-folder-sel+ 589))
 (define-foreign-funcallable pd-collection-create-folder-selproto
                             ((collection pd-collection)
                              (path as-const-text))
@@ -6128,7 +5494,8 @@
                             pd-folder
                             :calling-convention
                             :cdecl)
-;; sel = 586
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-remove-folder-sel+ 590))
 (define-foreign-funcallable pd-collection-remove-folder-selproto
                             ((collection pd-collection)
                              (path as-const-text))
@@ -6136,7 +5503,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 587
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-get-folder-sel+ 591))
 (define-foreign-funcallable pd-collection-get-folder-selproto
                             ((collection pd-collection)
                              (path as-const-text))
@@ -6144,7 +5512,8 @@
                             pd-folder
                             :calling-convention
                             :cdecl)
-;; sel = 588
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-set-initial-style-sel+ 592))
 (define-foreign-funcallable pd-collection-set-initial-style-selproto
                             ((collection pd-collection)
                              (style as-const-cab))
@@ -6152,49 +5521,56 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 589
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-get-initial-style-sel+ 593))
 (define-foreign-funcallable pd-collection-get-initial-style-selproto
                             ((collection pd-collection) (style as-cab))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 590
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-collection-remove-initial-style-sel+ 594))
 (define-foreign-funcallable pd-collection-remove-initial-style-selproto
                             ((collection pd-collection))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 591
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-parent-sel+ 595))
 (define-foreign-funcallable pd-folder-get-parent-selproto
                             ((folder pd-folder))
                             :result-type
                             pd-folder
                             :calling-convention
                             :cdecl)
-;; sel = 592
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-parent-sel+ 596))
 (define-foreign-funcallable pd-folder-set-parent-selproto
                             ((folder pd-folder) (parent pd-folder))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 593
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-first-child-sel+ 597))
 (define-foreign-funcallable pd-folder-get-first-child-selproto
                             ((folder pd-folder))
                             :result-type
                             pd-folder
                             :calling-convention
                             :cdecl)
-;; sel = 594
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-next-sibling-sel+ 598))
 (define-foreign-funcallable pd-folder-get-next-sibling-selproto
                             ((folder pd-folder))
                             :result-type
                             pd-folder
                             :calling-convention
                             :cdecl)
-;; sel = 595
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-name-sel+ 599))
 (define-foreign-funcallable pd-folder-set-name-selproto
                             ((folder pd-folder)
                              (folder-name as-const-text))
@@ -6202,28 +5578,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 596
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-name-sel+ 600))
 (define-foreign-funcallable pd-folder-get-name-selproto
                             ((folder pd-folder) (name as-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 597
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-id-sel+ 601))
 (define-foreign-funcallable pd-folder-get-id-selproto
                             ((folder pd-folder))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 598
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-path-text-sel+ 602))
 (define-foreign-funcallable pd-folder-get-path-text-selproto
                             ((folder pd-folder) (path as-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 599
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-mod-date-sel+ 603))
 (define-foreign-funcallable pd-folder-get-mod-date-selproto
                             ((folder pd-folder)
                              (date (:pointer as-time-rec)))
@@ -6231,7 +5611,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 600
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-mod-date-sel+ 604))
 (define-foreign-funcallable pd-folder-set-mod-date-selproto
                             ((folder pd-folder)
                              (date (:pointer as-time-rec)))
@@ -6239,7 +5620,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 601
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-creation-date-sel+ 605))
 (define-foreign-funcallable pd-folder-get-creation-date-selproto
                             ((folder pd-folder)
                              (date (:pointer as-time-rec)))
@@ -6247,7 +5629,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 602
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-creation-date-sel+ 606))
 (define-foreign-funcallable pd-folder-set-creation-date-selproto
                             ((folder pd-folder)
                              (date (:pointer as-time-rec)))
@@ -6255,35 +5638,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 603
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-description-sel+ 607))
 (define-foreign-funcallable pd-folder-get-description-selproto
                             ((folder pd-folder) (text as-text))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 604
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-description-styled-sel+ 608))
 (define-foreign-funcallable pd-folder-get-description-styled-selproto
                             ((folder pd-folder) (text as-text))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 605
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-description-sel+ 609))
 (define-foreign-funcallable pd-folder-set-description-selproto
                             ((folder pd-folder) (text as-const-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 606
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-description-styled-sel+ 610))
 (define-foreign-funcallable pd-folder-set-description-styled-selproto
                             ((folder pd-folder) (text as-const-text))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 607
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-field-text-sel+ 611))
 (define-foreign-funcallable pd-folder-get-field-text-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6292,7 +5680,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 608
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-field-text-sel+ 612))
 (define-foreign-funcallable pd-folder-set-field-text-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6301,7 +5690,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 609
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-field-styled-text-sel+ 613))
 (define-foreign-funcallable pd-folder-set-field-styled-text-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6310,7 +5700,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 610
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-field-styled-text-sel+ 614))
 (define-foreign-funcallable pd-folder-get-field-styled-text-selproto
                             ((attachment pd-folder)
                              (field-id as-atom)
@@ -6319,7 +5710,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 611
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-field-style-sel+ 615))
 (define-foreign-funcallable pd-folder-set-field-style-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6328,7 +5720,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 612
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-field-style-sel+ 616))
 (define-foreign-funcallable pd-folder-get-field-style-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6337,7 +5730,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 613
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-field-number-sel+ 617))
 (define-foreign-funcallable pd-folder-get-field-number-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6346,7 +5740,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 614
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-field-number-sel+ 618))
 (define-foreign-funcallable pd-folder-set-field-number-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6355,7 +5750,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 615
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-get-field-date-sel+ 619))
 (define-foreign-funcallable pd-folder-get-field-date-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6364,7 +5760,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 616
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-folder-set-field-date-sel+ 620))
 (define-foreign-funcallable pd-folder-set-field-date-selproto
                             ((folder pd-folder)
                              (field-id as-atom)
@@ -6373,7 +5770,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 617
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-attachment-create-path-name-sel+ 621))
 (define-foreign-funcallable as-file-attachment-create-path-name-selproto
                             ((pd-doc pd-doc)
                              (path-text as-text)
@@ -6383,7 +5781,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 618
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-attachment-get-pdf-ile-attachment-sel+ 622))
 (define-foreign-funcallable as-file-attachment-get-pdf-ile-attachment-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -6393,7 +5792,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 619
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-attachment-get-pdf-older-sel+ 623))
 (define-foreign-funcallable as-file-attachment-get-pdf-older-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -6402,7 +5802,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 620
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-apply-function-ex-sel+ 624))
 (define-foreign-funcallable pd-apply-function-ex-selproto
                             ((func-dict cos-obj)
                              (in-vals (:pointer :float))
@@ -6413,28 +5814,32 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 621
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-crypt-version-sel+ 625))
 (define-foreign-funcallable pd-doc-get-crypt-version-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 622
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-get-crypt-revision-sel+ 626))
 (define-foreign-funcallable pd-doc-get-crypt-revision-selproto
                             ((pd-doc pd-doc))
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 623
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-doc-clear-errors-sel+ 627))
 (define-foreign-funcallable pd-doc-clear-errors-selproto
                             ((doc pd-doc))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 624
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-draw-page-or-cos-object-to-buffer-sel+ 628))
 (define-foreign-funcallable pd-draw-page-or-cos-object-to-buffer-selproto
                             ((pd-page pd-page)
                              (cos-stream-obj cos-obj)
@@ -6456,14 +5861,16 @@
                             as-uns32
                             :calling-convention
                             :cdecl)
-;; sel = 625
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-relationship-text-sel+ 629))
 (define-foreign-funcallable pd-file-attachment-get-relationship-text-selproto
                             ((pdfa pd-file-attachment))
                             :result-type
                             as-text
                             :calling-convention
                             :cdecl)
-;; sel = 626
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-set-relationship-text-sel+ 630))
 (define-foreign-funcallable pd-file-attachment-set-relationship-text-selproto
                             ((pdfa pd-file-attachment)
                              (desc-text as-const-text))
@@ -6471,7 +5878,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 627
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-new-from-structure-dest-sel+ 631))
 (define-foreign-funcallable pd-action-new-from-structure-dest-selproto
                             ((doc pd-doc)
                              (s-dest pd-structure-destination)
@@ -6480,7 +5888,8 @@
                             pd-action
                             :calling-convention
                             :cdecl)
-;; sel = 628
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-set-view-dest-sel+ 632))
 (define-foreign-funcallable pd-action-set-view-dest-selproto
                             ((action pd-action)
                              (dest pd-view-destination))
@@ -6488,7 +5897,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 629
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-set-structure-dest-sel+ 633))
 (define-foreign-funcallable pd-action-set-structure-dest-selproto
                             ((action pd-action)
                              (s-dest pd-structure-destination))
@@ -6496,14 +5906,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 630
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-action-get-structure-dest-sel+ 634))
 (define-foreign-funcallable pd-action-get-structure-dest-selproto
                             ((action pd-action))
                             :result-type
                             pd-structure-destination
                             :calling-convention
                             :cdecl)
-;; sel = 631
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-create-sel+ 635))
 (define-foreign-funcallable pd-structure-dest-create-selproto
                             ((doc pd-doc)
                              (struct-elem pds-element)
@@ -6514,21 +5926,24 @@
                             pd-structure-destination
                             :calling-convention
                             :cdecl)
-;; sel = 632
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-destroy-sel+ 636))
 (define-foreign-funcallable pd-structure-dest-destroy-selproto
                             ((dest pd-structure-destination))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 633
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-is-valid-sel+ 637))
 (define-foreign-funcallable pd-structure-dest-is-valid-selproto
                             ((dest pd-structure-destination))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 634
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-get-structure-element-sel+ 638))
 (define-foreign-funcallable pd-structure-dest-get-structure-element-selproto
                             ((dest pd-structure-destination)
                              (elem-id (:pointer as-text)))
@@ -6536,7 +5951,8 @@
                             pds-element
                             :calling-convention
                             :cdecl)
-;; sel = 635
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-get-attr-sel+ 639))
 (define-foreign-funcallable pd-structure-dest-get-attr-selproto
                             ((dest pd-structure-destination)
                              (fit-type (:pointer as-atom))
@@ -6546,35 +5962,40 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 636
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-get-cos-obj-sel+ 640))
 (define-foreign-funcallable pd-structure-dest-get-cos-obj-selproto
                             ((dest pd-structure-destination))
                             :result-type
                             cos-obj
                             :calling-convention
                             :cdecl)
-;; sel = 637
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-structure-dest-from-cos-obj-sel+ 641))
 (define-foreign-funcallable pd-structure-dest-from-cos-obj-selproto
                             ((obj cos-obj))
                             :result-type
                             pd-structure-destination
                             :calling-convention
                             :cdecl)
-;; sel = 638
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-set-default-blending-color-space-sel+ 642))
 (define-foreign-funcallable pd-pref-set-default-blending-color-space-selproto
                             ((d-bcsindex as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 639
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-pref-get-default-blending-color-space-sel+ 643))
 (define-foreign-funcallable pd-pref-get-default-blending-color-space-selproto
                             nil
                             :result-type
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 640
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +pd-file-attachment-get-file-size64-sel+ 644))
 (define-foreign-funcallable pd-file-attachment-get-file-size64-selproto
                             ((attachment pd-file-attachment))
                             :result-type

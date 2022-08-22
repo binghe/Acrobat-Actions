@@ -1306,40 +1306,14 @@
 ;; #include <CorProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +as-raise-sel+ 1))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-push-exception-frame-sel+ 2))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-pop-exception-frame-sel+ 3))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-exception-error-code-sel+ 4))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-atom-from-string-sel+ 5))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-atom-exists-for-string-sel+ 6))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-atom-get-string-sel+ 7))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-callback-create-sel+ 8))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-callback-destroy-sel+ 9))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-extension-mgr-get-hft-sel+ 10))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-configuration-sel+ 11))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-enum-extensions-sel+ 12))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-extension-get-file-name-sel+ 13))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-extension-get-registered-name-sel+ 14))
-;; sel = 1
 (define-foreign-funcallable as-raise-selproto
                             ((error as-error-code))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 2
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-push-exception-frame-sel+ 2))
 (define-foreign-funcallable as-push-exception-frame-selproto
                             ((as-environ (:pointer :void))
                              (restore-func ac-restore-environ-proc))
@@ -1347,21 +1321,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 3
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-pop-exception-frame-sel+ 3))
 (define-foreign-funcallable as-pop-exception-frame-selproto
                             nil
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 4
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-exception-error-code-sel+ 4))
 (define-foreign-funcallable as-get-exception-error-code-selproto
                             nil
                             :result-type
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 5
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-atom-from-string-sel+ 5))
 (define-foreign-funcallable as-atom-from-string-selproto
                             ((name-str
                               (:reference-pass :ef-mb-string)))
@@ -1369,7 +1346,8 @@
                             as-atom
                             :calling-convention
                             :cdecl)
-;; sel = 6
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-atom-exists-for-string-sel+ 6))
 (define-foreign-funcallable as-atom-exists-for-string-selproto
                             ((name-str (:reference-pass :ef-mb-string))
                              (atom (:pointer as-atom)))
@@ -1377,14 +1355,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 7
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-atom-get-string-sel+ 7))
 (define-foreign-funcallable as-atom-get-string-selproto
                             ((atm as-atom))
                             :result-type
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 8
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-callback-create-sel+ 8))
 (define-foreign-funcallable as-callback-create-selproto
                             ((extension-id as-extension)
                              (proc (:pointer :void)))
@@ -1392,28 +1372,32 @@
                             as-callback
                             :calling-convention
                             :cdecl)
-;; sel = 9
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-callback-destroy-sel+ 9))
 (define-foreign-funcallable as-callback-destroy-selproto
                             ((callback as-callback))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 10
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-extension-mgr-get-hft-sel+ 10))
 (define-foreign-funcallable as-extension-mgr-get-hft-selproto
                             ((name as-atom) (version as-version))
                             :result-type
                             hft
                             :calling-convention
                             :cdecl)
-;; sel = 11
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-configuration-sel+ 11))
 (define-foreign-funcallable as-get-configuration-selproto
                             ((key as-atom))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 12
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-enum-extensions-sel+ 12))
 (define-foreign-funcallable as-enum-extensions-selproto
                             ((proc as-extension-enum-proc)
                              (client-data (:pointer :void))
@@ -1422,7 +1406,8 @@
                             as-extension
                             :calling-convention
                             :cdecl)
-;; sel = 13
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-extension-get-file-name-sel+ 13))
 (define-foreign-funcallable as-extension-get-file-name-selproto
                             ((extension as-extension)
                              (buffer (:reference-pass :ef-mb-string))
@@ -1431,7 +1416,8 @@
                             ast-array-size
                             :calling-convention
                             :cdecl)
-;; sel = 14
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-extension-get-registered-name-sel+ 14))
 (define-foreign-funcallable as-extension-get-registered-name-selproto
                             ((extension as-extension))
                             :result-type
@@ -1542,270 +1528,14 @@
 ;; #include <ASProcs.h>
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defconstant +as-malloc-sel+ 1))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-realloc-sel+ 2))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-free-sel+ 3))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-error-string-sel+ 4))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-register-error-string-sel+ 5))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-server-new-sel+ 6))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-server-destroy-sel+ 7))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-new-sel+ 8))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-destroy-sel+ 9))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-replace-entry-sel+ 10))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-get-replaced-entry-sel+ 11))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-mul-sel+ 12))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-div-sel+ 13))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-to-cstring-sel+ 14))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-cstring-to-fixed-sel+ 15))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-matrix-concat-sel+ 16))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-matrix-invert-sel+ 17))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-matrix-transform-sel+ 18))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-matrix-transform-rect-sel+ 19))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-path-from-platform-path-sel+ 20))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-default-file-sys-sel+ 21))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-dipath-from-path-sel+ 22))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-path-from-dipath-sel+ 23))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-copy-path-sel+ 24))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-release-path-sel+ 25))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-open-file-sel+ 26))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-remove-file-sel+ 27))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-reopen-sel+ 28))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-close-sel+ 29))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-set-pos-sel+ 30))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-pos-sel+ 31))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-set-eof-sel+ 32))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-eof-sel+ 33))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-read-sel+ 34))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-write-sel+ 35))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-flush-sel+ 36))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-acquire-path-name-sel+ 37))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-file-sys-sel+ 38))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-debug-sel+ 39))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-stm-rd-open-sel+ 40))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-mem-stm-rd-open-sel+ 41))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-proc-stm-rd-open-sel+ 42))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-stm-read-sel+ 43))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-stm-write-sel+ 44))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-stm-close-sel+ 45))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-unregister-file-sys-sel+ 46))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-push-data-sel+ 47))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-register-file-sys-sel+ 48))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-file-sys-by-name-sel+ 49))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-from-mdfile-sel+ 50))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-mdfile-sel+ 51))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-create-path-name-sel+ 52))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-acquire-file-sys-path-sel+ 53))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-set-mode-sel+ 54))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-proc-stm-wr-open-sel+ 55))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-stm-wr-open-sel+ 56))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-is-valid-sel+ 57))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-item-props-sel+ 58))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-first-folder-item-sel+ 59))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-next-folder-item-sel+ 60))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-destroy-folder-iterator-sel+ 61))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-acquire-parent-sel+ 62))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-is-same-sel+ 63))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-name-from-path-sel+ 64))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-temp-path-name-sel+ 65))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-storage-free-space-sel+ 66))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-flush-volume-sel+ 67))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-mread-request-sel+ 68))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-clear-outstanding-mreads-sel+ 69))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-urlfrom-path-sel+ 70))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-url-sel+ 71))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-create-folder-sel+ 72))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-remove-folder-sel+ 73))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-open-mode-sel+ 74))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-display-string-from-path-sel+ 75))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-secs-sel+ 76))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-set-type-and-creator-sel+ 77))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-type-and-creator-sel+ 78))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-host-mblen-sel+ 79))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-hard-flush-sel+ 80))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-replace-entry-ex-sel+ 81))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-unreplace-entry-sel+ 82))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-proc-stm-rd-open-ex-sel+ 83))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-uuid-gen-unique-sel+ 84))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-uuid-gen-from-name-sel+ 85))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-uuid-gen-from-hash-sel+ 86))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-uuid-from-cstring-sel+ 87))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-uuid-to-cstring-sel+ 88))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-platform-thing-sel+ 89))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-acquire-platform-path-sel+ 90))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-release-platform-path-sel+ 91))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-platform-path-get-cstring-ptr-sel+ 92))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-platform-path-get-fsref-ptr-sel+ 93))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-sel+ 94))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-platform-path-get-cfurlref-rec-ptr-sel+ 95))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-platform-path-get-posixpath-ptr-sel+ 96))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-name-from-path-as-as-text-sel+ 97))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-display-as-text-from-path-sel+ 98))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-stm-flush-sel+ 99))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-has-outstanding-mreads-sel+ 100))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-can-set-eof-sel+ 101))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-get-version-sel+ 102))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +hft-new-ex-sel+ 103))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-dipath-from-path-ex-sel+ 104))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-path-from-dipath-ex-sel+ 105))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-temp-file-sys-sel+ 106))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-set-temp-file-sys-sel+ 107))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-ram-file-sys-sel+ 108))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-fixed-to-float-sel+ 109))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +float-to-as-fixed-sel+ 110))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-open-file64-sel+ 111))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-file-pos-limit-sel+ 112))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-set-pos64-sel+ 113))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-pos64-sel+ 114))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-set-eof64-sel+ 115))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-get-eof64-sel+ 116))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-ram-file-sys-set-limit-kb-sel+ 117))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-name-from-path-for-display-sel+ 118))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-default-unicode-file-sys-sel+ 119))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-error-string-as-text-sel+ 120))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-register-error-string-as-text-sel+ 121))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-get-default-file-sys-for-path-sel+ 122))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-is-local-sel+ 123))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-sys-get-storage-free-space64-sel+ 124))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-double-matrix-concat-sel+ 125))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-double-matrix-invert-sel+ 126))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-double-matrix-transform-sel+ 127))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-double-matrix-transform-rect-sel+ 128))
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defconstant +as-file-open-with-virtual-eof-sel+ 129))
-;; sel = 1
 (define-foreign-funcallable as-malloc-selproto
                             ((n-bytes os-size-t))
                             :result-type
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 2
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-realloc-sel+ 2))
 (define-foreign-funcallable as-realloc-selproto
                             ((ptr (:pointer :void))
                              (new-nbytes os-size-t))
@@ -1813,14 +1543,16 @@
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 3
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-free-sel+ 3))
 (define-foreign-funcallable as-free-selproto
                             ((ptr (:pointer :void)))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 4
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-error-string-sel+ 4))
 (define-foreign-funcallable as-get-error-string-selproto
                             ((error-code as-error-code)
                              (buffer (:reference-pass :ef-mb-string))
@@ -1829,7 +1561,8 @@
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 5
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-register-error-string-sel+ 5))
 (define-foreign-funcallable as-register-error-string-selproto
                             ((severity as-err-severity)
                              (error-string
@@ -1838,7 +1571,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 6
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-server-new-sel+ 6))
 (define-foreign-funcallable hft-server-new-selproto
                             ((name (:reference-pass :ef-mb-string))
                              (server-proc hft-server-provide-hft-proc)
@@ -1848,14 +1582,16 @@
                             hft-server
                             :calling-convention
                             :cdecl)
-;; sel = 7
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-server-destroy-sel+ 7))
 (define-foreign-funcallable hft-server-destroy-selproto
                             ((hft-server hft-server))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 8
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-new-sel+ 8))
 (define-foreign-funcallable hft-new-selproto
                             ((hft-server hft-server)
                              (num-selectors ast-count))
@@ -1863,14 +1599,16 @@
                             hft
                             :calling-convention
                             :cdecl)
-;; sel = 9
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-destroy-sel+ 9))
 (define-foreign-funcallable hft-destroy-selproto
                             ((hft hft))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 10
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-replace-entry-sel+ 10))
 (define-foreign-funcallable hft-replace-entry-selproto
                             ((hft hft)
                              (sel selector)
@@ -1880,7 +1618,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 11
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-get-replaced-entry-sel+ 11))
 (define-foreign-funcallable hft-get-replaced-entry-selproto
                             ((hft hft)
                              (sel selector)
@@ -1889,21 +1628,24 @@
                             hft-entry
                             :calling-convention
                             :cdecl)
-;; sel = 12
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-mul-sel+ 12))
 (define-foreign-funcallable as-fixed-mul-selproto
                             ((a as-fixed) (b as-fixed))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 13
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-div-sel+ 13))
 (define-foreign-funcallable as-fixed-div-selproto
                             ((a as-fixed) (b as-fixed))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 14
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-to-cstring-sel+ 14))
 (define-foreign-funcallable as-fixed-to-cstring-selproto
                             ((f as-fixed)
                              (s (:reference-pass :ef-mb-string))
@@ -1913,14 +1655,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 15
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-cstring-to-fixed-sel+ 15))
 (define-foreign-funcallable as-cstring-to-fixed-selproto
                             ((s (:reference-pass :ef-mb-string)))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 16
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-matrix-concat-sel+ 16))
 (define-foreign-funcallable as-fixed-matrix-concat-selproto
                             ((result as-fixed-matrix-p)
                              (m1 (:pointer as-fixed-matrix))
@@ -1929,7 +1673,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 17
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-matrix-invert-sel+ 17))
 (define-foreign-funcallable as-fixed-matrix-invert-selproto
                             ((result as-fixed-matrix-p)
                              (m as-fixed-matrix-p))
@@ -1937,7 +1682,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 18
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-matrix-transform-sel+ 18))
 (define-foreign-funcallable as-fixed-matrix-transform-selproto
                             ((result as-fixed-point-p)
                              (m as-fixed-matrix-p)
@@ -1946,7 +1692,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 19
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-matrix-transform-rect-sel+ 19))
 (define-foreign-funcallable as-fixed-matrix-transform-rect-selproto
                             ((result as-fixed-rect-p)
                              (m as-fixed-matrix-p)
@@ -1955,21 +1702,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 20
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-path-from-platform-path-sel+ 20))
 (define-foreign-funcallable as-path-from-platform-path-selproto
                             ((platform-path (:pointer :void)))
                             :result-type
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 21
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-default-file-sys-sel+ 21))
 (define-foreign-funcallable as-get-default-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 22
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-dipath-from-path-sel+ 22))
 (define-foreign-funcallable as-file-sys-dipath-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -1978,7 +1728,8 @@
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 23
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-path-from-dipath-sel+ 23))
 (define-foreign-funcallable as-file-sys-path-from-dipath-selproto
                             ((file-sys as-file-sys)
                              (di-path (:reference-pass :ef-mb-string))
@@ -1987,7 +1738,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 24
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-copy-path-sel+ 24))
 (define-foreign-funcallable as-file-sys-copy-path-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -1995,7 +1747,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 25
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-release-path-sel+ 25))
 (define-foreign-funcallable as-file-sys-release-path-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2003,7 +1756,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 26
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-open-file-sel+ 26))
 (define-foreign-funcallable as-file-sys-open-file-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2013,7 +1767,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 27
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-remove-file-sel+ 27))
 (define-foreign-funcallable as-file-sys-remove-file-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2021,35 +1776,40 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 28
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-reopen-sel+ 28))
 (define-foreign-funcallable as-file-reopen-selproto
                             ((a-file as-file) (mode as-file-mode))
                             :result-type
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 29
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-close-sel+ 29))
 (define-foreign-funcallable as-file-close-selproto
                             ((a-file as-file))
                             :result-type
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 30
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-set-pos-sel+ 30))
 (define-foreign-funcallable as-file-set-pos-selproto
                             ((a-file as-file) (pos ast-file-pos))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 31
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-pos-sel+ 31))
 (define-foreign-funcallable as-file-get-pos-selproto
                             ((a-file as-file))
                             :result-type
                             ast-file-pos
                             :calling-convention
                             :cdecl)
-;; sel = 32
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-set-eof-sel+ 32))
 (define-foreign-funcallable as-file-set-eof-selproto
                             ((a-file as-file)
                              (new-file-size ast-file-pos))
@@ -2057,14 +1817,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 33
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-eof-sel+ 33))
 (define-foreign-funcallable as-file-get-eof-selproto
                             ((a-file as-file))
                             :result-type
                             ast-file-pos
                             :calling-convention
                             :cdecl)
-;; sel = 34
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-read-sel+ 34))
 (define-foreign-funcallable as-file-read-selproto
                             ((a-file as-file)
                              (p (:reference-pass :ef-mb-string))
@@ -2073,7 +1835,8 @@
                             ast-array-size
                             :calling-convention
                             :cdecl)
-;; sel = 35
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-write-sel+ 35))
 (define-foreign-funcallable as-file-write-selproto
                             ((a-file as-file)
                              (p (:reference-pass :ef-mb-string))
@@ -2082,28 +1845,32 @@
                             ast-array-size
                             :calling-convention
                             :cdecl)
-;; sel = 36
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-flush-sel+ 36))
 (define-foreign-funcallable as-file-flush-selproto
                             ((a-file as-file))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 37
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-acquire-path-name-sel+ 37))
 (define-foreign-funcallable as-file-acquire-path-name-selproto
                             ((a-file as-file))
                             :result-type
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 38
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-file-sys-sel+ 38))
 (define-foreign-funcallable as-file-get-file-sys-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 39
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-debug-sel+ 39))
 (define-foreign-funcallable as-debug-selproto
                             ((op as-int32)
                              (parm (:pointer :void))
@@ -2113,7 +1880,8 @@
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 40
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-stm-rd-open-sel+ 40))
 (define-foreign-funcallable as-file-stm-rd-open-selproto
                             ((afile as-file)
                              (buf-size as-small-buffer-size))
@@ -2121,7 +1889,8 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 41
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-mem-stm-rd-open-sel+ 41))
 (define-foreign-funcallable as-mem-stm-rd-open-selproto
                             ((data (:reference-pass :ef-mb-string))
                              (len as-array-size))
@@ -2129,7 +1898,8 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 42
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-proc-stm-rd-open-sel+ 42))
 (define-foreign-funcallable as-proc-stm-rd-open-selproto
                             ((read-proc as-stm-proc)
                              (client-data (:pointer :void)))
@@ -2137,7 +1907,8 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 43
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-stm-read-sel+ 43))
 (define-foreign-funcallable as-stm-read-selproto
                             ((ptr (:reference-pass :ef-mb-string))
                              (item-size ast-array-size)
@@ -2147,7 +1918,8 @@
                             ast-count
                             :calling-convention
                             :cdecl)
-;; sel = 44
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-stm-write-sel+ 44))
 (define-foreign-funcallable as-stm-write-selproto
                             ((ptr (:reference-pass :ef-mb-string))
                              (item-size ast-array-size)
@@ -2157,14 +1929,16 @@
                             ast-count
                             :calling-convention
                             :cdecl)
-;; sel = 45
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-stm-close-sel+ 45))
 (define-foreign-funcallable as-stm-close-selproto
                             ((stm as-stm))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 46
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-unregister-file-sys-sel+ 46))
 (define-foreign-funcallable as-file-unregister-file-sys-selproto
                             ((extension as-extension)
                              (file-sys as-file-sys))
@@ -2172,7 +1946,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 47
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-push-data-sel+ 47))
 (define-foreign-funcallable as-file-push-data-selproto
                             ((a-file as-file)
                              (p (:reference-pass :ef-mb-string))
@@ -2182,7 +1957,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 48
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-register-file-sys-sel+ 48))
 (define-foreign-funcallable as-file-register-file-sys-selproto
                             ((extension as-extension)
                              (file-sys as-file-sys))
@@ -2190,14 +1966,16 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 49
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-file-sys-by-name-sel+ 49))
 (define-foreign-funcallable as-file-get-file-sys-by-name-selproto
                             ((name as-atom))
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 50
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-from-mdfile-sel+ 50))
 (define-foreign-funcallable as-file-from-mdfile-selproto
                             ((md-file as-mdfile)
                              (file-sys as-file-sys)
@@ -2206,7 +1984,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 51
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-mdfile-sel+ 51))
 (define-foreign-funcallable as-file-get-mdfile-selproto
                             ((f-n as-file)
                              (p-file-id (:pointer as-mdfile))
@@ -2215,7 +1994,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 52
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-create-path-name-sel+ 52))
 (define-foreign-funcallable as-file-sys-create-path-name-selproto
                             ((file-sys as-file-sys)
                              (path-spec-type as-atom)
@@ -2225,7 +2005,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 53
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-acquire-file-sys-path-sel+ 53))
 (define-foreign-funcallable as-file-sys-acquire-file-sys-path-selproto
                             ((old-file-sys as-file-sys)
                              (old-path-name as-path-name)
@@ -2234,7 +2015,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 54
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-set-mode-sel+ 54))
 (define-foreign-funcallable as-file-set-mode-selproto
                             ((f-n as-file)
                              (mode-value as-flag-bits)
@@ -2243,7 +2025,8 @@
                             as-flag-bits
                             :calling-convention
                             :cdecl)
-;; sel = 55
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-proc-stm-wr-open-sel+ 55))
 (define-foreign-funcallable as-proc-stm-wr-open-selproto
                             ((write-proc as-stm-proc)
                              (destroy-proc as-proc-stm-destroy-proc)
@@ -2252,7 +2035,8 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 56
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-stm-wr-open-sel+ 56))
 (define-foreign-funcallable as-file-stm-wr-open-selproto
                             ((afile as-file)
                              (buf-size as-small-buffer-size))
@@ -2260,14 +2044,16 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 57
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-is-valid-sel+ 57))
 (define-foreign-funcallable hft-is-valid-selproto
                             ((hft hft))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 58
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-item-props-sel+ 58))
 (define-foreign-funcallable as-file-sys-get-item-props-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2276,7 +2062,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 59
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-first-folder-item-sel+ 59))
 (define-foreign-funcallable as-file-sys-first-folder-item-selproto
                             ((file-sys as-file-sys)
                              (folder-path as-path-name)
@@ -2286,7 +2073,8 @@
                             as-folder-iterator
                             :calling-convention
                             :cdecl)
-;; sel = 60
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-next-folder-item-sel+ 60))
 (define-foreign-funcallable as-file-sys-next-folder-item-selproto
                             ((file-sys as-file-sys)
                              (folder-iter as-folder-iterator)
@@ -2296,7 +2084,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 61
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-destroy-folder-iterator-sel+ 61))
 (define-foreign-funcallable as-file-sys-destroy-folder-iterator-selproto
                             ((file-sys as-file-sys)
                              (folder-iter as-folder-iterator))
@@ -2304,7 +2093,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 62
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-acquire-parent-sel+ 62))
 (define-foreign-funcallable as-file-sys-acquire-parent-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2312,7 +2102,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 63
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-is-same-sel+ 63))
 (define-foreign-funcallable as-file-is-same-selproto
                             ((f-n as-file)
                              (path-name as-path-name)
@@ -2321,7 +2112,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 64
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-name-from-path-sel+ 64))
 (define-foreign-funcallable as-file-sys-get-name-from-path-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2331,7 +2123,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 65
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-temp-path-name-sel+ 65))
 (define-foreign-funcallable as-file-sys-get-temp-path-name-selproto
                             ((file-sys as-file-sys)
                              (sibling-path-name as-path-name))
@@ -2339,7 +2132,8 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 66
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-storage-free-space-sel+ 66))
 (define-foreign-funcallable as-file-sys-get-storage-free-space-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2347,7 +2141,8 @@
                             as-disk-space
                             :calling-convention
                             :cdecl)
-;; sel = 67
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-flush-volume-sel+ 67))
 (define-foreign-funcallable as-file-sys-flush-volume-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2355,7 +2150,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 68
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-mread-request-sel+ 68))
 (define-foreign-funcallable as-file-mread-request-selproto
                             ((f-n as-file)
                              (block-pairs (:pointer as-int32))
@@ -2364,14 +2160,16 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 69
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-clear-outstanding-mreads-sel+ 69))
 (define-foreign-funcallable as-file-clear-outstanding-mreads-selproto
                             ((f-n as-file))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 70
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-urlfrom-path-sel+ 70))
 (define-foreign-funcallable as-file-sys-urlfrom-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name))
@@ -2379,14 +2177,16 @@
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 71
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-url-sel+ 71))
 (define-foreign-funcallable as-file-get-url-selproto
                             ((asf as-file))
                             :result-type
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 72
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-create-folder-sel+ 72))
 (define-foreign-funcallable as-file-sys-create-folder-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2395,7 +2195,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 73
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-remove-folder-sel+ 73))
 (define-foreign-funcallable as-file-sys-remove-folder-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name))
@@ -2403,14 +2204,16 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 74
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-open-mode-sel+ 74))
 (define-foreign-funcallable as-file-get-open-mode-selproto
                             ((f-n as-file))
                             :result-type
                             as-file-mode
                             :calling-convention
                             :cdecl)
-;; sel = 75
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-display-string-from-path-sel+ 75))
 (define-foreign-funcallable as-file-sys-display-string-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name))
@@ -2418,14 +2221,16 @@
                             (:reference-pass :ef-mb-string)
                             :calling-convention
                             :cdecl)
-;; sel = 76
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-secs-sel+ 76))
 (define-foreign-funcallable as-get-secs-selproto
                             nil
                             :result-type
                             as-count
                             :calling-convention
                             :cdecl)
-;; sel = 77
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-set-type-and-creator-sel+ 77))
 (define-foreign-funcallable as-file-sys-set-type-and-creator-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2435,7 +2240,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 78
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-type-and-creator-sel+ 78))
 (define-foreign-funcallable as-file-sys-get-type-and-creator-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2445,7 +2251,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 79
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-host-mblen-sel+ 79))
 (define-foreign-funcallable as-host-mblen-selproto
                             ((encoding as-host-encoding)
                              (byte as-uns8))
@@ -2453,14 +2260,16 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 80
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-hard-flush-sel+ 80))
 (define-foreign-funcallable as-file-hard-flush-selproto
                             ((a-file as-file))
                             :result-type
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 81
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-replace-entry-ex-sel+ 81))
 (define-foreign-funcallable hft-replace-entry-ex-selproto
                             ((hft hft)
                              (sel selector)
@@ -2471,7 +2280,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 82
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-unreplace-entry-sel+ 82))
 (define-foreign-funcallable hft-unreplace-entry-selproto
                             ((hft hft)
                              (sel selector)
@@ -2481,7 +2291,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 83
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-proc-stm-rd-open-ex-sel+ 83))
 (define-foreign-funcallable as-proc-stm-rd-open-ex-selproto
                             ((handler as-proc-stm-rd-ex-handler)
                              (client-data (:pointer :void)))
@@ -2489,14 +2300,16 @@
                             as-stm
                             :calling-convention
                             :cdecl)
-;; sel = 84
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-uuid-gen-unique-sel+ 84))
 (define-foreign-funcallable as-uuid-gen-unique-selproto
                             ((dst (:pointer as-uuid)))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 85
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-uuid-gen-from-name-sel+ 85))
 (define-foreign-funcallable as-uuid-gen-from-name-selproto
                             ((dst (:pointer as-uuid))
                              (ns (:pointer as-uuid))
@@ -2506,7 +2319,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 86
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-uuid-gen-from-hash-sel+ 86))
 (define-foreign-funcallable as-uuid-gen-from-hash-selproto
                             ((dst (:pointer as-uuid))
                              (hash (:c-array as-uns8 16)))
@@ -2514,7 +2328,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 87
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-uuid-from-cstring-sel+ 87))
 (define-foreign-funcallable as-uuid-from-cstring-selproto
                             ((dst (:pointer as-uuid))
                              (str (:reference-pass :ef-mb-string)))
@@ -2522,7 +2337,8 @@
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 88
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-uuid-to-cstring-sel+ 88))
 (define-foreign-funcallable as-uuid-to-cstring-selproto
                             ((dst (:reference-pass :ef-mb-string))
                              (src (:pointer as-uuid)))
@@ -2530,7 +2346,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 89
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-platform-thing-sel+ 89))
 (define-foreign-funcallable as-file-sys-get-platform-thing-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2539,7 +2356,8 @@
                             (:pointer :void)
                             :calling-convention
                             :cdecl)
-;; sel = 90
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-acquire-platform-path-sel+ 90))
 (define-foreign-funcallable as-file-sys-acquire-platform-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2550,7 +2368,8 @@
                             as-int32
                             :calling-convention
                             :cdecl)
-;; sel = 91
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-release-platform-path-sel+ 91))
 (define-foreign-funcallable as-file-sys-release-platform-path-selproto
                             ((file-sys as-file-sys)
                              (platform-path as-platform-path))
@@ -2558,42 +2377,48 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 92
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-platform-path-get-cstring-ptr-sel+ 92))
 (define-foreign-funcallable as-platform-path-get-cstring-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             cstring-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 93
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-platform-path-get-fsref-ptr-sel+ 93))
 (define-foreign-funcallable as-platform-path-get-fsref-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             fsref-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 94
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-sel+ 94))
 (define-foreign-funcallable as-platform-path-get-fsref-with-cfstring-ref-rec-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             fsref-with-cfstring-ref-rec-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 95
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-platform-path-get-cfurlref-rec-ptr-sel+ 95))
 (define-foreign-funcallable as-platform-path-get-cfurlref-rec-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             cf-urlref-rec-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 96
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-platform-path-get-posixpath-ptr-sel+ 96))
 (define-foreign-funcallable as-platform-path-get-posixpath-ptr-selproto
                             ((path as-platform-path))
                             :result-type
                             posixpath-ptr
                             :calling-convention
                             :cdecl)
-;; sel = 97
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-name-from-path-as-as-text-sel+ 97))
 (define-foreign-funcallable as-file-sys-get-name-from-path-as-as-text-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2602,7 +2427,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 98
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-display-as-text-from-path-sel+ 98))
 (define-foreign-funcallable as-file-sys-display-as-text-from-path-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2611,42 +2437,48 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 99
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-stm-flush-sel+ 99))
 (define-foreign-funcallable as-stm-flush-selproto
                             ((stm as-stm))
                             :result-type
                             ast-count
                             :calling-convention
                             :cdecl)
-;; sel = 100
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-has-outstanding-mreads-sel+ 100))
 (define-foreign-funcallable as-file-has-outstanding-mreads-selproto
                             ((f-n as-file))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 101
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-can-set-eof-sel+ 101))
 (define-foreign-funcallable as-file-can-set-eof-selproto
                             ((file as-file) (new-file-size as-int32))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 102
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-get-version-sel+ 102))
 (define-foreign-funcallable hft-get-version-selproto
                             ((hft hft))
                             :result-type
                             as-version
                             :calling-convention
                             :cdecl)
-;; sel = 103
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +hft-new-ex-sel+ 103))
 (define-foreign-funcallable hft-new-ex-selproto
                             ((hft-server hft-server) (data hft-data))
                             :result-type
                             hft
                             :calling-convention
                             :cdecl)
-;; sel = 104
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-dipath-from-path-ex-sel+ 104))
 (define-foreign-funcallable as-file-sys-dipath-from-path-ex-selproto
                             ((file-sys as-file-sys)
                              (path as-path-name)
@@ -2656,7 +2488,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 105
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-path-from-dipath-ex-sel+ 105))
 (define-foreign-funcallable as-file-sys-path-from-dipath-ex-selproto
                             ((file-sys as-file-sys)
                              (di-path-text as-const-text)
@@ -2665,42 +2498,48 @@
                             as-path-name
                             :calling-convention
                             :cdecl)
-;; sel = 106
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-temp-file-sys-sel+ 106))
 (define-foreign-funcallable as-get-temp-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 107
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-set-temp-file-sys-sel+ 107))
 (define-foreign-funcallable as-set-temp-file-sys-selproto
                             ((file-sys as-file-sys))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 108
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-ram-file-sys-sel+ 108))
 (define-foreign-funcallable as-get-ram-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 109
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-fixed-to-float-sel+ 109))
 (define-foreign-funcallable as-fixed-to-float-selproto
                             ((in-as-fixed as-fixed))
                             :result-type
                             :float
                             :calling-convention
                             :cdecl)
-;; sel = 110
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +float-to-as-fixed-sel+ 110))
 (define-foreign-funcallable float-to-as-fixed-selproto
                             ((in-float :double))
                             :result-type
                             as-fixed
                             :calling-convention
                             :cdecl)
-;; sel = 111
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-open-file64-sel+ 111))
 (define-foreign-funcallable as-file-sys-open-file64-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2710,28 +2549,32 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 112
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-file-pos-limit-sel+ 112))
 (define-foreign-funcallable as-file-sys-get-file-pos-limit-selproto
                             ((file-sys as-file-sys))
                             :result-type
                             as-file-pos64
                             :calling-convention
                             :cdecl)
-;; sel = 113
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-set-pos64-sel+ 113))
 (define-foreign-funcallable as-file-set-pos64-selproto
                             ((a-file as-file) (pos as-file-pos64))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 114
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-pos64-sel+ 114))
 (define-foreign-funcallable as-file-get-pos64-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-pos64
                             :calling-convention
                             :cdecl)
-;; sel = 115
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-set-eof64-sel+ 115))
 (define-foreign-funcallable as-file-set-eof64-selproto
                             ((a-file as-file)
                              (new-file-size as-file-pos64))
@@ -2739,21 +2582,24 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 116
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-get-eof64-sel+ 116))
 (define-foreign-funcallable as-file-get-eof64-selproto
                             ((a-file as-file))
                             :result-type
                             as-file-pos64
                             :calling-convention
                             :cdecl)
-;; sel = 117
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-ram-file-sys-set-limit-kb-sel+ 117))
 (define-foreign-funcallable as-ram-file-sys-set-limit-kb-selproto
                             ((limit as-int32))
                             :result-type
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 118
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-name-from-path-for-display-sel+ 118))
 (define-foreign-funcallable as-file-sys-get-name-from-path-for-display-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name)
@@ -2762,14 +2608,16 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 119
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-default-unicode-file-sys-sel+ 119))
 (define-foreign-funcallable as-get-default-unicode-file-sys-selproto
                             nil
                             :result-type
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 120
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-error-string-as-text-sel+ 120))
 (define-foreign-funcallable as-get-error-string-as-text-selproto
                             ((error-code as-error-code)
                              (error-string as-text))
@@ -2777,7 +2625,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 121
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-register-error-string-as-text-sel+ 121))
 (define-foreign-funcallable as-register-error-string-as-text-selproto
                             ((severity as-err-severity)
                              (error-string as-text))
@@ -2785,7 +2634,8 @@
                             as-error-code
                             :calling-convention
                             :cdecl)
-;; sel = 122
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-get-default-file-sys-for-path-sel+ 122))
 (define-foreign-funcallable as-get-default-file-sys-for-path-selproto
                             ((path-spec-type as-atom)
                              (path-spec (:pointer :void)))
@@ -2793,14 +2643,16 @@
                             as-file-sys
                             :calling-convention
                             :cdecl)
-;; sel = 123
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-is-local-sel+ 123))
 (define-foreign-funcallable as-file-sys-is-local-selproto
                             ((file-sys as-file-sys))
                             :result-type
                             as-bool
                             :calling-convention
                             :cdecl)
-;; sel = 124
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-sys-get-storage-free-space64-sel+ 124))
 (define-foreign-funcallable as-file-sys-get-storage-free-space64-selproto
                             ((file-sys as-file-sys)
                              (path-name as-path-name))
@@ -2808,7 +2660,8 @@
                             as-disk-space64
                             :calling-convention
                             :cdecl)
-;; sel = 125
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-double-matrix-concat-sel+ 125))
 (define-foreign-funcallable as-double-matrix-concat-selproto
                             ((result (:pointer as-double-matrix))
                              (m1 (:pointer as-double-matrix))
@@ -2817,7 +2670,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 126
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-double-matrix-invert-sel+ 126))
 (define-foreign-funcallable as-double-matrix-invert-selproto
                             ((result (:pointer as-double-matrix))
                              (m (:pointer as-double-matrix)))
@@ -2825,7 +2679,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 127
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-double-matrix-transform-sel+ 127))
 (define-foreign-funcallable as-double-matrix-transform-selproto
                             ((result (:pointer as-double-point))
                              (m (:pointer as-double-matrix))
@@ -2834,7 +2689,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 128
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-double-matrix-transform-rect-sel+ 128))
 (define-foreign-funcallable as-double-matrix-transform-rect-selproto
                             ((result (:pointer as-double-rect))
                              (m (:pointer as-double-matrix))
@@ -2843,7 +2699,8 @@
                             :void
                             :calling-convention
                             :cdecl)
-;; sel = 129
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defconstant +as-file-open-with-virtual-eof-sel+ 129))
 (define-foreign-funcallable as-file-open-with-virtual-eof-selproto
                             ((f-n as-file)
                              (virtual-eof as-file-pos64)
