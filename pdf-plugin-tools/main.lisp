@@ -145,9 +145,9 @@
       (setf (foreign-slot-value params 'size) (size-of 'av-app-language-params-rec))
       (setf (foreign-slot-value params 'k-lang-format) +k-avapp-language-iso4char+)
       (when (av-app-get-language-with-params params)
-        (let ((av-app-language (convert-from-foreign-string
-                                (foreign-slot-pointer params 'sz-avapp-language))))
-          (setq *av-app-language* (intern (string-upcase av-app-language) :keyword))
+        (let ((app-language (convert-from-foreign-string
+                             (foreign-slot-pointer params 'sz-avapp-language))))
+          (setq *av-app-language* (intern (string-upcase app-language) :keyword))
           (plugin-log "[PluginInit] *av-app-language* = ~A~%" *av-app-language*)))
       (free-foreign-object params))
     (unless (plugin-set-menu)
