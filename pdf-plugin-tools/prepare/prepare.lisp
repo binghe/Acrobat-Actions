@@ -93,9 +93,13 @@ defintion and writes it to the output stream."
                  `(:variadic-num-of-fixed ,variadic-num-of-fixed))
              :calling-convention :cdecl)))
 
+;; https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
 (defparameter *remove-c-comment-regex*
   (create-scanner
    "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
+
+(defparameter *remove-cpp-comment-regex*
+  (create-scanner "(//.*)"))
 
 (defun collect-type-and-names (args)
   (loop for arg in (split "\\s*,\\s*" args)
@@ -288,19 +292,12 @@ EXPORT statement."
     (when type-name
       (pprint `(fli:define-c-typedef ,(mangle-name type-name) :int)))))
 
-;; NOTE: the regex string /\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/ for matching C
-;; comments is learnt from (non-greedy matching doesn't work)
-;; https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
-;;
-;; /* comment1 */ type [*]var1, [*]var2; // comment2
+;; type [*]var1, [*]var2;
 (defparameter *type-and-names-regex*
   (create-scanner
    (concatenate 'string
                 "(?sm)\\s*"
-                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)*" ; C comments
-                "(?://[^\\r\\n]*)?"     ; C++ comments (optional)
                 "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
-                "\\s*(?://[^\\r\\n]*)?" ; C++ comments (optional)
                 )))
 
 (defun handle-struct-body (class body typedef-name &optional
@@ -401,7 +398,6 @@ corresponding FLI:DEFINE-C-STRUCT definition."
                 "(?sm)\\s*"
                 "typedef\\s+struct\\s+(\\w+)(?<!\\s)\\s*"
                 "\\*(\\w+),\\s*"
-                "(?:/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/\\s*)?" ; C comments (optional)
                 "\\*(\\w+),\\s*"
                 "\\*(\\w+),\\s*"
                 "\\*(\\w+);"
@@ -529,9 +525,11 @@ corresponding C code to *STANDARD-OUTPUT*."
                 (format *error-output* "L~D contexts: ~A, pos-contexts: ~A, neg-contexts: ~A~%"
                         *line-number* contexts pos-contexts neg-contexts)
                 )))
-      ;; remove all C comments
+      ;; remove all C/C++ comments
       (setq file-string
             (regex-replace-all *remove-c-comment-regex* file-string ""))
+      (setq file-string
+            (regex-replace-all *remove-cpp-comment-regex* file-string ""))
       ;; enum + typedef
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)
