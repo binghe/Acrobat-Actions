@@ -551,6 +551,9 @@ corresponding C code to *STANDARD-OUTPUT*."
           (handle-function type name args)))
       (terpri))))
 
+(defparameter *fli-file-header*
+  ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+
 (defun prepare (&optional (group 0))
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
 the C header files of Acrobat Pro."
@@ -567,7 +570,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -583,7 +586,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -599,7 +602,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -615,7 +618,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -631,7 +634,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
