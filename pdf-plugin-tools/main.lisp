@@ -148,7 +148,7 @@
         (let ((app-language (convert-from-foreign-string
                              (foreign-slot-pointer params 'sz-avapp-language))))
           (setq *av-app-language* (intern (string-upcase app-language) :keyword))
-          (plugin-log "[PluginInit] *av-app-language* = ~A~%" *av-app-language*)))
+          (plugin-log "[PluginInit] *av-app-language* = ~S~%" *av-app-language*)))
       (free-foreign-object params))
     (unless (plugin-set-menu)
       (plugin-log "[PluginInit] end badly.~%")
