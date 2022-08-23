@@ -7593,7 +7593,7 @@
                  (open-flags av-doc-open-flags))
 (define-c-typedef av-doc-open-params (:pointer av-doc-open-params-rec))
 (define-c-struct external-doc-window-ref-data-rec
-                 (plugin-view (:pointer nsview))
+                 (plugin-view (:pointer :void))
                  (x (:pointer as-uns32))
                  (y (:pointer as-uns32))
                  (width (:pointer as-uns32))
@@ -8008,6 +8008,8 @@
                  (initial-file-sys as-file-sys)
                  (initial-path-name as-path-name)
                  (initial-file-name as-text)
+                 (file-filters
+                  (:pointer (:pointer av-file-filter-rec)))
                  (num-file-filters av-array-size)
                  (settings-compute-enabled-proc
                   av-open-save-dialog-settings-compute-enabled-proc)
@@ -8265,22 +8267,24 @@
                  (other-data-cab as-cab)
                  (supported-features as-int32))
 (define-c-typedef av-storage-entry (:pointer av-storage-entry-rec))
-(define-c-struct av-httpheader-rec
+(define-c-struct av-http-header-rec
                  (name (:reference-pass :ef-mb-string))
                  (value (:reference-pass :ef-mb-string)))
-(define-c-typedef av-httpheader (:pointer av-httpheader-rec))
-(define-c-struct av-httpheader-array-rec
+(define-c-typedef av-http-header (:pointer av-http-header-rec))
+(define-c-struct av-http-header-array-rec
                  (count as-uns32)
-                 (headers (:pointer av-httpheader-rec)))
-(define-c-typedef av-httpheader-array
-                  (:pointer av-httpheader-array-rec))
-(define-c-struct av-httpheader-names-array-rec (count as-uns32))
-(define-c-typedef av-httpheader-names-array
-                  (:pointer av-httpheader-names-array-rec))
+                 (headers (:pointer av-http-header-rec)))
+(define-c-typedef av-http-header-array
+                  (:pointer av-http-header-array-rec))
+(define-c-struct av-http-header-names-array-rec
+                 (count as-uns32)
+                 (header-names-array (:pointer (:pointer :char))))
+(define-c-typedef av-http-header-names-array
+                  (:pointer av-http-header-names-array-rec))
 (define-c-struct av-web-service-response-rec
                  (size as-size-t)
                  (status-code as-int32)
-                 (headers av-httpheader-array)
+                 (headers av-http-header-array)
                  (response-body as-stm)
                  (client-data (:pointer :void))
                  (error-message as-text))
@@ -8290,7 +8294,7 @@
                  (size as-size-t)
                  (verb (:reference-pass :ef-mb-string))
                  (url (:reference-pass :ef-mb-string))
-                 (headers av-httpheader-array)
+                 (headers av-http-header-array)
                  (request-body as-stm)
                  (handler av-web-response-handler-proc)
                  (request-write-progress-proc
@@ -8301,7 +8305,7 @@
                  (progress-cbclient-data (:pointer :void))
                  (is-sync as-bool)
                  (response-header-names-array
-                  av-httpheader-names-array))
+                  av-http-header-names-array))
 (define-c-typedef av-web-service-request
                   (:pointer av-web-service-request-rec))
 (define-c-struct eureka-review-info-rec
@@ -8536,6 +8540,8 @@
                  (initial-file-sys as-file-sys)
                  (initial-path-name as-path-name)
                  (initial-file-name (:reference-pass :ef-mb-string))
+                 (file-filters
+                  (:pointer (:pointer av-file-filter-rec)))
                  (num-file-filters av-array-size)
                  (settings-compute-enabled-proc
                   av-open-save-dialog-settings-compute-enabled-proc)

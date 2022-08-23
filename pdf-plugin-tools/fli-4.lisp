@@ -569,6 +569,7 @@
                  (first-char as-int32)
                  (last-char as-int32)
                  (widths-p (:pointer as-int16))
+                 (encoding (:pointer (:pointer :char)))
                  (encoding-base-name as-atom)
                  (font-stm as-stm)
                  (len1 as-int32)

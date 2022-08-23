@@ -291,11 +291,12 @@ EXPORT statement."
       (pprint `(fli:define-c-typedef ,(mangle-name type-name) :int)))))
 
 ;; type [*]var1, [*]var2;
+;; void*	*pluginView;
 (defparameter *type-and-names-regex*
   (create-scanner
    (concatenate 'string
                 "(?sm)\\s*"
-                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
+                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*(?:\\s*\\*)?\\s*|\\s+\\*(?:\\s*\\*)?\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
                 )))
 
 (defun handle-struct-body (class body typedef-name &optional
