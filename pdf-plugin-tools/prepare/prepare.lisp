@@ -89,6 +89,7 @@ defintion and writes it to the output stream."
                ,(loop for (type name nil) in args
                       collect `(,name ,type))
              :result-type ,result-type
+             #-(or :lispworks5 :lispworks6)
              ,@(when variadic-num-of-fixed
                  `(:variadic-num-of-fixed ,variadic-num-of-fixed))
              :calling-convention :cdecl)))
