@@ -29,9 +29,13 @@
 (in-package :pdf-plugin-tools)
 
 ;; ExtensionName, used in plugin handshaking, must use the following syntax: Prefix_PluginName
+(defvar *extension-name* nil
+  "This variable will be filled after pi-handshake is called.")
+
 (defun get-extension-name ()
-  (let ((extension-name (format nil "~A_~A" *plugin-id* *plugin-name*)))
-    (as-atom-from-string extension-name)))
+  (unless *extension-name*
+    (setq *extension-name* (format nil "~A_~A" *plugin-id* *plugin-name*)))
+  (as-atom-from-string *extension-name*))
 
 (defun as-callback-create-proto (function)
   (as-callback-create *extension-id* function))
@@ -50,7 +54,7 @@
     (av-menu-item-set-execute-proc menu-item functor nil)))
 
 (defun plugin-about-function ()
-  (av-alert-note (format nil "About ~A" (get-extension-name))))
+  (av-alert-note (format nil "About ~A" *extension-name*)))
 
 (defun plugin-load-patch-function ()
   "Load patches from disk (or network)"
