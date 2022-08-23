@@ -96,10 +96,7 @@ defintion and writes it to the output stream."
 ;; https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
 (defparameter *remove-c-comment-regex*
   (create-scanner
-   "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
-
-(defparameter *remove-cpp-comment-regex*
-  (create-scanner "(//.*)"))
+   "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)|(//.*)"))
 
 (defun collect-type-and-names (args)
   (loop for arg in (split "\\s*,\\s*" args)
@@ -528,8 +525,6 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; remove all C/C++ comments
       (setq file-string
             (regex-replace-all *remove-c-comment-regex* file-string ""))
-      (setq file-string
-            (regex-replace-all *remove-cpp-comment-regex* file-string ""))
       ;; enum + typedef
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)
