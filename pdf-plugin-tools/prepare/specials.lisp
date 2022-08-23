@@ -168,7 +168,8 @@
     "OS2_PLATFORM"
     "OS2_ENV"
     "PDSEDIT_IN_CORE || ACROBAT_LIBRARY"
-    #-lispworks-64bit "AS_ARCH_64BIT")
+    #-lispworks-64bit "AS_ARCH_64BIT"
+    "__OBJC__")
   "C macros that are considered being defined as 0 in the SDK")
 
 (defvar *sdk-extern-location* nil

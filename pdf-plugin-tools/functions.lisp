@@ -50,7 +50,7 @@
     (av-menu-item-set-execute-proc menu-item functor nil)))
 
 (defun plugin-about-function ()
-  (av-alert-note (format nil "About ~A:~A" *plugin-id* *plugin-name*)))
+  (av-alert-note (format nil "About ~A" (get-extension-name))))
 
 (defun plugin-load-patch-function ()
   "Load patches from disk (or network)"

@@ -89,6 +89,7 @@ defintion and writes it to the output stream."
                ,(loop for (type name nil) in args
                       collect `(,name ,type))
              :result-type ,result-type
+             #-(or :lispworks5 :lispworks6)
              ,@(when variadic-num-of-fixed
                  `(:variadic-num-of-fixed ,variadic-num-of-fixed))
              :calling-convention :cdecl)))
@@ -96,10 +97,7 @@ defintion and writes it to the output stream."
 ;; https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
 (defparameter *remove-c-comment-regex*
   (create-scanner
-   "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)"))
-
-(defparameter *remove-cpp-comment-regex*
-  (create-scanner "(//.*)"))
+   "(/\\*(?:[^*]|[\\r\\n]|(?:\\*+(?:[^*/]|[\\r\\n])))*\\*+/)|(//.*)"))
 
 (defun collect-type-and-names (args)
   (loop for arg in (split "\\s*,\\s*" args)
@@ -293,11 +291,12 @@ EXPORT statement."
       (pprint `(fli:define-c-typedef ,(mangle-name type-name) :int)))))
 
 ;; type [*]var1, [*]var2;
+;; void*	*pluginView;
 (defparameter *type-and-names-regex*
   (create-scanner
    (concatenate 'string
                 "(?sm)\\s*"
-                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*\\s+|\\s+\\*\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
+                "([^/;,*]+)(?<!\\s)(?:(\\s*\\*(?:\\s*\\*)?\\s*|\\s+\\*(?:\\s*\\*)?\\s*)|\\s+)([\\w\\s,\\[\\]]+)\\s*;"
                 )))
 
 (defun handle-struct-body (class body typedef-name &optional
@@ -528,8 +527,6 @@ corresponding C code to *STANDARD-OUTPUT*."
       ;; remove all C/C++ comments
       (setq file-string
             (regex-replace-all *remove-c-comment-regex* file-string ""))
-      (setq file-string
-            (regex-replace-all *remove-cpp-comment-regex* file-string ""))
       ;; enum + typedef
       (do-register-groups (enum-body type-name)
           (*typedef-enum-regex* file-string)
@@ -556,6 +553,9 @@ corresponding C code to *STANDARD-OUTPUT*."
           (handle-function type name args)))
       (terpri))))
 
+(defparameter *fli-file-header*
+  ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+
 (defun prepare (&optional (group 0))
   "Creates the missing file `fli.lisp' for PDF-PLUGIN-TOOLS from
 the C header files of Acrobat Pro."
@@ -572,7 +572,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -588,7 +588,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -604,7 +604,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -620,7 +620,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
@@ -636,7 +636,7 @@ the C header files of Acrobat Pro."
       (with-standard-io-syntax 
         (let ((*package* (find-package :pdf-plugin-tools))
               (*print-case* :downcase))
-          (format t ";;; This file was generated automatically from Acrobat Pro's SDK headers.")
+          (format t *fli-file-header*)
           (terpri)
           (print '(in-package :pdf-plugin-tools))
           (terpri)
