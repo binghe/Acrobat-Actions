@@ -30,6 +30,18 @@
 		4FC669B828B500B2002E7117 /* Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Functions.cpp; path = ../sources/Functions.cpp; sourceTree = "<group>"; };
 		4FC669B928B500B2002E7117 /* Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Functions.hpp; path = ../sources/Functions.hpp; sourceTree = "<group>"; };
 		4FC669BA28B500B2002E7117 /* PluginInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PluginInit.cpp; path = ../sources/PluginInit.cpp; sourceTree = "<group>"; };
+		4FC669CF28B55BE6002E7117 /* CoreExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreExpT.h; path = ../../PluginSupport/Headers/API/CoreExpT.h; sourceTree = "<group>"; };
+		4FC669D128B55C0E002E7117 /* ASExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExpT.h; path = ../../PluginSupport/Headers/API/ASExpT.h; sourceTree = "<group>"; };
+		4FC669D228B55C53002E7117 /* ASCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCalls.h; path = ../../PluginSupport/Headers/API/ASCalls.h; sourceTree = "<group>"; };
+		4FC669D328B55C53002E7117 /* ASProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASProcs.h; path = ../../PluginSupport/Headers/API/ASProcs.h; sourceTree = "<group>"; };
+		4FC669D428B55C53002E7117 /* CorCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorCalls.h; path = ../../PluginSupport/Headers/API/CorCalls.h; sourceTree = "<group>"; };
+		4FC669D528B55C54002E7117 /* CorProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorProcs.h; path = ../../PluginSupport/Headers/API/CorProcs.h; sourceTree = "<group>"; };
+		4FC669D628B55CB1002E7117 /* ASNumTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASNumTypes.h; path = ../../PluginSupport/Headers/API/ASNumTypes.h; sourceTree = "<group>"; };
+		4FC669D728B55CB1002E7117 /* Environ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Environ.h; path = ../../PluginSupport/Headers/API/Environ.h; sourceTree = "<group>"; };
+		4FC669D828B55CF1002E7117 /* PIMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIMain.h; path = ../../PluginSupport/Headers/API/PIMain.h; sourceTree = "<group>"; };
+		4FC669D928B55D1C002E7117 /* PICommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PICommon.h; path = ../../PluginSupport/Headers/API/PICommon.h; sourceTree = "<group>"; };
+		4FC669DA28B55D1C002E7117 /* PIRequir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIRequir.h; path = ../../PluginSupport/Headers/API/PIRequir.h; sourceTree = "<group>"; };
+		4FC669DB28B55D46002E7117 /* MacPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacPlatform.h; path = ../../PluginSupport/Headers/API/MacPlatform.h; sourceTree = "<group>"; };
 		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -86,11 +98,15 @@
 		08FB77ADFE841716C02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4FC669DB28B55D46002E7117 /* MacPlatform.h */,
+				4FC669D928B55D1C002E7117 /* PICommon.h */,
+				4FC669DA28B55D1C002E7117 /* PIRequir.h */,
 				4FC669B828B500B2002E7117 /* Functions.cpp */,
 				4FC669B928B500B2002E7117 /* Functions.hpp */,
-				4FC669BA28B500B2002E7117 /* PluginInit.cpp */,
-				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
 				DB9570EB09DA0A8600D15BF1 /* PIHeaders++.pch */,
+				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
+				4FC669D828B55CF1002E7117 /* PIMain.h */,
+				4FC669BA28B500B2002E7117 /* PluginInit.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -106,6 +122,11 @@
 		4FB9257B28ABF06A00097955 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				4FC669D628B55CB1002E7117 /* ASNumTypes.h */,
+				4FC669D728B55CB1002E7117 /* Environ.h */,
+				4FC669D228B55C53002E7117 /* ASCalls.h */,
+				4FC669D128B55C0E002E7117 /* ASExpT.h */,
+				4FC669D328B55C53002E7117 /* ASProcs.h */,
 				4FB9257C28ABF09B00097955 /* AVCalls.h */,
 				4FB9257D28ABF09B00097955 /* AVCompat.cpp */,
 				4FB9257E28ABF09B00097955 /* AVCompat.h */,
@@ -115,6 +136,9 @@
 				4FB9258228ABF09B00097955 /* AVPrefsD.h */,
 				4FB9258328ABF09B00097955 /* AVProcs.h */,
 				4FB9258428ABF09B00097955 /* AVVers.h */,
+				4FC669D428B55C53002E7117 /* CorCalls.h */,
+				4FC669CF28B55BE6002E7117 /* CoreExpT.h */,
+				4FC669D528B55C54002E7117 /* CorProcs.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
