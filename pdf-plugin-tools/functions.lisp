@@ -29,9 +29,13 @@
 (in-package :pdf-plugin-tools)
 
 ;; ExtensionName, used in plugin handshaking, must use the following syntax: Prefix_PluginName
+(defvar *extension-name* nil
+  "This variable will be filled after pi-handshake is called.")
+
 (defun get-extension-name ()
-  (let ((extension-name (format nil "~A_~A" *plugin-id* *plugin-name*)))
-    (as-atom-from-string extension-name)))
+  (unless *extension-name*
+    (setq *extension-name* (format nil "~A_~A" *plugin-id* *plugin-name*)))
+  (as-atom-from-string *extension-name*))
 
 (defun as-callback-create-proto (function)
   (as-callback-create *extension-id* function))
@@ -50,7 +54,7 @@
     (av-menu-item-set-execute-proc menu-item functor nil)))
 
 (defun plugin-about-function ()
-  (av-alert-note (format nil "About ~A" (get-extension-name))))
+  (av-alert-note (format nil "About ~A" *product-name*)))
 
 (defun plugin-load-patch-function ()
   "Load patches from disk (or network)"
@@ -65,19 +69,22 @@
   (prog1 (plugin-about-function)
     (plugin-log "[plugin-about] end.~%")))
 
+(defconstant +about-extensions+ "AboutExtensions"
+  "A fixed menu name reserved by Adobe for plug-ins.")
+
 (define-foreign-callable (plugin-load-patch :encode :lisp
                                             :result-type :void
                                             :calling-convention :cdecl)
     ((client-data (:pointer :void)))
   (declare (ignore client-data))
   (plugin-log "[plugin-load-patch] begin.~%")
-  (plugin-load-patch-function)
-  (plugin-log "[plugin-load-patch] end.~%"))
+  (prog1 (plugin-load-patch-function)
+    (plugin-log "[plugin-load-patch] end.~%")))
 
 (defun plugin-set-menu ()
   (plugin-log "[plugin-set-menu] begin.~%")
   (setq *about-menu-item*
-        (av-menu-item-new (format nil "~A..." *plugin-name*)
+        (av-menu-item-new (format nil "~A..." *product-name*)
                           (format nil "~A:About~A" *plugin-id* *plugin-name*)
                           nil ; submenu
                           t   ; long-menus-only
@@ -88,7 +95,7 @@
   (plugin-log "[plugin-set-menu] *about-menu-item* = ~A~%" *about-menu-item*)
   (av-menu-item-set-execute-proc-proto *about-menu-item*
                                        (foreign-function-pointer 'plugin-about))
-  (with-av-menubar-menu-by-name (about-menu "AboutExtensions")
+  (with-av-menubar-menu-by-name (about-menu +about-extensions+)
     (av-menu-add-menu-item about-menu *about-menu-item* +append-menu-item+))
   (plugin-log "[plugin-set-menu] end.~%")
   t)
@@ -99,7 +106,8 @@
     (av-menu-item-remove *about-menu-item*)
     (setq *about-menu-item* nil)
     (plugin-log "[plugin-unload-menu] *about-menu-item* unloaded.~%"))
-  (plugin-log "[plugin-unload-menu] end.~%"))
+  (plugin-log "[plugin-unload-menu] end.~%")
+  t)
 
 (defun plugin-set-commands ()
   (plugin-log "[plugin-set-commands] begin.~%")

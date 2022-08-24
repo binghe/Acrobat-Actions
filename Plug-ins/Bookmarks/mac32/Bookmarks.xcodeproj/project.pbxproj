@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FB9258528ABF09B00097955 /* AVCompat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FB9257D28ABF09B00097955 /* AVCompat.cpp */; };
+		4FC669BB28B500B2002E7117 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FC669B828B500B2002E7117 /* Functions.cpp */; };
+		4FC669BC28B500B2002E7117 /* PluginInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FC669BA28B500B2002E7117 /* PluginInit.cpp */; };
+		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
+		DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */ = {isa = PBXBuildFile; fileRef = DB9570EC09DA0AA400D15BF1 /* PIMain.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		4FB9257C28ABF09B00097955 /* AVCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVCalls.h; path = ../../PluginSupport/Headers/API/AVCalls.h; sourceTree = "<group>"; };
+		4FB9257D28ABF09B00097955 /* AVCompat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AVCompat.cpp; path = ../../PluginSupport/Headers/API/AVCompat.cpp; sourceTree = "<group>"; };
+		4FB9257E28ABF09B00097955 /* AVCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVCompat.h; path = ../../PluginSupport/Headers/API/AVCompat.h; sourceTree = "<group>"; };
+		4FB9257F28ABF09B00097955 /* AVExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpT.h; path = ../../PluginSupport/Headers/API/AVExpT.h; sourceTree = "<group>"; };
+		4FB9258028ABF09B00097955 /* AVExpTObsolete1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpTObsolete1.h; path = ../../PluginSupport/Headers/API/AVExpTObsolete1.h; sourceTree = "<group>"; };
+		4FB9258128ABF09B00097955 /* AVExpTObsolete2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpTObsolete2.h; path = ../../PluginSupport/Headers/API/AVExpTObsolete2.h; sourceTree = "<group>"; };
+		4FB9258228ABF09B00097955 /* AVPrefsD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPrefsD.h; path = ../../PluginSupport/Headers/API/AVPrefsD.h; sourceTree = "<group>"; };
+		4FB9258328ABF09B00097955 /* AVProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVProcs.h; path = ../../PluginSupport/Headers/API/AVProcs.h; sourceTree = "<group>"; };
+		4FB9258428ABF09B00097955 /* AVVers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVVers.h; path = ../../PluginSupport/Headers/API/AVVers.h; sourceTree = "<group>"; };
+		4FC669B828B500B2002E7117 /* Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Functions.cpp; path = ../sources/Functions.cpp; sourceTree = "<group>"; };
+		4FC669B928B500B2002E7117 /* Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Functions.hpp; path = ../sources/Functions.hpp; sourceTree = "<group>"; };
+		4FC669BA28B500B2002E7117 /* PluginInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PluginInit.cpp; path = ../sources/PluginInit.cpp; sourceTree = "<group>"; };
+		4FC669CF28B55BE6002E7117 /* CoreExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreExpT.h; path = ../../PluginSupport/Headers/API/CoreExpT.h; sourceTree = "<group>"; };
+		4FC669D128B55C0E002E7117 /* ASExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExpT.h; path = ../../PluginSupport/Headers/API/ASExpT.h; sourceTree = "<group>"; };
+		4FC669D228B55C53002E7117 /* ASCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCalls.h; path = ../../PluginSupport/Headers/API/ASCalls.h; sourceTree = "<group>"; };
+		4FC669D328B55C53002E7117 /* ASProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASProcs.h; path = ../../PluginSupport/Headers/API/ASProcs.h; sourceTree = "<group>"; };
+		4FC669D428B55C53002E7117 /* CorCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorCalls.h; path = ../../PluginSupport/Headers/API/CorCalls.h; sourceTree = "<group>"; };
+		4FC669D528B55C54002E7117 /* CorProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorProcs.h; path = ../../PluginSupport/Headers/API/CorProcs.h; sourceTree = "<group>"; };
+		4FC669D628B55CB1002E7117 /* ASNumTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASNumTypes.h; path = ../../PluginSupport/Headers/API/ASNumTypes.h; sourceTree = "<group>"; };
+		4FC669D728B55CB1002E7117 /* Environ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Environ.h; path = ../../PluginSupport/Headers/API/Environ.h; sourceTree = "<group>"; };
+		4FC669D828B55CF1002E7117 /* PIMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIMain.h; path = ../../PluginSupport/Headers/API/PIMain.h; sourceTree = "<group>"; };
+		4FC669D928B55D1C002E7117 /* PICommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PICommon.h; path = ../../PluginSupport/Headers/API/PICommon.h; sourceTree = "<group>"; };
+		4FC669DA28B55D1C002E7117 /* PIRequir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIRequir.h; path = ../../PluginSupport/Headers/API/PIRequir.h; sourceTree = "<group>"; };
+		4FC669DB28B55D46002E7117 /* MacPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacPlatform.h; path = ../../PluginSupport/Headers/API/MacPlatform.h; sourceTree = "<group>"; };
+		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570EB09DA0A8600D15BF1 /* PIHeaders++.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "PIHeaders++.pch"; path = "../../PluginSupport/Headers/SDK/PIHeaders++.pch"; sourceTree = SOURCE_ROOT; };
+		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
+		DB9ABFD609DCA62100298E3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../PluginSupport/Headers/SDK/Info.plist; sourceTree = SOURCE_ROOT; };
+		DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D01CCCD0486CAD60068D4B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Starter */ = {
+			isa = PBXGroup;
+			children = (
+				DB9570D309DA097D00D15BF1 /* Configurations */,
+				4FB9257B28ABF06A00097955 /* Headers */,
+				08FB77ADFE841716C02AAC07 /* Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = Starter;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB9ABFD609DCA62100298E3E /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4FC669DB28B55D46002E7117 /* MacPlatform.h */,
+				4FC669D928B55D1C002E7117 /* PICommon.h */,
+				4FC669DA28B55D1C002E7117 /* PIRequir.h */,
+				4FC669B828B500B2002E7117 /* Functions.cpp */,
+				4FC669B928B500B2002E7117 /* Functions.hpp */,
+				DB9570EB09DA0A8600D15BF1 /* PIHeaders++.pch */,
+				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
+				4FC669D828B55CF1002E7117 /* PIMain.h */,
+				4FC669BA28B500B2002E7117 /* PluginInit.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FB9257B28ABF06A00097955 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4FC669D628B55CB1002E7117 /* ASNumTypes.h */,
+				4FC669D728B55CB1002E7117 /* Environ.h */,
+				4FC669D228B55C53002E7117 /* ASCalls.h */,
+				4FC669D128B55C0E002E7117 /* ASExpT.h */,
+				4FC669D328B55C53002E7117 /* ASProcs.h */,
+				4FB9257C28ABF09B00097955 /* AVCalls.h */,
+				4FB9257D28ABF09B00097955 /* AVCompat.cpp */,
+				4FB9257E28ABF09B00097955 /* AVCompat.h */,
+				4FB9257F28ABF09B00097955 /* AVExpT.h */,
+				4FB9258028ABF09B00097955 /* AVExpTObsolete1.h */,
+				4FB9258128ABF09B00097955 /* AVExpTObsolete2.h */,
+				4FB9258228ABF09B00097955 /* AVPrefsD.h */,
+				4FB9258328ABF09B00097955 /* AVProcs.h */,
+				4FB9258428ABF09B00097955 /* AVVers.h */,
+				4FC669D428B55C53002E7117 /* CorCalls.h */,
+				4FC669CF28B55BE6002E7117 /* CoreExpT.h */,
+				4FC669D528B55C54002E7117 /* CorProcs.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		DB9570D309DA097D00D15BF1 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				BA5287450A1930200088FAB2 /* Default.xcconfig */,
+				DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */,
+				DB9570D409DA098E00D15BF1 /* ProjectConfigurations */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
+		DB9570D409DA098E00D15BF1 /* ProjectConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */,
+				DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */,
+				DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */,
+			);
+			path = ProjectConfigurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D01CCC60486CAD60068D4B7 /* Bookmarks_debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks_debug" */;
+			buildPhases = (
+				8D01CCC90486CAD60068D4B7 /* Resources */,
+				8D01CCCB0486CAD60068D4B7 /* Sources */,
+				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bookmarks_debug;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = Starter;
+			productReference = 8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Bookmarks" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* Starter */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D01CCC60486CAD60068D4B7 /* Bookmarks_debug */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D01CCC90486CAD60068D4B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D01CCCB0486CAD60068D4B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */,
+				4FB9258528ABF09B00097955 /* AVCompat.cpp in Sources */,
+				4FC669BB28B500B2002E7117 /* Functions.cpp in Sources */,
+				4FC669BC28B500B2002E7117 /* PluginInit.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FADC23408B4156C00ABE55E /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					../../PluginSupport/Headers/SDK,
+					../../PluginSupport/Headers/API,
+					../sources,
+				);
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+				VALID_ARCHS = i386;
+			};
+			name = Default;
+		};
+		4FADC23808B4156C00ABE55E /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = ../../PluginSupport/Headers/SDK/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx10.6;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks_debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23408B4156C00ABE55E /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Bookmarks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23808B4156C00ABE55E /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

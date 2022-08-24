@@ -9,8 +9,8 @@ REM +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 REM The directory where the DLL will be built
 set build_dir="C:\Temp"
 
-REM The FileMaker extension directory
-set target_dir="C:\Program Files (x86)\Adobe\Acrobat 11.0\Acrobat\plug_ins"
+REM The Acrobat plug-ins directory
+set target_dir="C:\Program Files (x86)\Adobe\Acrobat 2017\Acrobat\plug_ins"
 
 REM The delivery script
 set script="C:\Acrobat Actions\pdf-plugin-tools\deliver.lisp"
