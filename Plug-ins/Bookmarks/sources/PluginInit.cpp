@@ -220,7 +220,7 @@ ACCB1 ASBool ACCB2 PluginSetMenu()
 
 DURING
     aboutMenu = AVMenubarAcquireMenuByName(menubar, "AboutExtensions");
-    aboutMenuItem = AVMenuItemNew("Bookmarks...", "AA:AboutBookmarks",
+    aboutMenuItem = AVMenuItemNew("Bookmarks...", "AA:Bookmarks_about",
                                   NULL, /* submenu */
                                   true, /* longMenusOnly */
                                   NO_SHORTCUT, 0 /* flags */,

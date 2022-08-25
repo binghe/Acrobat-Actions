@@ -128,4 +128,15 @@ image.  Only needed for delivery level 5.")
 (defvar *g-cos-hft*)
 (defvar *g-cos-version*)
 
+(defconstant +about-extensions+ "AboutExtensions"
+  "A fixed menu name reserved by Adobe for plug-ins.")
+
+(defconstant +using-extensions+ "UsingExtensions"
+  "A fixed menu name (under Help) reserved by Adobe for plug-ins.")
+
+(defconstant +extensions+ "Extensions"
+  "A fixed menu name reserved by Adobe for plug-ins.")
+
 (defvar *about-menu-item* nil)
+(defvar *help-menu-item* nil)
+(defvar *extension-menu* nil)
