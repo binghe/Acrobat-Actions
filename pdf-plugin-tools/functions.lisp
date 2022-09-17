@@ -56,6 +56,9 @@
 (defun plugin-about-function ()
   (av-alert-note (format nil "About ~A" *product-name*)))
 
+(defun plugin-help-function ()
+  (av-alert-note (format nil "Help!")))
+
 (defun plugin-load-patch-function ()
   "Load patches from disk (or network)"
   t)
@@ -69,8 +72,14 @@
   (prog1 (plugin-about-function)
     (plugin-log "[plugin-about] end.~%")))
 
-(defconstant +about-extensions+ "AboutExtensions"
-  "A fixed menu name reserved by Adobe for plug-ins.")
+(define-foreign-callable (plugin-help :encode :lisp
+                                      :result-type :void
+                                      :calling-convention :cdecl)
+    ((client-data (:pointer :void)))
+  (declare (ignore client-data))
+  (plugin-log "[plugin-about] begin.~%")
+  (prog1 (plugin-help-function)
+    (plugin-log "[plugin-about] end.~%")))
 
 (define-foreign-callable (plugin-load-patch :encode :lisp
                                             :result-type :void
@@ -83,9 +92,10 @@
 
 (defun plugin-set-menu ()
   (plugin-log "[plugin-set-menu] begin.~%")
+  ;; About
   (setq *about-menu-item*
         (av-menu-item-new (format nil "~A..." *product-name*)
-                          (format nil "~A:About~A" *plugin-id* *plugin-name*)
+                          (format nil "~A_about" *extension-name*)
                           nil ; submenu
                           t   ; long-menus-only
                           +no-shortcut+
@@ -97,6 +107,21 @@
                                        (foreign-function-pointer 'plugin-about))
   (with-av-menubar-menu-by-name (about-menu +about-extensions+)
     (av-menu-add-menu-item about-menu *about-menu-item* +append-menu-item+))
+  ;; Help
+  (setq *help-menu-item*
+        (av-menu-item-new (format nil "~A" *product-name*)
+                          (format nil "~A_help" *extension-name*)
+                          nil ; submenu
+                          t   ; long-menus-only
+                          +no-shortcut+
+                          0   ; flags
+                          nil ; icon
+                          *extension-id*))
+  (plugin-log "[plugin-set-menu] *help-menu-item* = ~A~%" *help-menu-item*)
+  (av-menu-item-set-execute-proc-proto *help-menu-item*
+                                       (foreign-function-pointer 'plugin-help))
+  (with-av-menubar-menu-by-name (help-menu +using-extensions+)
+    (av-menu-add-menu-item help-menu *help-menu-item* +append-menu-item+))
   (plugin-log "[plugin-set-menu] end.~%")
   t)
 
