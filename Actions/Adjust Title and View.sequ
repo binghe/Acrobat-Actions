@@ -11,19 +11,14 @@
 				<Item name="HideToolbar" type="boolean" value="false"/>
 				<Item name="HideWindowUI" type="boolean" value="false"/>
 				<Items name="LeaveAsIs">
-					<Item name="CenterWindow" type="boolean" value="true"/>
-					<Item name="FitWindow" type="boolean" value="true"/>
-					<Item name="FullScreen" type="boolean" value="true"/>
-					<Item name="HideMenubar" type="boolean" value="true"/>
-					<Item name="HideToolbar" type="boolean" value="true"/>
-					<Item name="HideWindowUI" type="boolean" value="true"/>
+					<Item name="OpenAction" type="boolean" value="true"/>
 					<Item name="PageMode" type="boolean" value="true"/>
 				</Items>
 				<Item name="Magnification" type="text" value="适合宽度"/>
-				<Item name="PageLayout" type="integer" value="2"/>
+				<Item name="PageLayout" type="integer" value="0"/>
 				<Item name="PageMode" type="integer" value="1"/>
 				<Item name="PageNum" type="text" value="1"/>
-				<Item name="ResetDest" type="boolean" value="true"/>
+				<Item name="ResetDest" type="boolean" value="false"/>
 			</Items>
 		</Command>
 		<Command name="WorkflowPlaybackSaveFiles" pauseBefore="false" promptUser="false"/>
