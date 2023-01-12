@@ -1,0 +1,11 @@
+fm version is "11.0";
+
+/*
+ * Include all ISO entity mapping rules.
+ */
+
+#include "isoall.rw"
+
+element "telephonelist" is fm element "TelephoneList";
+element "tentry" is fm element "TEntry";
+

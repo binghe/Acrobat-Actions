@@ -1,0 +1,104 @@
+<DialogFile 5.5>
+<LongChar No>
+<Font 2 1 12>
+<DialogBox
+ <MBRect -1 -1 311 188>
+ <WBRect -1 -1 311 188>
+ <XBRect -1 -1 311 188>
+ <Platforms MWX>
+ <CurrentFocus -1>
+ <FirstFocus -1>
+ <OKButton 5>
+ <CancelButton 6>
+ <DefaultButton 5>
+ <HelpButton 7>
+ <TitleLabel 0>
+ <HypertextHelp clnthelp:dbre template>
+>
+<Label
+ <MCorner 9 16>
+ <WCorner 9 16>
+ <XCorner 9 16>
+ <Label Choose Paragraph formats to delete>
+> # 0
+<ScrollList
+ <MBaseLine 6 77 115 3>
+ <WBaseLine 6 77 115 3>
+ <XBaseLine 6 77 115 3>
+ <StuffObject -1>
+ <MNumLines 3>
+ <WNumLines 3>
+ <XNumLines 3>
+ <HypertextHelp clnthelp:button>
+> # 1
+<Button
+ <MBaseLine 130 112 48>
+ <WBaseLine 130 112 48>
+ <XBaseLine 130 112 48>
+ <Label Left>
+ <ShortcutPosition 0>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 2
+<ScrollList
+ <MBaseLine 190 78 115 3>
+ <WBaseLine 190 78 115 3>
+ <XBaseLine 190 78 115 3>
+ <StuffObject -1>
+ <MNumLines 3>
+ <WNumLines 3>
+ <XNumLines 3>
+ <HypertextHelp clnthelp:button>
+> # 3
+<Button
+ <MBaseLine 130 89 48>
+ <WBaseLine 130 89 48>
+ <XBaseLine 130 89 48>
+ <Label Right>
+ <ShortcutPosition 0>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 4
+<Button
+ <MBaseLine 20 168 53>
+ <WBaseLine 20 168 53>
+ <XBaseLine 20 168 53>
+ <Label OK>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 5
+<Button
+ <MBaseLine 121 169 53>
+ <WBaseLine 121 169 53>
+ <XBaseLine 121 169 53>
+ <Label Cancel>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 6
+<Button
+ <MBaseLine 219 168 53>
+ <WBaseLine 219 168 53>
+ <XBaseLine 219 168 53>
+ <Label Help>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 7
+<Label
+ <MCorner 6 74>
+ <WCorner 6 74>
+ <XCorner 6 74>
+ <Label Keep>
+ <ShortcutPosition 0>
+> # 8
+<Rule
+ <MBRect 6 139 300 1>
+ <WBRect 6 139 300 1>
+ <XBRect 6 139 300 1>
+> # 9
+<Label
+ <MCorner 190 75>
+ <WCorner 190 75>
+ <XCorner 190 75>
+ <Label Delete>
+ <ShortcutPosition 0>
+> # 10

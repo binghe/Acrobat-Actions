@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------
+// Source filename:      C:\frame7\fdk\samples\elemutil\addacr.dre
+// Date generated:       Tue Apr 16 10:31:58 2002
+//-------------------------------------------------------------------
+
+#include "windows.h"
+
+addacr DIALOG LOADONCALL MOVEABLE DISCARDABLE 0, 0, 239, 85
+CAPTION "Add Acronym"
+STYLE WS_CLIPSIBLINGS | DS_MODALFRAME | WS_CAPTION
+FONT 8 "Tahoma"
+BEGIN
+	CONTROL "", 102, "EDIT", WS_BORDER | ES_AUTOHSCROLL | ES_LEFT | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 42, 11, 175, 12
+	CONTROL "Definition:", 103, "STATIC", SS_LEFTNOWORDWRAP | WS_VISIBLE | WS_GROUP, 9, 39, 33, 8
+	CONTROL "", 104, "EDIT", WS_BORDER | ES_AUTOHSCROLL | ES_LEFT | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 42, 39, 176, 12
+	CONTROL "", 105, "STATIC", SS_ETCHEDHORZ | WS_VISIBLE | WS_GROUP, 6, 62, 229, 1
+	DEFPUSHBUTTON "OK", 106, 75, 66, 40, 12, WS_VISIBLE | WS_GROUP | WS_TABSTOP
+	CONTROL "Cancel", 107, "BUTTON", BS_PUSHBUTTON | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 127, 66, 40, 12
+	CONTROL "", 100, "STATIC", SS_LEFTNOWORDWRAP | WS_DISABLED | WS_GROUP, 0, 0, 0, 0
+	CONTROL "Acronym:", 101, "STATIC", SS_LEFTNOWORDWRAP | WS_VISIBLE | WS_GROUP, 11, 12, 31, 8
+END

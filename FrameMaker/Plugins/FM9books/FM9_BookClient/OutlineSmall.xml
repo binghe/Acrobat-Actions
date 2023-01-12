@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?Fmwd AppName "OutlineSmall"?>
+
+<?Fm Condition Comment Red SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<Outline Type = "Short"><Title>Short Outline</Title>
+<Topic><Para>Level</Para>
+<Para></Para>
+<Topic><Para>Level</Para>
+<Para></Para>
+<Topic><Para>Level</Para>
+<Para></Para>
+<Topic><Para>Level</Para>
+<Para></Para>
+<Topic><Para>Level</Para>
+<Para></Para>
+<Topic><Para>Level</Para>
+<Para></Para></Topic></Topic></Topic></Topic></Topic></Topic></Outline>

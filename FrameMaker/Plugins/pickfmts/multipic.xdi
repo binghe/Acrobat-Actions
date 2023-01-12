@@ -1,0 +1,35 @@
+//-------------------------------------------------------------------
+// Source filename:      C:\FMSDK7\Samples\Win\pickfmts\multipic.dre
+// Date generated:       Wed Dec 19 15:42:48 2001
+//-------------------------------------------------------------------
+
+multipic 500 // DB_DBRE_INFO resource
+BEGIN
+	/* okbutton      */ 5,
+	/* cancelbutton  */ 6,
+	/* defaultbutton */ 5,
+	/* num           */ 11,
+	/* firstfocus    */ -1,
+	/* filenum       */ -1,
+	/* filetbx       */ -1,
+	/* filesbx       */ -1,
+	/* filelabel     */ -1,
+	/* helpbutton    */ 7,
+	/* titlelabel    */ 0,
+	/* hypertextHelp */ "clnthelp:dbre template\0",
+
+	//       id      type    active     stuff    hypertextHelp
+	// --------  --------  --------  --------  ---------------
+	        100,        4,        0,        0, "-1\0",
+	        101,        8,        0,       -1, "clnthelp:button\0",
+	        102,        2,        0,        0, "clnthelp:button\0",
+	        103,        8,        0,       -1, "clnthelp:button\0",
+	        104,        2,        0,        0, "clnthelp:button\0",
+	        105,        2,        0,        0, "clnthelp:button\0",
+	        106,        2,        0,        0, "clnthelp:button\0",
+	        107,        2,        0,        0, "clnthelp:button\0",
+	        108,        4,        0,        0, "-1\0",
+	        109,        1,        0,        0, "-1\0",
+	        110,        4,        0,        0, "-1\0"
+END
+

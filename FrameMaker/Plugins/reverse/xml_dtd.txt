@@ -1,0 +1,20 @@
+<!ELEMENT telephonelist   (Title?, tentry+) >
+
+<!ELEMENT tentry      (Name, Phone) >
+
+<!ELEMENT Name       (Last, First) >
+
+<!ELEMENT Title      (#PCDATA) >
+
+<!ELEMENT First     (#PCDATA) >
+
+<!ELEMENT Last      (#PCDATA) >
+
+<!ELEMENT Phone      (#PCDATA) >
+
+
+
+
+
+
+

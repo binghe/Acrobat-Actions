@@ -6,3 +6,7 @@
 debug/
 release/
 ipch/
+*.opensdf
+*.suo
+*.sdf
+*.vcxproj.user

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE telephonelist SYSTEM "xml_dtd.txt" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<telephonelist><Title>Telephone List</Title>
+<tentry><Name><Last>Scotland</Last><First>Scott F.</First></Name>
+<Phone>777-8888</Phone></tentry>
+<tentry><Name><Last>Hardlygauche</Last><First>Lani</First></Name>
+<Phone>777-8888</Phone></tentry>
+<tentry><Name><Last>Traveler</Last><First>Liz</First></Name><Phone>777-8888</Phone></tentry>
+<tentry><Name><Last>Yakamoto</Last><First>Pearl</First></Name><Phone>777-8888</Phone></tentry>
+<tentry><Name><Last>Goodwinkle</Last><First>Shelly</First></Name>
+<Phone>777-8888</Phone></tentry></telephonelist>

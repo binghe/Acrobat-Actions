@@ -1,0 +1,55 @@
+<!DOCTYPE telephonelist SYSTEM "sgml_dtd.txt" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<telephonelist>
+
+<title>Telephone List</title>
+
+<tentry>
+	<name>
+		<last>Scotland</last>
+		<first>Scott F.</first>
+	</name>
+	<phone>777-8888</phone>
+</tentry>
+
+<tentry>
+	<name>
+		<last>Hardlygauche</last>
+		<first>Lani</first>
+	</name>
+	<phone>777-8888</phone>
+</tentry>
+
+<tentry>
+	<name>
+		<last>Traveler</last>
+		<first>Liz</first>
+	</name>
+	<phone>777-8888</phone>
+</tentry>
+
+<tentry>
+	<name>
+		<last>Yakamoto</last>
+		<first>Pearl</first>
+	</name>
+	<phone>777-8888</phone>
+</tentry>
+
+<tentry>
+	<name>
+		<last>Goodwinkle</last>
+		<first>Shelly</first>
+	</name>
+	<phone>777-8888</phone>
+</tentry>
+
+</telephonelist>
+

@@ -1,0 +1,32 @@
+//-------------------------------------------------------------------
+// Source filename:      C:\FMSDK7\Samples\Win\elemutil\addacr.dre
+// Date generated:       Thu Dec 20 07:42:40 2001
+//-------------------------------------------------------------------
+
+addacr 500 // DB_DBRE_INFO resource
+BEGIN
+	/* okbutton      */ 6,
+	/* cancelbutton  */ 7,
+	/* defaultbutton */ 6,
+	/* num           */ 8,
+	/* firstfocus    */ 2,
+	/* filenum       */ -1,
+	/* filetbx       */ -1,
+	/* filesbx       */ -1,
+	/* filelabel     */ -1,
+	/* helpbutton    */ -1,
+	/* titlelabel    */ 0,
+	/* hypertextHelp */ "clnthelp:dbre template\0",
+
+	//       id      type    active     stuff    hypertextHelp
+	// --------  --------  --------  --------  ---------------
+	        100,        4,        0,        0, "-1\0",
+	        101,        4,        0,        0, "-1\0",
+	        102,        9,        0,       -1, "clnthelp:edit box\0",
+	        103,        4,        0,        0, "-1\0",
+	        104,        9,        0,       -1, "clnthelp:edit box\0",
+	        105,        1,        0,        0, "-1\0",
+	        106,        2,        0,        0, "clnthelp:button\0",
+	        107,        2,        0,        0, "clnthelp:button\0"
+END
+

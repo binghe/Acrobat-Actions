@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd"
+[
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<chapter>
+<title>Test Opening XML document</title>
+<para>This is just a test.</para>
+<sect1><title>Here&rsquo;s the first Section</title>
+<informaltable frame = "all" colsep = "1" rowsep = "1"><tgroup
+    cols = "2" tgroupstyle = "Format A" colsep = "1" rowsep = "1">
+<colspec colnum = "1" colname = "1" colwidth = "1.000in"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.000in"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Test1</entry>
+<entry colname = "2">Test2</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">Good </entry>
+<entry colname = "2">Average</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">Poor</entry>
+<entry colname = "2">Excellent</entry>
+</row>
+</tbody>
+</tgroup></informaltable></sect1></chapter>

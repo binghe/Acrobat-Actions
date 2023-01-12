@@ -1,0 +1,274 @@
+<DialogFile 5.5>
+<LongChar Yes>
+<Font 2 2 12>
+<DialogBox
+ <MBRect 0 0 400 341>
+ <CurrentFocus 2>
+ <FirstFocus 2>
+ <OKButton 29>
+ <CancelButton 30>
+ <DefaultButton 29>
+ <HelpButton 31>
+ <TitleLabel 0>
+ <FileCurrentDir -1>
+ <FileEditBox -1>
+ <FileNum -1>
+ <FileScrollBox -1>
+ <Platforms MWX>
+ <HypertextHelp clnthelp:dbre template>
+ <WBRect -1 -1 375 239>
+ <XBRect -1 -1 459 388>
+>
+<Label
+ <Label \x83_\x83C\x83A\x83\x8d\x83O\x83{\x83b\x83N\x83X\x82\xcc\x83e\x83\x93\x83v\x83\x8c\x81[\x83g>
+ <MCorner 470 996>
+ <WCorner 574 2>
+ <XCorner 18 26>
+> # 0
+<Label
+ <Label \x83e\x83L\x83X\x83g\x83{\x83b\x83N\x83X+>
+ <MCorner 6 19>
+ <WCorner 7 11>
+ <XCorner 21 43>
+> # 1
+<EditBox
+ <MBaseLine 9 62 80>
+ <Label >
+ <StuffObject 3>
+ <HypertextHelp clnthelp:edit box>
+ <WBaseLine 7 35 100>
+ <XBaseLine 18 77 80>
+> # 2
+<ImagePopUp
+ <MBRect 93 46 16 22>
+ <Label tallarrowdn>
+ <StuffObject 2>
+ <HypertextHelp clnthelp:image popup>
+ <WBRect 116 25 5 5>
+ <XBRect 105 63 14 21>
+> # 3
+<Label
+ <Label \x83|\x83b\x83v\x83A\x83b\x83v>
+ <MCorner 6 85>
+ <WCorner 7 52>
+ <XCorner 18 101>
+> # 4
+<PopUpMenu
+ <MBaseLine 6 103 87>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:popup>
+ <WBaseLine 7 66 99>
+ <XBaseLine 18 122 87>
+> # 5
+<Rule
+ <MBRect 6 117 131 1>
+ <WBRect 7 73 122 1>
+ <XBRect 18 137 129 1>
+> # 6
+<Button
+ <Label \x83{\x83^\x83\x93>
+ <MBaseLine 6 137 100>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+ <WBaseLine 33 92 53>
+ <XBaseLine 18 161 99>
+> # 7
+<Label
+ <Label \x83X\x83N\x83\x8d\x81[\x83\x8b\x83{\x83b\x83N\x83X>
+ <MCorner 6 159>
+ <WCorner 7 107>
+ <XCorner 18 186>
+> # 8
+<ScrollList
+ <MBaseLine 6 163 113>
+ <StuffObject -1>
+ <MNumLines 3>
+ <FileBrowser 0>
+ <HypertextHelp clnthelp:button>
+ <WBaseLine 7 110 123>
+ <XBaseLine 18 194 113>
+ <WNumLines 3>
+ <XNumLines 3>
+> # 9
+<Label
+ <Label \x83}\x83\x8b\x83`\x83e\x83L\x83X\x83g>
+ <MCorner 6 229>
+ <WCorner 7 158>
+ <XCorner 18 262>
+> # 10
+<MultiText
+ <MBaseLine 9 249 113>
+ <Label >
+ <MNumLines 4>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:multi text>
+ <Editable 1>
+ <WNumLines 4>
+ <XNumLines 4>
+ <WBaseLine 7 172 123 4>
+ <XBaseLine 19 282 113 4>
+> # 11
+<Rule
+ <MBRect 151 4 1 300>
+ <WBRect 141 6 1 203>
+ <XBRect 154 37 1 301>
+> # 12
+<Label
+ <Label \x83\x89\x83W\x83I\x83{\x83^\x83\x93\x82\xcc\x83{\x83b\x83N\x83X>
+ <MCorner 157 23>
+ <WCorner 148 15>
+ <XCorner 162 56>
+> # 13
+<Rule
+ <MBRect 158 27 240 61>
+ <WBRect 148 17 213 45>
+ <XBRect 165 62 257 64>
+> # 14
+<RadioButton
+ <MCorner 166 50>
+ <Label \x83\x89\x83W\x83I\x83{\x83^\x83\x931>
+ <Active Yes>
+ <Group 1>
+ <StuffObject 16>
+ <HypertextHelp clnthelp:radio>
+ <WCorner 152 30>
+ <XCorner 173 85>
+> # 15
+<EditBox
+ <MBaseLine 286 50 102>
+ <Label \x83I\x83v\x83V\x83\x87\x83\x93\x93\xfc\x97\xcd>
+ <StuffObject 15>
+ <HypertextHelp clnthelp:edit box>
+ <WBaseLine 255 30 95>
+ <XBaseLine 301 85 102>
+> # 16
+<RadioButton
+ <MCorner 166 77>
+ <Label \x83\x89\x83W\x83I\x83{\x83^\x83\x932>
+ <Active No>
+ <Group 1>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:radio>
+ <WCorner 152 53>
+ <XCorner 173 112>
+> # 17
+<ImagePopUp
+ <MBRect 283 63 16 16>
+ <Label arrowdown>
+ <StuffObject 17>
+ <HypertextHelp clnthelp:image popup>
+ <WBRect 255 45 5 5>
+ <XBRect 301 98 14 21>
+> # 18
+<Label
+ <Label \x83e\x83L\x83X\x83g\x83{\x83b\x83N\x83X\x81E\x83X\x83N\x83\x8d\x81[\x83\x8b\x83o\x81[>
+ <MCorner 158 122>
+ <WCorner 148 79>
+ <XCorner 165 154>
+> # 19
+<Label
+ <Label \x92l>
+ <MCorner 160 145>
+ <WCorner 148 96>
+ <XCorner 165 177>
+> # 20
+<EditBox
+ <MBaseLine 186 146 21>
+ <Label 22>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:edit box>
+ <WBaseLine 175 95 28>
+ <XBaseLine 204 176 21>
+> # 21
+<Scrollbar
+ <MBRect 220 133 118 16>
+ <HypertextHelp clnthelp:button>
+ <WBRect 212 84 95 12>
+ <XBRect 235 165 118 13>
+> # 22
+<Scrollbar
+ <MBRect 375 133 16 90>
+ <HypertextHelp clnthelp:button>
+ <WBRect 347 103 12 86>
+ <XBRect 409 192 13 115>
+> # 23
+<CheckBox
+ <Label \x83`\x83F\x83b\x83N\x83{\x83b\x83N\x83X->
+ <MCorner 158 200>
+ <Active No>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:checkbox2>
+ <WCorner 148 132>
+ <XCorner 165 253>
+> # 24
+<CheckBox
+ <Label \x83`\x83F\x83b\x83N\x83{\x83b\x83N\x83X->
+ <MCorner 158 225>
+ <Active Yes>
+ <StuffObject -1>
+ <State 1>
+ <HypertextHelp clnthelp:checkbox3>
+ <WCorner 148 152>
+ <XCorner 165 275>
+> # 25
+<ImagePopUp
+ <MBRect 180 260 16 22>
+ <Label tallarrowdn>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:image popup>
+ <WBRect 176 177 5 5>
+ <XBRect 201 304 14 21>
+> # 26
+<Label
+ <Label <-- \x83C\x83\x81\x81[\x83W\x83|\x83b\x83v\x83A\x83b\x83v>
+ <MCorner 199 275>
+ <WCorner 202 190>
+ <XCorner 220 319>
+> # 27
+<Rule
+ <MBRect 6 306 390 1>
+ <WBRect 8 216 300 1>
+ <XBRect 16 341 427 1>
+> # 28
+<Button
+ <Label OK>
+ <MBaseLine 10 327 92>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+ <WBaseLine 59 231 53>
+ <XBaseLine 106 368 64>
+> # 29
+<Button
+ <Label \x83L\x83\x83\x83\x93\x83Z\x83\x8b>
+ <MBaseLine 158 327 92>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+ <WBaseLine 127 231 53>
+ <XBaseLine 197 368 64>
+> # 30
+<Button
+ <Label \x83w\x83\x8b\x83v>
+ <MBaseLine 302 327 92>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+ <WBaseLine 195 231 53>
+ <XBaseLine 288 368 64>
+> # 31
+<Label
+ <Label \x83C\x83\x81\x81[\x83W\x83|\x83b\x83v\x83A\x83b\x83v>
+ <MCorner 6 39>
+ <WCorner 6 22>
+ <XCorner 20 58>
+> # 32
+<Label
+ <Label 2State- \x83I\x83t>
+ <MCorner 285 199>
+ <WCorner 263 132>
+ <XCorner 293 253>
+> # 33
+<Label
+ <Label 3State- \x83I\x83\x93>
+ <MCorner 284 224>
+ <WCorner 263 151>
+ <XCorner 294 274>
+> # 34

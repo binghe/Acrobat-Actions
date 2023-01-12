@@ -1,0 +1,72 @@
+<DialogFile 5.5>
+<LongChar No>
+<Font 2 1 12>
+<DialogBox
+ <MBRect -1 -1 367 134>
+ <WBRect -1 -1 314 104>
+ <XBRect -1 -1 325 150>
+ <Platforms MWX>
+ <CurrentFocus 2>
+ <FirstFocus 2>
+ <OKButton 6>
+ <CancelButton 7>
+ <DefaultButton 6>
+ <HelpButton -1>
+ <TitleLabel 0>
+ <HypertextHelp clnthelp:dbre template>
+>
+<Label
+ <MCorner 483 996>
+ <WCorner 574 -131>
+ <XCorner 359 23>
+ <Label Add Acronym>
+> # 0
+<Label
+ <MCorner 11 23>
+ <WCorner 14 25>
+ <XCorner 6 23>
+ <Label Acronym:>
+> # 1
+<EditBox
+ <MBaseLine 84 26 262>
+ <WBaseLine 55 25 230>
+ <XBaseLine 71 26 230>
+ <Label >
+ <StuffObject -1>
+ <HypertextHelp clnthelp:edit box>
+> # 2
+<Label
+ <MCorner 11 63>
+ <WCorner 12 58>
+ <XCorner 6 52>
+ <Label Definition:>
+> # 3
+<EditBox
+ <MBaseLine 84 63 261>
+ <WBaseLine 55 59 231>
+ <XBaseLine 71 55 230>
+ <Label >
+ <StuffObject -1>
+ <HypertextHelp clnthelp:edit box>
+> # 4
+<Rule
+ <MBRect 15 86 338 1>
+ <WBRect 8 75 300 1>
+ <XBRect 7 75 308 1>
+> # 5
+<Button
+ <MBaseLine 81 106 92>
+ <WBaseLine 99 92 53>
+ <XBaseLine 92 124 64>
+ <Label OK>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 6
+<Button
+ <MBaseLine 204 106 92>
+ <WBaseLine 167 92 53>
+ <XBaseLine 183 124 64>
+ <Label Cancel>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 7

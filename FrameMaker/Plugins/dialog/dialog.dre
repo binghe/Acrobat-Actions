@@ -1,0 +1,136 @@
+<DialogFile 5.5>
+<LongChar No>
+<Font 2 1 12>
+<DialogBox
+ <MBRect -1 -1 284 188>
+ <WBRect -1 -1 284 188>
+ <XBRect -1 -1 284 193>
+ <Platforms MWX>
+ <CurrentFocus 2>
+ <FirstFocus 2>
+ <OKButton 14>
+ <CancelButton 15>
+ <DefaultButton 14>
+ <HelpButton -1>
+ <TitleLabel 0>
+ <HypertextHelp clnthelp:dbre template>
+>
+<Label
+ <MCorner 574 -31>
+ <WCorner 574 -33>
+ <XCorner 574 -28>
+ <Label Sample Dialog>
+> # 0
+<Label
+ <MCorner 7 23>
+ <WCorner 7 23>
+ <XCorner 7 18>
+ <Label Image PopUp:>
+ <ShortcutPosition 0>
+> # 1
+<EditBox
+ <MBaseLine 7 43 100>
+ <WBaseLine 7 38 100>
+ <XBaseLine 7 38 100>
+ <Label >
+ <StuffObject 3>
+ <HypertextHelp clnthelp:edit box>
+> # 2
+<ImagePopUp
+ <MBRect 111 27 16 22>
+ <WBRect 111 27 11 11>
+ <XBRect 111 27 16 22>
+ <Label tallarrowdn>
+ <StuffObject 2>
+ <HypertextHelp clnthelp:image popup>
+> # 3
+<Label
+ <MCorner 169 24>
+ <WCorner 169 24>
+ <XCorner 169 18>
+ <Label PopUp:>
+ <ShortcutPosition 0>
+> # 4
+<PopUpMenu
+ <MBaseLine 168 41 99>
+ <WBaseLine 168 38 99>
+ <XBaseLine 168 38 99>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:popup>
+> # 5
+<Label
+ <MCorner 7 80>
+ <WCorner 7 80>
+ <XCorner 7 80>
+ <Label ScrollBox:>
+ <ShortcutPosition 0>
+> # 6
+<ScrollList
+ <MBaseLine 7 85 123 4>
+ <WBaseLine 7 85 123 4>
+ <XBaseLine 7 85 123 4>
+ <StuffObject -1>
+ <MNumLines 4>
+ <WNumLines 4>
+ <XNumLines 4>
+ <HypertextHelp clnthelp:button>
+> # 7
+<Label
+ <MCorner 168 82>
+ <WCorner 168 82>
+ <XCorner 168 82>
+ <Label Scrollbar:>
+> # 8
+<Label
+ <MCorner 170 124>
+ <WCorner 185 124>
+ <XCorner 169 124>
+ <Label Value:>
+ <ShortcutPosition 0>
+> # 9
+<EditBox
+ <MBaseLine 213 125 28>
+ <WBaseLine 213 125 28>
+ <XBaseLine 213 125 28>
+ <Label 22>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:edit box>
+> # 10
+<Scrollbar
+ <MBRect 169 88 95 16>
+ <WBRect 169 88 95 12>
+ <XBRect 169 88 95 13>
+ <HypertextHelp clnthelp:button>
+> # 11
+<CheckBox
+ <MCorner 8 162>
+ <WCorner 8 152>
+ <XCorner 8 162>
+ <Label Checkbox>
+ <ShortcutPosition 1>
+ <State 1>
+ <Active Yes>
+ <StuffObject -1>
+ <HypertextHelp clnthelp:checkbox3>
+> # 12
+<Rule
+ <MBRect 8 166 261 1>
+ <WBRect 8 166 261 1>
+ <XBRect 8 166 261 1>
+> # 13
+<Button
+ <MBaseLine 89 181 53>
+ <WBaseLine 89 181 53>
+ <XBaseLine 89 183 53>
+ <Label OK>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 14
+<Button
+ <MBaseLine 157 181 53>
+ <WBaseLine 157 181 53>
+ <XBaseLine 157 183 53>
+ <Label Cancel>
+ <Active No>
+ <HypertextHelp clnthelp:button>
+> # 15

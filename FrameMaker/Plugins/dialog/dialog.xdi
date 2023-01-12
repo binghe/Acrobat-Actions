@@ -1,0 +1,40 @@
+//-------------------------------------------------------------------
+// Source filename:      C:\frame7\fdk\samples\dialog\dialog.dre
+// Date generated:       Wed May 08 11:47:17 2002
+//-------------------------------------------------------------------
+
+dialog 500 // DB_DBRE_INFO resource
+BEGIN
+	/* okbutton      */ 14,
+	/* cancelbutton  */ 15,
+	/* defaultbutton */ 14,
+	/* num           */ 16,
+	/* firstfocus    */ 2,
+	/* filenum       */ -1,
+	/* filetbx       */ -1,
+	/* filesbx       */ -1,
+	/* filelabel     */ -1,
+	/* helpbutton    */ -1,
+	/* titlelabel    */ 0,
+	/* hypertextHelp */ "clnthelp:dbre template\0",
+
+	//       id      type    active     stuff    hypertextHelp
+	// --------  --------  --------  --------  ---------------
+	        100,        4,        0,        0, "-1\0",
+	        101,        4,        0,        0, "-1\0",
+	        102,        9,        0,        3, "clnthelp:edit box\0",
+	        103,        3,        0,        2, "clnthelp:image popup\0",
+	        104,        4,        0,        0, "-1\0",
+	        105,        6,        0,       -1, "clnthelp:popup\0",
+	        106,        4,        0,        0, "-1\0",
+	        107,        8,        0,       -1, "clnthelp:button\0",
+	        108,        4,        0,        0, "-1\0",
+	        109,        4,        0,        0, "-1\0",
+	        110,        9,        0,       -1, "clnthelp:edit box\0",
+	        111,       13,        0,       -1, "clnthelp:button\0",
+	        112,        5,        1,       -1, "clnthelp:checkbox3\0",
+	        113,        1,        0,        0, "-1\0",
+	        114,        2,        0,        0, "clnthelp:button\0",
+	        115,        2,        0,        0, "clnthelp:button\0"
+END
+
