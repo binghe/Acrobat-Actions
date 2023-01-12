@@ -3,3 +3,6 @@
 *.asd~
 *.command~
 /pdf-plugin-tools/fli.lisp
+debug/
+release/
+ipch/

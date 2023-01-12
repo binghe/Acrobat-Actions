@@ -147,7 +147,6 @@ if "%SDKPIDir%"a == ""a echo not performed. SDKPIDir environment variable not se
     <ClCompile Include="..\..\PluginSupport\Headers\API\PIMain.c" />
     <ClCompile Include="..\sources\Functions.cpp" />
     <ClCompile Include="..\sources\PluginInit.cpp" />
-    <ClCompile Include="..\sources\Regex.cpp" />
     <ClCompile Include="..\sources\strcasestr.c" />
   </ItemGroup>
   <ItemGroup>
