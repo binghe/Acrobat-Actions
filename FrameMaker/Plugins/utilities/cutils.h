@@ -16,7 +16,7 @@
 #define NOTE 1
 
 #define CLASS_MENU_NAME (StringT) "FDKClassMenu"
-#define CLASS_MENU_LABEL (StringT) "Plugins"
+#define CLASS_MENU_LABEL (StringT) "FDK"
 #define CLASS_BOOK_MENU_NAME (StringT) "FDKClassBookMenu"
 #define UNI_REPLACEMENT_CHAR (IntT)0x0000FFFD
 #define UNI_MAX_UTF32        (IntT)0x7FFFFFFF
