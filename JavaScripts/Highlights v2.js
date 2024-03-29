@@ -182,37 +182,45 @@ var DoCmdhighlight = app.trustedFunction(function(oDoc, c)
     }
 });
 
+var colorRed = ["RGB", 253/255.0, 60/255.0, 91/255.0];
+
 var oButObjHighlightRed =
     {cName: "highlightRed",
      oIcon: oIconHighlightRed,
-     cExec: "DoCmdhighlight(event.target, color.red);",
+     cExec: "DoCmdhighlight(event.target, colorRed);",
      cEnable: "event.rc = (app.doc != null)",
      cMarked: "event.rc = false",
      cTooltext: "Red Highlight - Criticism",
      cLabel: "Red Highlight"};
 
+var colorYellow = ["RGB", 255/255.0, 245/255.0, 81/255.0];
+
 var oButObjHighlightYellow =
     {cName: "highlightYellow",
      oIcon: oIconHighlightYellow,
-     cExec: "DoCmdhighlight(event.target, color.yellow);",
+     cExec: "DoCmdhighlight(event.target, colorYellow);",
      cEnable: "event.rc = (app.doc != null)",
      cMarked: "event.rc = false",
      cTooltext: "Yellow Highlight - Emphasis",
      cLabel: "Yellow Highlight"};
 
+var colorBlue = ["RGB", 0/255.0, 237/255.0, 255/255.0];
+
 var oButObjHighlightBlue =
     {cName: "highlightBlue",
      oIcon: oIconHighlightBlue,
-     cExec: "DoCmdhighlight(event.target, color.cyan);",
+     cExec: "DoCmdhighlight(event.target, colorBlue);",
      cEnable: "event.rc = (app.doc != null)",
      cMarked: "event.rc = false",
      cTooltext: "Blue Highlight - Aphorism",
      cLabel: "Blue Highlight"};
 
+var colorGreen = ["RGB", 100/255.0, 229/255.0, 48/255.0];
+
 var oButObjHighlightGreen =
     {cName: "highlightGreen",
      oIcon: oIconHighlightGreen,
-     cExec: "DoCmdhighlight(event.target, color.green);",
+     cExec: "DoCmdhighlight(event.target, colorGreen);",
      cEnable: "event.rc = (app.doc != null)",
      cMarked: "event.rc = false",
      cTooltext: "Green Highlight - Keywords",
