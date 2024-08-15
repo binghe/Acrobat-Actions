@@ -84,11 +84,11 @@ DURING
                 PDPage page = PDDocAcquirePage(doc, pageNum);
                 newDest =
                 PDViewDestCreate(doc,
-                                 page,                  /* := pageNum */
+                                 page,            /* := pageNum */
                                  targetFitType,   /* XYZ */
                                  &destRect,
                                  PDViewDestNULL,  /* when FitType is XYZ */
-                                 0);                  /* unused */
+                                 0);              /* unused */
                 newAction = PDActionNewFromDest(doc, newDest, doc);
                 PDBookmarkSetAction(b, newAction);
                 PDViewDestDestroy(dest);
