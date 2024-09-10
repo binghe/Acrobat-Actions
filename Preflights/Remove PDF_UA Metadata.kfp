@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pdfpreflight version="16.0">
+	<package>
+		<id3>d8ea5320a094088cacc0f55361bd27d3</id3>
+		<pdfxoutintentlist>
+		</pdfxoutintentlist>
+		<iccprofilelist>
+		</iccprofilelist>
+		<ccpolicies>
+		</ccpolicies>
+		<occdsetups>
+		</occdsetups>
+		<curves>
+		</curves>
+		<fspolicies>
+		</fspolicies>
+		<resources>
+		</resources>
+		<variables>
+		</variables>
+		<conditions>
+		</conditions>
+		<rules>
+		</rules>
+		<rulesets>
+		</rulesets>
+		<fixups>
+			<fixup>
+				<id1>F1beb7328b882f87a3977312a97d80ed9</id1>
+				<id2>Fa809de4b6f66da1e51bba6ccd387414e</id2>
+				<id3>99cc6b34cb76050e4a70eed08d0c6a38</id3>
+				<id4>41f7782ac2e25a40b7b9e1189626cd4e</id4>
+				<id5>Fa809de4b6f66da1e51bba6ccd387414e</id5>
+				<name>F_14_RemovePDFUAinformation</name>
+				<comment>F_14_RemovePDFUAinformation</comment>
+				<flags user_units="1" scope="16" edit="1" visible="1" dict="1"></flags>
+				<creation>D:20181128204935+10&apos;00&apos;</creation>
+				<modification>D:20181128204935+10&apos;00&apos;</modification>
+				<fcfgs>
+					<fcfg>
+						<ffeat>RemovePDFUAKeys</ffeat>
+						<fparams>
+						</fparams>
+					</fcfg>
+					<fcfg>
+						<ffeat></ffeat>
+						<fparams>
+						</fparams>
+					</fcfg>
+					<fcfg>
+						<ffeat></ffeat>
+						<fparams>
+						</fparams>
+					</fcfg>
+				</fcfgs>
+				<reportFailed></reportFailed>
+			</fixup>
+		</fixups>
+		<fixupsets>
+			<fixupset>
+				<id1>U96df41ea78f59da5f7734443902ef725</id1>
+				<id2>Uadcee58369035a4ce48a4907bab6f024</id2>
+				<id3>07fb410aed2ce920a636c948f2f0b5ce</id3>
+				<id4>a5357d1f703c6391c821887aba90b0a3</id4>
+				<id5>Uadcee58369035a4ce48a4907bab6f024</id5>
+				<name>UUUU_FIXUPSET_DEF_NAME</name>
+				<comment>UUUU_FIXUPSET_DEF_NAME</comment>
+				<flags edit="1" visible="1" dict="1"></flags>
+				<fixups>
+					<fixup>F1beb7328b882f87a3977312a97d80ed9</fixup>
+				</fixups>
+			</fixupset>
+		</fixupsets>
+		<actions>
+		</actions>
+		<profiles>
+			<profile>
+				<id1>Pca2962182bca9abea245c33d512265e7</id1>
+				<id2>P0e3b56c547b73d91bf982d23c610ae09</id2>
+				<id3>f7db3d6588986cf1c24bb087e40dacbf</id3>
+				<id4>7a2446b77682d20409afce9769a86d2c</id4>
+				<id5>P176c2c40162efd3fcb112a41ead5e1ef</id5>
+				<name>Remove PDF/UA Metadata</name>
+				<comment></comment>
+				<flags edit="1" visible="1"></flags>
+				<metalist>
+					<metadata>
+						<metakey>author</metakey>
+						<metavalue>Chun Tian</metavalue>
+					</metadata>
+					<metadata>
+						<metakey>email</metakey>
+						<metavalue>binghe.lisp@gmail.com</metavalue>
+					</metadata>
+				</metalist>
+				<creation>D:20240910032330+10&apos;00&apos;</creation>
+				<modification>D:20240910032700+10&apos;00&apos;</modification>
+				<pdfstd>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond></outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+				</pdfstd>
+				<pdfstdemb>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond></outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+					<afrelationship set_relationship="0">Source</afrelationship>
+				</pdfstdemb>
+				<wizard>
+				</wizard>
+				<rulesets>
+				</rulesets>
+				<fixupsets>
+					<fixupset>U96df41ea78f59da5f7734443902ef725</fixupset>
+				</fixupsets>
+			</profile>
+		</profiles>
+		<metaprofs>
+		</metaprofs>
+		<profgroups>
+		</profgroups>
+	</package>
+</pdfpreflight>
