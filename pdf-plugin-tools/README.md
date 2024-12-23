@@ -46,18 +46,4 @@ The following LispWorks® versions are confirmed working: (7.0 or later is recom
 - LispWorks 8.0
 
 (NOTE: The bitness of LispWorks® must match the bitness of Acrobat® plug-ins, which in turn
-must match the bitness of Acrobat® versions. LispWorks® professional editions are enough, no enterprise features are needed.)
-
----
-```
-      _---~~(~~-_.
-    _{        )   )
-  ,   ) -~~- ( ,-' )_
- (  `-,_..`., )-- '_,)
-( ` _)  (  -~( -_ `,  }
-(_-  _  ~_-~~~~`,  ,' )
-  `~ -^(    __;-,((()))
-        ~~~~ {_ -_(())
-               `\  }
-                 { }   Chun Tian
-```
+must match the bitness of Acrobat® versions. LispWorks® professional editions are enough, no enterprise feature is needed.)
