@@ -1,0 +1,7 @@
+/.vs/
+*.pdb
+*.vcxproj.user
+*.VC.db
+*.VC.VC.opendb
+/x64/
+/Win32/
